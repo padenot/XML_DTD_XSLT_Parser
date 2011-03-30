@@ -1,0 +1,27 @@
+\newcommand{\nationclass}{article}
+\input{nation/nation}
+\input{nation/extra}
+
+%  \nHeader[LOGO_PATH]{...}{...}{...}{...}
+\nHeader[INSA]{Utilisation de Bison \& Flex}{}{TD G \& L}{\tsc{Guerin}}
+
+\begin{document}
+\maketitle
+\tableofcontents
+
+\section{Exercice 1}
+\code[XML]{Question 2}{src/I.2.xml}
+\code[XML]{Question 3}{src/I.3.xml}
+
+\newpage
+\section{Exercice 2}
+\code[c]{Code bison du parser XML}{src/II.y}
+
+\newpage
+\section{Exercice 3}
+\code[c]{Code bison du parser DTD}{src/III.y}
+
+\newpage
+\nocite{*}
+\bibliography{references}
+\end{document}

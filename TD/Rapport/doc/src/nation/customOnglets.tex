@@ -1,0 +1,47 @@
+\newlength{\ongletwidth} 
+\setlength{\ongletwidth}{.96cm}
+\newlength{\ongletheight} 
+\setlength{\ongletheight}{32pt} 
+
+\newlength{\ongletvshift} 
+\setlength{\ongletvshift}{2cm}
+\newlength{\ongletsep} 
+\setlength{\ongletsep}{1.37cm}
+
+\newlength{\ongletvpos}
+
+\newcommand{\ongletfont}{
+	\fontencoding{\encodingdefault}
+	\fontfamily{pag}
+	\fontseries{bc}
+	\fontshape{bf}
+	\fontsize{22}{20}
+	\selectfont
+}
+
+\ifthenelse{\equal{\nationclass}{book}}
+	{\fancyhead[RO]{\boiteonglet}}
+	{}
+
+\newcommand{\boiteonglet}{% 
+	\raisebox{-13cm}[0pt][0pt]{
+	\makebox[0pt][l]{
+	\hspace*{10pt}
+	\colorbox[gray]{.7}{
+		\hspace*{30pt}
+		\parbox[t][\ongletheight][s]{\ongletwidth}{%
+			\vfill% 
+			\centering% 
+			\ifthenelse{\isodd{\value{page}}}
+			{
+				\ongletfont\thechapter%
+			}
+			{
+				\reflectbox{\ongletfont\thechapter}%
+			}
+			\vfill%
+		}
+	}
+	}
+	}
+}

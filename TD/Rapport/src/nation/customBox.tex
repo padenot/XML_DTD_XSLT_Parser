@@ -1,0 +1,44 @@
+% Extrait de Tout ce que vous avez toujours voulu savoir sur LaTeX sans jamais oser le demander
+\RequirePackage{calc}
+\newsavebox{\boitetitre}
+\newlength{\tempdim}
+\newlength{\largeurboitetitre}
+\newlength{\hauteurboitetitre}
+\newlength{\largeurtitre}
+
+\newcommand{\espacetitre}{0.6}
+\newcommand{\decalagetitreg}{1}
+\newcommand{\decalagetitred}{5}
+
+\newcommand{\traitressort}[2][1] {\leaders\hrule height#2\hskip0pt plus #1fill\relax}
+
+\newcommand{\titlebox}[3][-0.5ex]
+{%
+	\begin{lrbox}{\boitetitre}\kern\fboxsep#3\kern\fboxsep\end{lrbox}%
+	\settowidth{\largeurboitetitre}{\usebox{\boitetitre}}%
+	\settowidth{\largeurtitre}{#2}%
+	\settoheight{\hauteurboitetitre}{\usebox{\boitetitre}}%
+	\settodepth{\tempdim}{\usebox{\boitetitre}}%
+	\addtolength{\hauteurboitetitre}{\tempdim+2\fboxrule+2\fboxsep}%
+	\parbox{\fboxrule}%
+	{%
+		\rule{\fboxrule}{\hauteurboitetitre}%
+	}%
+	\parbox{\largeurboitetitre}%
+	{%
+		\begin{flushleft}%
+			\makebox[\largeurboitetitre]{%
+			\traitressort[\decalagetitreg]{\fboxrule}%
+			\raisebox{#1}[0pt][0pt]{%
+				\kern\espacetitre\fboxsep#2\kern\espacetitre\fboxsep%
+			}%
+			\traitressort[\decalagetitred]{\fboxrule}}\\[\fboxsep]\nointerlineskip%
+			\usebox{\boitetitre}\\[\fboxsep]\nointerlineskip%
+			\rule{\largeurboitetitre}{\fboxrule}%
+		\end{flushleft}%
+	}%
+	\parbox{\fboxrule}%
+	{%
+		\rule{\fboxrule}{\hauteurboitetitre}%
+	}%
+}

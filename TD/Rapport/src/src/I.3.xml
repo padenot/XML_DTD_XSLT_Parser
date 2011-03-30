@@ -1,0 +1,12 @@
+<!ELEMENT document (chapitres)? >
+<!ATTLIST document
+	titre CDATA 
+	auteur CDATA
+>
+
+<!ELEMENT chapitres (chapitre)* >
+
+<!ELEMENT chapitre CDATA >
+<!ATTLIST chapitre
+	titre	CDATA
+>

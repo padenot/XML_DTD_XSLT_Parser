@@ -1,0 +1,117 @@
+\newlength{\parindentCopy}
+\setlength{\parindentCopy}{\parindent}
+
+\input{nation/headers/texHeader}
+
+%% New title page
+\input{nation/customTitle.tex}
+
+%% Page numbering for books
+%\input{nation/customOnglets}
+
+%% New glossary style
+\input{nation/customGlossary}
+
+%% Sectioning improvement
+\input{nation/customPart}
+\input{nation/customChapter}
+\input{nation/customSection}
+
+%%%% Commandes 
+\newcommand{\nHeader}[5][null]
+{
+	\renewcommand{\title}{#2}
+	\newcommand{\subtitle}{#3}
+	\newcommand{\shorttitle}{#4}
+	\renewcommand{\author}{#5}
+
+	\ifthenelse{\equal{#1}{null}}{}
+	{\newcommand{\documentlogo}{#1}}
+
+	\input{nation/headers/fancyHeader}
+}
+
+%% Indentation correction
+\newcommand{\nPar}[0]
+{
+	~\\
+	\hspace*{0.8\parindent}
+}
+
+\newenvironment{nNoIndent}
+{
+	\setlength{\parindent}{0pt}
+}
+{
+	\setlength{\parindent}{\parindentCopy}
+}
+
+%% Extras
+\newcommand{\gfont}{
+	\fontencoding{\encodingdefault}
+	\fontfamily{ptm}
+	\fontseries{bc}
+	\fontshape{bf}
+	\fontsize{65}{60}
+	\selectfont}
+
+\renewcommand{\quote}[2][null]
+{
+	~\\~\\
+\begin{minipage}{\textwidth}
+	\parbox{0.2\textwidth} {\textcolor[rgb]{0.5,0.5,0.5}{\gfont "}} 
+		\parbox{0.8\textwidth}
+	{   
+		\textcolor[rgb]{0.3, 0.3, 0.3}{\textsl{#2}}
+		\ifthenelse{\equal{#1}{null}}{}{\begin{flushright}\textsc{#1}\end{flushright}}
+	}   
+\end{minipage}
+}
+
+% \image[Titre de l'image]{Chemin}{Proportion par rapport à la largeur de la page}
+\newcounter{cntFigure}
+\setcounter{cntFigure}{1}
+\newcommand{\image}[3][null] 
+{
+\begin{figure}[H]
+\centering
+	\includegraphics[keepaspectratio=true, width=#3\textwidth]{#2}
+	\ifthenelse{\equal{#1}{null}}
+	{}
+	{
+		\caption{#1}
+		\label{fig\thecntFigure}
+		\stepcounter{cntFigure}
+	}
+\end{figure}
+}
+
+% \wrappedimage[Titre de l'image]{Chemin}{Proportion par rapport à la largeur de la page}{r ou l} 
+\newcommand{\wrappedimage}[4][null] 
+{
+\begin{wrapfigure}{#4}{#3\textwidth}
+\centering
+	\includegraphics[keepaspectratio=true, width=#3\textwidth]{#2}
+	\ifthenelse{\equal{#1}{null}}
+	{}
+	{
+		\caption{#1}
+		\label{fig\thecntFigure}
+		\stepcounter{cntFigure}
+	}
+\end{wrapfigure}
+}
+
+% \code{Nom du fichier}{Chemin du fichier}
+\newcommand{\code}[3][c++]
+{
+	\begin{center}%
+		\textbf{#2}%
+	\end{center}%
+	\lstinputlisting[language=#1]{#3}%
+}
+
+\newcommand{\nLettrine}[2]{ 
+	\renewcommand{\LettrineFontHook}{\color[gray]{0.5}}
+	\lettrine[lines=1]{#1}{#2}
+}

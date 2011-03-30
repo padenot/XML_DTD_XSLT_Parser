@@ -1,0 +1,81 @@
+\newdateformat{veryshortdate}{\monthname[\THEMONTH] \THEYEAR}
+
+\ifthenelse{\equal{\nationclass}{book}}
+{
+% Book
+	\newcommand{\titlefont}{
+	\fontencoding{\encodingdefault}
+	\fontfamily{pag}
+	\fontseries{bc}
+	\fontshape{bf}
+	\fontsize{35}{30}
+	\selectfont}
+
+	\newcommand{\subtitlefont}{\sl\Large}
+
+	\newlength{\titlehruleheight}
+	\setlength{\titlehruleheight}{0.3mm}
+
+	\newlength{\titlespace}
+	\setlength{\titlespace}{0.5cm}
+
+	\renewcommand{\maketitle}
+	{
+		\begin{titlepage}
+		\centering
+	
+		\vspace*{5cm}
+		\begin{minipage}{0.8\linewidth}
+			\centering
+				\hrule height \titlehruleheight
+			\vspace*{\titlespace}
+	
+				{\titlefont\title}~\\
+			\vspace*{\titlespace}
+	
+				\hrule height \titlehruleheight
+				~\\{\subtitlefont\subtitle}~\\
+			\vspace*{\titlespace}
+	
+				\textsl{\textbf{Auteurs}\\ \author}
+			\vspace*{2cm}
+	
+			\ifthenelse{\isundefined{\documentlogo}} {}
+			{\image{\documentlogo}{0.4}}
+		\end{minipage}
+		
+		\vfill
+		{\bf\large \veryshortdate\today}
+		\end{titlepage}
+	}
+}
+{
+% Article
+	\newcommand{\titlefont}{
+	\fontencoding{\encodingdefault}
+	\fontfamily{pag}
+	\fontseries{bc}
+	\fontshape{n}
+	\fontsize{25}{20}
+	\selectfont}
+
+	\newcommand{\subtitlefont}{
+	\fontencoding{\encodingdefault}
+	\fontfamily{pag}
+	\fontseries{bc}
+	\fontshape{n}
+	\fontsize{8}{5}
+	\selectfont}
+
+	\newlength{\titlehruleheight}
+	\setlength{\titlehruleheight}{0.3mm}
+
+	\renewcommand{\maketitle}
+	{
+		\thispagestyle{plain}
+		\hspace{-1.44cm}{\titlefont\LaTeX\hfill\title}\\~\\%
+		{\subtitlefont\sl\author\hfill\veryshortdate\today}~\\%
+		\hrule height \titlehruleheight%
+		\vspace*{0.5cm}
+	}
+}

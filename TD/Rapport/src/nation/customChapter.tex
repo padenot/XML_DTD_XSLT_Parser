@@ -1,0 +1,92 @@
+\newcommand{\chapterfont}{
+	\fontencoding{\encodingdefault}
+	\fontfamily{pag}
+	\fontseries{bc}
+	\fontshape{bf}
+	\fontsize{22}{20}
+	\selectfont}
+
+\newcommand{\chaptertitlefont}{
+	\fontencoding{\encodingdefault}
+	\fontfamily{pag}
+	\fontseries{bc}
+	\fontshape{bf}
+	\fontsize{32}{30}
+	\selectfont}
+
+
+\newcommand{\chapternumfont}{
+	\fontencoding{\encodingdefault}
+	\fontfamily{pag}
+	\fontseries{bc}
+	\fontshape{bf}
+	\fontsize{72}{70}
+	\selectfont
+}
+
+\newcounter{chapitre}
+\setcounter{chapitre}{1}
+
+\input{nation/customBox}
+
+\makeatletter
+\ifthenelse{\equal{\nationclass}{book}}
+{
+\renewcommand{\chapter}{%
+	\cleardoublepage
+	\stepcounter{chapitre}
+	\thispagestyle{plain}
+	\global\@topnum\z@
+	\@afterindentfalse
+	\secdef\@chapter\@schapter}
+
+\newenvironment{cadrechap}
+{
+	\begin{list}{}{%
+		\setlength{\leftmargin}{0pt}%
+		\setlength{\rightmargin}{0cm}%
+		\setlength{\itemindent}{0pt}%
+		\setlength{\labelsep}{0pt}%
+	}
+	\item
+}
+{
+	\end{list}
+}
+
+% Document
+\renewcommand{\@makechapterhead}[1]{% 
+	\begin{minipage}[t]{\linewidth}
+		\titlebox{\mtctitle}
+		{
+			\hspace*{-1cm}
+			\begin{minipage}[t]{0.65\linewidth}
+				% Numéro de chapitre
+				{\minitoc[n]}%
+			\end{minipage}
+		}
+		\hfill
+		\begin{minipage}[t][3cm][t]{0.25\linewidth}
+			\vspace*{-2cm}
+			{\flushright\chapterfont Chapitre}
+			\vspace*{-.2cm}
+			\begin{center}\chapternumfont\thechapter\end{center}%
+		\end{minipage}
+	\end{minipage}
+
+	% Titre du chapitre
+	\vspace*{.5cm}
+	\begin{center}\chaptertitlefont#1\end{center} 
+	\vspace*{1.5cm}
+}
+
+% Table des matières
+\renewcommand{\@makeschapterhead}[1]{%   
+	\begin{cadrechap}
+		\mbox{}\hfill{\bf\huge#1}
+	\end{cadrechap}%
+	\vspace{2cm}\par
+}
+}
+{}
+\makeatother

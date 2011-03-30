@@ -1,0 +1,30 @@
+\newcommand{\nationclass}{article}
+\input{nation/nation}
+\input{nation/extra}
+
+%  \nHeader[LOGO_PATH]{...}{...}{...}{...}
+\nHeader{Titre}{Sous-titre}{Titre Court}{Auteur}
+
+\newcommand{\commandMan}[5]
+{
+	\begin{center}
+	\begin{tabular}{|p{.65\textwidth}|p{.35\textwidth}|} \hline
+		\tbf{Nom} : #1 & \tbf{Nombre d'arguments} : #2\\ \hline
+		\multicolumn{2}{|l|}{\tbf{Description} : #3}\\ \hline
+		\multicolumn{2}{|p{.9\textwidth}|}{\tbf{Arguments :} \begin{itemize}#4\end{itemize}}\\ \hline
+	\end{tabular}
+	\end{center}
+}
+
+\begin{document}
+\maketitle
+\tableofcontents
+
+\input{introduction}
+
+\newpage
+\input{nHeader}
+
+\printglossaries
+%\bibliography{references}
+\end{document}
