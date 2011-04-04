@@ -1,0 +1,383 @@
+Terminals which are not used
+
+   COMMA
+   EMPTY
+   ANY
+   PCDATA
+
+
+Grammar
+
+    0 $accept: main $end
+
+    1 main: dtd
+
+    2 dtd: dtd ATTLIST NAME att_definition CLOSE
+    3    | dtd ELEMENT NAME type_enumere CLOSE
+    4    | /* empty */
+
+    5 att_definition: att_definition attribut
+    6               | /* empty */
+
+    7 attribut: NAME att_type defaut_declaration
+
+    8 att_type: CDATA
+    9         | TOKENTYPE
+   10         | type_enumere
+
+   11 type_enumere: OPENPAR liste_enum_plus CLOSEPAR
+
+   12 liste_enum_plus: liste_enum PIPE item_enum
+
+   13 liste_enum: item_enum
+   14           | liste_enum PIPE item_enum
+
+   15 item_enum: NAME quantifier
+
+   16 defaut_declaration: DECLARATION
+   17                   | STRING
+   18                   | FIXED STRING
+
+   19 quantifier: AST
+   20           | QMARK
+   21           | PLUS
+   22           | /* empty */
+
+
+Terminals, with rules where they appear
+
+$end (0) 0
+error (256)
+ELEMENT (258) 3
+ATTLIST (259) 2
+CLOSE (260) 2 3
+OPENPAR (261) 11
+CLOSEPAR (262) 11
+COMMA (263)
+PIPE (264) 12 14
+FIXED (265) 18
+EMPTY (266)
+ANY (267)
+PCDATA (268)
+AST (269) 19
+QMARK (270) 20
+PLUS (271) 21
+CDATA (272) 8
+NAME (273) 2 3 7 15
+TOKENTYPE (274) 9
+DECLARATION (275) 16
+STRING (276) 17 18
+
+
+Nonterminals, with rules where they appear
+
+$accept (22)
+    on left: 0
+main (23)
+    on left: 1, on right: 0
+dtd (24)
+    on left: 2 3 4, on right: 1 2 3
+att_definition (25)
+    on left: 5 6, on right: 2 5
+attribut (26)
+    on left: 7, on right: 5
+att_type (27)
+    on left: 8 9 10, on right: 7
+type_enumere (28)
+    on left: 11, on right: 3 10
+liste_enum_plus (29)
+    on left: 12, on right: 11
+liste_enum (30)
+    on left: 13 14, on right: 12 14
+item_enum (31)
+    on left: 15, on right: 12 13 14
+defaut_declaration (32)
+    on left: 16 17 18, on right: 7
+quantifier (33)
+    on left: 19 20 21 22, on right: 15
+
+
+state 0
+
+    0 $accept: . main $end
+
+    $default  reduce using rule 4 (dtd)
+
+    main  go to state 1
+    dtd   go to state 2
+
+
+state 1
+
+    0 $accept: main . $end
+
+    $end  shift, and go to state 3
+
+
+state 2
+
+    1 main: dtd .
+    2 dtd: dtd . ATTLIST NAME att_definition CLOSE
+    3    | dtd . ELEMENT NAME type_enumere CLOSE
+
+    ELEMENT  shift, and go to state 4
+    ATTLIST  shift, and go to state 5
+
+    $default  reduce using rule 1 (main)
+
+
+state 3
+
+    0 $accept: main $end .
+
+    $default  accept
+
+
+state 4
+
+    3 dtd: dtd ELEMENT . NAME type_enumere CLOSE
+
+    NAME  shift, and go to state 6
+
+
+state 5
+
+    2 dtd: dtd ATTLIST . NAME att_definition CLOSE
+
+    NAME  shift, and go to state 7
+
+
+state 6
+
+    3 dtd: dtd ELEMENT NAME . type_enumere CLOSE
+
+    OPENPAR  shift, and go to state 8
+
+    type_enumere  go to state 9
+
+
+state 7
+
+    2 dtd: dtd ATTLIST NAME . att_definition CLOSE
+
+    $default  reduce using rule 6 (att_definition)
+
+    att_definition  go to state 10
+
+
+state 8
+
+   11 type_enumere: OPENPAR . liste_enum_plus CLOSEPAR
+
+    NAME  shift, and go to state 11
+
+    liste_enum_plus  go to state 12
+    liste_enum       go to state 13
+    item_enum        go to state 14
+
+
+state 9
+
+    3 dtd: dtd ELEMENT NAME type_enumere . CLOSE
+
+    CLOSE  shift, and go to state 15
+
+
+state 10
+
+    2 dtd: dtd ATTLIST NAME att_definition . CLOSE
+    5 att_definition: att_definition . attribut
+
+    CLOSE  shift, and go to state 16
+    NAME   shift, and go to state 17
+
+    attribut  go to state 18
+
+
+state 11
+
+   15 item_enum: NAME . quantifier
+
+    AST    shift, and go to state 19
+    QMARK  shift, and go to state 20
+    PLUS   shift, and go to state 21
+
+    $default  reduce using rule 22 (quantifier)
+
+    quantifier  go to state 22
+
+
+state 12
+
+   11 type_enumere: OPENPAR liste_enum_plus . CLOSEPAR
+
+    CLOSEPAR  shift, and go to state 23
+
+
+state 13
+
+   12 liste_enum_plus: liste_enum . PIPE item_enum
+   14 liste_enum: liste_enum . PIPE item_enum
+
+    PIPE  shift, and go to state 24
+
+
+state 14
+
+   13 liste_enum: item_enum .
+
+    $default  reduce using rule 13 (liste_enum)
+
+
+state 15
+
+    3 dtd: dtd ELEMENT NAME type_enumere CLOSE .
+
+    $default  reduce using rule 3 (dtd)
+
+
+state 16
+
+    2 dtd: dtd ATTLIST NAME att_definition CLOSE .
+
+    $default  reduce using rule 2 (dtd)
+
+
+state 17
+
+    7 attribut: NAME . att_type defaut_declaration
+
+    OPENPAR    shift, and go to state 8
+    CDATA      shift, and go to state 25
+    TOKENTYPE  shift, and go to state 26
+
+    att_type      go to state 27
+    type_enumere  go to state 28
+
+
+state 18
+
+    5 att_definition: att_definition attribut .
+
+    $default  reduce using rule 5 (att_definition)
+
+
+state 19
+
+   19 quantifier: AST .
+
+    $default  reduce using rule 19 (quantifier)
+
+
+state 20
+
+   20 quantifier: QMARK .
+
+    $default  reduce using rule 20 (quantifier)
+
+
+state 21
+
+   21 quantifier: PLUS .
+
+    $default  reduce using rule 21 (quantifier)
+
+
+state 22
+
+   15 item_enum: NAME quantifier .
+
+    $default  reduce using rule 15 (item_enum)
+
+
+state 23
+
+   11 type_enumere: OPENPAR liste_enum_plus CLOSEPAR .
+
+    $default  reduce using rule 11 (type_enumere)
+
+
+state 24
+
+   12 liste_enum_plus: liste_enum PIPE . item_enum
+   14 liste_enum: liste_enum PIPE . item_enum
+
+    NAME  shift, and go to state 11
+
+    item_enum  go to state 29
+
+
+state 25
+
+    8 att_type: CDATA .
+
+    $default  reduce using rule 8 (att_type)
+
+
+state 26
+
+    9 att_type: TOKENTYPE .
+
+    $default  reduce using rule 9 (att_type)
+
+
+state 27
+
+    7 attribut: NAME att_type . defaut_declaration
+
+    FIXED        shift, and go to state 30
+    DECLARATION  shift, and go to state 31
+    STRING       shift, and go to state 32
+
+    defaut_declaration  go to state 33
+
+
+state 28
+
+   10 att_type: type_enumere .
+
+    $default  reduce using rule 10 (att_type)
+
+
+state 29
+
+   12 liste_enum_plus: liste_enum PIPE item_enum .
+   14 liste_enum: liste_enum PIPE item_enum .
+
+    PIPE      reduce using rule 14 (liste_enum)
+    $default  reduce using rule 12 (liste_enum_plus)
+
+
+state 30
+
+   18 defaut_declaration: FIXED . STRING
+
+    STRING  shift, and go to state 34
+
+
+state 31
+
+   16 defaut_declaration: DECLARATION .
+
+    $default  reduce using rule 16 (defaut_declaration)
+
+
+state 32
+
+   17 defaut_declaration: STRING .
+
+    $default  reduce using rule 17 (defaut_declaration)
+
+
+state 33
+
+    7 attribut: NAME att_type defaut_declaration .
+
+    $default  reduce using rule 7 (attribut)
+
+
+state 34
+
+   18 defaut_declaration: FIXED STRING .
+
+    $default  reduce using rule 18 (defaut_declaration)
