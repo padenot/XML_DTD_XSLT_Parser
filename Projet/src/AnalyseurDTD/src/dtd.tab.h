@@ -86,7 +86,7 @@
 
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 typedef union YYSTYPE
-#line 15 "src/dtd.y"
+#line 14 "src/dtd.y"
 { 
    char *s; 
    }
@@ -98,5 +98,5 @@ typedef union YYSTYPE
 # define YYSTYPE_IS_TRIVIAL 1
 #endif
 
-extern YYSTYPE yylval;
+extern YYSTYPE dtdlval;
 

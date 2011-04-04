@@ -6,10 +6,9 @@ using namespace std;
 #include <cstdio>
 #include <cstdlib>
 
-
-void yyerror(char *msg);
-int yywrap(void);
-int yylex(void);
+void dtderror(char *msg);
+int dtdwrap(void);
+int dtdlex(void);
 %}
 
 %union { 
@@ -103,21 +102,13 @@ primary_type		:	CDATA
 			|	FIXED
 			;
 %%
-int main(int argc, char **argv)
-{
-  int err;
 
-  err = yyparse();
-  if (err != 0) printf("Parse ended with %d error(s)\n", err);
-        else  printf("Parse ended with sucess\n", err);
-  return 0;
-}
-int yywrap(void)
+int dtdwrap(void)
 {
   return 1;
 }
 
-void yyerror(char *msg)
+void dtderror(char *msg)
 {
   fprintf(stderr, "%s\n", msg);
 }

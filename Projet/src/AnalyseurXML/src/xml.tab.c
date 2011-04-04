@@ -58,6 +58,14 @@
 /* Using locations.  */
 #define YYLSP_NEEDED 0
 
+/* Substitute the variable and function names.  */
+#define yyparse xmlparse
+#define yylex   xmllex
+#define yyerror xmlerror
+#define yylval  xmllval
+#define yychar  xmlchar
+#define yydebug xmldebug
+#define yynerrs xmlnerrs
 
 
 /* Tokens.  */
@@ -149,7 +157,7 @@ typedef union YYSTYPE
 		ElementName * en;  /* le nom d'un element avec son namespace */
 	}
 /* Line 193 of yacc.c.  */
-#line 153 "src/xml.tab.c"
+#line 161 "src/xml.tab.c"
 	YYSTYPE;
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */
 # define YYSTYPE_IS_DECLARED 1
@@ -162,7 +170,7 @@ typedef union YYSTYPE
 
 
 /* Line 216 of yacc.c.  */
-#line 166 "src/xml.tab.c"
+#line 174 "src/xml.tab.c"
 
 #ifdef short
 # undef short
@@ -1382,7 +1390,7 @@ yyreduce:
 
 
 /* Line 1267 of yacc.c.  */
-#line 1386 "src/xml.tab.c"
+#line 1394 "src/xml.tab.c"
       default: break;
     }
   YY_SYMBOL_PRINT ("-> $$ =", yyr1[yyn], &yyval, &yyloc);
@@ -1598,17 +1606,6 @@ yyreturn:
 
 #line 82 "src/xml.y"
 
-
-int main(int argc, char **argv)
-{
-	int err;
-
-	err = yyparse();
-	if (err != 0) printf("Parse ended with %d error(s)\n", err);
-	else  printf("Parse ended with sucess\n", err);
-
-	return 0;
-}
 
 int yywrap(void)
 {
