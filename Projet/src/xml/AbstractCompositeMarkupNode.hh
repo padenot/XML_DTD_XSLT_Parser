@@ -1,20 +1,20 @@
 /*************************************************************************
- * CompositeMarkupNode  -  «Description»
+ * AbstractCompositeMarkupNode  -  «Description»
  * -------------------
  * Début      : lun. 04 avril 2011 08:54:19 CEST
  * Auteur(s)  : H4215
 *************************************************************************/
 
-//---- Interface de la classe <CompositeMarkupNode> (fichier CompositeMarkupNode.hh) ----
-#ifndef COMPOSITEMARKUPNODE_HH
-#define COMPOSITEMARKUPNODE_HH
+//---- Interface de la classe <AbstractCompositeMarkupNode> (fichier AbstractCompositeMarkupNode.hh) ----
+#ifndef ABSTRACTCOMPOSITEMARKUPNODE_HH
+#define ABSTRACTCOMPOSITEMARKUPNODE_HH
 
 //--------------------------------------------------- Interfaces utilisées
 #include <list>
-#include "AbstractCompositeMarkupNode.hh"
+#include "MarkupNode.hh"
 
 //------------------------------------------------------------------------
-// Rôle de la classe <CompositeMarkupNode>
+// Rôle de la classe <AbstractCompositeMarkupNode>
 //	«Rôle»
 //
 //------------------------------------------------------------------------
@@ -22,7 +22,7 @@
 namespace xml
 {
 
-class CompositeMarkupNode : public AbstractCompositeMarkupNode
+class AbstractCompositeMarkupNode : public MarkupNode
 {
 public:
 //------------------------------------------------------------- Constantes
@@ -38,7 +38,7 @@ public:
 
 
 //------------------------------------------------- Surcharge d'opérateurs
-	CompositeMarkupNode & operator = ( const CompositeMarkupNode & unCompositeMarkupNode );
+	AbstractCompositeMarkupNode & operator = ( const AbstractCompositeMarkupNode & unAbstractCompositeMarkupNode );
 	// Mode d'emploi :
 	//	«TODO»
 	// Contrat :
@@ -46,32 +46,29 @@ public:
 
 
 //-------------------------------------------- Constructeurs - destructeur
-	CompositeMarkupNode ( const CompositeMarkupNode & unCompositeMarkupNode );
+	AbstractCompositeMarkupNode ( const AbstractCompositeMarkupNode & unAbstractCompositeMarkupNode );
 	// Mode d'emploi (constructeur de copie) :
 	//	«Mode emploi»
 	// Contrat :
 	//	«TODO»
 
-	CompositeMarkupNode ( Node * parent, CompositeMarkupNodeProxy & proxy, std::list<Node> & 
-		children);
+	AbstractCompositeMarkupNode ( Node * parent );
 	// Mode d'emploi (constructeur) :
 	//	«TODO»
 	// Contrat :
 	//	«TODO»
 
-	virtual ~CompositeMarkupNode ( );
+	virtual ~AbstractCompositeMarkupNode ( );
 	// Mode d'emploi (destructeur) :
 	//	«TODO»
 	// Contrat :
 	//	«TODO»
 
 protected:
-	typedef std::list<Node> Children;
-	Children _children;
 
 };
 
 } // namespace xml
 
-#endif // COMPOSITEMARKUPNODE_HH
+#endif // ABSTRACTCOMPOSITEMARKUPNODE_HH
 

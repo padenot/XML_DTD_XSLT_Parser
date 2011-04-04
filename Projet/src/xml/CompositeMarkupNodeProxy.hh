@@ -1,20 +1,20 @@
 /*************************************************************************
- * CompositeMarkupNode  -  «Description»
+ * CompositeMarkupNodeProxy  -  «Description»
  * -------------------
  * Début      : lun. 04 avril 2011 08:54:19 CEST
  * Auteur(s)  : H4215
 *************************************************************************/
 
-//---- Interface de la classe <CompositeMarkupNode> (fichier CompositeMarkupNode.hh) ----
-#ifndef COMPOSITEMARKUPNODE_HH
-#define COMPOSITEMARKUPNODE_HH
+//---- Interface de la classe <CompositeMarkupNodeProxy> (fichier CompositeMarkupNodeProxy.hh) ----
+#ifndef COMPOSITEMARKUPNODEPROXY_HH
+#define COMPOSITEMARKUPNODEPROXY_HH
 
 //--------------------------------------------------- Interfaces utilisées
 #include <list>
 #include "AbstractCompositeMarkupNode.hh"
 
 //------------------------------------------------------------------------
-// Rôle de la classe <CompositeMarkupNode>
+// Rôle de la classe <CompositeMarkupNodeProxy>
 //	«Rôle»
 //
 //------------------------------------------------------------------------
@@ -22,7 +22,7 @@
 namespace xml
 {
 
-class CompositeMarkupNode : public AbstractCompositeMarkupNode
+class CompositeMarkupNodeProxy : public AbstractCompositeMarkupNode
 {
 public:
 //------------------------------------------------------------- Constantes
@@ -38,7 +38,7 @@ public:
 
 
 //------------------------------------------------- Surcharge d'opérateurs
-	CompositeMarkupNode & operator = ( const CompositeMarkupNode & unCompositeMarkupNode );
+	CompositeMarkupNodeProxy & operator = ( const CompositeMarkupNode & unCompositeMarkupNode );
 	// Mode d'emploi :
 	//	«TODO»
 	// Contrat :
@@ -46,32 +46,29 @@ public:
 
 
 //-------------------------------------------- Constructeurs - destructeur
-	CompositeMarkupNode ( const CompositeMarkupNode & unCompositeMarkupNode );
+	CompositeMarkupNodeProxy ( const CompositeMarkupNode & unCompositeMarkupNode );
 	// Mode d'emploi (constructeur de copie) :
 	//	«Mode emploi»
 	// Contrat :
 	//	«TODO»
 
-	CompositeMarkupNode ( Node * parent, CompositeMarkupNodeProxy & proxy, std::list<Node> & 
-		children);
+	CompositeMarkupNodeProxy ( );
 	// Mode d'emploi (constructeur) :
 	//	«TODO»
 	// Contrat :
 	//	«TODO»
 
-	virtual ~CompositeMarkupNode ( );
+	virtual ~CompositeMarkupNodeProxy ( );
 	// Mode d'emploi (destructeur) :
 	//	«TODO»
 	// Contrat :
 	//	«TODO»
 
 protected:
-	typedef std::list<Node> Children;
-	Children _children;
 
 };
 
 } // namespace xml
 
-#endif // COMPOSITEMARKUPNODE_HH
+#endif // COMPOSITEMARKUPNODEPROXY_HH
 
