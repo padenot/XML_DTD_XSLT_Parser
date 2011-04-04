@@ -1,7 +1,9 @@
-all:
-	@cd AnalyseurXML/ && make && cp bin/analyseXML ../bin
-	@cd AnalyseurDTD/ && make && cp bin/analyseDTD ../bin
-	@cd Parser/ && make && cp bin/parser ../bin
+BINPATH=bin
+
+all: | $(BINPATH)
+	@cd AnalyseurXML/ && make && cp bin/analyseXML ../$(BINPATH)
+	@cd AnalyseurDTD/ && make && cp bin/analyseDTD ../$(BINPATH)
+	@cd Parser/ && make && cp bin/parser ../$(BINPATH)
 	@cd xml/ && make
 	@cd dtd/ && make
 	
@@ -13,3 +15,5 @@ test: all
 	@cd dtd/ && make test
 	# TODO : ajouter tests d'intégration
 	
+$(BINPATH) :
+	mkdir $@
