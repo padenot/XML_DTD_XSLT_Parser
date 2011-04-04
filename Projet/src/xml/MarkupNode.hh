@@ -53,7 +53,7 @@ public:
 	// Contrat :
 	//	«TODO»
 
-	MarkupNode ( );
+	MarkupNode ( Node * parent, std::string ns, std::string name );
 	// Mode d'emploi (constructeur) :
 	//	«TODO»
 	// Contrat :
