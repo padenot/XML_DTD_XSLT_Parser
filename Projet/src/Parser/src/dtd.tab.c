@@ -59,13 +59,13 @@
 #define YYLSP_NEEDED 0
 
 /* Substitute the variable and function names.  */
-#define yyparse xmlparse
-#define yylex   xmllex
-#define yyerror xmlerror
-#define yylval  xmllval
-#define yychar  xmlchar
-#define yydebug xmldebug
-#define yynerrs xmlnerrs
+#define yyparse dtdparse
+#define yylex   dtdlex
+#define yyerror dtderror
+#define yylval  dtdlval
+#define yychar  dtdchar
+#define yydebug dtddebug
+#define yynerrs dtdnerrs
 
 
 /* Tokens.  */
@@ -129,15 +129,14 @@ using namespace std;
 #include <cstdio>
 #include <cstdlib>
 
-
-void yyerror(char *msg);
-int yywrap(void);
-int yylex(void);
+void dtderror(char *msg);
+int dtdwrap(void);
+int dtdlex(void);
 
 
 /* Enabling traces.  */
 #ifndef YYDEBUG
-# define YYDEBUG 1
+# define YYDEBUG 0
 #endif
 
 /* Enabling verbose error messages.  */
@@ -155,12 +154,12 @@ int yylex(void);
 
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 typedef union YYSTYPE
-#line 15 "src/dtd.y"
+#line 14 "src/dtd.y"
 { 
    char *s; 
    }
 /* Line 193 of yacc.c.  */
-#line 164 "src/dtd.tab.c"
+#line 163 "src/dtd.tab.c"
 	YYSTYPE;
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */
 # define YYSTYPE_IS_DECLARED 1
@@ -173,7 +172,7 @@ typedef union YYSTYPE
 
 
 /* Line 216 of yacc.c.  */
-#line 177 "src/dtd.tab.c"
+#line 176 "src/dtd.tab.c"
 
 #ifdef short
 # undef short
@@ -470,10 +469,10 @@ static const yytype_int8 yyrhs[] =
 /* YYRLINE[YYN] -- source line where rule number YYN was defined.  */
 static const yytype_uint8 yyrline[] =
 {
-       0,    23,    23,    26,    27,    28,    29,    33,    34,    38,
-      42,    43,    44,    48,    52,    56,    57,    61,    65,    66,
-      67,    70,    71,    74,    77,    78,    81,    84,    87,    88,
-      91,    92,    95,    96,    97,    98,   101,   102,   103
+       0,    22,    22,    25,    26,    27,    28,    32,    33,    37,
+      41,    42,    43,    47,    51,    55,    56,    60,    64,    65,
+      66,    69,    70,    73,    76,    77,    80,    83,    86,    87,
+      90,    91,    94,    95,    96,    97,   100,   101,   102
 };
 #endif
 
@@ -1410,7 +1409,7 @@ yyreduce:
     {
       
 /* Line 1267 of yacc.c.  */
-#line 1414 "src/dtd.tab.c"
+#line 1413 "src/dtd.tab.c"
       default: break;
     }
   YY_SYMBOL_PRINT ("-> $$ =", yyr1[yyn], &yyval, &yyloc);
@@ -1624,23 +1623,15 @@ yyreturn:
 }
 
 
-#line 105 "src/dtd.y"
+#line 104 "src/dtd.y"
 
-int main(int argc, char **argv)
-{
-  int err;
 
-  err = yyparse();
-  if (err != 0) printf("Parse ended with %d error(s)\n", err);
-        else  printf("Parse ended with sucess\n", err);
-  return 0;
-}
-int yywrap(void)
+int dtdwrap(void)
 {
   return 1;
 }
 
-void yyerror(char *msg)
+void dtderror(char *msg)
 {
   fprintf(stderr, "%s\n", msg);
 }

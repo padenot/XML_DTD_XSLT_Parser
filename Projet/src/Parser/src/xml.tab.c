@@ -122,7 +122,7 @@
 #include <cstdlib>
 #include <unistd.h>
 #include "commun.h"
-#include "yy.tab.h"
+#include "xml.tab.h"
 
 	int yywrap(void);
 	void yyerror(char *msg);
@@ -133,7 +133,7 @@
 
 /* Enabling traces.  */
 #ifndef YYDEBUG
-# define YYDEBUG 1
+# define YYDEBUG 0
 #endif
 
 /* Enabling verbose error messages.  */
@@ -1606,27 +1606,6 @@ yyreturn:
 
 #line 82 "src/xml.y"
 
-
-int main(int argc, char **argv)
-{
-	int err;
-
-	err = yyparse();
-	if (err != 0) printf("Parse ended with %d error(s)\n", err);
-	else  printf("Parse ended with sucess\n", err);
-
-	if(!dtdReference.empty()) {
-		printf("\nAnalyse du fichier DTD (%s)...\n", dtdReference.c_str());
-
-		string path = "./analyseDTD < " + dtdReference;
-		printf("%s\n", path.c_str());
-
-		char* argv[2]; 
-		system(path.c_str());
-	}
-
-	return 0;
-}
 
 int yywrap(void)
 {
