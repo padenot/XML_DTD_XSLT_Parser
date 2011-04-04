@@ -51,7 +51,8 @@ Node::Node ( const Node & unNode ) // TODO
 } //----- Fin de Node (constructeur de copie)
 
 
-Node::Node ( ) // TODO
+Node::Node ( AbstractCompositeMarkupNode * parent ) :
+	_parent(parent)
 // Algorithme :
 //	«TODO»
 {
