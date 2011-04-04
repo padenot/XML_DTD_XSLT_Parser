@@ -52,8 +52,9 @@ AbstractCompositeMarkupNode::AbstractCompositeMarkupNode ( const AbstractComposi
 } //----- Fin de AbstractCompositeMarkupNode (constructeur de copie)
 
 
-AbstractCompositeMarkupNode::AbstractCompositeMarkupNode ( Node * parent )
-	: MarkupNode ( parent ) // TODO
+AbstractCompositeMarkupNode::AbstractCompositeMarkupNode ( Node * parent,
+	string ns, string name )
+	: MarkupNode ( parent, ns, name ) // TODO
 // Algorithme :
 //	«TODO»
 {

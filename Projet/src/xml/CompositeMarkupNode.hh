@@ -52,8 +52,8 @@ public:
 	// Contrat :
 	//	«TODO»
 
-	CompositeMarkupNode ( Node * parent, CompositeMarkupNodeProxy & proxy, std::list<Node> & 
-		children);
+	CompositeMarkupNode ( Node * parent, std::string ns, std::string name,
+		CompositeMarkupNodeProxy & proxy, std::list<Node> & children);
 	// Mode d'emploi (constructeur) :
 	//	«TODO»
 	// Contrat :

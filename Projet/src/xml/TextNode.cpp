@@ -52,7 +52,9 @@ TextNode::TextNode ( const TextNode & unTextNode ) // TODO
 } //----- Fin de TextNode (constructeur de copie)
 
 
-TextNode::TextNode ( ) // TODO
+TextNode::TextNode ( Node * parent, string content ) :
+	Node(parent),
+	_content(content)
 // Algorithme :
 //	«TODO»
 {
