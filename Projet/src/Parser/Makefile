@@ -12,6 +12,7 @@ parser: flex bison Makefile
 	@g++ -Wno-write-strings -g -DYYDEBUG=1 -o bin/parser src/dtd.yy.c src/dtd.tab.c src/xml.yy.c src/xml.tab.c src/main.c 
 
 test: parser 
+	@echo "TESTING Parser..."
 	@cd bin && ./parser 'rap1.xml' &>/dev/null && echo "rap1.xml : OK"
 	@cd bin && ./parser 'rap2.xml' &>/dev/null && echo "rap2.xml : OK"
 	@cd bin && ./parser 'rap3.xml' &>/dev/null && echo "rap3.xml : OK"

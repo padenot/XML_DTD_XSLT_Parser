@@ -45,7 +45,7 @@ declarations
 ;
 
 declaration
-: DOCTYPE NAME NAME VALUE CLOSE { handleDTD($4); }
+: DOCTYPE NAME NAME VALUE CLOSE
 ;
 
 element		: start attributes empty_or_content 
