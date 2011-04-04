@@ -116,17 +116,18 @@
 
 	using namespace std;
 
-#include <cstring>
-#include <string>
-#include <cstdio>
-#include <cstdlib>
-#include <unistd.h>
-#include "commun.h"
-#include "xml.tab.h"
+	#include <cstring>
+	#include <string>
+	#include <cstdio>
+	#include <cstdlib>
+	#include <unistd.h>
+	#include "commun.h"
+	#include "xml.tab.h"
 
 	int yywrap(void);
 	void yyerror(char *msg);
 	int yylex(void);
+	int handleDTD(char*);
 
 	string dtdReference;
 	
@@ -151,13 +152,13 @@
 
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 typedef union YYSTYPE
-#line 19 "src/xml.y"
+#line 20 "src/xml.y"
 {
 		char * s;
 		ElementName * en;  /* le nom d'un element avec son namespace */
 	}
 /* Line 193 of yacc.c.  */
-#line 161 "src/xml.tab.c"
+#line 162 "src/xml.tab.c"
 	YYSTYPE;
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */
 # define YYSTYPE_IS_DECLARED 1
@@ -170,7 +171,7 @@ typedef union YYSTYPE
 
 
 /* Line 216 of yacc.c.  */
-#line 174 "src/xml.tab.c"
+#line 175 "src/xml.tab.c"
 
 #ifdef short
 # undef short
@@ -461,9 +462,9 @@ static const yytype_int8 yyrhs[] =
 /* YYRLINE[YYN] -- source line where rule number YYN was defined.  */
 static const yytype_uint8 yyrline[] =
 {
-       0,    29,    29,    33,    34,    38,    42,    43,    47,    50,
-      51,    54,    55,    59,    60,    64,    65,    69,    70,    71,
-      74,    77,    78,    79,    80
+       0,    30,    30,    34,    35,    39,    43,    44,    48,    51,
+      52,    55,    56,    60,    61,    65,    66,    70,    71,    72,
+      75,    78,    79,    80,    81
 };
 #endif
 
@@ -1384,13 +1385,13 @@ yyreduce:
   switch (yyn)
     {
         case 8:
-#line 47 "src/xml.y"
-    { dtdReference.assign((yyvsp[(4) - (5)].s)); ;}
+#line 48 "src/xml.y"
+    { handleDTD((yyvsp[(4) - (5)].s)); ;}
     break;
 
 
 /* Line 1267 of yacc.c.  */
-#line 1394 "src/xml.tab.c"
+#line 1395 "src/xml.tab.c"
       default: break;
     }
   YY_SYMBOL_PRINT ("-> $$ =", yyr1[yyn], &yyval, &yyloc);
@@ -1604,7 +1605,7 @@ yyreturn:
 }
 
 
-#line 82 "src/xml.y"
+#line 83 "src/xml.y"
 
 
 int yywrap(void)

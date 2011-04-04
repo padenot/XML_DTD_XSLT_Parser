@@ -9,6 +9,23 @@ extern FILE * dtdin;
 
 using namespace std;
 
+int handleDTD(char* filename) {
+	int err;
+	FILE* inputFile = (FILE*)fopen(filename, "r");
+	cout << "** Parsing de " << filename << "..." << endl;
+	if(inputFile == NULL) {
+		cout << "Fichier inexistant." << endl;
+		exit(1);
+	}
+
+	dtdin = inputFile;	
+	err = dtdparse();
+	fclose(dtdin);
+
+	if (err != 0) cout << err << " erreurs de syntaxe détectées !" << endl; 
+	else cout << "Aucune erreur détectée." << endl; 
+}
+
 int main(int argc, char** argv) {
 	int err;
 
@@ -18,7 +35,7 @@ int main(int argc, char** argv) {
 	}
 
 	FILE* inputFile = (FILE*)fopen(argv[1], "r");
-	cout << "Parsing de " << argv[1] << "..." << endl;
+	cout << "** Parsing de " << argv[1] << "..." << endl;
 	if(inputFile == NULL) {
 		cout << "Fichier inexistant." << endl;
 		exit(1);

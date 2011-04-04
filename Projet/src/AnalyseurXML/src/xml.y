@@ -1,17 +1,18 @@
 %{
 	using namespace std;
 
-#include <cstring>
-#include <string>
-#include <cstdio>
-#include <cstdlib>
-#include <unistd.h>
-#include "commun.h"
-#include "xml.tab.h"
+	#include <cstring>
+	#include <string>
+	#include <cstdio>
+	#include <cstdlib>
+	#include <unistd.h>
+	#include "commun.h"
+	#include "xml.tab.h"
 
 	int yywrap(void);
 	void yyerror(char *msg);
 	int yylex(void);
+	int handleDTD(char*);
 
 	string dtdReference;
 	%}
@@ -44,7 +45,7 @@ declarations
 ;
 
 declaration
-: DOCTYPE NAME NAME VALUE CLOSE { dtdReference.assign($4); }
+: DOCTYPE NAME NAME VALUE CLOSE { handleDTD($4); }
 ;
 
 element		: start attributes empty_or_content 
