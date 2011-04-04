@@ -1,0 +1,347 @@
+Terminals which are not used
+
+   EQ
+   CLOSESPECIAL
+   ENCODING
+   STARTSPECIAL
+
+
+Grammar
+
+    0 $accept: document $end
+
+    1 document: declarations element misc_seq_opt
+
+    2 misc_seq_opt: misc_seq_opt misc
+    3             | /* empty */
+
+    4 misc: COMMENT
+
+    5 declarations: declaration
+    6             | /* empty */
+
+    7 declaration: DOCTYPE NAME NAME VALUE CLOSE
+
+    8 element: start empty_or_content
+
+    9 start: START
+   10      | NSSTART
+
+   11 empty_or_content: SLASH CLOSE
+   12                 | close_content_and_end name_or_nsname_opt CLOSE
+
+   13 name_or_nsname_opt: NAME
+   14                   | NSNAME
+   15                   | /* empty */
+
+   16 close_content_and_end: CLOSE content END
+
+   17 content: content DATA
+   18        | content misc
+   19        | content element
+   20        | /* empty */
+
+
+Terminals, with rules where they appear
+
+$end (0) 0
+error (256)
+EQ (258)
+SLASH (259) 11
+CLOSE (260) 7 11 12 16
+END (261) 16
+CLOSESPECIAL (262)
+DOCTYPE (263) 7
+ENCODING (264)
+VALUE (265) 7
+DATA (266) 17
+COMMENT (267) 4
+NAME (268) 7 13
+NSNAME (269) 14
+NSSTART (270) 10
+START (271) 9
+STARTSPECIAL (272)
+
+
+Nonterminals, with rules where they appear
+
+$accept (18)
+    on left: 0
+document (19)
+    on left: 1, on right: 0
+misc_seq_opt (20)
+    on left: 2 3, on right: 1 2
+misc (21)
+    on left: 4, on right: 2 18
+declarations (22)
+    on left: 5 6, on right: 1
+declaration (23)
+    on left: 7, on right: 5
+element (24)
+    on left: 8, on right: 1 19
+start (25)
+    on left: 9 10, on right: 8
+empty_or_content (26)
+    on left: 11 12, on right: 8
+name_or_nsname_opt (27)
+    on left: 13 14 15, on right: 12
+close_content_and_end (28)
+    on left: 16, on right: 12
+content (29)
+    on left: 17 18 19 20, on right: 16 17 18 19
+
+
+state 0
+
+    0 $accept: . document $end
+
+    DOCTYPE  shift, and go to state 1
+
+    $default  reduce using rule 6 (declarations)
+
+    document      go to state 2
+    declarations  go to state 3
+    declaration   go to state 4
+
+
+state 1
+
+    7 declaration: DOCTYPE . NAME NAME VALUE CLOSE
+
+    NAME  shift, and go to state 5
+
+
+state 2
+
+    0 $accept: document . $end
+
+    $end  shift, and go to state 6
+
+
+state 3
+
+    1 document: declarations . element misc_seq_opt
+
+    NSSTART  shift, and go to state 7
+    START    shift, and go to state 8
+
+    element  go to state 9
+    start    go to state 10
+
+
+state 4
+
+    5 declarations: declaration .
+
+    $default  reduce using rule 5 (declarations)
+
+
+state 5
+
+    7 declaration: DOCTYPE NAME . NAME VALUE CLOSE
+
+    NAME  shift, and go to state 11
+
+
+state 6
+
+    0 $accept: document $end .
+
+    $default  accept
+
+
+state 7
+
+   10 start: NSSTART .
+
+    $default  reduce using rule 10 (start)
+
+
+state 8
+
+    9 start: START .
+
+    $default  reduce using rule 9 (start)
+
+
+state 9
+
+    1 document: declarations element . misc_seq_opt
+
+    $default  reduce using rule 3 (misc_seq_opt)
+
+    misc_seq_opt  go to state 12
+
+
+state 10
+
+    8 element: start . empty_or_content
+
+    SLASH  shift, and go to state 13
+    CLOSE  shift, and go to state 14
+
+    empty_or_content       go to state 15
+    close_content_and_end  go to state 16
+
+
+state 11
+
+    7 declaration: DOCTYPE NAME NAME . VALUE CLOSE
+
+    VALUE  shift, and go to state 17
+
+
+state 12
+
+    1 document: declarations element misc_seq_opt .
+    2 misc_seq_opt: misc_seq_opt . misc
+
+    COMMENT  shift, and go to state 18
+
+    $default  reduce using rule 1 (document)
+
+    misc  go to state 19
+
+
+state 13
+
+   11 empty_or_content: SLASH . CLOSE
+
+    CLOSE  shift, and go to state 20
+
+
+state 14
+
+   16 close_content_and_end: CLOSE . content END
+
+    $default  reduce using rule 20 (content)
+
+    content  go to state 21
+
+
+state 15
+
+    8 element: start empty_or_content .
+
+    $default  reduce using rule 8 (element)
+
+
+state 16
+
+   12 empty_or_content: close_content_and_end . name_or_nsname_opt CLOSE
+
+    NAME    shift, and go to state 22
+    NSNAME  shift, and go to state 23
+
+    $default  reduce using rule 15 (name_or_nsname_opt)
+
+    name_or_nsname_opt  go to state 24
+
+
+state 17
+
+    7 declaration: DOCTYPE NAME NAME VALUE . CLOSE
+
+    CLOSE  shift, and go to state 25
+
+
+state 18
+
+    4 misc: COMMENT .
+
+    $default  reduce using rule 4 (misc)
+
+
+state 19
+
+    2 misc_seq_opt: misc_seq_opt misc .
+
+    $default  reduce using rule 2 (misc_seq_opt)
+
+
+state 20
+
+   11 empty_or_content: SLASH CLOSE .
+
+    $default  reduce using rule 11 (empty_or_content)
+
+
+state 21
+
+   16 close_content_and_end: CLOSE content . END
+   17 content: content . DATA
+   18        | content . misc
+   19        | content . element
+
+    END      shift, and go to state 26
+    DATA     shift, and go to state 27
+    COMMENT  shift, and go to state 18
+    NSSTART  shift, and go to state 7
+    START    shift, and go to state 8
+
+    misc     go to state 28
+    element  go to state 29
+    start    go to state 10
+
+
+state 22
+
+   13 name_or_nsname_opt: NAME .
+
+    $default  reduce using rule 13 (name_or_nsname_opt)
+
+
+state 23
+
+   14 name_or_nsname_opt: NSNAME .
+
+    $default  reduce using rule 14 (name_or_nsname_opt)
+
+
+state 24
+
+   12 empty_or_content: close_content_and_end name_or_nsname_opt . CLOSE
+
+    CLOSE  shift, and go to state 30
+
+
+state 25
+
+    7 declaration: DOCTYPE NAME NAME VALUE CLOSE .
+
+    $default  reduce using rule 7 (declaration)
+
+
+state 26
+
+   16 close_content_and_end: CLOSE content END .
+
+    $default  reduce using rule 16 (close_content_and_end)
+
+
+state 27
+
+   17 content: content DATA .
+
+    $default  reduce using rule 17 (content)
+
+
+state 28
+
+   18 content: content misc .
+
+    $default  reduce using rule 18 (content)
+
+
+state 29
+
+   19 content: content element .
+
+    $default  reduce using rule 19 (content)
+
+
+state 30
+
+   12 empty_or_content: close_content_and_end name_or_nsname_opt CLOSE .
+
+    $default  reduce using rule 12 (empty_or_content)
