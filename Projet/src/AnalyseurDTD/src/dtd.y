@@ -1,32 +1,33 @@
 %{
-	using namespace std;
+using namespace std;
 #include <stack>
 #include <list>
 #include <cstring>
 #include <cstdio>
 #include <cstdlib>
 
-	void yyerror(char *msg);
-	int yywrap(void);
-	int yylex(void);
+
+void yyerror(char *msg);
+int yywrap(void);
+int yylex(void);
 %}
 
 %union { 
-	char *s; 
-}
+   char *s; 
+   }
 
 %token ELEMENT ATTLIST CLOSE OPENPAR CLOSEPAR COMMA PIPE FIXED EMPTY ANY PCDATA AST QMARK PLUS CDATA
 %token <s> NAME TOKENTYPE DECLARATION STRING
 %%
 
 main: dtd                           
-;
+    ;
 
 dtd	: dtd ATTLIST NAME att_definition CLOSE            
-	| dtd ELEMENT NAME type_enumere CLOSE
-	| /* empty */                     
-	;
-
+	| dtd ELEMENT NAME choice_or_sequence CLOSE            
+	| dtd ELEMENT NAME OPENPAR primary_type CLOSEPAR CLOSE
+   	| /* empty */                     
+   	;
 
 att_definition
 : att_definition attribut
@@ -44,9 +45,8 @@ att_type
 ;
 
 type_enumere
-: OPENPAR liste_enum_plus CLOSEPAR quantifier
+: OPENPAR liste_enum_plus CLOSEPAR
 ;
-
 
 liste_enum_plus
 : liste_enum PIPE item_enum
@@ -55,11 +55,10 @@ liste_enum_plus
 liste_enum
 : item_enum               
 | liste_enum PIPE item_enum
-| liste_enum COMMA item_enum
 ;
 
 item_enum
-: NAME quantifier
+: NAME
 ;
 
 defaut_declaration
@@ -68,29 +67,52 @@ defaut_declaration
 | FIXED STRING 
 ;
 
-quantifier	: AST
-		| QMARK
-		| PLUS
-		| /* EMPTY */
-		;
+choice_or_sequence	:	choice
+			|	sequence
+			;
+
+sequence		:	OPENPAR list_sequence CLOSEPAR quantifier
+			;
+
+list_sequence		:	item 
+			|	list_sequence COMMA item
+			;
+
+choice			:	OPENPAR NAME quantifier PIPE choice_or_sequence CLOSEPAR quantifier
+			;
+
+item 			: 	NAME quantifier
+			|	choice_or_sequence
+			;
+
+quantifier		:	AST
+			|	QMARK
+			| 	PLUS
+			|	/* EMPTY */
+			;
+
+primary_type		:	CDATA
+			|	PCDATA
+			|	FIXED
+			;
 %%
 int main(int argc, char **argv)
 {
-	int err;
+  int err;
 
-	err = yyparse();
-	if (err != 0) printf("Parse ended with %d error(s)\n", err);
-	else  printf("Parse ended with sucess\n", err);
-	return 0;
+  err = yyparse();
+  if (err != 0) printf("Parse ended with %d error(s)\n", err);
+        else  printf("Parse ended with sucess\n", err);
+  return 0;
 }
 int yywrap(void)
 {
-	return 1;
+  return 1;
 }
 
 void yyerror(char *msg)
 {
-	fprintf(stderr, "%s\n", msg);
+  fprintf(stderr, "%s\n", msg);
 }
 
 

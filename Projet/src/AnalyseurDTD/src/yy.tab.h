@@ -86,10 +86,10 @@
 
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 typedef union YYSTYPE
-#line 14 "src/dtd.y"
+#line 15 "src/dtd.y"
 { 
-	char *s; 
-}
+   char *s; 
+   }
 /* Line 1529 of yacc.c.  */
 #line 95 "src/yy.tab.h"
 	YYSTYPE;
