@@ -12,7 +12,7 @@
 	void yyerror(char *msg);
 	int yylex(void);
 %}
-
+%error-verbose
 %union {
    char * s;
    ElementName * en;  /* le nom d'un element avec son namespace */
@@ -67,17 +67,15 @@ name_or_nsname_opt
  | NSNAME  
  | /* empty */
  ;
-close_content_and_end
- : CLOSE			
-   content 
-   END 
- ;
-content 
- : content DATA		
- | content misc        
- | content element      
- | /*empty*/         
- ;
+
+close_content_and_end 	: CLOSE content END 
+ 			;
+
+content 		: content DATA		
+ 			| content misc        
+ 			| content element      
+ 			| /*empty*/         
+ 			;
 %%
 
 int main(int argc, char **argv)
@@ -97,6 +95,6 @@ int yywrap(void)
 
 void yyerror(char *msg)
 {
-  fprintf(stderr, "%s\n", msg);
+  fprintf(stderr, "%s at line X\n", msg);
 }
 
