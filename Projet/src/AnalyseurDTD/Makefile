@@ -3,7 +3,8 @@ all: analyseDTD test
 analyseDTD: src/*.l src/*.y Makefile
 	@flex  src/dtd.l
 	@bison  --debug --verbose --defines=src/yy.tab.h src/dtd.y
-	@mv *.c *.output src
+	@mv *.c src
+	@mv *.output bin
 	@g++ -g -DYYDEBUG=1 -o bin/analyseDTD src/lex.yy.c src/dtd.tab.c 
 
 test: 

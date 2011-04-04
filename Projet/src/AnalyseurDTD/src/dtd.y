@@ -24,7 +24,7 @@ main: dtd
     ;
 
 dtd	: dtd ATTLIST NAME att_definition CLOSE            
-	| dtd ELEMENT NAME choice_or_sequence CLOSE            
+	| dtd ELEMENT NAME choice_or_sequence quantifier CLOSE            
 	| dtd ELEMENT NAME OPENPAR primary_type CLOSEPAR CLOSE
    	| /* empty */                     
    	;
@@ -71,18 +71,25 @@ choice_or_sequence	:	choice
 			|	sequence
 			;
 
-sequence		:	OPENPAR list_sequence CLOSEPAR quantifier
+sequence		:	OPENPAR list_sequence CLOSEPAR
 			;
 
 list_sequence		:	item 
 			|	list_sequence COMMA item
 			;
 
-choice			:	OPENPAR NAME quantifier PIPE choice_or_sequence CLOSEPAR quantifier
+choice			: 	OPENPAR list_choice CLOSEPAR
+			;
+
+list_choice		:	list_choice_transition PIPE item
+			;
+
+list_choice_transition	:	item
+			|	list_choice_transition PIPE item
 			;
 
 item 			: 	NAME quantifier
-			|	choice_or_sequence
+			|	choice_or_sequence quantifier
 			;
 
 quantifier		:	AST
