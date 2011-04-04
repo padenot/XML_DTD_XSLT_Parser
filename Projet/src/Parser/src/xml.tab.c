@@ -124,9 +124,9 @@
 	#include "commun.h"
 	#include "xml.tab.h"
 
-	int yywrap(void);
-	void yyerror(char *msg);
-	int yylex(void);
+	void xmlerror(char *msg);
+	int xmlwrap(void);
+	int xmllex(void);
 	int handleDTD(char*);
 
 	string dtdReference;
@@ -1608,12 +1608,12 @@ yyreturn:
 #line 83 "src/xml.y"
 
 
-int yywrap(void)
+int xmlwrap(void)
 {
 	return 1;
 }
 
-void yyerror(char *msg)
+void xmlerror(char *msg)
 {
 	fprintf(stderr, "%s\n", msg);
 }
