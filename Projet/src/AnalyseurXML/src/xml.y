@@ -1,17 +1,16 @@
 %{
-
-using namespace std;
-#include <cstring>
-#include <string>
-#include <cstdio>
-#include <cstdlib>
-#include "commun.h"
-#include "yy.tab.h"
-
-int yywrap(void);
-void yyerror(char *msg);
-int yylex(void);
-
+	using namespace std;
+	
+	#include <cstring>
+	#include <string>
+	#include <cstdio>
+	#include <cstdlib>
+	#include "commun.h"
+	#include "yy.tab.h"
+	
+	int yywrap(void);
+	void yyerror(char *msg);
+	int yylex(void);
 %}
 
 %union {
@@ -22,16 +21,16 @@ int yylex(void);
 %token EQ SLASH CLOSE END CLOSESPECIAL DOCTYPE
 %token <s> ENCODING VALUE DATA COMMENT NAME NSNAME
 %token <en> NSSTART START STARTSPECIAL
-
 %%
-
 document
  : declarations element misc_seq_opt 
  ;
+
 misc_seq_opt
  : misc_seq_opt misc
  | /*empty*/
  ;
+
 misc
  : COMMENT		
  ;
@@ -46,18 +45,23 @@ declaration
  ;
 
 element
- : start          
-   empty_or_content 
+ : start attributes empty_or_content 
  ;
+
+attributes	:	/* EMPTY */
+		| 	attributes NAME EQ VALUE
+		;
+
 start
  : START		
  | NSSTART	
  ;
+
 empty_or_content
  : SLASH CLOSE	
- | close_content_and_end 
-   name_or_nsname_opt CLOSE 
+ | close_content_and_end name_or_nsname_opt CLOSE 
  ;
+
 name_or_nsname_opt 
  : NAME     
  | NSNAME  
@@ -85,6 +89,7 @@ int main(int argc, char **argv)
   	else  printf("Parse ended with sucess\n", err);
   return 0;
 }
+
 int yywrap(void)
 {
   return 1;
