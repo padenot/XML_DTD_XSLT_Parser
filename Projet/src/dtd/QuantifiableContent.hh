@@ -37,20 +37,9 @@ public:
 
 
 //------------------------------------------------- Surcharge d'opérateurs
-	QuantifiableContent & operator = ( const QuantifiableContent & unQuantifiableContent );
-	// Mode d'emploi :
-	//	«TODO»
-	// Contrat :
-	//	«TODO»
 
 
 //-------------------------------------------- Constructeurs - destructeur
-	QuantifiableContent ( const QuantifiableContent & unQuantifiableContent );
-	// Mode d'emploi (constructeur de copie) :
-	//	«Mode emploi»
-	// Contrat :
-	//	«TODO»
-
 	QuantifiableContent ( );
 	// Mode d'emploi (constructeur) :
 	//	«TODO»

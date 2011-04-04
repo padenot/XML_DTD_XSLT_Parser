@@ -3,14 +3,17 @@
  * -------------------
  * Début      : lun. 04 avril 2011 08:46:08 CEST
  * Auteur(s)  : H4215
-*************************************************************************/
+ *************************************************************************/
 
 //---- Interface de la classe <Node> (fichier Node.hh) ----
 #ifndef NODE_HH
 #define NODE_HH
 
 //--------------------------------------------------- Interfaces utilisées
-class AbstractCompositeMarkupNode;
+#include <iosfwd>
+namespace xml
+{
+class CompositeMarkupNode;
 
 //------------------------------------------------------------------------
 // Rôle de la classe <Node>
@@ -18,17 +21,15 @@ class AbstractCompositeMarkupNode;
 //
 //------------------------------------------------------------------------
 
-namespace xml
-{
 
 class Node
 {
 public:
-//------------------------------------------------------------- Constantes
+	//------------------------------------------------------------- Constantes
 
-//------------------------------------------------------------------ Types
+	//------------------------------------------------------------------ Types
 
-//----------------------------------------------------- Méthodes publiques
+	//----------------------------------------------------- Méthodes publiques
 	// type Méthode ( liste de paramètres );
 	// Mode d'emploi :
 	//	«TODO»
@@ -36,47 +37,49 @@ public:
 	//	«TODO»
 
 
-//------------------------------------------------- Surcharge d'opérateurs
-	Node & operator = ( const Node & aNode );
+	virtual std::ostream
+			& Write(std::ostream& out, unsigned char indent = 0) const = 0;
 	// Mode d'emploi :
-	//	«TODO»
+	//	Écrit le noeud sur le flot "out", en indentant la ligne "indent" fois.
+	//	La nature des caractères écrits sur le flot dépend du type du noeud.
 	// Contrat :
-	//	«TODO»
+	//	En cas de surcharge, les noeuds inclus doivent être indentés par
+	//	rapport à celui-ci ("indent" doit être incrémenté).
 
-	friend ostream & operator << ( ostream&, const Node & aNode );
+	//------------------------------------------------- Surcharge d'opérateurs
+	friend std::ostream & operator <<(std::ostream& out, const Node & aNode);
 	// Mode d'emploi :
-	//	«TODO»
+	//	Appelle aNode.Write(out).
 	// Contrat :
-	//	«TODO»
+	//	Aucun.
 
-
-
-//-------------------------------------------- Constructeurs - destructeur
-	Node ( const Node & aNode );
-	// Mode d'emploi (constructeur de copie) :
-	//	«Mode emploi»
-	// Contrat :
-	//	«TODO»
-
-	Node ( AbstractCompositeMarkupNode * parent );
+	//-------------------------------------------- Constructeurs - destructeur
+	Node(CompositeMarkupNode *& parent);
 	// Mode d'emploi (constructeur) :
 	//	«TODO»
 	// Contrat :
-	//	«TODO»
+	//	La valeur de "parent" ne doit plus changer après la construction de
+	//		l'arbre.
+	//	Si le noeud construit représente la racine, "parent" doit être nul.
+	//	La destruction du pointeur "parent" (et non de l'objet "*parent") est
+	//		à la charge de l'objet construit (le noeud).
 
-	virtual ~Node ( );
+	virtual ~Node();
 	// Mode d'emploi (destructeur) :
 	//	«TODO»
 	// Contrat :
 	//	«TODO»
 
 protected:
-	AbstractCompositeMarkupNode* _parent;
-virtual ostream& write ( ostream& ) const = 0;
+	static const char INDENT_CHAR;
+	static const unsigned char INDENT_UNIT;
 
+	CompositeMarkupNode *& _parent;
+
+	static std::ostream
+	& doIndent(std::ostream& out, unsigned char indent);
 };
 
 } // namespace xml
 
 #endif // NODE_HH
-

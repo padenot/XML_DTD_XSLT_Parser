@@ -3,7 +3,7 @@
  * -------------------
  * Début      : lun. 04 avril 2011 10:24:03 CEST
  * Auteur(s)  : H4215
-*************************************************************************/
+ *************************************************************************/
 
 //---- Réalisation de la classe <Sequence> (fichier Sequence.cpp) ----
 
@@ -35,24 +35,10 @@ namespace dtd
 //} //----- Fin de Méthode
 
 //------------------------------------------------- Surcharge d'opérateurs
-Sequence & Sequence::operator = ( const Sequence & unSequence )
-// Algorithme :
-//	«TODO»
-{
-	//TODO
-} //----- Fin de operator =
 
 
 //-------------------------------------------- Constructeurs - destructeur
-Sequence::Sequence ( const Sequence & unSequence )
-// Algorithme :
-//	«TODO»
-{
-	//TODO
-} //----- Fin de Sequence (constructeur de copie)
-
-
-Sequence::Sequence ( )
+Sequence::Sequence()
 // Algorithme :
 //	«TODO»
 {
@@ -60,7 +46,7 @@ Sequence::Sequence ( )
 } //----- Fin de Sequence
 
 
-Sequence::~Sequence ( )
+Sequence::~Sequence()
 // Algorithme :
 //	«TODO»
 {

@@ -3,7 +3,7 @@
  * -------------------
  * Début      : lun. 04 avril 2011 10:23:55 CEST
  * Auteur(s)  : H4215
-*************************************************************************/
+ *************************************************************************/
 
 //---- Réalisation de la classe <QuantifiableContent> (fichier QuantifiableContent.cpp) ----
 
@@ -35,24 +35,10 @@ namespace dtd
 //} //----- Fin de Méthode
 
 //------------------------------------------------- Surcharge d'opérateurs
-QuantifiableContent & QuantifiableContent::operator = ( const QuantifiableContent & unQuantifiableContent )
-// Algorithme :
-//	«TODO»
-{
-	//TODO
-} //----- Fin de operator =
 
 
 //-------------------------------------------- Constructeurs - destructeur
-QuantifiableContent::QuantifiableContent ( const QuantifiableContent & unQuantifiableContent )
-// Algorithme :
-//	«TODO»
-{
-	//TODO
-} //----- Fin de QuantifiableContent (constructeur de copie)
-
-
-QuantifiableContent::QuantifiableContent ( )
+QuantifiableContent::QuantifiableContent()
 // Algorithme :
 //	«TODO»
 {
@@ -60,7 +46,7 @@ QuantifiableContent::QuantifiableContent ( )
 } //----- Fin de QuantifiableContent
 
 
-QuantifiableContent::~QuantifiableContent ( )
+QuantifiableContent::~QuantifiableContent()
 // Algorithme :
 //	«TODO»
 {

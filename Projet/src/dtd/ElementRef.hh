@@ -38,20 +38,9 @@ public:
 
 
 //------------------------------------------------- Surcharge d'opérateurs
-	ElementRef & operator = ( const ElementRef & unElementRef );
-	// Mode d'emploi :
-	//	«TODO»
-	// Contrat :
-	//	«TODO»
 
 
 //-------------------------------------------- Constructeurs - destructeur
-	ElementRef ( const ElementRef & unElementRef );
-	// Mode d'emploi (constructeur de copie) :
-	//	«Mode emploi»
-	// Contrat :
-	//	«TODO»
-
 	ElementRef ( );
 	// Mode d'emploi (constructeur) :
 	//	«TODO»

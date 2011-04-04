@@ -1,2 +1,9 @@
 *.swp
 *.DSTORE
+*.o
+*.a
+*.so
+*.d
+bin/*
+*.tab.*
+*.yy.*

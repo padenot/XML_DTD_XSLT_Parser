@@ -36,11 +36,6 @@ public:
 
 
 //------------------------------------------------- Surcharge d'opérateurs
-	//InterfaceElement & operator = ( const InterfaceElement & unInterfaceElement );
-	// Mode d'emploi :
-	//	«TODO»
-	// Contrat :
-	//	«TODO»
 
 
 //-------------------------------------------- Constructeurs - destructeur

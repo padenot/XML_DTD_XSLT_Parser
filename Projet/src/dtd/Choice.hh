@@ -37,20 +37,9 @@ public:
 
 
 //------------------------------------------------- Surcharge d'opérateurs
-	Choice & operator = ( const Choice & unChoice );
-	// Mode d'emploi :
-	//	«TODO»
-	// Contrat :
-	//	«TODO»
 
 
 //-------------------------------------------- Constructeurs - destructeur
-	Choice ( const Choice & unChoice );
-	// Mode d'emploi (constructeur de copie) :
-	//	«Mode emploi»
-	// Contrat :
-	//	«TODO»
-
 	Choice ( );
 	// Mode d'emploi (constructeur) :
 	//	«TODO»

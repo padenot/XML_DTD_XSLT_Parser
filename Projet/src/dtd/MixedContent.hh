@@ -37,20 +37,9 @@ public:
 
 
 //------------------------------------------------- Surcharge d'opérateurs
-	MixedContent & operator = ( const MixedContent & unMixedContent );
-	// Mode d'emploi :
-	//	«TODO»
-	// Contrat :
-	//	«TODO»
 
 
 //-------------------------------------------- Constructeurs - destructeur
-	MixedContent ( const MixedContent & unMixedContent );
-	// Mode d'emploi (constructeur de copie) :
-	//	«Mode emploi»
-	// Contrat :
-	//	«TODO»
-
 	MixedContent ( );
 	// Mode d'emploi (constructeur) :
 	//	«TODO»
