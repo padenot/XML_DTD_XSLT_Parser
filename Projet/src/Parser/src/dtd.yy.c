@@ -607,7 +607,7 @@ char *dtdtext;
 #include <ctype.h>
 #include <string.h>
 #include <stdlib.h>
-#include "yy.tab.h"
+#include "dtd.tab.h"
 
 static char* skipSpace(char *s) {
   char *buf;
@@ -622,7 +622,7 @@ static char* skipSpace(char *s) {
 }
   
 /* affecte la valeur de la chaine de caractère et renvoie le token */
-#define stringreturn(tokenval) yylval.s=skipSpace(dtdtext);return(tokenval)
+#define stringreturn(tokenval) dtdlval.s=skipSpace(dtdtext);return(tokenval)
 
 
 /* 

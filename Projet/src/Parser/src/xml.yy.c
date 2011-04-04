@@ -610,7 +610,7 @@ char *xmltext;
 #include <string.h>
 #include <stdlib.h>
 #include "commun.h"
-#include "yy.tab.h"
+#include "xml.tab.h"
 
 static char* skipSpace(char *s) {
   char *buf;
@@ -984,36 +984,36 @@ YY_RULE_SETUP
 case 8:
 YY_RULE_SETUP
 #line 104 "src/xml.l"
-{printf("%s",xmltext);yylval.s = strdup(xmltext); return NAME;}
+{printf("%s",xmltext);xmllval.s = strdup(xmltext); return NAME;}
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
 #line 105 "src/xml.l"
-{printf("%s",xmltext);yylval.s = strdup(xmltext); return NSNAME;}
+{printf("%s",xmltext);xmllval.s = strdup(xmltext); return NSNAME;}
 	YY_BREAK
 case 10:
 /* rule 10 can match eol */
 YY_RULE_SETUP
 #line 106 "src/xml.l"
-{printf("%s",xmltext);yylval.s = strdup(getString(xmltext)); return VALUE;}
+{printf("%s",xmltext);xmllval.s = strdup(getString(xmltext)); return VALUE;}
 	YY_BREAK
 case 11:
 /* rule 11 can match eol */
 YY_RULE_SETUP
 #line 108 "src/xml.l"
-{printf("%s",xmltext);BEGIN(INITIAL); char * tmp = word(xmltext); yylval.en = new ElementName("",tmp); free(tmp); return STARTSPECIAL;}
+{printf("%s",xmltext);BEGIN(INITIAL); char * tmp = word(xmltext); xmllval.en = new ElementName("",tmp); free(tmp); return STARTSPECIAL;}
 	YY_BREAK
 case 12:
 /* rule 12 can match eol */
 YY_RULE_SETUP
 #line 109 "src/xml.l"
-{printf("%s",xmltext);BEGIN(INITIAL); char * tmp = word(xmltext); yylval.en = new ElementName("",tmp); free(tmp); return START;}
+{printf("%s",xmltext);BEGIN(INITIAL); char * tmp = word(xmltext); xmllval.en = new ElementName("",tmp); free(tmp); return START;}
 	YY_BREAK
 case 13:
 /* rule 13 can match eol */
 YY_RULE_SETUP
 #line 110 "src/xml.l"
-{printf("%s",xmltext);BEGIN(INITIAL); char *tmp1 = nameSpace(xmltext); char * tmp2 = split_namespace(xmltext); yylval.en = new ElementName(tmp1,tmp2); free(tmp1); free(tmp2); return NSSTART;}
+{printf("%s",xmltext);BEGIN(INITIAL); char *tmp1 = nameSpace(xmltext); char * tmp2 = split_namespace(xmltext); xmllval.en = new ElementName(tmp1,tmp2); free(tmp1); free(tmp2); return NSSTART;}
 	YY_BREAK
 case 14:
 /* rule 14 can match eol */
@@ -1025,13 +1025,13 @@ case 15:
 /* rule 15 can match eol */
 YY_RULE_SETUP
 #line 112 "src/xml.l"
-{printf("%s",xmltext);yylval.s = strdup(xmltext); return COMMENT;}
+{printf("%s",xmltext);xmllval.s = strdup(xmltext); return COMMENT;}
 	YY_BREAK
 case 16:
 /* rule 16 can match eol */
 YY_RULE_SETUP
 #line 114 "src/xml.l"
-{printf("%s",xmltext);yylval.s = strdup(skipSpace(xmltext)); return DATA;}
+{printf("%s",xmltext);xmllval.s = strdup(skipSpace(xmltext)); return DATA;}
 	YY_BREAK
 case 17:
 YY_RULE_SETUP

@@ -1,17 +1,18 @@
 %{
 	using namespace std;
 
-#include <cstring>
-#include <string>
-#include <cstdio>
-#include <cstdlib>
-#include <unistd.h>
-#include "commun.h"
-#include "xml.tab.h"
+	#include <cstring>
+	#include <string>
+	#include <cstdio>
+	#include <cstdlib>
+	#include <unistd.h>
+	#include "commun.h"
+	#include "xml.tab.h"
 
-	int yywrap(void);
-	void yyerror(char *msg);
-	int yylex(void);
+	void xmlerror(char *msg);
+	int xmlwrap(void);
+	int xmllex(void);
+	int handleDTD(char*);
 
 	string dtdReference;
 	%}
@@ -44,7 +45,7 @@ declarations
 ;
 
 declaration
-: DOCTYPE NAME NAME VALUE CLOSE { dtdReference.assign($4); }
+: DOCTYPE NAME NAME VALUE CLOSE
 ;
 
 element		: start attributes empty_or_content 
@@ -81,23 +82,12 @@ content 		: content DATA
 ;
 %%
 
-int main(int argc, char **argv)
-{
-	int err;
-
-	err = yyparse();
-	if (err != 0) printf("Parse ended with %d error(s)\n", err);
-	else  printf("Parse ended with sucess\n", err);
-
-	return 0;
-}
-
-int yywrap(void)
+int xmlwrap(void)
 {
 	return 1;
 }
 
-void yyerror(char *msg)
+void xmlerror(char *msg)
 {
 	fprintf(stderr, "%s\n", msg);
 }
