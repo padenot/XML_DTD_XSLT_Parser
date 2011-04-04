@@ -7,7 +7,7 @@
 #include <cstdlib>
 #include <unistd.h>
 #include "commun.h"
-#include "yy.tab.h"
+#include "xml.tab.h"
 
 	int yywrap(void);
 	void yyerror(char *msg);
@@ -88,16 +88,6 @@ int main(int argc, char **argv)
 	err = yyparse();
 	if (err != 0) printf("Parse ended with %d error(s)\n", err);
 	else  printf("Parse ended with sucess\n", err);
-
-	if(!dtdReference.empty()) {
-		printf("\nAnalyse du fichier DTD (%s)...\n", dtdReference.c_str());
-
-		string path = "./analyseDTD < " + dtdReference;
-		printf("%s\n", path.c_str());
-
-		char* argv[2]; 
-		system(path.c_str());
-	}
 
 	return 0;
 }

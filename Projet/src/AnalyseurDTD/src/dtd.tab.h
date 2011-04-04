@@ -91,7 +91,7 @@ typedef union YYSTYPE
    char *s; 
    }
 /* Line 1529 of yacc.c.  */
-#line 95 "src/yy.tab.h"
+#line 95 "src/dtd.tab.h"
 	YYSTYPE;
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */
 # define YYSTYPE_IS_DECLARED 1

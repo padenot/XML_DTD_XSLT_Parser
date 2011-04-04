@@ -39,57 +39,64 @@
    /* Put the tokens into the symbol table, so that GDB and other debuggers
       know about them.  */
    enum yytokentype {
-     EQ = 258,
-     SLASH = 259,
+     ELEMENT = 258,
+     ATTLIST = 259,
      CLOSE = 260,
-     END = 261,
-     CLOSESPECIAL = 262,
-     DOCTYPE = 263,
-     ENCODING = 264,
-     VALUE = 265,
-     DATA = 266,
-     COMMENT = 267,
-     NAME = 268,
-     NSNAME = 269,
-     NSSTART = 270,
-     START = 271,
-     STARTSPECIAL = 272
+     OPENPAR = 261,
+     CLOSEPAR = 262,
+     COMMA = 263,
+     PIPE = 264,
+     FIXED = 265,
+     EMPTY = 266,
+     ANY = 267,
+     PCDATA = 268,
+     AST = 269,
+     QMARK = 270,
+     PLUS = 271,
+     CDATA = 272,
+     NAME = 273,
+     TOKENTYPE = 274,
+     DECLARATION = 275,
+     STRING = 276
    };
 #endif
 /* Tokens.  */
-#define EQ 258
-#define SLASH 259
+#define ELEMENT 258
+#define ATTLIST 259
 #define CLOSE 260
-#define END 261
-#define CLOSESPECIAL 262
-#define DOCTYPE 263
-#define ENCODING 264
-#define VALUE 265
-#define DATA 266
-#define COMMENT 267
-#define NAME 268
-#define NSNAME 269
-#define NSSTART 270
-#define START 271
-#define STARTSPECIAL 272
+#define OPENPAR 261
+#define CLOSEPAR 262
+#define COMMA 263
+#define PIPE 264
+#define FIXED 265
+#define EMPTY 266
+#define ANY 267
+#define PCDATA 268
+#define AST 269
+#define QMARK 270
+#define PLUS 271
+#define CDATA 272
+#define NAME 273
+#define TOKENTYPE 274
+#define DECLARATION 275
+#define STRING 276
 
 
 
 
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 typedef union YYSTYPE
-#line 19 "src/xml.y"
-{
-		char * s;
-		ElementName * en;  /* le nom d'un element avec son namespace */
-	}
+#line 15 "src/dtd.y"
+{ 
+   char *s; 
+   }
 /* Line 1529 of yacc.c.  */
-#line 88 "src/yy.tab.h"
+#line 95 "src/dtd.yy.h"
 	YYSTYPE;
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */
 # define YYSTYPE_IS_DECLARED 1
 # define YYSTYPE_IS_TRIVIAL 1
 #endif
 
-extern YYSTYPE yylval;
+extern YYSTYPE xmllval;
 

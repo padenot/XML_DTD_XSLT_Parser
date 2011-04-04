@@ -1,14 +1,24 @@
 all: analyseDTD test
 
-analyseDTD: src/*.l src/*.y Makefile
-	@flex  src/dtd.l
-	@bison  --debug --verbose --defines=src/yy.tab.h src/dtd.y
-	@mv *.c src
-	@mv *.output bin
-	@g++ -g -DYYDEBUG=1 -o bin/analyseDTD src/lex.yy.c src/dtd.tab.c 
+flex: src/dtd.l
+	@flex -o src/dtd.yy.c src/dtd.l
 
-test: 
-	@cd bin && ./analyseDTD < rap1.dtd | grep "sucess" && ./analyseDTD < rap2.dtd | grep "sucess" && ./analyseDTD < rap3.dtd | grep "sucess"
+bison: src/dtd.y
+	@bison -o src/dtd.tab.c --defines=src/dtd.tab.h src/dtd.y
+
+analyseDTD: flex bison Makefile
+	@g++ -g -DYYDEBUG=1 -o bin/analyseDTD src/dtd.yy.c src/dtd.tab.c 
+
+test: analyseDTD 
+	@cd bin && ./analyseDTD < rap1.dtd | grep "sucess"
+	@cd bin && ./analyseDTD < rap2.dtd | grep "sucess"
+	@cd bin && ./analyseDTD < rap3.dtd | grep "sucess"
+	@cd bin && ./analyseDTD < rap4.dtd | grep "sucess"
 
 clean:
-	@rm -rf src/*.tab.c src/lex.*.c src/*.tab.h bin/*.output bin/analyseDTD
+	@rm -rf bin/analyseDTD bin/analyseDTD.dSYM/
+	
+mrproper: clean
+	@rm src/dtd.output
+	@rm src/dtd.tab.c src/dtd.tab.h
+	@rm src/dtd.yy.c
