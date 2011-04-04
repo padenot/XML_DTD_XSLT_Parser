@@ -90,9 +90,13 @@ int main(int argc, char **argv)
 	else  printf("Parse ended with sucess\n", err);
 
 	if(!dtdReference.empty()) {
-		string path = "analyseDTD " + dtdReference;
-		printf("\n\nAnalyse du fichier DTD (%s)...\n", dtdReference.c_str());
-		execv(path.c_str(), NULL);
+		printf("\nAnalyse du fichier DTD (%s)...\n", dtdReference.c_str());
+
+		string path = "./analyseDTD < " + dtdReference;
+		printf("%s\n", path.c_str());
+
+		char* argv[2]; 
+		system(path.c_str());
 	}
 
 	return 0;
