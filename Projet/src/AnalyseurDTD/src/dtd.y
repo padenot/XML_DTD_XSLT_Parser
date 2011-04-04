@@ -47,6 +47,7 @@ type_enumere
 : OPENPAR liste_enum_plus CLOSEPAR quantifier
 ;
 
+
 liste_enum_plus
 : liste_enum PIPE item_enum
 ;
@@ -54,6 +55,7 @@ liste_enum_plus
 liste_enum
 : item_enum               
 | liste_enum PIPE item_enum
+| liste_enum COMMA item_enum
 ;
 
 item_enum
@@ -71,7 +73,7 @@ quantifier	: AST
 		| PLUS
 		| /* EMPTY */
 		;
-	%%
+%%
 int main(int argc, char **argv)
 {
 	int err;
