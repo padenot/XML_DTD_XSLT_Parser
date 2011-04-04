@@ -1,3 +1,3 @@
 all:
-	@cd AnalyseurXML/ && make clean && make && make test && cp bin/analyseXML ../bin
-	@cd AnalyseurDTD/ && make clean && make && make test && cp bin/analyseDTD ../bin
+	@cd AnalyseurXML/ && make test && cp bin/analyseXML ../bin
+	@cd AnalyseurDTD/ && make test && cp bin/analyseDTD ../bin

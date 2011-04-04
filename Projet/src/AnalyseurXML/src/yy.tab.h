@@ -78,11 +78,11 @@
 
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 typedef union YYSTYPE
-#line 16 "src/xml.y"
+#line 19 "src/xml.y"
 {
-   char * s;
-   ElementName * en;  /* le nom d'un element avec son namespace */
-}
+		char * s;
+		ElementName * en;  /* le nom d'un element avec son namespace */
+	}
 /* Line 1529 of yacc.c.  */
 #line 88 "src/yy.tab.h"
 	YYSTYPE;

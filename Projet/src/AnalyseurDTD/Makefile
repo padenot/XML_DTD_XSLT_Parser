@@ -8,6 +8,7 @@ analyseDTD: src/*.l src/*.y Makefile
 	@g++ -g -DYYDEBUG=1 -o bin/analyseDTD src/lex.yy.c src/dtd.tab.c 
 
 test: 
+	@cd bin && ./analyseDTD < rap1.dtd | grep "sucess" && ./analyseDTD < rap2.dtd | grep "sucess" && ./analyseDTD < rap3.dtd | grep "sucess"
 
 clean:
 	@rm -rf src/*.tab.c src/lex.*.c src/*.tab.h bin/*.output bin/analyseDTD
