@@ -51,7 +51,10 @@ MarkupNode::MarkupNode ( const MarkupNode & unMarkupNode ) // TODO
 } //----- Fin de MarkupNode (constructeur de copie)
 
 
-MarkupNode::MarkupNode ( ) // TODO
+MarkupNode::MarkupNode ( Node * parent, std::string ns, std::string name ) :
+	Node(parent),
+	_namespace(ns),
+	_name(name)
 // Algorithme :
 //	«TODO»
 {

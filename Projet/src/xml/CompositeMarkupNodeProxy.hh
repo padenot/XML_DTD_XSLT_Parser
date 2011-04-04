@@ -1,21 +1,20 @@
 /*************************************************************************
- * MarkupNode  -  «Description»
+ * CompositeMarkupNodeProxy  -  «Description»
  * -------------------
- * Début      : lun. 04 avril 2011 08:48:07 CEST
+ * Début      : lun. 04 avril 2011 08:54:19 CEST
  * Auteur(s)  : H4215
 *************************************************************************/
 
-//---- Interface de la classe <MarkupNode> (fichier MarkupNode.hh) ----
-#ifndef MARKUPNODE_HH
-#define MARKUPNODE_HH
+//---- Interface de la classe <CompositeMarkupNodeProxy> (fichier CompositeMarkupNodeProxy.hh) ----
+#ifndef COMPOSITEMARKUPNODEPROXY_HH
+#define COMPOSITEMARKUPNODEPROXY_HH
 
 //--------------------------------------------------- Interfaces utilisées
-#include <string>
-#include <map>
-#include "Node.hh"
+#include <list>
+#include "AbstractCompositeMarkupNode.hh"
 
 //------------------------------------------------------------------------
-// Rôle de la classe <MarkupNode>
+// Rôle de la classe <CompositeMarkupNodeProxy>
 //	«Rôle»
 //
 //------------------------------------------------------------------------
@@ -23,7 +22,7 @@
 namespace xml
 {
 
-class MarkupNode : public Node
+class CompositeMarkupNodeProxy : public AbstractCompositeMarkupNode
 {
 public:
 //------------------------------------------------------------- Constantes
@@ -39,7 +38,7 @@ public:
 
 
 //------------------------------------------------- Surcharge d'opérateurs
-	MarkupNode & operator = ( const MarkupNode & unMarkupNode );
+	CompositeMarkupNodeProxy & operator = ( const CompositeMarkupNode & unCompositeMarkupNode );
 	// Mode d'emploi :
 	//	«TODO»
 	// Contrat :
@@ -47,34 +46,29 @@ public:
 
 
 //-------------------------------------------- Constructeurs - destructeur
-	MarkupNode ( const MarkupNode & unMarkupNode );
+	CompositeMarkupNodeProxy ( const CompositeMarkupNode & unCompositeMarkupNode );
 	// Mode d'emploi (constructeur de copie) :
 	//	«Mode emploi»
 	// Contrat :
 	//	«TODO»
 
-	MarkupNode ( Node * parent, std::string ns, std::string name );
+	CompositeMarkupNodeProxy ( );
 	// Mode d'emploi (constructeur) :
 	//	«TODO»
 	// Contrat :
 	//	«TODO»
 
-	virtual ~MarkupNode ( );
+	virtual ~CompositeMarkupNodeProxy ( );
 	// Mode d'emploi (destructeur) :
 	//	«TODO»
 	// Contrat :
 	//	«TODO»
 
 protected:
-	typedef std::map<std::string,std::string> Attributs;
-
-	std::string _name;
-	std::string _namespace;
-	Attributs _attributs;
 
 };
 
 } // namespace xml
 
-#endif // MARKUPNODE_HH
+#endif // COMPOSITEMARKUPNODEPROXY_HH
 

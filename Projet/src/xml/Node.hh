@@ -10,7 +10,7 @@
 #define NODE_HH
 
 //--------------------------------------------------- Interfaces utilisées
-class CompositeMarkupNode;
+class AbstractCompositeMarkupNode;
 
 //------------------------------------------------------------------------
 // Rôle de la classe <Node>
@@ -37,7 +37,7 @@ public:
 
 
 //------------------------------------------------- Surcharge d'opérateurs
-	Node & operator = ( const Node & unNode );
+	Node & operator = ( const Node & aNode );
 	// Mode d'emploi :
 	//	«TODO»
 	// Contrat :
@@ -45,13 +45,13 @@ public:
 
 
 //-------------------------------------------- Constructeurs - destructeur
-	Node ( const Node & unNode );
+	Node ( const Node & aNode );
 	// Mode d'emploi (constructeur de copie) :
 	//	«Mode emploi»
 	// Contrat :
 	//	«TODO»
 
-	Node ( );
+	Node ( AbstractCompositeMarkupNode * parent );
 	// Mode d'emploi (constructeur) :
 	//	«TODO»
 	// Contrat :
@@ -64,7 +64,7 @@ public:
 	//	«TODO»
 
 protected:
-	CompositeMarkupNode* parent;
+	AbstractCompositeMarkupNode* _parent;
 };
 
 } // namespace xml

@@ -1,21 +1,20 @@
 /*************************************************************************
- * MarkupNode  -  «Description»
+ * AbstractCompositeMarkupNode  -  «Description»
  * -------------------
- * Début      : lun. 04 avril 2011 08:48:07 CEST
+ * Début      : lun. 04 avril 2011 08:54:19 CEST
  * Auteur(s)  : H4215
 *************************************************************************/
 
-//---- Interface de la classe <MarkupNode> (fichier MarkupNode.hh) ----
-#ifndef MARKUPNODE_HH
-#define MARKUPNODE_HH
+//---- Interface de la classe <AbstractCompositeMarkupNode> (fichier AbstractCompositeMarkupNode.hh) ----
+#ifndef ABSTRACTCOMPOSITEMARKUPNODE_HH
+#define ABSTRACTCOMPOSITEMARKUPNODE_HH
 
 //--------------------------------------------------- Interfaces utilisées
-#include <string>
-#include <map>
-#include "Node.hh"
+#include <list>
+#include "MarkupNode.hh"
 
 //------------------------------------------------------------------------
-// Rôle de la classe <MarkupNode>
+// Rôle de la classe <AbstractCompositeMarkupNode>
 //	«Rôle»
 //
 //------------------------------------------------------------------------
@@ -23,7 +22,7 @@
 namespace xml
 {
 
-class MarkupNode : public Node
+class AbstractCompositeMarkupNode : public MarkupNode
 {
 public:
 //------------------------------------------------------------- Constantes
@@ -39,7 +38,7 @@ public:
 
 
 //------------------------------------------------- Surcharge d'opérateurs
-	MarkupNode & operator = ( const MarkupNode & unMarkupNode );
+	AbstractCompositeMarkupNode & operator = ( const AbstractCompositeMarkupNode & unAbstractCompositeMarkupNode );
 	// Mode d'emploi :
 	//	«TODO»
 	// Contrat :
@@ -47,34 +46,29 @@ public:
 
 
 //-------------------------------------------- Constructeurs - destructeur
-	MarkupNode ( const MarkupNode & unMarkupNode );
+	AbstractCompositeMarkupNode ( const AbstractCompositeMarkupNode & unAbstractCompositeMarkupNode );
 	// Mode d'emploi (constructeur de copie) :
 	//	«Mode emploi»
 	// Contrat :
 	//	«TODO»
 
-	MarkupNode ( Node * parent, std::string ns, std::string name );
+	AbstractCompositeMarkupNode ( Node * parent );
 	// Mode d'emploi (constructeur) :
 	//	«TODO»
 	// Contrat :
 	//	«TODO»
 
-	virtual ~MarkupNode ( );
+	virtual ~AbstractCompositeMarkupNode ( );
 	// Mode d'emploi (destructeur) :
 	//	«TODO»
 	// Contrat :
 	//	«TODO»
 
 protected:
-	typedef std::map<std::string,std::string> Attributs;
-
-	std::string _name;
-	std::string _namespace;
-	Attributs _attributs;
 
 };
 
 } // namespace xml
 
-#endif // MARKUPNODE_HH
+#endif // ABSTRACTCOMPOSITEMARKUPNODE_HH
 

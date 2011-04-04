@@ -11,7 +11,7 @@
 
 //--------------------------------------------------- Interfaces utilisées
 #include <list>
-#include "MarkupNode.hh"
+#include "AbstractCompositeMarkupNode.hh"
 
 //------------------------------------------------------------------------
 // Rôle de la classe <CompositeMarkupNode>
@@ -22,7 +22,7 @@
 namespace xml
 {
 
-class CompositeMarkupNode : public MarkupNode
+class CompositeMarkupNode : public AbstractCompositeMarkupNode
 {
 public:
 //------------------------------------------------------------- Constantes
@@ -52,7 +52,8 @@ public:
 	// Contrat :
 	//	«TODO»
 
-	CompositeMarkupNode ( );
+	CompositeMarkupNode ( Node * parent, CompositeMarkupNodeProxy & proxy, std::list<Node> & 
+		children);
 	// Mode d'emploi (constructeur) :
 	//	«TODO»
 	// Contrat :

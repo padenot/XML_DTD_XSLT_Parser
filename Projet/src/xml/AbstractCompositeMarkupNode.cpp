@@ -1,11 +1,11 @@
 /*************************************************************************
- * CompositeMarkupNode  -  «Description»
+ * AbstractCompositeMarkupNode  -  «Description»
  * -------------------
  * Début      : lun. 04 avril 2011 09:05:13 CEST
  * Auteur(s)  : H4215
 *************************************************************************/
 
-//---- Réalisation de la classe <CompositeMarkupNode> (fichier CompositeMarkupNode.cpp) ----
+//---- Réalisation de la classe <AbstractCompositeMarkupNode> (fichier AbstractCompositeMarkupNode.cpp) ----
 
 //---------------------------------------------------------------- INCLUDE
 
@@ -13,7 +13,7 @@
 using namespace std;
 
 //------------------------------------------------------ Include personnel
-#include "CompositeMarkupNode.hh"
+#include "AbstractCompositeMarkupNode.hh"
 
 namespace xml
 {
@@ -28,14 +28,14 @@ namespace xml
 //-------------------------------------------------------- Fonctions amies
 
 //----------------------------------------------------- Méthodes publiques
-// type CompositeMarkupNode::Méthode ( liste de paramètres )
+// type AbstractCompositeMarkupNode::Méthode ( liste de paramètres )
 // Algorithme :
 //	«TODO»
 //{
 //} //----- Fin de Méthode
 
 //------------------------------------------------- Surcharge d'opérateurs
-CompositeMarkupNode & CompositeMarkupNode::operator = ( const CompositeMarkupNode & unCompositeMarkupNode )
+AbstractCompositeMarkupNode & AbstractCompositeMarkupNode::operator = ( const AbstractCompositeMarkupNode & unAbstractCompositeMarkupNode )
 // Algorithme :
 //	«TODO»
 {
@@ -44,31 +44,29 @@ CompositeMarkupNode & CompositeMarkupNode::operator = ( const CompositeMarkupNod
 
 
 //-------------------------------------------- Constructeurs - destructeur
-CompositeMarkupNode::CompositeMarkupNode ( const CompositeMarkupNode & unCompositeMarkupNode ) // TODO
+AbstractCompositeMarkupNode::AbstractCompositeMarkupNode ( const AbstractCompositeMarkupNode & unAbstractCompositeMarkupNode ) // TODO
 // Algorithme :
 //	«TODO»
 {
 	//TODO
-} //----- Fin de CompositeMarkupNode (constructeur de copie)
+} //----- Fin de AbstractCompositeMarkupNode (constructeur de copie)
 
 
-CompositeMarkupNode::CompositeMarkupNode ( Node * parent, CompositeMarkupNodeProxy & proxy, std::list<Node> & 
-		children)
-		: AbstractCompositeMarkupNode( parent ), 
-			_children( children ) // TODO
+AbstractCompositeMarkupNode::AbstractCompositeMarkupNode ( Node * parent )
+	: MarkupNode ( parent ) // TODO
 // Algorithme :
 //	«TODO»
 {
-	// TODO use proxy
-} //----- Fin de CompositeMarkupNode
+	// TODO
+} //----- Fin de AbstractCompositeMarkupNode
 
 
-CompositeMarkupNode::~CompositeMarkupNode ( )
+AbstractCompositeMarkupNode::~AbstractCompositeMarkupNode ( )
 // Algorithme :
 //	«TODO»
 {
 	//TODO
-} //----- Fin de ~CompositeMarkupNode
+} //----- Fin de ~AbstractCompositeMarkupNode
 
 
 //------------------------------------------------------------------ PRIVE
