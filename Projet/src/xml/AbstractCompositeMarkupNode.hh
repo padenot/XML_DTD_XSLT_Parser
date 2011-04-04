@@ -52,7 +52,7 @@ public:
 	// Contrat :
 	//	«TODO»
 
-	AbstractCompositeMarkupNode ( Node * parent );
+	AbstractCompositeMarkupNode ( Node * parent, std::string ns, std::string name );
 	// Mode d'emploi (constructeur) :
 	//	«TODO»
 	// Contrat :

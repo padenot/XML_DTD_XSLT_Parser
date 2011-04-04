@@ -52,10 +52,11 @@ CompositeMarkupNode::CompositeMarkupNode ( const CompositeMarkupNode & unComposi
 } //----- Fin de CompositeMarkupNode (constructeur de copie)
 
 
-CompositeMarkupNode::CompositeMarkupNode ( Node * parent, CompositeMarkupNodeProxy & proxy, std::list<Node> & 
-		children)
-		: AbstractCompositeMarkupNode( parent ), 
-			_children( children ) // TODO
+CompositeMarkupNode::CompositeMarkupNode ( Node * parent, std::string ns,
+	std::string name, CompositeMarkupNodeProxy & proxy, std::list<Node> & 
+	children)
+		: AbstractCompositeMarkupNode( parent, ns, name ), 
+			_children( children )
 // Algorithme :
 //	«TODO»
 {

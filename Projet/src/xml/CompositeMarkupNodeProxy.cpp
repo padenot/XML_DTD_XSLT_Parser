@@ -44,7 +44,8 @@ CompositeMarkupNodeProxy & CompositeMarkupNodeProxy::operator = ( const Composit
 
 
 //-------------------------------------------- Constructeurs - destructeur
-CompositeMarkupNodeProxy::CompositeMarkupNodeProxy ( const CompositeMarkupNodeProxy & unCompositeMarkupNodeProxy ) // TODO
+CompositeMarkupNodeProxy::CompositeMarkupNodeProxy (
+	const CompositeMarkupNodeProxy & unCompositeMarkupNodeProxy ) // TODO
 // Algorithme :
 //	«TODO»
 {
@@ -53,7 +54,7 @@ CompositeMarkupNodeProxy::CompositeMarkupNodeProxy ( const CompositeMarkupNodePr
 
 
 CompositeMarkupNodeProxy::CompositeMarkupNodeProxy ( )
-		: AbstractCompositeMarkupNode( 0 )
+		: AbstractCompositeMarkupNode( 0, "", "" )
 // TODO
 // Algorithme :
 //	«TODO»

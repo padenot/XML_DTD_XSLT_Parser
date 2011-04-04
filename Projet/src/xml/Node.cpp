@@ -26,7 +26,10 @@ namespace xml
 
 //----------------------------------------------------------------- PUBLIC
 //-------------------------------------------------------- Fonctions amies
-
+ostream& operator << ( ostream& stream, const Node & aNode )
+{
+	aNode.write(stream);
+}
 //----------------------------------------------------- Méthodes publiques
 // type Node::Méthode ( liste de paramètres )
 // Algorithme :

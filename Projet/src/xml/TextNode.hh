@@ -52,7 +52,7 @@ public:
 	// Contrat :
 	//	«TODO»
 
-	TextNode ( );
+	TextNode ( Node * parent, std::string content );
 	// Mode d'emploi (constructeur) :
 	//	«TODO»
 	// Contrat :
