@@ -43,6 +43,13 @@ public:
 	// Contrat :
 	//	«TODO»
 
+	friend ostream & operator << ( ostream&, const Node & aNode );
+	// Mode d'emploi :
+	//	«TODO»
+	// Contrat :
+	//	«TODO»
+
+
 
 //-------------------------------------------- Constructeurs - destructeur
 	Node ( const Node & aNode );
@@ -65,6 +72,8 @@ public:
 
 protected:
 	AbstractCompositeMarkupNode* _parent;
+virtual ostream& write ( ostream& ) const = 0;
+
 };
 
 } // namespace xml
