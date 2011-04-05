@@ -53,6 +53,8 @@ public:
 	//	La méthode est compatible avec la STL.
 	//	L'itérateur pointe vers un pointeur (l'accès aux méthodes des fils
 	//	se fait donc de la façon suivante : (*it)->foo()).
+	//	ATTENTION : cette méthode occulte MarkupNode::begin, qui a une
+	//	sémantique différente. Pour y accéder, utiliser node.MarkupNode::begin.
 	// Contrat :
 	//	L'itérateur n'est plus valable en cas de modification du noeud, de
 	//	même que les itérateurs obtenus par son intermédiaire.
@@ -63,6 +65,8 @@ public:
 	//	La méthode est compatible avec la STL.
 	//	L'itérateur pointe vers un pointeur (l'accès aux méthodes des fils
 	//	se fait donc de la façon suivante : (*it)->foo()).
+	//	ATTENTION : cette méthode occulte MarkupNode::end, qui a une
+	//	sémantique différente. Pour y accéder, utiliser node.MarkupNode::end.
 	// Contrat :
 	//	L'itérateur n'est plus valable en cas de modification du noeud, de
 	//	même que les itérateurs obtenus par son intermédiaire.
