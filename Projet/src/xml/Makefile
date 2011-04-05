@@ -8,6 +8,7 @@ BINPATH=./bin
 LIBPATH=./lib
 OBJPATH=./obj
 SRCPATH=./src
+STATICLIBS=
 TESTPATH=./test
 TESTBINNAME=xmlstructtest
 
@@ -63,14 +64,14 @@ mrproper: clean cleanbin
 
 rebuild: cleano cleanbin all
 
-run:
+run: $(BIN) 
 ifneq ($(ISLIBRARY),yes)
 	@cd $(BINPATH) && ./$(BINNAME)
 else
 	@echo "$(BINPATH)/$(BINNAME) is a library and thus cannot be executed."
 endif
 
-test:
+test: | $(TESTPATH)
 	@cd $(TESTPATH) ; make run
 
 .PHONY: all cleano cleand cleanbak cleanbin clean mrproper rebuild run test
@@ -78,7 +79,7 @@ test:
 ## Generic rules
 # Binaries dependencies
 ifneq ($(ISLIBRARY),yes)
-$(BIN): $(OBJS) | $(BINPATH) $(LIBPATH)
+$(BIN): $(OBJS) $(STATICLIBS) | $(BINPATH) $(LIBPATH)
 	$(LD) $(LDFLAGS) -o $@ $^
 else
 $(BIN): $(OBJS) | $(BINPATH)
@@ -90,7 +91,7 @@ $(OBJPATH)/%.o: $(SRCPATH)/%.cpp | $(OBJPATH)
 	$(CXX) $(CXXFLAGS) -o $@ -c $<
 
 # Directories
-$(BINPATH) $(OBJPATH) $(LIBPATH):
+$(BINPATH) $(OBJPATH) $(LIBPATH) $(TESTPATH):
 	mkdir $@
 
 ## Dependencies

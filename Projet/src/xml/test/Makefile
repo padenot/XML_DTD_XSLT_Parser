@@ -9,7 +9,8 @@ LIBPATH=./lib
 OBJPATH=./obj
 SRCPATH=./src
 STATICLIBS=../bin/libxmlstruct.a
-
+TESTPATH=./test
+TESTBINNAME=
 
 # Build
 CXX=g++
@@ -19,7 +20,7 @@ LDFLAGS=-L$(LIBPATH)
 LIBLD=ar
 LIBLDFLAGS=cr
 
-SRCS=$(shell find . -type f -regex '.*\.cpp')
+SRCS=$(shell find $(SRCPATH) -type f -regex '.*\.cpp')
 
 ## Auto settings
 ifneq ($(ISLIBRARY),yes)
@@ -63,15 +64,15 @@ mrproper: clean cleanbin
 
 rebuild: cleano cleanbin all
 
-run:
+run: $(BIN)
 ifneq ($(ISLIBRARY),yes)
 	@cd $(BINPATH) && ./$(BINNAME)
 else
 	@echo "$(BINPATH)/$(BINNAME) is a library and thus cannot be executed."
 endif
 
-test:
-	@echo "No test procedure yet for $(BINNAME)"
+test: | $(TESTPATH)
+	@cd $(TESTPATH) ; make run
 
 .PHONY: all cleano cleand cleanbak cleanbin clean mrproper rebuild run test
 
@@ -90,7 +91,7 @@ $(OBJPATH)/%.o: $(SRCPATH)/%.cpp | $(OBJPATH)
 	$(CXX) $(CXXFLAGS) -o $@ -c $<
 
 # Directories
-$(BINPATH) $(OBJPATH) $(LIBPATH):
+$(BINPATH) $(OBJPATH) $(LIBPATH) $(TESTPATH):
 	mkdir $@
 
 ## Dependencies

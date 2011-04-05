@@ -26,11 +26,11 @@ using namespace xml;
 //-------------------------------------------------------------- Fonctions
 Node* buildTree()
 {
-	const string NS_INIT("__ns");
-	const string NAME_INIT("__name");
-	const string ATTR_INIT("__attr");
-	const string VAL_INIT("__val");
-	const string TEXT_INIT("__Ceci est un texte anticonstitutionnel et verbeux.");
+	const string NS_INIT("ns#");
+	const string NAME_INIT("name#");
+	const string ATTR_INIT("attr#");
+	const string VAL_INIT("val#");
+	const string TEXT_INIT("Ceci est un texte anticonstitutionnel et verbeux. #");
 
 	CompositeMarkupNode** parent = new CompositeMarkupNode*;
 	CompositeMarkupNode::Children children;
@@ -40,16 +40,16 @@ Node* buildTree()
 	{
 		if (i % 2 == 0)
 		{
-			ostringstream ns(NS_INIT);
-			ostringstream name(NAME_INIT);
-			ns << setw(2) << i;
-			name << setw(2) << i;
+			ostringstream ns;
+			ostringstream name;
+			ns << NS_INIT << i;
+			name << NAME_INIT << i;
 			children.push_back(new MarkupNode(*parent, ns.str(), name.str(),
 					attributes));
 		} else
 		{
-			ostringstream text(TEXT_INIT);
-			text << setw(2) << i;
+			ostringstream text;
+			text << TEST_INIT << i;
 			children .push_back(new TextNode(*parent, text.str()));
 		}
 	}
