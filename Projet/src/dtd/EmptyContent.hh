@@ -37,20 +37,9 @@ public:
 
 
 //------------------------------------------------- Surcharge d'opérateurs
-	EmptyContent & operator = ( const EmptyContent & unEmptyContent );
-	// Mode d'emploi :
-	//	«TODO»
-	// Contrat :
-	//	«TODO»
 
 
 //-------------------------------------------- Constructeurs - destructeur
-	EmptyContent ( const EmptyContent & unEmptyContent );
-	// Mode d'emploi (constructeur de copie) :
-	//	«Mode emploi»
-	// Contrat :
-	//	«TODO»
-
 	EmptyContent ( );
 	// Mode d'emploi (constructeur) :
 	//	«TODO»

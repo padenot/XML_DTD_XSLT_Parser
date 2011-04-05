@@ -35,23 +35,9 @@ namespace dtd
 //} //----- Fin de Méthode
 
 //------------------------------------------------- Surcharge d'opérateurs
-EmptyContent & EmptyContent::operator = ( const EmptyContent & unEmptyContent )
-// Algorithme :
-//	«TODO»
-{
-	//TODO
-} //----- Fin de operator =
 
 
 //-------------------------------------------- Constructeurs - destructeur
-EmptyContent::EmptyContent ( const EmptyContent & unEmptyContent )
-// Algorithme :
-//	«TODO»
-{
-	//TODO
-} //----- Fin de EmptyContent (constructeur de copie)
-
-
 EmptyContent::EmptyContent ( )
 // Algorithme :
 //	«TODO»

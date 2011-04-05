@@ -3,7 +3,7 @@
  * -------------------
  * Début      : lun. 04 avril 2011 09:03:16 CEST
  * Auteur(s)  : H4215
-*************************************************************************/
+ *************************************************************************/
 
 //---- Réalisation de la classe <TextNode> (fichier TextNode.cpp) ----
 
@@ -11,6 +11,7 @@
 
 //-------------------------------------------------------- Include système
 using namespace std;
+#include <iostream>
 
 //------------------------------------------------------ Include personnel
 #include "TextNode.hh"
@@ -34,37 +35,25 @@ namespace xml
 //{
 //} //----- Fin de Méthode
 
-//------------------------------------------------- Surcharge d'opérateurs
-TextNode & TextNode::operator = ( const TextNode & unTextNode )
-// Algorithme :
-//	«TODO»
+ostream& TextNode::Write(ostream& out, unsigned char indent) const
 {
-	// TODO
-} //----- Fin de operator =
+	doIndent(out, indent);
+	return out << _content;
+} //----- Fin de Write
+
+
+//------------------------------------------------- Surcharge d'opérateurs
 
 
 //-------------------------------------------- Constructeurs - destructeur
-TextNode::TextNode ( const TextNode & unTextNode ) // TODO
-// Algorithme :
-//	«TODO»
-{
-	//TODO
-} //----- Fin de TextNode (constructeur de copie)
-
-
-TextNode::TextNode ( Node * parent, string content ) :
-	Node(parent),
-	_content(content)
-// Algorithme :
-//	«TODO»
+TextNode::TextNode(CompositeMarkupNode *& parent, string content) :
+	Node(parent), _content(content)
 {
 	//TODO
 } //----- Fin de TextNode
 
 
-TextNode::~TextNode ( )
-// Algorithme :
-//	«TODO»
+TextNode::~TextNode()
 {
 	//TODO
 } //----- Fin de ~TextNode
@@ -73,6 +62,7 @@ TextNode::~TextNode ( )
 //------------------------------------------------------------------ PRIVE
 
 //----------------------------------------------------- Méthodes protégées
+
 
 //------------------------------------------------------- Méthodes privées
 

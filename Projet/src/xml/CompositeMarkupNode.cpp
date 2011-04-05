@@ -3,7 +3,7 @@
  * -------------------
  * Début      : lun. 04 avril 2011 09:05:13 CEST
  * Auteur(s)  : H4215
-*************************************************************************/
+ *************************************************************************/
 
 //---- Réalisation de la classe <CompositeMarkupNode> (fichier CompositeMarkupNode.cpp) ----
 
@@ -11,6 +11,7 @@
 
 //-------------------------------------------------------- Include système
 using namespace std;
+#include <iostream>
 
 //------------------------------------------------------ Include personnel
 #include "CompositeMarkupNode.hh"
@@ -34,41 +35,52 @@ namespace xml
 //{
 //} //----- Fin de Méthode
 
-//------------------------------------------------- Surcharge d'opérateurs
-CompositeMarkupNode & CompositeMarkupNode::operator = ( const CompositeMarkupNode & unCompositeMarkupNode )
-// Algorithme :
-//	«TODO»
+ostream& CompositeMarkupNode::Write(ostream& out, unsigned char indent) const
 {
-	//TODO
-} //----- Fin de operator =
+	doIndent(out, indent);
+	out << OPEN_MARKUP_CHAR << _namespace << NS_SEPARATOR_CHAR << _name;
+	writeAttributes(out) << CLOSE_MARKUP_CHAR << endl;
+
+	indent += 1;
+	for (_Children::const_iterator it = _children.begin(); it
+			!= _children.end(); ++it)
+	{
+		(*it)->Write(out, indent);
+	}
+
+	doIndent(out, indent);
+	out << OPEN_MARKUP_CHAR << CLOSING_MARKUP_CHAR << _namespace
+			<< NS_SEPARATOR_CHAR << _name << CLOSE_MARKUP_CHAR << endl;
+	return out;
+} //----- Fin de Write
+
+
+//------------------------------------------------- Surcharge d'opérateurs
 
 
 //-------------------------------------------- Constructeurs - destructeur
-CompositeMarkupNode::CompositeMarkupNode ( const CompositeMarkupNode & unCompositeMarkupNode ) // TODO
-// Algorithme :
-//	«TODO»
+CompositeMarkupNode::CompositeMarkupNode(CompositeMarkupNode *& parent,
+		const std::string & ns, const std::string & name,
+		const Attributes & attributes, CompositeMarkupNode*& selfPointer,
+		const Children & children) :
+	MarkupNode(parent, ns, name, attributes), _children(children),
+			_selfPointer(selfPointer)
 {
-	//TODO
-} //----- Fin de CompositeMarkupNode (constructeur de copie)
-
-
-CompositeMarkupNode::CompositeMarkupNode ( Node * parent, std::string ns,
-	std::string name, CompositeMarkupNodeProxy & proxy, std::list<Node> & 
-	children)
-		: AbstractCompositeMarkupNode( parent, ns, name ), 
-			_children( children )
-// Algorithme :
-//	«TODO»
-{
-	// TODO use proxy
+	// Affectation du pointeur utilisé comme référence par les enfants
+	_selfPointer = this;
 } //----- Fin de CompositeMarkupNode
 
 
-CompositeMarkupNode::~CompositeMarkupNode ( )
-// Algorithme :
-//	«TODO»
+CompositeMarkupNode::~CompositeMarkupNode()
 {
-	//TODO
+	for (_Children::const_iterator it = _children.begin(); it
+			!= _children.end(); ++it)
+	{
+		delete *it;
+	}
+
+	// Destruction du pointeur utilisé comme référence par les enfants
+	delete _selfPointer;
 } //----- Fin de ~CompositeMarkupNode
 
 

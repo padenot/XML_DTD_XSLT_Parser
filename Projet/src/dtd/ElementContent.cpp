@@ -35,23 +35,9 @@ namespace dtd
 //} //----- Fin de Méthode
 
 //------------------------------------------------- Surcharge d'opérateurs
-ElementContent & ElementContent::operator = ( const ElementContent & unElementContent )
-// Algorithme :
-//	«TODO»
-{
-	//TODO
-} //----- Fin de operator =
 
 
 //-------------------------------------------- Constructeurs - destructeur
-ElementContent::ElementContent ( const ElementContent & unElementContent )
-// Algorithme :
-//	«TODO»
-{
-	//TODO
-} //----- Fin de ElementContent (constructeur de copie)
-
-
 ElementContent::ElementContent ( )
 // Algorithme :
 //	«TODO»

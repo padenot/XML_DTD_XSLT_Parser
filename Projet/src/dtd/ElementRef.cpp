@@ -35,23 +35,9 @@ namespace dtd
 //} //----- Fin de Méthode
 
 //------------------------------------------------- Surcharge d'opérateurs
-ElementRef & ElementRef::operator = ( const ElementRef & unElementRef )
-// Algorithme :
-//	«TODO»
-{
-	//TODO
-} //----- Fin de operator =
 
 
 //-------------------------------------------- Constructeurs - destructeur
-ElementRef::ElementRef ( const ElementRef & unElementRef )
-// Algorithme :
-//	«TODO»
-{
-	//TODO
-} //----- Fin de ElementRef (constructeur de copie)
-
-
 ElementRef::ElementRef ( )
 // Algorithme :
 //	«TODO»

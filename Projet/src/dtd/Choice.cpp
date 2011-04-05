@@ -3,7 +3,7 @@
  * -------------------
  * Début      : lun. 04 avril 2011 10:24:01 CEST
  * Auteur(s)  : H4215
-*************************************************************************/
+ *************************************************************************/
 
 //---- Réalisation de la classe <Choice> (fichier Choice.cpp) ----
 
@@ -35,24 +35,10 @@ namespace dtd
 //} //----- Fin de Méthode
 
 //------------------------------------------------- Surcharge d'opérateurs
-Choice & Choice::operator = ( const Choice & unChoice )
-// Algorithme :
-//	«TODO»
-{
-	//TODO
-} //----- Fin de operator =
 
 
 //-------------------------------------------- Constructeurs - destructeur
-Choice::Choice ( const Choice & unChoice )
-// Algorithme :
-//	«TODO»
-{
-	//TODO
-} //----- Fin de Choice (constructeur de copie)
-
-
-Choice::Choice ( )
+Choice::Choice()
 // Algorithme :
 //	«TODO»
 {
@@ -60,7 +46,7 @@ Choice::Choice ( )
 } //----- Fin de Choice
 
 
-Choice::~Choice ( )
+Choice::~Choice()
 // Algorithme :
 //	«TODO»
 {
