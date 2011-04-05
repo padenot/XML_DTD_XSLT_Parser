@@ -71,9 +71,9 @@ protected:
 	unsigned _indentUnit;
 	unsigned int _indent;
 
-	virtual void visit(const TextNode& node) = 0;
-	virtual void visit(const MarkupNode& node) = 0;
-	virtual void visit(const CompositeMarkupNode& node) = 0;
+	virtual void visit(const TextNode& node);
+	virtual void visit(const MarkupNode& node);
+	virtual void visit(const CompositeMarkupNode& node);
 	// Mode d'emploi :
 	//	Écrit le noeud sur le flot "out".
 	//	La nature des caractères écrits sur le flot dépend du type du noeud.

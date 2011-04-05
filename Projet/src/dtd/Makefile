@@ -7,7 +7,7 @@ ISLIBRARY=yes
 BINPATH=./bin
 LIBPATH=./lib
 OBJPATH=./obj
-SRCPATH=./
+SRCPATH=./src
 
 # Build
 CXX=g++
@@ -17,7 +17,7 @@ LDFLAGS=-L$(LIBPATH)
 LIBLD=ar
 LIBLDFLAGS=cr
 
-SRCS=$(shell find . -type f -regex '.*\.cpp')
+SRCS=$(shell find $(SRCPATH) -type f -regex '.*\.cpp')
 
 ## Auto settings
 ifneq ($(ISLIBRARY),yes)

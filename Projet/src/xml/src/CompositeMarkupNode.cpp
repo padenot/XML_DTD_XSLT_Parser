@@ -34,6 +34,11 @@ namespace xml
 //{
 //} //----- Fin de Méthode
 
+void CompositeMarkupNode::accept (InterfaceNodeVisitor& visitor) const
+{
+	visitor.visit(*this);
+}
+
 CompositeMarkupNode::ChildrenIterator CompositeMarkupNode::begin() const
 {
 	return _children.begin();

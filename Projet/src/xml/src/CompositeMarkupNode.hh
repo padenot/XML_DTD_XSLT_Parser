@@ -40,6 +40,13 @@ public:
 	// Contrat :
 	//	«TODO»
 
+	virtual void accept (InterfaceNodeVisitor& visitor) const;
+	// Mode d'emploi :
+	//	Permet à un visiteur d'inspecter ce noeud sous sa vraie identité
+	//	(en lui révélant son type réel).
+	// Contrat :
+	//	Aucun.
+
 	ChildrenIterator begin() const;
 	// Mode d'emploi :
 	//	Renvoie un itérateur vers le premier enfant du noeud.

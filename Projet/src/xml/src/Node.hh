@@ -1,28 +1,29 @@
 /*************************************************************************
- * TextNode  -  «Description»
+ * Node  -  «Description»
  * -------------------
- * Début      : lun. 04 avril 2011 08:51:06 CEST
+ * Début      : lun. 04 avril 2011 08:46:08 CEST
  * Auteur(s)  : H4215
  *************************************************************************/
 
-//---- Interface de la classe <TextNode> (fichier TextNode.hh) ----
-#ifndef TEXTNODE_HH
-#define TEXTNODE_HH
+//---- Interface de la classe <Node> (fichier Node.hh) ----
+#ifndef NODE_HH
+#define NODE_HH
 
 //--------------------------------------------------- Interfaces utilisées
-#include <string>
-#include "Node.hh"
+#include "InterfaceNodeVisitor.hpp"
+
+namespace xml
+{
+class CompositeMarkupNode;
 
 //------------------------------------------------------------------------
-// Rôle de la classe <TextNode>
+// Rôle de la classe <Node>
 //	«Rôle»
 //
 //------------------------------------------------------------------------
 
-namespace xml
-{
 
-class TextNode: public Node
+class Node
 {
 public:
 	//------------------------------------------------------------- Constantes
@@ -36,32 +37,39 @@ public:
 	// Contrat :
 	//	«TODO»
 
-	std::string content() const;
+	virtual void accept (InterfaceNodeVisitor& visitor) const = 0;
 	// Mode d'emploi :
-	//	Renvoie le contenu du noeud.
+	//	Permet à un visiteur d'inspecter ce noeud sous sa vraie identité
+	//	(en lui révélant son type réel).
 	// Contrat :
 	//	Aucun.
 
+
 	//------------------------------------------------- Surcharge d'opérateurs
 
+
 	//-------------------------------------------- Constructeurs - destructeur
-	TextNode(CompositeMarkupNode *& parent, std::string content);
+	Node(CompositeMarkupNode *& parent);
 	// Mode d'emploi (constructeur) :
 	//	«TODO»
 	// Contrat :
-	//	«TODO»
+	//	La valeur de "parent" ne doit plus changer après la construction de
+	//		l'arbre.
+	//	Si le noeud construit représente la racine, "parent" doit être nul.
+	//	La destruction du pointeur "parent" (et non de l'objet "*parent") est
+	//		à la charge de l'objet construit (le noeud).
 
-	virtual ~TextNode();
+	virtual ~Node();
 	// Mode d'emploi (destructeur) :
 	//	«TODO»
 	// Contrat :
 	//	«TODO»
 
 protected:
-	std::string _content;
 
+	CompositeMarkupNode *& _parent;
 };
 
 } // namespace xml
 
-#endif // TEXTNODE_HH
+#endif // NODE_HH

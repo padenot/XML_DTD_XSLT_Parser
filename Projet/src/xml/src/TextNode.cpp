@@ -34,6 +34,11 @@ namespace xml
 //{
 //} //----- Fin de Méthode
 
+void TextNode::accept (InterfaceNodeVisitor& visitor) const
+{
+	visitor.visit(*this);
+}
+
 std::string TextNode::content() const
 {
 	return _content;

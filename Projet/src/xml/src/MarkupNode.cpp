@@ -35,6 +35,11 @@ namespace xml
 //{
 //} //----- Fin de Méthode
 
+void MarkupNode::accept (InterfaceNodeVisitor& visitor) const
+{
+	visitor.visit(*this);
+}
+
 std::string MarkupNode::ns() const
 {
 	return _namespace;

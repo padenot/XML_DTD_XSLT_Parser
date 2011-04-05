@@ -29,7 +29,9 @@ public:
 	}
 
 protected :
-	friend class Node;
+	friend class TextNode;
+	friend class MarkupNode;
+	friend class CompositeMarkupNode;
 	virtual void visit(const TextNode& node) = 0;
 	virtual void visit(const MarkupNode& node) = 0;
 	virtual void visit(const CompositeMarkupNode& node) = 0;

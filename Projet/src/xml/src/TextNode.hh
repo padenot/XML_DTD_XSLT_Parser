@@ -1,29 +1,28 @@
 /*************************************************************************
- * Node  -  «Description»
+ * TextNode  -  «Description»
  * -------------------
- * Début      : lun. 04 avril 2011 08:46:08 CEST
+ * Début      : lun. 04 avril 2011 08:51:06 CEST
  * Auteur(s)  : H4215
  *************************************************************************/
 
-//---- Interface de la classe <Node> (fichier Node.hh) ----
-#ifndef NODE_HH
-#define NODE_HH
+//---- Interface de la classe <TextNode> (fichier TextNode.hh) ----
+#ifndef TEXTNODE_HH
+#define TEXTNODE_HH
 
 //--------------------------------------------------- Interfaces utilisées
-#include "InterfaceNodeVisitor.hpp"
-
-namespace xml
-{
-class CompositeMarkupNode;
+#include <string>
+#include "Node.hh"
 
 //------------------------------------------------------------------------
-// Rôle de la classe <Node>
+// Rôle de la classe <TextNode>
 //	«Rôle»
 //
 //------------------------------------------------------------------------
 
+namespace xml
+{
 
-class Node
+class TextNode: public Node
 {
 public:
 	//------------------------------------------------------------- Constantes
@@ -44,32 +43,32 @@ public:
 	// Contrat :
 	//	Aucun.
 
+	std::string content() const;
+	// Mode d'emploi :
+	//	Renvoie le contenu du noeud.
+	// Contrat :
+	//	Aucun.
 
 	//------------------------------------------------- Surcharge d'opérateurs
 
-
 	//-------------------------------------------- Constructeurs - destructeur
-	Node(CompositeMarkupNode *& parent);
+	TextNode(CompositeMarkupNode *& parent, std::string content);
 	// Mode d'emploi (constructeur) :
 	//	«TODO»
 	// Contrat :
-	//	La valeur de "parent" ne doit plus changer après la construction de
-	//		l'arbre.
-	//	Si le noeud construit représente la racine, "parent" doit être nul.
-	//	La destruction du pointeur "parent" (et non de l'objet "*parent") est
-	//		à la charge de l'objet construit (le noeud).
+	//	«TODO»
 
-	virtual ~Node();
+	virtual ~TextNode();
 	// Mode d'emploi (destructeur) :
 	//	«TODO»
 	// Contrat :
 	//	«TODO»
 
 protected:
+	std::string _content;
 
-	CompositeMarkupNode *& _parent;
 };
 
 } // namespace xml
 
-#endif // NODE_HH
+#endif // TEXTNODE_HH

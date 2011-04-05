@@ -1,25 +1,25 @@
 ## Manual settings
 
 # Paths
-BINNAME=xmlstruct
-ISLIBRARY=yes
+BINNAME=xmlstructtest
+ISLIBRARY=no
 
 BINPATH=./bin
 LIBPATH=./lib
 OBJPATH=./obj
 SRCPATH=./src
-TESTPATH=./test
-TESTBINNAME=xmlstructtest
+STATICLIBS=../bin/libxmlstruct.a
+
 
 # Build
 CXX=g++
-CXXFLAGS=-ansi -pedantic -W -Wall
+CXXFLAGS=-ansi -pedantic -W -Wall -I../src
 LD=g++
 LDFLAGS=-L$(LIBPATH)
 LIBLD=ar
 LIBLDFLAGS=cr
 
-SRCS=$(shell find $(SRCPATH) -type f -regex '.*\.cpp')
+SRCS=$(shell find . -type f -regex '.*\.cpp')
 
 ## Auto settings
 ifneq ($(ISLIBRARY),yes)
@@ -71,14 +71,14 @@ else
 endif
 
 test:
-	@cd $(TESTPATH) ; make run
+	@echo "No test procedure yet for $(BINNAME)"
 
 .PHONY: all cleano cleand cleanbak cleanbin clean mrproper rebuild run test
 
 ## Generic rules
 # Binaries dependencies
 ifneq ($(ISLIBRARY),yes)
-$(BIN): $(OBJS) | $(BINPATH) $(LIBPATH)
+$(BIN): $(OBJS) $(STATICLIBS) | $(BINPATH) $(LIBPATH)
 	$(LD) $(LDFLAGS) -o $@ $^
 else
 $(BIN): $(OBJS) | $(BINPATH)

@@ -111,7 +111,7 @@ void OutputVisitor::doIndent()
 		_out << setw(_indent) << _indentChar;
 		_out.fill(fillChar);
 	}
-}
+} //----- Fin de doIndent
 
 void OutputVisitor::writeAttributes(const MarkupNode& node)
 {
