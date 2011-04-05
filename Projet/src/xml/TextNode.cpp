@@ -11,7 +11,6 @@
 
 //-------------------------------------------------------- Include système
 using namespace std;
-#include <iostream>
 
 //------------------------------------------------------ Include personnel
 #include "TextNode.hh"
@@ -35,11 +34,10 @@ namespace xml
 //{
 //} //----- Fin de Méthode
 
-ostream& TextNode::Write(ostream& out, unsigned char indent) const
+std::string TextNode::content() const
 {
-	doIndent(out, indent);
-	return out << _content;
-} //----- Fin de Write
+	return _content;
+}
 
 
 //------------------------------------------------- Surcharge d'opérateurs

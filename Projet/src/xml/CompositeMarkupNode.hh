@@ -24,11 +24,14 @@ namespace xml
 
 class CompositeMarkupNode: public MarkupNode
 {
+protected:
+	typedef std::list<Node*> _Children;
 public:
 	//------------------------------------------------------------- Constantes
 
 	//------------------------------------------------------------------ Types
 	typedef std::list<Node*> Children;
+	typedef _Children::const_iterator ChildrenIterator;
 
 	//----------------------------------------------------- Méthodes publiques
 	// type Méthode ( liste de paramètres );
@@ -37,8 +40,26 @@ public:
 	// Contrat :
 	//	«TODO»
 
-	virtual std::ostream
-	& Write(std::ostream& out, unsigned char indent) const;
+	ChildrenIterator begin() const;
+	// Mode d'emploi :
+	//	Renvoie un itérateur vers le premier enfant du noeud.
+	//	La méthode est compatible avec la STL.
+	//	L'itérateur pointe vers un pointeur (l'accès aux méthodes des fils
+	//	se fait donc de la façon suivante : (*it)->foo()).
+	// Contrat :
+	//	L'itérateur n'est plus valable en cas de modification du noeud, de
+	//	même que les itérateurs obtenus par son intermédiaire.
+
+	ChildrenIterator end() const;
+	// Mode d'emploi :
+	//	Renvoie un itérateur pointant juste après le dernier enfant du noeud.
+	//	La méthode est compatible avec la STL.
+	//	L'itérateur pointe vers un pointeur (l'accès aux méthodes des fils
+	//	se fait donc de la façon suivante : (*it)->foo()).
+	// Contrat :
+	//	L'itérateur n'est plus valable en cas de modification du noeud, de
+	//	même que les itérateurs obtenus par son intermédiaire.
+
 
 	//------------------------------------------------- Surcharge d'opérateurs
 
@@ -59,7 +80,6 @@ public:
 	//	«TODO»
 
 protected:
-	typedef std::list<Node*> _Children;
 	_Children _children;
 
 	CompositeMarkupNode*& _selfPointer;

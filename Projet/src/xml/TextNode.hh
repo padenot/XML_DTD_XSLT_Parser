@@ -36,8 +36,11 @@ public:
 	// Contrat :
 	//	«TODO»
 
-	virtual std::ostream
-	& Write(std::ostream& out, unsigned char indent) const;
+	std::string content() const;
+	// Mode d'emploi :
+	//	Renvoie le contenu du noeud.
+	// Contrat :
+	//	Aucun.
 
 	//------------------------------------------------- Surcharge d'opérateurs
 

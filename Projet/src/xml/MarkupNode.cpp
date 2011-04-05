@@ -19,14 +19,6 @@ using namespace std;
 namespace xml
 {
 //------------------------------------------------------------- Constantes
-const char MarkupNode::OPEN_MARKUP_CHAR = '<';
-const char MarkupNode::NS_SEPARATOR_CHAR = ':';
-const char MarkupNode::INSIDE_MARKUP_SPACE_CHAR = ' ';
-const char MarkupNode::CLOSING_MARKUP_CHAR = '/';
-const char MarkupNode::CLOSE_MARKUP_CHAR = '>';
-const char MarkupNode::ASSIGN_ATTRIBUTE_VALUE_CHAR = '=';
-const char MarkupNode::OPEN_ATTRIBUTE_VALUE_CHAR = '"';
-const char MarkupNode::CLOSE_ATTRIBUTE_VALUE_CHAR = '"';
 
 //---------------------------------------------------- Variables de classe
 
@@ -43,13 +35,25 @@ const char MarkupNode::CLOSE_ATTRIBUTE_VALUE_CHAR = '"';
 //{
 //} //----- Fin de Méthode
 
-ostream& MarkupNode::Write(ostream& out, unsigned char indent) const
+std::string MarkupNode::ns() const
 {
-	doIndent(out, indent);
-	out << OPEN_MARKUP_CHAR << _namespace << NS_SEPARATOR_CHAR << _name;
-	writeAttributes(out) << CLOSING_MARKUP_CHAR << CLOSE_MARKUP_CHAR << endl;
-	return out;
-} //----- Fin de Write
+	return _namespace;
+}
+
+std::string MarkupNode::name() const
+{
+	return _name;
+}
+
+MarkupNode::AttributesIterator MarkupNode::begin() const
+{
+	return _attributes.begin();
+}
+
+MarkupNode::AttributesIterator MarkupNode::end() const
+{
+	return _attributes.end();
+}
 
 
 //------------------------------------------------- Surcharge d'opérateurs
@@ -72,17 +76,6 @@ MarkupNode::~MarkupNode()
 //------------------------------------------------------------------ PRIVE
 
 //----------------------------------------------------- Méthodes protégées
-ostream& MarkupNode::writeAttributes(ostream& out) const
-{
-	for (_Attributes::const_iterator it = _attributes.begin(); it
-			!= _attributes.end(); ++it)
-	{
-		out << INSIDE_MARKUP_SPACE_CHAR << it->first
-				<< ASSIGN_ATTRIBUTE_VALUE_CHAR << OPEN_ATTRIBUTE_VALUE_CHAR
-				<< it->second << CLOSE_ATTRIBUTE_VALUE_CHAR;
-	}
-	return out;
-} //----- Fin de write
 
 //------------------------------------------------------- Méthodes privées
 

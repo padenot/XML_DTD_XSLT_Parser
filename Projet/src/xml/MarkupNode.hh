@@ -25,11 +25,15 @@ namespace xml
 
 class MarkupNode: public Node
 {
+protected:
+	typedef std::map<std::string, std::string> _Attributes;
+
 public:
 	//------------------------------------------------------------- Constantes
 
 	//------------------------------------------------------------------ Types
 	typedef std::map<std::string, std::string> Attributes;
+	typedef _Attributes::const_iterator AttributesIterator;
 
 	//----------------------------------------------------- Méthodes publiques
 	// type Méthode ( liste de paramètres );
@@ -38,24 +42,45 @@ public:
 	// Contrat :
 	//	«TODO»
 
-	virtual std::ostream
-	& Write(std::ostream& out, unsigned char indent) const;
+	std::string ns() const;
+	// Mode d'emploi :
+	//	Renvoie le namespace associé au noeud.
+	//	Renvoie une chaîne vide par défaut.
+	// Contrat :
+	//	Aucun.
+
+	std::string name() const;
+	// Mode d'emploi :
+	//	Renvoie le nom du noeud.
+	//	Renvoie une chaîne vide par défaut.
+	// Contrat :
+	//	Aucun.
+
+	AttributesIterator begin() const;
+	// Mode d'emploi :
+	//	Renvoie un itérateur vers le premier enfant du noeud.
+	//	La méthode est compatible avec la STL.
+	//	L'itérateur pointe vers un pointeur (l'accès aux méthodes des fils
+	//	se fait donc de la façon suivante : (*it)->foo()).
+	// Contrat :
+	//	L'itérateur n'est plus valable en cas de modification du noeud, de
+	//	même que les itérateurs obtenus par son intermédiaire.
+
+	AttributesIterator end() const;
+	// Mode d'emploi :
+	//	Renvoie un itérateur pointant juste après le dernier enfant du noeud.
+	//	La méthode est compatible avec la STL.
+	//	L'itérateur pointe vers un pointeur (l'accès aux méthodes des fils
+	//	se fait donc de la façon suivante : (*it)->foo()).
+	// Contrat :
+	//	L'itérateur n'est plus valable en cas de modification du noeud, de
+	//	même que les itérateurs obtenus par son intermédiaire.
+
 
 	//------------------------------------------------- Surcharge d'opérateurs
-	MarkupNode & operator =(const MarkupNode & unMarkupNode);
-	// Mode d'emploi :
-	//	«TODO»
-	// Contrat :
-	//	«TODO»
 
 
 	//-------------------------------------------- Constructeurs - destructeur
-	MarkupNode(const MarkupNode & unMarkupNode);
-	// Mode d'emploi (constructeur de copie) :
-	//	«Mode emploi»
-	// Contrat :
-	//	«TODO»
-
 	MarkupNode(CompositeMarkupNode *& parent, const std::string & ns,
 			const std::string & name, const Attributes & attributes);
 	// Mode d'emploi (constructeur) :
@@ -70,22 +95,11 @@ public:
 	//	«TODO»
 
 protected:
-	typedef std::map<std::string, std::string> _Attributes;
-
-	static const char OPEN_MARKUP_CHAR;
-	static const char NS_SEPARATOR_CHAR;
-	static const char INSIDE_MARKUP_SPACE_CHAR;
-	static const char CLOSING_MARKUP_CHAR;
-	static const char CLOSE_MARKUP_CHAR;
-	static const char ASSIGN_ATTRIBUTE_VALUE_CHAR;
-	static const char OPEN_ATTRIBUTE_VALUE_CHAR;
-	static const char CLOSE_ATTRIBUTE_VALUE_CHAR;
 
 	std::string _namespace;
 	std::string _name;
 	_Attributes _attributes;
 
-	std::ostream& writeAttributes(std::ostream& out) const;
 };
 
 } // namespace xml

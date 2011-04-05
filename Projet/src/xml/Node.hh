@@ -10,7 +10,8 @@
 #define NODE_HH
 
 //--------------------------------------------------- Interfaces utilisées
-#include <iosfwd>
+#include "InterfaceNodeVisitor.hpp"
+
 namespace xml
 {
 class CompositeMarkupNode;
@@ -36,22 +37,16 @@ public:
 	// Contrat :
 	//	«TODO»
 
-
-	virtual std::ostream
-			& Write(std::ostream& out, unsigned char indent = 0) const = 0;
+	virtual void accept (InterfaceNodeVisitor& visitor) const;
 	// Mode d'emploi :
-	//	Écrit le noeud sur le flot "out", en indentant la ligne "indent" fois.
-	//	La nature des caractères écrits sur le flot dépend du type du noeud.
-	// Contrat :
-	//	En cas de surcharge, les noeuds inclus doivent être indentés par
-	//	rapport à celui-ci ("indent" doit être incrémenté).
-
-	//------------------------------------------------- Surcharge d'opérateurs
-	friend std::ostream & operator <<(std::ostream& out, const Node & aNode);
-	// Mode d'emploi :
-	//	Appelle aNode.Write(out).
+	//	Permet à un visiteur d'inspecter ce noeud sous sa vraie identité
+	//	(en lui révélant son type réel).
 	// Contrat :
 	//	Aucun.
+
+
+	//------------------------------------------------- Surcharge d'opérateurs
+
 
 	//-------------------------------------------- Constructeurs - destructeur
 	Node(CompositeMarkupNode *& parent);
@@ -71,13 +66,8 @@ public:
 	//	«TODO»
 
 protected:
-	static const char INDENT_CHAR;
-	static const unsigned char INDENT_UNIT;
 
 	CompositeMarkupNode *& _parent;
-
-	static std::ostream
-	& doIndent(std::ostream& out, unsigned char indent);
 };
 
 } // namespace xml

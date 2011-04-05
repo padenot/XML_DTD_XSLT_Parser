@@ -11,7 +11,6 @@
 
 //-------------------------------------------------------- Include système
 using namespace std;
-#include <iostream>
 
 //------------------------------------------------------ Include personnel
 #include "CompositeMarkupNode.hh"
@@ -35,25 +34,15 @@ namespace xml
 //{
 //} //----- Fin de Méthode
 
-ostream& CompositeMarkupNode::Write(ostream& out, unsigned char indent) const
+CompositeMarkupNode::ChildrenIterator CompositeMarkupNode::begin() const
 {
-	doIndent(out, indent);
-	out << OPEN_MARKUP_CHAR << _namespace << NS_SEPARATOR_CHAR << _name;
-	writeAttributes(out) << CLOSE_MARKUP_CHAR << endl;
+	return _children.begin();
+}
 
-	indent += 1;
-	for (_Children::const_iterator it = _children.begin(); it
-			!= _children.end(); ++it)
-	{
-		(*it)->Write(out, indent);
-	}
-
-	doIndent(out, indent);
-	out << OPEN_MARKUP_CHAR << CLOSING_MARKUP_CHAR << _namespace
-			<< NS_SEPARATOR_CHAR << _name << CLOSE_MARKUP_CHAR << endl;
-	return out;
-} //----- Fin de Write
-
+CompositeMarkupNode::ChildrenIterator CompositeMarkupNode::end() const
+{
+	return _children.end();
+}
 
 //------------------------------------------------- Surcharge d'opérateurs
 
