@@ -17,6 +17,7 @@ class Element;
 class AttributesList;
 class EmptyContent;
 class MixedContent;
+class TextContent;
 class ElementReference;
 class Choice;
 class Sequence;
@@ -50,6 +51,7 @@ protected:
 	friend class AttributesList;
 	friend class EmptyContent;
 	friend class MixedContent;
+	friend class TextContent;
 	friend class ElementReference;
 	friend class Choice;
 	friend class Sequence;
@@ -60,6 +62,7 @@ protected:
 	virtual void visit(const AttributesList & attlist) = 0;
 	virtual void visit(const EmptyContent & content) = 0;
 	virtual void visit(const MixedContent & content) = 0;
+	virtual void visit(const TextContent & content) = 0;
 	virtual void visit(const ElementReference & element) = 0;
 	virtual void visit(const Choice & content) = 0;
 	virtual void visit(const Sequence & content) = 0;

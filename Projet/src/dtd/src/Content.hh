@@ -11,6 +11,8 @@
 
 //--------------------------------------------------- Interfaces utilisées
 #include "Node.hh"
+#include "TextNode.hh"
+#include "CompositeMarkupNode.hh"
 
 namespace dtd
 {
@@ -30,7 +32,21 @@ public:
 	// Contrat :
 	//	
 
-	bool isValid(xml::Node & node) const;
+	virtual bool validate(const xml::TextNode & node);
+	// Mode d'emploi :
+	//	Renvoie vrai si le contenu est de type texte.
+	//	Renvoie faux sinon.
+	// Contrat :
+	//	Aucun.
+
+	virtual bool validate(const xml::MarkupNode & node);
+	// Mode d'emploi :
+	//	Renvoie vrai si le contenu est de type vide.
+	//	Renvoie faux sinon.
+	// Contrat :
+	//	Aucun.
+
+	virtual bool validate(const xml::CompositeMarkupNode & node);
 	// Mode d'emploi :
 	//	Renvoie vrai si le noeud passé en paramètre respecte la strucure
 	//	imposée par ce contenu, et si ses descendants
@@ -66,7 +82,41 @@ public:
 	//	TODO
 
 protected:
+	struct _State
+	{
+		Content* nextStep;
+		xml::CompositeMarkupNode::ChildrenIterator firstToken;
+		xml::CompositeMarkupNode::ChildrenIterator currentToken;
+		xml::CompositeMarkupNode::ChildrenIterator endToken;
+	};
 
+	bool _newValidation(xml::CompositeMarkupNode::ChildrenIterator firstToken,
+			xml::CompositeMarkupNode::ChildrenIterator endToken,
+			Content* nextStep);
+	// Mode d'emploi :
+	//	TODO.
+	// Contrat :
+	//	Aucun.
+
+	virtual void _pushState(Content* nextStep) = 0;
+	// Mode d'emploi :
+	//	TODO.
+	// Contrat :
+	//	Aucun.
+
+	virtual void _popState() = 0;
+	// Mode d'emploi :
+	//	TODO.
+	// Contrat :
+	//	Aucun.
+
+	virtual bool _continueValidation(
+			xml::CompositeMarkupNode::ChildrenIterator firstToken,
+			xml::CompositeMarkupNode::ChildrenIterator endToken) const = 0;
+	// Mode d'emploi :
+	//	TODO.
+	// Contrat :
+	//	Aucun.
 };
 
 } // namespace dtd

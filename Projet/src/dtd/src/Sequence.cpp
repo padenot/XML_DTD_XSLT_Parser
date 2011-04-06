@@ -57,4 +57,21 @@ Sequence::~Sequence()
 
 //----------------------------------------------------- Méthodes protégées
 
+void Sequence::_pushState(Content* nextStep)
+{
+	//_stack.push(new )
+	//TODO
+}
+
+void Sequence::_popState()
+{
+	//TODO
+}
+
+bool Sequence::_continueValidation(xml::CompositeMarkupNode::ChildrenIterator firstToken,
+		xml::CompositeMarkupNode::ChildrenIterator endToken) const
+{
+	//TODO
+}
+
 } // namespace dtd

@@ -123,12 +123,17 @@ void OutputDTDVisitor::visit(const EmptyContent &)
 
 void OutputDTDVisitor::visit(const MixedContent & content)
 {
-	_out << START_MIXED_STR << TEXT_CONTENT_STR;
+	_out << START_MIXED_STR;
 	for (int i = 0; i < 3; ++i)
 	{
 		_out << MIXED_SEPARATOR_STR << "#TODO#>" << endl;
 	}
 	_out << END_MIXED_STR;
+}
+
+void OutputDTDVisitor::visit(const TextContent & content)
+{
+	_out << TEXT_CONTENT_STR;
 }
 
 void OutputDTDVisitor::visit(const ElementReference & element)

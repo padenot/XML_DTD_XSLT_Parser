@@ -83,6 +83,7 @@ protected:
 	virtual void visit(const AttributesList & attlist);
 	virtual void visit(const EmptyContent & content);
 	virtual void visit(const MixedContent & content);
+	virtual void visit(const TextContent & content);
 	virtual void visit(const ElementReference & element);
 	virtual void visit(const Choice & content);
 	virtual void visit(const Sequence & content);

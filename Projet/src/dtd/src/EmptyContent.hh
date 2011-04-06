@@ -31,6 +31,8 @@ public:
 	// Contrat :
 	//	
 
+	virtual bool validate(const xml::MarkupNode & node);
+
 	virtual void accept(InterfaceDTDVisitor & visitor) const;
 
 	//------------------------------------------------- Surcharge d'opérateurs

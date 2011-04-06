@@ -1,11 +1,11 @@
 /*************************************************************************
- * EmptyContent  -  «Description»
+ * TextContent  -  «Description»
  * -------------------
  * Début      : 5 avr. 2011
  * Auteur(s)  : H4215
  *************************************************************************/
 
-//---------- Réalisation de la classe <EmptyContent> (fichier EmptyContent.cpp) -------
+//---------- Réalisation de la classe <TextContent> (fichier TextContent.cpp) -------
 
 //---------------------------------------------------------------- INCLUDE
 
@@ -13,7 +13,7 @@
 using namespace std;
 
 //------------------------------------------------------ Include personnel
-#include "EmptyContent.hh"
+#include "TextContent.hh"
 #include "InterfaceDTDVisitor.hpp"
 using namespace xml;
 
@@ -24,18 +24,18 @@ namespace dtd
 //----------------------------------------------------------------- PUBLIC
 
 //----------------------------------------------------- Méthodes publiques
-// type EmptyContent::Méthode ( liste des paramètres )
+// type TextContent::Méthode ( liste des paramètres )
 // Algorithme :
-//	
+//
 //{
 //}
 
-bool EmptyContent::validate(const MarkupNode & node)
+bool TextContent::validate(const TextNode & node)
 {
 	return true;
 }
 
-void EmptyContent::accept(InterfaceDTDVisitor & visitor) const
+void TextContent::accept(InterfaceDTDVisitor & visitor) const
 {
 	visitor.visit(*this);
 }
@@ -44,12 +44,12 @@ void EmptyContent::accept(InterfaceDTDVisitor & visitor) const
 
 
 //-------------------------------------------- Constructeurs - destructeur
-EmptyContent::EmptyContent()
+TextContent::TextContent()
 {
 	//TODO
 }
 
-EmptyContent::~EmptyContent()
+TextContent::~TextContent()
 {
 	//TODO
 }

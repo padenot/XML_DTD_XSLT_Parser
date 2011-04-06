@@ -14,6 +14,7 @@ using namespace std;
 
 //------------------------------------------------------ Include personnel
 #include "MixedContent.hh"
+#include "TextContent.hh"
 #include "ElementReference.hh"
 #include "InterfaceDTDVisitor.hpp"
 
@@ -42,7 +43,7 @@ void MixedContent::accept(InterfaceDTDVisitor & visitor) const
 MixedContent::MixedContent(const ChoiceElements & elements) :
 	_elements(elements)
 {
-	//TODO
+
 }
 
 MixedContent::~MixedContent()
@@ -57,5 +58,23 @@ MixedContent::~MixedContent()
 //------------------------------------------------------------------ PRIVE
 
 //----------------------------------------------------- Méthodes protégées
+
+void MixedContent::_pushState(Content* nextStep)
+{
+	//_stack.push(new )
+	//TODO
+}
+
+void MixedContent::_popState()
+{
+	//TODO
+}
+
+bool MixedContent::_continueValidation(
+		xml::CompositeMarkupNode::ChildrenIterator firstToken,
+		xml::CompositeMarkupNode::ChildrenIterator endToken) const
+{
+	//TODO
+}
 
 } // namespace dtd

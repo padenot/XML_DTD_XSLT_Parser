@@ -56,5 +56,22 @@ Choice::~Choice()
 //------------------------------------------------------------------ PRIVE
 
 //----------------------------------------------------- Méthodes protégées
+void Choice::_pushState(Content* nextStep)
+{
+	//_stack.push(new )
+	//TODO
+}
+
+void Choice::_popState()
+{
+	//TODO
+}
+
+bool Choice::_continueValidation(
+		xml::CompositeMarkupNode::ChildrenIterator firstToken,
+		xml::CompositeMarkupNode::ChildrenIterator endToken) const
+{
+	//TODO
+}
 
 } // namespace dtd

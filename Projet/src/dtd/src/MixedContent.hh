@@ -11,6 +11,7 @@
 
 //--------------------------------------------------- Interfaces utilisées
 #include <set>
+#include <stack>
 #include "NonEmptyContent.hh"
 
 namespace dtd
@@ -57,6 +58,19 @@ public:
 protected:
 	typedef std::set<ElementReference*> _ChoiceElements;
 	_ChoiceElements _elements;
+
+	struct _State: public Content::_State
+	{
+		// TODO
+	};
+	typedef std::stack<_State> _StatesStack;
+	_StatesStack _stack;
+
+	virtual void _pushState(Content* nextStep);
+	virtual void _popState();
+	virtual bool _continueValidation(
+			xml::CompositeMarkupNode::ChildrenIterator firstToken,
+			xml::CompositeMarkupNode::ChildrenIterator endToken) const;
 
 };
 

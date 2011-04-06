@@ -10,6 +10,7 @@
 #define QUANTIFIEDCONTENT_HH_
 
 //--------------------------------------------------- Interfaces utilisées
+#include <stack>
 #include "ElementContent.hh"
 
 namespace dtd
@@ -54,6 +55,19 @@ public:
 
 protected:
 	NonEmptyContent & _content;
+
+	struct _State: public Content::_State
+	{
+		// TODO
+	};
+	typedef std::stack<_State> _StatesStack;
+	_StatesStack _stack;
+
+	virtual void _pushState(Content* nextStep);
+	virtual void _popState();
+	virtual bool _continueValidation(
+			xml::CompositeMarkupNode::ChildrenIterator firstToken,
+			xml::CompositeMarkupNode::ChildrenIterator endToken) const;
 
 };
 

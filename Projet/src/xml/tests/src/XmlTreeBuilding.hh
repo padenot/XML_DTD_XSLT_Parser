@@ -1,41 +1,31 @@
 /*************************************************************************
- * testmain  -  Fichier principal de test.
+ * XmlTreeBuilding  -  Construction d'arbres XML pour tests.
  * -------------------
- * Début      : mar. 05 avril 2011 15:51:26 CEST
+ * Début      : mar. 06 avril 2011 15:51:26 CEST
  * Auteur(s)  : H4215
  *************************************************************************/
+
+#if ! defined (XMLTREEBUILDING_HH)
+#define XMLTREEBUILDING_HH
 
 //---------------------------------------------------------------- INCLUDE
 
 //-------------------------------------------------------- Include système
 using namespace std;
-#include <iostream>
-#include <iomanip>
-#include <sstream>
 
 //------------------------------------------------------ Include personnel
 #include "Node.hh"
-#include "TextNode.hh"
-#include "MarkupNode.hh"
-#include "CompositeMarkupNode.hh"
-#include "OutputVisitor.hh"
-#include "XmlTreeBuilding.hh"
-using namespace xml;
 
 //------------------------------------------------------------- Constantes
 
 //-------------------------------------------------------------- Fonctions
-static bool test01()
-{
-	Node* root = normalTree();
-	OutputVisitor visitor(cout, '\t');
-	root->accept(visitor);
-	delete root;
-	return true;
-}
+xml::Node* trivialTree(unsigned int offset = 0,
+		xml::CompositeMarkupNode** rootParent = 0);
+xml::Node* simpleTree(unsigned int offset = 0,
+		xml::CompositeMarkupNode** rootParent = 0);
+xml::Node* normalTree(unsigned int offset = 0,
+		xml::CompositeMarkupNode** rootParent = 0);
+xml::Node* complexTree(unsigned int offset = 0,
+		xml::CompositeMarkupNode** rootParent = 0);
 
-int main()
-{
-	return !test01();
-}
-
+#endif // XMLTREEBUILDING_HH
