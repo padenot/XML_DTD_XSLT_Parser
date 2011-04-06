@@ -23,14 +23,14 @@ using namespace std;
 namespace xml
 {
 //------------------------------------------------------------- Constantes
-const char OutputVisitor::OPEN_MARKUP_CHAR = '<';
-const char OutputVisitor::NS_SEPARATOR_CHAR = ':';
-const char OutputVisitor::INSIDE_MARKUP_SPACE_CHAR = ' ';
-const char OutputVisitor::CLOSING_MARKUP_CHAR = '/';
-const char OutputVisitor::CLOSE_MARKUP_CHAR = '>';
-const char OutputVisitor::ASSIGN_ATTRIBUTE_VALUE_CHAR = '=';
-const char OutputVisitor::OPEN_ATTRIBUTE_VALUE_CHAR = '"';
-const char OutputVisitor::CLOSE_ATTRIBUTE_VALUE_CHAR = '"';
+const std::string OutputVisitor::OPEN_MARKUP_STR = "<";
+const std::string OutputVisitor::NS_SEPARATOR_STR = ":";
+const std::string OutputVisitor::INSIDE_MARKUP_SPACE_STR = " ";
+const std::string OutputVisitor::CLOSING_MARKUP_STR = "/";
+const std::string OutputVisitor::CLOSE_MARKUP_STR = ">";
+const std::string OutputVisitor::ASSIGN_ATTRIBUTE_VALUE_STR = "=";
+const std::string OutputVisitor::OPEN_ATTRIBUTE_VALUE_STR = "\"";
+const std::string OutputVisitor::CLOSE_ATTRIBUTE_VALUE_STR = "\"";
 
 //---------------------------------------------------- Variables de classe
 
@@ -69,40 +69,6 @@ OutputVisitor::~OutputVisitor()
 
 //----------------------------------------------------- Méthodes protégées
 
-void OutputVisitor::visit(const TextNode& node)
-{
-	doIndent();
-	_out << node.content() << endl;
-}
-
-void OutputVisitor::visit(const MarkupNode& node)
-{
-	doIndent();
-	_out << OPEN_MARKUP_CHAR << node.ns() << NS_SEPARATOR_CHAR << node.name();
-	writeAttributes(node);
-	_out << CLOSING_MARKUP_CHAR << CLOSE_MARKUP_CHAR << endl;
-}
-
-void OutputVisitor::visit(const CompositeMarkupNode& node)
-{
-	doIndent();
-	_out << OPEN_MARKUP_CHAR << node.ns() << NS_SEPARATOR_CHAR << node.name();
-	writeAttributes(node);
-	_out << CLOSE_MARKUP_CHAR << endl;
-
-	_indent += _indentUnit;
-	for (CompositeMarkupNode::ChildrenIterator it = node.begin(); it
-			!= node.end(); ++it)
-	{
-		(*it)->accept(*this);
-	}
-	_indent -= _indentUnit;
-
-	doIndent();
-	_out << OPEN_MARKUP_CHAR << CLOSING_MARKUP_CHAR << node.ns()
-			<< NS_SEPARATOR_CHAR << node.name() << CLOSE_MARKUP_CHAR << endl;
-}
-
 void OutputVisitor::doIndent()
 {
 	if (_indent > 0)
@@ -117,11 +83,46 @@ void OutputVisitor::writeAttributes(const MarkupNode& node)
 {
 	for (MarkupNode::AttributesIterator it = node.begin(); it != node.end(); ++it)
 	{
-		_out << INSIDE_MARKUP_SPACE_CHAR << it->first
-				<< ASSIGN_ATTRIBUTE_VALUE_CHAR << OPEN_ATTRIBUTE_VALUE_CHAR
-				<< it->second << CLOSE_ATTRIBUTE_VALUE_CHAR;
+		_out << INSIDE_MARKUP_SPACE_STR << it->first
+				<< ASSIGN_ATTRIBUTE_VALUE_STR << OPEN_ATTRIBUTE_VALUE_STR
+				<< it->second << CLOSE_ATTRIBUTE_VALUE_STR;
 	}
 } //----- Fin de writeAttributes
+
+void OutputVisitor::visit(const TextNode& node)
+{
+	doIndent();
+	_out << node.content() << endl;
+}
+
+void OutputVisitor::visit(const MarkupNode& node)
+{
+	doIndent();
+	_out << OPEN_MARKUP_STR << node.ns() << NS_SEPARATOR_STR << node.name();
+	writeAttributes(node);
+	_out << CLOSING_MARKUP_STR << CLOSE_MARKUP_STR << endl;
+}
+
+void OutputVisitor::visit(const CompositeMarkupNode& node)
+{
+	doIndent();
+	_out << OPEN_MARKUP_STR << node.ns() << NS_SEPARATOR_STR << node.name();
+	writeAttributes(node);
+	_out << CLOSE_MARKUP_STR << endl;
+
+	_indent += _indentUnit;
+	for (CompositeMarkupNode::ChildrenIterator it = node.begin(); it
+			!= node.end(); ++it)
+	{
+		(*it)->accept(*this);
+	}
+	_indent -= _indentUnit;
+
+	doIndent();
+	_out << OPEN_MARKUP_STR << CLOSING_MARKUP_STR << node.ns()
+			<< NS_SEPARATOR_STR << node.name() << CLOSE_MARKUP_STR << endl;
+}
+
 //------------------------------------------------------- Méthodes privées
 
 } // namespace xml

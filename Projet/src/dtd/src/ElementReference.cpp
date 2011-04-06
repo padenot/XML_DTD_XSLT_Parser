@@ -1,11 +1,11 @@
 /*************************************************************************
- * ElementRef  -  «Description»
+ * ElementReference  -  «Description»
  * -------------------
- * Début      : lun. 04 avril 2011 10:24:00 CEST
+ * Début      : 5 avr. 2011
  * Auteur(s)  : H4215
-*************************************************************************/
+ *************************************************************************/
 
-//---- Réalisation de la classe <ElementRef> (fichier ElementRef.cpp) ----
+//---------- Réalisation de la classe <ElementReference> (fichier ElementReference.cpp) -------
 
 //---------------------------------------------------------------- INCLUDE
 
@@ -13,51 +13,44 @@
 using namespace std;
 
 //------------------------------------------------------ Include personnel
-#include "ElementRef.hh"
+#include "ElementReference.hh"
+#include "InterfaceDTDVisitor.hpp"
 
 namespace dtd
 {
 //------------------------------------------------------------- Constantes
 
-//---------------------------------------------------- Variables de classe
-
-//----------------------------------------------------------- Types privés
-
-
 //----------------------------------------------------------------- PUBLIC
-//-------------------------------------------------------- Fonctions amies
 
 //----------------------------------------------------- Méthodes publiques
-// type ElementRef::Méthode ( liste de paramètres )
+// type ElementReference::Méthode ( liste des paramètres )
 // Algorithme :
-//	«TODO»
+//	
 //{
-//} //----- Fin de Méthode
+//}
+
+void ElementReference::accept(InterfaceDTDVisitor & visitor) const
+{
+	visitor.visit(*this);
+}
 
 //------------------------------------------------- Surcharge d'opérateurs
 
 
 //-------------------------------------------- Constructeurs - destructeur
-ElementRef::ElementRef ( )
-// Algorithme :
-//	«TODO»
+ElementReference::ElementReference(DTD& dtd, std::string ns, std::string name) :
+	_dtd(dtd), _namespace(ns), _name(name)
 {
 	//TODO
-} //----- Fin de ElementRef
+}
 
-
-ElementRef::~ElementRef ( )
-// Algorithme :
-//	«TODO»
+ElementReference::~ElementReference()
 {
 	//TODO
-} //----- Fin de ~ElementRef
-
+}
 
 //------------------------------------------------------------------ PRIVE
 
 //----------------------------------------------------- Méthodes protégées
-
-//------------------------------------------------------- Méthodes privées
 
 } // namespace dtd

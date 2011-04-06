@@ -1,28 +1,26 @@
 /*************************************************************************
- * Sequence  -  «Description»
+ * QuantifiedContent  -  «Description»
  * -------------------
  * Début      : 5 avr. 2011
  * Auteur(s)  : H4215
  *************************************************************************/
 
-//---------- Interface de la classe <Sequence> (fichier Sequence.hh) ------
-#if ! defined ( SEQUENCE_HH_ )
-#define SEQUENCE_HH_
+//---------- Interface de la classe <QuantifiedContent> (fichier QuantifiedContent.hh) ------
+#if ! defined ( QUANTIFIEDCONTENT_HH_ )
+#define QUANTIFIEDCONTENT_HH_
 
 //--------------------------------------------------- Interfaces utilisées
-#include <list>
 #include "ElementContent.hh"
 
 namespace dtd
 {
 
-class Sequence: public ElementContent
+class QuantifiedContent: public ElementContent
 {
 public:
 	//------------------------------------------------------------- Constantes
 
 	//------------------------------------------------------------------ Types
-	typedef std::list<ElementContent*> SequenceElements;
 
 	//----------------------------------------------------- Méthodes publiques
 	// type Méthode ( liste des paramètres );
@@ -31,30 +29,34 @@ public:
 	// Contrat :
 	//	
 
-	virtual void accept(InterfaceDTDVisitor & visitor) const;
+	NonEmptyContent & content();
+	const NonEmptyContent & content() const;
+	// Mode d'emploi :
+	//	Renvoie le contenu quantifié par le QuantifiedContent.
+	// Contrat :
+	//	Aucun.
 
 	//------------------------------------------------- Surcharge d'opérateurs
 
 
 	//-------------------------------------------- Constructeurs - destructeur
-	Sequence(const SequenceElements & elements);
+	QuantifiedContent(NonEmptyContent & content);
 	// Mode d'emploi :
 	//	TODO
 	// Contrat :
 	//	TODO
 
-	virtual ~Sequence();
+	virtual ~QuantifiedContent();
 	// Mode d'emploi :
 	//	TODO
 	// Contrat :
 	//	TODO
 
 protected:
-	typedef std::list<ElementContent*> _SequenceElements;
-	_SequenceElements _elements;
+	NonEmptyContent & _content;
 
 };
 
 } // namespace dtd
 
-#endif // SEQUENCE_HH_
+#endif // QUANTIFIEDCONTENT_HH_

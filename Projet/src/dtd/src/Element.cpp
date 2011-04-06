@@ -1,11 +1,11 @@
 /*************************************************************************
  * Element  -  «Description»
  * -------------------
- * Début      : lun. 04 avril 2011 10:23:53 CEST
+ * Début      : 5 avr. 2011
  * Auteur(s)  : H4215
  *************************************************************************/
 
-//---- Réalisation de la classe <Element> (fichier Element.cpp) ----
+//---------- Réalisation de la classe <Element> (fichier Element.cpp) -------
 
 //---------------------------------------------------------------- INCLUDE
 
@@ -14,50 +14,85 @@ using namespace std;
 
 //------------------------------------------------------ Include personnel
 #include "Element.hh"
+#include "DTD.hh"
+#include "InterfaceDTDVisitor.hpp"
+#include "Node.hh"
+#include "BadReferenceException.hpp"
 
 namespace dtd
 {
 //------------------------------------------------------------- Constantes
 
-//---------------------------------------------------- Variables de classe
-
-//----------------------------------------------------------- Types privés
-
-
 //----------------------------------------------------------------- PUBLIC
-//-------------------------------------------------------- Fonctions amies
 
 //----------------------------------------------------- Méthodes publiques
-// type Element::Méthode ( liste de paramètres )
+// type Element::Méthode ( liste des paramètres )
 // Algorithme :
-//	«TODO»
+//	
 //{
-//} //----- Fin de Méthode
+//}
+
+bool Element::matches(xml::Node& node) const
+{
+	return false; //TODO
+}
+
+string Element::ns() const
+{
+	return _namespace;
+}
+
+string Element::name() const
+{
+	return _name;
+}
+
+const AttributesList& Element::attributesList() const
+		throw (BadReferenceException)
+{
+	const AttributesList* attlist = _dtd.getAttributesList(_namespace, _name);
+	if (attlist == 0)
+	{
+		throw BadReferenceException();
+	} else
+	{
+		return *attlist;
+	}
+}
+
+const Content& Element::content() const
+{
+	return _content;
+}
+
+void Element::accept(InterfaceDTDVisitor& visitor) const
+{
+	visitor.visit(*this);
+}
+
+bool Element::isValid(xml::Node& node) const
+{
+	return false; //TODO
+}
 
 //------------------------------------------------- Surcharge d'opérateurs
 
 
 //-------------------------------------------- Constructeurs - destructeur
-Element::Element()
-// Algorithme :
-//	«TODO»
+Element::Element(DTD& dtd, const string & ns, const string & name,
+		Content & content) :
+	_dtd(dtd), _namespace(ns), _name(name), _content(content)
 {
 	//TODO
-} //----- Fin de Element
-
+}
 
 Element::~Element()
-// Algorithme :
-//	«TODO»
 {
 	//TODO
-} //----- Fin de ~Element
-
+}
 
 //------------------------------------------------------------------ PRIVE
 
 //----------------------------------------------------- Méthodes protégées
-
-//------------------------------------------------------- Méthodes privées
 
 } // namespace dtd

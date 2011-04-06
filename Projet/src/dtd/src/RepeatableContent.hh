@@ -1,28 +1,27 @@
 /*************************************************************************
- * Sequence  -  «Description»
+ * RepeatableContent  -  «Description»
  * -------------------
  * Début      : 5 avr. 2011
  * Auteur(s)  : H4215
  *************************************************************************/
 
-//---------- Interface de la classe <Sequence> (fichier Sequence.hh) ------
-#if ! defined ( SEQUENCE_HH_ )
-#define SEQUENCE_HH_
+//---------- Interface de la classe <RepeatableContent> (fichier RepeatableContent.hh) ------
+#if ! defined ( REPEATABLECONTENT_HH_ )
+#define REPEATABLECONTENT_HH_
 
 //--------------------------------------------------- Interfaces utilisées
-#include <list>
-#include "ElementContent.hh"
+#include "QuantifiedContent.hh"
 
 namespace dtd
 {
 
-class Sequence: public ElementContent
+class RepeatableContent: public QuantifiedContent
 {
+
 public:
 	//------------------------------------------------------------- Constantes
 
 	//------------------------------------------------------------------ Types
-	typedef std::list<ElementContent*> SequenceElements;
 
 	//----------------------------------------------------- Méthodes publiques
 	// type Méthode ( liste des paramètres );
@@ -37,24 +36,22 @@ public:
 
 
 	//-------------------------------------------- Constructeurs - destructeur
-	Sequence(const SequenceElements & elements);
+	RepeatableContent(NonEmptyContent & content);
 	// Mode d'emploi :
 	//	TODO
 	// Contrat :
 	//	TODO
 
-	virtual ~Sequence();
+	virtual ~RepeatableContent();
 	// Mode d'emploi :
 	//	TODO
 	// Contrat :
 	//	TODO
 
 protected:
-	typedef std::list<ElementContent*> _SequenceElements;
-	_SequenceElements _elements;
 
 };
 
 } // namespace dtd
 
-#endif // SEQUENCE_HH_
+#endif // REPEATABLECONTENT_HH_

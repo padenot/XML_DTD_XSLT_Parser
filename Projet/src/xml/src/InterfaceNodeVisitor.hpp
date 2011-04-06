@@ -20,7 +20,7 @@ class InterfaceNodeVisitor
 {
 public:
 	virtual ~InterfaceNodeVisitor()
-	// Mode d'emploi (constructeur) :
+	// Mode d'emploi (destructeur) :
 	//	Ne fait rien (interface).
 	// Contrat :
 	//	Aucun.

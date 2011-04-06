@@ -9,9 +9,9 @@
 
 //-------------------------------------------------------- Include système
 using namespace std;
-#include<iostream>
-#include<iomanip>
-#include<sstream>
+#include <iostream>
+#include <iomanip>
+#include <sstream>
 
 //------------------------------------------------------ Include personnel
 #include "Node.hh"
@@ -56,7 +56,7 @@ Node* buildTree()
 	CompositeMarkupNode** rootParent = new CompositeMarkupNode*;
 	*rootParent = 0;
 	return new CompositeMarkupNode(*rootParent, "rootns", "root", attributes,
-			*rootParent, children);
+			*parent, children);
 }
 
 bool test01()
@@ -64,6 +64,7 @@ bool test01()
 	Node* root = buildTree();
 	OutputVisitor visitor(cout);
 	root->accept(visitor);
+	delete root;
 	return true;
 }
 

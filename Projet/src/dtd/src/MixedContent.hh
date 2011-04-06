@@ -1,62 +1,65 @@
 /*************************************************************************
  * MixedContent  -  «Description»
  * -------------------
- * Début      : lun. 04 avril 2011 10:15:38 CEST
+ * Début      : 5 avr. 2011
  * Auteur(s)  : H4215
-*************************************************************************/
+ *************************************************************************/
 
-//---- Interface de la classe <MixedContent> (fichier MixedContent.hh) ----
-#ifndef MIXEDCONTENT_HH
-#define MIXEDCONTENT_HH
+//---------- Interface de la classe <MixedContent> (fichier MixedContent.hh) ------
+#if ! defined ( MIXEDCONTENT_HH_ )
+#define MIXEDCONTENT_HH_
 
 //--------------------------------------------------- Interfaces utilisées
-#include "QuantifiableContent.hh"
-
-//------------------------------------------------------------------------
-// Rôle de la classe <MixedContent>
-//	«Rôle»
-//
-//------------------------------------------------------------------------
+#include <set>
+#include "NonEmptyContent.hh"
 
 namespace dtd
 {
+class ElementReference;
 
-class MixedContent : public QuantifiableContent
+class MixedContent: public NonEmptyContent
 {
+	//----------------------------------------------------------------- PUBLIC
+
 public:
-//------------------------------------------------------------- Constantes
+	//------------------------------------------------------------- Constantes
 
-//------------------------------------------------------------------ Types
+	//------------------------------------------------------------------ Types
+	typedef std::set<ElementReference*> ChoiceElements;
 
-//----------------------------------------------------- Méthodes publiques
-	// type Méthode ( liste de paramètres );
+	//----------------------------------------------------- Méthodes publiques
+	// type Méthode ( liste des paramètres );
 	// Mode d'emploi :
-	//	«TODO»
+	//	
 	// Contrat :
-	//	«TODO»
+	//	
+
+	virtual void accept(InterfaceDTDVisitor & visitor) const;
+
+	//------------------------------------------------- Surcharge d'opérateurs
 
 
-//------------------------------------------------- Surcharge d'opérateurs
-
-
-//-------------------------------------------- Constructeurs - destructeur
-	MixedContent ( );
-	// Mode d'emploi (constructeur) :
-	//	«TODO»
+	//-------------------------------------------- Constructeurs - destructeur
+	MixedContent(const ChoiceElements & elements);
+	// Mode d'emploi :
+	//	TODO
 	// Contrat :
-	//	«TODO»
+	//	TODO
 
-	virtual ~MixedContent ( );
-	// Mode d'emploi (destructeur) :
-	//	«TODO»
+	virtual ~MixedContent();
+	// Mode d'emploi :
+	//	TODO
 	// Contrat :
-	//	«TODO»
+	//	TODO
+
+	//------------------------------------------------------------------ PRIVE
 
 protected:
+	typedef std::set<ElementReference*> _ChoiceElements;
+	_ChoiceElements _elements;
 
 };
 
 } // namespace dtd
 
-#endif // MIXEDCONTENT_HH
-
+#endif // MIXEDCONTENT_HH_

@@ -40,12 +40,12 @@ void MarkupNode::accept (InterfaceNodeVisitor& visitor) const
 	visitor.visit(*this);
 }
 
-std::string MarkupNode::ns() const
+string MarkupNode::ns() const
 {
 	return _namespace;
 }
 
-std::string MarkupNode::name() const
+string MarkupNode::name() const
 {
 	return _name;
 }

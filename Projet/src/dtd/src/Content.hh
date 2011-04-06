@@ -1,66 +1,69 @@
 /*************************************************************************
  * Content  -  «Description»
  * -------------------
- * Début      : lun. 04 avril 2011 10:12:33 CEST
+ * Début      : 5 avr. 2011
  * Auteur(s)  : H4215
-*************************************************************************/
+ *************************************************************************/
 
-//---- Interface de la classe <Content> (fichier Content.hh) ----
-#ifndef CONTENT_HH
-#define CONTENT_HH
+//---------- Interface de la classe <Content> (fichier Content.hh) ------
+#if ! defined ( CONTENT_HH_ )
+#define CONTENT_HH_
 
 //--------------------------------------------------- Interfaces utilisées
-
-//------------------------------------------------------------------------
-// Rôle de la classe <Content>
-//	«Rôle»
-//
-//------------------------------------------------------------------------
+#include "Node.hh"
 
 namespace dtd
 {
+class InterfaceDTDVisitor;
 
 class Content
 {
 public:
-//------------------------------------------------------------- Constantes
+	//------------------------------------------------------------- Constantes
 
-//------------------------------------------------------------------ Types
+	//------------------------------------------------------------------ Types
 
-//----------------------------------------------------- Méthodes publiques
-	// type Méthode ( liste de paramètres );
+	//----------------------------------------------------- Méthodes publiques
+	// type Méthode ( liste des paramètres );
 	// Mode d'emploi :
-	//	«TODO»
+	//	
 	// Contrat :
-	//	«TODO»
+	//	
 
-
-//------------------------------------------------- Surcharge d'opérateurs
-	Content & operator = ( const Content & unContent );
+	bool isValid(xml::Node & node) const;
 	// Mode d'emploi :
-	//	«TODO»
+	//	Renvoie vrai si le noeud passé en paramètre respecte la strucure
+	//	imposée par ce contenu, et si ses descendants
+	// 	sont référencés dans la même DTD que cet élément et respectent
+	//	également la structure imposée par les éléments correspondants de
+	//	la même DTD (attributs et contenu).
+	//	Renvoie faux sinon.
 	// Contrat :
-	//	«TODO»
+	//	Aucun.
+
+	virtual void accept(InterfaceDTDVisitor & visitor) const = 0;
+	// Mode d'emploi :
+	//	Permet à un visiteur d'inspecter ce contenu sous sa vraie identité
+	//	(en lui révélant son type réel).
+	// Contrat :
+	//	Aucun.
 
 
-//-------------------------------------------- Constructeurs - destructeur
-	Content ( const Content & unContent );
-	// Mode d'emploi (constructeur de copie) :
-	//	«Mode emploi»
-	// Contrat :
-	//	«TODO»
+	//------------------------------------------------- Surcharge d'opérateurs
 
-	Content ( );
-	// Mode d'emploi (constructeur) :
-	//	«TODO»
-	// Contrat :
-	//	«TODO»
 
-	virtual ~Content ( );
-	// Mode d'emploi (destructeur) :
-	//	«TODO»
+	//-------------------------------------------- Constructeurs - destructeur
+	Content();
+	// Mode d'emploi :
+	//	TODO
 	// Contrat :
-	//	«TODO»
+	//	TODO
+
+	virtual ~Content();
+	// Mode d'emploi :
+	//	TODO
+	// Contrat :
+	//	TODO
 
 protected:
 
@@ -68,5 +71,4 @@ protected:
 
 } // namespace dtd
 
-#endif // CONTENT_HH
-
+#endif // CONTENT_HH_

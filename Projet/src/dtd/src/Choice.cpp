@@ -1,11 +1,11 @@
 /*************************************************************************
  * Choice  -  «Description»
  * -------------------
- * Début      : lun. 04 avril 2011 10:24:01 CEST
+ * Début      : 5 avr. 2011
  * Auteur(s)  : H4215
  *************************************************************************/
 
-//---- Réalisation de la classe <Choice> (fichier Choice.cpp) ----
+//---------- Réalisation de la classe <Choice> (fichier Choice.cpp) -------
 
 //---------------------------------------------------------------- INCLUDE
 
@@ -14,50 +14,47 @@ using namespace std;
 
 //------------------------------------------------------ Include personnel
 #include "Choice.hh"
+#include "InterfaceDTDVisitor.hpp"
 
 namespace dtd
 {
 //------------------------------------------------------------- Constantes
 
-//---------------------------------------------------- Variables de classe
-
-//----------------------------------------------------------- Types privés
-
-
 //----------------------------------------------------------------- PUBLIC
-//-------------------------------------------------------- Fonctions amies
 
 //----------------------------------------------------- Méthodes publiques
-// type Choice::Méthode ( liste de paramètres )
+// type Choice::Méthode ( liste des paramètres )
 // Algorithme :
-//	«TODO»
+//	
 //{
-//} //----- Fin de Méthode
+//}
+
+void Choice::accept(InterfaceDTDVisitor & visitor) const
+{
+	visitor.visit(*this);
+}
 
 //------------------------------------------------- Surcharge d'opérateurs
 
 
 //-------------------------------------------- Constructeurs - destructeur
-Choice::Choice()
-// Algorithme :
-//	«TODO»
+Choice::Choice(const ChoiceElements & elements) :
+	_elements(elements)
 {
 	//TODO
-} //----- Fin de Choice
-
+}
 
 Choice::~Choice()
-// Algorithme :
-//	«TODO»
 {
-	//TODO
-} //----- Fin de ~Choice
-
+	for (_ChoiceElements::iterator it = _elements.begin(); it
+			!= _elements.end(); ++it)
+	{
+		delete *it;
+	}
+}
 
 //------------------------------------------------------------------ PRIVE
 
 //----------------------------------------------------- Méthodes protégées
-
-//------------------------------------------------------- Méthodes privées
 
 } // namespace dtd

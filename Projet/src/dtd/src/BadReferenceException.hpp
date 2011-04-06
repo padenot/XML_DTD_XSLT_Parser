@@ -1,28 +1,25 @@
 /*************************************************************************
- * Sequence  -  «Description»
+ * BadReferenceException  -  «Description»
  * -------------------
- * Début      : 5 avr. 2011
+ * Début      : 6 avr. 2011
  * Auteur(s)  : H4215
  *************************************************************************/
 
-//---------- Interface de la classe <Sequence> (fichier Sequence.hh) ------
-#if ! defined ( SEQUENCE_HH_ )
-#define SEQUENCE_HH_
+//---------- Interface de la classe <BadReferenceException> (fichier BadReferenceException.hpp) ------
+#if ! defined ( BADREFERENCEEXCEPTION_HPP_ )
+#define BADREFERENCEEXCEPTION_HPP_
 
 //--------------------------------------------------- Interfaces utilisées
-#include <list>
-#include "ElementContent.hh"
+#include <exception>
 
 namespace dtd
 {
-
-class Sequence: public ElementContent
+class BadReferenceException: public exception
 {
 public:
 	//------------------------------------------------------------- Constantes
 
 	//------------------------------------------------------------------ Types
-	typedef std::list<ElementContent*> SequenceElements;
 
 	//----------------------------------------------------- Méthodes publiques
 	// type Méthode ( liste des paramètres );
@@ -31,30 +28,16 @@ public:
 	// Contrat :
 	//	
 
-	virtual void accept(InterfaceDTDVisitor & visitor) const;
 
 	//------------------------------------------------- Surcharge d'opérateurs
 
 
 	//-------------------------------------------- Constructeurs - destructeur
-	Sequence(const SequenceElements & elements);
-	// Mode d'emploi :
-	//	TODO
-	// Contrat :
-	//	TODO
-
-	virtual ~Sequence();
-	// Mode d'emploi :
-	//	TODO
-	// Contrat :
-	//	TODO
 
 protected:
-	typedef std::list<ElementContent*> _SequenceElements;
-	_SequenceElements _elements;
 
 };
 
 } // namespace dtd
 
-#endif // SEQUENCE_HH_
+#endif // BADREFERENCEEXCEPTION_HPP_

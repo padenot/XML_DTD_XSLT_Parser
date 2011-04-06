@@ -11,6 +11,7 @@
 
 //-------------------------------------------------------- Include système
 using namespace std;
+#include <string>
 
 //------------------------------------------------------ Include personnel
 #include "TextNode.hh"
@@ -39,7 +40,7 @@ void TextNode::accept (InterfaceNodeVisitor& visitor) const
 	visitor.visit(*this);
 }
 
-std::string TextNode::content() const
+string TextNode::content() const
 {
 	return _content;
 }
@@ -49,7 +50,7 @@ std::string TextNode::content() const
 
 
 //-------------------------------------------- Constructeurs - destructeur
-TextNode::TextNode(CompositeMarkupNode *& parent, string content) :
+TextNode::TextNode(CompositeMarkupNode *& parent, const string & content) :
 	Node(parent), _content(content)
 {
 	//TODO
