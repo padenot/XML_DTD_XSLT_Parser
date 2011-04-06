@@ -49,7 +49,7 @@ Node* buildTree()
 		} else
 		{
 			ostringstream text;
-			text << TEST_INIT << i;
+			text << TEXT_INIT << i;
 			children .push_back(new TextNode(*parent, text.str()));
 		}
 	}
