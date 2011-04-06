@@ -9,10 +9,13 @@
 	#include "commun.h"
 	#include "xml.tab.h"
 
-	#include "../../xml/src/CompositeMarkupNode.hh"
-	#include "../../xml/src/Node.hh"
-	#include "../../xml/src/MarkupNode.hh"
-	#include "../../xml/src/TextNode.hh"
+	#include <list>
+
+	#include "Node.hh"
+	#include "TextNode.hh"
+	#include "MarkupNode.hh"
+	#include "CompositeMarkupNode.hh"
+
 
 	void xmlerror(char *msg);
 	int xmlwrap(void);
@@ -20,21 +23,23 @@
 
 	int handleDTD(char*);
 
-	CompositeMarkupNode** parent;	
-	list<Node*> children;
-
-	string currentNamespace;
+	xml::CompositeMarkupNode** parent;
 %}
+
 %error-verbose
 %union {
 	char * s;
 	ElementName * en;  /* le nom d'un element avec son namespace */
+	list<void*>* children;
 }
 
 %token EQ SLASH CLOSE END CLOSESPECIAL DOCTYPE
 %token <s> ENCODING VALUE DATA COMMENT NAME NSNAME
 %token <en> NSSTART START STARTSPECIAL
+
+%type <children> content
 %%
+
 document 		: declarations element misc_seq_opt 
 			;
 
@@ -52,7 +57,7 @@ declarations 		: declaration
 declaration 		: DOCTYPE NAME NAME VALUE CLOSE 			{ handleDTD($4); }
 			;
 
-element			: start attributes empty_or_content 
+element			: start attributes empty_or_content 		
 			| STARTSPECIAL attributes CLOSESPECIAL
 			;
 
@@ -76,12 +81,11 @@ name_or_nsname_opt 	: NAME
 close_content_and_end 	: CLOSE content END 
 			;
 
-content 		: content DATA						{ }
+content 		: content DATA						{ $$ = $1; $1->push_back( (void*)(new xml::TextNode( *parent, string($2) )) ); }
 			| content misc        
 			| content element      
-			| /*empty*/         
+			| /*empty*/         					{ $$ = (list<void*>*)new list<xml::Node*>(); }
 			;
 %%
 int xmlwrap(void) { return 1; }
 void xmlerror(char *msg) { fprintf(stderr, "%s\n", msg); }
-

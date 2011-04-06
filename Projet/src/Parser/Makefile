@@ -9,7 +9,7 @@ bison: src/dtd.y src/xml.y
 	@bison -p xml -o src/xml.tab.c --defines=src/xml.tab.h src/xml.y
 
 parser: flex bison Makefile
-	@g++ -Wno-write-strings -g -DYYDEBUG=1 -o bin/parser src/dtd.yy.c src/dtd.tab.c src/xml.yy.c src/xml.tab.c src/main.c 
+	@g++ -Wno-write-strings -g -DYYDEBUG=1 -o bin/parser src/dtd.yy.c src/dtd.tab.c src/xml.yy.c src/xml.tab.c src/main.c ../xml/bin/libxmlstruct.a
 
 test: parser 
 	@echo "TESTING Parser..."
