@@ -1,5 +1,4 @@
 ## Manual settings
-
 include settings.mk
 
 ## Auto settings
@@ -20,14 +19,13 @@ endif
 
 ## 'all' rule
 all: $(BIN)
-ifdef DEBUG
-	@echo "************ DEBUG ************"
-else
-	@echo "*********** RELEASE ***********"
-endif
+	ifdef DEBUG
+		@echo "************ DEBUG ************"
+	else
+		@echo "*********** RELEASE ***********"
+	endif
 	@echo -e 'Binary :\n$(BIN)'
-
-
+	
 ## Tools
 cleano:
 	rm -f $(OBJPATH)/*.o
@@ -45,11 +43,11 @@ mrproper: clean cleanbin
 rebuild: cleano cleanbin all
 
 run: $(BIN)
-ifneq ($(ISLIBRARY),yes)
-	@cd $(BINPATH) && ./$(BINNAME)
-else
-	@echo "$(BINPATH)/$(BINNAME) is a library and thus cannot be executed."
-endif
+	ifneq ($(ISLIBRARY),yes)
+		@cd $(BINPATH) && ./$(BINNAME)
+	else
+		@echo "$(BINPATH)/$(BINNAME) is a library and thus cannot be executed."
+	endif
 
 test: | $(TESTPATH)
 	@cd $(TESTPATH) ; $(TESTBINNAME)
