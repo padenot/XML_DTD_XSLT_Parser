@@ -35,7 +35,7 @@ namespace xml
 //{
 //} //----- Fin de Méthode
 
-void CompositeMarkupNode::accept (InterfaceNodeVisitor& visitor) const
+void CompositeMarkupNode::accept(InterfaceNodeVisitor& visitor) const
 {
 	visitor.visit(*this);
 }
@@ -54,15 +54,15 @@ CompositeMarkupNode::ChildrenIterator CompositeMarkupNode::end() const
 
 
 //-------------------------------------------- Constructeurs - destructeur
-CompositeMarkupNode::CompositeMarkupNode(CompositeMarkupNode *& parent,
+CompositeMarkupNode::CompositeMarkupNode(CompositeMarkupNode ** parent,
 		const std::string & ns, const std::string & name,
-		const Attributes & attributes, CompositeMarkupNode*& selfPointer,
+		const Attributes & attributes, CompositeMarkupNode*& proxyToSelf,
 		const Children & children) :
 	MarkupNode(parent, ns, name, attributes), _children(children),
-			_selfPointer(selfPointer)
+			_proxyToSelf(proxyToSelf)
 {
 	// Affectation du pointeur utilisé comme référence par les enfants
-	_selfPointer = this;
+	_proxyToSelf = this;
 } //----- Fin de CompositeMarkupNode
 
 CompositeMarkupNode::~CompositeMarkupNode()
@@ -74,7 +74,7 @@ CompositeMarkupNode::~CompositeMarkupNode()
 	}
 
 	// Destruction du pointeur utilisé comme référence par les enfants
-	delete &_selfPointer;
+	delete &_proxyToSelf;
 } //----- Fin de ~CompositeMarkupNode
 
 

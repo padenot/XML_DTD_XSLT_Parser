@@ -40,7 +40,7 @@ namespace xml
 
 
 //-------------------------------------------- Constructeurs - destructeur
-Node::Node(CompositeMarkupNode *& parent) :
+Node::Node(CompositeMarkupNode ** parent) :
 	_parent(parent)
 {
 	// Rien à faire

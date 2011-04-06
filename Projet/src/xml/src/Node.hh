@@ -49,15 +49,16 @@ public:
 
 
 	//-------------------------------------------- Constructeurs - destructeur
-	Node(CompositeMarkupNode *& parent);
+	Node(CompositeMarkupNode ** parent);
 	// Mode d'emploi (constructeur) :
 	//	«TODO»
 	// Contrat :
-	//	La valeur de "parent" ne doit plus changer après la construction de
+	//	La valeur de "*parent" ne doit plus changer après la construction de
 	//		l'arbre.
 	//	Si le noeud construit représente la racine, "parent" doit être nul.
-	//	La destruction du pointeur "parent" (et non de l'objet "*parent") est
-	//		à la charge de l'objet construit (le noeud).
+	//	Si "parent" est non nul, "*parent" doit être non nul.
+	//	La destruction du pointeur "*parent" (et non de l'objet "**parent") est
+	//		à la charge de l'objet qui sera utlimement référencé par "*parent".
 
 	virtual ~Node();
 	// Mode d'emploi (destructeur) :
@@ -67,7 +68,7 @@ public:
 
 protected:
 
-	CompositeMarkupNode *& _parent;
+	CompositeMarkupNode ** _parent;
 };
 
 } // namespace xml
