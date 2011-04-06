@@ -15,22 +15,21 @@
 	int handleDTD(char*);
 
 	string dtdReference;
-	%}
-	%error-verbose
-	%union {
-		char * s;
-		ElementName * en;  /* le nom d'un element avec son namespace */
-	}
+%}
+%error-verbose
+%union {
+	char * s;
+	ElementName * en;  /* le nom d'un element avec son namespace */
+}
 
 %token EQ SLASH CLOSE END CLOSESPECIAL DOCTYPE
 %token <s> ENCODING VALUE DATA COMMENT NAME NSNAME
 %token <en> NSSTART START STARTSPECIAL
 %%
-document
-: declarations element misc_seq_opt 
+document :		declarations element misc_seq_opt 
 ;
 
-misc_seq_opt
+misc_seq_opt 
 : misc_seq_opt misc
 | /*empty*/
 ;

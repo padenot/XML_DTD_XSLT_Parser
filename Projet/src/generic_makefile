@@ -1,30 +1,6 @@
 ## Manual settings
 
-<<<<<<< HEAD
-# Paths
-BINNAME=xmlstructtest
-ISLIBRARY=no
-
-BINPATH=./bin
-LIBPATH=./lib
-OBJPATH=./obj
-SRCPATH=./src
-STATICLIBS=../bin/libxmlstruct.a
-TESTPATH=./test
-TESTBINNAME=
-
-# Build
-CXX=g++
-CXXFLAGS=-ansi -pedantic -W -Wall -I../src
-LD=g++
-LDFLAGS=-L$(LIBPATH)
-LIBLD=ar
-LIBLDFLAGS=cr
-
-SRCS=$(shell find $(SRCPATH) -type f -regex '.*\.cpp')
-=======
 include settings.mk
->>>>>>> 9e42812120e2f5c6e1682642c7a477ae212343ad
 
 ## Auto settings
 ifneq ($(ISLIBRARY),yes)
@@ -76,11 +52,7 @@ else
 endif
 
 test: | $(TESTPATH)
-<<<<<<< HEAD
-	@cd $(TESTPATH) ; make run
-=======
 	@cd $(TESTPATH) ; $(TESTBINNAME)
->>>>>>> 9e42812120e2f5c6e1682642c7a477ae212343ad
 
 .PHONY: all cleano cleand cleanbak cleanbin clean mrproper rebuild run test
 
