@@ -37,7 +37,7 @@ public:
 	// Contrat :
 	//	«TODO»
 
-	virtual void accept (InterfaceNodeVisitor& visitor) const;
+	virtual void accept (InterfaceNodeVisitor& visitor) const = 0;
 	// Mode d'emploi :
 	//	Permet à un visiteur d'inspecter ce noeud sous sa vraie identité
 	//	(en lui révélant son type réel).
