@@ -1,11 +1,11 @@
 /*************************************************************************
  * ElementContent  -  «Description»
  * -------------------
- * Début      : lun. 04 avril 2011 10:23:54 CEST
+ * Début      : 5 avr. 2011
  * Auteur(s)  : H4215
-*************************************************************************/
+ *************************************************************************/
 
-//---- Réalisation de la classe <ElementContent> (fichier ElementContent.cpp) ----
+//---------- Réalisation de la classe <ElementContent> (fichier ElementContent.cpp) -------
 
 //---------------------------------------------------------------- INCLUDE
 
@@ -19,45 +19,34 @@ namespace dtd
 {
 //------------------------------------------------------------- Constantes
 
-//---------------------------------------------------- Variables de classe
-
-//----------------------------------------------------------- Types privés
-
-
 //----------------------------------------------------------------- PUBLIC
-//-------------------------------------------------------- Fonctions amies
 
 //----------------------------------------------------- Méthodes publiques
-// type ElementContent::Méthode ( liste de paramètres )
+// type ElementContent::Méthode ( liste des paramètres )
 // Algorithme :
-//	«TODO»
+//	
 //{
-//} //----- Fin de Méthode
+//}
+
 
 //------------------------------------------------- Surcharge d'opérateurs
 
 
 //-------------------------------------------- Constructeurs - destructeur
 ElementContent::ElementContent ( )
-// Algorithme :
-//	«TODO»
 {
 	//TODO
-} //----- Fin de ElementContent
+}
 
 
 ElementContent::~ElementContent ( )
-// Algorithme :
-//	«TODO»
 {
 	//TODO
-} //----- Fin de ~ElementContent
+}
 
 
 //------------------------------------------------------------------ PRIVE
 
 //----------------------------------------------------- Méthodes protégées
-
-//------------------------------------------------------- Méthodes privées
 
 } // namespace dtd

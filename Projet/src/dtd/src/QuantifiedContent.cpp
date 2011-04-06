@@ -1,11 +1,11 @@
 /*************************************************************************
- * QuantifiableContent  -  «Description»
+ * QuantifiedContent  -  «Description»
  * -------------------
- * Début      : lun. 04 avril 2011 10:23:55 CEST
+ * Début      : 5 avr. 2011
  * Auteur(s)  : H4215
  *************************************************************************/
 
-//---- Réalisation de la classe <QuantifiableContent> (fichier QuantifiableContent.cpp) ----
+//---------- Réalisation de la classe <QuantifiedContent> (fichier QuantifiedContent.cpp) -------
 
 //---------------------------------------------------------------- INCLUDE
 
@@ -13,51 +13,48 @@
 using namespace std;
 
 //------------------------------------------------------ Include personnel
-#include "QuantifiableContent.hh"
+#include "QuantifiedContent.hh"
 
 namespace dtd
 {
 //------------------------------------------------------------- Constantes
 
-//---------------------------------------------------- Variables de classe
-
-//----------------------------------------------------------- Types privés
-
-
 //----------------------------------------------------------------- PUBLIC
-//-------------------------------------------------------- Fonctions amies
 
 //----------------------------------------------------- Méthodes publiques
-// type QuantifiableContent::Méthode ( liste de paramètres )
+// type QuantifiedContent::Méthode ( liste des paramètres )
 // Algorithme :
-//	«TODO»
+//	
 //{
-//} //----- Fin de Méthode
+//}
+
+NonEmptyContent & QuantifiedContent::content()
+{
+	return _content;
+}
+
+const NonEmptyContent & QuantifiedContent::content() const
+{
+	return _content;
+}
 
 //------------------------------------------------- Surcharge d'opérateurs
 
 
 //-------------------------------------------- Constructeurs - destructeur
-QuantifiableContent::QuantifiableContent()
-// Algorithme :
-//	«TODO»
+QuantifiedContent::QuantifiedContent(NonEmptyContent & content) :
+	_content(content)
 {
 	//TODO
-} //----- Fin de QuantifiableContent
+}
 
-
-QuantifiableContent::~QuantifiableContent()
-// Algorithme :
-//	«TODO»
+QuantifiedContent::~QuantifiedContent()
 {
-	//TODO
-} //----- Fin de ~QuantifiableContent
-
+	delete &_content;
+}
 
 //------------------------------------------------------------------ PRIVE
 
 //----------------------------------------------------- Méthodes protégées
-
-//------------------------------------------------------- Méthodes privées
 
 } // namespace dtd

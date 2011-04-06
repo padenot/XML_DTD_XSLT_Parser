@@ -1,25 +1,6 @@
 ## Manual settings
 
-# Paths
-BINNAME=xmlstructtest
-ISLIBRARY=no
-
-BINPATH=./bin
-LIBPATH=./lib
-OBJPATH=./obj
-SRCPATH=./src
-STATICLIBS=../bin/libxmlstruct.a
-
-
-# Build
-CXX=g++
-CXXFLAGS=-ansi -pedantic -W -Wall -I../src
-LD=g++
-LDFLAGS=-L$(LIBPATH)
-LIBLD=ar
-LIBLDFLAGS=cr
-
-SRCS=$(shell find . -type f -regex '.*\.cpp')
+include settings.mk
 
 ## Auto settings
 ifneq ($(ISLIBRARY),yes)
@@ -63,15 +44,15 @@ mrproper: clean cleanbin
 
 rebuild: cleano cleanbin all
 
-run:
+run: $(BIN)
 ifneq ($(ISLIBRARY),yes)
 	@cd $(BINPATH) && ./$(BINNAME)
 else
 	@echo "$(BINPATH)/$(BINNAME) is a library and thus cannot be executed."
 endif
 
-test:
-	@echo "No test procedure yet for $(BINNAME)"
+test: | $(TESTPATH)
+	@cd $(TESTPATH) ; $(TESTBINNAME)
 
 .PHONY: all cleano cleand cleanbak cleanbin clean mrproper rebuild run test
 
@@ -81,7 +62,7 @@ ifneq ($(ISLIBRARY),yes)
 $(BIN): $(OBJS) $(STATICLIBS) | $(BINPATH) $(LIBPATH)
 	$(LD) $(LDFLAGS) -o $@ $^
 else
-$(BIN): $(OBJS) | $(BINPATH)
+$(BIN): $(OBJS) $(STATICLIBS) | $(BINPATH)
 	$(LIBLD) $(LIBLDFLAGS) $@ $^
 endif
 
@@ -90,7 +71,7 @@ $(OBJPATH)/%.o: $(SRCPATH)/%.cpp | $(OBJPATH)
 	$(CXX) $(CXXFLAGS) -o $@ -c $<
 
 # Directories
-$(BINPATH) $(OBJPATH) $(LIBPATH):
+$(BINPATH) $(OBJPATH) $(LIBPATH) $(TESTPATH):
 	mkdir $@
 
 ## Dependencies

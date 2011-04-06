@@ -1,11 +1,11 @@
 /*************************************************************************
- * Content  -  «Description»
+ * RepeatableContent  -  «Description»
  * -------------------
  * Début      : 5 avr. 2011
  * Auteur(s)  : H4215
  *************************************************************************/
 
-//---------- Réalisation de la classe <Content> (fichier Content.cpp) -------
+//---------- Réalisation de la classe <RepeatableContent> (fichier RepeatableContent.cpp) -------
 
 //---------------------------------------------------------------- INCLUDE
 
@@ -13,7 +13,8 @@
 using namespace std;
 
 //------------------------------------------------------ Include personnel
-#include "Content.hh"
+#include "RepeatableContent.hh"
+#include "InterfaceDTDVisitor.hpp"
 
 namespace dtd
 {
@@ -22,28 +23,31 @@ namespace dtd
 //----------------------------------------------------------------- PUBLIC
 
 //----------------------------------------------------- Méthodes publiques
-// type Content::Méthode ( liste des paramètres )
+// type RepeatableContent::Méthode ( liste des paramètres )
 // Algorithme :
 //	
 //{
 //}
 
+void RepeatableContent::accept(InterfaceDTDVisitor & visitor) const
+{
+	visitor.visit(*this);
+}
 
 //------------------------------------------------- Surcharge d'opérateurs
 
 
 //-------------------------------------------- Constructeurs - destructeur
-Content::Content ( )
+RepeatableContent::RepeatableContent(NonEmptyContent & content) :
+	QuantifiedContent(content)
 {
 	//TODO
 }
 
-
-Content::~Content ( )
+RepeatableContent::~RepeatableContent()
 {
 	//TODO
 }
-
 
 //------------------------------------------------------------------ PRIVE
 

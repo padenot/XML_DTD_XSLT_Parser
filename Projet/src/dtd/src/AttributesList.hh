@@ -1,28 +1,27 @@
 /*************************************************************************
- * Sequence  -  «Description»
+ * AttributesList  -  «Description»
  * -------------------
  * Début      : 5 avr. 2011
  * Auteur(s)  : H4215
  *************************************************************************/
 
-//---------- Interface de la classe <Sequence> (fichier Sequence.hh) ------
-#if ! defined ( SEQUENCE_HH_ )
-#define SEQUENCE_HH_
+//---------- Interface de la classe <AttributesList> (fichier AttributesList.hh) ------
+#if ! defined ( ATTRIBUTESLIST_HH_ )
+#define ATTRIBUTESLIST_HH_
 
 //--------------------------------------------------- Interfaces utilisées
-#include <list>
-#include "ElementContent.hh"
+#include <string>
 
 namespace dtd
 {
+class InterfaceDTDVisitor;
 
-class Sequence: public ElementContent
+class AttributesList
 {
 public:
 	//------------------------------------------------------------- Constantes
 
 	//------------------------------------------------------------------ Types
-	typedef std::list<ElementContent*> SequenceElements;
 
 	//----------------------------------------------------- Méthodes publiques
 	// type Méthode ( liste des paramètres );
@@ -31,30 +30,42 @@ public:
 	// Contrat :
 	//	
 
-	virtual void accept(InterfaceDTDVisitor & visitor) const;
+	std::string name() const;
+	// Mode d'emploi :
+	//	Renvoie le nom de l'élément associé à cette liste d'attributs.
+	// Contrat :
+	//	Aucun.
+
+	virtual void accept(InterfaceDTDVisitor& visitor) const;
+	// Mode d'emploi :
+	//	Permet à un visiteur d'inspecter cette liste d'attributs sous sa
+	//	vraie identité (en lui révélant son type réel).
+	//	Actuellement cette classe n'a pas de descendants et cette méthode
+	//	n'est donc présente qu'à des fins de généricité.
+	// Contrat :
+	//	Aucun.
 
 	//------------------------------------------------- Surcharge d'opérateurs
 
 
 	//-------------------------------------------- Constructeurs - destructeur
-	Sequence(const SequenceElements & elements);
+	AttributesList(const std::string & name);
 	// Mode d'emploi :
 	//	TODO
 	// Contrat :
 	//	TODO
 
-	virtual ~Sequence();
+	virtual ~AttributesList();
 	// Mode d'emploi :
 	//	TODO
 	// Contrat :
 	//	TODO
 
 protected:
-	typedef std::list<ElementContent*> _SequenceElements;
-	_SequenceElements _elements;
+	std::string _name;
 
 };
 
 } // namespace dtd
 
-#endif // SEQUENCE_HH_
+#endif // ATTRIBUTESLIST_HH_

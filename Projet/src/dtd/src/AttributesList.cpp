@@ -1,11 +1,11 @@
 /*************************************************************************
- * Content  -  «Description»
+ * AttributesList  -  «Description»
  * -------------------
  * Début      : 5 avr. 2011
  * Auteur(s)  : H4215
  *************************************************************************/
 
-//---------- Réalisation de la classe <Content> (fichier Content.cpp) -------
+//---------- Réalisation de la classe <AttributesList> (fichier AttributesList.cpp) -------
 
 //---------------------------------------------------------------- INCLUDE
 
@@ -13,7 +13,8 @@
 using namespace std;
 
 //------------------------------------------------------ Include personnel
-#include "Content.hh"
+#include "AttributesList.hh"
+#include "InterfaceDTDVisitor.hpp"
 
 namespace dtd
 {
@@ -22,28 +23,36 @@ namespace dtd
 //----------------------------------------------------------------- PUBLIC
 
 //----------------------------------------------------- Méthodes publiques
-// type Content::Méthode ( liste des paramètres )
+// type AttributesList::Méthode ( liste des paramètres )
 // Algorithme :
 //	
 //{
 //}
 
+string AttributesList::name() const
+{
+	return _name;
+}
+
+void AttributesList::accept(InterfaceDTDVisitor& visitor) const
+{
+	visitor.visit(*this);
+}
 
 //------------------------------------------------- Surcharge d'opérateurs
 
 
 //-------------------------------------------- Constructeurs - destructeur
-Content::Content ( )
+AttributesList::AttributesList(const string & name) :
+	_name(name)
 {
 	//TODO
 }
 
-
-Content::~Content ( )
+AttributesList::~AttributesList()
 {
 	//TODO
 }
-
 
 //------------------------------------------------------------------ PRIVE
 

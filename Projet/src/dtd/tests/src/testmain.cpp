@@ -14,27 +14,34 @@ using namespace std;
 #include<sstream>
 
 //------------------------------------------------------ Include personnel
-#include "Node.hh"
-#include "TextNode.hh"
-#include "MarkupNode.hh"
-#include "CompositeMarkupNode.hh"
-#include "OutputVisitor.hh"
+#include "OutputDTDVisitor.hh"
+#include "DTD.hh"
+#include "Element.hh"
+#include "AttributesList.hh"
+#include "EmptyContent.hh"
+#include "MixedContent.hh"
+#include "ElementReference.hh"
+#include "Choice.hh"
+#include "Sequence.hh"
+#include "OptionalContent.hh"
+#include "RepeatableContent.hh"
+#include "RepeatedContent.hh"
 using namespace xml;
+using namespace dtd;
 
 //------------------------------------------------------------- Constantes
 
 //-------------------------------------------------------------- Fonctions
-Node* buildTree()
+DTD* buildDTD()
 {
 	const string NS_INIT("__ns");
 	const string NAME_INIT("__name");
 	const string ATTR_INIT("__attr");
 	const string VAL_INIT("__val");
-	const string TEXT_INIT("__Ceci est un texte anticonstitutionnel et verbeux.");
+	const string TEXT_INIT(
+			"__Ceci est un texte anticonstitutionnel et verbeux.");
 
-	CompositeMarkupNode** parent = new CompositeMarkupNode*;
-	CompositeMarkupNode::Children children;
-	MarkupNode::Attributes attributes;
+	DTD & dtd = *new DTD();
 
 	for (int i = 0; i < 4; ++i)
 	{
@@ -42,28 +49,27 @@ Node* buildTree()
 		{
 			ostringstream ns(NS_INIT);
 			ostringstream name(NAME_INIT);
+
 			ns << setw(2) << i;
 			name << setw(2) << i;
-			children.push_back(new MarkupNode(*parent, ns.str(), name.str(),
-					attributes));
+
+			dtd.addElement(
+					*new Element(dtd, ns.str(), name.str(), *new EmptyContent()));
 		} else
 		{
-			ostringstream text(TEXT_INIT);
-			text << setw(2) << i;
-			children .push_back(new TextNode(*parent, text.str()));
+
 		}
 	}
-	CompositeMarkupNode** rootParent = new CompositeMarkupNode*;
-	*rootParent = 0;
-	return new CompositeMarkupNode(*rootParent, "rootns", "root", attributes,
-			*rootParent, children);
+
+	return &dtd;
 }
 
 bool test01()
 {
-	Node* root = buildTree();
-	OutputVisitor visitor(cout);
-	root->accept(visitor);
+	DTD* dtd = buildDTD();
+	OutputDTDVisitor visitor(cout);
+	dtd->accept(visitor);
+	delete dtd;
 	return true;
 }
 

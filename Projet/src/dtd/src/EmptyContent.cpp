@@ -1,11 +1,11 @@
 /*************************************************************************
  * EmptyContent  -  «Description»
  * -------------------
- * Début      : lun. 04 avril 2011 10:23:57 CEST
+ * Début      : 5 avr. 2011
  * Auteur(s)  : H4215
-*************************************************************************/
+ *************************************************************************/
 
-//---- Réalisation de la classe <EmptyContent> (fichier EmptyContent.cpp) ----
+//---------- Réalisation de la classe <EmptyContent> (fichier EmptyContent.cpp) -------
 
 //---------------------------------------------------------------- INCLUDE
 
@@ -14,50 +14,44 @@ using namespace std;
 
 //------------------------------------------------------ Include personnel
 #include "EmptyContent.hh"
+#include "InterfaceDTDVisitor.hpp"
 
 namespace dtd
 {
 //------------------------------------------------------------- Constantes
 
-//---------------------------------------------------- Variables de classe
-
-//----------------------------------------------------------- Types privés
-
-
 //----------------------------------------------------------------- PUBLIC
-//-------------------------------------------------------- Fonctions amies
 
 //----------------------------------------------------- Méthodes publiques
-// type EmptyContent::Méthode ( liste de paramètres )
+// type EmptyContent::Méthode ( liste des paramètres )
 // Algorithme :
-//	«TODO»
+//	
 //{
-//} //----- Fin de Méthode
+//}
+
+void EmptyContent::accept(InterfaceDTDVisitor & visitor) const
+{
+	visitor.visit(*this);
+}
 
 //------------------------------------------------- Surcharge d'opérateurs
 
 
 //-------------------------------------------- Constructeurs - destructeur
 EmptyContent::EmptyContent ( )
-// Algorithme :
-//	«TODO»
 {
 	//TODO
-} //----- Fin de EmptyContent
+}
 
 
 EmptyContent::~EmptyContent ( )
-// Algorithme :
-//	«TODO»
 {
 	//TODO
-} //----- Fin de ~EmptyContent
+}
 
 
 //------------------------------------------------------------------ PRIVE
 
 //----------------------------------------------------- Méthodes protégées
-
-//------------------------------------------------------- Méthodes privées
 
 } // namespace dtd

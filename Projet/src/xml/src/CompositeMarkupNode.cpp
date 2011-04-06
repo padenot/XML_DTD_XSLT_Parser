@@ -11,6 +11,7 @@
 
 //-------------------------------------------------------- Include système
 using namespace std;
+#include <string>
 
 //------------------------------------------------------ Include personnel
 #include "CompositeMarkupNode.hh"
@@ -64,7 +65,6 @@ CompositeMarkupNode::CompositeMarkupNode(CompositeMarkupNode *& parent,
 	_selfPointer = this;
 } //----- Fin de CompositeMarkupNode
 
-
 CompositeMarkupNode::~CompositeMarkupNode()
 {
 	for (_Children::const_iterator it = _children.begin(); it
@@ -74,7 +74,7 @@ CompositeMarkupNode::~CompositeMarkupNode()
 	}
 
 	// Destruction du pointeur utilisé comme référence par les enfants
-	delete _selfPointer;
+	delete &_selfPointer;
 } //----- Fin de ~CompositeMarkupNode
 
 

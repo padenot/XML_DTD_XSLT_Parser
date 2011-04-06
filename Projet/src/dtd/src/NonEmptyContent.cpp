@@ -1,11 +1,11 @@
 /*************************************************************************
- * Content  -  «Description»
+ * NonEmptyContent  -  «Description»
  * -------------------
  * Début      : 5 avr. 2011
  * Auteur(s)  : H4215
  *************************************************************************/
 
-//---------- Réalisation de la classe <Content> (fichier Content.cpp) -------
+//---------- Réalisation de la classe <NonEmptyContent> (fichier NonEmptyContent.cpp) -------
 
 //---------------------------------------------------------------- INCLUDE
 
@@ -13,7 +13,7 @@
 using namespace std;
 
 //------------------------------------------------------ Include personnel
-#include "Content.hh"
+#include "NonEmptyContent.hh"
 
 namespace dtd
 {
@@ -22,7 +22,7 @@ namespace dtd
 //----------------------------------------------------------------- PUBLIC
 
 //----------------------------------------------------- Méthodes publiques
-// type Content::Méthode ( liste des paramètres )
+// type NonEmptyContent::Méthode ( liste des paramètres )
 // Algorithme :
 //	
 //{
@@ -33,13 +33,13 @@ namespace dtd
 
 
 //-------------------------------------------- Constructeurs - destructeur
-Content::Content ( )
+NonEmptyContent::NonEmptyContent ( )
 {
 	//TODO
 }
 
 
-Content::~Content ( )
+NonEmptyContent::~NonEmptyContent ( )
 {
 	//TODO
 }

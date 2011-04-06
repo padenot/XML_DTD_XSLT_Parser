@@ -1,56 +1,52 @@
 /*************************************************************************
  * ElementContent  -  «Description»
  * -------------------
- * Début      : lun. 04 avril 2011 10:14:09 CEST
+ * Début      : 5 avr. 2011
  * Auteur(s)  : H4215
-*************************************************************************/
+ *************************************************************************/
 
-//---- Interface de la classe <ElementContent> (fichier ElementContent.hh) ----
-#ifndef ELEMENTCONTENT_HH
-#define ELEMENTCONTENT_HH
+//---------- Interface de la classe <ElementContent> (fichier ElementContent.hh) ------
+#if ! defined ( ELEMENTCONTENT_HH_ )
+#define ELEMENTCONTENT_HH_
 
 //--------------------------------------------------- Interfaces utilisées
-#include "QuantifiableContent.hh"
-
-//------------------------------------------------------------------------
-// Rôle de la classe <ElementContent>
-//	«Rôle»
-//
-//------------------------------------------------------------------------
+#include "NonEmptyContent.hh"
 
 namespace dtd
 {
 
-class ElementContent : public QuantifiableContent
+class ElementContent: public NonEmptyContent
 {
 public:
-//------------------------------------------------------------- Constantes
+	//------------------------------------------------------------- Constantes
 
-//------------------------------------------------------------------ Types
+	//------------------------------------------------------------------ Types
 
-//----------------------------------------------------- Méthodes publiques
-	// type Méthode ( liste de paramètres );
+	//----------------------------------------------------- Méthodes publiques
+	// type Méthode ( liste des paramètres );
 	// Mode d'emploi :
-	//	«TODO»
+	//	
 	// Contrat :
-	//	«TODO»
+	//	
 
 
-//------------------------------------------------- Surcharge d'opérateurs
+	//------------------------------------------------- Surcharge d'opérateurs
 
 
-//-------------------------------------------- Constructeurs - destructeur
-	ElementContent ( );
-	// Mode d'emploi (constructeur) :
-	//	«TODO»
+	//-------------------------------------------- Constructeurs - destructeur
+	ElementContent();
+	// Mode d'emploi :
+	//	TODO
 	// Contrat :
-	//	«TODO»
+	//	TODO
 
-	virtual ~ElementContent ( );
-	// Mode d'emploi (destructeur) :
-	//	«TODO»
+	virtual ~ElementContent();
+	// Mode d'emploi :
+	//	TODO
 	// Contrat :
-	//	«TODO»
+	//	TODO
+
+	//------------------------------------------------------------------ PRIVE
 
 protected:
 
@@ -58,5 +54,4 @@ protected:
 
 } // namespace dtd
 
-#endif // ELEMENTCONTENT_HH
-
+#endif // ELEMENTCONTENT_HH_

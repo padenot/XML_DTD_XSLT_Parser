@@ -52,7 +52,7 @@ public:
 	//------------------------------------------------- Surcharge d'opérateurs
 
 	//-------------------------------------------- Constructeurs - destructeur
-	TextNode(CompositeMarkupNode *& parent, std::string content);
+	TextNode(CompositeMarkupNode *& parent, const std::string & content);
 	// Mode d'emploi (constructeur) :
 	//	«TODO»
 	// Contrat :

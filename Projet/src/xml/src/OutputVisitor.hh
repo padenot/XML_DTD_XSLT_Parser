@@ -12,6 +12,7 @@
 
 //--------------------------------------------------- Interfaces utilisées
 #include <iosfwd>
+#include <string>
 #include "InterfaceNodeVisitor.hpp"
 
 namespace xml
@@ -20,7 +21,7 @@ class TextNode;
 class MarkupNode;
 class CompositeMarkupNode;
 
-class OutputVisitor : public InterfaceNodeVisitor
+class OutputVisitor: public InterfaceNodeVisitor
 {
 protected:
 	static const char DEFAULT_INDENT_CHAR = ' ';
@@ -57,33 +58,23 @@ public:
 	//	Aucun.
 
 protected:
-	static const char OPEN_MARKUP_CHAR;
-	static const char NS_SEPARATOR_CHAR;
-	static const char INSIDE_MARKUP_SPACE_CHAR;
-	static const char CLOSING_MARKUP_CHAR;
-	static const char CLOSE_MARKUP_CHAR;
-	static const char ASSIGN_ATTRIBUTE_VALUE_CHAR;
-	static const char OPEN_ATTRIBUTE_VALUE_CHAR;
-	static const char CLOSE_ATTRIBUTE_VALUE_CHAR;
+	static const std::string OPEN_MARKUP_STR;
+	static const std::string NS_SEPARATOR_STR;
+	static const std::string INSIDE_MARKUP_SPACE_STR;
+	static const std::string CLOSING_MARKUP_STR;
+	static const std::string CLOSE_MARKUP_STR;
+	static const std::string ASSIGN_ATTRIBUTE_VALUE_STR;
+	static const std::string OPEN_ATTRIBUTE_VALUE_STR;
+	static const std::string CLOSE_ATTRIBUTE_VALUE_STR;
 
 	std::ostream& _out;
 	char _indentChar;
 	unsigned _indentUnit;
 	unsigned int _indent;
 
-	virtual void visit(const TextNode& node);
-	virtual void visit(const MarkupNode& node);
-	virtual void visit(const CompositeMarkupNode& node);
-	// Mode d'emploi :
-	//	Écrit le noeud sur le flot "out".
-	//	La nature des caractères écrits sur le flot dépend du type du noeud.
-	//	Les noeuds inclus sont indentés par rapport à leur ancètre.
-	// Contrat :
-	//	Aucun.
-
 	void doIndent();
 	// Mode d'emploi :
-	//	Indente la ligne couraqnte en fonction de la valeur actuelle de
+	//	Indente la ligne courante en fonction de la valeur actuelle de
 	//	"_indent" avec le caractère "_indentChar".
 	// Contrat :
 	//	Aucun.
@@ -91,6 +82,16 @@ protected:
 	void writeAttributes(const MarkupNode& node);
 	// Mode d'emploi :
 	//	Écrit les attributs donnés en paramètres sur le flot "_out"
+	// Contrat :
+	//	Aucun.
+
+	virtual void visit(const TextNode& node);
+	virtual void visit(const MarkupNode& node);
+	virtual void visit(const CompositeMarkupNode& node);
+	// Mode d'emploi :
+	//	Écrit le noeud sur le flot "_out".
+	//	La nature des caractères écrits sur le flot dépend du type du noeud.
+	//	Les noeuds inclus sont indentés par rapport à leur ancètre.
 	// Contrat :
 	//	Aucun.
 

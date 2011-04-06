@@ -1,11 +1,11 @@
 /*************************************************************************
- * Content  -  «Description»
+ * OptionalContent  -  «Description»
  * -------------------
  * Début      : 5 avr. 2011
  * Auteur(s)  : H4215
  *************************************************************************/
 
-//---------- Réalisation de la classe <Content> (fichier Content.cpp) -------
+//---------- Réalisation de la classe <OptionalContent> (fichier OptionalContent.cpp) -------
 
 //---------------------------------------------------------------- INCLUDE
 
@@ -13,7 +13,8 @@
 using namespace std;
 
 //------------------------------------------------------ Include personnel
-#include "Content.hh"
+#include "OptionalContent.hh"
+#include "InterfaceDTDVisitor.hpp"
 
 namespace dtd
 {
@@ -22,28 +23,31 @@ namespace dtd
 //----------------------------------------------------------------- PUBLIC
 
 //----------------------------------------------------- Méthodes publiques
-// type Content::Méthode ( liste des paramètres )
+// type OptionalContent::Méthode ( liste des paramètres )
 // Algorithme :
 //	
 //{
 //}
 
+void OptionalContent::accept(InterfaceDTDVisitor & visitor) const
+{
+	visitor.visit(*this);
+}
 
 //------------------------------------------------- Surcharge d'opérateurs
 
 
 //-------------------------------------------- Constructeurs - destructeur
-Content::Content ( )
+OptionalContent::OptionalContent(NonEmptyContent & content) :
+	QuantifiedContent(content)
 {
 	//TODO
 }
 
-
-Content::~Content ( )
+OptionalContent::~OptionalContent()
 {
 	//TODO
 }
-
 
 //------------------------------------------------------------------ PRIVE
 

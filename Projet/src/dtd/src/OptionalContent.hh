@@ -1,28 +1,26 @@
 /*************************************************************************
- * Sequence  -  «Description»
+ * OptionalContent  -  «Description»
  * -------------------
  * Début      : 5 avr. 2011
  * Auteur(s)  : H4215
  *************************************************************************/
 
-//---------- Interface de la classe <Sequence> (fichier Sequence.hh) ------
-#if ! defined ( SEQUENCE_HH_ )
-#define SEQUENCE_HH_
+//---------- Interface de la classe <OptionalContent> (fichier OptionalContent.hh) ------
+#if ! defined ( OPTIONALCONTENT_HH_ )
+#define OPTIONALCONTENT_HH_
 
 //--------------------------------------------------- Interfaces utilisées
-#include <list>
-#include "ElementContent.hh"
+#include "QuantifiedContent.hh"
 
 namespace dtd
 {
 
-class Sequence: public ElementContent
+class OptionalContent: public QuantifiedContent
 {
 public:
 	//------------------------------------------------------------- Constantes
 
 	//------------------------------------------------------------------ Types
-	typedef std::list<ElementContent*> SequenceElements;
 
 	//----------------------------------------------------- Méthodes publiques
 	// type Méthode ( liste des paramètres );
@@ -37,24 +35,22 @@ public:
 
 
 	//-------------------------------------------- Constructeurs - destructeur
-	Sequence(const SequenceElements & elements);
+	OptionalContent(NonEmptyContent & content);
 	// Mode d'emploi :
 	//	TODO
 	// Contrat :
 	//	TODO
 
-	virtual ~Sequence();
+	virtual ~OptionalContent();
 	// Mode d'emploi :
 	//	TODO
 	// Contrat :
 	//	TODO
 
 protected:
-	typedef std::list<ElementContent*> _SequenceElements;
-	_SequenceElements _elements;
 
 };
 
 } // namespace dtd
 
-#endif // SEQUENCE_HH_
+#endif // OPTIONALCONTENT_HH_

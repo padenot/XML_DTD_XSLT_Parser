@@ -1,62 +1,60 @@
 /*************************************************************************
  * Choice  -  «Description»
  * -------------------
- * Début      : lun. 04 avril 2011 10:16:52 CEST
+ * Début      : 5 avr. 2011
  * Auteur(s)  : H4215
-*************************************************************************/
+ *************************************************************************/
 
-//---- Interface de la classe <Choice> (fichier Choice.hh) ----
-#ifndef CHOICE_HH
-#define CHOICE_HH
+//---------- Interface de la classe <Choice> (fichier Choice.hh) ------
+#if ! defined ( CHOICE_HH_ )
+#define CHOICE_HH_
 
 //--------------------------------------------------- Interfaces utilisées
+#include <set>
 #include "ElementContent.hh"
-
-//------------------------------------------------------------------------
-// Rôle de la classe <Choice>
-//	«Rôle»
-//
-//------------------------------------------------------------------------
 
 namespace dtd
 {
 
-class Choice : public ElementContent
+class Choice: public ElementContent
 {
 public:
-//------------------------------------------------------------- Constantes
+	//------------------------------------------------------------- Constantes
 
-//------------------------------------------------------------------ Types
+	//------------------------------------------------------------------ Types
+	typedef std::set<ElementContent*> ChoiceElements;
 
-//----------------------------------------------------- Méthodes publiques
-	// type Méthode ( liste de paramètres );
+	//----------------------------------------------------- Méthodes publiques
+	// type Méthode ( liste des paramètres );
 	// Mode d'emploi :
-	//	«TODO»
+	//	
 	// Contrat :
-	//	«TODO»
+	//	
+
+	virtual void accept(InterfaceDTDVisitor & visitor) const;
+
+	//------------------------------------------------- Surcharge d'opérateurs
 
 
-//------------------------------------------------- Surcharge d'opérateurs
-
-
-//-------------------------------------------- Constructeurs - destructeur
-	Choice ( );
-	// Mode d'emploi (constructeur) :
-	//	«TODO»
+	//-------------------------------------------- Constructeurs - destructeur
+	Choice(const ChoiceElements & elements);
+	// Mode d'emploi :
+	//	TODO
 	// Contrat :
-	//	«TODO»
+	//	TODO
 
-	virtual ~Choice ( );
-	// Mode d'emploi (destructeur) :
-	//	«TODO»
+	virtual ~Choice();
+	// Mode d'emploi :
+	//	TODO
 	// Contrat :
-	//	«TODO»
+	//	TODO
 
 protected:
+	typedef std::set<ElementContent*> _ChoiceElements;
+	_ChoiceElements _elements;
 
 };
 
 } // namespace dtd
 
-#endif // CHOICE_HH
-
+#endif // CHOICE_HH_
