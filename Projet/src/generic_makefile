@@ -9,8 +9,8 @@ else
 	BIN=$(BINPATH)/lib$(BINNAME).a
 endif
 
-OBJS=$(shell echo $(SRCS) | sed 's,\([^[:space:]]\+/\)\?\([^[:space:]/]\+\)\.[^[:space:]\.]\+,$(OBJPATH)/\2\.o,g')
-#OBJS=$(patsubst $(SRCPATH)/%.cpp,$(OBJPATH)/%.o, $(SRCS))
+#OBJS=$(shell echo $(SRCS) | sed 's,\([^[:space:]]\+/\)\?\([^[:space:]/]\+\)\.[^[:space:]\.]\+,$(OBJPATH)/\2\.o,g')
+OBJS=$(patsubst $(SRCPATH)/%.cpp,$(OBJPATH)/%.o, $(SRCS))
 
 ifdef DEBUG
 	CXXFLAGS:=-g $(CXXFLAGS)
@@ -25,7 +25,7 @@ ifdef DEBUG
 else
 	@echo "*********** RELEASE ***********"
 endif
-	@echo -e 'Binary :\n$(BIN)'
+	@echo 'Binary: $(BIN)'
 
 
 ## Tools
@@ -81,7 +81,7 @@ $(OBJPATH)/%.d: $(SRCPATH)/%.cpp | Makefile $(OBJPATH)
 	@echo "Generating prerequisites file for $<"
 	@set -e; rm -f $@; \
 		$(CXX) -MM $(CXXFLAGS) $< | \
-		sed 's,\(^.*\)\.o *:,$$(OBJPATH)/\1.o $@ : \\\n ,g' > $@; \
+		sed 's,\(^.*\)\.o *:,$$(OBJPATH)/\1.o $@ : ,g' > $@; \
 		rm -f $@.$$$$
 
 -include $(OBJS:.o=.d)
