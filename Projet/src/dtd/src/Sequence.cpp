@@ -99,17 +99,19 @@ bool Sequence::_continueValidation(
 		else
 			// La séquence était subordonnée à un contenu englobant :
 			//	d'autres jetons doivent peut-être être consommés.
-			return _CALL_continueValidation(*state.nextStep, currentToken);
+			return _ValidatorAccessor(*state.nextStep)._continueValidation(
+					currentToken);
 	}
 	else
 	{
 		// Fin de séquence non atteinte : on teste le contenu incrusté suivant.
 
-		ElementContent& currentEmbeddedContent = **state.nextEmbeddedContent;
+		_ValidatorAccessor currentEmbeddedContent = _ValidatorAccessor(
+				**state.nextEmbeddedContent);
 		++state.nextEmbeddedContent;
 
-		if (_CALL_newValidation(currentEmbeddedContent, currentToken,
-				state.endToken, this))
+		if (currentEmbeddedContent._newValidation(currentToken, state.endToken,
+				this))
 		{
 			// Le reste de la liste de jetons a pu être consommé par le reste de
 			//	l'arbre de contenus : la validation est terminée et réussie.
