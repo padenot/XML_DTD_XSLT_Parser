@@ -12,13 +12,13 @@
 //--------------------------------------------------- Interfaces utilisées
 #include <set>
 #include <stack>
-#include "NonEmptyContent.hh"
+#include "QuantifiableContent.hh"
 
 namespace dtd
 {
 class ElementReference;
 
-class MixedContent: public NonEmptyContent
+class MixedContent: public QuantifiableContent
 {
 	//----------------------------------------------------------------- PUBLIC
 
@@ -26,7 +26,7 @@ public:
 	//------------------------------------------------------------- Constantes
 
 	//------------------------------------------------------------------ Types
-	typedef std::set<ElementReference*> ChoiceElements;
+	typedef std::set<ElementReference*> ChoosableSet;
 
 	//----------------------------------------------------- Méthodes publiques
 	// type Méthode ( liste des paramètres );
@@ -35,16 +35,19 @@ public:
 	// Contrat :
 	//	
 
+	virtual bool validate(const xml::CompositeMarkupNode & node);
+
 	virtual void accept(InterfaceDTDVisitor & visitor) const;
 
 	//------------------------------------------------- Surcharge d'opérateurs
 
 
 	//-------------------------------------------- Constructeurs - destructeur
-	MixedContent(const ChoiceElements & elements);
+	MixedContent(const ChoosableSet & choosable);
 	// Mode d'emploi :
 	//	TODO
 	// Contrat :
+	//	Aucun des pointeurs fournis ne doit être nul.
 	//	TODO
 
 	virtual ~MixedContent();
@@ -56,21 +59,33 @@ public:
 	//------------------------------------------------------------------ PRIVE
 
 protected:
-	typedef std::set<ElementReference*> _ChoiceElements;
-	_ChoiceElements _elements;
+	typedef std::set<ElementReference*> _ChoosableSet;
+	_ChoosableSet _choosable;
 
-	struct _State: public Content::_State
+	struct _State: public NonEmptyContent::_State
 	{
-		// TODO
+		_ChoosableSet::iterator nextChoosable;
+
+		_State(xml::CompositeMarkupNode::ChildrenIterator aFirstToken,
+				xml::CompositeMarkupNode::ChildrenIterator anEndToken,
+				NonEmptyContent* aNextStep,
+				_ChoosableSet::iterator aNextChoosable) :
+			NonEmptyContent::_State(aFirstToken, anEndToken, aNextStep),
+					nextChoosable(aNextChoosable)
+		{
+
+		}
 	};
 	typedef std::stack<_State> _StatesStack;
 	_StatesStack _stack;
 
-	virtual void _pushState(Content* nextStep);
+	virtual void _pushState(
+			xml::CompositeMarkupNode::ChildrenIterator firstToken,
+			xml::CompositeMarkupNode::ChildrenIterator endToken,
+			NonEmptyContent* nextStep);
 	virtual void _popState();
 	virtual bool _continueValidation(
-			xml::CompositeMarkupNode::ChildrenIterator firstToken,
-			xml::CompositeMarkupNode::ChildrenIterator endToken) const;
+			xml::CompositeMarkupNode::ChildrenIterator currentToken);
 
 };
 

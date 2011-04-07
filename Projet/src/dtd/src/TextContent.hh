@@ -10,12 +10,13 @@
 #define TEXTCONTENT_HH_
 
 //--------------------------------------------------- Interfaces utilisées
-#include "Content.hh"
+#include "NonEmptyContent.hh"
+#include "InterfaceNodeVisitor.hpp"
 
 namespace dtd
 {
 
-class TextContent: public Content
+class TextContent: public NonEmptyContent, public xml::InterfaceNodeVisitor
 {
 public:
 	//------------------------------------------------------------- Constantes
@@ -28,8 +29,6 @@ public:
 	//
 	// Contrat :
 	//
-
-	virtual bool validate(const xml::TextNode & node);
 
 	virtual void accept(InterfaceDTDVisitor & visitor) const;
 
@@ -50,6 +49,17 @@ public:
 	//	TODO
 
 protected:
+
+	bool _validationResult;
+	// Variable temporaire utilisée pour transmettre un retour booléen
+	//	lors d'un appel à visit()
+
+	virtual bool _continueValidation(
+			xml::CompositeMarkupNode::ChildrenIterator currentToken);
+
+	virtual void visit(const xml::TextNode& node);
+	virtual void visit(const xml::MarkupNode& node);
+	virtual void visit(const xml::CompositeMarkupNode& node);
 };
 
 } // namespace dtd

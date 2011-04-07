@@ -30,11 +30,6 @@ namespace dtd
 //{
 //}
 
-bool TextContent::validate(const TextNode & node)
-{
-	return true;
-}
-
 void TextContent::accept(InterfaceDTDVisitor & visitor) const
 {
 	visitor.visit(*this);
@@ -57,5 +52,26 @@ TextContent::~TextContent()
 //------------------------------------------------------------------ PRIVE
 
 //----------------------------------------------------- Méthodes protégées
+bool TextContent::_continueValidation(
+		xml::CompositeMarkupNode::ChildrenIterator currentToken)
+{
+	//TODO
+	return false;
+}
+
+void TextContent::visit(const TextNode&)
+{
+	_validationResult = true;
+}
+
+void TextContent::visit(const MarkupNode&)
+{
+	_validationResult = false;
+}
+
+void TextContent::visit(const CompositeMarkupNode&)
+{
+	_validationResult = false;
+}
 
 } // namespace dtd

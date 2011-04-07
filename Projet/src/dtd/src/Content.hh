@@ -32,28 +32,21 @@ public:
 	// Contrat :
 	//	
 
-	virtual bool validate(const xml::TextNode & node);
+	virtual bool validate(const xml::MarkupNode & node) = 0;
 	// Mode d'emploi :
-	//	Renvoie vrai si le contenu est de type texte.
+	//	Renvoie vrai si le contenu est de type EMPTY ou ANY.
 	//	Renvoie faux sinon.
+	//	Méthode destinée à être utilisée par la classe Element.
 	// Contrat :
 	//	Aucun.
 
-	virtual bool validate(const xml::MarkupNode & node);
-	// Mode d'emploi :
-	//	Renvoie vrai si le contenu est de type vide.
-	//	Renvoie faux sinon.
-	// Contrat :
-	//	Aucun.
-
-	virtual bool validate(const xml::CompositeMarkupNode & node);
+	virtual bool validate(const xml::CompositeMarkupNode & node) = 0;
 	// Mode d'emploi :
 	//	Renvoie vrai si le noeud passé en paramètre respecte la strucure
-	//	imposée par ce contenu, et si ses descendants
-	// 	sont référencés dans la même DTD que cet élément et respectent
-	//	également la structure imposée par les éléments correspondants de
-	//	la même DTD (attributs et contenu).
-	//	Renvoie faux sinon.
+	//	imposée par ce contenu.
+	//	Renvoie faux sinon (en particulier si le contenu est de type EMPTY).
+	//	Méthode destinée à être utilisée par la classe Element.
+	//	Cette méthode ne valide pas récursivement la structure des enfants.
 	// Contrat :
 	//	Aucun.
 
@@ -82,41 +75,7 @@ public:
 	//	TODO
 
 protected:
-	struct _State
-	{
-		Content* nextStep;
-		xml::CompositeMarkupNode::ChildrenIterator firstToken;
-		xml::CompositeMarkupNode::ChildrenIterator currentToken;
-		xml::CompositeMarkupNode::ChildrenIterator endToken;
-	};
 
-	bool _newValidation(xml::CompositeMarkupNode::ChildrenIterator firstToken,
-			xml::CompositeMarkupNode::ChildrenIterator endToken,
-			Content* nextStep);
-	// Mode d'emploi :
-	//	TODO.
-	// Contrat :
-	//	Aucun.
-
-	virtual void _pushState(Content* nextStep) = 0;
-	// Mode d'emploi :
-	//	TODO.
-	// Contrat :
-	//	Aucun.
-
-	virtual void _popState() = 0;
-	// Mode d'emploi :
-	//	TODO.
-	// Contrat :
-	//	Aucun.
-
-	virtual bool _continueValidation(
-			xml::CompositeMarkupNode::ChildrenIterator firstToken,
-			xml::CompositeMarkupNode::ChildrenIterator endToken) const = 0;
-	// Mode d'emploi :
-	//	TODO.
-	// Contrat :
-	//	Aucun.
 };
 
 } // namespace dtd

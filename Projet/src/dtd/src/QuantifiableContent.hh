@@ -1,21 +1,21 @@
 /*************************************************************************
- * RepeatedContent  -  «Description»
+ * QuantifiableContent  -  «Description»
  * -------------------
- * Début      : 5 avr. 2011
+ * Début      : 6 avr. 2011
  * Auteur(s)  : H4215
  *************************************************************************/
 
-//---------- Interface de la classe <RepeatedContent> (fichier RepeatedContent.hh) ------
-#if ! defined ( REPEATEDCONTENT_HH_ )
-#define REPEATEDCONTENT_HH_
+//---------- Interface de la classe <QuantifiableContent> (fichier QuantifiableContent.hh) ------
+#if ! defined ( QUANTIFIABLECONTENT_HH_ )
+#define QUANTIFIABLECONTENT_HH_
 
 //--------------------------------------------------- Interfaces utilisées
-#include "QuantifiedContent.hh"
+#include "NonEmptyContent.hh"
 
 namespace dtd
 {
 
-class RepeatedContent: public QuantifiedContent
+class QuantifiableContent: public NonEmptyContent
 {
 public:
 	//------------------------------------------------------------- Constantes
@@ -29,19 +29,18 @@ public:
 	// Contrat :
 	//	
 
-	virtual void accept(InterfaceDTDVisitor & visitor) const;
 
 	//------------------------------------------------- Surcharge d'opérateurs
 
 
 	//-------------------------------------------- Constructeurs - destructeur
-	RepeatedContent(QuantifiableContent & content);
+	QuantifiableContent();
 	// Mode d'emploi :
 	//	TODO
 	// Contrat :
 	//	TODO
 
-	virtual ~RepeatedContent();
+	virtual ~QuantifiableContent();
 	// Mode d'emploi :
 	//	TODO
 	// Contrat :
@@ -49,11 +48,8 @@ public:
 
 protected:
 
-	virtual bool _continueValidation(
-			xml::CompositeMarkupNode::ChildrenIterator currentToken);
-
 };
 
 } // namespace dtd
 
-#endif // REPEATEDCONTENT_HH_
+#endif // QUANTIFIABLECONTENT_HH_

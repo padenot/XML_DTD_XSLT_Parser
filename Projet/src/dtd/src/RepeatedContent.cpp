@@ -38,7 +38,7 @@ void RepeatedContent::accept(InterfaceDTDVisitor & visitor) const
 
 
 //-------------------------------------------- Constructeurs - destructeur
-RepeatedContent::RepeatedContent(NonEmptyContent & content) :
+RepeatedContent::RepeatedContent(QuantifiableContent & content) :
 	QuantifiedContent(content)
 {
 	//TODO
@@ -52,5 +52,11 @@ RepeatedContent::~RepeatedContent()
 //------------------------------------------------------------------ PRIVE
 
 //----------------------------------------------------- Méthodes protégées
+bool RepeatedContent::_continueValidation(
+		xml::CompositeMarkupNode::ChildrenIterator currentToken)
+{
+	//TODO
+	return false;
+}
 
 } // namespace dtd

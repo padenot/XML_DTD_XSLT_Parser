@@ -19,6 +19,7 @@ using namespace std;
 #include "Element.hh"
 #include "AttributesList.hh"
 #include "EmptyContent.hh"
+#include "AnyContent.hh"
 #include "MixedContent.hh"
 #include "ElementReference.hh"
 #include "Choice.hh"
@@ -44,6 +45,7 @@ const std::string OutputDTDVisitor::START_MIXED_STR = "(";
 const std::string OutputDTDVisitor::MIXED_SEPARATOR_STR = "|";
 const std::string OutputDTDVisitor::END_MIXED_STR = ")";
 const std::string OutputDTDVisitor::EMPTY_CONTENT_STR = "EMPTY";
+const std::string OutputDTDVisitor::ANY_CONTENT_STR = "ANY";
 const std::string OutputDTDVisitor::TEXT_CONTENT_STR = "#PCDATA";
 const std::string OutputDTDVisitor::OPTIONAL_QUANTIFIER_STR = "?";
 const std::string OutputDTDVisitor::REPEATABLE_QUANTIFIER_STR = "*";
@@ -114,6 +116,11 @@ void OutputDTDVisitor::visit(const AttributesList & attlist)
 
 	doIndent();
 	_out << CLOSE_MARKUP_STR << endl;
+}
+
+void OutputDTDVisitor::visit(const AnyContent &)
+{
+	_out << ANY_CONTENT_STR;
 }
 
 void OutputDTDVisitor::visit(const EmptyContent &)

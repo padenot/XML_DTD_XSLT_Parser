@@ -1,11 +1,11 @@
 /*************************************************************************
- * EmptyContent  -  «Description»
+ * AnyContent  -  «Description»
  * -------------------
- * Début      : 5 avr. 2011
+ * Début      : 6 avr. 2011
  * Auteur(s)  : H4215
  *************************************************************************/
 
-//---------- Réalisation de la classe <EmptyContent> (fichier EmptyContent.cpp) -------
+//---------- Réalisation de la classe <AnyContent> (fichier AnyContent.cpp) -------
 
 //---------------------------------------------------------------- INCLUDE
 
@@ -13,7 +13,7 @@
 using namespace std;
 
 //------------------------------------------------------ Include personnel
-#include "EmptyContent.hh"
+#include "AnyContent.hh"
 #include "InterfaceDTDVisitor.hpp"
 using namespace xml;
 
@@ -24,23 +24,23 @@ namespace dtd
 //----------------------------------------------------------------- PUBLIC
 
 //----------------------------------------------------- Méthodes publiques
-// type EmptyContent::Méthode ( liste des paramètres )
+// type AnyContent::Méthode ( liste des paramètres )
 // Algorithme :
 //	
 //{
 //}
 
-bool EmptyContent::validate(const MarkupNode & node)
+bool AnyContent::validate(const MarkupNode &)
 {
 	return true;
 }
 
-bool EmptyContent::validate(const CompositeMarkupNode & node)
+bool AnyContent::validate(const CompositeMarkupNode &)
 {
-	return false;
+	return true;
 }
 
-void EmptyContent::accept(InterfaceDTDVisitor & visitor) const
+void AnyContent::accept(InterfaceDTDVisitor & visitor) const
 {
 	visitor.visit(*this);
 }
@@ -49,12 +49,12 @@ void EmptyContent::accept(InterfaceDTDVisitor & visitor) const
 
 
 //-------------------------------------------- Constructeurs - destructeur
-EmptyContent::EmptyContent()
+AnyContent::AnyContent()
 {
 	//TODO
 }
 
-EmptyContent::~EmptyContent()
+AnyContent::~AnyContent()
 {
 	//TODO
 }
@@ -62,6 +62,5 @@ EmptyContent::~EmptyContent()
 //------------------------------------------------------------------ PRIVE
 
 //----------------------------------------------------- Méthodes protégées
-
 
 } // namespace dtd

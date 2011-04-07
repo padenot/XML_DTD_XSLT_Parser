@@ -38,7 +38,7 @@ void OptionalContent::accept(InterfaceDTDVisitor & visitor) const
 
 
 //-------------------------------------------- Constructeurs - destructeur
-OptionalContent::OptionalContent(NonEmptyContent & content) :
+OptionalContent::OptionalContent(QuantifiableContent & content) :
 	QuantifiedContent(content)
 {
 	//TODO
@@ -52,5 +52,11 @@ OptionalContent::~OptionalContent()
 //------------------------------------------------------------------ PRIVE
 
 //----------------------------------------------------- Méthodes protégées
+bool OptionalContent::_continueValidation(
+		xml::CompositeMarkupNode::ChildrenIterator currentToken)
+{
+	//TODO
+	return false;
+}
 
 } // namespace dtd

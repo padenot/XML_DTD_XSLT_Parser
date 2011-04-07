@@ -15,6 +15,7 @@ using namespace std;
 //------------------------------------------------------ Include personnel
 #include "Sequence.hh"
 #include "InterfaceDTDVisitor.hpp"
+using namespace xml;
 
 namespace dtd
 {
@@ -29,6 +30,14 @@ namespace dtd
 //{
 //}
 
+bool Sequence::validate(const CompositeMarkupNode& node)
+// Algorithme :
+//	Initialise la validation récursive (récursion sur les éléments de la
+//	séquence).
+{
+	return _newValidation(node.begin(), node.end(), 0);
+}
+
 void Sequence::accept(InterfaceDTDVisitor & visitor) const
 {
 	visitor.visit(*this);
@@ -38,16 +47,16 @@ void Sequence::accept(InterfaceDTDVisitor & visitor) const
 
 
 //-------------------------------------------- Constructeurs - destructeur
-Sequence::Sequence(const SequenceElements & elements) :
-	_elements(elements)
+Sequence::Sequence(const OrderedContent & embeddedContent) :
+	_embeddedContent(embeddedContent)
 {
 	//TODO
 }
 
 Sequence::~Sequence()
 {
-	for (_SequenceElements::iterator it = _elements.begin(); it
-			!= _elements.end(); ++it)
+	for (_OrderedContent::iterator it = _embeddedContent.begin(); it
+			!= _embeddedContent.end(); ++it)
 	{
 		delete *it;
 	}
@@ -56,22 +65,63 @@ Sequence::~Sequence()
 //------------------------------------------------------------------ PRIVE
 
 //----------------------------------------------------- Méthodes protégées
-
-void Sequence::_pushState(Content* nextStep)
+void Sequence::_pushState(
+		xml::CompositeMarkupNode::ChildrenIterator firstToken,
+		xml::CompositeMarkupNode::ChildrenIterator endToken,
+		NonEmptyContent* nextStep)
 {
-	//_stack.push(new )
-	//TODO
+	_stack.push(
+			_State(firstToken, endToken, nextStep, _embeddedContent.begin()));
 }
 
 void Sequence::_popState()
 {
-	//TODO
+	_stack.pop();
 }
 
-bool Sequence::_continueValidation(xml::CompositeMarkupNode::ChildrenIterator firstToken,
-		xml::CompositeMarkupNode::ChildrenIterator endToken) const
+bool Sequence::_continueValidation(
+		xml::CompositeMarkupNode::ChildrenIterator currentToken)
+// Note : comme aucune décision n'est prise dans cette méthode, le
+//	véritable backtracking est délégué aux objets ayant demandé la validation
+//	en renvoyant faux.
 {
-	//TODO
+	_State & state = _stack.top();
+
+	if (state.nextEmbeddedContent == _embeddedContent.end())
+	{
+		// Fin de séquence atteinte : l'objet a été consommé (on a trouvé des
+		//	noeuds correspondant à la séquence).
+
+		if (state.nextStep == 0)
+			// La séquence était à l'origine de la validation : tout est ok
+			//	si on a réussi à atteindre la fin de la liste de noeuds
+			return currentToken == state.endToken;
+		else
+			// La séquence était subordonnée à un contenu englobant :
+			//	d'autres jetons doivent peut-être être consommés.
+			return _CALL_continueValidation(*state.nextStep, currentToken);
+	}
+	else
+	{
+		// Fin de séquence non atteinte : on teste le contenu incrusté suivant.
+
+		ElementContent& currentEmbeddedContent = **state.nextEmbeddedContent;
+		++state.nextEmbeddedContent;
+
+		if (_CALL_newValidation(currentEmbeddedContent, currentToken,
+				state.endToken, this))
+		{
+			// Le reste de la liste de jetons a pu être consommé par le reste de
+			//	l'arbre de contenus : la validation est terminée et réussie.
+			return true;
+		}
+		else
+		{
+			// La configuration actuelle n'est pas valide.
+			//	Il faut annuler la dernière décision prise (backtracking).
+			return false;
+		}
+	}
 }
 
 } // namespace dtd

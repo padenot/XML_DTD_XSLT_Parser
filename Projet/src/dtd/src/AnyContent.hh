@@ -1,21 +1,21 @@
 /*************************************************************************
- * RepeatedContent  -  «Description»
+ * AnyContent  -  «Description»
  * -------------------
- * Début      : 5 avr. 2011
+ * Début      : 6 avr. 2011
  * Auteur(s)  : H4215
  *************************************************************************/
 
-//---------- Interface de la classe <RepeatedContent> (fichier RepeatedContent.hh) ------
-#if ! defined ( REPEATEDCONTENT_HH_ )
-#define REPEATEDCONTENT_HH_
+//---------- Interface de la classe <AnyContent> (fichier AnyContent.hh) ------
+#if ! defined ( ANYCONTENT_HH_ )
+#define ANYCONTENT_HH_
 
 //--------------------------------------------------- Interfaces utilisées
-#include "QuantifiedContent.hh"
+#include "Content.hh"
 
 namespace dtd
 {
 
-class RepeatedContent: public QuantifiedContent
+class AnyContent: public Content
 {
 public:
 	//------------------------------------------------------------- Constantes
@@ -29,19 +29,22 @@ public:
 	// Contrat :
 	//	
 
+	virtual bool validate(const xml::MarkupNode & node);
+	virtual bool validate(const xml::CompositeMarkupNode & node);
+
 	virtual void accept(InterfaceDTDVisitor & visitor) const;
 
 	//------------------------------------------------- Surcharge d'opérateurs
 
 
 	//-------------------------------------------- Constructeurs - destructeur
-	RepeatedContent(QuantifiableContent & content);
+	AnyContent();
 	// Mode d'emploi :
 	//	TODO
 	// Contrat :
 	//	TODO
 
-	virtual ~RepeatedContent();
+	virtual ~AnyContent();
 	// Mode d'emploi :
 	//	TODO
 	// Contrat :
@@ -49,11 +52,8 @@ public:
 
 protected:
 
-	virtual bool _continueValidation(
-			xml::CompositeMarkupNode::ChildrenIterator currentToken);
-
 };
 
 } // namespace dtd
 
-#endif // REPEATEDCONTENT_HH_
+#endif // ANYCONTENT_HH_

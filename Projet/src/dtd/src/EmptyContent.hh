@@ -14,16 +14,13 @@
 
 namespace dtd
 {
-//------------------------------------------------------------- Constantes 
-
-//------------------------------------------------------------------ Types 
-
-
 class EmptyContent: public Content
 {
-	//----------------------------------------------------------------- PUBLIC
-
 public:
+	//------------------------------------------------------------- Constantes
+
+	//------------------------------------------------------------------ Types
+
 	//----------------------------------------------------- Méthodes publiques
 	// type Méthode ( liste des paramètres );
 	// Mode d'emploi :
@@ -32,6 +29,7 @@ public:
 	//	
 
 	virtual bool validate(const xml::MarkupNode & node);
+	virtual bool validate(const xml::CompositeMarkupNode & node);
 
 	virtual void accept(InterfaceDTDVisitor & visitor) const;
 
@@ -51,12 +49,7 @@ public:
 	// Contrat :
 	//	TODO
 
-	//------------------------------------------------------------------ PRIVE
-
 protected:
-	//----------------------------------------------------- Méthodes protégées
-
-	//----------------------------------------------------- Attributs protégés
 
 };
 

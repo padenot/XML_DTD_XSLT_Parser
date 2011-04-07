@@ -61,6 +61,7 @@ protected:
 	static const std::string MIXED_SEPARATOR_STR;
 	static const std::string END_MIXED_STR;
 	static const std::string EMPTY_CONTENT_STR;
+	static const std::string ANY_CONTENT_STR;
 	static const std::string TEXT_CONTENT_STR;
 	static const std::string OPTIONAL_QUANTIFIER_STR;
 	static const std::string REPEATABLE_QUANTIFIER_STR;
@@ -82,6 +83,7 @@ protected:
 	virtual void visit(const Element & element);
 	virtual void visit(const AttributesList & attlist);
 	virtual void visit(const EmptyContent & content);
+	virtual void visit(const AnyContent & content);
 	virtual void visit(const MixedContent & content);
 	virtual void visit(const TextContent & content);
 	virtual void visit(const ElementReference & element);
