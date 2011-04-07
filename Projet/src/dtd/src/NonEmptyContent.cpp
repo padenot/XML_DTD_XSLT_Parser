@@ -58,6 +58,27 @@ NonEmptyContent::~NonEmptyContent()
 //------------------------------------------------------------------ PRIVE
 
 //----------------------------------------------------- Méthodes protégées
+NonEmptyContent::_ValidatorAccessor::_ValidatorAccessor(
+		NonEmptyContent& referenced) :
+	_referenced(referenced)
+{
+
+}
+
+bool NonEmptyContent::_ValidatorAccessor::_newValidation(
+		xml::CompositeMarkupNode::ChildrenIterator firstToken,
+		xml::CompositeMarkupNode::ChildrenIterator endToken,
+		NonEmptyContent* nextStep)
+{
+	return _referenced._newValidation(firstToken, endToken, nextStep);
+}
+
+bool NonEmptyContent::_ValidatorAccessor::_continueValidation(
+		xml::CompositeMarkupNode::ChildrenIterator currentToken)
+{
+	return _referenced._continueValidation(currentToken);
+}
+
 bool NonEmptyContent::_newValidation(
 		CompositeMarkupNode::ChildrenIterator firstToken,
 		CompositeMarkupNode::ChildrenIterator endToken,
@@ -83,20 +104,6 @@ void NonEmptyContent::_pushState(CompositeMarkupNode::ChildrenIterator,
 void NonEmptyContent::_popState()
 {
 	// Do nothing by default.
-}
-
-bool NonEmptyContent::_CALL_newValidation(NonEmptyContent & target,
-		xml::CompositeMarkupNode::ChildrenIterator firstToken,
-		xml::CompositeMarkupNode::ChildrenIterator endToken,
-		NonEmptyContent* nextStep)
-{
-	return target._newValidation(firstToken, endToken, nextStep);
-}
-
-bool NonEmptyContent::_CALL_continueValidation(NonEmptyContent & target,
-		xml::CompositeMarkupNode::ChildrenIterator currentToken)
-{
-	return target._continueValidation(currentToken);
 }
 
 } // namespace dtd

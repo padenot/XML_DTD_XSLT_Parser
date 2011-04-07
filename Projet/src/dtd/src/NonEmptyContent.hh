@@ -11,11 +11,12 @@
 
 //--------------------------------------------------- Interfaces utilisées
 #include "Content.hh"
+#include "_InterfaceValidator.hpp"
 
 namespace dtd
 {
 
-class NonEmptyContent: public Content
+class NonEmptyContent: public Content, protected _InterfaceValidator
 {
 public:
 	//------------------------------------------------------------- Constantes
@@ -68,9 +69,9 @@ protected:
 			xml::CompositeMarkupNode::ChildrenIterator endToken,
 			NonEmptyContent* nextStep);
 	// Mode d'emploi :
-	//	TODO.
+	//	TODO
 	// Contrat :
-	//	Aucun.
+	//	TODO
 
 	virtual void _pushState(
 			xml::CompositeMarkupNode::ChildrenIterator firstToken,
@@ -87,40 +88,45 @@ protected:
 	// Contrat :
 	//	Aucun.
 
-	virtual bool _continueValidation(
-			xml::CompositeMarkupNode::ChildrenIterator currentToken) = 0;
-	// Mode d'emploi :
-	//	TODO.
-	// Contrat :
-	//	Aucun.
+	class _ValidatorAccessor: public _InterfaceValidator
+	// Permet aux sous-classes de NonEmptyElement d'accéder à l'interface
+	// _InterfaceValidator sur d'autres instances qu'eux-mêmes.
+	{
+	public:
+		_ValidatorAccessor(NonEmptyContent& referenced);
+		virtual bool _newValidation(
+				xml::CompositeMarkupNode::ChildrenIterator firstToken,
+				xml::CompositeMarkupNode::ChildrenIterator endToken,
+				NonEmptyContent* nextStep);
+		// Mode d'emploi :
+		//	Appelle referenced._newValidation(firstToken,endToken,nextStep)
+		//	et renvoie le résultat.
+		//	Astuce très moche nécessaire pour donner aux instances des
+		//	classes filles le droit d'appeler des méthodes protégées de
+		//	la classes de base sur d'autres instances.
+		//	L'autre solution aurait été de donner à ces méthodes une
+		//	visibilité publique...
+		// Contrat :
+		//	Ceux s'appliquant à NonEmptyContent::_newValidation.
 
-	static bool _CALL_newValidation(NonEmptyContent & target,
-			xml::CompositeMarkupNode::ChildrenIterator firstToken,
-			xml::CompositeMarkupNode::ChildrenIterator endToken,
-			NonEmptyContent* nextStep);
-	// Mode d'emploi :
-	//	Appelle target._newValidation(firstToken,endToken,nextStep)
-	//	et renvoie le résultat.
-	//	Astuce très moche nécessaire pour donner aux instances des
-	//	classes filles le droit d'appeler des méthodes protégées de
-	//	la classes de base sur d'autres instances.
-	//	L'autre solution aurait été de donner à ces méthodes une
-	//	visibilité publique...
-	// Contrat :
-	//	Ceux s'appliquant à _newValidation (non static).
+		virtual bool _continueValidation(
+				xml::CompositeMarkupNode::ChildrenIterator currentToken);
+		// Mode d'emploi :
+		//	Appelle referenced._contenueValidation(currentToken) et renvoie
+		//	le résultat.
+		//	Astuce très moche nécessaire pour donner aux instances des
+		//	classes filles le droit d'appeler des méthodes protégées de
+		//	la classes de base sur d'autres instances.
+		//	L'autre solution aurait été de donner à ces méthodes une
+		//	visibilité publique...
+		// Contrat :
+		//	Ceux s'appliquant à NonEmptyContent::_continueValidation.
 
-	static bool _CALL_continueValidation(NonEmptyContent & target,
-			xml::CompositeMarkupNode::ChildrenIterator currentToken);
-	// Mode d'emploi :
-	//	Appelle target._contenueValidation(currentToken) et renvoie
-	//	le résultat.
-	//	Astuce très moche nécessaire pour donner aux instances des
-	//	classes filles le droit d'appeler des méthodes protégées de
-	//	la classes de base sur d'autres instances.
-	//	L'autre solution aurait été de donner à ces méthodes une
-	//	visibilité publique...
-	// Contrat :
-	//	Ceux s'appliquant à _continueValidation (non static).
+	protected:
+		NonEmptyContent& _referenced;
+	};
+
+	friend class _ValidatorAccessor;
 };
 
 } // namespace dtd
