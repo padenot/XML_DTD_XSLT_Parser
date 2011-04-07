@@ -57,15 +57,15 @@ protected:
 	typedef std::set<ElementContent*> _ChoosableSet;
 	_ChoosableSet _choosable;
 
-	struct _State: public NonEmptyContent::_State
+	struct _State: public QuantifiableContent::_State
 	{
 		_ChoosableSet::iterator nextChoosable;
 
 		_State(xml::CompositeMarkupNode::ChildrenIterator aFirstToken,
 				xml::CompositeMarkupNode::ChildrenIterator anEndToken,
-				NonEmptyContent* aNextStep,
+				_InterfaceValidator* aNextStep,
 				_ChoosableSet::iterator aNextChoosable) :
-			NonEmptyContent::_State(aFirstToken, anEndToken, aNextStep),
+			QuantifiableContent::_State(aFirstToken, anEndToken, aNextStep),
 					nextChoosable(aNextChoosable)
 		{
 
@@ -74,13 +74,18 @@ protected:
 	typedef std::stack<_State> _StatesStack;
 	_StatesStack _stack;
 
-	virtual void _pushState(
+	virtual bool _startValidation(
 			xml::CompositeMarkupNode::ChildrenIterator firstToken,
 			xml::CompositeMarkupNode::ChildrenIterator endToken,
-			NonEmptyContent* nextStep);
-	virtual void _popState();
+			_InterfaceValidator* nextStep);
 	virtual bool _continueValidation(
 			xml::CompositeMarkupNode::ChildrenIterator currentToken);
+
+	virtual void _beforeValidation(
+			xml::CompositeMarkupNode::ChildrenIterator firstToken,
+			xml::CompositeMarkupNode::ChildrenIterator endToken,
+			_InterfaceValidator* nextStep);
+	virtual void _afterValidation();
 
 };
 

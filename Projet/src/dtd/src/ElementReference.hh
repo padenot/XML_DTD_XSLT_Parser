@@ -79,8 +79,10 @@ protected:
 	// Variable temporaire utilisée pour transmettre un retour booléen
 	//	lors d'un appel à visit()
 
-	virtual bool _continueValidation(
-			xml::CompositeMarkupNode::ChildrenIterator currentToken);
+	virtual bool _startValidation(
+			xml::CompositeMarkupNode::ChildrenIterator firstToken,
+			xml::CompositeMarkupNode::ChildrenIterator endToken,
+			_InterfaceValidator* nextStep);
 
 	virtual void visit(const xml::TextNode& node);
 	virtual void visit(const xml::MarkupNode& node);

@@ -64,15 +64,15 @@ QuantifiedContent::~QuantifiedContent()
 //------------------------------------------------------------------ PRIVE
 
 //----------------------------------------------------- Méthodes protégées
-void QuantifiedContent::_pushState(
+void QuantifiedContent::_beforeValidation(
 		xml::CompositeMarkupNode::ChildrenIterator firstToken,
 		xml::CompositeMarkupNode::ChildrenIterator endToken,
-		NonEmptyContent* nextStep)
+		_InterfaceValidator* nextStep)
 {
 	//TODO
 }
 
-void QuantifiedContent::_popState()
+void QuantifiedContent::_afterValidation()
 {
 	//TODO
 }

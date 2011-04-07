@@ -58,18 +58,18 @@ public:
 protected:
 	QuantifiableContent & _content;
 
-	struct _State: public NonEmptyContent::_State
+	struct _State: public QuantifiableContent::_State
 	{
 		// TODO
 	};
 	typedef std::stack<_State> _StatesStack;
 	_StatesStack _stack;
 
-	virtual void _pushState(
+	virtual void _beforeValidation(
 			xml::CompositeMarkupNode::ChildrenIterator firstToken,
 			xml::CompositeMarkupNode::ChildrenIterator endToken,
-			NonEmptyContent* nextStep);
-	virtual void _popState();
+			_InterfaceValidator* nextStep);
+	virtual void _afterValidation();
 
 };
 

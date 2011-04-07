@@ -15,6 +15,7 @@ using namespace std;
 //------------------------------------------------------ Include personnel
 #include "RepeatedContent.hh"
 #include "InterfaceDTDVisitor.hpp"
+using namespace xml;
 
 namespace dtd
 {
@@ -52,6 +53,15 @@ RepeatedContent::~RepeatedContent()
 //------------------------------------------------------------------ PRIVE
 
 //----------------------------------------------------- Méthodes protégées
+bool RepeatedContent::_startValidation(
+		CompositeMarkupNode::ChildrenIterator firstToken,
+		CompositeMarkupNode::ChildrenIterator endToken,
+		_InterfaceValidator* nextStep)
+{
+	//TODO
+	return false;
+}
+
 bool RepeatedContent::_continueValidation(
 		xml::CompositeMarkupNode::ChildrenIterator currentToken)
 {

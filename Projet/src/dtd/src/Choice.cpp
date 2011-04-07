@@ -64,23 +64,73 @@ Choice::~Choice()
 //------------------------------------------------------------------ PRIVE
 
 //----------------------------------------------------- Méthodes protégées
-void Choice::_pushState(xml::CompositeMarkupNode::ChildrenIterator firstToken,
+void Choice::_beforeValidation(
+		xml::CompositeMarkupNode::ChildrenIterator firstToken,
 		xml::CompositeMarkupNode::ChildrenIterator endToken,
-		NonEmptyContent* nextStep)
+		_InterfaceValidator* nextStep)
 {
-	//TODO
+	_stack.push(_State(firstToken, endToken, nextStep, _choosable.begin()));
 }
 
-void Choice::_popState()
+void Choice::_afterValidation()
 {
-	//TODO
+	_stack.pop();
+}
+
+bool Choice::_startValidation(CompositeMarkupNode::ChildrenIterator firstToken,
+		CompositeMarkupNode::ChildrenIterator endToken,
+		_InterfaceValidator* nextStep)
+{
+	// Premier appel de validation, aucune alternative de choix n'a
+	//	été validée pour le moment.
+
+	_State & state = _stack.top();
+	bool valid = false;
+	/*
+	 while (state.nextChoosable != _choosable.end() && !valid)
+	 {
+	 state.nextChoosable
+	 }
+
+	 if (state.nextStep == 0)
+	 {
+	 // La séquence était à l'origine de la validation : tout est ok
+	 //	si on a réussi à atteindre la fin de la liste de noeuds
+	 return currentToken == state.endToken;
+	 }
+	 else
+	 {
+	 // La séquence était subordonnée à un contenu englobant :
+	 //	d'autres jetons doivent peut-être être consommés.
+	 return state.nextStep->_continueValidation(currentToken);
+	 }*/
 }
 
 bool Choice::_continueValidation(
 		xml::CompositeMarkupNode::ChildrenIterator currentToken)
 {
-	//TODO
-	return false;
+	_State & state = _stack.top();
+	/*
+	 // Fin de séquence non atteinte : on teste le contenu incrusté suivant.
+	 _ValidatorAccessor thisValidator(*this);
+	 _InterfaceValidator& currentEmbeddedContent =
+	 **state.nextEmbeddedContent;
+	 ++state.nextEmbeddedContent;
+
+	 if (currentEmbeddedContent._newValidation(currentToken, state.endToken,
+	 &thisValidator))
+	 {
+	 // Le reste de la liste de jetons a pu être consommé par le reste de
+	 //	l'arbre de contenus : la validation est terminée et réussie.
+	 return true;
+	 }
+	 else
+	 {
+	 // La configuration actuelle n'est pas valide.
+	 //	Il faut annuler la dernière décision prise (backtracking).
+	 return false;
+	 }
+	 */
 }
 
 } // namespace dtd

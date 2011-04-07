@@ -15,6 +15,7 @@ using namespace std;
 //------------------------------------------------------ Include personnel
 #include "OptionalContent.hh"
 #include "InterfaceDTDVisitor.hpp"
+using namespace xml;
 
 namespace dtd
 {
@@ -52,6 +53,15 @@ OptionalContent::~OptionalContent()
 //------------------------------------------------------------------ PRIVE
 
 //----------------------------------------------------- Méthodes protégées
+bool OptionalContent::_startValidation(
+		CompositeMarkupNode::ChildrenIterator firstToken,
+		CompositeMarkupNode::ChildrenIterator endToken,
+		_InterfaceValidator* nextStep)
+{
+	//TODO
+	return false;
+}
+
 bool OptionalContent::_continueValidation(
 		xml::CompositeMarkupNode::ChildrenIterator currentToken)
 {

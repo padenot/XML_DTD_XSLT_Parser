@@ -48,43 +48,67 @@ void MixedContent::accept(InterfaceDTDVisitor & visitor) const
 
 
 //-------------------------------------------- Constructeurs - destructeur
-MixedContent::MixedContent(const ChoosableSet & choosable) :
-	_choosable(choosable)
+MixedContent::MixedContent(TextContent & textContent,
+		const ChoosableSet & choosable) :
+	_choice(choosable), _textContent(textContent)
 {
-
+	// Do nothing
 }
 
 MixedContent::~MixedContent()
 {
-	for (_ChoosableSet::iterator it = _choosable.begin(); it
-			!= _choosable.end(); ++it)
-	{
-		delete *it;
-	}
+	delete &_textContent;
 }
 
 //------------------------------------------------------------------ PRIVE
 
 //----------------------------------------------------- Méthodes protégées
-
-void MixedContent::_pushState(
+void MixedContent::_beforeValidation(
 		xml::CompositeMarkupNode::ChildrenIterator firstToken,
 		xml::CompositeMarkupNode::ChildrenIterator endToken,
-		NonEmptyContent* nextStep)
+		_InterfaceValidator* nextStep)
 {
-	//TODO
+	_stack.push(_State(firstToken, endToken, nextStep));
 }
 
-void MixedContent::_popState()
+void MixedContent::_afterValidation()
 {
-	//TODO
+	_stack.pop();
+}
+
+bool MixedContent::_startValidation(
+		CompositeMarkupNode::ChildrenIterator firstToken,
+		CompositeMarkupNode::ChildrenIterator endToken,
+		_InterfaceValidator* nextStep)
+{
+	_State& state = _stack.top();
+	_ValidatorAccessor thisValidator(*this);
+
+	return _ValidatorAccessor(_textContent)._newValidation(state.firstToken,
+			state.endToken, &thisValidator)
+			|| _ValidatorAccessor(_choice)._newValidation(state.firstToken,
+					state.endToken, &thisValidator);
 }
 
 bool MixedContent::_continueValidation(
 		xml::CompositeMarkupNode::ChildrenIterator currentToken)
 {
-	//TODO
-	return false;
+	// Si cette méthode est appelée, c'est que l'une des alternatives de choix
+	//	a été validée (que ce soit "_textContent" ou une alternative de "_choice").
+	_State& state = _stack.top();
+
+	if (state.nextStep == 0)
+	{
+		// L'objet était à l'origine de la validation : tout est ok
+		//	si on a réussi à atteindre la fin de la liste de noeuds
+		return currentToken == state.endToken;
+	}
+	else
+	{
+		// L'objet était subordonnée à un contenu englobant :
+		//	d'autres jetons peuvent/doivent peut-être être consommés.
+		return state.nextStep->_continueValidation(currentToken);
+	}
 }
 
 } // namespace dtd

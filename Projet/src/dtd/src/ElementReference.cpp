@@ -53,19 +53,45 @@ ElementReference::~ElementReference()
 //------------------------------------------------------------------ PRIVE
 
 //----------------------------------------------------- Méthodes protégées
-bool ElementReference::_continueValidation(
-		xml::CompositeMarkupNode::ChildrenIterator currentToken)
+bool ElementReference::_startValidation(
+		CompositeMarkupNode::ChildrenIterator firstToken,
+		CompositeMarkupNode::ChildrenIterator endToken,
+		_InterfaceValidator* nextStep)
 {
-	(*currentToken)->accept(*this);
-
-	if (_validationResult)
+	if (firstToken == endToken)
 	{
-		//TODO: gérer la mémoire (nextStep, etc.)
+		// Il n'y a pas de jeton à consommer :
+		//	le matching avec cet objet est impossible.
 		return false;
 	}
 	else
 	{
-		return false;
+		(*firstToken)->accept(*this);
+
+		if (_validationResult)
+		{
+			// Le jeton est consommé.
+			++firstToken;
+
+			if (nextStep == 0)
+			{
+				// L'objet n'est pas contenu dans un autre "content".
+				// 	On doit avoir consommé tous les jetons pour qu'ils
+				//	soient déclarés valides.
+				return firstToken == endToken;
+			}
+			else
+			{
+				// L'objet est pas contenu dans un autre "content".
+				// 	On doit continuer la validation au niveau supérieur.
+				return nextStep->_continueValidation(firstToken);
+			}
+		}
+		else
+		{
+			// Le jeton courant est incorrect.
+			return false;
+		}
 	}
 }
 

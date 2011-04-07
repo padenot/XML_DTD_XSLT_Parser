@@ -14,8 +14,6 @@
 
 namespace dtd
 {
-class NonEmptyContent;
-
 class _InterfaceValidator
 {
 public:
@@ -24,25 +22,22 @@ public:
 	//------------------------------------------------------------------ Types
 
 	//----------------------------------------------------- Méthodes publiques
-	// type Méthode ( liste des paramètres );
-	// Mode d'emploi :
-	//
-	// Contrat :
-	//
-
 	virtual bool _newValidation(
 			xml::CompositeMarkupNode::ChildrenIterator firstToken,
 			xml::CompositeMarkupNode::ChildrenIterator endToken,
-			NonEmptyContent* nextStep) = 0;
+			_InterfaceValidator* nextStep) = 0;
 	// Mode d'emploi :
-	//	TODO.
+	//	Initialise et exécute une nouvelle validation pour la plage de jetons
+	//	donnée en paramètres, en exécutant ensuite une validation avec
+	//	"nextStep" sur les jetons restants (même s'il n'y en a plus).
 	// Contrat :
 	//	Aucun.
 
 	virtual bool _continueValidation(
 			xml::CompositeMarkupNode::ChildrenIterator currentToken) = 0;
 	// Mode d'emploi :
-	//	TODO.
+	//	Continue la validation déjà commencée sans réinitialiser le validateur,
+	//	en continuant au jeton donné en paramètre.
 	// Contrat :
 	//	Aucun.
 

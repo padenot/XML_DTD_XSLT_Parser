@@ -47,7 +47,20 @@ public:
 	//	TODO
 
 protected:
+	struct _State
+	{
+		xml::CompositeMarkupNode::ChildrenIterator firstToken;
+		xml::CompositeMarkupNode::ChildrenIterator endToken;
+		_InterfaceValidator* nextStep;
 
+		_State(xml::CompositeMarkupNode::ChildrenIterator aFirstToken,
+				xml::CompositeMarkupNode::ChildrenIterator anEndToken,
+				_InterfaceValidator* aNextStep) :
+			firstToken(aFirstToken), endToken(anEndToken), nextStep(aNextStep)
+		{
+
+		}
+	};
 };
 
 } // namespace dtd

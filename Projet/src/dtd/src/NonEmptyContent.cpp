@@ -68,7 +68,7 @@ NonEmptyContent::_ValidatorAccessor::_ValidatorAccessor(
 bool NonEmptyContent::_ValidatorAccessor::_newValidation(
 		xml::CompositeMarkupNode::ChildrenIterator firstToken,
 		xml::CompositeMarkupNode::ChildrenIterator endToken,
-		NonEmptyContent* nextStep)
+		_InterfaceValidator* nextStep)
 {
 	return _referenced._newValidation(firstToken, endToken, nextStep);
 }
@@ -82,26 +82,34 @@ bool NonEmptyContent::_ValidatorAccessor::_continueValidation(
 bool NonEmptyContent::_newValidation(
 		CompositeMarkupNode::ChildrenIterator firstToken,
 		CompositeMarkupNode::ChildrenIterator endToken,
-		NonEmptyContent* nextStep)
+		_InterfaceValidator* nextStep)
 // Algorithme :
-//	TODO
+//	Mémorise l'état induit par cet appel avant de commencer
+//	la validation, qui est effectuée par une récursion indirecte
+//	sur "_continueValidation".
 {
 	bool result;
 
-	_pushState(firstToken, endToken, nextStep);
+	_beforeValidation(firstToken, endToken, nextStep);
 	result = _continueValidation(firstToken);
-	_popState();
+	_afterValidation();
 
 	return result;
 }
 
-void NonEmptyContent::_pushState(CompositeMarkupNode::ChildrenIterator,
-		CompositeMarkupNode::ChildrenIterator, NonEmptyContent*)
+bool NonEmptyContent::_continueValidation(
+		xml::CompositeMarkupNode::ChildrenIterator currentToken)
+{
+	return false;
+}
+
+void NonEmptyContent::_beforeValidation(CompositeMarkupNode::ChildrenIterator,
+		CompositeMarkupNode::ChildrenIterator, _InterfaceValidator*)
 {
 	// Do nothing by default.
 }
 
-void NonEmptyContent::_popState()
+void NonEmptyContent::_afterValidation()
 {
 	// Do nothing by default.
 }

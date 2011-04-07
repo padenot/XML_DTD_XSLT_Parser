@@ -13,10 +13,11 @@
 #include <set>
 #include <stack>
 #include "QuantifiableContent.hh"
+#include "Choice.hh"
 
 namespace dtd
 {
-class ElementReference;
+class TextContent;
 
 class MixedContent: public QuantifiableContent
 {
@@ -26,7 +27,7 @@ public:
 	//------------------------------------------------------------- Constantes
 
 	//------------------------------------------------------------------ Types
-	typedef std::set<ElementReference*> ChoosableSet;
+	typedef Choice::ChoosableSet ChoosableSet;
 
 	//----------------------------------------------------- Méthodes publiques
 	// type Méthode ( liste des paramètres );
@@ -43,9 +44,12 @@ public:
 
 
 	//-------------------------------------------- Constructeurs - destructeur
-	MixedContent(const ChoosableSet & choosable);
+	MixedContent(TextContent & textContent, const ChoosableSet & choosable);
 	// Mode d'emploi :
 	//	TODO
+	//	La destruction des "Content" passés en paramètres ("textContent" et
+	//	les éléments pointés par le contenu de "choosable") sera assurée
+	//	par l'objet construit.
 	// Contrat :
 	//	Aucun des pointeurs fournis ne doit être nul.
 	//	TODO
@@ -59,33 +63,24 @@ public:
 	//------------------------------------------------------------------ PRIVE
 
 protected:
-	typedef std::set<ElementReference*> _ChoosableSet;
-	_ChoosableSet _choosable;
+	Choice _choice;
+	TextContent& _textContent;
 
-	struct _State: public NonEmptyContent::_State
-	{
-		_ChoosableSet::iterator nextChoosable;
-
-		_State(xml::CompositeMarkupNode::ChildrenIterator aFirstToken,
-				xml::CompositeMarkupNode::ChildrenIterator anEndToken,
-				NonEmptyContent* aNextStep,
-				_ChoosableSet::iterator aNextChoosable) :
-			NonEmptyContent::_State(aFirstToken, anEndToken, aNextStep),
-					nextChoosable(aNextChoosable)
-		{
-
-		}
-	};
 	typedef std::stack<_State> _StatesStack;
 	_StatesStack _stack;
 
-	virtual void _pushState(
+	virtual bool _startValidation(
 			xml::CompositeMarkupNode::ChildrenIterator firstToken,
 			xml::CompositeMarkupNode::ChildrenIterator endToken,
-			NonEmptyContent* nextStep);
-	virtual void _popState();
+			_InterfaceValidator* nextStep);
 	virtual bool _continueValidation(
 			xml::CompositeMarkupNode::ChildrenIterator currentToken);
+
+	virtual void _beforeValidation(
+			xml::CompositeMarkupNode::ChildrenIterator firstToken,
+			xml::CompositeMarkupNode::ChildrenIterator endToken,
+			_InterfaceValidator* nextStep);
+	virtual void _afterValidation();
 
 };
 
