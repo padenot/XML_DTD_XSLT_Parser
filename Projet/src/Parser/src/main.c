@@ -45,7 +45,7 @@ xml::CompositeMarkupNode* handleElement(xml::CompositeMarkupNode** proxy, string
 	xml::CompositeMarkupNode** newProxy 
 		= new xml::CompositeMarkupNode*; newProxy = 0;
 
-	new xml::CompositeMarkupNode(*newProxy, NS, name, attributes, *proxy, currentChildren); 
+/*	new xml::CompositeMarkupNode(*newProxy, NS, name, attributes, *proxy, currentChildren); */
 
 	return 0;
 }

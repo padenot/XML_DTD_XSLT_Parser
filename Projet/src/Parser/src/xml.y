@@ -63,7 +63,7 @@ declaration 		: DOCTYPE NAME NAME VALUE CLOSE 			{ handleDTD($4); }
 			;
 
 element			: start attributes empty_or_content			{ 
-				  							root = handleElement(proxyPtr, $1->first, $1->second, attributes, $3); 
+				  							/*root = handleElement(proxyPtr, $1->first, $1->second, attributes, $3);  */
 											printf("##ELEMENTNODE(%s, %d)##", $1->second.c_str(), $3->size()); 
 			  							}
 			| STARTSPECIAL attributes CLOSESPECIAL
@@ -90,12 +90,12 @@ close_content_and_end 	: CLOSE content END 					{ $$ = $2; }
 			;
 
 content 		: content DATA						{ 	$$ = $1; 
-				  							$1->push_back( (void*)(new xml::TextNode( *proxyPtr, string($2) )) ); 
+				  							/*$1->push_back( (void*)(new xml::TextNode( *proxyPtr, string($2) )) ); */
 											printf("##TEXTNODE##"); 
 			  							}
 			| content misc        
 			| content element      
-			| /*empty*/         					{ $$ = (list<void*>*)new list<xml::Node*>(); proxyPtr = new xml::CompositeMarkupNode*; }
+			| /*empty*/         					{ $$ = (list<void*>*)new list<xml::Node*>();/* proxyPtr = new xml::CompositeMarkupNode*;*/ }
 			;
 %%
 int xmlwrap(void) { return 1; }
