@@ -22,8 +22,12 @@
 	int xmllex(void);
 
 	int handleDTD(char*);
+	xml::CompositeMarkupNode* handleElement(xml::CompositeMarkupNode** , string , string , xml::CompositeMarkupNode::Attributes , list<void*>* );
 
-	xml::CompositeMarkupNode** parent;
+	xml::CompositeMarkupNode* root;
+	xml::CompositeMarkupNode** proxyPtr;
+
+	xml::MarkupNode::Attributes attributes;
 %}
 
 %error-verbose
@@ -37,7 +41,8 @@
 %token <s> ENCODING VALUE DATA COMMENT NAME NSNAME
 %token <en> NSSTART START STARTSPECIAL
 
-%type <children> content
+%type <en> start
+%type <children> content empty_or_content close_content_and_end
 %%
 
 document 		: declarations element misc_seq_opt 
@@ -57,7 +62,10 @@ declarations 		: declaration
 declaration 		: DOCTYPE NAME NAME VALUE CLOSE 			{ handleDTD($4); }
 			;
 
-element			: start attributes empty_or_content 		
+element			: start attributes empty_or_content			{ 
+				  							root = handleElement(proxyPtr, $1->first, $1->second, attributes, $3); 
+											printf("##ELEMENTNODE(%s, %d)##", $1->second.c_str(), $3->size()); 
+			  							}
 			| STARTSPECIAL attributes CLOSESPECIAL
 			;
 
@@ -65,12 +73,12 @@ attributes		: /* EMPTY */
 			| attributes NAME EQ VALUE
 			;
 
-start 			: START							
-			| NSSTART	
+start 			: START							{ $$ = $1; }
+			| NSSTART						{ $$ = $1; } 
 			;
 
-empty_or_content 	: SLASH CLOSE						
-			| close_content_and_end name_or_nsname_opt CLOSE 
+empty_or_content 	: SLASH CLOSE						{ $$ = NULL; }
+			| close_content_and_end name_or_nsname_opt CLOSE	{ $$ = $1; } 
 			;
 
 name_or_nsname_opt 	: NAME     
@@ -78,13 +86,16 @@ name_or_nsname_opt 	: NAME
 			| /* empty */
 			;
 
-close_content_and_end 	: CLOSE content END 
+close_content_and_end 	: CLOSE content END 					{ $$ = $2; }
 			;
 
-content 		: content DATA						{ $$ = $1; $1->push_back( (void*)(new xml::TextNode( *parent, string($2) )) ); }
+content 		: content DATA						{ 	$$ = $1; 
+				  							$1->push_back( (void*)(new xml::TextNode( *proxyPtr, string($2) )) ); 
+											printf("##TEXTNODE##"); 
+			  							}
 			| content misc        
 			| content element      
-			| /*empty*/         					{ $$ = (list<void*>*)new list<xml::Node*>(); }
+			| /*empty*/         					{ $$ = (list<void*>*)new list<xml::Node*>(); proxyPtr = new xml::CompositeMarkupNode*; }
 			;
 %%
 int xmlwrap(void) { return 1; }
