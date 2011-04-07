@@ -14,6 +14,8 @@ using namespace std;
 
 //------------------------------------------------------ Include personnel
 #include "Content.hh"
+#include "TextNode.hh"
+using namespace xml;
 
 namespace dtd
 {
@@ -33,17 +35,15 @@ namespace dtd
 
 
 //-------------------------------------------- Constructeurs - destructeur
-Content::Content ( )
+Content::Content()
 {
 	//TODO
 }
 
-
-Content::~Content ( )
+Content::~Content()
 {
 	//TODO
 }
-
 
 //------------------------------------------------------------------ PRIVE
 

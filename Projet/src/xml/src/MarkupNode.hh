@@ -88,7 +88,7 @@ public:
 
 
 	//-------------------------------------------- Constructeurs - destructeur
-	MarkupNode(CompositeMarkupNode *& parent, const std::string & ns,
+	MarkupNode(CompositeMarkupNode ** parent, const std::string & ns,
 			const std::string & name, const Attributes & attributes);
 	// Mode d'emploi (constructeur) :
 	//	«TODO»

@@ -19,6 +19,7 @@ using namespace std;
 #include "Element.hh"
 #include "AttributesList.hh"
 #include "EmptyContent.hh"
+#include "AnyContent.hh"
 #include "MixedContent.hh"
 #include "ElementReference.hh"
 #include "Choice.hh"
@@ -44,6 +45,7 @@ const std::string OutputDTDVisitor::START_MIXED_STR = "(";
 const std::string OutputDTDVisitor::MIXED_SEPARATOR_STR = "|";
 const std::string OutputDTDVisitor::END_MIXED_STR = ")";
 const std::string OutputDTDVisitor::EMPTY_CONTENT_STR = "EMPTY";
+const std::string OutputDTDVisitor::ANY_CONTENT_STR = "ANY";
 const std::string OutputDTDVisitor::TEXT_CONTENT_STR = "#PCDATA";
 const std::string OutputDTDVisitor::OPTIONAL_QUANTIFIER_STR = "?";
 const std::string OutputDTDVisitor::REPEATABLE_QUANTIFIER_STR = "*";
@@ -116,6 +118,11 @@ void OutputDTDVisitor::visit(const AttributesList & attlist)
 	_out << CLOSE_MARKUP_STR << endl;
 }
 
+void OutputDTDVisitor::visit(const AnyContent &)
+{
+	_out << ANY_CONTENT_STR;
+}
+
 void OutputDTDVisitor::visit(const EmptyContent &)
 {
 	_out << EMPTY_CONTENT_STR;
@@ -123,12 +130,17 @@ void OutputDTDVisitor::visit(const EmptyContent &)
 
 void OutputDTDVisitor::visit(const MixedContent & content)
 {
-	_out << START_MIXED_STR << TEXT_CONTENT_STR;
+	_out << START_MIXED_STR;
 	for (int i = 0; i < 3; ++i)
 	{
 		_out << MIXED_SEPARATOR_STR << "#TODO#>" << endl;
 	}
 	_out << END_MIXED_STR;
+}
+
+void OutputDTDVisitor::visit(const TextContent & content)
+{
+	_out << TEXT_CONTENT_STR;
 }
 
 void OutputDTDVisitor::visit(const ElementReference & element)

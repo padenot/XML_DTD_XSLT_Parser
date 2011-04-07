@@ -10,12 +10,12 @@
 #define ELEMENTCONTENT_HH_
 
 //--------------------------------------------------- Interfaces utilisées
-#include "NonEmptyContent.hh"
+#include "QuantifiableContent.hh"
 
 namespace dtd
 {
 
-class ElementContent: public NonEmptyContent
+class ElementContent: public QuantifiableContent
 {
 public:
 	//------------------------------------------------------------- Constantes

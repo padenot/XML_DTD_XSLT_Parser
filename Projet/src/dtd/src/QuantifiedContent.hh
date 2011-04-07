@@ -10,6 +10,7 @@
 #define QUANTIFIEDCONTENT_HH_
 
 //--------------------------------------------------- Interfaces utilisées
+#include <stack>
 #include "ElementContent.hh"
 
 namespace dtd
@@ -29,8 +30,10 @@ public:
 	// Contrat :
 	//	
 
-	NonEmptyContent & content();
-	const NonEmptyContent & content() const;
+	virtual bool validate(const xml::CompositeMarkupNode & node);
+
+	QuantifiableContent & content();
+	const QuantifiableContent & content() const;
 	// Mode d'emploi :
 	//	Renvoie le contenu quantifié par le QuantifiedContent.
 	// Contrat :
@@ -40,7 +43,7 @@ public:
 
 
 	//-------------------------------------------- Constructeurs - destructeur
-	QuantifiedContent(NonEmptyContent & content);
+	QuantifiedContent(QuantifiableContent & content);
 	// Mode d'emploi :
 	//	TODO
 	// Contrat :
@@ -53,7 +56,20 @@ public:
 	//	TODO
 
 protected:
-	NonEmptyContent & _content;
+	QuantifiableContent & _content;
+
+	struct _State: public NonEmptyContent::_State
+	{
+		// TODO
+	};
+	typedef std::stack<_State> _StatesStack;
+	_StatesStack _stack;
+
+	virtual void _pushState(
+			xml::CompositeMarkupNode::ChildrenIterator firstToken,
+			xml::CompositeMarkupNode::ChildrenIterator endToken,
+			NonEmptyContent* nextStep);
+	virtual void _popState();
 
 };
 

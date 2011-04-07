@@ -70,9 +70,9 @@ public:
 
 
 	//-------------------------------------------- Constructeurs - destructeur
-	CompositeMarkupNode(CompositeMarkupNode *& parent, const std::string & ns,
+	CompositeMarkupNode(CompositeMarkupNode ** parent, const std::string & ns,
 			const std::string & name, const Attributes & attributes,
-			CompositeMarkupNode *& selfPointer, const Children & children);
+			CompositeMarkupNode *& proxyToSelf, const Children & children);
 	// Mode d'emploi (constructeur) :
 	//	«TODO»
 	// Contrat :
@@ -87,7 +87,7 @@ public:
 protected:
 	_Children _children;
 
-	CompositeMarkupNode*& _selfPointer;
+	CompositeMarkupNode*& _proxyToSelf;
 };
 
 } // namespace xml

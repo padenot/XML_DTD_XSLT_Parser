@@ -52,7 +52,7 @@ public:
 	//	Renvoie l'élément référencé. Une exception est lancée en cas
 	//	d'erreur (si l'élément référencé ne peut être retrouvé).
 	// Contrat :
-	//
+	//	Aucun.
 
 	//------------------------------------------------- Surcharge d'opérateurs
 
@@ -74,6 +74,17 @@ protected:
 	DTD& _dtd;
 	std::string _namespace;
 	std::string _name;
+
+	bool _validationResult;
+	// Variable temporaire utilisée pour transmettre un retour booléen
+	//	lors d'un appel à visit()
+
+	virtual bool _continueValidation(
+			xml::CompositeMarkupNode::ChildrenIterator currentToken);
+
+	virtual void visit(const xml::TextNode& node);
+	virtual void visit(const xml::MarkupNode& node);
+	virtual void visit(const xml::CompositeMarkupNode& node);
 
 };
 

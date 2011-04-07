@@ -36,7 +36,7 @@ public:
 
 
 	//-------------------------------------------- Constructeurs - destructeur
-	RepeatableContent(NonEmptyContent & content);
+	RepeatableContent(QuantifiableContent & content);
 	// Mode d'emploi :
 	//	TODO
 	// Contrat :
@@ -49,6 +49,9 @@ public:
 	//	TODO
 
 protected:
+
+	virtual bool _continueValidation(
+			xml::CompositeMarkupNode::ChildrenIterator currentToken);
 
 };
 

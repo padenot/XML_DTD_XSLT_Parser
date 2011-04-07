@@ -1,11 +1,11 @@
 /*************************************************************************
- * EmptyContent  -  «Description»
+ * QuantifiableContent  -  «Description»
  * -------------------
- * Début      : 5 avr. 2011
+ * Début      : 6 avr. 2011
  * Auteur(s)  : H4215
  *************************************************************************/
 
-//---------- Réalisation de la classe <EmptyContent> (fichier EmptyContent.cpp) -------
+//---------- Réalisation de la classe <QuantifiableContent> (fichier QuantifiableContent.cpp) -------
 
 //---------------------------------------------------------------- INCLUDE
 
@@ -13,9 +13,7 @@
 using namespace std;
 
 //------------------------------------------------------ Include personnel
-#include "EmptyContent.hh"
-#include "InterfaceDTDVisitor.hpp"
-using namespace xml;
+#include "QuantifiableContent.hh"
 
 namespace dtd
 {
@@ -24,44 +22,31 @@ namespace dtd
 //----------------------------------------------------------------- PUBLIC
 
 //----------------------------------------------------- Méthodes publiques
-// type EmptyContent::Méthode ( liste des paramètres )
+// type QuantifiableContent::Méthode ( liste des paramètres )
 // Algorithme :
 //	
 //{
 //}
 
-bool EmptyContent::validate(const MarkupNode & node)
-{
-	return true;
-}
-
-bool EmptyContent::validate(const CompositeMarkupNode & node)
-{
-	return false;
-}
-
-void EmptyContent::accept(InterfaceDTDVisitor & visitor) const
-{
-	visitor.visit(*this);
-}
 
 //------------------------------------------------- Surcharge d'opérateurs
 
 
 //-------------------------------------------- Constructeurs - destructeur
-EmptyContent::EmptyContent()
+QuantifiableContent::QuantifiableContent ( )
 {
 	//TODO
 }
 
-EmptyContent::~EmptyContent()
+
+QuantifiableContent::~QuantifiableContent ( )
 {
 	//TODO
 }
+
 
 //------------------------------------------------------------------ PRIVE
 
 //----------------------------------------------------- Méthodes protégées
-
 
 } // namespace dtd

@@ -64,7 +64,7 @@ MarkupNode::AttributesIterator MarkupNode::end() const
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
-MarkupNode::MarkupNode(CompositeMarkupNode *& parent, const std::string & ns,
+MarkupNode::MarkupNode(CompositeMarkupNode ** parent, const std::string & ns,
 		const std::string & name, const Attributes & attributes) :
 	Node(parent), _namespace(ns), _name(name), _attributes(attributes)
 {

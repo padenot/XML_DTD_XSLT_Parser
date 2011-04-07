@@ -12,13 +12,14 @@
 //--------------------------------------------------- Interfaces utilisées
 #include <string>
 #include "Node.hh"
+#include "InterfaceNodeVisitor.hpp"
 
 namespace dtd
 {
 class AttributesList;
 class Content;
 
-class InterfaceElement
+class InterfaceElement: public xml::InterfaceNodeVisitor
 {
 public:
 	//------------------------------------------------------------- Constantes

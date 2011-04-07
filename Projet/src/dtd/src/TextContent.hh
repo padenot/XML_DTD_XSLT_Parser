@@ -1,21 +1,22 @@
 /*************************************************************************
- * RepeatedContent  -  «Description»
+ * TextContent  -  «Description»
  * -------------------
- * Début      : 5 avr. 2011
+ * Début      : 6 avr. 2011
  * Auteur(s)  : H4215
  *************************************************************************/
 
-//---------- Interface de la classe <RepeatedContent> (fichier RepeatedContent.hh) ------
-#if ! defined ( REPEATEDCONTENT_HH_ )
-#define REPEATEDCONTENT_HH_
+//---------- Interface de la classe <TextContent> (fichier TextContent.hh) ------
+#if ! defined ( TEXTCONTENT_HH_ )
+#define TEXTCONTENT_HH_
 
 //--------------------------------------------------- Interfaces utilisées
-#include "QuantifiedContent.hh"
+#include "NonEmptyContent.hh"
+#include "InterfaceNodeVisitor.hpp"
 
 namespace dtd
 {
 
-class RepeatedContent: public QuantifiedContent
+class TextContent: public NonEmptyContent, public xml::InterfaceNodeVisitor
 {
 public:
 	//------------------------------------------------------------- Constantes
@@ -25,9 +26,9 @@ public:
 	//----------------------------------------------------- Méthodes publiques
 	// type Méthode ( liste des paramètres );
 	// Mode d'emploi :
-	//	
+	//
 	// Contrat :
-	//	
+	//
 
 	virtual void accept(InterfaceDTDVisitor & visitor) const;
 
@@ -35,13 +36,13 @@ public:
 
 
 	//-------------------------------------------- Constructeurs - destructeur
-	RepeatedContent(QuantifiableContent & content);
+	TextContent();
 	// Mode d'emploi :
 	//	TODO
 	// Contrat :
 	//	TODO
 
-	virtual ~RepeatedContent();
+	virtual ~TextContent();
 	// Mode d'emploi :
 	//	TODO
 	// Contrat :
@@ -49,11 +50,18 @@ public:
 
 protected:
 
+	bool _validationResult;
+	// Variable temporaire utilisée pour transmettre un retour booléen
+	//	lors d'un appel à visit()
+
 	virtual bool _continueValidation(
 			xml::CompositeMarkupNode::ChildrenIterator currentToken);
 
+	virtual void visit(const xml::TextNode& node);
+	virtual void visit(const xml::MarkupNode& node);
+	virtual void visit(const xml::CompositeMarkupNode& node);
 };
 
 } // namespace dtd
 
-#endif // REPEATEDCONTENT_HH_
+#endif // TEXTCONTENT_HH_

@@ -14,8 +14,10 @@ using namespace std;
 
 //------------------------------------------------------ Include personnel
 #include "MixedContent.hh"
+#include "TextContent.hh"
 #include "ElementReference.hh"
 #include "InterfaceDTDVisitor.hpp"
+using namespace xml;
 
 namespace dtd
 {
@@ -30,6 +32,13 @@ namespace dtd
 //{
 //}
 
+bool MixedContent::validate(const CompositeMarkupNode& node)
+// Algorithme :
+//	Initialise la validation récursive (récursion sur les éléments de choix).
+{
+	return _newValidation(node.begin(), node.end(), 0);
+}
+
 void MixedContent::accept(InterfaceDTDVisitor & visitor) const
 {
 	visitor.visit(*this);
@@ -39,16 +48,16 @@ void MixedContent::accept(InterfaceDTDVisitor & visitor) const
 
 
 //-------------------------------------------- Constructeurs - destructeur
-MixedContent::MixedContent(const ChoiceElements & elements) :
-	_elements(elements)
+MixedContent::MixedContent(const ChoosableSet & choosable) :
+	_choosable(choosable)
 {
-	//TODO
+
 }
 
 MixedContent::~MixedContent()
 {
-	for (_ChoiceElements::iterator it = _elements.begin(); it
-			!= _elements.end(); ++it)
+	for (_ChoosableSet::iterator it = _choosable.begin(); it
+			!= _choosable.end(); ++it)
 	{
 		delete *it;
 	}
@@ -57,5 +66,25 @@ MixedContent::~MixedContent()
 //------------------------------------------------------------------ PRIVE
 
 //----------------------------------------------------- Méthodes protégées
+
+void MixedContent::_pushState(
+		xml::CompositeMarkupNode::ChildrenIterator firstToken,
+		xml::CompositeMarkupNode::ChildrenIterator endToken,
+		NonEmptyContent* nextStep)
+{
+	//TODO
+}
+
+void MixedContent::_popState()
+{
+	//TODO
+}
+
+bool MixedContent::_continueValidation(
+		xml::CompositeMarkupNode::ChildrenIterator currentToken)
+{
+	//TODO
+	return false;
+}
 
 } // namespace dtd

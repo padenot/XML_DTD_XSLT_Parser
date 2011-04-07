@@ -11,6 +11,8 @@
 
 //--------------------------------------------------- Interfaces utilisées
 #include "Node.hh"
+#include "TextNode.hh"
+#include "CompositeMarkupNode.hh"
 
 namespace dtd
 {
@@ -30,14 +32,21 @@ public:
 	// Contrat :
 	//	
 
-	bool isValid(xml::Node & node) const;
+	virtual bool validate(const xml::MarkupNode & node) = 0;
+	// Mode d'emploi :
+	//	Renvoie vrai si le contenu est de type EMPTY ou ANY.
+	//	Renvoie faux sinon.
+	//	Méthode destinée à être utilisée par la classe Element.
+	// Contrat :
+	//	Aucun.
+
+	virtual bool validate(const xml::CompositeMarkupNode & node) = 0;
 	// Mode d'emploi :
 	//	Renvoie vrai si le noeud passé en paramètre respecte la strucure
-	//	imposée par ce contenu, et si ses descendants
-	// 	sont référencés dans la même DTD que cet élément et respectent
-	//	également la structure imposée par les éléments correspondants de
-	//	la même DTD (attributs et contenu).
-	//	Renvoie faux sinon.
+	//	imposée par ce contenu.
+	//	Renvoie faux sinon (en particulier si le contenu est de type EMPTY).
+	//	Méthode destinée à être utilisée par la classe Element.
+	//	Cette méthode ne valide pas récursivement la structure des enfants.
 	// Contrat :
 	//	Aucun.
 

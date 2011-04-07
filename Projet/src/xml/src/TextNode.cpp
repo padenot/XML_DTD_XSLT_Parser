@@ -35,7 +35,7 @@ namespace xml
 //{
 //} //----- Fin de Méthode
 
-void TextNode::accept (InterfaceNodeVisitor& visitor) const
+void TextNode::accept(InterfaceNodeVisitor& visitor) const
 {
 	visitor.visit(*this);
 }
@@ -45,12 +45,11 @@ string TextNode::content() const
 	return _content;
 }
 
-
 //------------------------------------------------- Surcharge d'opérateurs
 
 
 //-------------------------------------------- Constructeurs - destructeur
-TextNode::TextNode(CompositeMarkupNode *& parent, const string & content) :
+TextNode::TextNode(CompositeMarkupNode ** parent, const string & content) :
 	Node(parent), _content(content)
 {
 	//TODO

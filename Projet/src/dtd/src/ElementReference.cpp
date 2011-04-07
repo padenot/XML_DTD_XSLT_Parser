@@ -15,6 +15,7 @@ using namespace std;
 //------------------------------------------------------ Include personnel
 #include "ElementReference.hh"
 #include "InterfaceDTDVisitor.hpp"
+using namespace xml;
 
 namespace dtd
 {
@@ -52,5 +53,35 @@ ElementReference::~ElementReference()
 //------------------------------------------------------------------ PRIVE
 
 //----------------------------------------------------- Méthodes protégées
+bool ElementReference::_continueValidation(
+		xml::CompositeMarkupNode::ChildrenIterator currentToken)
+{
+	(*currentToken)->accept(*this);
+
+	if (_validationResult)
+	{
+		//TODO: gérer la mémoire (nextStep, etc.)
+		return false;
+	}
+	else
+	{
+		return false;
+	}
+}
+
+void ElementReference::visit(const TextNode&)
+{
+	_validationResult = false;
+}
+
+void ElementReference::visit(const MarkupNode& node)
+{
+	_validationResult = (node.ns() == _namespace && node.name() == _name);
+}
+
+void ElementReference::visit(const CompositeMarkupNode& node)
+{
+	_validationResult = (node.ns() == _namespace && node.name() == _name);
+}
 
 } // namespace dtd
