@@ -72,14 +72,14 @@ protected:
 	virtual bool _startValidation(
 			xml::CompositeMarkupNode::ChildrenIterator firstToken,
 			xml::CompositeMarkupNode::ChildrenIterator endToken,
-			BrowseableContent* nextStep);
+			BrowsableContent* nextStep);
 	virtual bool _continueValidation(
 			xml::CompositeMarkupNode::ChildrenIterator currentToken);
 
 	virtual void _beforeValidation(
 			xml::CompositeMarkupNode::ChildrenIterator firstToken,
 			xml::CompositeMarkupNode::ChildrenIterator endToken,
-			BrowseableContent* nextStep);
+			BrowsableContent* nextStep);
 	virtual void _afterValidation();
 
 };

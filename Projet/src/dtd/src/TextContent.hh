@@ -10,13 +10,13 @@
 #define TEXTCONTENT_HH_
 
 //--------------------------------------------------- Interfaces utilisées
-#include "BrowseableContent.hh"
+#include "BrowsableContent.hh"
 #include "InterfaceNodeVisitor.hpp"
 
 namespace dtd
 {
 
-class TextContent: public BrowseableContent, public xml::InterfaceNodeVisitor
+class TextContent: public BrowsableContent, public xml::InterfaceNodeVisitor
 {
 public:
 	//------------------------------------------------------------- Constantes
@@ -57,7 +57,7 @@ protected:
 	virtual bool _startValidation(
 			xml::CompositeMarkupNode::ChildrenIterator firstToken,
 			xml::CompositeMarkupNode::ChildrenIterator endToken,
-			BrowseableContent* nextStep);
+			BrowsableContent* nextStep);
 
 	virtual void visit(const xml::TextNode& node);
 	virtual void visit(const xml::MarkupNode& node);

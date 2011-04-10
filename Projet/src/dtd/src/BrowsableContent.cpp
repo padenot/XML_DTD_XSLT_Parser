@@ -1,11 +1,11 @@
 /*************************************************************************
- * BrowseableContent  -  «Description»
+ * BrowsableContent  -  «Description»
  * -------------------
  * Début      : 5 avr. 2011
  * Auteur(s)  : H4215
  *************************************************************************/
 
-//---------- Réalisation de la classe <BrowseableContent> (fichier BrowseableContent.cpp) -------
+//---------- Réalisation de la classe <BrowsableContent> (fichier BrowsableContent.cpp) -------
 
 //---------------------------------------------------------------- INCLUDE
 
@@ -13,7 +13,7 @@
 using namespace std;
 
 //------------------------------------------------------ Include personnel
-#include "BrowseableContent.hh"
+#include "BrowsableContent.hh"
 using namespace xml;
 
 namespace dtd
@@ -29,12 +29,12 @@ namespace dtd
 //{
 //}
 
-bool BrowseableContent::validate(const MarkupNode &)
+bool BrowsableContent::validate(const MarkupNode &)
 {
 	return false;
 }
 
-bool BrowseableContent::validate(const CompositeMarkupNode & node)
+bool BrowsableContent::validate(const CompositeMarkupNode & node)
 // Algorithme :
 //	Initialise la récursion sur l'arbre de contenu.
 {
@@ -45,12 +45,12 @@ bool BrowseableContent::validate(const CompositeMarkupNode & node)
 
 
 //-------------------------------------------- Constructeurs - destructeur
-BrowseableContent::BrowseableContent()
+BrowsableContent::BrowsableContent()
 {
 	//TODO
 }
 
-BrowseableContent::~BrowseableContent()
+BrowsableContent::~BrowsableContent()
 {
 	//TODO
 }
@@ -58,10 +58,10 @@ BrowseableContent::~BrowseableContent()
 //------------------------------------------------------------------ PRIVE
 
 //----------------------------------------------------- Méthodes protégées
-bool BrowseableContent::_newValidation(
+bool BrowsableContent::_newValidation(
 		CompositeMarkupNode::ChildrenIterator firstToken,
 		CompositeMarkupNode::ChildrenIterator endToken,
-		BrowseableContent* nextStep)
+		BrowsableContent* nextStep)
 // Algorithme :
 //	Mémorise l'état induit par cet appel avant de commencer
 //	la validation, qui est effectuée par une récursion indirecte
@@ -76,34 +76,47 @@ bool BrowseableContent::_newValidation(
 	return result;
 }
 
-bool BrowseableContent::_continueValidation(
+bool BrowsableContent::_continueValidation(
 		xml::CompositeMarkupNode::ChildrenIterator currentToken)
 {
 	return false;
 }
 
-void BrowseableContent::_beforeValidation(
+void BrowsableContent::_beforeValidation(
 		CompositeMarkupNode::ChildrenIterator,
-		CompositeMarkupNode::ChildrenIterator, BrowseableContent*)
+		CompositeMarkupNode::ChildrenIterator, BrowsableContent*)
 {
 	// Do nothing by default.
 }
 
-void BrowseableContent::_afterValidation()
+void BrowsableContent::_afterValidation()
 {
 	// Do nothing by default.
 }
 
-bool BrowseableContent::_browseUp(BrowseableContent & parentContent,
-		CompositeMarkupNode::ChildrenIterator currentToken)
+bool BrowsableContent::_browseUp(BrowsableContent * parentContent,
+		CompositeMarkupNode::ChildrenIterator currentToken,
+		CompositeMarkupNode::ChildrenIterator endToken)
 {
-	return parentContent._continueValidation(currentToken);
+	if (parentContent == 0)
+	{
+		// L'objet n'est pas contenu dans un autre "content".
+		// 	On doit avoir consommé tous les jetons pour qu'ils
+		//	soient déclarés valides.
+		return currentToken == endToken;
+	}
+	else
+	{
+		// L'objet est pas contenu dans un autre "content".
+		// 	On doit continuer la validation au niveau supérieur.
+		return parentContent->_continueValidation(currentToken);
+	}
 }
 
-bool BrowseableContent::_browseDown(BrowseableContent & childContent,
+bool BrowsableContent::_browseDown(BrowsableContent & childContent,
 		CompositeMarkupNode::ChildrenIterator firstToken,
 		CompositeMarkupNode::ChildrenIterator endToken,
-		BrowseableContent *nextStep)
+		BrowsableContent *nextStep)
 {
 	return childContent._newValidation(firstToken, endToken, nextStep);
 }

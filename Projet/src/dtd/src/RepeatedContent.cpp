@@ -56,7 +56,7 @@ RepeatedContent::~RepeatedContent()
 bool RepeatedContent::_startValidation(
 		CompositeMarkupNode::ChildrenIterator firstToken,
 		CompositeMarkupNode::ChildrenIterator endToken,
-		BrowseableContent* nextStep)
+		BrowsableContent* nextStep)
 {
 	//TODO
 	return false;

@@ -1,13 +1,13 @@
 /*************************************************************************
- * BrowseableContent  -  «Description»
+ * BrowsableContent  -  «Description»
  * -------------------
  * Début      : 5 avr. 2011
  * Auteur(s)  : H4215
  *************************************************************************/
 
-//---------- Interface de la classe <BrowseableContent> (fichier BrowseableContent.hh) ------
-#if ! defined ( BROWSEABLECONTENT_HH )
-#define BROWSEABLECONTENT_HH
+//---------- Interface de la classe <BrowsableContent> (fichier BrowsableContent.hh) ------
+#if ! defined ( BROWSABLECONTENT_HH )
+#define BROWSABLECONTENT_HH
 
 //--------------------------------------------------- Interfaces utilisées
 #include "Content.hh"
@@ -15,7 +15,7 @@
 namespace dtd
 {
 
-class BrowseableContent: public Content
+class BrowsableContent: public Content
 {
 public:
 	//------------------------------------------------------------- Constantes
@@ -36,13 +36,13 @@ public:
 
 
 	//-------------------------------------------- Constructeurs - destructeur
-	BrowseableContent();
+	BrowsableContent();
 	// Mode d'emploi :
 	//	TODO
 	// Contrat :
 	//	TODO
 
-	virtual ~BrowseableContent();
+	virtual ~BrowsableContent();
 	// Mode d'emploi :
 	//	TODO
 	// Contrat :
@@ -51,7 +51,7 @@ public:
 protected:
 	bool _newValidation(xml::CompositeMarkupNode::ChildrenIterator firstToken,
 			xml::CompositeMarkupNode::ChildrenIterator endToken,
-			BrowseableContent* nextStep);
+			BrowsableContent* nextStep);
 	// Mode d'emploi :
 	//	Initialise et exécute une nouvelle validation pour la plage de jetons
 	//	donnée en paramètres, en exécutant ensuite une validation avec
@@ -66,7 +66,7 @@ protected:
 	virtual bool _startValidation(
 			xml::CompositeMarkupNode::ChildrenIterator firstToken,
 			xml::CompositeMarkupNode::ChildrenIterator endToken,
-			BrowseableContent* nextStep) = 0;
+			BrowsableContent* nextStep) = 0;
 	// Mode d'emploi :
 	//	Exécute une nouvelle validation, juste après l'initialisation
 	//	du validateur.
@@ -90,7 +90,7 @@ protected:
 	virtual void _beforeValidation(
 			xml::CompositeMarkupNode::ChildrenIterator firstToken,
 			xml::CompositeMarkupNode::ChildrenIterator endToken,
-			BrowseableContent* nextStep);
+			BrowsableContent* nextStep);
 	// Mode d'emploi :
 	//	Patron de méthode appelé par "_newValidation" avant l'appel
 	//	initial à "_startValidation".
@@ -112,10 +112,10 @@ protected:
 	//	Aucun.
 
 
-	bool _browseDown(BrowseableContent & childContent,
+	bool _browseDown(BrowsableContent & childContent,
 			xml::CompositeMarkupNode::ChildrenIterator firstToken,
 			xml::CompositeMarkupNode::ChildrenIterator endToken,
-			BrowseableContent* nextStep);
+			BrowsableContent* nextStep);
 	// Mode d'emploi :
 	//	Continue la validation en descendant dans l'arbre des contenus.
 	//	En pratique, appelle "childContent._newValidation(firstToken,endToken,nextStep)"
@@ -126,24 +126,26 @@ protected:
 	//	L'autre solution aurait été de donner à ces méthodes une
 	//	visibilité publique, ce qui n'est pas voulu.
 	// Contrat :
-	//	Ceux s'appliquant à BrowseableContent::_newValidation.
+	//	Ceux s'appliquant à BrowsableContent::_newValidation.
 
-	bool _browseUp(BrowseableContent & parentContent,
-			xml::CompositeMarkupNode::ChildrenIterator currentToken);
+	bool _browseUp(BrowsableContent * parentContent,
+			xml::CompositeMarkupNode::ChildrenIterator currentToken,
+			xml::CompositeMarkupNode::ChildrenIterator endToken);
 	// Mode d'emploi :
 	//	Continue la validation en remontant dans l'arbre des contenus.
-	//	En pratique, appelle "parentContent._continueValidation(currentToken)"
-	//	et renvoie le résultat.
+	//	En pratique, renvoie vrai si "parentContent" est nul et si tous les
+	//	jetons ont été consommés, ou si "parentContent->_continueValidation(currentToken)"
+	//	renvoie vrai. Sinon, renvoie faux.
 	//	Astuce très laide nécessaire pour donner aux instances des
 	//	classes filles le droit d'appeler des méthodes protégées de
 	//	la classes de base sur d'autres instances.
 	//	L'autre solution aurait été de donner à ces méthodes une
 	//	visibilité publique, ce qui n'est pas voulu.
 	// Contrat :
-	//	Ceux s'appliquant à BrowseableContent::_continueValidation.
+	//	Ceux s'appliquant à BrowsableContent::_continueValidation.
 
 };
 
 } // namespace dtd
 
-#endif // BROWSEABLECONTENT_HH
+#endif // BROWSABLECONTENT_HH

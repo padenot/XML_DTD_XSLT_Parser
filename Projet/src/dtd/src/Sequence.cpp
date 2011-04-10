@@ -68,7 +68,7 @@ Sequence::~Sequence()
 void Sequence::_beforeValidation(
 		xml::CompositeMarkupNode::ChildrenIterator firstToken,
 		xml::CompositeMarkupNode::ChildrenIterator endToken,
-		BrowseableContent* nextStep)
+		BrowsableContent* nextStep)
 {
 	_stack.push(
 			_State(firstToken, endToken, nextStep, _embeddedContent.begin()));
@@ -81,8 +81,7 @@ void Sequence::_afterValidation()
 
 bool Sequence::_startValidation(
 		CompositeMarkupNode::ChildrenIterator firstToken,
-		CompositeMarkupNode::ChildrenIterator endToken,
-		BrowseableContent* nextStep)
+		CompositeMarkupNode::ChildrenIterator, BrowsableContent*)
 {
 	// Il n'y a aucune différence entre l'algorithme de la première
 	//	étape de validation d'une séquence et les suivantes.
@@ -100,7 +99,7 @@ bool Sequence::_continueValidation(
 	if (state.nextEmbeddedContent != _embeddedContent.end())
 	{
 		// Fin de séquence non atteinte : on teste le contenu incrusté suivant.
-		BrowseableContent& currentEmbeddedContent = **state.nextEmbeddedContent;
+		BrowsableContent& currentEmbeddedContent = **state.nextEmbeddedContent;
 		++state.nextEmbeddedContent;
 
 		if (_browseDown(currentEmbeddedContent, currentToken, state.endToken,
@@ -122,18 +121,7 @@ bool Sequence::_continueValidation(
 		// Fin de séquence atteinte : l'objet a été consommé (on a trouvé des
 		//	noeuds correspondant à la séquence).
 
-		if (state.nextStep == 0)
-		{
-			// La séquence était à l'origine de la validation : tout est ok
-			//	si on a réussi à atteindre la fin de la liste de noeuds
-			return currentToken == state.endToken;
-		}
-		else
-		{
-			// La séquence était subordonnée à un contenu englobant :
-			//	d'autres jetons peuvent/doivent peut-être être consommés.
-			return _browseUp(*state.nextStep, currentToken);
-		}
+		return _browseUp(state.nextStep, currentToken, state.endToken);
 	}
 }
 

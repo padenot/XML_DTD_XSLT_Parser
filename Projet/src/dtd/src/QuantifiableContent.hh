@@ -10,12 +10,12 @@
 #define QUANTIFIABLECONTENT_HH_
 
 //--------------------------------------------------- Interfaces utilisées
-#include "BrowseableContent.hh"
+#include "BrowsableContent.hh"
 
 namespace dtd
 {
 
-class QuantifiableContent: public BrowseableContent
+class QuantifiableContent: public BrowsableContent
 {
 public:
 	//------------------------------------------------------------- Constantes
@@ -51,11 +51,11 @@ protected:
 	{
 		xml::CompositeMarkupNode::ChildrenIterator firstToken;
 		xml::CompositeMarkupNode::ChildrenIterator endToken;
-		BrowseableContent* nextStep;
+		BrowsableContent* nextStep;
 
 		_State(xml::CompositeMarkupNode::ChildrenIterator aFirstToken,
 				xml::CompositeMarkupNode::ChildrenIterator anEndToken,
-				BrowseableContent* aNextStep) :
+				BrowsableContent* aNextStep) :
 			firstToken(aFirstToken), endToken(anEndToken), nextStep(aNextStep)
 		{
 

@@ -55,7 +55,7 @@ TextContent::~TextContent()
 bool TextContent::_startValidation(
 		CompositeMarkupNode::ChildrenIterator firstToken,
 		CompositeMarkupNode::ChildrenIterator endToken,
-		BrowseableContent* nextStep)
+		BrowsableContent* nextStep)
 {
 	if (firstToken == endToken)
 	{
@@ -72,19 +72,7 @@ bool TextContent::_startValidation(
 			// Le jeton est consommé.
 			++firstToken;
 
-			if (nextStep == 0)
-			{
-				// L'objet n'est pas contenu dans un autre "content".
-				// 	On doit avoir consommé tous les jetons pour qu'ils
-				//	soient déclarés valides.
-				return firstToken == endToken;
-			}
-			else
-			{
-				// L'objet est pas contenu dans un autre "content".
-				// 	On doit continuer la validation au niveau supérieur.
-				return _browseUp(*nextStep, firstToken);
-			}
+			return _browseUp(nextStep, firstToken, endToken);
 		}
 		else
 		{

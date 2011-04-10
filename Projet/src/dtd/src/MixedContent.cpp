@@ -66,7 +66,7 @@ MixedContent::~MixedContent()
 void MixedContent::_beforeValidation(
 		xml::CompositeMarkupNode::ChildrenIterator firstToken,
 		xml::CompositeMarkupNode::ChildrenIterator endToken,
-		BrowseableContent* nextStep)
+		BrowsableContent* nextStep)
 {
 	_stack.push(_State(firstToken, endToken, nextStep));
 }
@@ -79,7 +79,7 @@ void MixedContent::_afterValidation()
 bool MixedContent::_startValidation(
 		CompositeMarkupNode::ChildrenIterator firstToken,
 		CompositeMarkupNode::ChildrenIterator endToken,
-		BrowseableContent* nextStep)
+		BrowsableContent* nextStep)
 {
 	_State& state = _stack.top();
 
@@ -94,18 +94,9 @@ bool MixedContent::_continueValidation(
 	//	a été validée (que ce soit "_textContent" ou une alternative de "_choice").
 	_State& state = _stack.top();
 
-	if (state.nextStep == 0)
-	{
-		// L'objet était à l'origine de la validation : tout est ok
-		//	si on a réussi à atteindre la fin de la liste de noeuds
-		return currentToken == state.endToken;
-	}
-	else
-	{
-		// L'objet était subordonnée à un contenu englobant :
-		//	d'autres jetons peuvent/doivent peut-être être consommés.
-		return _browseUp(*state.nextStep, currentToken);
-	}
+	// On se contente de rediriger la requête vers le contenu englobant,
+	//	ou de valider l'ensemble de noeuds si il a été consommé en entier.
+	return _browseUp(state.nextStep, currentToken, state.endToken);
 }
 
 } // namespace dtd

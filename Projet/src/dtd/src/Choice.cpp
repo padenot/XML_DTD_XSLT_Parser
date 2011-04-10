@@ -67,7 +67,7 @@ Choice::~Choice()
 void Choice::_beforeValidation(
 		xml::CompositeMarkupNode::ChildrenIterator firstToken,
 		xml::CompositeMarkupNode::ChildrenIterator endToken,
-		BrowseableContent* nextStep)
+		BrowsableContent* nextStep)
 {
 	_stack.push(_State(firstToken, endToken, nextStep, _choosable.begin()));
 }
@@ -79,7 +79,7 @@ void Choice::_afterValidation()
 
 bool Choice::_startValidation(CompositeMarkupNode::ChildrenIterator firstToken,
 		CompositeMarkupNode::ChildrenIterator endToken,
-		BrowseableContent* nextStep)
+		BrowsableContent* nextStep)
 {
 	// Premier appel de validation, aucune alternative de choix n'a
 	//	été validée pour le moment.

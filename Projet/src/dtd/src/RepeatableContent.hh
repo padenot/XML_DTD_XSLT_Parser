@@ -53,7 +53,7 @@ protected:
 	virtual bool _startValidation(
 			xml::CompositeMarkupNode::ChildrenIterator firstToken,
 			xml::CompositeMarkupNode::ChildrenIterator endToken,
-			BrowseableContent* nextStep);
+			BrowsableContent* nextStep);
 	virtual bool _continueValidation(
 			xml::CompositeMarkupNode::ChildrenIterator currentToken);
 
