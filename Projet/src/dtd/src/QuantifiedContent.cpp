@@ -67,7 +67,7 @@ QuantifiedContent::~QuantifiedContent()
 void QuantifiedContent::_beforeValidation(
 		xml::CompositeMarkupNode::ChildrenIterator firstToken,
 		xml::CompositeMarkupNode::ChildrenIterator endToken,
-		_InterfaceValidator* nextStep)
+		BrowseableContent* nextStep)
 {
 	//TODO
 }

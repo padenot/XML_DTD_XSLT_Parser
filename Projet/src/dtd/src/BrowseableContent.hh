@@ -1,22 +1,21 @@
 /*************************************************************************
- * NonEmptyContent  -  «Description»
+ * BrowseableContent  -  «Description»
  * -------------------
  * Début      : 5 avr. 2011
  * Auteur(s)  : H4215
  *************************************************************************/
 
-//---------- Interface de la classe <NonEmptyContent> (fichier NonEmptyContent.hh) ------
-#if ! defined ( NONEMPTYCONTENT_HH_ )
-#define NONEMPTYCONTENT_HH_
+//---------- Interface de la classe <BrowseableContent> (fichier BrowseableContent.hh) ------
+#if ! defined ( BROWSEABLECONTENT_HH )
+#define BROWSEABLECONTENT_HH
 
 //--------------------------------------------------- Interfaces utilisées
 #include "Content.hh"
-#include "_InterfaceValidator.hpp"
 
 namespace dtd
 {
 
-class NonEmptyContent: public Content, protected _InterfaceValidator
+class BrowseableContent: public Content
 {
 public:
 	//------------------------------------------------------------- Constantes
@@ -37,13 +36,13 @@ public:
 
 
 	//-------------------------------------------- Constructeurs - destructeur
-	NonEmptyContent();
+	BrowseableContent();
 	// Mode d'emploi :
 	//	TODO
 	// Contrat :
 	//	TODO
 
-	virtual ~NonEmptyContent();
+	virtual ~BrowseableContent();
 	// Mode d'emploi :
 	//	TODO
 	// Contrat :
@@ -52,7 +51,7 @@ public:
 protected:
 	bool _newValidation(xml::CompositeMarkupNode::ChildrenIterator firstToken,
 			xml::CompositeMarkupNode::ChildrenIterator endToken,
-			_InterfaceValidator* nextStep);
+			BrowseableContent* nextStep);
 	// Mode d'emploi :
 	//	Initialise et exécute une nouvelle validation pour la plage de jetons
 	//	donnée en paramètres, en exécutant ensuite une validation avec
@@ -67,7 +66,7 @@ protected:
 	virtual bool _startValidation(
 			xml::CompositeMarkupNode::ChildrenIterator firstToken,
 			xml::CompositeMarkupNode::ChildrenIterator endToken,
-			_InterfaceValidator* nextStep) = 0;
+			BrowseableContent* nextStep) = 0;
 	// Mode d'emploi :
 	//	Exécute une nouvelle validation, juste après l'initialisation
 	//	du validateur.
@@ -91,7 +90,7 @@ protected:
 	virtual void _beforeValidation(
 			xml::CompositeMarkupNode::ChildrenIterator firstToken,
 			xml::CompositeMarkupNode::ChildrenIterator endToken,
-			_InterfaceValidator* nextStep);
+			BrowseableContent* nextStep);
 	// Mode d'emploi :
 	//	Patron de méthode appelé par "_newValidation" avant l'appel
 	//	initial à "_startValidation".
@@ -112,48 +111,39 @@ protected:
 	// Contrat :
 	//	Aucun.
 
-	class _ValidatorAccessor: public _InterfaceValidator
-	// Permet aux sous-classes de NonEmptyElement d'accéder à l'interface
-	// _InterfaceValidator sur d'autres instances qu'eux-mêmes.
-	{
-	public:
-		_ValidatorAccessor(NonEmptyContent& referenced);
 
-		virtual bool _newValidation(
-				xml::CompositeMarkupNode::ChildrenIterator firstToken,
-				xml::CompositeMarkupNode::ChildrenIterator endToken,
-				_InterfaceValidator* nextStep);
-		// Mode d'emploi :
-		//	Appelle referenced._newValidation(firstToken,endToken,nextStep)
-		//	et renvoie le résultat.
-		//	Astuce très laide nécessaire pour donner aux instances des
-		//	classes filles le droit d'appeler des méthodes protégées de
-		//	la classes de base sur d'autres instances.
-		//	L'autre solution aurait été de donner à ces méthodes une
-		//	visibilité publique...
-		// Contrat :
-		//	Ceux s'appliquant à NonEmptyContent::_newValidation.
+	bool _browseDown(BrowseableContent & childContent,
+			xml::CompositeMarkupNode::ChildrenIterator firstToken,
+			xml::CompositeMarkupNode::ChildrenIterator endToken,
+			BrowseableContent* nextStep);
+	// Mode d'emploi :
+	//	Continue la validation en descendant dans l'arbre des contenus.
+	//	En pratique, appelle "childContent._newValidation(firstToken,endToken,nextStep)"
+	//	et renvoie le résultat.
+	//	Astuce très laide nécessaire pour donner aux instances des
+	//	classes filles le droit d'appeler des méthodes protégées de
+	//	la classes de base sur d'autres instances.
+	//	L'autre solution aurait été de donner à ces méthodes une
+	//	visibilité publique, ce qui n'est pas voulu.
+	// Contrat :
+	//	Ceux s'appliquant à BrowseableContent::_newValidation.
 
-		virtual bool _continueValidation(
-				xml::CompositeMarkupNode::ChildrenIterator currentToken);
-		// Mode d'emploi :
-		//	Appelle referenced._contenueValidation(currentToken) et renvoie
-		//	le résultat.
-		//	Astuce très laide nécessaire pour donner aux instances des
-		//	classes filles le droit d'appeler des méthodes protégées de
-		//	la classes de base sur d'autres instances.
-		//	L'autre solution aurait été de donner à ces méthodes une
-		//	visibilité publique...
-		// Contrat :
-		//	Ceux s'appliquant à NonEmptyContent::_continueValidation.
+	bool _browseUp(BrowseableContent & parentContent,
+			xml::CompositeMarkupNode::ChildrenIterator currentToken);
+	// Mode d'emploi :
+	//	Continue la validation en remontant dans l'arbre des contenus.
+	//	En pratique, appelle "parentContent._continueValidation(currentToken)"
+	//	et renvoie le résultat.
+	//	Astuce très laide nécessaire pour donner aux instances des
+	//	classes filles le droit d'appeler des méthodes protégées de
+	//	la classes de base sur d'autres instances.
+	//	L'autre solution aurait été de donner à ces méthodes une
+	//	visibilité publique, ce qui n'est pas voulu.
+	// Contrat :
+	//	Ceux s'appliquant à BrowseableContent::_continueValidation.
 
-	protected:
-		NonEmptyContent& _referenced;
-	};
-
-	friend class _ValidatorAccessor;
 };
 
 } // namespace dtd
 
-#endif // NONEMPTYCONTENT_HH_
+#endif // BROWSEABLECONTENT_HH

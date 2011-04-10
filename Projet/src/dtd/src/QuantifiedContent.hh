@@ -68,7 +68,7 @@ protected:
 	virtual void _beforeValidation(
 			xml::CompositeMarkupNode::ChildrenIterator firstToken,
 			xml::CompositeMarkupNode::ChildrenIterator endToken,
-			_InterfaceValidator* nextStep);
+			BrowseableContent* nextStep);
 	virtual void _afterValidation();
 
 };

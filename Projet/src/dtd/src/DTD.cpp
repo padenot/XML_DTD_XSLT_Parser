@@ -32,7 +32,8 @@ namespace dtd
 
 void DTD::accept(InterfaceDTDVisitor& visitor) const
 {
-	for (_Elements::const_iterator it = _elements.begin(); it != _elements.end(); ++it)
+	for (_Elements::const_iterator it = _elements.begin(); it
+			!= _elements.end(); ++it)
 	{
 		(*it)->accept(visitor);
 	}
@@ -45,11 +46,14 @@ void DTD::accept(InterfaceDTDVisitor& visitor) const
 
 void DTD::addElement(Element & element)
 {
+	// TODO provoquer une erreur si l'élément existe déjà,
+	//	ou remplacer l'ancien
 	_elements.push_back(&element);
 }
 
 void DTD::addAttributesList(AttributesList & attlist)
 {
+	// TODO: essayer de fusionner avec une autre attlist
 	_attributesLists.push_back(&attlist);
 }
 

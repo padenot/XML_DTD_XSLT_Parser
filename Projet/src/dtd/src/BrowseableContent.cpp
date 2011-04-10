@@ -1,11 +1,11 @@
 /*************************************************************************
- * NonEmptyContent  -  «Description»
+ * BrowseableContent  -  «Description»
  * -------------------
  * Début      : 5 avr. 2011
  * Auteur(s)  : H4215
  *************************************************************************/
 
-//---------- Réalisation de la classe <NonEmptyContent> (fichier NonEmptyContent.cpp) -------
+//---------- Réalisation de la classe <BrowseableContent> (fichier BrowseableContent.cpp) -------
 
 //---------------------------------------------------------------- INCLUDE
 
@@ -13,7 +13,7 @@
 using namespace std;
 
 //------------------------------------------------------ Include personnel
-#include "NonEmptyContent.hh"
+#include "BrowseableContent.hh"
 using namespace xml;
 
 namespace dtd
@@ -29,12 +29,12 @@ namespace dtd
 //{
 //}
 
-bool NonEmptyContent::validate(const MarkupNode &)
+bool BrowseableContent::validate(const MarkupNode &)
 {
 	return false;
 }
 
-bool NonEmptyContent::validate(const CompositeMarkupNode & node)
+bool BrowseableContent::validate(const CompositeMarkupNode & node)
 // Algorithme :
 //	Initialise la récursion sur l'arbre de contenu.
 {
@@ -45,12 +45,12 @@ bool NonEmptyContent::validate(const CompositeMarkupNode & node)
 
 
 //-------------------------------------------- Constructeurs - destructeur
-NonEmptyContent::NonEmptyContent()
+BrowseableContent::BrowseableContent()
 {
 	//TODO
 }
 
-NonEmptyContent::~NonEmptyContent()
+BrowseableContent::~BrowseableContent()
 {
 	//TODO
 }
@@ -58,31 +58,10 @@ NonEmptyContent::~NonEmptyContent()
 //------------------------------------------------------------------ PRIVE
 
 //----------------------------------------------------- Méthodes protégées
-NonEmptyContent::_ValidatorAccessor::_ValidatorAccessor(
-		NonEmptyContent& referenced) :
-	_referenced(referenced)
-{
-
-}
-
-bool NonEmptyContent::_ValidatorAccessor::_newValidation(
-		xml::CompositeMarkupNode::ChildrenIterator firstToken,
-		xml::CompositeMarkupNode::ChildrenIterator endToken,
-		_InterfaceValidator* nextStep)
-{
-	return _referenced._newValidation(firstToken, endToken, nextStep);
-}
-
-bool NonEmptyContent::_ValidatorAccessor::_continueValidation(
-		xml::CompositeMarkupNode::ChildrenIterator currentToken)
-{
-	return _referenced._continueValidation(currentToken);
-}
-
-bool NonEmptyContent::_newValidation(
+bool BrowseableContent::_newValidation(
 		CompositeMarkupNode::ChildrenIterator firstToken,
 		CompositeMarkupNode::ChildrenIterator endToken,
-		_InterfaceValidator* nextStep)
+		BrowseableContent* nextStep)
 // Algorithme :
 //	Mémorise l'état induit par cet appel avant de commencer
 //	la validation, qui est effectuée par une récursion indirecte
@@ -97,21 +76,36 @@ bool NonEmptyContent::_newValidation(
 	return result;
 }
 
-bool NonEmptyContent::_continueValidation(
+bool BrowseableContent::_continueValidation(
 		xml::CompositeMarkupNode::ChildrenIterator currentToken)
 {
 	return false;
 }
 
-void NonEmptyContent::_beforeValidation(CompositeMarkupNode::ChildrenIterator,
-		CompositeMarkupNode::ChildrenIterator, _InterfaceValidator*)
+void BrowseableContent::_beforeValidation(
+		CompositeMarkupNode::ChildrenIterator,
+		CompositeMarkupNode::ChildrenIterator, BrowseableContent*)
 {
 	// Do nothing by default.
 }
 
-void NonEmptyContent::_afterValidation()
+void BrowseableContent::_afterValidation()
 {
 	// Do nothing by default.
+}
+
+bool BrowseableContent::_browseUp(BrowseableContent & parentContent,
+		CompositeMarkupNode::ChildrenIterator currentToken)
+{
+	return parentContent._continueValidation(currentToken);
+}
+
+bool BrowseableContent::_browseDown(BrowseableContent & childContent,
+		CompositeMarkupNode::ChildrenIterator firstToken,
+		CompositeMarkupNode::ChildrenIterator endToken,
+		BrowseableContent *nextStep)
+{
+	return childContent._newValidation(firstToken, endToken, nextStep);
 }
 
 } // namespace dtd

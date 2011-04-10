@@ -56,7 +56,7 @@ ElementReference::~ElementReference()
 bool ElementReference::_startValidation(
 		CompositeMarkupNode::ChildrenIterator firstToken,
 		CompositeMarkupNode::ChildrenIterator endToken,
-		_InterfaceValidator* nextStep)
+		BrowseableContent* nextStep)
 {
 	if (firstToken == endToken)
 	{
@@ -84,7 +84,7 @@ bool ElementReference::_startValidation(
 			{
 				// L'objet est pas contenu dans un autre "content".
 				// 	On doit continuer la validation au niveau supérieur.
-				return nextStep->_continueValidation(firstToken);
+				return _browseUp(*nextStep, firstToken);
 			}
 		}
 		else

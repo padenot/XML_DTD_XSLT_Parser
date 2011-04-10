@@ -63,7 +63,7 @@ protected:
 
 		_State(xml::CompositeMarkupNode::ChildrenIterator aFirstToken,
 				xml::CompositeMarkupNode::ChildrenIterator anEndToken,
-				_InterfaceValidator* aNextStep,
+				BrowseableContent* aNextStep,
 				_OrderedContent::iterator aNextEmbeddedContent) :
 			QuantifiableContent::_State(aFirstToken, anEndToken, aNextStep),
 					nextEmbeddedContent(aNextEmbeddedContent)
@@ -77,14 +77,14 @@ protected:
 	virtual bool _startValidation(
 			xml::CompositeMarkupNode::ChildrenIterator firstToken,
 			xml::CompositeMarkupNode::ChildrenIterator endToken,
-			_InterfaceValidator* nextStep);
+			BrowseableContent* nextStep);
 	virtual bool _continueValidation(
 			xml::CompositeMarkupNode::ChildrenIterator currentToken);
 
 	virtual void _beforeValidation(
 			xml::CompositeMarkupNode::ChildrenIterator firstToken,
 			xml::CompositeMarkupNode::ChildrenIterator endToken,
-			_InterfaceValidator* nextStep);
+			BrowseableContent* nextStep);
 	virtual void _afterValidation();
 };
 

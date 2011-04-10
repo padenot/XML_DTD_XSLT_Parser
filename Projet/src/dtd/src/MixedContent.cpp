@@ -66,7 +66,7 @@ MixedContent::~MixedContent()
 void MixedContent::_beforeValidation(
 		xml::CompositeMarkupNode::ChildrenIterator firstToken,
 		xml::CompositeMarkupNode::ChildrenIterator endToken,
-		_InterfaceValidator* nextStep)
+		BrowseableContent* nextStep)
 {
 	_stack.push(_State(firstToken, endToken, nextStep));
 }
@@ -79,15 +79,12 @@ void MixedContent::_afterValidation()
 bool MixedContent::_startValidation(
 		CompositeMarkupNode::ChildrenIterator firstToken,
 		CompositeMarkupNode::ChildrenIterator endToken,
-		_InterfaceValidator* nextStep)
+		BrowseableContent* nextStep)
 {
 	_State& state = _stack.top();
-	_ValidatorAccessor thisValidator(*this);
 
-	return _ValidatorAccessor(_textContent)._newValidation(state.firstToken,
-			state.endToken, &thisValidator)
-			|| _ValidatorAccessor(_choice)._newValidation(state.firstToken,
-					state.endToken, &thisValidator);
+	return _browseDown(_textContent, state.firstToken, state.endToken, this)
+			|| _browseDown(_choice, state.firstToken, state.endToken, this);
 }
 
 bool MixedContent::_continueValidation(
@@ -107,7 +104,7 @@ bool MixedContent::_continueValidation(
 	{
 		// L'objet était subordonnée à un contenu englobant :
 		//	d'autres jetons peuvent/doivent peut-être être consommés.
-		return state.nextStep->_continueValidation(currentToken);
+		return _browseUp(*state.nextStep, currentToken);
 	}
 }
 

@@ -68,7 +68,7 @@ Sequence::~Sequence()
 void Sequence::_beforeValidation(
 		xml::CompositeMarkupNode::ChildrenIterator firstToken,
 		xml::CompositeMarkupNode::ChildrenIterator endToken,
-		_InterfaceValidator* nextStep)
+		BrowseableContent* nextStep)
 {
 	_stack.push(
 			_State(firstToken, endToken, nextStep, _embeddedContent.begin()));
@@ -82,7 +82,7 @@ void Sequence::_afterValidation()
 bool Sequence::_startValidation(
 		CompositeMarkupNode::ChildrenIterator firstToken,
 		CompositeMarkupNode::ChildrenIterator endToken,
-		_InterfaceValidator* nextStep)
+		BrowseableContent* nextStep)
 {
 	// Il n'y a aucune différence entre l'algorithme de la première
 	//	étape de validation d'une séquence et les suivantes.
@@ -100,13 +100,11 @@ bool Sequence::_continueValidation(
 	if (state.nextEmbeddedContent != _embeddedContent.end())
 	{
 		// Fin de séquence non atteinte : on teste le contenu incrusté suivant.
-		_ValidatorAccessor thisValidator(*this);
-		_InterfaceValidator& currentEmbeddedContent =
-				**state.nextEmbeddedContent;
+		BrowseableContent& currentEmbeddedContent = **state.nextEmbeddedContent;
 		++state.nextEmbeddedContent;
 
-		if (currentEmbeddedContent._newValidation(currentToken, state.endToken,
-				&thisValidator))
+		if (_browseDown(currentEmbeddedContent, currentToken, state.endToken,
+				this))
 		{
 			// Le reste de la liste de jetons a pu être consommé par le reste de
 			//	l'arbre de contenus : la validation est terminée et réussie.
@@ -134,7 +132,7 @@ bool Sequence::_continueValidation(
 		{
 			// La séquence était subordonnée à un contenu englobant :
 			//	d'autres jetons peuvent/doivent peut-être être consommés.
-			return state.nextStep->_continueValidation(currentToken);
+			return _browseUp(*state.nextStep, currentToken);
 		}
 	}
 }
