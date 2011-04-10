@@ -90,9 +90,6 @@ bool Sequence::_startValidation(
 
 bool Sequence::_continueValidation(
 		xml::CompositeMarkupNode::ChildrenIterator currentToken)
-// Note : comme aucune décision n'est prise dans cette méthode, le
-//	véritable backtracking est délégué aux objets ayant demandé la validation
-//	en renvoyant faux.
 {
 	_State & state = _stack.top();
 
