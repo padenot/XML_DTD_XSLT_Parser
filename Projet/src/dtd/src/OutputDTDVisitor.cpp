@@ -150,10 +150,14 @@ void OutputDTDVisitor::visit(const ElementReference & element)
 
 void OutputDTDVisitor::visit(const Choice & content)
 {
-	_out << START_CHOICE_STR << "#TODO#";
-	for (int i = 0; i < 2; ++i)
+	_out << START_CHOICE_STR;
+	Choice::ChoosableSetIterator it = content.begin();
+	(*it)->accept(*this);
+	++it;
+	for (it; it	!= content.end(); ++it)
 	{
-		_out << CHOICE_SEPARATOR_STR << "#TODO#>" << endl;
+		_out << CHOICE_SEPARATOR_STR ;
+		(*it)->accept(*this);
 	}
 	_out << END_CHOICE_STR;
 }

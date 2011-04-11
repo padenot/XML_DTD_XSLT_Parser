@@ -18,12 +18,15 @@ namespace dtd
 {
 
 class Choice: public ElementContent
-{
+{	
+Protected:
+	typedef std::set<ElementContent*> _ChoosableSet;	
 public:
 	//------------------------------------------------------------- Constantes
 
 	//------------------------------------------------------------------ Types
 	typedef std::set<ElementContent*> ChoosableSet;
+	typedef _ChoosableSet::const_iterator ChoosableSetIterator;
 
 	//----------------------------------------------------- Méthodes publiques
 	// type Méthode ( liste des paramètres );
@@ -35,6 +38,10 @@ public:
 	virtual bool validate(const xml::CompositeMarkupNode & node);
 
 	virtual void accept(InterfaceDTDVisitor & visitor) const;
+	
+	ChoosableSetIterator begin() const;
+	
+	ChoosableSetIterator end() const;
 
 	//------------------------------------------------- Surcharge d'opérateurs
 
@@ -54,7 +61,7 @@ public:
 	//	TODO
 
 protected:
-	typedef std::set<ElementContent*> _ChoosableSet;
+
 	_ChoosableSet _choosable;
 
 	struct _State: public QuantifiableContent::_State
