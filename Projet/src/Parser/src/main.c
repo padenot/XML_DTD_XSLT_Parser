@@ -68,7 +68,11 @@ int main(int argc, char** argv) {
 	fclose(xmlin);
 
 	xml::OutputVisitor visitor(cout);
-	root->accept(visitor);
+	//root->accept(visitor);
+
+	DotOutputVisitor dvisitor(cout, "xmlTree");
+	dvisitor.writeDot(root);
+	delete root;
 
 	if (err != 0) cout << err << " erreurs de syntaxe détectées !" << endl; 
 	else cout << "Aucune erreur détectée." << endl; 
