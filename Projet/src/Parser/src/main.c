@@ -18,12 +18,14 @@ extern xml::CompositeMarkupNode* root;
 extern FILE * xmlin;
 extern FILE * dtdin;
 
+int exportMode;
+
 using namespace std;
 
 int handleDTD(char* filename) {
 	int err;
 	FILE* inputFile = (FILE*)fopen(filename, "r");
-	cout << "** Parsing de " << filename << "..." << endl;
+	if(!exportMode) cout << "** Parsing de " << filename << "..." << endl;
 	if(inputFile == NULL) {
 		cout << "Fichier inexistant." << endl;
 		exit(1);
@@ -34,7 +36,8 @@ int handleDTD(char* filename) {
 	fclose(dtdin);
 
 	if (err != 0) cout << err << " erreurs de syntaxe détectées !" << endl; 
-	else cout << "Aucune erreur détectée." << endl; 
+	else if(!exportMode) 
+		cout << "Aucune erreur détectée." << endl; 
 
 	return 0;
 }
@@ -57,8 +60,10 @@ int main(int argc, char** argv) {
 		exit(0);
 	}
 
+	exportMode = (argc == 3);
+
 	FILE* inputFile = (FILE*)fopen(argv[1], "r");
-	cout << "** Parsing de " << argv[1] << "..." << endl;
+	if(!exportMode) cout << "** Parsing de " << argv[1] << "..." << endl;
 	if(inputFile == NULL) {
 		cout << "Fichier inexistant." << endl;
 		exit(1);
@@ -68,14 +73,13 @@ int main(int argc, char** argv) {
 	err = xmlparse();
 	fclose(xmlin);
 
-	xml::OutputVisitor visitor(cout);
-	root->accept(visitor);
-
-	xml::DotOutputVisitor dvisitor(cout, "xmlTree");
-	dvisitor.writeDot(root);
+	if(exportMode) {
+		xml::DotOutputVisitor dvisitor(cout, "xmlTree");
+		dvisitor.writeDot(root);
+	}
 
 	if (err != 0) cout << err << " erreurs de syntaxe détectées !" << endl; 
-	else cout << "Aucune erreur détectée." << endl; 
+	else if(!exportMode) cout << "Aucune erreur détectée." << endl; 
 
 	return 0;
 }
