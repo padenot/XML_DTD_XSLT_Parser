@@ -10,84 +10,88 @@ Grammar
 
     1 root: dtd
 
-    2 dtd: dtd ATTLIST NAME att_definition CLOSE
-    3    | dtd ELEMENT NAME choice_or_sequence quantifier CLOSE
-    4    | dtd ELEMENT NAME OPENPAR primary_type CLOSEPAR CLOSE
-    5    | /* empty */
+    2 dtd: dtd attlist CLOSE
+    3    | dtd element CLOSE
+    4    | /* empty */
 
-    6 att_definition: att_definition attribut
-    7               | /* empty */
+    5 attlist: ATTLIST NAME att_definition
 
-    8 attribut: NAME att_type defaut_declaration
+    6 element: ELEMENT NAME choice_or_sequence quantifier
+    7        | ELEMENT NAME OPENPAR primary_type CLOSEPAR
 
-    9 att_type: CDATA
-   10         | TOKENTYPE
-   11         | type_enumere
+    8 att_definition: att_definition attribut
+    9               | /* empty */
 
-   12 type_enumere: OPENPAR liste_enum_plus CLOSEPAR
+   10 attribut: NAME att_type defaut_declaration
 
-   13 liste_enum_plus: liste_enum PIPE item_enum
+   11 att_type: CDATA
+   12         | TOKENTYPE
+   13         | type_enumere
 
-   14 liste_enum: item_enum
-   15           | liste_enum PIPE item_enum
+   14 type_enumere: OPENPAR liste_enum_plus CLOSEPAR
 
-   16 item_enum: NAME
+   15 liste_enum_plus: liste_enum PIPE item_enum
 
-   17 defaut_declaration: DECLARATION
-   18                   | STRING
-   19                   | FIXED STRING
+   16 liste_enum: item_enum
+   17           | liste_enum PIPE item_enum
 
-   20 choice_or_sequence: choice
-   21                   | sequence
+   18 item_enum: NAME
 
-   22 sequence: OPENPAR list_sequence CLOSEPAR
+   19 defaut_declaration: DECLARATION
+   20                   | STRING
+   21                   | FIXED STRING
 
-   23 list_sequence: item
-   24              | list_sequence COMMA item
+   22 choice_or_sequence: choice
+   23                   | sequence
 
-   25 choice: OPENPAR list_choice CLOSEPAR
+   24 sequence: OPENPAR list_sequence CLOSEPAR
 
-   26 list_choice: list_choice_transition PIPE item
+   25 list_sequence: item
+   26              | list_sequence COMMA item
 
-   27 list_choice_transition: item
-   28                       | list_choice_transition PIPE item
+   27 choice: OPENPAR list_choice CLOSEPAR
 
-   29 item: NAME quantifier
-   30     | choice_or_sequence quantifier
+   28 list_choice: list_choice_transition PIPE item
 
-   31 quantifier: AST
-   32           | QMARK
-   33           | PLUS
-   34           | /* empty */
+   29 list_choice_transition: item
+   30                       | list_choice_transition PIPE item
 
-   35 primary_type: CDATA
-   36             | PCDATA
-   37             | FIXED
+   31 item: NAME quantifier
+   32     | choice_or_sequence quantifier
+
+   33 quantifier: AST
+   34           | QMARK
+   35           | PLUS
+   36           | /* empty */
+
+   37 primary_type: CDATA
+   38             | PCDATA
+   39             | FIXED
 
 
 Terminals, with rules where they appear
 
 $end (0) 0
 error (256)
-ELEMENT (258) 3 4
-ATTLIST (259) 2
-CLOSE (260) 2 3 4
-OPENPAR (261) 4 12 22 25
-CLOSEPAR (262) 4 12 22 25
-COMMA (263) 24
-PIPE (264) 13 15 26 28
-FIXED (265) 19 37
+ELEMENT (258) 6 7
+ATTLIST (259) 5
+CLOSE (260) 2 3
+OPENPAR (261) 7 14 24 27
+CLOSEPAR (262) 7 14 24 27
+COMMA (263) 26
+PIPE (264) 15 17 28 30
+FIXED (265) 21 39
 EMPTY (266)
 ANY (267)
-PCDATA (268) 36
-AST (269) 31
-QMARK (270) 32
-PLUS (271) 33
-CDATA (272) 9 35
-NAME (273) 2 3 4 8 16 29
-TOKENTYPE (274) 10
-DECLARATION (275) 17
-STRING (276) 18 19
+PCDATA (268) 38
+AST (269) 33
+QMARK (270) 34
+PLUS (271) 35
+CDATA (272) 11 37
+NAME (273) 5 6 7 10 18 31
+TOKENTYPE (274) 12
+DECLARATION (275) 19
+STRING (276) 20 21
 
 
 Nonterminals, with rules where they appear
@@ -97,48 +101,52 @@ $accept (22)
 root (23)
     on left: 1, on right: 0
 dtd (24)
-    on left: 2 3 4 5, on right: 1 2 3 4
-att_definition (25)
-    on left: 6 7, on right: 2 6
-attribut (26)
-    on left: 8, on right: 6
-att_type (27)
-    on left: 9 10 11, on right: 8
-type_enumere (28)
-    on left: 12, on right: 11
-liste_enum_plus (29)
-    on left: 13, on right: 12
-liste_enum (30)
-    on left: 14 15, on right: 13 15
-item_enum (31)
-    on left: 16, on right: 13 14 15
-defaut_declaration (32)
-    on left: 17 18 19, on right: 8
-choice_or_sequence (33)
-    on left: 20 21, on right: 3 30
-sequence (34)
-    on left: 22, on right: 21
-list_sequence (35)
-    on left: 23 24, on right: 22 24
-choice (36)
-    on left: 25, on right: 20
-list_choice (37)
-    on left: 26, on right: 25
-list_choice_transition (38)
-    on left: 27 28, on right: 26 28
-item (39)
-    on left: 29 30, on right: 23 24 26 27 28
-quantifier (40)
-    on left: 31 32 33 34, on right: 3 29 30
-primary_type (41)
-    on left: 35 36 37, on right: 4
+    on left: 2 3 4, on right: 1 2 3
+attlist (25)
+    on left: 5, on right: 2
+element (26)
+    on left: 6 7, on right: 3
+att_definition (27)
+    on left: 8 9, on right: 5 8
+attribut (28)
+    on left: 10, on right: 8
+att_type (29)
+    on left: 11 12 13, on right: 10
+type_enumere (30)
+    on left: 14, on right: 13
+liste_enum_plus (31)
+    on left: 15, on right: 14
+liste_enum (32)
+    on left: 16 17, on right: 15 17
+item_enum (33)
+    on left: 18, on right: 15 16 17
+defaut_declaration (34)
+    on left: 19 20 21, on right: 10
+choice_or_sequence (35)
+    on left: 22 23, on right: 6 32
+sequence (36)
+    on left: 24, on right: 23
+list_sequence (37)
+    on left: 25 26, on right: 24 26
+choice (38)
+    on left: 27, on right: 22
+list_choice (39)
+    on left: 28, on right: 27
+list_choice_transition (40)
+    on left: 29 30, on right: 28 30
+item (41)
+    on left: 31 32, on right: 25 26 28 29 30
+quantifier (42)
+    on left: 33 34 35 36, on right: 6 31 32
+primary_type (43)
+    on left: 37 38 39, on right: 7
 
 
 state 0
 
     0 $accept: . root $end
 
-    $default  reduce using rule 5 (dtd)
+    $default  reduce using rule 4 (dtd)
 
     root  go to state 1
     dtd   go to state 2
@@ -154,14 +162,16 @@ state 1
 state 2
 
     1 root: dtd .
-    2 dtd: dtd . ATTLIST NAME att_definition CLOSE
-    3    | dtd . ELEMENT NAME choice_or_sequence quantifier CLOSE
-    4    | dtd . ELEMENT NAME OPENPAR primary_type CLOSEPAR CLOSE
+    2 dtd: dtd . attlist CLOSE
+    3    | dtd . element CLOSE
 
     ELEMENT  shift, and go to state 4
     ATTLIST  shift, and go to state 5
 
     $default  reduce using rule 1 (root)
+
+    attlist  go to state 6
+    element  go to state 7
 
 
 state 3
@@ -173,478 +183,486 @@ state 3
 
 state 4
 
-    3 dtd: dtd ELEMENT . NAME choice_or_sequence quantifier CLOSE
-    4    | dtd ELEMENT . NAME OPENPAR primary_type CLOSEPAR CLOSE
+    6 element: ELEMENT . NAME choice_or_sequence quantifier
+    7        | ELEMENT . NAME OPENPAR primary_type CLOSEPAR
 
-    NAME  shift, and go to state 6
+    NAME  shift, and go to state 8
 
 
 state 5
 
-    2 dtd: dtd ATTLIST . NAME att_definition CLOSE
+    5 attlist: ATTLIST . NAME att_definition
 
-    NAME  shift, and go to state 7
+    NAME  shift, and go to state 9
 
 
 state 6
 
-    3 dtd: dtd ELEMENT NAME . choice_or_sequence quantifier CLOSE
-    4    | dtd ELEMENT NAME . OPENPAR primary_type CLOSEPAR CLOSE
+    2 dtd: dtd attlist . CLOSE
 
-    OPENPAR  shift, and go to state 8
-
-    choice_or_sequence  go to state 9
-    sequence            go to state 10
-    choice              go to state 11
+    CLOSE  shift, and go to state 10
 
 
 state 7
 
-    2 dtd: dtd ATTLIST NAME . att_definition CLOSE
+    3 dtd: dtd element . CLOSE
 
-    $default  reduce using rule 7 (att_definition)
-
-    att_definition  go to state 12
+    CLOSE  shift, and go to state 11
 
 
 state 8
 
-    4 dtd: dtd ELEMENT NAME OPENPAR . primary_type CLOSEPAR CLOSE
-   22 sequence: OPENPAR . list_sequence CLOSEPAR
-   25 choice: OPENPAR . list_choice CLOSEPAR
+    6 element: ELEMENT NAME . choice_or_sequence quantifier
+    7        | ELEMENT NAME . OPENPAR primary_type CLOSEPAR
 
-    OPENPAR  shift, and go to state 13
-    FIXED    shift, and go to state 14
-    PCDATA   shift, and go to state 15
-    CDATA    shift, and go to state 16
-    NAME     shift, and go to state 17
+    OPENPAR  shift, and go to state 12
 
-    choice_or_sequence      go to state 18
-    sequence                go to state 10
-    list_sequence           go to state 19
-    choice                  go to state 11
-    list_choice             go to state 20
-    list_choice_transition  go to state 21
-    item                    go to state 22
-    primary_type            go to state 23
+    choice_or_sequence  go to state 13
+    sequence            go to state 14
+    choice              go to state 15
 
 
 state 9
 
-    3 dtd: dtd ELEMENT NAME choice_or_sequence . quantifier CLOSE
+    5 attlist: ATTLIST NAME . att_definition
 
-    AST    shift, and go to state 24
-    QMARK  shift, and go to state 25
-    PLUS   shift, and go to state 26
+    $default  reduce using rule 9 (att_definition)
 
-    $default  reduce using rule 34 (quantifier)
-
-    quantifier  go to state 27
+    att_definition  go to state 16
 
 
 state 10
 
-   21 choice_or_sequence: sequence .
-
-    $default  reduce using rule 21 (choice_or_sequence)
-
-
-state 11
-
-   20 choice_or_sequence: choice .
-
-    $default  reduce using rule 20 (choice_or_sequence)
-
-
-state 12
-
-    2 dtd: dtd ATTLIST NAME att_definition . CLOSE
-    6 att_definition: att_definition . attribut
-
-    CLOSE  shift, and go to state 28
-    NAME   shift, and go to state 29
-
-    attribut  go to state 30
-
-
-state 13
-
-   22 sequence: OPENPAR . list_sequence CLOSEPAR
-   25 choice: OPENPAR . list_choice CLOSEPAR
-
-    OPENPAR  shift, and go to state 13
-    NAME     shift, and go to state 17
-
-    choice_or_sequence      go to state 18
-    sequence                go to state 10
-    list_sequence           go to state 19
-    choice                  go to state 11
-    list_choice             go to state 20
-    list_choice_transition  go to state 21
-    item                    go to state 22
-
-
-state 14
-
-   37 primary_type: FIXED .
-
-    $default  reduce using rule 37 (primary_type)
-
-
-state 15
-
-   36 primary_type: PCDATA .
-
-    $default  reduce using rule 36 (primary_type)
-
-
-state 16
-
-   35 primary_type: CDATA .
-
-    $default  reduce using rule 35 (primary_type)
-
-
-state 17
-
-   29 item: NAME . quantifier
-
-    AST    shift, and go to state 24
-    QMARK  shift, and go to state 25
-    PLUS   shift, and go to state 26
-
-    $default  reduce using rule 34 (quantifier)
-
-    quantifier  go to state 31
-
-
-state 18
-
-   30 item: choice_or_sequence . quantifier
-
-    AST    shift, and go to state 24
-    QMARK  shift, and go to state 25
-    PLUS   shift, and go to state 26
-
-    $default  reduce using rule 34 (quantifier)
-
-    quantifier  go to state 32
-
-
-state 19
-
-   22 sequence: OPENPAR list_sequence . CLOSEPAR
-   24 list_sequence: list_sequence . COMMA item
-
-    CLOSEPAR  shift, and go to state 33
-    COMMA     shift, and go to state 34
-
-
-state 20
-
-   25 choice: OPENPAR list_choice . CLOSEPAR
-
-    CLOSEPAR  shift, and go to state 35
-
-
-state 21
-
-   26 list_choice: list_choice_transition . PIPE item
-   28 list_choice_transition: list_choice_transition . PIPE item
-
-    PIPE  shift, and go to state 36
-
-
-state 22
-
-   23 list_sequence: item .
-   27 list_choice_transition: item .
-
-    PIPE      reduce using rule 27 (list_choice_transition)
-    $default  reduce using rule 23 (list_sequence)
-
-
-state 23
-
-    4 dtd: dtd ELEMENT NAME OPENPAR primary_type . CLOSEPAR CLOSE
-
-    CLOSEPAR  shift, and go to state 37
-
-
-state 24
-
-   31 quantifier: AST .
-
-    $default  reduce using rule 31 (quantifier)
-
-
-state 25
-
-   32 quantifier: QMARK .
-
-    $default  reduce using rule 32 (quantifier)
-
-
-state 26
-
-   33 quantifier: PLUS .
-
-    $default  reduce using rule 33 (quantifier)
-
-
-state 27
-
-    3 dtd: dtd ELEMENT NAME choice_or_sequence quantifier . CLOSE
-
-    CLOSE  shift, and go to state 38
-
-
-state 28
-
-    2 dtd: dtd ATTLIST NAME att_definition CLOSE .
+    2 dtd: dtd attlist CLOSE .
 
     $default  reduce using rule 2 (dtd)
 
 
-state 29
+state 11
 
-    8 attribut: NAME . att_type defaut_declaration
-
-    OPENPAR    shift, and go to state 39
-    CDATA      shift, and go to state 40
-    TOKENTYPE  shift, and go to state 41
-
-    att_type      go to state 42
-    type_enumere  go to state 43
-
-
-state 30
-
-    6 att_definition: att_definition attribut .
-
-    $default  reduce using rule 6 (att_definition)
-
-
-state 31
-
-   29 item: NAME quantifier .
-
-    $default  reduce using rule 29 (item)
-
-
-state 32
-
-   30 item: choice_or_sequence quantifier .
-
-    $default  reduce using rule 30 (item)
-
-
-state 33
-
-   22 sequence: OPENPAR list_sequence CLOSEPAR .
-
-    $default  reduce using rule 22 (sequence)
-
-
-state 34
-
-   24 list_sequence: list_sequence COMMA . item
-
-    OPENPAR  shift, and go to state 13
-    NAME     shift, and go to state 17
-
-    choice_or_sequence  go to state 18
-    sequence            go to state 10
-    choice              go to state 11
-    item                go to state 44
-
-
-state 35
-
-   25 choice: OPENPAR list_choice CLOSEPAR .
-
-    $default  reduce using rule 25 (choice)
-
-
-state 36
-
-   26 list_choice: list_choice_transition PIPE . item
-   28 list_choice_transition: list_choice_transition PIPE . item
-
-    OPENPAR  shift, and go to state 13
-    NAME     shift, and go to state 17
-
-    choice_or_sequence  go to state 18
-    sequence            go to state 10
-    choice              go to state 11
-    item                go to state 45
-
-
-state 37
-
-    4 dtd: dtd ELEMENT NAME OPENPAR primary_type CLOSEPAR . CLOSE
-
-    CLOSE  shift, and go to state 46
-
-
-state 38
-
-    3 dtd: dtd ELEMENT NAME choice_or_sequence quantifier CLOSE .
+    3 dtd: dtd element CLOSE .
 
     $default  reduce using rule 3 (dtd)
 
 
+state 12
+
+    7 element: ELEMENT NAME OPENPAR . primary_type CLOSEPAR
+   24 sequence: OPENPAR . list_sequence CLOSEPAR
+   27 choice: OPENPAR . list_choice CLOSEPAR
+
+    OPENPAR  shift, and go to state 17
+    FIXED    shift, and go to state 18
+    PCDATA   shift, and go to state 19
+    CDATA    shift, and go to state 20
+    NAME     shift, and go to state 21
+
+    choice_or_sequence      go to state 22
+    sequence                go to state 14
+    list_sequence           go to state 23
+    choice                  go to state 15
+    list_choice             go to state 24
+    list_choice_transition  go to state 25
+    item                    go to state 26
+    primary_type            go to state 27
+
+
+state 13
+
+    6 element: ELEMENT NAME choice_or_sequence . quantifier
+
+    AST    shift, and go to state 28
+    QMARK  shift, and go to state 29
+    PLUS   shift, and go to state 30
+
+    $default  reduce using rule 36 (quantifier)
+
+    quantifier  go to state 31
+
+
+state 14
+
+   23 choice_or_sequence: sequence .
+
+    $default  reduce using rule 23 (choice_or_sequence)
+
+
+state 15
+
+   22 choice_or_sequence: choice .
+
+    $default  reduce using rule 22 (choice_or_sequence)
+
+
+state 16
+
+    5 attlist: ATTLIST NAME att_definition .
+    8 att_definition: att_definition . attribut
+
+    NAME  shift, and go to state 32
+
+    $default  reduce using rule 5 (attlist)
+
+    attribut  go to state 33
+
+
+state 17
+
+   24 sequence: OPENPAR . list_sequence CLOSEPAR
+   27 choice: OPENPAR . list_choice CLOSEPAR
+
+    OPENPAR  shift, and go to state 17
+    NAME     shift, and go to state 21
+
+    choice_or_sequence      go to state 22
+    sequence                go to state 14
+    list_sequence           go to state 23
+    choice                  go to state 15
+    list_choice             go to state 24
+    list_choice_transition  go to state 25
+    item                    go to state 26
+
+
+state 18
+
+   39 primary_type: FIXED .
+
+    $default  reduce using rule 39 (primary_type)
+
+
+state 19
+
+   38 primary_type: PCDATA .
+
+    $default  reduce using rule 38 (primary_type)
+
+
+state 20
+
+   37 primary_type: CDATA .
+
+    $default  reduce using rule 37 (primary_type)
+
+
+state 21
+
+   31 item: NAME . quantifier
+
+    AST    shift, and go to state 28
+    QMARK  shift, and go to state 29
+    PLUS   shift, and go to state 30
+
+    $default  reduce using rule 36 (quantifier)
+
+    quantifier  go to state 34
+
+
+state 22
+
+   32 item: choice_or_sequence . quantifier
+
+    AST    shift, and go to state 28
+    QMARK  shift, and go to state 29
+    PLUS   shift, and go to state 30
+
+    $default  reduce using rule 36 (quantifier)
+
+    quantifier  go to state 35
+
+
+state 23
+
+   24 sequence: OPENPAR list_sequence . CLOSEPAR
+   26 list_sequence: list_sequence . COMMA item
+
+    CLOSEPAR  shift, and go to state 36
+    COMMA     shift, and go to state 37
+
+
+state 24
+
+   27 choice: OPENPAR list_choice . CLOSEPAR
+
+    CLOSEPAR  shift, and go to state 38
+
+
+state 25
+
+   28 list_choice: list_choice_transition . PIPE item
+   30 list_choice_transition: list_choice_transition . PIPE item
+
+    PIPE  shift, and go to state 39
+
+
+state 26
+
+   25 list_sequence: item .
+   29 list_choice_transition: item .
+
+    PIPE      reduce using rule 29 (list_choice_transition)
+    $default  reduce using rule 25 (list_sequence)
+
+
+state 27
+
+    7 element: ELEMENT NAME OPENPAR primary_type . CLOSEPAR
+
+    CLOSEPAR  shift, and go to state 40
+
+
+state 28
+
+   33 quantifier: AST .
+
+    $default  reduce using rule 33 (quantifier)
+
+
+state 29
+
+   34 quantifier: QMARK .
+
+    $default  reduce using rule 34 (quantifier)
+
+
+state 30
+
+   35 quantifier: PLUS .
+
+    $default  reduce using rule 35 (quantifier)
+
+
+state 31
+
+    6 element: ELEMENT NAME choice_or_sequence quantifier .
+
+    $default  reduce using rule 6 (element)
+
+
+state 32
+
+   10 attribut: NAME . att_type defaut_declaration
+
+    OPENPAR    shift, and go to state 41
+    CDATA      shift, and go to state 42
+    TOKENTYPE  shift, and go to state 43
+
+    att_type      go to state 44
+    type_enumere  go to state 45
+
+
+state 33
+
+    8 att_definition: att_definition attribut .
+
+    $default  reduce using rule 8 (att_definition)
+
+
+state 34
+
+   31 item: NAME quantifier .
+
+    $default  reduce using rule 31 (item)
+
+
+state 35
+
+   32 item: choice_or_sequence quantifier .
+
+    $default  reduce using rule 32 (item)
+
+
+state 36
+
+   24 sequence: OPENPAR list_sequence CLOSEPAR .
+
+    $default  reduce using rule 24 (sequence)
+
+
+state 37
+
+   26 list_sequence: list_sequence COMMA . item
+
+    OPENPAR  shift, and go to state 17
+    NAME     shift, and go to state 21
+
+    choice_or_sequence  go to state 22
+    sequence            go to state 14
+    choice              go to state 15
+    item                go to state 46
+
+
+state 38
+
+   27 choice: OPENPAR list_choice CLOSEPAR .
+
+    $default  reduce using rule 27 (choice)
+
+
 state 39
 
-   12 type_enumere: OPENPAR . liste_enum_plus CLOSEPAR
+   28 list_choice: list_choice_transition PIPE . item
+   30 list_choice_transition: list_choice_transition PIPE . item
 
-    NAME  shift, and go to state 47
+    OPENPAR  shift, and go to state 17
+    NAME     shift, and go to state 21
 
-    liste_enum_plus  go to state 48
-    liste_enum       go to state 49
-    item_enum        go to state 50
+    choice_or_sequence  go to state 22
+    sequence            go to state 14
+    choice              go to state 15
+    item                go to state 47
 
 
 state 40
 
-    9 att_type: CDATA .
+    7 element: ELEMENT NAME OPENPAR primary_type CLOSEPAR .
 
-    $default  reduce using rule 9 (att_type)
+    $default  reduce using rule 7 (element)
 
 
 state 41
 
-   10 att_type: TOKENTYPE .
+   14 type_enumere: OPENPAR . liste_enum_plus CLOSEPAR
 
-    $default  reduce using rule 10 (att_type)
+    NAME  shift, and go to state 48
+
+    liste_enum_plus  go to state 49
+    liste_enum       go to state 50
+    item_enum        go to state 51
 
 
 state 42
 
-    8 attribut: NAME att_type . defaut_declaration
-
-    FIXED        shift, and go to state 51
-    DECLARATION  shift, and go to state 52
-    STRING       shift, and go to state 53
-
-    defaut_declaration  go to state 54
-
-
-state 43
-
-   11 att_type: type_enumere .
+   11 att_type: CDATA .
 
     $default  reduce using rule 11 (att_type)
 
 
+state 43
+
+   12 att_type: TOKENTYPE .
+
+    $default  reduce using rule 12 (att_type)
+
+
 state 44
 
-   24 list_sequence: list_sequence COMMA item .
+   10 attribut: NAME att_type . defaut_declaration
 
-    $default  reduce using rule 24 (list_sequence)
+    FIXED        shift, and go to state 52
+    DECLARATION  shift, and go to state 53
+    STRING       shift, and go to state 54
+
+    defaut_declaration  go to state 55
 
 
 state 45
 
-   26 list_choice: list_choice_transition PIPE item .
-   28 list_choice_transition: list_choice_transition PIPE item .
+   13 att_type: type_enumere .
 
-    PIPE      reduce using rule 28 (list_choice_transition)
-    $default  reduce using rule 26 (list_choice)
+    $default  reduce using rule 13 (att_type)
 
 
 state 46
 
-    4 dtd: dtd ELEMENT NAME OPENPAR primary_type CLOSEPAR CLOSE .
+   26 list_sequence: list_sequence COMMA item .
 
-    $default  reduce using rule 4 (dtd)
+    $default  reduce using rule 26 (list_sequence)
 
 
 state 47
 
-   16 item_enum: NAME .
+   28 list_choice: list_choice_transition PIPE item .
+   30 list_choice_transition: list_choice_transition PIPE item .
 
-    $default  reduce using rule 16 (item_enum)
+    PIPE      reduce using rule 30 (list_choice_transition)
+    $default  reduce using rule 28 (list_choice)
 
 
 state 48
 
-   12 type_enumere: OPENPAR liste_enum_plus . CLOSEPAR
+   18 item_enum: NAME .
 
-    CLOSEPAR  shift, and go to state 55
+    $default  reduce using rule 18 (item_enum)
 
 
 state 49
 
-   13 liste_enum_plus: liste_enum . PIPE item_enum
-   15 liste_enum: liste_enum . PIPE item_enum
+   14 type_enumere: OPENPAR liste_enum_plus . CLOSEPAR
 
-    PIPE  shift, and go to state 56
+    CLOSEPAR  shift, and go to state 56
 
 
 state 50
 
-   14 liste_enum: item_enum .
+   15 liste_enum_plus: liste_enum . PIPE item_enum
+   17 liste_enum: liste_enum . PIPE item_enum
 
-    $default  reduce using rule 14 (liste_enum)
+    PIPE  shift, and go to state 57
 
 
 state 51
 
-   19 defaut_declaration: FIXED . STRING
+   16 liste_enum: item_enum .
 
-    STRING  shift, and go to state 57
+    $default  reduce using rule 16 (liste_enum)
 
 
 state 52
 
-   17 defaut_declaration: DECLARATION .
+   21 defaut_declaration: FIXED . STRING
 
-    $default  reduce using rule 17 (defaut_declaration)
+    STRING  shift, and go to state 58
 
 
 state 53
 
-   18 defaut_declaration: STRING .
-
-    $default  reduce using rule 18 (defaut_declaration)
-
-
-state 54
-
-    8 attribut: NAME att_type defaut_declaration .
-
-    $default  reduce using rule 8 (attribut)
-
-
-state 55
-
-   12 type_enumere: OPENPAR liste_enum_plus CLOSEPAR .
-
-    $default  reduce using rule 12 (type_enumere)
-
-
-state 56
-
-   13 liste_enum_plus: liste_enum PIPE . item_enum
-   15 liste_enum: liste_enum PIPE . item_enum
-
-    NAME  shift, and go to state 47
-
-    item_enum  go to state 58
-
-
-state 57
-
-   19 defaut_declaration: FIXED STRING .
+   19 defaut_declaration: DECLARATION .
 
     $default  reduce using rule 19 (defaut_declaration)
 
 
+state 54
+
+   20 defaut_declaration: STRING .
+
+    $default  reduce using rule 20 (defaut_declaration)
+
+
+state 55
+
+   10 attribut: NAME att_type defaut_declaration .
+
+    $default  reduce using rule 10 (attribut)
+
+
+state 56
+
+   14 type_enumere: OPENPAR liste_enum_plus CLOSEPAR .
+
+    $default  reduce using rule 14 (type_enumere)
+
+
+state 57
+
+   15 liste_enum_plus: liste_enum PIPE . item_enum
+   17 liste_enum: liste_enum PIPE . item_enum
+
+    NAME  shift, and go to state 48
+
+    item_enum  go to state 59
+
+
 state 58
 
-   13 liste_enum_plus: liste_enum PIPE item_enum .
-   15 liste_enum: liste_enum PIPE item_enum .
+   21 defaut_declaration: FIXED STRING .
 
-    PIPE      reduce using rule 15 (liste_enum)
-    $default  reduce using rule 13 (liste_enum_plus)
+    $default  reduce using rule 21 (defaut_declaration)
+
+
+state 59
+
+   15 liste_enum_plus: liste_enum PIPE item_enum .
+   17 liste_enum: liste_enum PIPE item_enum .
+
+    PIPE      reduce using rule 17 (liste_enum)
+    $default  reduce using rule 15 (liste_enum_plus)
