@@ -114,4 +114,3 @@ closespecial "?>"{nl}?
 <CONTENT>{ws}?{pcdata}		{xmllval.s = strdup(skipSpace(xmltext)); return DATA;}
 
 .			{fprintf(stderr, "!ERROR(%c)\n", *xmltext);}
-

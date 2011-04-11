@@ -26,8 +26,6 @@
 
 	xml::CompositeMarkupNode* root;
 	xml::CompositeMarkupNode** proxyPtr;
-
-	xml::MarkupNode::Attributes attributes;
 %}
 
 %error-verbose
