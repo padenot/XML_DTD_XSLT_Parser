@@ -32,7 +32,7 @@ namespace dtd
 //{
 //}
 
-bool Element::matches(xml::Node& node) const
+bool Element::matches(xml::Node& node)
 {
 	return false; //TODO
 }
@@ -54,7 +54,8 @@ const AttributesList& Element::attributesList() const
 	if (attlist == 0)
 	{
 		throw BadReferenceException();
-	} else
+	}
+	else
 	{
 		return *attlist;
 	}
