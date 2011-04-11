@@ -42,6 +42,16 @@ void Choice::accept(InterfaceDTDVisitor & visitor) const
 	visitor.visit(*this);
 }
 
+Choice::ChoosableSetIterator Choice::begin() const
+{
+	return _choosable.begin();
+}
+
+Choice::ChoosableSetIterator Choice::end() const
+{
+	return _choosable.end();
+}
+
 //------------------------------------------------- Surcharge d'opérateurs
 
 

@@ -8,6 +8,7 @@
 #include "MarkupNode.hh"
 #include "CompositeMarkupNode.hh"
 #include "OutputVisitor.hh"
+#include "DotOutputVisitor.hh"
 
 int xmlparse(void);
 int dtdparse(void);
@@ -38,16 +39,14 @@ int handleDTD(char* filename) {
 	return 0;
 }
 
-xml::CompositeMarkupNode* handleElement(xml::CompositeMarkupNode** proxy, string NS, string name, xml::CompositeMarkupNode::Attributes attributes, list<void*>* children) {
+xml::CompositeMarkupNode* handleElement(xml::CompositeMarkupNode** proxy, string NS, string name, xml::MarkupNode::Attributes attbs, list<void*>* children) {
 	xml::CompositeMarkupNode::Children currentChildren
 		=  *((list<xml::Node*>*)children);
 
 	xml::CompositeMarkupNode** newProxy 
 		= new xml::CompositeMarkupNode*; newProxy = 0;
 
-/*	new xml::CompositeMarkupNode(*newProxy, NS, name, attributes, *proxy, currentChildren); */
-
-	return 0;
+	return  new xml::CompositeMarkupNode(newProxy, NS, name, attbs, *proxy, currentChildren);
 }
 
 int main(int argc, char** argv) {
@@ -70,7 +69,10 @@ int main(int argc, char** argv) {
 	fclose(xmlin);
 
 	xml::OutputVisitor visitor(cout);
-//	root->accept(visitor);
+	root->accept(visitor);
+
+	xml::DotOutputVisitor dvisitor(cout, "xmlTree");
+	dvisitor.writeDot(root);
 
 	if (err != 0) cout << err << " erreurs de syntaxe détectées !" << endl; 
 	else cout << "Aucune erreur détectée." << endl; 
