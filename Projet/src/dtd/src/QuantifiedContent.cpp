@@ -69,12 +69,12 @@ void QuantifiedContent::_beforeValidation(
 		xml::CompositeMarkupNode::ChildrenIterator endToken,
 		BrowsableContent* nextStep)
 {
-	_stack.push(_State(firstToken,endToken,nextStep));
+	//TODO
 }
 
 void QuantifiedContent::_afterValidation()
 {
-	_stack.pop();
+	//TODO
 }
 
 } // namespace dtd

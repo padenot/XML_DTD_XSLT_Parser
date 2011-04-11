@@ -30,12 +30,12 @@ namespace dtd
 //{
 //}
 
-bool EmptyContent::validate(const MarkupNode &)
+bool EmptyContent::validate(const MarkupNode & node)
 {
 	return true;
 }
 
-bool EmptyContent::validate(const CompositeMarkupNode &)
+bool EmptyContent::validate(const CompositeMarkupNode & node)
 {
 	return false;
 }

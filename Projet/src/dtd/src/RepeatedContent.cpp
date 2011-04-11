@@ -58,38 +58,15 @@ bool RepeatedContent::_startValidation(
 		CompositeMarkupNode::ChildrenIterator endToken,
 		BrowsableContent* nextStep)
 {
-	// Il faut et suffit que le contenu enfant soit validé au moins une fois.
-	return _browseDown(_content, firstToken, endToken, nextStep);
+	//TODO
+	return false;
 }
 
 bool RepeatedContent::_continueValidation(
 		xml::CompositeMarkupNode::ChildrenIterator currentToken)
 {
-	_State& state = _stack.top();
-
-	if (_browseDown(_content, currentToken, state.endToken, this))
-	{
-		// On a tenté (avec succès) de faire correspondre encore une
-		//	ou plusieurs fois le contenu enfant avec les jetons.
-		return true;
-	}
-	else if (_browseUp(state.nextStep, currentToken, state.endToken))
-	{
-		// On n'a pas pu faire correspondre encore une ou plusieurs fois
-		//	le contenu enfant avec les jetons.
-		//	Le contenu enfant a été validé au moins une fois (puisque cette
-		//	méthode a été appelée), ce qui est suffisant.
-		//	On a donc tenté (avec succès) de faire valider le reste des
-		//	jetons par le contenu parent.
-		return true;
-	}
-	else
-	{
-		// Il a été impossible de valider le reste des jetons par le contenu
-		//	parent. L'état actuel des choses ne permet pas de valider la
-		//	liste de jetons. (Il faut backtracker)
-		return false;
-	}
+	//TODO
+	return false;
 }
 
 } // namespace dtd

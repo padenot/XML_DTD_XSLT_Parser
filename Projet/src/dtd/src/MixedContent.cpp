@@ -78,10 +78,13 @@ void MixedContent::_afterValidation()
 
 bool MixedContent::_startValidation(
 		CompositeMarkupNode::ChildrenIterator firstToken,
-		CompositeMarkupNode::ChildrenIterator endToken, BrowsableContent*)
+		CompositeMarkupNode::ChildrenIterator endToken,
+		BrowsableContent* nextStep)
 {
-	return _browseDown(_textContent, firstToken, endToken, this)
-			|| _browseDown(_choice, firstToken, endToken, this);
+	_State& state = _stack.top();
+
+	return _browseDown(_textContent, state.firstToken, state.endToken, this)
+			|| _browseDown(_choice, state.firstToken, state.endToken, this);
 }
 
 bool MixedContent::_continueValidation(
@@ -91,7 +94,8 @@ bool MixedContent::_continueValidation(
 	//	a été validée (que ce soit "_textContent" ou une alternative de "_choice").
 	_State& state = _stack.top();
 
-	// On se contente de rediriger la requête vers le contenu englobant.
+	// On se contente de rediriger la requête vers le contenu englobant,
+	//	ou de valider l'ensemble de noeuds si il a été consommé en entier.
 	return _browseUp(state.nextStep, currentToken, state.endToken);
 }
 
