@@ -92,6 +92,7 @@ void DotOutputVisitor::visit(const TextNode& node)
 void DotOutputVisitor::visit(const MarkupNode& node)
 {
 	_out << '"' << node.name() << '"';
+	a [label="Foo"];
 	//writeAttributes(node);
 }
 
