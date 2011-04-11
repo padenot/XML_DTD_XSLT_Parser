@@ -94,24 +94,24 @@ closespecial "?>"{nl}?
 
 %%
 
-<INITIAL>{ws}		{printf("%s",xmltext); /* skip */}
-<INITIAL>{xmlversion} {printf("%s",xmltext); /* skip */}
-<INITIAL>{doctype} {printf("%s",xmltext); return DOCTYPE;}
-<INITIAL>"/"		{printf("%s",xmltext); return SLASH;}
-<INITIAL>"="		{printf("%s",xmltext); return EQ;}
-<INITIAL>{close}	{printf("%s",xmltext); BEGIN(CONTENT); return CLOSE;}
-<INITIAL>{closespecial}	{printf("%s",xmltext); return CLOSESPECIAL;}
-<INITIAL>{name}		{printf("%s",xmltext);xmllval.s = strdup(xmltext); return NAME;}
-<INITIAL>{nsname}		{printf("%s",xmltext);xmllval.s = strdup(xmltext); return NSNAME;}
-<INITIAL>{string}	{printf("%s",xmltext);xmllval.s = strdup(getString(xmltext)); return VALUE;}
+<INITIAL>{ws}		{ /* skip */}
+<INITIAL>{xmlversion} { /* skip */}
+<INITIAL>{doctype} { return DOCTYPE;}
+<INITIAL>"/"		{ return SLASH;}
+<INITIAL>"="		{ return EQ;}
+<INITIAL>{close}	{ BEGIN(CONTENT); return CLOSE;}
+<INITIAL>{closespecial}	{ return CLOSESPECIAL;}
+<INITIAL>{name}		{xmllval.s = strdup(xmltext); return NAME;}
+<INITIAL>{nsname}		{xmllval.s = strdup(xmltext); return NSNAME;}
+<INITIAL>{string}	{xmllval.s = strdup(getString(xmltext)); return VALUE;}
 
-{openspecial}{ws}?{name}	{printf("%s",xmltext);BEGIN(INITIAL); char * tmp = word(xmltext); xmllval.en = new ElementName("",tmp); free(tmp); return STARTSPECIAL;}
-{open}{ws}?{name}	{printf("%s",xmltext);BEGIN(INITIAL); char * tmp = word(xmltext); xmllval.en = new ElementName("",tmp); free(tmp); return START;}
-{open}{ws}?{nsname}	{printf("%s",xmltext);BEGIN(INITIAL); char *tmp1 = nameSpace(xmltext); char * tmp2 = split_namespace(xmltext); xmllval.en = new ElementName(tmp1,tmp2); free(tmp1); free(tmp2); return NSSTART;}
-{open}{ws}?"/"		{printf("%s",xmltext);BEGIN(INITIAL); return END;}
-{comment}		{printf("%s",xmltext);xmllval.s = strdup(xmltext); return COMMENT;}
+{openspecial}{ws}?{name}	{BEGIN(INITIAL); char * tmp = word(xmltext); xmllval.en = new ElementName("",tmp); free(tmp); return STARTSPECIAL;}
+{open}{ws}?{name}	{BEGIN(INITIAL); char * tmp = word(xmltext); xmllval.en = new ElementName("",tmp); free(tmp); return START;}
+{open}{ws}?{nsname}	{BEGIN(INITIAL); char *tmp1 = nameSpace(xmltext); char * tmp2 = split_namespace(xmltext); xmllval.en = new ElementName(tmp1,tmp2); free(tmp1); free(tmp2); return NSSTART;}
+{open}{ws}?"/"		{BEGIN(INITIAL); return END;}
+{comment}		{xmllval.s = strdup(xmltext); return COMMENT;}
 
-<CONTENT>{ws}?{pcdata}		{printf("%s",xmltext);xmllval.s = strdup(skipSpace(xmltext)); return DATA;}
+<CONTENT>{ws}?{pcdata}		{xmllval.s = strdup(skipSpace(xmltext)); return DATA;}
 
-.			{printf("%s",xmltext);fprintf(stderr, "!ERROR(%c)\n", *xmltext);}
+.			{fprintf(stderr, "!ERROR(%c)\n", *xmltext);}
 
