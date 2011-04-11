@@ -77,13 +77,14 @@ bool BrowsableContent::_newValidation(
 }
 
 bool BrowsableContent::_continueValidation(
-		xml::CompositeMarkupNode::ChildrenIterator currentToken)
+		xml::CompositeMarkupNode::ChildrenIterator)
 {
+	// Par défaut, la méthode doit rester inutilisée (pour des
+	//	contenus n'ayant pas d'enfant par exemple)
 	return false;
 }
 
-void BrowsableContent::_beforeValidation(
-		CompositeMarkupNode::ChildrenIterator,
+void BrowsableContent::_beforeValidation(CompositeMarkupNode::ChildrenIterator,
 		CompositeMarkupNode::ChildrenIterator, BrowsableContent*)
 {
 	// Do nothing by default.
