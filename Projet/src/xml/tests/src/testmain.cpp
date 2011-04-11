@@ -20,6 +20,7 @@ using namespace std;
 #include "CompositeMarkupNode.hh"
 #include "OutputVisitor.hh"
 #include "XmlTreeBuilding.hh"
+#include "DotOutputVisitor.hh"
 using namespace xml;
 
 //------------------------------------------------------------- Constantes
@@ -30,6 +31,10 @@ static bool test01()
 	Node* root = normalTree();
 	OutputVisitor visitor(cout, '\t');
 	root->accept(visitor);
+	
+	DotOutputVisitor dvisitor(cout, "xmltruc");
+	dvisitor.writeDot(root);
+	
 	delete root;
 	return true;
 }
