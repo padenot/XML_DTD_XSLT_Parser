@@ -8,6 +8,7 @@
 #include "MarkupNode.hh"
 #include "CompositeMarkupNode.hh"
 #include "OutputVisitor.hh"
+#include "DotOutputVisitor.hh"
 
 int xmlparse(void);
 int dtdparse(void);
@@ -68,11 +69,10 @@ int main(int argc, char** argv) {
 	fclose(xmlin);
 
 	xml::OutputVisitor visitor(cout);
-	//root->accept(visitor);
+	root->accept(visitor);
 
-	DotOutputVisitor dvisitor(cout, "xmlTree");
+	xml::DotOutputVisitor dvisitor(cout, "xmlTree");
 	dvisitor.writeDot(root);
-	delete root;
 
 	if (err != 0) cout << err << " erreurs de syntaxe détectées !" << endl; 
 	else cout << "Aucune erreur détectée." << endl; 
