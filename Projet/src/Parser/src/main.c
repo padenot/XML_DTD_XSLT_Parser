@@ -76,6 +76,9 @@ int main(int argc, char** argv) {
 	if(exportMode) {
 		xml::DotOutputVisitor dvisitor(cout, "xmlTree");
 		dvisitor.writeDot(root);
+
+		xml::OutputVisitor visitor(cout, '\t');
+		root->accept(visitor);
 	}
 
 	if (err != 0) cout << err << " erreurs de syntaxe détectées !" << endl; 

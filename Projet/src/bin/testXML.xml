@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <!DOCTYPE doc SYSTEM "ex2.dtd">
-<?xml-stylesheet href="ex2.xsl" type="text/xsl"?>
 <doc>
 	<z a="a" b="b">blabla</z>
 	<ns:x>blabla</ns:x>
