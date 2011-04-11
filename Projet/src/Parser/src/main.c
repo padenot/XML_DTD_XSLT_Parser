@@ -39,14 +39,14 @@ int handleDTD(char* filename) {
 	return 0;
 }
 
-xml::CompositeMarkupNode* handleElement(xml::CompositeMarkupNode** proxy, string NS, string name, xml::CompositeMarkupNode::Attributes attributes, list<void*>* children) {
+xml::CompositeMarkupNode* handleElement(xml::CompositeMarkupNode** proxy, string NS, string name, xml::MarkupNode::Attributes attbs, list<void*>* children) {
 	xml::CompositeMarkupNode::Children currentChildren
 		=  *((list<xml::Node*>*)children);
 
 	xml::CompositeMarkupNode** newProxy 
 		= new xml::CompositeMarkupNode*; newProxy = 0;
 
-	return  new xml::CompositeMarkupNode(newProxy, NS, name, attributes, *proxy, currentChildren);
+	return  new xml::CompositeMarkupNode(newProxy, NS, name, attbs, *proxy, currentChildren);
 }
 
 int main(int argc, char** argv) {

@@ -10,12 +10,12 @@
 	#include "xml.tab.h"
 
 	#include <list>
+	#include <map>
 
 	#include "Node.hh"
 	#include "TextNode.hh"
 	#include "MarkupNode.hh"
 	#include "CompositeMarkupNode.hh"
-
 
 	void xmlerror(char *msg);
 	int xmlwrap(void);
@@ -36,6 +36,7 @@
 	ElementName * en;  /* le nom d'un element avec son namespace */
 
 	list<void*>* children;
+	void* ats;
 	void* cmn;
 }
 
@@ -46,6 +47,7 @@
 
 %type <children> content empty_or_content close_content_and_end
 %type <cmn> element
+%type <ats> attributes
 %%
 
 document 		: declarations element misc_seq_opt 
@@ -66,22 +68,21 @@ declaration 		: DOCTYPE NAME NAME VALUE CLOSE 			{ handleDTD($4); }
 			;
 
 element			: start attributes empty_or_content			{ 
-				  							$$ = handleElement(proxyPtr, $1->first, $1->second, attributes, $3);
+				  							$$ = handleElement(proxyPtr, $1->first, $1->second, *((xml::MarkupNode::Attributes*)$2), $3);
 											root = (xml::CompositeMarkupNode*)$$;
-											printf("##ELEMENTNODE(%s, %d)\n", $1->second.c_str(), $3->size()); 
 			  							}
 			| STARTSPECIAL attributes CLOSESPECIAL
 			;
 
-attributes		: /* EMPTY */
-			| attributes NAME EQ VALUE
+attributes		: /* EMPTY */						{ $$ = (void*)(new xml::MarkupNode::Attributes()); }
+			| attributes NAME EQ VALUE				{ ((xml::MarkupNode::Attributes*)$1)->insert( pair<string, string>($2, $4) ); $$ = $1; }
 			;
 
 start 			: START							{ $$ = $1; }
 			| NSSTART						{ $$ = $1; } 
 			;
 
-empty_or_content 	: SLASH CLOSE						{ printf("\n ## NEW LIST\n"); $$ = (list<void*>*)new list<xml::Node*>(); }
+empty_or_content 	: SLASH CLOSE						{ $$ = (list<void*>*)new list<xml::Node*>(); }
 			| close_content_and_end name_or_nsname_opt CLOSE	{ $$ = $1; } 
 			;
 
@@ -96,16 +97,12 @@ close_content_and_end 	: CLOSE content END 					{ $$ = $2; }
 content 		: content DATA						{ 	
 				  							$1->push_back( (void*)(new xml::TextNode( proxyPtr, string($2) )) );
 				 							$$ = $1; 
-
-											printf("\n ##FILS %s\n", string($2).c_str());
 			  							}
 			| content misc       					{ $$ = $1; }
-			| content element 					{ $1->push_back( (void*)($2) ); $$ = $1;  printf("\n ##FILS"); }
+			| content element 					{ $1->push_back( (void*)($2) ); $$ = $1; }
 			| /*empty*/         					{ 
 											$$ = (list<void*>*)new list<xml::Node*>();
 											proxyPtr = new xml::CompositeMarkupNode*;
-
-											printf("\n # NEW LIST\n");
 										}
 			;
 %%
