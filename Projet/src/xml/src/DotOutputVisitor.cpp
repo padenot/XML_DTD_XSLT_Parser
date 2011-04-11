@@ -51,6 +51,7 @@ DotOutputVisitor::DotOutputVisitor(ostream & out, std::string filename) :
 {
 	// Rien à faire
 	textNodesCount = 0;
+	_nodesCounter = 0;
 } //----- Fin de DotOutputVisitor
 
 
@@ -84,27 +85,44 @@ void DotOutputVisitor::writeDot(Node * node)
 
 void DotOutputVisitor::visit(const TextNode& node)
 {
-	_out << "\"textNode"<< textNodesCount << "\"";//node.content() << endl;
-	textNodesCount++;
+	declareNode(node,"TextNode");
+	//_out << "\"textNode"<< textNodesCount << "\"";//node.content() << endl;
+	//textNodesCount++;
 
 }
 
 void DotOutputVisitor::visit(const MarkupNode& node)
 {
-	_out << '"' << node.name() << '"';
-	
+	declareNode(node,node.name());
+	//_out << '"' << node.name() << '"';		
 	//writeAttributes(node);
 }
 
 void DotOutputVisitor::visit(const CompositeMarkupNode& node)
 {
+	//int myId = _nodesCounter;
+	//_nodesCounter++;
+	declareNode(node,node.name());//cxree la ligne qui dit cet id -< labvel
 	for (CompositeMarkupNode::ChildrenIterator it = node.begin(); it
 			!= node.end(); ++it)
 	{
-		_out << '"' << node.name() << '"'<< LINK;
 		(*it)->accept(*this);
+		writeId(node);
+		_out << LINK;
+		writeId(**it);
 		_out << endl;
 	}
+}
+
+void DotOutputVisitor::declareNode(const Node& node, string label)
+{
+	writeId(node);
+	_out << "[label=\"" << label<< "\"]" << endl;
+}
+
+void DotOutputVisitor::writeId(const Node& node)
+{
+	_out << "id_" << &node;
 }
 
 //------------------------------------------------------- Méthodes privées
