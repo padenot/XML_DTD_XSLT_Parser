@@ -34,7 +34,7 @@ public:
 	// Contrat :
 	//	
 
-	virtual bool matches(xml::Node& node) const;
+	virtual bool matches(xml::Node& node);
 
 	virtual std::string ns() const;
 
