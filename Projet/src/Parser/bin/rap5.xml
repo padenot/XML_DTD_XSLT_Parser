@@ -1,1 +1,4 @@
-<?xml-stylesheet href="ex2.xsl" type="text/xsl"?>
+<auteur>
+	<xml:nom>Nino</nom>
+	<xml:prenom>Silverio</prenom>
+</auteur>
