@@ -62,26 +62,26 @@ any "ANY"
 %%
 
 <INITIAL>{ws}		            { /* skip */}
-<INITIAL>{element}            {printf("%s",dtdtext); BEGIN(INSIDE); return ELEMENT; }
-<INITIAL>{attlist}            {printf("%s",dtdtext); BEGIN(INSIDE); return ATTLIST; }
-<INSIDE>{close}               {printf("%s",dtdtext); BEGIN(INITIAL); return CLOSE; }
-<INSIDE>{openpar}             {printf("%s",dtdtext); return OPENPAR; }
-<INSIDE>{closepar}{ws}?       {printf("%s",dtdtext); return CLOSEPAR; }
-<INSIDE>{comma}{ws}?          {printf("%s",dtdtext); return COMMA; }
-<INSIDE>{pipe}{ws}?           {printf("%s",dtdtext); return PIPE; }
-<INSIDE>{declaration}         {printf("%s",dtdtext); stringreturn(DECLARATION); }
-<INSIDE>{fixed}               {printf("%s",dtdtext); return FIXED; }
-<INSIDE>{ast}                 {printf("%s",dtdtext); return AST ; }
-<INSIDE>{qmark}               {printf("%s",dtdtext); return QMARK ; }
-<INSIDE>{plus}                {printf("%s",dtdtext); return PLUS ; }
-<INSIDE>{empty}               {printf("%s",dtdtext); return EMPTY; }
-<INSIDE>{any}                 {printf("%s",dtdtext); return ANY; }
-<INSIDE>{pcdata}              {printf("%s",dtdtext); return PCDATA; }
-<INSIDE>{cdata}               {printf("%s",dtdtext); return CDATA; }
-<INSIDE>{string}              {printf("%s",dtdtext); stringreturn(STRING); }
-<INSIDE>{tokentype}{ws}?      {printf("%s",dtdtext); stringreturn(TOKENTYPE); }
-<INSIDE>{name}{ws}?           {printf("%s",dtdtext); stringreturn(NAME); }
-{comment}		               {printf("%s",dtdtext); /* skip comments stringreturn(COMMENT); */ }
+<INITIAL>{element}            { BEGIN(INSIDE); return ELEMENT; }
+<INITIAL>{attlist}            { BEGIN(INSIDE); return ATTLIST; }
+<INSIDE>{close}               { BEGIN(INITIAL); return CLOSE; }
+<INSIDE>{openpar}             { return OPENPAR; }
+<INSIDE>{closepar}{ws}?       { return CLOSEPAR; }
+<INSIDE>{comma}{ws}?          { return COMMA; }
+<INSIDE>{pipe}{ws}?           { return PIPE; }
+<INSIDE>{declaration}         { stringreturn(DECLARATION); }
+<INSIDE>{fixed}               { return FIXED; }
+<INSIDE>{ast}                 { return AST ; }
+<INSIDE>{qmark}               { return QMARK ; }
+<INSIDE>{plus}                { return PLUS ; }
+<INSIDE>{empty}               { return EMPTY; }
+<INSIDE>{any}                 { return ANY; }
+<INSIDE>{pcdata}              { return PCDATA; }
+<INSIDE>{cdata}               { return CDATA; }
+<INSIDE>{string}              { stringreturn(STRING); }
+<INSIDE>{tokentype}{ws}?      { stringreturn(TOKENTYPE); }
+<INSIDE>{name}{ws}?           { stringreturn(NAME); }
+{comment}		               { /* skip comments stringreturn(COMMENT); */ }
 
-.			{printf("%s",dtdtext);fprintf(stderr, "!ERROR(%c)\n", *dtdtext);}
-{nl}			{printf("%s",dtdtext);/* skip, must be an extra one at EOF */;}
+.			{fprintf(stderr, "!ERROR(%c)\n", *dtdtext);}
+{nl}			{/* skip, must be an extra one at EOF */;}
