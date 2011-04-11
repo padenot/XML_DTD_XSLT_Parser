@@ -19,7 +19,7 @@ namespace dtd
 
 class Choice: public ElementContent
 {	
-Protected:
+protected:
 	typedef std::set<ElementContent*> _ChoosableSet;	
 public:
 	//------------------------------------------------------------- Constantes
@@ -40,8 +40,24 @@ public:
 	virtual void accept(InterfaceDTDVisitor & visitor) const;
 	
 	ChoosableSetIterator begin() const;
+		// Mode d'emploi :
+	//	Renvoie un itérateur vers le premier enfant du contenu.
+	//	La méthode est compatible avec la STL.
+	//	L'itérateur pointe vers un pointeur (l'accès aux méthodes des fils
+	//	se fait donc de la façon suivante : (*it)->foo()).
+	// Contrat :
+	//	L'itérateur n'est plus valable en cas de modification du contenu, de
+	//	même que les itérateurs obtenus par son intermédiaire.
 	
 	ChoosableSetIterator end() const;
+	// Mode d'emploi :
+	//	Renvoie un itérateur pointant juste après le dernier enfant du contenu.
+	//	La méthode est compatible avec la STL.
+	//	L'itérateur pointe vers un pointeur (l'accès aux méthodes des fils
+	//	se fait donc de la façon suivante : (*it)->foo()).
+	// Contrat :
+	//	L'itérateur n'est plus valable en cas de modification du noeud, de
+	//	même que les itérateurs obtenus par son intermédiaire.
 
 	//------------------------------------------------- Surcharge d'opérateurs
 

@@ -43,6 +43,17 @@ void Sequence::accept(InterfaceDTDVisitor & visitor) const
 	visitor.visit(*this);
 }
 
+Sequence::OrderedContentIterator Sequence::begin() const
+{
+	return _embeddedContent.begin();
+}
+
+Sequence::OrderedContentIterator Sequence::end() const
+{
+	return _embeddedContent.end();
+}
+
+
 //------------------------------------------------- Surcharge d'opérateurs
 
 
