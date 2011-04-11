@@ -8,6 +8,7 @@
 #include "MarkupNode.hh"
 #include "CompositeMarkupNode.hh"
 #include "OutputVisitor.hh"
+#include "DotOutputVisitor.hh"
 
 int xmlparse(void);
 int dtdparse(void);
@@ -17,12 +18,14 @@ extern xml::CompositeMarkupNode* root;
 extern FILE * xmlin;
 extern FILE * dtdin;
 
+int exportMode;
+
 using namespace std;
 
 int handleDTD(char* filename) {
 	int err;
 	FILE* inputFile = (FILE*)fopen(filename, "r");
-	cout << "** Parsing de " << filename << "..." << endl;
+	if(!exportMode) cout << "** Parsing de " << filename << "..." << endl;
 	if(inputFile == NULL) {
 		cout << "Fichier inexistant." << endl;
 		exit(1);
@@ -33,21 +36,20 @@ int handleDTD(char* filename) {
 	fclose(dtdin);
 
 	if (err != 0) cout << err << " erreurs de syntaxe détectées !" << endl; 
-	else cout << "Aucune erreur détectée." << endl; 
+	else if(!exportMode) 
+		cout << "Aucune erreur détectée." << endl; 
 
 	return 0;
 }
 
-xml::CompositeMarkupNode* handleElement(xml::CompositeMarkupNode** proxy, string NS, string name, xml::CompositeMarkupNode::Attributes attributes, list<void*>* children) {
+xml::CompositeMarkupNode* handleElement(xml::CompositeMarkupNode** proxy, string NS, string name, xml::MarkupNode::Attributes attbs, list<void*>* children) {
 	xml::CompositeMarkupNode::Children currentChildren
 		=  *((list<xml::Node*>*)children);
 
 	xml::CompositeMarkupNode** newProxy 
 		= new xml::CompositeMarkupNode*; newProxy = 0;
 
-/*	new xml::CompositeMarkupNode(*newProxy, NS, name, attributes, *proxy, currentChildren); */
-
-	return 0;
+	return  new xml::CompositeMarkupNode(newProxy, NS, name, attbs, *proxy, currentChildren);
 }
 
 int main(int argc, char** argv) {
@@ -58,8 +60,10 @@ int main(int argc, char** argv) {
 		exit(0);
 	}
 
+	exportMode = (argc == 3);
+
 	FILE* inputFile = (FILE*)fopen(argv[1], "r");
-	cout << "** Parsing de " << argv[1] << "..." << endl;
+	if(!exportMode) cout << "** Parsing de " << argv[1] << "..." << endl;
 	if(inputFile == NULL) {
 		cout << "Fichier inexistant." << endl;
 		exit(1);
@@ -69,11 +73,16 @@ int main(int argc, char** argv) {
 	err = xmlparse();
 	fclose(xmlin);
 
-	xml::OutputVisitor visitor(cout);
-//	root->accept(visitor);
+	if(exportMode) {
+		xml::DotOutputVisitor dvisitor(cout, "xmlTree");
+		dvisitor.writeDot(root);
+
+		xml::OutputVisitor visitor(cout, '\t');
+		root->accept(visitor);
+	}
 
 	if (err != 0) cout << err << " erreurs de syntaxe détectées !" << endl; 
-	else cout << "Aucune erreur détectée." << endl; 
+	else if(!exportMode) cout << "Aucune erreur détectée." << endl; 
 
 	return 0;
 }
