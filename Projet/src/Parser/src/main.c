@@ -45,9 +45,7 @@ xml::CompositeMarkupNode* handleElement(xml::CompositeMarkupNode** proxy, string
 	xml::CompositeMarkupNode** newProxy 
 		= new xml::CompositeMarkupNode*; newProxy = 0;
 
-/*	new xml::CompositeMarkupNode(*newProxy, NS, name, attributes, *proxy, currentChildren); */
-
-	return 0;
+	return  new xml::CompositeMarkupNode(newProxy, NS, name, attributes, *proxy, currentChildren);
 }
 
 int main(int argc, char** argv) {
@@ -70,7 +68,7 @@ int main(int argc, char** argv) {
 	fclose(xmlin);
 
 	xml::OutputVisitor visitor(cout);
-//	root->accept(visitor);
+	root->accept(visitor);
 
 	if (err != 0) cout << err << " erreurs de syntaxe détectées !" << endl; 
 	else cout << "Aucune erreur détectée." << endl; 
