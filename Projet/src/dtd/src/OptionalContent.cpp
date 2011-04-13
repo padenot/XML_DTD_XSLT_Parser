@@ -58,15 +58,32 @@ bool OptionalContent::_startValidation(
 		CompositeMarkupNode::ChildrenIterator endToken,
 		BrowsableContent* nextStep)
 {
-	//TODO
-	return false;
+	if (_browseDown(_content, firstToken, endToken, this))
+	{
+		// La liste de jetons est valide en incluant le contenu optionnel
+		return true;
+	}
+	else if (_browseUp(nextStep, firstToken, endToken))
+	{
+		// La liste de jetons est valide en excluant le contenu optionnel
+		return true;
+	}
+	else
+	{
+		// La liste de jetons est invalide
+		return false;
+	}
 }
 
 bool OptionalContent::_continueValidation(
 		xml::CompositeMarkupNode::ChildrenIterator currentToken)
 {
-	//TODO
-	return false;
+	_State& state = _stack.top();
+
+	// Arrivé à ce stade, la liste de jetons a permis de lui faire
+	//	correspondre le contenu optionnel. On vérifie que le reste du
+	//	contenu peut être validé également.
+	return _browseUp(state.nextStep, currentToken, state.endToken);
 }
 
 } // namespace dtd

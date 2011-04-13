@@ -33,7 +33,7 @@ public:
 	// Contrat :
 	//	
 
-	virtual bool matches(xml::Node& node) const = 0;
+	virtual bool matches(xml::Node& node) = 0;
 	// Mode d'emploi :
 	//	Renvoie vrai si le noeud passé en paramètre a le même espace de noms
 	//	et le même nom que l'élément, faux sinon.
