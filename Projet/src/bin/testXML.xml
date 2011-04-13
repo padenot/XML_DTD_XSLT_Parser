@@ -4,8 +4,8 @@
 <doc>
 	<z a="a" b="b">blabla</z>
 	<ns:x>blabla</ns:x>
-	<a/>
-	<jose:x>
-		Je m'apelle <prenom>Gaëtan</prenom>,<nom>Bloch</nom> et je suis <compliment valeur="sympa"/> 
+
+	<jose:x b="b" c="c">
+		Je m'apelle <prenom>Gaëtan</prenom>,<nom>Bloch</nom> et je suis 
 	</jose:x>
 </doc>
