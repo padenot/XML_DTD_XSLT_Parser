@@ -33,6 +33,8 @@ public:
 	// Contrat :
 	//	
 
+	virtual void accept(InterfaceDTDVisitor & visitor) const;
+
 	virtual bool matches(xml::Node& node);
 
 	virtual std::string ns() const;

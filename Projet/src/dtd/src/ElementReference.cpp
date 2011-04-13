@@ -30,6 +30,11 @@ namespace dtd
 //{
 //}
 
+void ElementReference::accept(InterfaceDTDVisitor & visitor) const
+{
+	visitor.visit(*this);
+}
+
 bool ElementReference::matches(xml::Node& node)
 {
 	node.accept(*this);

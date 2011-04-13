@@ -13,12 +13,13 @@
 
 //--------------------------------------------------- Includes syst�me
 
-#include<list>
+#include <list>
 
 //--------------------------------------------------- Includes personnel
 
 #include "Node.hh"
 using namespace xml;
+using namespace std;
 
 namespace xsl
 {
@@ -56,24 +57,29 @@ public:
 	//	«TODO»
 
 private:
-	list<Node> & AnalyserNoeud(Node & noeud);
+	Node & AnalyserNoeud(Node & noeud);
 	// Mode d'emploi (destructeur) :
 	//	«TODO»
 	// Contrat :
 	//	«TODO»
 
-	void AnalyserTemplate(Node & patron, Node & noeud);
+	void AnalyserTemplate(CompositeMarkupNode & patron, Node & noeud);
 	// Mode d'emploi (destructeur) :
 	//	«TODO»
 	// Contrat :
 	//	«TODO»
 
-	list<Node> & Recopier(Node & noeud);
+	list<Node *> & Recopier(TextNode & noeud);
 	// Mode d'emploi (destructeur) :
 	//	«TODO»
 	// Contrat :
 	//	«TODO»
 
+	list<Node *> & Recopier(CompositeMarkupNode & noeud);
+	// Mode d'emploi (destructeur) :
+	//	«TODO»
+	// Contrat :
+	//	«TODO»
 };
 
 } // namespace xsl
