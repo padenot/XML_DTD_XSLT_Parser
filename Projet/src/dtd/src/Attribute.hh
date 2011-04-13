@@ -1,20 +1,21 @@
 /*************************************************************************
- * BadReferenceException  -  «Description»
+ * Attribute  -  «Description»
  * -------------------
- * Début      : 6 avr. 2011
+ * Début      : 13 avr. 2011
  * Auteur(s)  : H4215
  *************************************************************************/
 
-//---------- Interface de la classe <BadReferenceException> (fichier BadReferenceException.hpp) ------
-#if ! defined ( BADREFERENCEEXCEPTION_HPP_ )
-#define BADREFERENCEEXCEPTION_HPP_
+//---------- Interface de la classe <Attribute> (fichier Attribute.hh) ------
+#if ! defined ( ATTRIBUTE_HH_ )
+#define ATTRIBUTE_HH_
 
 //--------------------------------------------------- Interfaces utilisées
-#include <exception>
+#include <string>
 
 namespace dtd
 {
-class BadReferenceException: public exception
+
+class Attribute
 {
 public:
 	//------------------------------------------------------------- Constantes
@@ -24,20 +25,33 @@ public:
 	//----------------------------------------------------- Méthodes publiques
 	// type Méthode ( liste des paramètres );
 	// Mode d'emploi :
-	//	
+	//
 	// Contrat :
-	//	
+	//
 
+	std::string name() const;
 
 	//------------------------------------------------- Surcharge d'opérateurs
 
 
 	//-------------------------------------------- Constructeurs - destructeur
+	Attribute(const std::string & name);
+	// Mode d'emploi :
+	//	TODO
+	// Contrat :
+	//	TODO
+
+	virtual ~Attribute();
+	// Mode d'emploi :
+	//	TODO
+	// Contrat :
+	//	TODO
 
 protected:
+	std::string _name;
 
 };
 
 } // namespace dtd
 
-#endif // BADREFERENCEEXCEPTION_HPP_
+#endif // ATTRIBUTE_HH_

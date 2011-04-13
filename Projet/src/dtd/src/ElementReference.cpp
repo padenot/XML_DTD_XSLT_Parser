@@ -14,7 +14,6 @@ using namespace std;
 
 //------------------------------------------------------ Include personnel
 #include "ElementReference.hh"
-#include "Element.hh"
 #include "InterfaceDTDVisitor.hpp"
 using namespace xml;
 
@@ -46,33 +45,6 @@ std::string ElementReference::ns() const
 std::string ElementReference::name() const
 {
 	return _name;
-}
-
-const AttributesList& ElementReference::attributesList() const
-		throw (BadReferenceException)
-{
-	return referenced().attributesList();
-}
-
-const Content& ElementReference::content() const
-{
-	return referenced().content();
-}
-
-void ElementReference::accept(InterfaceDTDVisitor & visitor) const
-{
-	visitor.visit(*this);
-}
-
-Element& ElementReference::referenced() throw (BadReferenceException)
-{
-	// TODO
-}
-
-const Element& ElementReference::referenced() const
-		throw (BadReferenceException)
-{
-	// TODO
 }
 
 //------------------------------------------------- Surcharge d'opérateurs

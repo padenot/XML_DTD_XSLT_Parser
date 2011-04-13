@@ -16,7 +16,6 @@ using namespace std;
 
 //------------------------------------------------------ Include personnel
 #include "OutputDTDVisitor.hh"
-#include "Element.hh"
 #include "AttributesList.hh"
 #include "EmptyContent.hh"
 #include "AnyContent.hh"
@@ -91,32 +90,6 @@ void OutputDTDVisitor::doIndent()
 		_out.fill(fillChar);
 	}
 } //----- Fin de doIndent
-
-void OutputDTDVisitor::visit(const Element & element)
-{
-	_out << OPEN_MARKUP_STR << ELEMENT_MARKUP_NAME_STR
-			<< INSIDE_MARKUP_SPACE_STR << element.name()
-			<< INSIDE_MARKUP_SPACE_STR;
-	element.content().accept(*this);
-	_out << CLOSE_MARKUP_STR << endl;
-}
-
-void OutputDTDVisitor::visit(const AttributesList & attlist)
-{
-	_out << OPEN_MARKUP_STR << ATTLIST_MARKUP_NAME_STR
-			<< INSIDE_MARKUP_SPACE_STR << attlist.name() << endl;
-
-	_indent += _indentUnit;
-	for (int i = 0; i < 3; ++i)
-	{
-		doIndent();
-		_out << ">>>>>>>>>>>>>>TODO TODO TODO <<<<<<<<<<<" << endl;
-	}
-	_indent -= _indentUnit;
-
-	doIndent();
-	_out << CLOSE_MARKUP_STR << endl;
-}
 
 void OutputDTDVisitor::visit(const AnyContent &)
 {
