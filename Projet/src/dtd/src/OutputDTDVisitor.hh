@@ -29,10 +29,10 @@ public:
 	//------------------------------------------------------------------ Types
 
 	//----------------------------------------------------- Méthodes publiques
-	void writeElement(std::string & ns, const std::string & elementName, 
-						const Content & content);
-	void writeAttributes(std::string & ns, const std::string elementName,
-							const AttributesList & attlist);
+	virtual void visitElement(const std::string & ns,
+			const std::string & elementName, const Content& content);
+	virtual void visitAttributesList(const std::string & ns,
+			const std::string & elementName, const AttributesList& attlist);
 
 	//------------------------------------------------- Surcharge d'opérateurs
 
