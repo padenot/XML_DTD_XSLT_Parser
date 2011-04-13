@@ -1,3 +1,9 @@
+XMLSTRUCT_PATH=../xml
+DTDSTRUCT_PATH=../dtd
+XMLSTRUCT=$(XMLSTRUCT_PATH)/bin/libxmlstruct.a
+DTDSTRUCT=$(DTDSTRUCT_PATH)/bin/libdtdstruct.a
+STATICLIBS=$(XMLSTRUCT) $(DTDSTRUCT)
+
 all: parser test
 
 flex: src/dtd.l src/xml.y
@@ -8,8 +14,14 @@ bison: src/dtd.y src/xml.y
 	@bison --verbose --debug -p dtd -o src/dtd.tab.c --defines=src/dtd.tab.h src/dtd.y
 	@bison -p xml -o src/xml.tab.c --defines=src/xml.tab.h src/xml.y
 
-parser: flex bison Makefile
-	@g++ -Wno-write-strings -g -DYYDEBUG=1 -I../xml/src/ -I../dtd/src/ -o bin/parser src/dtd.yy.c src/dtd.tab.c src/xml.yy.c src/xml.tab.c src/main.c ../xml/bin/libxmlstruct.a ../dtd/bin/libdtdstruct.a
+parser: flex bison Makefile $(STATICLIBS)
+	@g++ -Wno-write-strings -g -DYYDEBUG=1 -I../xml/src/ -I../dtd/src/ -o bin/parser src/dtd.yy.c src/dtd.tab.c src/xml.yy.c src/xml.tab.c src/main.c $(STATICLIBS)
+
+$(XMLSTRUCT):
+	@cd $(XMLSTRUCT_PATH) && make
+
+$(DTDSTRUCT):
+	@cd $(DTDSTRUCT_PATH) && make
 
 test: parser 
 	@echo "TESTING Parser..."
