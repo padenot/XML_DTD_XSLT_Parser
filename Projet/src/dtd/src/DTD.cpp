@@ -34,6 +34,15 @@ namespace dtd
 //{
 //}
 
+void DTD::accept(InterfaceDTDVisitor & visitor)
+{
+	for (_Elements::const_iterator it = _elements.begin(); it
+			!= _elements.end(); ++it)
+	{
+		it->second->accept(visitor);
+	}
+}
+
 void DTD::addElement(const std::string & ns, const std::string & elementName,
 		Content& content)
 {
