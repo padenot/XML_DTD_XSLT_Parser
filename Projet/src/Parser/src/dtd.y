@@ -19,7 +19,7 @@
 	int dtdwrap(void);
 	int dtdlex(void);
 
-	dtd::DTD rootDTD;
+	dtd::DTD* rootDTD = new dtd::DTD();
 %}
 
 %union { 
@@ -48,7 +48,7 @@ attlist			: ATTLIST NAME att_definition
 			;
 
 element 		: ELEMENT NAME choice_or_sequence quantifier
-			| ELEMENT NAME OPENPAR primary_type CLOSEPAR 			/*{ dtd.addElement("", $2, content); } */
+			| ELEMENT NAME OPENPAR primary_type CLOSEPAR 		
 			;
 
 att_definition 		: att_definition attribut
