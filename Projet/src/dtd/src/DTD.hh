@@ -53,23 +53,6 @@ public:
 	// Contrat :
 	//	Aucun.
 
-	Content * getElement(std::string ns, std::string name) const;
-	// Mode d'emploi :
-	//	Récupère l'élement associé à l'espace de nom "ns" et au nom "name".
-	//	S'il n'existe pas, renvoie un pointeur nul.
-	// Contrat :
-	//	L'élément renvoyé ne doit pas être détruit, et ne doit être modifié
-	//	que dans le cadre d'une validation.
-
-	const AttributesList
-	* getAttributesList(std::string ns, std::string name) const;
-	// Mode d'emploi :
-	//	Récupère la liste d'attributs associée à l'espace de nom "ns" et au
-	//	nom "name".
-	//	Si elle n'existe pas, renvoie un pointeur nul.
-	// Contrat :
-	//	Aucun.
-
 	bool isValid(const xml::Node& root);
 	// Mode d'emploi :
 	//	Valide un document XML selon la DTD.
@@ -108,6 +91,23 @@ protected:
 	virtual void visit(const xml::CompositeMarkupNode & node);
 
 	bool checkAttributes(const xml::MarkupNode & node);
+
+	Content * getElement(std::string ns, std::string name) const;
+	// Mode d'emploi :
+	//	Récupère l'élement associé à l'espace de nom "ns" et au nom "name".
+	//	S'il n'existe pas, renvoie un pointeur nul.
+	// Contrat :
+	//	L'élément renvoyé ne doit pas être détruit, et ne doit être modifié
+	//	que dans le cadre d'une validation.
+
+	const AttributesList
+		* getAttributesList(std::string ns, std::string name) const;
+	// Mode d'emploi :
+	//	Récupère la liste d'attributs associée à l'espace de nom "ns" et au
+	//	nom "name".
+	//	Si elle n'existe pas, renvoie un pointeur nul.
+	// Contrat :
+	//	Aucun.
 };
 
 } // namespace dtd
