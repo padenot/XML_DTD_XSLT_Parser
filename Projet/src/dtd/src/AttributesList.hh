@@ -11,12 +11,13 @@
 
 //--------------------------------------------------- Interfaces utilisées
 #include <set>
+#include <functional>
 #include "Attribute.hh"
 
 namespace dtd
 {
 
-struct AttributesComparator: binary_function<Attribute*, Attribute*, bool>
+struct AttributesComparator: std::binary_function<Attribute*, Attribute*, bool>
 {
 	bool operator()(const Attribute* const & x, const Attribute* const & y) const
 	{
