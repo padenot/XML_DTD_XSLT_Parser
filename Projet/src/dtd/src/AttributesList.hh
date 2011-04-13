@@ -10,13 +10,22 @@
 #define ATTRIBUTESLIST_HH_
 
 //--------------------------------------------------- Interfaces utilisées
-#include <list>
+#include <set>
+#include <functional>
 #include "Attribute.hh"
 
 namespace dtd
 {
 
-typedef std::list<Attribute*> AttributesList;
+struct AttributesComparator: std::binary_function<Attribute*, Attribute*, bool>
+{
+	bool operator()(const Attribute* const & x, const Attribute* const & y) const
+	{
+		return x->name() < y->name();
+	}
+};
+
+typedef std::set<Attribute*, AttributesComparator> AttributesList;
 
 } // namespace dtd
 

@@ -91,6 +91,36 @@ void OutputDTDVisitor::doIndent()
 	}
 } //----- Fin de doIndent
 
+void OutputDTDVisitor::writeElement(std::string & ns,
+		const std::string & elementName, const Content& content)
+{
+	_out << OPEN_MARKUP_STR << ELEMENT_MARKUP_NAME_STR
+			<< INSIDE_MARKUP_SPACE_STR << elementName
+			<< INSIDE_MARKUP_SPACE_STR;
+	content.accept(*this);
+	_out << CLOSE_MARKUP_STR << endl;
+}
+
+void OutputDTDVisitor::writeAttributes(std::string & ns,
+		const std::string elementName, const AttributesList & attlist)
+{
+	_out << OPEN_MARKUP_STR << ATTLIST_MARKUP_NAME_STR
+			<< INSIDE_MARKUP_SPACE_STR << elementName << endl;
+
+	_indent += _indentUnit;
+	AttributesList::const_iterator it = attlist.begin();
+
+	for (; it != attlist.end(); it++)
+	{
+		doIndent();
+		_out << (*it)->name() << " CDATA #IMPLIED" << endl;
+	}
+	_indent -= _indentUnit;
+
+	doIndent();
+	_out << CLOSE_MARKUP_STR << endl;
+}
+
 void OutputDTDVisitor::visit(const AnyContent &)
 {
 	_out << ANY_CONTENT_STR;
@@ -104,14 +134,19 @@ void OutputDTDVisitor::visit(const EmptyContent &)
 void OutputDTDVisitor::visit(const MixedContent & content)
 {
 	_out << START_MIXED_STR;
-	for (int i = 0; i < 3; ++i)
+	MixedContent::const_iterator it = content.begin();
+	(*it)->accept(*this);
+	++it;
+
+	for (; it != content.end(); ++it)
 	{
-		_out << MIXED_SEPARATOR_STR << "#TODO#>" << endl;
+		_out << MIXED_SEPARATOR_STR;
+		(*it)->accept(*this);
 	}
 	_out << END_MIXED_STR;
 }
 
-void OutputDTDVisitor::visit(const TextContent & content)
+void OutputDTDVisitor::visit(const TextContent &)
 {
 	_out << TEXT_CONTENT_STR;
 }
@@ -124,12 +159,13 @@ void OutputDTDVisitor::visit(const ElementReference & element)
 void OutputDTDVisitor::visit(const Choice & content)
 {
 	_out << START_CHOICE_STR;
-	Choice::ChoosableSetIterator it = content.begin();
+	Choice::const_iterator it = content.begin();
 	(*it)->accept(*this);
 	++it;
-	for (it; it	!= content.end(); ++it)
+
+	for (; it != content.end(); ++it)
 	{
-		_out << CHOICE_SEPARATOR_STR ;
+		_out << CHOICE_SEPARATOR_STR;
 		(*it)->accept(*this);
 	}
 	_out << END_CHOICE_STR;
@@ -138,9 +174,11 @@ void OutputDTDVisitor::visit(const Choice & content)
 void OutputDTDVisitor::visit(const Sequence & content)
 {
 	_out << START_SEQUENCE_STR;
-	Sequence::OrderedContentIterator it = content.begin();
+	Sequence::const_iterator it = content.begin();
 	(*it)->accept(*this);
-	for (it; it	!= content.end(); ++it)
+	++it;
+
+	for (; it != content.end(); ++it)
 	{
 		_out << SEQUENCE_SEPARATOR_STR;
 		(*it)->accept(*this);
