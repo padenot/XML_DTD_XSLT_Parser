@@ -136,11 +136,11 @@ void OutputDTDVisitor::visit(const MixedContent & content)
 	_out << START_MIXED_STR;
 	_out << "#PCDATA";
 
-		for (MixedContent::const_iterator it = content.begin(); it != content.end(); ++it)
-		{
-			_out << MIXED_SEPARATOR_STR;
-			(*it)->accept(*this);
-		}
+	for (MixedContent::const_iterator it = content.begin(); it != content.end(); ++it)
+	{
+		_out << MIXED_SEPARATOR_STR;
+		(*it)->accept(*this);
+	}
 	_out << END_MIXED_STR;
 }
 
@@ -174,12 +174,8 @@ void OutputDTDVisitor::visit(const Sequence & content)
 	_out << START_SEQUENCE_STR;
 	Sequence::const_iterator it = content.begin();
 	(*it)->accept(*this);
-<<<<<<< HEAD
-	it++;
-=======
 	++it;
 
->>>>>>> 0e283bfa24fab516765725dac5b289941c6119a6
 	for (; it != content.end(); ++it)
 	{
 		_out << SEQUENCE_SEPARATOR_STR;
