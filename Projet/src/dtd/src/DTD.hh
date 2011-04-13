@@ -105,6 +105,8 @@ protected:
 	virtual void visit(const xml::TextNode & node);
 	virtual void visit(const xml::MarkupNode & node);
 	virtual void visit(const xml::CompositeMarkupNode & node);
+
+	bool checkAttributes(const xml::MarkupNode & node);
 };
 
 } // namespace dtd

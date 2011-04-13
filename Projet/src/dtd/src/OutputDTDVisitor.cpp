@@ -109,8 +109,8 @@ void OutputDTDVisitor::writeAttributes(std::string & ns,
 
 	_indent += _indentUnit;
 	AttributesList::const_iterator it = attlist.begin();
-	
-	for (; it != attlist.end(); it++)	
+
+	for (; it != attlist.end(); it++)
 	{
 		doIndent();
 		_out << (*it)->name() << " CDATA #IMPLIED" << endl;
@@ -137,6 +137,7 @@ void OutputDTDVisitor::visit(const MixedContent & content)
 	MixedContent::const_iterator it = content.begin();
 	(*it)->accept(*this);
 	++it;
+
 	for (; it != content.end(); ++it)
 	{
 		_out << MIXED_SEPARATOR_STR;
@@ -161,6 +162,7 @@ void OutputDTDVisitor::visit(const Choice & content)
 	Choice::const_iterator it = content.begin();
 	(*it)->accept(*this);
 	++it;
+
 	for (; it != content.end(); ++it)
 	{
 		_out << CHOICE_SEPARATOR_STR;
@@ -174,6 +176,8 @@ void OutputDTDVisitor::visit(const Sequence & content)
 	_out << START_SEQUENCE_STR;
 	Sequence::const_iterator it = content.begin();
 	(*it)->accept(*this);
+	++it;
+
 	for (; it != content.end(); ++it)
 	{
 		_out << SEQUENCE_SEPARATOR_STR;

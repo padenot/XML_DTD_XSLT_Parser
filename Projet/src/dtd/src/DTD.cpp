@@ -155,7 +155,7 @@ void DTD::visit(const MarkupNode& node)
 	}
 	else
 	{
-		_lastNodeIsValid = content->validate(node);
+		_lastNodeIsValid = content->validate(node) && checkAttributes(node);
 	}
 }
 
@@ -171,12 +171,40 @@ void DTD::visit(const CompositeMarkupNode& node)
 	}
 	else
 	{
-		_lastNodeIsValid = content->validate(node);
+		_lastNodeIsValid = content->validate(node) && checkAttributes(node);
+
 		for (CompositeMarkupNode::ChildrenIterator it = node.begin(); _lastNodeIsValid
 				&& it != node.end(); ++it)
 		{
 			_lastNodeIsValid = isValid(node);
 		}
+	}
+}
+
+bool DTD::checkAttributes(const xml::MarkupNode & node)
+{
+	const AttributesList* attlist = getAttributesList(node.ns(), node.name());
+	MarkupNode::AttributesIterator nodeAttribute = node.begin();
+
+	if (attlist == 0)
+	{
+		// Aucun attribut n'est défini pour cet élément. L'élément est correct
+		//	s'il n'a pas d'attribut.
+		return nodeAttribute == node.end();
+	}
+	else
+	{
+		bool attributesAreOk = true;
+		for (; attributesAreOk && nodeAttribute != node.end(); ++nodeAttribute)
+		{
+			Attribute contentAttribute(nodeAttribute->first);
+
+			// L'attribut est correct si on le trouve dans la liste
+			attributesAreOk = (attlist->find(&contentAttribute)
+					!= attlist->end());
+		}
+
+		return attributesAreOk;
 	}
 }
 
