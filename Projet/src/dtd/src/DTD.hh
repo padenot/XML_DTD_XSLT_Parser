@@ -27,6 +27,8 @@ public:
 	//------------------------------------------------------------- Constantes
 
 	//------------------------------------------------------------------ Types
+	void accept (InterfaceDTDVisitor & visitor);
+	// TODO commenter
 
 	//----------------------------------------------------- Méthodes publiques
 	// type Méthode ( liste des paramètres );

@@ -1,15 +1,15 @@
 /*************************************************************************
- * XslTransformation  -  åÂå«DescriptionåÂå»
+ * XslTransformation  -  ï¿½ï¿½ï¿½Descriptionï¿½ï¿½ï¿½
  * -------------------
- * DÃå©but      : lun. 11 avril 2011 11:22:13 CEST
+ * Dï¿½ï¿½but      : lun. 11 avril 2011 11:22:13 CEST
  * Auteur(s)  : H4215
  *************************************************************************/
 
-//---- RÃå©alisation de la classe <XslTranformation> (fichier XslTransformation.cpp) ----
+//---- Rï¿½ï¿½alisation de la classe <XslTranformation> (fichier XslTransformation.cpp) ----
 
 //---------------------------------------------------------------- INCLUDE
 
-//-------------------------------------------------------- Include systÃå¨me
+//-------------------------------------------------------- Include systï¿½ï¿½me
 
 //------------------------------------------------------ Include personnel
 #include "XslTransformation.hh"
@@ -25,13 +25,13 @@ namespace xsl
 
 //---------------------------------------------------- Variables de classe
 
-//----------------------------------------------------------- Types privÃå©s
+//----------------------------------------------------------- Types privï¿½ï¿½s
 
 
 //----------------------------------------------------------------- PUBLIC
 //-------------------------------------------------------- Fonctions amies
 
-//----------------------------------------------------- MÃå©thodes publiques
+//----------------------------------------------------- Mï¿½ï¿½thodes publiques
 Node & Transformation(Node & XmlTree, Node & XslTree)
 {
 	/*
@@ -41,11 +41,11 @@ Node & Transformation(Node & XmlTree, Node & XslTree)
 	 //pour pouvoir accÌ©der rapidement au template
 	 global_map = create Map<NomTemplate, NoeudTemplate>();
 	 xmlF = analyse_noeud(xmlI.racine());
-	 return afficher(xmlF); //mÌ©thode dÕaffichage (3.2.1)
+	 return afficher(xmlF); //mÌ©thode dï¿½affichage (3.2.1)
 	 end */
 } //----- Fin de Transformation
 
-//------------------------------------------------- Surcharge d'opÃå©rateurs
+//------------------------------------------------- Surcharge d'opï¿½ï¿½rateurs
 
 
 //-------------------------------------------- Constructeurs - destructeur
@@ -60,19 +60,19 @@ XslTransformation::~XslTransformation()
 
 //------------------------------------------------------------------ PRIVE
 
-//----------------------------------------------------- MÃå©thodes protÃå©gÃå©es
+//----------------------------------------------------- Mï¿½ï¿½thodes protï¿½ï¿½gï¿½ï¿½es
 
-//------------------------------------------------------- MÃå©thodes privÃå©es
+//------------------------------------------------------- Mï¿½ï¿½thodes privï¿½ï¿½es
 
 Node & XslTransformation::AnalyserNoeud(Node & noeud)
 {
 	/*analyser_noeud(Noeud x)
 	 Template t = rechercher_template(x); //recherche un template qui matche x
-	 if (t == vide) //si ce template nÕexiste pas
+	 if (t == vide) //si ce template nï¿½existe pas
 	 return recopier(x);
 	 else
 	 copier (t -> res) //on rÌ©copie le contenu du template ...
-	 //on lÕanalyse pour lÕÒÌ©tendreÓ avec les apply-template et aprÌ¬s on le renvoie
+	 //on lï¿½analyse pour lï¿½ï¿½Ì©tendreï¿½ avec les apply-template et aprÌ¬s on le renvoie
 	 analyse_template(res,x)
 	 return res;
 	 end*/
@@ -86,6 +86,9 @@ void XslTransformation::AnalyserTemplate(CompositeMarkupNode & patron, Node & no
 	{
 		//if(it.isapplytemplate()){
 			it = Recopier(noeud);
+			TransformerVisitor trans(CompositeMarkupNode** parent, ....);
+			noeud.accept(trans);
+			Node* = trans.result();
 		//} else (if
 	}
 	/*
