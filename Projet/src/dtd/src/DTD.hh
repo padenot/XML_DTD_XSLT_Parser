@@ -58,7 +58,8 @@ public:
 	//	Récupère l'élement associé à l'espace de nom "ns" et au nom "name".
 	//	S'il n'existe pas, renvoie un pointeur nul.
 	// Contrat :
-	//	Aucun.
+	//	L'élément renvoyé ne doit pas être détruit, et ne doit être modifié
+	//	que dans le cadre d'une validation.
 
 	const AttributesList
 	* getAttributesList(std::string ns, std::string name) const;
