@@ -19,7 +19,11 @@ test: parser
 	@cd bin && ./parser 'rap4.xml' &>/dev/null && echo "rap4.xml : OK"
 
 clean:
-	@rm -rf bin/parser bin/parser.dSYM/
+	rm -rf bin/parser bin/parser.dSYM/
+	rm -rf ../xml/bin/libxmlstruct.a
+	rm -rf ../dtd/bin/libdtdstruct.a
+	cd ../xml/ && make mrproper && make
+	cd ../dtd/ && make mrproper && make
 	
 mrproper: clean
 	@rm src/dtd.tab.c src/dtd.tab.h

@@ -10,7 +10,6 @@
 	#include <cstdio>
 	#include <cstdlib>
 
-//	#include "Element.hh"
 	#include "DTD.hh"
 
 	using namespace std;
