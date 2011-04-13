@@ -59,7 +59,35 @@ const std::string OutputDTDVisitor::CLOSE_MARKUP_STR = ">";
 //	
 //{
 //}
+void OutputDTDVisitor::visitElement(const std::string & ns,
+		const std::string & elementName, const Content& content)
+{
+	_out << OPEN_MARKUP_STR << ELEMENT_MARKUP_NAME_STR
+			<< INSIDE_MARKUP_SPACE_STR << elementName
+			<< INSIDE_MARKUP_SPACE_STR;
+	content.accept(*this);
+	_out << CLOSE_MARKUP_STR << endl;
+}
 
+void OutputDTDVisitor::visitAttributesList(const std::string & ns,
+		const std::string & elementName, const AttributesList & attlist)
+{
+	_out << OPEN_MARKUP_STR << ATTLIST_MARKUP_NAME_STR
+			<< INSIDE_MARKUP_SPACE_STR << elementName << endl;
+
+	_indent += _indentUnit;
+	AttributesList::const_iterator it = attlist.begin();
+
+	for (; it != attlist.end(); it++)
+	{
+		doIndent();
+		_out << (*it)->name() << " CDATA #IMPLIED" << endl;
+	}
+	_indent -= _indentUnit;
+
+	doIndent();
+	_out << CLOSE_MARKUP_STR << endl;
+}
 
 //------------------------------------------------- Surcharge d'opérateurs
 
@@ -90,36 +118,6 @@ void OutputDTDVisitor::doIndent()
 		_out.fill(fillChar);
 	}
 } //----- Fin de doIndent
-
-void OutputDTDVisitor::writeElement(std::string & ns,
-		const std::string & elementName, const Content& content)
-{
-	_out << OPEN_MARKUP_STR << ELEMENT_MARKUP_NAME_STR
-			<< INSIDE_MARKUP_SPACE_STR << elementName
-			<< INSIDE_MARKUP_SPACE_STR;
-	content.accept(*this);
-	_out << CLOSE_MARKUP_STR << endl;
-}
-
-void OutputDTDVisitor::writeAttributes(std::string & ns,
-		const std::string elementName, const AttributesList & attlist)
-{
-	_out << OPEN_MARKUP_STR << ATTLIST_MARKUP_NAME_STR
-			<< INSIDE_MARKUP_SPACE_STR << elementName << endl;
-
-	_indent += _indentUnit;
-	AttributesList::const_iterator it = attlist.begin();
-
-	for (; it != attlist.end(); it++)
-	{
-		doIndent();
-		_out << (*it)->name() << " CDATA #IMPLIED" << endl;
-	}
-	_indent -= _indentUnit;
-
-	doIndent();
-	_out << CLOSE_MARKUP_STR << endl;
-}
 
 void OutputDTDVisitor::visit(const AnyContent &)
 {

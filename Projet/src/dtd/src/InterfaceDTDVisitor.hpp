@@ -10,10 +10,11 @@
 #define INTERFACEDTDVISITOR_HH_
 
 //--------------------------------------------------- Interfaces utilisées
+#include <string>
+#include "AttributesList.hh"
 
 namespace dtd
 {
-class DTD;
 class Content;
 class AnyContent;
 class EmptyContent;
@@ -34,6 +35,10 @@ public:
 	//------------------------------------------------------------------ Types
 
 	//----------------------------------------------------- Méthodes publiques
+	virtual void visitElement(const std::string & ns,
+			const std::string & elementName, const Content& content) = 0;
+	virtual void visitAttributesList(const std::string & ns,
+			const std::string & elementName, const AttributesList& attlist) = 0;
 
 	//------------------------------------------------- Surcharge d'opérateurs
 
@@ -48,7 +53,6 @@ public:
 	}
 
 protected:
-	friend class DTD;
 	friend class AnyContent;
 	friend class EmptyContent;
 	friend class MixedContent;

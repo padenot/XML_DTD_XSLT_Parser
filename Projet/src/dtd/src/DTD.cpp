@@ -19,6 +19,7 @@ using namespace std;
 #include "MarkupNode.hh"
 #include "TextNode.hh"
 #include "CompositeMarkupNode.hh"
+#include "InterfaceDTDVisitor.hpp"
 using namespace xml;
 
 namespace dtd
@@ -39,14 +40,14 @@ void DTD::accept(InterfaceDTDVisitor & visitor)
 	for (_Elements::const_iterator it = _elements.begin(); it
 			!= _elements.end(); ++it)
 	{
-		it->second->accept(visitor);
+		visitor.visitElement(it->first.first, it->first.second, *it->second);
 	}
 
 	/*for (_AttributesLists::const_iterator it = _attributesLists.begin(); it
-			!= _attributesLists.end(); ++it)
-	{
-		it->second->accept(visitor);
-	}*/
+	 != _attributesLists.end(); ++it)
+	 {
+	 it->second->accept(visitor);
+	 }*/
 }
 
 void DTD::addElement(const std::string & ns, const std::string & elementName,
@@ -154,6 +155,7 @@ DTD::~DTD()
 //----------------------------------------------------- Méthodes protégées
 void DTD::visit(const TextNode&)
 // Un noeud texte est toujours valide.
+
 {
 	_lastNodeIsValid = true;
 }
@@ -161,6 +163,7 @@ void DTD::visit(const TextNode&)
 void DTD::visit(const MarkupNode& node)
 // Un noeud balise est valide si sa structure correspond
 //	à celle attendue.
+
 {
 	Content* content = getElement(node.ns(), node.name());
 
@@ -177,6 +180,7 @@ void DTD::visit(const MarkupNode& node)
 void DTD::visit(const CompositeMarkupNode& node)
 // Un noeud composite est valide si sa structure correspond
 //	à celle attendue et si ses enfants sont valides.
+
 {
 	Content* content = getElement(node.ns(), node.name());
 
