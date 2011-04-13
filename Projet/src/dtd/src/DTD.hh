@@ -11,14 +11,14 @@
 
 //--------------------------------------------------- Interfaces utilisées
 #include <string>
-#include <list>
+#include <map>
 #include "Node.hh"
+#include "AttributesList.hh"
 
 namespace dtd
 {
 class InterfaceDTDVisitor;
-class Element;
-class AttributesList;
+class Content;
 
 class DTD
 {
@@ -34,16 +34,8 @@ public:
 	// Contrat :
 	//	
 
-	void accept(InterfaceDTDVisitor& visitor) const;
-	// Mode d'emploi :
-	//	Permet à un visiteur d'inspecter cette DTD : en d'autres termes,
-	//	demande à tous les éléments et toutes les listes d'attributs d'accepter
-	//	ce visiteur.
-	//	L'ordre de parcours n'est pas garanti.
-	// Contrat :
-	//	Aucun.
-
-	void addElement(Element & element);
+	void addElement(const std::string & ns, const std::string & elementName,
+			Content& content);
 	// Mode d'emploi :
 	//	Ajoute un element à la DTD. Si aucun AttributesList n'existe pour
 	//	cet élément, il sera créé (vide).
@@ -51,22 +43,24 @@ public:
 	// Contrat :
 	//	Aucun.
 
-	void addAttributesList(AttributesList & attlist);
+	void addAttributesList(const std::string & ns,
+			const std::string & elementName, const AttributesList& attribute);
 	// Mode d'emploi :
 	//	Ajoute une liste d'attributs à la DTD. Si une liste d'attributs
 	//	existe déjà portant sur le même élément, elle seront fusionnées.
-	//	La liste sera détruite par la DTD.
+	//	La liste et ses éléments seront détruite par la DTD.
 	// Contrat :
 	//	Aucun.
 
-	const Element * getElement(std::string ns, std::string name);
+	const Content * getContent(std::string ns, std::string name) const;
 	// Mode d'emploi :
 	//	Récupère l'élement associé à l'espace de nom "ns" et au nom "name".
 	//	S'il n'existe pas, renvoie un pointeur nul.
 	// Contrat :
 	//	Aucun.
 
-	const AttributesList * getAttributesList(std::string ns, std::string name);
+	const AttributesList
+			* getAttributesList(std::string ns, std::string name) const;
 	// Mode d'emploi :
 	//	Récupère la liste d'attributs associée à l'espace de nom "ns" et au
 	//	nom "name".
@@ -98,8 +92,9 @@ public:
 	//	TODO
 
 protected:
-	typedef std::list<Element*> _Elements;
-	typedef std::list<AttributesList*> _AttributesLists;
+	typedef std::pair<std::string, std::string> _ElementId;
+	typedef std::map<_ElementId, Content*> _Elements;
+	typedef std::map<_ElementId, AttributesList*> _AttributesLists;
 
 	_Elements _elements;
 	_AttributesLists _attributesLists;

@@ -80,8 +80,6 @@ protected:
 	// Contrat :
 	//	Aucun.
 
-	virtual void visit(const Element & element);
-	virtual void visit(const AttributesList & attlist);
 	virtual void visit(const EmptyContent & content);
 	virtual void visit(const AnyContent & content);
 	virtual void visit(const MixedContent & content);
