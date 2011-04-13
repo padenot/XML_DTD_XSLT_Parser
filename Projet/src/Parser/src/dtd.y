@@ -1,31 +1,46 @@
 %{
-	using namespace std;
+	#define QTF_AST		1
+	#define QTF_PLUS	2
+	#define QTF_QMARK	4
+	#define QTF_NONE	0
+
 	#include <stack>
 	#include <list>
 	#include <cstring>
 	#include <cstdio>
 	#include <cstdlib>
 
-	#include "Element.hh"
+//	#include "Element.hh"
+	#include "DTD.hh"
+
+	using namespace std;
 
 	void dtderror(char *msg);
 	int dtdwrap(void);
 	int dtdlex(void);
+
+	dtd::DTD rootDTD;
 %}
 
 %union { 
 	char *s; 
+
+	std::list<void*>* clist;
+	int qtf;
 }
 
-%token ELEMENT ATTLIST CLOSE OPENPAR CLOSEPAR COMMA PIPE FIXED EMPTY ANY PCDATA AST QMARK PLUS CDATA
-%token <s> NAME TOKENTYPE DECLARATION STRING
+%token ELEMENT ATTLIST CLOSE OPENPAR CLOSEPAR COMMA PIPE FIXED EMPTY ANY PCDATA AST QMARK PLUS CDATA NAME TOKENTYPE DECLARATION STRING
+
+%type <s> NAME TOKENTYPE DECLARATION STRING
+%type <clist> choice_or_sequence
+%type <qtf> quantifier
 %%
 
 root			: dtd
     			;
 
-dtd			: dtd attlist CLOSE
-			| dtd element CLOSE
+dtd			: dtd attlist CLOSE					
+			| dtd element CLOSE					
    			| /* empty */                     
    			;
 
@@ -33,7 +48,7 @@ attlist			: ATTLIST NAME att_definition
 			;
 
 element 		: ELEMENT NAME choice_or_sequence quantifier
-			| ELEMENT NAME OPENPAR primary_type CLOSEPAR
+			| ELEMENT NAME OPENPAR primary_type CLOSEPAR 			/*{ dtd.addElement("", $2, content); } */
 			;
 
 att_definition 		: att_definition attribut
@@ -70,7 +85,7 @@ choice_or_sequence	: choice
 			| sequence
 			; 
 
-sequence		: OPENPAR list_sequence CLOSEPAR
+sequence		: OPENPAR list_sequence CLOSEPAR				
 			; 
 
 list_sequence		: item 
@@ -87,30 +102,20 @@ list_choice_transition	: item
 			| list_choice_transition PIPE item
 			; 
 
-item 			: NAME quantifier
+item 			: NAME quantifier				
 			| choice_or_sequence quantifier
 			; 
 
-quantifier		: AST
-			| QMARK
-			| PLUS
-			| /* EMPTY */
+quantifier		: AST 								{ $$ = QTF_AST; }
+			| QMARK								{ $$ = QTF_QMARK; }
+			| PLUS								{ $$ = QTF_PLUS; }
+			| /* EMPTY */							{ $$ = QTF_NONE; }
 			; 
 
-primary_type		: CDATA
-			| PCDATA
-			| FIXED
+primary_type		: CDATA							 
+			| PCDATA						 
+			| FIXED							
 			;
 %%
-
-int dtdwrap(void)
-{
-  return 1;
-}
-
-void dtderror(char *msg)
-{
-  fprintf(stderr, "%s\n", msg);
-}
-
-
+int dtdwrap(void) { return 1; }
+void dtderror(char *msg) { fprintf(stderr, "%s\n", msg); }

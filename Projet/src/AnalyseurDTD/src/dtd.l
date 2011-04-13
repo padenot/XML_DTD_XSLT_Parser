@@ -5,7 +5,10 @@
 #include <ctype.h>
 #include <string.h>
 #include <stdlib.h>
+#include <list>
 #include "dtd.tab.h"
+
+using namespace std;
 
 static char* skipSpace(char *s) {
   char *buf;
