@@ -6,6 +6,7 @@
 
 	#include <stack>
 	#include <list>
+	#include <set>
 	#include <cstring>
 	#include <cstdio>
 	#include <cstdlib>
@@ -36,7 +37,7 @@
 
 	int t_quantifier;
 
-	std::list<void*>* t_attlist; /* list<Attribute*> */
+	std::set<void*>* t_attlist; /* list<Attribute*> */
 	void* t_attribut;
 
 	void* t_any_or_empty;
@@ -68,7 +69,7 @@ dtd			: dtd attlist CLOSE
    			| /* empty */
    			;
 
-attlist			: ATTLIST NAME att_definition					{ rootDTD->addAttributesList("", $2, *( list< dtd::Attribute* > * )($3) ); }  
+attlist			: ATTLIST NAME att_definition					{ rootDTD->addAttributesList(string(""), string($2), *( dtd::AttributesList* )($3) ); }  
 			;
 
 element 		: ELEMENT NAME mixed 						{ rootDTD->addElement("", $2, *(dtd::Content*)($3) ); }
@@ -91,13 +92,13 @@ simple_list_choice	: NAME								{
 												$$ = newSet;
 			  								}
 			| simple_list_choice PIPE NAME					{ 
-												(dtd::MixedContent::ChoosableSet*)$$->insert( new dtd::ElementReference(*rootDTD, "", $3 ) ); 
+												((dtd::MixedContent::ChoosableSet*)$1)->insert( new dtd::ElementReference(*rootDTD, "", $3 ) ); 
 												$$ = $1; 
 											}
 			;
 
-att_definition 		: att_definition attribut					{ $1->push_back( (dtd::Attribute*)($2) ); $$ = $1; } 
-			| /* empty */							{ $$ = (list<void*>*)( new list<dtd::Attribute*>() ); }
+att_definition 		: att_definition attribut					{ $1->insert( (dtd::Attribute*)($2) ); $$ = $1; } 
+			| /* empty */							{ $$ = (set<void*>*)( new dtd::AttributesList() ); }
 			;
 
 attribut 		: NAME att_type defaut_declaration				{ $$ = new dtd::Attribute($1); }

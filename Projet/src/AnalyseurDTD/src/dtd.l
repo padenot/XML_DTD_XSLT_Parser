@@ -6,6 +6,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include <list>
+#include <set>
 #include "dtd.tab.h"
 
 using namespace std;

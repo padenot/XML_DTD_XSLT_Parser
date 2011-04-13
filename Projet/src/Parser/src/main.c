@@ -8,17 +8,20 @@
 #include "MarkupNode.hh"
 #include "CompositeMarkupNode.hh"
 #include "OutputVisitor.hh"
+#include "OutputDTDVisitor.hh"
 #include "DotOutputVisitor.hh"
-
+#include "DTD.hh"
 #include "Content.hh"
 
 int xmlparse(void);
 int dtdparse(void);
 
 extern xml::CompositeMarkupNode* root;
+extern dtd::DTD* rootDTD;
 
 extern FILE * xmlin;
 extern FILE * dtdin;
+
 
 int exportMode;
 
@@ -37,6 +40,12 @@ int handleDTD(char* filename) {
 	dtdin = inputFile;	
 	err = dtdparse();
 	fclose(dtdin);
+
+	if(exportMode) {
+		dtd::OutputDTDVisitor visitor(cout, '\t');
+		rootDTD->accept(visitor);
+	}
+
 
 	if (err != 0) cout << err << " erreurs de syntaxe détectées !" << endl; 
 	else if(!exportMode) 
