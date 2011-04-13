@@ -34,34 +34,26 @@ using namespace dtd;
 //-------------------------------------------------------------- Fonctions
 DTD* buildDTD()
 {
-	const string NS_INIT("__ns");
-	const string NAME_INIT("__name");
-	const string ATTR_INIT("__attr");
-	const string VAL_INIT("__val");
-	const string TEXT_INIT(
-			"__Ceci est un texte anticonstitutionnel et verbeux.");
-
-	DTD & dtd = *new DTD();
-
-	for (int i = 0; i < 4; ++i)
-	{
-		if (i % 2 == 0)
-		{
-			ostringstream ns(NS_INIT);
-			ostringstream name(NAME_INIT);
-
-			ns << setw(2) << i;
-			name << setw(2) << i;
-
-			dtd.addElement(
-					*new Element(dtd, ns.str(), name.str(), *new EmptyContent()));
-		} else
-		{
-
-		}
-	}
-
-	return &dtd;
+	const std::string ns = "ns";
+	const std::string element1 = "note";
+	const std::string element2 = "to";
+	const std::string att1 = "type";
+	const std::string att2 = "truc";
+	
+	DTD * dtd = new DTD();
+	//elements
+/*	
+	ElementReference * elementRef1 ElementReference( *dtd, ns, att1);
+	ElementReference * elementRef2 ElementReference( *dtd, ns, att2);	
+	OrderedContent list = 
+	Sequence * seq = new Sequence();
+	Sequence(const OrderedContent & embeddedContent);
+	
+	dtd.addElement(ns, element1, );
+	dtd.addElement(ns, element2, );
+	*/
+	//attributs
+	return dtd;
 }
 
 bool test01()
