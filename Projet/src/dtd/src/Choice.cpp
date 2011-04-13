@@ -42,12 +42,12 @@ void Choice::accept(InterfaceDTDVisitor & visitor) const
 	visitor.visit(*this);
 }
 
-Choice::ChoosableSetIterator Choice::begin() const
+Choice::const_iterator Choice::begin() const
 {
 	return _choosable.begin();
 }
 
-Choice::ChoosableSetIterator Choice::end() const
+Choice::const_iterator Choice::end() const
 {
 	return _choosable.end();
 }
