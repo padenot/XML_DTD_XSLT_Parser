@@ -87,11 +87,12 @@ mixed			: OPENPAR PCDATA PIPE simple_list_choice CLOSEPAR quantifier 	{ $$ = new
 
 simple_list_choice	: NAME								{ 
 				  								dtd::MixedContent::ChoosableSet* newSet = new dtd::MixedContent::ChoosableSet(); 
-												newSet->insert( new dtd::ElementReference(rootDTD, "", $1) ); 
+												newSet->insert( new dtd::ElementReference(*rootDTD, "", $1) ); 
 												$$ = newSet;
 			  								}
 			| simple_list_choice PIPE NAME					{ 
-												(dtd::MixedContent::ChoosableSet*)($1)->insert($3); $$ = $1; 
+												(dtd::MixedContent::ChoosableSet*)$$->insert( new dtd::ElementReference(*rootDTD, "", $3 ) ); 
+												$$ = $1; 
 											}
 			;
 
