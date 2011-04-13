@@ -13,8 +13,7 @@
 
 namespace dtd
 {
-class Element;
-class AttributesList;
+class Content;
 class AnyContent;
 class EmptyContent;
 class MixedContent;
@@ -48,8 +47,6 @@ public:
 	}
 
 protected:
-	friend class Element;
-	friend class AttributesList;
 	friend class AnyContent;
 	friend class EmptyContent;
 	friend class MixedContent;
@@ -60,7 +57,7 @@ protected:
 	friend class OptionalContent;
 	friend class RepeatableContent;
 	friend class RepeatedContent;
-	
+
 	virtual void visit(const AnyContent & content) = 0;
 	virtual void visit(const EmptyContent & content) = 0;
 	virtual void visit(const MixedContent & content) = 0;

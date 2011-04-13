@@ -43,12 +43,12 @@ void Sequence::accept(InterfaceDTDVisitor & visitor) const
 	visitor.visit(*this);
 }
 
-Sequence::OrderedContentIterator Sequence::begin() const
+Sequence::const_iterator Sequence::begin() const
 {
 	return _embeddedContent.begin();
 }
 
-Sequence::OrderedContentIterator Sequence::end() const
+Sequence::const_iterator Sequence::end() const
 {
 	return _embeddedContent.end();
 }

@@ -12,6 +12,7 @@
 //--------------------------------------------------- Interfaces utilisées
 #include <iosfwd>
 #include "InterfaceDTDVisitor.hpp"
+#include "AttributesList.hh"
 
 namespace dtd
 {
@@ -29,7 +30,7 @@ public:
 
 	//----------------------------------------------------- Méthodes publiques
 	void writeElement(std::string & ns, const std::string & elementName, 
-						const Content&);
+						const Content & content);
 	void writeAttributes(std::string & ns, const std::string elementName,
 							const AttributesList & attlist);
 

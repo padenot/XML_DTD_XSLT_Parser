@@ -12,15 +12,14 @@
 //--------------------------------------------------- Interfaces utilisées
 #include <string>
 #include "ElementContent.hh"
-#include "InterfaceElement.hpp"
-#include "BadReferenceException.hpp"
+#include "InterfaceNodeVisitor.hpp"
 
 namespace dtd
 {
 class DTD;
 class Element;
 
-class ElementReference: public ElementContent, public InterfaceElement
+class ElementReference: public ElementContent, public xml::InterfaceNodeVisitor
 {
 public:
 	//------------------------------------------------------------- Constantes
@@ -39,26 +38,6 @@ public:
 	virtual std::string ns() const;
 
 	virtual std::string name() const;
-
-	virtual const AttributesList& attributesList() const
-			throw (BadReferenceException);
-	// Mode d'emploi :
-	//	Renvoie les attributes de l'élément référencé. Une exception est lancée en cas
-	//	d'erreur (si l'élément référencé ne peut être retrouvé).
-	// Contrat :
-	//	Aucun.
-
-	virtual const Content& content() const;
-
-	virtual void accept(InterfaceDTDVisitor & visitor) const;
-
-	Element& referenced() throw (BadReferenceException);
-	const Element& referenced() const throw (BadReferenceException);
-	// Mode d'emploi :
-	//	Renvoie l'élément référencé. Une exception est lancée en cas
-	//	d'erreur (si l'élément référencé ne peut être retrouvé).
-	// Contrat :
-	//	Aucun.
 
 	//------------------------------------------------- Surcharge d'opérateurs
 

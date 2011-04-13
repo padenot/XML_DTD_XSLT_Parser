@@ -16,7 +16,6 @@ using namespace std;
 
 //------------------------------------------------------ Include personnel
 #include "OutputDTDVisitor.hh"
-#include "Element.hh"
 #include "AttributesList.hh"
 #include "EmptyContent.hh"
 #include "AnyContent.hh"
@@ -107,14 +106,14 @@ void OutputDTDVisitor::writeAttributes(std::string & ns, const std::string eleme
 							const AttributesList & attlist)
 {
 	_out << OPEN_MARKUP_STR << ATTLIST_MARKUP_NAME_STR
-			<< INSIDE_MARKUP_SPACE_STR << attlist.name() << endl;
+			<< INSIDE_MARKUP_SPACE_STR << elementName << endl;
 
 	_indent += _indentUnit;
-	AttributesList::iterator it;
-	for ( it = attlist.begin(); it != attlist.end() ; it++ )
+	AttributesList::const_iterator it = attlist.begin();
+	for ( it; it != attlist.end() ; it++ )
 	{
 		doIndent();
-		//_out << it. << endl;
+		//_out << it. << endl; TODO
 	}
 	_indent -= _indentUnit;
 
