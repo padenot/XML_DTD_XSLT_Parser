@@ -13,6 +13,7 @@
 
 namespace dtd
 {
+class DTD;
 class Content;
 class AnyContent;
 class EmptyContent;
@@ -47,6 +48,7 @@ public:
 	}
 
 protected:
+	friend class DTD;
 	friend class AnyContent;
 	friend class EmptyContent;
 	friend class MixedContent;
