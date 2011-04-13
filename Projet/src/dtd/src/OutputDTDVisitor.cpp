@@ -91,8 +91,8 @@ void OutputDTDVisitor::doIndent()
 	}
 } //----- Fin de doIndent
 
-void OutputDTDVisitor::writeElement(std::string & ns, const std::string & elementName,
-					const Content& content)
+void OutputDTDVisitor::writeElement(std::string & ns,
+		const std::string & elementName, const Content& content)
 {
 	_out << OPEN_MARKUP_STR << ELEMENT_MARKUP_NAME_STR
 			<< INSIDE_MARKUP_SPACE_STR << elementName
@@ -101,16 +101,15 @@ void OutputDTDVisitor::writeElement(std::string & ns, const std::string & elemen
 	_out << CLOSE_MARKUP_STR << endl;
 }
 
-	
-void OutputDTDVisitor::writeAttributes(std::string & ns, const std::string elementName,
-							const AttributesList & attlist)
+void OutputDTDVisitor::writeAttributes(std::string & ns,
+		const std::string elementName, const AttributesList & attlist)
 {
 	_out << OPEN_MARKUP_STR << ATTLIST_MARKUP_NAME_STR
 			<< INSIDE_MARKUP_SPACE_STR << elementName << endl;
 
 	_indent += _indentUnit;
 	AttributesList::const_iterator it = attlist.begin();
-	for ( it; it != attlist.end() ; it++ )
+	for (; it != attlist.end(); it++)
 	{
 		doIndent();
 		//_out << it. << endl; TODO
@@ -137,7 +136,7 @@ void OutputDTDVisitor::visit(const MixedContent & content)
 	MixedContent::const_iterator it = content.begin();
 	(*it)->accept(*this);
 	++it;
-	for (it; it != content.end(); ++it)
+	for (; it != content.end(); ++it)
 	{
 		_out << MIXED_SEPARATOR_STR;
 		(*it)->accept(*this);
@@ -145,7 +144,7 @@ void OutputDTDVisitor::visit(const MixedContent & content)
 	_out << END_MIXED_STR;
 }
 
-void OutputDTDVisitor::visit(const TextContent & content)
+void OutputDTDVisitor::visit(const TextContent &)
 {
 	_out << TEXT_CONTENT_STR;
 }
