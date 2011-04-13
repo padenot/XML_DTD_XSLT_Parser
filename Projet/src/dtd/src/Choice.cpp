@@ -88,23 +88,32 @@ void Choice::_afterValidation()
 }
 
 bool Choice::_startValidation(CompositeMarkupNode::ChildrenIterator firstToken,
-		CompositeMarkupNode::ChildrenIterator endToken,
-		BrowsableContent* nextStep)
+		CompositeMarkupNode::ChildrenIterator endToken, BrowsableContent*)
 {
 	// Premier appel de validation, aucune alternative de choix n'a
 	//	été validée pour le moment.
-
 	_State & state = _stack.top();
-	// TODO
-	return false;
+	bool matchFound = false;
+
+	// Il faut et suffit que l'une des alternatives soit validée.
+	for (state.nextChoosable = _choosable.begin(); !matchFound
+			&& state.nextChoosable != _choosable.end(); ++state.nextChoosable)
+	{
+		matchFound = _browseDown(**state.nextChoosable, firstToken, endToken,
+				this);
+	}
+
+	return matchFound;
 }
 
 bool Choice::_continueValidation(
 		xml::CompositeMarkupNode::ChildrenIterator currentToken)
 {
 	_State & state = _stack.top();
-	// TODO
-	return false;
+
+	// L'une des alternatives de choix a été validée. Il faut que la suite
+	//	de la validation se passe bien, et le choix sera définitif.
+	return _browseUp(state.nextStep, currentToken, state.endToken);
 }
 
 } // namespace dtd

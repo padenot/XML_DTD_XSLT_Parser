@@ -58,10 +58,6 @@ public:
 protected:
 	QuantifiableContent & _content;
 
-	struct _State: public QuantifiableContent::_State
-	{
-		// TODO
-	};
 	typedef std::stack<_State> _StatesStack;
 	_StatesStack _stack;
 

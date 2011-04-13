@@ -14,6 +14,7 @@ using namespace std;
 
 //------------------------------------------------------ Include personnel
 #include "ElementReference.hh"
+#include "Element.hh"
 #include "InterfaceDTDVisitor.hpp"
 using namespace xml;
 
@@ -30,9 +31,48 @@ namespace dtd
 //{
 //}
 
+bool ElementReference::matches(xml::Node& node)
+{
+	node.accept(*this);
+
+	return _matchResult;
+}
+
+std::string ElementReference::ns() const
+{
+	return _namespace;
+}
+
+std::string ElementReference::name() const
+{
+	return _name;
+}
+
+const AttributesList& ElementReference::attributesList() const
+		throw (BadReferenceException)
+{
+	return referenced().attributesList();
+}
+
+const Content& ElementReference::content() const
+{
+	return referenced().content();
+}
+
 void ElementReference::accept(InterfaceDTDVisitor & visitor) const
 {
 	visitor.visit(*this);
+}
+
+Element& ElementReference::referenced() throw (BadReferenceException)
+{
+	// TODO
+}
+
+const Element& ElementReference::referenced() const
+		throw (BadReferenceException)
+{
+	// TODO
 }
 
 //------------------------------------------------- Surcharge d'opérateurs
@@ -66,9 +106,7 @@ bool ElementReference::_startValidation(
 	}
 	else
 	{
-		(*firstToken)->accept(*this);
-
-		if (_validationResult)
+		if (matches(**firstToken))
 		{
 			// Le jeton est consommé.
 			++firstToken;
@@ -85,17 +123,17 @@ bool ElementReference::_startValidation(
 
 void ElementReference::visit(const TextNode&)
 {
-	_validationResult = false;
+	_matchResult = false;
 }
 
 void ElementReference::visit(const MarkupNode& node)
 {
-	_validationResult = (node.ns() == _namespace && node.name() == _name);
+	_matchResult = (node.ns() == _namespace && node.name() == _name);
 }
 
 void ElementReference::visit(const CompositeMarkupNode& node)
 {
-	_validationResult = (node.ns() == _namespace && node.name() == _name);
+	_matchResult = (node.ns() == _namespace && node.name() == _name);
 }
 
 } // namespace dtd

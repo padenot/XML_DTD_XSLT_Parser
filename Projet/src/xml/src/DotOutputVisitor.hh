@@ -53,6 +53,8 @@ public:
 	//	Libère les éventuelles ressources allouées par le visiteur.
 	// Contrat :
 	//	Aucun.
+	
+	
 
 protected:
 	static const std::string GRAPH_TYPE;
@@ -61,6 +63,7 @@ protected:
 	std::ostream& _out;
 	std::string _document;
 	int textNodesCount;
+	int _nodesCounter;
 
 
 	void writeAttributes(const MarkupNode& node);
@@ -78,6 +81,10 @@ protected:
 	//	Les noeuds inclus sont indentés par rapport à leur ancètre.
 	// Contrat :
 	//	Aucun.
+	
+	void declareNode(const Node& node, std::string label);
+	void writeId(const Node& node);
+
 
 };
 

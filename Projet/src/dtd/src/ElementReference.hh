@@ -34,13 +34,19 @@ public:
 	// Contrat :
 	//	
 
-	virtual bool matches(xml::Node& node) const;
+	virtual bool matches(xml::Node& node);
 
 	virtual std::string ns() const;
 
 	virtual std::string name() const;
 
-	virtual const AttributesList& attributesList() const;
+	virtual const AttributesList& attributesList() const
+			throw (BadReferenceException);
+	// Mode d'emploi :
+	//	Renvoie les attributes de l'élément référencé. Une exception est lancée en cas
+	//	d'erreur (si l'élément référencé ne peut être retrouvé).
+	// Contrat :
+	//	Aucun.
 
 	virtual const Content& content() const;
 
@@ -75,7 +81,7 @@ protected:
 	std::string _namespace;
 	std::string _name;
 
-	bool _validationResult;
+	bool _matchResult;
 	// Variable temporaire utilisée pour transmettre un retour booléen
 	//	lors d'un appel à visit()
 
