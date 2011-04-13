@@ -10,6 +10,8 @@
 #include "OutputVisitor.hh"
 #include "DotOutputVisitor.hh"
 
+#include "Content.hh"
+
 int xmlparse(void);
 int dtdparse(void);
 
@@ -22,6 +24,7 @@ int exportMode;
 
 using namespace std;
 
+/**********************************************************************************/
 int handleDTD(char* filename) {
 	int err;
 	FILE* inputFile = (FILE*)fopen(filename, "r");
@@ -42,6 +45,16 @@ int handleDTD(char* filename) {
 	return 0;
 }
 
+dtd::Content* handleQuantifier(dtd::Content* currentContent, int quantifier) {
+/*	if( quantifier == QTF_NONE ) return currentContent;
+	switch(quantifier) {
+		case (QTF_PLUS):
+			return new dtd::RepeatedContent();
+	}*/
+}
+
+/**********************************************************************************/
+
 xml::CompositeMarkupNode* handleElement(xml::CompositeMarkupNode** proxy, string NS, string name, xml::MarkupNode::Attributes attbs, list<void*>* children) {
 	xml::CompositeMarkupNode::Children currentChildren
 		=  *((list<xml::Node*>*)children);
@@ -51,6 +64,7 @@ xml::CompositeMarkupNode* handleElement(xml::CompositeMarkupNode** proxy, string
 
 	return  new xml::CompositeMarkupNode(newProxy, NS, name, attbs, *proxy, currentChildren);
 }
+/**********************************************************************************/
 
 int main(int argc, char** argv) {
 	int err;

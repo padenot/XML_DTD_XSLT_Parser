@@ -12,6 +12,16 @@
 
 	#include "DTD.hh"
 
+	#include "AttributesList.hh"
+	#include "Attribute.hh"
+
+	#include "EmptyContent.hh"
+	#include "AnyContent.hh"
+
+	#include "MixedContent.hh"
+	#include "TextContent.hh"
+	#include "ElementReference.hh"
+
 	using namespace std;
 
 	void dtderror(char *msg);
@@ -24,37 +34,72 @@
 %union { 
 	char *s; 
 
-	std::list<void*>* clist;
-	int qtf;
+	int t_quantifier;
+
+	std::list<void*>* t_attlist; /* list<Attribute*> */
+	void* t_attribut;
+
+	void* t_any_or_empty;
+
+	void* t_mixed;
+	void* t_simple_list_choice;
 }
 
 %token ELEMENT ATTLIST CLOSE OPENPAR CLOSEPAR COMMA PIPE FIXED EMPTY ANY PCDATA AST QMARK PLUS CDATA NAME TOKENTYPE DECLARATION STRING
 
 %type <s> NAME TOKENTYPE DECLARATION STRING
-%type <clist> choice_or_sequence
-%type <qtf> quantifier
+
+%type <t_quantifier> quantifier
+
+%type <t_attlist> att_definition
+%type <t_attribut> attribut 
+
+%type <t_any_or_empty> any_or_empty
+
+%type <t_mixed> mixed
+%type <t_simple_list_choice> simple_list_choice
 %%
 
-root			: dtd
+root			: dtd 						
     			;
 
 dtd			: dtd attlist CLOSE					
 			| dtd element CLOSE					
-   			| /* empty */                     
+   			| /* empty */
    			;
 
-attlist			: ATTLIST NAME att_definition
+attlist			: ATTLIST NAME att_definition					{ rootDTD->addAttributesList("", $2, *( list< dtd::Attribute* > * )($3) ); }  
 			;
 
-element 		: ELEMENT NAME choice_or_sequence quantifier
-			| ELEMENT NAME OPENPAR primary_type CLOSEPAR 		
+element 		: ELEMENT NAME mixed 						{ rootDTD->addElement("", $2, *(dtd::Content*)($3) ); }
+			| ELEMENT NAME any_or_empty 					{ rootDTD->addElement("", $2, *(dtd::Content*)($3) ); }
+			| ELEMENT NAME choice_or_sequence quantifier			{ printf("Sequence ou choix\n"); }
+			| ELEMENT NAME OPENPAR primary_type CLOSEPAR 			{ printf("primary type\n"); }
 			;
 
-att_definition 		: att_definition attribut
-			| /* empty */
+any_or_empty		: EMPTY								{ $$ = new dtd::EmptyContent(); }
+			| ANY								{ $$ = new dtd::AnyContent(); }
 			;
 
-attribut 		: NAME att_type defaut_declaration
+mixed			: OPENPAR PCDATA PIPE simple_list_choice CLOSEPAR quantifier 	{ $$ = new dtd::MixedContent( *new dtd::TextContent(), *(dtd::MixedContent::ChoosableSet*)($4) );  }
+			| OPENPAR PCDATA CLOSEPAR quantifier				{ $$ = new dtd::MixedContent( *new dtd::TextContent(), *new dtd::MixedContent::ChoosableSet() );  }
+			;
+
+simple_list_choice	: NAME								{ 
+				  								dtd::MixedContent::ChoosableSet* newSet = new dtd::MixedContent::ChoosableSet(); 
+												newSet->insert( new dtd::ElementReference(rootDTD, "", $1) ); 
+												$$ = newSet;
+			  								}
+			| simple_list_choice PIPE NAME					{ 
+												(dtd::MixedContent::ChoosableSet*)($1)->insert($3); $$ = $1; 
+											}
+			;
+
+att_definition 		: att_definition attribut					{ $1->push_back( (dtd::Attribute*)($2) ); $$ = $1; } 
+			| /* empty */							{ $$ = (list<void*>*)( new list<dtd::Attribute*>() ); }
+			;
+
+attribut 		: NAME att_type defaut_declaration				{ $$ = new dtd::Attribute($1); }
 			;
 
 att_type 		: CDATA    
