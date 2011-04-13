@@ -19,3 +19,6 @@ test: all
 	
 $(BINPATH) :
 	mkdir $@
+
+mrproper:
+	@rm $(BINPATH)/*
