@@ -110,10 +110,10 @@ void OutputDTDVisitor::writeAttributes(std::string & ns, const std::string eleme
 
 	_indent += _indentUnit;
 	AttributesList::const_iterator it = attlist.begin();
-	for ( it; it != attlist.end() ; it++ )
+	for (; it != attlist.end() ; it++ )
 	{
 		doIndent();
-		//_out << it. << endl; TODO
+		_out << (*it)->name() << " CDATA #IMPLIED" << endl;
 	}
 	_indent -= _indentUnit;
 
