@@ -26,7 +26,7 @@ public:
 
 	//------------------------------------------------------------------ Types
 	typedef std::set<ElementContent*> ChoosableSet;
-	typedef _ChoosableSet::const_iterator ChoosableSetIterator;
+	typedef _ChoosableSet::const_iterator const_iterator;
 
 	//----------------------------------------------------- Méthodes publiques
 	// type Méthode ( liste des paramètres );
@@ -39,7 +39,7 @@ public:
 
 	virtual void accept(InterfaceDTDVisitor & visitor) const;
 	
-	ChoosableSetIterator begin() const;
+	const_iterator begin() const;
 		// Mode d'emploi :
 	//	Renvoie un itérateur vers le premier enfant du contenu.
 	//	La méthode est compatible avec la STL.
@@ -49,7 +49,7 @@ public:
 	//	L'itérateur n'est plus valable en cas de modification du contenu, de
 	//	même que les itérateurs obtenus par son intermédiaire.
 	
-	ChoosableSetIterator end() const;
+	const_iterator end() const;
 	// Mode d'emploi :
 	//	Renvoie un itérateur pointant juste après le dernier enfant du contenu.
 	//	La méthode est compatible avec la STL.

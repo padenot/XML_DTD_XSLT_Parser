@@ -26,7 +26,7 @@ public:
 
 	//------------------------------------------------------------------ Types
 	typedef std::list<ElementContent*> OrderedContent;
-	typedef _OrderedContent::const_iterator OrderedContentIterator;
+	typedef _OrderedContent::const_iterator const_iterator;
 	//----------------------------------------------------- Méthodes publiques
 	// type Méthode ( liste des paramètres );
 	// Mode d'emploi :
@@ -38,7 +38,7 @@ public:
 
 	virtual void accept(InterfaceDTDVisitor & visitor) const;
 	
-	OrderedContentIterator begin() const;
+	const_iterator begin() const;
 	// Mode d'emploi :
 	//	Renvoie un itérateur vers le premier enfant de la sequence.
 	//	La méthode est compatible avec la STL.
@@ -48,7 +48,7 @@ public:
 	//	L'itérateur n'est plus valable en cas de modification de la sequence, de
 	//	même que les itérateurs obtenus par son intermédiaire.
 	
-	OrderedContentIterator end() const;
+	const_iterator end() const;
 	// Mode d'emploi :
 	//	Renvoie un itérateur pointant juste après le dernier enfant de la se-
 	//  quence.

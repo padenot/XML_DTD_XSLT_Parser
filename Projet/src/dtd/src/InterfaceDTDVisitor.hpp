@@ -60,8 +60,7 @@ protected:
 	friend class OptionalContent;
 	friend class RepeatableContent;
 	friend class RepeatedContent;
-	virtual void visit(const Element & element) = 0;
-	virtual void visit(const AttributesList & attlist) = 0;
+	
 	virtual void visit(const AnyContent & content) = 0;
 	virtual void visit(const EmptyContent & content) = 0;
 	virtual void visit(const MixedContent & content) = 0;

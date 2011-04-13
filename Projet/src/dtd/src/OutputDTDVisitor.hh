@@ -28,6 +28,10 @@ public:
 	//------------------------------------------------------------------ Types
 
 	//----------------------------------------------------- Méthodes publiques
+	void writeElement(std::string & ns, const std::string & elementName, 
+						const Content&);
+	void writeAttributes(std::string & ns, const std::string elementName,
+							const AttributesList & attlist);
 
 	//------------------------------------------------- Surcharge d'opérateurs
 
@@ -80,8 +84,6 @@ protected:
 	// Contrat :
 	//	Aucun.
 
-	virtual void visit(const Element & element);
-	virtual void visit(const AttributesList & attlist);
 	virtual void visit(const EmptyContent & content);
 	virtual void visit(const AnyContent & content);
 	virtual void visit(const MixedContent & content);
