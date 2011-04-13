@@ -9,7 +9,7 @@ bison: src/dtd.y src/xml.y
 	@bison -p xml -o src/xml.tab.c --defines=src/xml.tab.h src/xml.y
 
 parser: flex bison Makefile
-	@g++ -Wno-write-strings -g -DYYDEBUG=1 -o bin/parser src/dtd.yy.c src/dtd.tab.c src/xml.yy.c src/xml.tab.c src/main.c ../xml/bin/libxmlstruct.a
+	@g++ -Wno-write-strings -g -DYYDEBUG=1 -I../xml/src/ -I../dtd/src/ -o bin/parser src/dtd.yy.c src/dtd.tab.c src/xml.yy.c src/xml.tab.c src/main.c ../xml/bin/libxmlstruct.a ../dtd/bin/libdtdstruct.a
 
 test: parser 
 	@echo "TESTING Parser..."
@@ -19,7 +19,11 @@ test: parser
 	@cd bin && ./parser 'rap4.xml' &>/dev/null && echo "rap4.xml : OK"
 
 clean:
-	@rm -rf bin/parser bin/parser.dSYM/
+	rm -rf bin/parser bin/parser.dSYM/
+	rm -rf ../xml/bin/libxmlstruct.a
+	rm -rf ../dtd/bin/libdtdstruct.a
+	cd ../xml/ && make mrproper && make
+	cd ../dtd/ && make mrproper && make
 	
 mrproper: clean
 	@rm src/dtd.tab.c src/dtd.tab.h

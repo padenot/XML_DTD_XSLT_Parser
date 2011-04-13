@@ -28,6 +28,7 @@ public:
 
 	//------------------------------------------------------------------ Types
 	typedef Choice::ChoosableSet ChoosableSet;
+	typedef ChoosableSet::const_iterator const_iterator;
 
 	//----------------------------------------------------- Méthodes publiques
 	// type Méthode ( liste des paramètres );
@@ -39,6 +40,25 @@ public:
 	virtual bool validate(const xml::CompositeMarkupNode & node);
 
 	virtual void accept(InterfaceDTDVisitor & visitor) const;
+	const_iterator begin() const;
+		// Mode d'emploi :
+	//	Renvoie un itérateur vers le premier enfant du contenu.
+	//	La méthode est compatible avec la STL.
+	//	L'itérateur pointe vers un pointeur (l'accès aux méthodes des fils
+	//	se fait donc de la façon suivante : (*it)->foo()).
+	// Contrat :
+	//	L'itérateur n'est plus valable en cas de modification du contenu, de
+	//	même que les itérateurs obtenus par son intermédiaire.
+	
+	const_iterator end() const;
+	// Mode d'emploi :
+	//	Renvoie un itérateur pointant juste après le dernier enfant du contenu.
+	//	La méthode est compatible avec la STL.
+	//	L'itérateur pointe vers un pointeur (l'accès aux méthodes des fils
+	//	se fait donc de la façon suivante : (*it)->foo()).
+	// Contrat :
+	//	L'itérateur n'est plus valable en cas de modification du noeud, de
+	//	même que les itérateurs obtenus par son intermédiaire.
 
 	//------------------------------------------------- Surcharge d'opérateurs
 

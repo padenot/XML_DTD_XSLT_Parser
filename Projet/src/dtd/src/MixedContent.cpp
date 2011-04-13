@@ -44,6 +44,16 @@ void MixedContent::accept(InterfaceDTDVisitor & visitor) const
 	visitor.visit(*this);
 }
 
+MixedContent::const_iterator MixedContent::begin() const
+{
+	return _choice.begin();
+}
+
+MixedContent::const_iterator MixedContent::end() const
+{
+	return _choice.end();
+}
+
 //------------------------------------------------- Surcharge d'opérateurs
 
 
