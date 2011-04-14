@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><templates><template autoinsert="false" context="org.eclipse.cdt.core.cxxHeader.contenttype_context" deleted="false" description="Modèle INSA-IF pour une interface C++ d'une classe" enabled="true" name="Header Classe C++ INSA-IF H4215 XML Parser">/*************************************************************************
+ * ${file_base}  -  «Description»
+ * -------------------
+ * Début      : ${date}
+ * Auteur(s)  : H4215
+ *************************************************************************/
+
+//---------- Interface de la classe &lt;${file_base}&gt; (fichier ${file_name}) ------
+#if ! defined ( ${include_guard_symbol} )
+#define ${include_guard_symbol}
+
+//--------------------------------------------------- Interfaces utilisées
+
+namespace dtd
+{
+
+class ${file_base}
+{
+public:
+//------------------------------------------------------------- Constantes 
+
+//------------------------------------------------------------------ Types 
+
+//----------------------------------------------------- Méthodes publiques
+	// type Méthode ( liste des paramètres );
+	// Mode d'emploi :
+	//	
+	// Contrat :
+	//	
+
+
+//------------------------------------------------- Surcharge d'opérateurs
+
+
+//-------------------------------------------- Constructeurs - destructeur
+	${file_base} ( );
+	// Mode d'emploi :
+	//	TODO
+	// Contrat :
+	//	TODO
+
+    virtual ~${file_base} ( );
+	// Mode d'emploi :
+	//	TODO
+	// Contrat :
+	//	TODO
+
+protected:
+
+};
+
+} // namespace dtd
+
+#endif // ${include_guard_symbol}
+</template><template autoinsert="false" context="org.eclipse.cdt.core.cxxSource.contenttype_context" deleted="false" description="Modèle INSA-IF pour une réalisation C++ d'une classe" enabled="true" name="Classe C++ INSA-IF H4215 XML Parser">/*************************************************************************
+ * ${file_base}  -  «Description»
+ * -------------------
+ * Début      : ${date}
+ * Auteur(s)  : H4215
+ *************************************************************************/
+
+//---------- Réalisation de la classe &lt;${file_base}&gt; (fichier ${file_name}) -------
+
+//---------------------------------------------------------------- INCLUDE
+
+//-------------------------------------------------------- Include système
+using namespace std;
+
+//------------------------------------------------------ Include personnel
+#include "${file_base}.hh"
+
+namespace dtd
+{
+//------------------------------------------------------------- Constantes
+
+//----------------------------------------------------------------- PUBLIC
+
+//----------------------------------------------------- Méthodes publiques
+// type ${file_base}::Méthode ( liste des paramètres )
+// Algorithme :
+//	
+//{
+//}
+
+
+//------------------------------------------------- Surcharge d'opérateurs
+
+
+//-------------------------------------------- Constructeurs - destructeur
+${file_base}::${file_base} ( )
+{
+	//TODO
+}
+
+
+${file_base}::~${file_base} ( )
+{
+	//TODO
+}
+
+
+//------------------------------------------------------------------ PRIVE
+
+//----------------------------------------------------- Méthodes protégées
+
+} // namespace dtd</template></templates>
