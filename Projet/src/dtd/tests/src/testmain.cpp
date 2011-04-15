@@ -14,9 +14,9 @@ using namespace std;
 #include<sstream>
 
 //------------------------------------------------------ Include personnel
+#include "OutputVisitor.hh"
 #include "OutputDTDVisitor.hh"
 #include "DTD.hh"
-#include "Element.hh"
 #include "AttributesList.hh"
 #include "EmptyContent.hh"
 #include "MixedContent.hh"
@@ -29,44 +29,106 @@ using namespace std;
 using namespace xml;
 using namespace dtd;
 
+#include "Builder.hh"
+#include "TrivialBuilder.hh"
+#include "SimpleBuilder.hh"
+
 //------------------------------------------------------------- Constantes
+const string RESULT_OK = ": ok";
+const string RESULT_FAIL = ": FAIL !";
+const string MAJOR_SEP =
+		"=================================================================";
+const string MINOR_SEP =
+		"------------------------------------------------------------";
 
 //-------------------------------------------------------------- Fonctions
-DTD* buildDTD()
+static bool test(ostream& out, unsigned int testNumber, Builder& builder)
 {
-	const std::string ns = "ns";
-	const std::string element1 = "note";
-	const std::string element2 = "to";
-	const std::string att1 = "type";
-	const std::string att2 = "truc";
-	
-	DTD * dtd = new DTD();
-	//elements
-/*	
-	ElementReference * elementRef1 ElementReference( *dtd, ns, att1);
-	ElementReference * elementRef2 ElementReference( *dtd, ns, att2);	
-	OrderedContent list = 
-	Sequence * seq = new Sequence();
-	Sequence(const OrderedContent & embeddedContent);
-	
-	dtd.addElement(ns, element1, );
-	dtd.addElement(ns, element2, );
-	*/
-	//attributs
-	return dtd;
+	int count;
+	bool failed = false;
+	OutputDTDVisitor outputDTD(cout);
+	OutputVisitor outputNode(cout);
+	DTD* dtd = new DTD();
+	list<Node*> validTrees = builder.buildValidTrees();
+	list<Node*> invalidTrees = builder.buildInvalidTrees();
+
+	out << MAJOR_SEP << endl << "Starting test #" << setw(3) << testNumber
+			<< endl << MINOR_SEP << endl;
+
+	builder.buildDTD(*dtd);
+
+	dtd->accept(outputDTD);
+
+	count = 1;
+	for (list<Node*>::iterator it = validTrees.begin(); it != validTrees.end(); ++it)
+	{
+		//(*it)->accept(outputNode);
+		out << setw(15) << "Valid node #" << setw(3) << count;
+		if (dtd->isValid(**it))
+		{
+			out << RESULT_OK << endl;
+		}
+		else
+		{
+			out << RESULT_FAIL << endl;
+			failed = true;
+		}
+		++count;
+	}
+
+	count = 1;
+	for (list<Node*>::iterator it = invalidTrees.begin(); it
+			!= invalidTrees.end(); ++it)
+	{
+		//(*it)->accept(outputNode);
+		out << setw(15) << "Invalid node #" << setw(3) << count;
+		if (dtd->isValid(**it))
+		{
+			out << RESULT_FAIL << endl;
+			failed = true;
+		}
+		else
+		{
+			out << RESULT_OK << endl;
+		}
+		++count;
+	}
+
+	out << "TEST #" << setw(3) << testNumber;
+	if (failed)
+	{
+		out << ": FAILURE";
+	}
+	else
+	{
+		out << ": ok";
+	}
+	out << endl;
+
+	delete dtd;
+	Builder::releaseTrees(invalidTrees);
+	Builder::releaseTrees(validTrees);
+
+	return !failed;
 }
 
-bool test01()
+static bool test01(ostream& out)
 {
-	DTD* dtd = buildDTD();
-	OutputDTDVisitor visitor(cout);
-	dtd->accept(visitor);
-	delete dtd;
-	return true;
+	TrivialBuilder builder;
+	return test(out, 1, builder);
+}
+
+static bool test02(ostream& out)
+{
+	SimpleBuilder builder;
+	return test(out, 2, builder);
 }
 
 int main()
 {
-	return !test01();
+	if (test01(cout) && test02(cout))
+		return 0;
+	else
+		return -1;
 }
 

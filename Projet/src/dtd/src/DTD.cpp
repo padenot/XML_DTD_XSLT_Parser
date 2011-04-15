@@ -11,6 +11,9 @@
 
 //-------------------------------------------------------- Include système
 using namespace std;
+#ifdef DTD_VALIDATION_TRACE
+#include <iostream>
+#endif
 
 //------------------------------------------------------ Include personnel
 #include "DTD.hh"
@@ -75,8 +78,9 @@ void DTD::addAttributesList(const std::string & ns,
 	{
 		// L'attribute list n'existe pas encore, il faut la créer
 		pair<_AttributesLists::iterator, bool> insertResult =
-				_attributesLists.insert(_AttributesLists::value_type(
-						insertedId, AttributesList()));
+				_attributesLists.insert(
+						_AttributesLists::value_type(insertedId,
+								AttributesList()));
 		attList = insertResult.first;
 	}
 
@@ -102,8 +106,8 @@ Content * DTD::getElement(std::string ns, std::string name) const
 
 const AttributesList * DTD::getAttributesList(std::string ns, std::string name) const
 {
-	_AttributesLists::const_iterator it = _attributesLists.find(_ElementId(ns,
-			name));
+	_AttributesLists::const_iterator it = _attributesLists.find(
+			_ElementId(ns, name));
 
 	if (it == _attributesLists.end())
 	{
@@ -154,7 +158,7 @@ DTD::~DTD()
 //----------------------------------------------------- Méthodes protégées
 void DTD::visit(const TextNode&)
 // Un noeud texte est toujours valide.
-
+// TODO : prendre en compte le cas où l'arbre n'est qu'un textNode
 {
 	_lastNodeIsValid = true;
 }
@@ -162,29 +166,46 @@ void DTD::visit(const TextNode&)
 void DTD::visit(const MarkupNode& node)
 // Un noeud balise est valide si sa structure correspond
 //	à celle attendue.
-
 {
 	Content* content = getElement(node.ns(), node.name());
 
+#ifdef DTD_VALIDATION_TRACE
+	cerr << endl
+	<< "Validating (" << node.ns() <<"," << node.name() << ")" << endl;
+#endif
 	if (content == 0)
 	{
+#ifdef DTD_VALIDATION_TRACE
+		cerr << "(" << node.ns() <<"," << node.name() << ") was not found." << endl;
+#endif
 		_lastNodeIsValid = false;
 	}
 	else
 	{
 		_lastNodeIsValid = content->validate(node) && checkAttributes(node);
+#ifdef DTD_VALIDATION_TRACE
+		cerr << "(" << node.ns() <<"," << node.name() << ") validation result: "
+		<< boolalpha << _lastNodeIsValid << endl;
+#endif
 	}
 }
 
 void DTD::visit(const CompositeMarkupNode& node)
 // Un noeud composite est valide si sa structure correspond
 //	à celle attendue et si ses enfants sont valides.
-
 {
 	Content* content = getElement(node.ns(), node.name());
 
+#ifdef DTD_VALIDATION_TRACE
+	cerr << endl
+	<< "Validating (" << node.ns() <<"," << node.name() << ")" << endl;
+#endif
+
 	if (content == 0)
 	{
+#ifdef DTD_VALIDATION_TRACE
+		cerr << "(" << node.ns() <<"," << node.name() << ") was not found." << endl;
+#endif
 		_lastNodeIsValid = false;
 	}
 	else
@@ -194,8 +215,12 @@ void DTD::visit(const CompositeMarkupNode& node)
 		for (CompositeMarkupNode::ChildrenIterator it = node.begin(); _lastNodeIsValid
 				&& it != node.end(); ++it)
 		{
-			_lastNodeIsValid = isValid(node);
+			_lastNodeIsValid = isValid(**it);
 		}
+#ifdef DTD_VALIDATION_TRACE
+		cerr << "(" << node.ns() <<"," << node.name() << ") validation result: "
+		<< boolalpha << _lastNodeIsValid << endl;
+#endif
 	}
 }
 

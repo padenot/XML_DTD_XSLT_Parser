@@ -11,6 +11,10 @@
 
 //-------------------------------------------------------- Include système
 using namespace std;
+#ifdef DTD_VALIDATION_TRACE
+#include <iostream>
+#include <typeinfo>
+#endif
 
 //------------------------------------------------------ Include personnel
 #include "BrowsableContent.hh"
@@ -69,9 +73,18 @@ bool BrowsableContent::_newValidation(
 {
 	bool result;
 
+#ifdef DTD_VALIDATION_TRACE
+	cerr << "New validation on: " << typeid(*this).name() << endl;
+#endif
+
 	_beforeValidation(firstToken, endToken, nextStep);
-	result = _continueValidation(firstToken);
+	result = _startValidation(firstToken, endToken, nextStep);
 	_afterValidation();
+
+#ifdef DTD_VALIDATION_TRACE
+	cerr << "End validation on: " << typeid(*this).name() << ", result: "
+	<< boolalpha << result << endl;
+#endif
 
 	return result;
 }
