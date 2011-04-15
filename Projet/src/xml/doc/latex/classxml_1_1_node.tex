@@ -1,0 +1,127 @@
+\hypertarget{classxml_1_1_node}{
+\section{Référence de la classe xml::Node}
+\label{classxml_1_1_node}\index{xml::Node@{xml::Node}}
+}
+
+
+{\ttfamily \#include $<$Node.hh$>$}
+
+
+
+Graphe d'héritage de xml::Node:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=600pt]{classxml_1_1_node__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Graphe de collaboration de xml::Node:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=600pt]{classxml_1_1_node__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{classxml_1_1_node_a332d84602db92c390e57eeec79c4b02d}{accept} (\hyperlink{classxml_1_1_interface_node_visitor}{InterfaceNodeVisitor} \&visitor) const =0
+\item 
+\hyperlink{classxml_1_1_node}{Node} $\ast$ \hyperlink{classxml_1_1_node_a7b316f796ec1a98f127b6f9e0802b579}{parent} () const 
+\item 
+\hyperlink{classxml_1_1_node_a79b919ce53463d9b63ad38b6bb934c63}{Node} (\hyperlink{classxml_1_1_composite_markup_node}{CompositeMarkupNode} $\ast$$\ast$parent)
+\item 
+virtual \hyperlink{classxml_1_1_node_a4529378ae3f081120e846c9d44154f92}{$\sim$Node} ()
+\end{DoxyCompactItemize}
+\subsection*{Attributs protégés}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classxml_1_1_composite_markup_node}{CompositeMarkupNode} $\ast$$\ast$ \hyperlink{classxml_1_1_node_afd48d71b81dba400788d0a0367b5c478}{\_\-parent}
+\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+
+
+Définition à la ligne 26 du fichier Node.hh.
+
+
+
+\subsection{Documentation des constructeurs et destructeur}
+\hypertarget{classxml_1_1_node_a79b919ce53463d9b63ad38b6bb934c63}{
+\index{xml::Node@{xml::Node}!Node@{Node}}
+\index{Node@{Node}!xml::Node@{xml::Node}}
+\subsubsection[{Node}]{\setlength{\rightskip}{0pt plus 5cm}xml::Node::Node (
+\begin{DoxyParamCaption}
+\item[{{\bf CompositeMarkupNode} $\ast$$\ast$}]{ parent}
+\end{DoxyParamCaption}
+)}}
+\label{classxml_1_1_node_a79b919ce53463d9b63ad38b6bb934c63}
+
+
+Définition à la ligne 45 du fichier Node.cpp.
+
+\hypertarget{classxml_1_1_node_a4529378ae3f081120e846c9d44154f92}{
+\index{xml::Node@{xml::Node}!$\sim$Node@{$\sim$Node}}
+\index{$\sim$Node@{$\sim$Node}!xml::Node@{xml::Node}}
+\subsubsection[{$\sim$Node}]{\setlength{\rightskip}{0pt plus 5cm}xml::Node::$\sim$Node (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classxml_1_1_node_a4529378ae3f081120e846c9d44154f92}
+
+
+Définition à la ligne 51 du fichier Node.cpp.
+
+
+
+\subsection{Documentation des fonctions membres}
+\hypertarget{classxml_1_1_node_a332d84602db92c390e57eeec79c4b02d}{
+\index{xml::Node@{xml::Node}!accept@{accept}}
+\index{accept@{accept}!xml::Node@{xml::Node}}
+\subsubsection[{accept}]{\setlength{\rightskip}{0pt plus 5cm}virtual void xml::Node::accept (
+\begin{DoxyParamCaption}
+\item[{{\bf InterfaceNodeVisitor} \&}]{ visitor}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}
+\label{classxml_1_1_node_a332d84602db92c390e57eeec79c4b02d}
+
+
+Implémenté dans \hyperlink{classxml_1_1_composite_markup_node_a6c61880592cc2e911517bb3e54c3c987}{xml::CompositeMarkupNode}, \hyperlink{classxml_1_1_markup_node_ae70b538ce71b427c1ea552b0b41c3b34}{xml::MarkupNode}, et \hyperlink{classxml_1_1_text_node_ac918f8f74e141690e18cd8e23d174996}{xml::TextNode}.
+
+\hypertarget{classxml_1_1_node_a7b316f796ec1a98f127b6f9e0802b579}{
+\index{xml::Node@{xml::Node}!parent@{parent}}
+\index{parent@{parent}!xml::Node@{xml::Node}}
+\subsubsection[{parent}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Node} $\ast$ xml::Node::parent (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}
+\label{classxml_1_1_node_a7b316f796ec1a98f127b6f9e0802b579}
+
+
+Définition à la ligne 33 du fichier Node.cpp.
+
+
+
+\subsection{Documentation des données membres}
+\hypertarget{classxml_1_1_node_afd48d71b81dba400788d0a0367b5c478}{
+\index{xml::Node@{xml::Node}!\_\-parent@{\_\-parent}}
+\index{\_\-parent@{\_\-parent}!xml::Node@{xml::Node}}
+\subsubsection[{\_\-parent}]{\setlength{\rightskip}{0pt plus 5cm}{\bf CompositeMarkupNode}$\ast$$\ast$ {\bf xml::Node::\_\-parent}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{classxml_1_1_node_afd48d71b81dba400788d0a0367b5c478}
+
+
+Définition à la ligne 67 du fichier Node.hh.
+
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants :\begin{DoxyCompactItemize}
+\item 
+src/\hyperlink{_node_8hh}{Node.hh}\item 
+src/\hyperlink{_node_8cpp}{Node.cpp}\end{DoxyCompactItemize}

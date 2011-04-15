@@ -1,0 +1,153 @@
+\hypertarget{classxml_1_1_interface_node_visitor}{
+\section{Référence de la classe xml::InterfaceNodeVisitor}
+\label{classxml_1_1_interface_node_visitor}\index{xml::InterfaceNodeVisitor@{xml::InterfaceNodeVisitor}}
+}
+
+
+{\ttfamily \#include $<$InterfaceNodeVisitor.hpp$>$}
+
+
+
+Graphe d'héritage de xml::InterfaceNodeVisitor:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=400pt]{classxml_1_1_interface_node_visitor__inherit__graph}
+\end{center}
+\end{figure}
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+virtual \hyperlink{classxml_1_1_interface_node_visitor_a53c5fa9a736af1450bbc3d95feffe94a}{$\sim$InterfaceNodeVisitor} ()
+\end{DoxyCompactItemize}
+\subsection*{Fonctions membres protégées}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{classxml_1_1_interface_node_visitor_a22a8a333e5cf2da1f1ac9f8f1f376a89}{visit} (const \hyperlink{classxml_1_1_text_node}{TextNode} \&node)=0
+\item 
+virtual void \hyperlink{classxml_1_1_interface_node_visitor_a53b33aabb8a79d4b1715c7664671d326}{visit} (const \hyperlink{classxml_1_1_markup_node}{MarkupNode} \&node)=0
+\item 
+virtual void \hyperlink{classxml_1_1_interface_node_visitor_afd6306ffd03380f21f436234b314c34d}{visit} (const \hyperlink{classxml_1_1_composite_markup_node}{CompositeMarkupNode} \&node)=0
+\end{DoxyCompactItemize}
+\subsection*{Amis}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classxml_1_1_interface_node_visitor_abd4faab11b504920cd6f8af02104143c}{TextNode}
+\item 
+class \hyperlink{classxml_1_1_interface_node_visitor_ac2a462e7a005c065f6778ccc0be88931}{MarkupNode}
+\item 
+class \hyperlink{classxml_1_1_interface_node_visitor_a8478dddac071858d6a22088eb161a690}{CompositeMarkupNode}
+\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+
+
+Définition à la ligne 19 du fichier InterfaceNodeVisitor.hpp.
+
+
+
+\subsection{Documentation des constructeurs et destructeur}
+\hypertarget{classxml_1_1_interface_node_visitor_a53c5fa9a736af1450bbc3d95feffe94a}{
+\index{xml::InterfaceNodeVisitor@{xml::InterfaceNodeVisitor}!$\sim$InterfaceNodeVisitor@{$\sim$InterfaceNodeVisitor}}
+\index{$\sim$InterfaceNodeVisitor@{$\sim$InterfaceNodeVisitor}!xml::InterfaceNodeVisitor@{xml::InterfaceNodeVisitor}}
+\subsubsection[{$\sim$InterfaceNodeVisitor}]{\setlength{\rightskip}{0pt plus 5cm}virtual xml::InterfaceNodeVisitor::$\sim$InterfaceNodeVisitor (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline, virtual\mbox{]}}}}
+\label{classxml_1_1_interface_node_visitor_a53c5fa9a736af1450bbc3d95feffe94a}
+
+
+Définition à la ligne 22 du fichier InterfaceNodeVisitor.hpp.
+
+
+
+\subsection{Documentation des fonctions membres}
+\hypertarget{classxml_1_1_interface_node_visitor_a22a8a333e5cf2da1f1ac9f8f1f376a89}{
+\index{xml::InterfaceNodeVisitor@{xml::InterfaceNodeVisitor}!visit@{visit}}
+\index{visit@{visit}!xml::InterfaceNodeVisitor@{xml::InterfaceNodeVisitor}}
+\subsubsection[{visit}]{\setlength{\rightskip}{0pt plus 5cm}virtual void xml::InterfaceNodeVisitor::visit (
+\begin{DoxyParamCaption}
+\item[{const {\bf TextNode} \&}]{ node}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}protected, pure virtual\mbox{]}}}}
+\label{classxml_1_1_interface_node_visitor_a22a8a333e5cf2da1f1ac9f8f1f376a89}
+
+
+Implémenté dans \hyperlink{classxml_1_1_dot_output_visitor_ad18c9818c42e6d0f515fa583d1a01ec8}{xml::DotOutputVisitor}, et \hyperlink{classxml_1_1_output_visitor_a33e53f866b31a155bbf29ffda852aaf7}{xml::OutputVisitor}.
+
+
+
+Voici le graphe d'appel pour cette fonction :
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=400pt]{classxml_1_1_interface_node_visitor_a22a8a333e5cf2da1f1ac9f8f1f376a89_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classxml_1_1_interface_node_visitor_afd6306ffd03380f21f436234b314c34d}{
+\index{xml::InterfaceNodeVisitor@{xml::InterfaceNodeVisitor}!visit@{visit}}
+\index{visit@{visit}!xml::InterfaceNodeVisitor@{xml::InterfaceNodeVisitor}}
+\subsubsection[{visit}]{\setlength{\rightskip}{0pt plus 5cm}virtual void xml::InterfaceNodeVisitor::visit (
+\begin{DoxyParamCaption}
+\item[{const {\bf CompositeMarkupNode} \&}]{ node}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}protected, pure virtual\mbox{]}}}}
+\label{classxml_1_1_interface_node_visitor_afd6306ffd03380f21f436234b314c34d}
+
+
+Implémenté dans \hyperlink{classxml_1_1_dot_output_visitor_a1755fb782d2d50ab28dc41045e60c69b}{xml::DotOutputVisitor}, et \hyperlink{classxml_1_1_output_visitor_addfc73ae3643a8285b5f892eff1a6066}{xml::OutputVisitor}.
+
+\hypertarget{classxml_1_1_interface_node_visitor_a53b33aabb8a79d4b1715c7664671d326}{
+\index{xml::InterfaceNodeVisitor@{xml::InterfaceNodeVisitor}!visit@{visit}}
+\index{visit@{visit}!xml::InterfaceNodeVisitor@{xml::InterfaceNodeVisitor}}
+\subsubsection[{visit}]{\setlength{\rightskip}{0pt plus 5cm}virtual void xml::InterfaceNodeVisitor::visit (
+\begin{DoxyParamCaption}
+\item[{const {\bf MarkupNode} \&}]{ node}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}protected, pure virtual\mbox{]}}}}
+\label{classxml_1_1_interface_node_visitor_a53b33aabb8a79d4b1715c7664671d326}
+
+
+Implémenté dans \hyperlink{classxml_1_1_dot_output_visitor_a2744dca685af0e8a420624c48f7eea53}{xml::DotOutputVisitor}, et \hyperlink{classxml_1_1_output_visitor_ac1dae5dbb561c4b7e98a761d5d503e49}{xml::OutputVisitor}.
+
+
+
+\subsection{Documentation des fonctions amies et associées}
+\hypertarget{classxml_1_1_interface_node_visitor_a8478dddac071858d6a22088eb161a690}{
+\index{xml::InterfaceNodeVisitor@{xml::InterfaceNodeVisitor}!CompositeMarkupNode@{CompositeMarkupNode}}
+\index{CompositeMarkupNode@{CompositeMarkupNode}!xml::InterfaceNodeVisitor@{xml::InterfaceNodeVisitor}}
+\subsubsection[{CompositeMarkupNode}]{\setlength{\rightskip}{0pt plus 5cm}friend class {\bf CompositeMarkupNode}\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}
+\label{classxml_1_1_interface_node_visitor_a8478dddac071858d6a22088eb161a690}
+
+
+Définition à la ligne 34 du fichier InterfaceNodeVisitor.hpp.
+
+\hypertarget{classxml_1_1_interface_node_visitor_ac2a462e7a005c065f6778ccc0be88931}{
+\index{xml::InterfaceNodeVisitor@{xml::InterfaceNodeVisitor}!MarkupNode@{MarkupNode}}
+\index{MarkupNode@{MarkupNode}!xml::InterfaceNodeVisitor@{xml::InterfaceNodeVisitor}}
+\subsubsection[{MarkupNode}]{\setlength{\rightskip}{0pt plus 5cm}friend class {\bf MarkupNode}\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}
+\label{classxml_1_1_interface_node_visitor_ac2a462e7a005c065f6778ccc0be88931}
+
+
+Définition à la ligne 33 du fichier InterfaceNodeVisitor.hpp.
+
+\hypertarget{classxml_1_1_interface_node_visitor_abd4faab11b504920cd6f8af02104143c}{
+\index{xml::InterfaceNodeVisitor@{xml::InterfaceNodeVisitor}!TextNode@{TextNode}}
+\index{TextNode@{TextNode}!xml::InterfaceNodeVisitor@{xml::InterfaceNodeVisitor}}
+\subsubsection[{TextNode}]{\setlength{\rightskip}{0pt plus 5cm}friend class {\bf TextNode}\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}
+\label{classxml_1_1_interface_node_visitor_abd4faab11b504920cd6f8af02104143c}
+
+
+Définition à la ligne 32 du fichier InterfaceNodeVisitor.hpp.
+
+
+
+La documentation de cette classe a été générée à partir du fichier suivant :\begin{DoxyCompactItemize}
+\item 
+src/\hyperlink{_interface_node_visitor_8hpp}{InterfaceNodeVisitor.hpp}\end{DoxyCompactItemize}

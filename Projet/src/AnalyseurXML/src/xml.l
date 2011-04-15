@@ -7,6 +7,18 @@
 #include <string.h>
 #include <stdlib.h>
 #include "commun.h"
+
+#include <list>
+#include <map>
+
+#include "Node.hh"
+#include "TextNode.hh"
+#include "MarkupNode.hh"
+#include "CompositeMarkupNode.hh"
+
+using namespace std;
+using namespace xml;
+
 #include "xml.tab.h"
 
 static char* skipSpace(char *s) {
@@ -105,9 +117,9 @@ closespecial "?>"{nl}?
 <INITIAL>{nsname}		{xmllval.s = strdup(xmltext); return NSNAME;}
 <INITIAL>{string}	{xmllval.s = strdup(getString(xmltext)); return VALUE;}
 
-{openspecial}{ws}?{name}	{BEGIN(INITIAL); char * tmp = word(xmltext); xmllval.en = new ElementName("",tmp); free(tmp); return STARTSPECIAL;}
-{open}{ws}?{name}	{BEGIN(INITIAL); char * tmp = word(xmltext); xmllval.en = new ElementName("",tmp); free(tmp); return START;}
-{open}{ws}?{nsname}	{BEGIN(INITIAL); char *tmp1 = nameSpace(xmltext); char * tmp2 = split_namespace(xmltext); xmllval.en = new ElementName(tmp1,tmp2); free(tmp1); free(tmp2); return NSSTART;}
+{openspecial}{ws}?{name}	{BEGIN(INITIAL); char * tmp = word(xmltext); xmllval.EName = new ElementName("",tmp); free(tmp); return STARTSPECIAL;}
+{open}{ws}?{name}	{BEGIN(INITIAL); char * tmp = word(xmltext); xmllval.EName = new ElementName("",tmp); free(tmp); return START;}
+{open}{ws}?{nsname}	{BEGIN(INITIAL); char *tmp1 = nameSpace(xmltext); char * tmp2 = split_namespace(xmltext); xmllval.EName = new ElementName(tmp1,tmp2); free(tmp1); free(tmp2); return NSSTART;}
 {open}{ws}?"/"		{BEGIN(INITIAL); return END;}
 {comment}		{xmllval.s = strdup(xmltext); return COMMENT;}
 

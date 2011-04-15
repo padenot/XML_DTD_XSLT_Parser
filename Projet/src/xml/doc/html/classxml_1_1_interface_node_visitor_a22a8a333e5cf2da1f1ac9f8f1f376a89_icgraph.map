@@ -1,0 +1,5 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$classxml_1_1_text_node.html#ac918f8f74e141690e18cd8e23d174996" title="xml::TextNode::accept" alt="" coords="476,5,735,43"/>
+<area shape="rect" id="node5" href="$classxml_1_1_markup_node.html#ae70b538ce71b427c1ea552b0b41c3b34" title="xml::MarkupNode::accept" alt="" coords="459,66,752,105"/>
+<area shape="rect" id="node7" href="$classxml_1_1_composite_markup_node.html#a6c61880592cc2e911517bb3e54c3c987" title="xml::CompositeMarkupNode::accept" alt="" coords="403,127,808,166"/>
+</map>
