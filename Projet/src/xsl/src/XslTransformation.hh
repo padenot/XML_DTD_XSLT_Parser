@@ -60,6 +60,8 @@ public:
 private:
 	typedef std::map<std::string, Node*> map;
 	map * templatesMap;
+	//TransformerVisitor visitor;
+	
 	Node & AnalyserNoeud(Node & noeud);
 	// Mode d'emploi (destructeur) :
 	//	«TODO»

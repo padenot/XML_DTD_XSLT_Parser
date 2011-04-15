@@ -12,6 +12,8 @@
 
 //--------------------------------------------------- Interfaces utilisées
 #include "InterfaceNodeVisitor.hpp"
+#include <map>
+#include <string>
 
 namespace xml
 {
@@ -49,8 +51,11 @@ public:
 
 
 protected:
+	typedef std::map<std::string, const Node*> map;
+	map * templatesMap;
 	
-
+	void creerMap(const Node& node);
+	void getTemplateName(const MarkupNode& node);
 	virtual void visit(const TextNode& node);
 	virtual void visit(const MarkupNode& node);
 	virtual void visit(const CompositeMarkupNode& node);

@@ -14,6 +14,7 @@ using namespace std;
 #include <iostream>
 #include <iomanip>
 
+
 //------------------------------------------------------ Include personnel
 #include "TransformerVisitor.hh"
 #include "TextNode.hh"
@@ -41,12 +42,14 @@ namespace xml
 //-------------------------------------------- Constructeurs - destructeur
 TransformerVisitor::TransformerVisitor()
 {
+	templatesMap = new map();
 	// Rien à faire
 } //----- Fin de OutputVisitor
 
 
 TransformerVisitor::~TransformerVisitor()
 {
+	delete templatesMap;
 	// Rien à faire
 } //----- Fin de ~OutputVisitor
 
@@ -55,7 +58,21 @@ TransformerVisitor::~TransformerVisitor()
 
 //----------------------------------------------------- Méthodes protégées
 
+void TransformerVisitor::creerMap(const Node& node)
+{
+	node.accept(*this);
+}
 
+void TransformerVisitor::getTemplateName(const MarkupNode& node)
+{
+	for (MarkupNode::AttributesIterator it = node.begin(); it != node.end(); ++it)
+	{
+		if (it->first == "match")
+		{
+			(*templatesMap)[it->second] = &node;
+		}
+	}
+} //----- Fin de writeAttributes
 
 void TransformerVisitor::visit(const TextNode& node)
 {
