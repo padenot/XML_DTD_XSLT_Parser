@@ -8,20 +8,37 @@
 #include "MarkupNode.hh"
 #include "CompositeMarkupNode.hh"
 #include "OutputVisitor.hh"
+#include "OutputDTDVisitor.hh"
 #include "DotOutputVisitor.hh"
+#include "DTD.hh"
+
+#include "Content.hh"
+#include "ElementContent.hh"
+#include "QuantifiableContent.hh"
+#include "RepeatedContent.hh"
+#include "RepeatableContent.hh"
+#include "OptionalContent.hh"
+
+#define QTF_AST		1
+#define QTF_PLUS	2
+#define QTF_QMARK	4
+#define QTF_NONE	0
 
 int xmlparse(void);
 int dtdparse(void);
 
 extern xml::CompositeMarkupNode* root;
+extern dtd::DTD* rootDTD;
 
 extern FILE * xmlin;
 extern FILE * dtdin;
+
 
 int exportMode;
 
 using namespace std;
 
+/**********************************************************************************/
 int handleDTD(char* filename) {
 	int err;
 	FILE* inputFile = (FILE*)fopen(filename, "r");
@@ -35,12 +52,31 @@ int handleDTD(char* filename) {
 	err = dtdparse();
 	fclose(dtdin);
 
+	if(exportMode) {
+		dtd::OutputDTDVisitor visitor(cout, '\t');
+		rootDTD->accept(visitor);
+	}
+
+
 	if (err != 0) cout << err << " erreurs de syntaxe détectées !" << endl; 
 	else if(!exportMode) 
 		cout << "Aucune erreur détectée." << endl; 
 
 	return 0;
 }
+
+dtd::ElementContent* handleQuantifier(dtd::ElementContent* currentContent, int quantifier) {
+	if(!currentContent) throw new string("AHHHHHH");
+
+	switch(quantifier) {
+		case (QTF_NONE): return currentContent;
+		case (QTF_PLUS): return new dtd::RepeatedContent(*currentContent);
+		case (QTF_AST): return new dtd::RepeatableContent(*currentContent);
+		case (QTF_QMARK): return new dtd::OptionalContent(*currentContent);
+	}
+}
+
+/**********************************************************************************/
 
 xml::CompositeMarkupNode* handleElement(xml::CompositeMarkupNode** proxy, string NS, string name, xml::MarkupNode::Attributes attbs, list<void*>* children) {
 	xml::CompositeMarkupNode::Children currentChildren
@@ -51,6 +87,7 @@ xml::CompositeMarkupNode* handleElement(xml::CompositeMarkupNode** proxy, string
 
 	return  new xml::CompositeMarkupNode(newProxy, NS, name, attbs, *proxy, currentChildren);
 }
+/**********************************************************************************/
 
 int main(int argc, char** argv) {
 	int err;
