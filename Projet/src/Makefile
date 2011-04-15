@@ -6,7 +6,7 @@ all: | $(BINPATH)
 	@cd Parser/ && make && cp bin/parser ../$(BINPATH)
 	@cd xml/ && make
 	@cd dtd/ && make
-	@cd xsl/ && make
+#	@cd xsl/ && make
 	
 test: all
 	@cd AnalyseurXML/ && make test
@@ -14,7 +14,7 @@ test: all
 	@cd Parser/ && make test
 	@cd xml/ && make test
 	@cd dtd/ && make test
-	@cd xsl/ && make test
+#	@cd xsl/ && make test
 	# TODO : ajouter tests d'intégration
 	
 $(BINPATH) :

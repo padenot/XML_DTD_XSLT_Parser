@@ -54,12 +54,14 @@ int handleDTD(char* filename) {
 	return 0;
 }
 
-dtd::Content* handleQuantifier(dtd::Content* currentContent, int quantifier) {
-/*	if( quantifier == QTF_NONE ) return currentContent;
+dtd::QuantifiableContent* handleQuantifier(dtd::ElementContent* currentContent, int quantifier) {
+	if( quantifier == QTF_NONE ) return currentContent;
 	switch(quantifier) {
-		case (QTF_PLUS):
-			return new dtd::RepeatedContent();
-	}*/
+		case (QTF_PLUS): return new dtd::RepeatedContent(currentContent);
+		case (QTF_AST): return new dtd::RepeatableContent(currentContent);
+		case (QTF_QMARK): return new dtd::OptionalContent(currentContent);
+		default: return NULL;
+	}
 }
 
 /**********************************************************************************/

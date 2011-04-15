@@ -30,3 +30,5 @@ mrproper: clean
 	@rm src/xml.tab.c src/xml.tab.h
 	@rm src/dtd.yy.c
 	@rm src/xml.yy.c
+
+rebuild: mrproper all
