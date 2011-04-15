@@ -11,9 +11,20 @@
 #define TransformerVisitor_HH
 
 //--------------------------------------------------- Interfaces utilisées
-#include "InterfaceNodeVisitor.hpp"
 
-namespace xml
+#include <list>
+#include <map>
+#include <string>
+
+//--------------------------------------------------- Includes personnel
+
+#include "InterfaceNodeVisitor.hpp"
+#include "Node.hh"
+
+using namespace xml;
+using namespace std;
+
+namespace xsl
 {
 class TransformerVisitor: public InterfaceNodeVisitor
 {
@@ -23,12 +34,12 @@ public:
 	//------------------------------------------------------------------ Types
 
 	//----------------------------------------------------- Méthodes publiques
-	// type Méthode ( liste de paramètres );
-	// Mode d'emploi :
-	//	«TODO»
-	// Contrat :
-	//	«TODO»
 
+	Node & Transformation(Node & XmlTree, Node & XslTree);
+	// Mode d'emploi :
+	//	TODO
+	// Contrat :
+	//	TODO
 
 	//------------------------------------------------- Surcharge d'opérateurs
 
@@ -49,14 +60,51 @@ public:
 
 
 protected:
-	
 
 	virtual void visit(const TextNode& node);
 	virtual void visit(const MarkupNode& node);
 	virtual void visit(const CompositeMarkupNode& node);
 
+	typedef map<string, Node*> map;
+	map * templatesMap;
+	CompositeMarkupNode & AnalyserNoeud(Node & noeud);
+	// Mode d'emploi (destructeur) :
+	//	«TODO»
+	// Contrat :
+	//	«TODO»
+
+	void AnalyserTemplate(CompositeMarkupNode & patron, Node & noeud);
+	// Mode d'emploi (destructeur) :
+	//	«TODO»
+	// Contrat :
+	//	«TODO»
+
+	list<Node *> & Recopier(TextNode & noeud);
+	// Mode d'emploi (destructeur) :
+	//	«TODO»
+	// Contrat :
+	//	«TODO»
+
+	list<Node *> & Recopier(CompositeMarkupNode & noeud);
+	// Mode d'emploi (destructeur) :
+	//	«TODO»
+	// Contrat :
+	//	«TODO»
+
+	Node & RechercherTemplate(const Node & noeudXML);
+	// Mode d'emploi (destructeur) :
+	//	 Effectue la recherche du noeud template xsl associ� au noeud pass� en
+	//	 param�tre. Null est retourn� si aucun template n'est trouv�.
+	// Contrat :
+	//
+
+	void creerMap(const Node& noeudXSL);
+	// Mode d'emploi (destructeur) :
+	//	Cr�e la map
+	// Contrat :
+	//
 };
 
-} // namespace xml
+} // namespace xsl
 
 #endif // TransformerVisitor_HH
