@@ -43,11 +43,12 @@ void DTD::accept(InterfaceDTDVisitor & visitor)
 		visitor.visitElement(it->first.first, it->first.second, *it->second);
 	}
 
-	/*for (_AttributesLists::const_iterator it = _attributesLists.begin(); it
-	 != _attributesLists.end(); ++it)
-	 {
-	 it->second->accept(visitor);
-	 }*/
+	for (_AttributesLists::const_iterator it = _attributesLists.begin(); it
+			!= _attributesLists.end(); ++it)
+	{
+		visitor.visitAttributesList(it->first.first, it->first.second,
+				it->second);
+	}
 }
 
 void DTD::addElement(const std::string & ns, const std::string & elementName,
