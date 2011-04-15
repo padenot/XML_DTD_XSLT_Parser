@@ -65,13 +65,14 @@ int handleDTD(char* filename) {
 	return 0;
 }
 
-dtd::QuantifiableContent* handleQuantifier(dtd::ElementContent* currentContent, int quantifier) {
-	if( quantifier == QTF_NONE ) return currentContent;
+dtd::ElementContent* handleQuantifier(dtd::ElementContent* currentContent, int quantifier) {
+	if(!currentContent) throw new string("AHHHHHH");
+
 	switch(quantifier) {
+		case (QTF_NONE): return currentContent;
 		case (QTF_PLUS): return new dtd::RepeatedContent(*currentContent);
 		case (QTF_AST): return new dtd::RepeatableContent(*currentContent);
 		case (QTF_QMARK): return new dtd::OptionalContent(*currentContent);
-		default: return NULL;
 	}
 }
 

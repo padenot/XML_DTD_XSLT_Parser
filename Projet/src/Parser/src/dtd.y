@@ -28,14 +28,15 @@
 	#include "Choice.hh"
 
 	using namespace std;
+	using namespace dtd;
 
 	void dtderror(char *msg);
 	int dtdwrap(void);
 	int dtdlex(void);
 
-	dtd::QuantifiableContent* handleQuantifier(dtd::ElementContent*, int);
+	ElementContent* handleQuantifier(ElementContent*, int);
 
-	dtd::DTD* rootDTD = new dtd::DTD();
+	DTD* rootDTD = new DTD();
 %}
 
 %union { 
@@ -43,22 +44,22 @@
 
 	int t_quantifier;
 
-	std::set<void*>* t_attlist; 	/* list<Attribute*> */
-	void* t_attribut;		/* Attribute* */
+	AttributesList* t_attlist;			 			
+	Attribute* t_attribut;						
 
-	void* t_any_or_empty;		
+	Content* t_any_or_empty;		
 
-	void* t_mixed;
-	void* t_simple_list_choice;
+	MixedContent* t_mixed;
+	MixedContent::ChoosableSet* t_simple_list_choice;
 
-	void* t_choice_or_sequence;	/* ElementContent* */
+	ElementContent* t_choice_or_sequence;				
 
-	void* t_choice;			/* Choice* */
+	Choice* t_choice;						
 
-	void* t_sequence;		/* Sequence* */
-	void* t_list_sequence;		/* List< ElementContent* > */
+	Sequence* t_sequence;						
+	Sequence::OrderedContent* t_list_sequence;						
 
-	void* t_item;			/* QuantifiableContent* */
+	ElementContent* t_item;					
 }
 
 %token ELEMENT ATTLIST CLOSE OPENPAR CLOSEPAR COMMA PIPE FIXED EMPTY ANY PCDATA AST QMARK PLUS CDATA NAME TOKENTYPE DECLARATION STRING
@@ -93,38 +94,38 @@ dtd			: dtd attlist CLOSE
    			| /* empty */
    			;
 
-attlist			: ATTLIST NAME att_definition					{ rootDTD->addAttributesList(string(""), string($2), *( dtd::AttributesList* )($3) ); }  
+attlist			: ATTLIST NAME att_definition					{ rootDTD->addAttributesList(string(""), string($2), *$3 ); }  
 			;
 
-element 		: ELEMENT NAME mixed 						{ rootDTD->addElement("", $2, *(dtd::Content*)($3) ); }
-			| ELEMENT NAME any_or_empty 					{ rootDTD->addElement("", $2, *(dtd::Content*)($3) ); }
-			| ELEMENT NAME choice_or_sequence quantifier			{ rootDTD->addElement("", $2, *handleQuantifier( (dtd::ElementContent*)($3), $4 ) ); }
+element 		: ELEMENT NAME mixed 						{ rootDTD->addElement("", $2, *$3 ); }
+			| ELEMENT NAME any_or_empty 					{ rootDTD->addElement("", $2, *$3 ); }
+			| ELEMENT NAME choice_or_sequence quantifier			{ rootDTD->addElement("", $2, *handleQuantifier( $3, $4 ) ); }
 			;
 
-any_or_empty		: EMPTY								{ $$ = new dtd::EmptyContent(); }
-			| ANY								{ $$ = new dtd::AnyContent(); }
+any_or_empty		: EMPTY								{ $$ = new EmptyContent(); }
+			| ANY								{ $$ = new AnyContent(); }
 			;
 
-mixed			: OPENPAR PCDATA PIPE simple_list_choice CLOSEPAR quantifier 	{ $$ = new dtd::MixedContent( *new dtd::TextContent(), *(dtd::MixedContent::ChoosableSet*)($4) );  }
-			| OPENPAR PCDATA CLOSEPAR quantifier				{ $$ = new dtd::MixedContent( *new dtd::TextContent(), *new dtd::MixedContent::ChoosableSet() );  }
+mixed			: OPENPAR PCDATA PIPE simple_list_choice CLOSEPAR quantifier 	{ $$ = new MixedContent( *new TextContent(), *$4 );  }
+			| OPENPAR PCDATA CLOSEPAR quantifier				{ $$ = new MixedContent( *new TextContent(), *new MixedContent::ChoosableSet() );  }
 			;
 
 simple_list_choice	: NAME								{ 
-				  								dtd::MixedContent::ChoosableSet* newSet = new dtd::MixedContent::ChoosableSet(); 
+				  								MixedContent::ChoosableSet* newSet = new MixedContent::ChoosableSet(); 
 												newSet->insert( new dtd::ElementReference(*rootDTD, "", $1) ); 
 												$$ = newSet;
 			  								}
 			| simple_list_choice PIPE NAME					{ 
-												((dtd::MixedContent::ChoosableSet*)$1)->insert( new dtd::ElementReference(*rootDTD, "", $3 ) ); 
+												$1->insert( new ElementReference(*rootDTD, "", $3 ) ); 
 												$$ = $1; 
 											}
 			;
 
-att_definition 		: att_definition attribut					{ $1->insert( (dtd::Attribute*)($2) ); $$ = $1; } 
-			| /* empty */							{ $$ = (set<void*>*)( new dtd::AttributesList() ); }
+att_definition 		: att_definition attribut					{ $1->insert($2); $$ = $1; } 
+			| /* empty */							{ $$ = new AttributesList(); }
 			;
 
-attribut 		: NAME att_type defaut_declaration				{ $$ = new dtd::Attribute($1); }
+attribut 		: NAME att_type defaut_declaration				{ $$ = new Attribute($1); }
 			;
 
 att_type 		: CDATA    
@@ -150,19 +151,19 @@ defaut_declaration 	: DECLARATION
 			| FIXED STRING 
 			;
 
-choice_or_sequence	: choice							{ $$ = NULL; }	
-			| sequence							{ $$ = (dtd::ElementContent*)($1); } 
+choice_or_sequence	: choice							
+			| sequence							{ $$ = $1; } 
 			; 
 
-sequence		: OPENPAR list_sequence CLOSEPAR				{ $$ = new dtd::Sequence( *(dtd::Sequence::OrderedContent*)$2 ); }
+sequence		: OPENPAR list_sequence CLOSEPAR				{ $$ = new dtd::Sequence( *$2 ); }
 			; 
 
 list_sequence		: item 								{ 
-				  								dtd::Sequence::OrderedContent* itemList = new dtd::Sequence::OrderedContent();
-				  								itemList->push_back( (dtd::ElementContent*) $1 );
-												$$ = (void*)itemList;
+				  								Sequence::OrderedContent* itemList = new Sequence::OrderedContent();
+				  								itemList->push_back( $1 );
+												$$ = itemList;
 			  								}	
-			| list_sequence COMMA item					{ ((dtd::Sequence::OrderedContent*)$1)->push_back( (dtd::ElementContent*) $3 ); $$ = $1; }
+			| list_sequence COMMA item					{ $1->push_back($3) ; $$ = $1; }
 			; 
 
 choice			: OPENPAR list_choice CLOSEPAR					
@@ -175,8 +176,8 @@ list_choice_transition	: item
 			| list_choice_transition PIPE item
 			; 
 
-item 			: NAME quantifier						{ $$ = handleQuantifier( new dtd::ElementReference( *rootDTD, "", $1 ), $2 ); }
-			| choice_or_sequence quantifier					{ $$ = handleQuantifier( (dtd::ElementContent*) $1, $2 ); }
+item 			: NAME quantifier						{ $$ = handleQuantifier( new ElementReference( *rootDTD, "", $1 ), $2 ); }
+			| choice_or_sequence quantifier					{ $$ = handleQuantifier( $1, $2 ); }
 			; 
 
 quantifier		: AST 								{ $$ = QTF_AST; }

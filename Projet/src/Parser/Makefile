@@ -15,7 +15,7 @@ bison: src/dtd.y src/xml.y
 	bison -p xml -o src/xml.tab.c --defines=src/xml.tab.h src/xml.y
 
 parser: flex bison Makefile
-	g++ -Wno-write-strings -g -DYYDEBUG=1 -I../xml/src/ -I../dtd/src/ -o bin/parser src/dtd.yy.c src/dtd.tab.c src/xml.yy.c src/xml.tab.c src/main.c ../xml/bin/libxmlstruct.a ../dtd/bin/libdtdstruct.a
+	g++ -g -Wno-write-strings -g -DYYDEBUG=1 -I../xml/src/ -I../dtd/src/ -o bin/parser src/dtd.yy.c src/dtd.tab.c src/xml.yy.c src/xml.tab.c src/main.c ../xml/bin/libxmlstruct.a ../dtd/bin/libdtdstruct.a
 
 $(XMLSTRUCT):
 	@cd $(XMLSTRUCT_PATH) && make
