@@ -36,7 +36,7 @@ public:
 	//-------------------------------------------- Constructeurs - destructeur
 	TransformerVisitor();
 	// Mode d'emploi (constructeur) :
-	//	Construit un nouveau visiteur écrivant sur "out".
+	//	Construit un nouveau visiteur.
 	// Contrat :
 	//	Aucun.
 
@@ -49,26 +49,11 @@ public:
 
 
 protected:
+	
 
-	virtual void visit(const TextNode& node)
-	{
-		// Recopier un TextNode
-	}
-	virtual void visit(const MarkupNode& node)
-	{
-		// Recopier un MarkupNode
-	}
-
-	virtual void visit(const CompositeMarkupNode& node)
-	{
-		// Recopier un CompositeMarkupNode
-	}
-
-	// Mode d'emploi :
-	//	TODO
-	// Contrat :
-	//	Aucun.
-
+	virtual void visit(const TextNode& node);
+	virtual void visit(const MarkupNode& node);
+	virtual void visit(const CompositeMarkupNode& node);
 
 };
 

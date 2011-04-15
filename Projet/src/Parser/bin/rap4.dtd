@@ -13,3 +13,6 @@
         titre CDATA #IMPLIED
 >
 <!ELEMENT p (#PCDATA)>
+<!ELEMENT mixedtitre (#PCDATA | titre)>
+<!ELEMENT testAny ANY>
+<!ELEMENT testEmpty EMPTY>

@@ -6,9 +6,30 @@
 #include <string.h>
 #include <stdlib.h>
 #include <list>
-#include "dtd.tab.h"
+#include <set>
+
+#include "DTD.hh"
+
+#include "AttributesList.hh"
+#include "Attribute.hh"
+
+#include "EmptyContent.hh"
+#include "AnyContent.hh"
+
+#include "MixedContent.hh"
+#include "TextContent.hh"
+#include "ElementReference.hh"
+
+#include "QuantifiableContent.hh"
+#include "Sequence.hh"
+#include "Choice.hh"
+
+#include "ElementContent.hh"
 
 using namespace std;
+using namespace dtd;
+
+#include "dtd.tab.h"
 
 static char* skipSpace(char *s) {
   char *buf;

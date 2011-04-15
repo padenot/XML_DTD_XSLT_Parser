@@ -12,7 +12,7 @@ TESTBINNAME=make run
 
 # Build
 CXX=g++
-CXXFLAGS=-ansi -pedantic -W -Wall -I../xml/src
+CXXFLAGS=-ansi -pedantic -W -Wall -I../xml/src -g
 LD=g++
 LDFLAGS=-L$(LIBPATH)
 LIBLD=ar

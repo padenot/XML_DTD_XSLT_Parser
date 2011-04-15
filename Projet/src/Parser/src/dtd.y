@@ -6,55 +6,126 @@
 
 	#include <stack>
 	#include <list>
+	#include <set>
 	#include <cstring>
 	#include <cstdio>
 	#include <cstdlib>
 
 	#include "DTD.hh"
 
+	#include "AttributesList.hh"
+	#include "Attribute.hh"
+
+	#include "EmptyContent.hh"
+	#include "AnyContent.hh"
+
+	#include "MixedContent.hh"
+	#include "TextContent.hh"
+	#include "ElementReference.hh"
+
+	#include "QuantifiableContent.hh"
+	#include "Sequence.hh"
+	#include "Choice.hh"
+
 	using namespace std;
+	using namespace dtd;
 
 	void dtderror(char *msg);
 	int dtdwrap(void);
 	int dtdlex(void);
 
-	dtd::DTD* rootDTD = new dtd::DTD();
+	ElementContent* handleQuantifier(ElementContent*, int);
+
+	DTD* rootDTD = new DTD();
 %}
 
 %union { 
 	char *s; 
 
-	std::list<void*>* clist;
-	int qtf;
+	int t_quantifier;
+
+	AttributesList* t_attlist;			 			
+	Attribute* t_attribut;						
+
+	Content* t_any_or_empty;		
+
+	MixedContent* t_mixed;
+	MixedContent::ChoosableSet* t_simple_list_choice;
+
+	ElementContent* t_choice_or_sequence;				
+
+	Choice* t_choice;						
+
+	Sequence* t_sequence;						
+	Sequence::OrderedContent* t_list_sequence;						
+
+	ElementContent* t_item;					
 }
 
 %token ELEMENT ATTLIST CLOSE OPENPAR CLOSEPAR COMMA PIPE FIXED EMPTY ANY PCDATA AST QMARK PLUS CDATA NAME TOKENTYPE DECLARATION STRING
 
 %type <s> NAME TOKENTYPE DECLARATION STRING
-%type <clist> choice_or_sequence
-%type <qtf> quantifier
+
+%type <t_quantifier> quantifier
+
+%type <t_attlist> att_definition
+%type <t_attribut> attribut 
+
+%type <t_any_or_empty> any_or_empty
+
+%type <t_mixed> mixed
+%type <t_simple_list_choice> simple_list_choice
+
+%type <t_choice_or_sequence> choice_or_sequence
+
+%type <t_choice> choice
+
+%type <t_sequence> sequence 
+%type <t_list_sequence> list_sequence
+
+%type <t_item> item
 %%
 
-root			: dtd
+root			: dtd 						
     			;
 
 dtd			: dtd attlist CLOSE					
 			| dtd element CLOSE					
-   			| /* empty */                     
+   			| /* empty */
    			;
 
-attlist			: ATTLIST NAME att_definition
+attlist			: ATTLIST NAME att_definition					{ rootDTD->addAttributesList(string(""), string($2), *$3 ); }  
 			;
 
-element 		: ELEMENT NAME choice_or_sequence quantifier
-			| ELEMENT NAME OPENPAR primary_type CLOSEPAR 		
+element 		: ELEMENT NAME mixed 						{ rootDTD->addElement("", $2, *$3 ); }
+			| ELEMENT NAME any_or_empty 					{ rootDTD->addElement("", $2, *$3 ); }
+			| ELEMENT NAME choice_or_sequence quantifier			{ rootDTD->addElement("", $2, *handleQuantifier( $3, $4 ) ); }
 			;
 
-att_definition 		: att_definition attribut
-			| /* empty */
+any_or_empty		: EMPTY								{ $$ = new EmptyContent(); }
+			| ANY								{ $$ = new AnyContent(); }
 			;
 
-attribut 		: NAME att_type defaut_declaration
+mixed			: OPENPAR PCDATA PIPE simple_list_choice CLOSEPAR quantifier 	{ $$ = new MixedContent( *new TextContent(), *$4 );  }
+			| OPENPAR PCDATA CLOSEPAR quantifier				{ $$ = new MixedContent( *new TextContent(), *new MixedContent::ChoosableSet() );  }
+			;
+
+simple_list_choice	: NAME								{ 
+				  								MixedContent::ChoosableSet* newSet = new MixedContent::ChoosableSet(); 
+												newSet->insert( new dtd::ElementReference(*rootDTD, "", $1) ); 
+												$$ = newSet;
+			  								}
+			| simple_list_choice PIPE NAME					{ 
+												$1->insert( new ElementReference(*rootDTD, "", $3 ) ); 
+												$$ = $1; 
+											}
+			;
+
+att_definition 		: att_definition attribut					{ $1->insert($2); $$ = $1; } 
+			| /* empty */							{ $$ = new AttributesList(); }
+			;
+
+attribut 		: NAME att_type defaut_declaration				{ $$ = new Attribute($1); }
 			;
 
 att_type 		: CDATA    
@@ -80,29 +151,33 @@ defaut_declaration 	: DECLARATION
 			| FIXED STRING 
 			;
 
-choice_or_sequence	: choice
-			| sequence
+choice_or_sequence	: choice							
+			| sequence							{ $$ = $1; } 
 			; 
 
-sequence		: OPENPAR list_sequence CLOSEPAR				
+sequence		: OPENPAR list_sequence CLOSEPAR				{ $$ = new dtd::Sequence( *$2 ); }
 			; 
 
-list_sequence		: item 
-			| list_sequence COMMA item
+list_sequence		: item 								{ 
+				  								Sequence::OrderedContent* itemList = new Sequence::OrderedContent();
+				  								itemList->push_back( $1 );
+												$$ = itemList;
+			  								}	
+			| list_sequence COMMA item					{ $1->push_back($3) ; $$ = $1; }
 			; 
 
-choice			: OPENPAR list_choice CLOSEPAR
+choice			: OPENPAR list_choice CLOSEPAR					
 			; 
 
-list_choice		: list_choice_transition PIPE item
+list_choice		: list_choice_transition PIPE item				
 			; 
 
 list_choice_transition	: item
 			| list_choice_transition PIPE item
 			; 
 
-item 			: NAME quantifier				
-			| choice_or_sequence quantifier
+item 			: NAME quantifier						{ $$ = handleQuantifier( new ElementReference( *rootDTD, "", $1 ), $2 ); }
+			| choice_or_sequence quantifier					{ $$ = handleQuantifier( $1, $2 ); }
 			; 
 
 quantifier		: AST 								{ $$ = QTF_AST; }
