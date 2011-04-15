@@ -11,7 +11,18 @@
 #include "OutputDTDVisitor.hh"
 #include "DotOutputVisitor.hh"
 #include "DTD.hh"
+
 #include "Content.hh"
+#include "ElementContent.hh"
+#include "QuantifiableContent.hh"
+#include "RepeatedContent.hh"
+#include "RepeatableContent.hh"
+#include "OptionalContent.hh"
+
+#define QTF_AST		1
+#define QTF_PLUS	2
+#define QTF_QMARK	4
+#define QTF_NONE	0
 
 int xmlparse(void);
 int dtdparse(void);
@@ -57,9 +68,9 @@ int handleDTD(char* filename) {
 dtd::QuantifiableContent* handleQuantifier(dtd::ElementContent* currentContent, int quantifier) {
 	if( quantifier == QTF_NONE ) return currentContent;
 	switch(quantifier) {
-		case (QTF_PLUS): return new dtd::RepeatedContent(currentContent);
-		case (QTF_AST): return new dtd::RepeatableContent(currentContent);
-		case (QTF_QMARK): return new dtd::OptionalContent(currentContent);
+		case (QTF_PLUS): return new dtd::RepeatedContent(*currentContent);
+		case (QTF_AST): return new dtd::RepeatableContent(*currentContent);
+		case (QTF_QMARK): return new dtd::OptionalContent(*currentContent);
 		default: return NULL;
 	}
 }

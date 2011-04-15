@@ -98,7 +98,7 @@ attlist			: ATTLIST NAME att_definition					{ rootDTD->addAttributesList(string(
 
 element 		: ELEMENT NAME mixed 						{ rootDTD->addElement("", $2, *(dtd::Content*)($3) ); }
 			| ELEMENT NAME any_or_empty 					{ rootDTD->addElement("", $2, *(dtd::Content*)($3) ); }
-			| ELEMENT NAME choice_or_sequence quantifier			{ rootDTD->addElement("", $2, handleQuantifier( *(dtd::ElementContent*)($3), $4 ) ); }
+			| ELEMENT NAME choice_or_sequence quantifier			{ rootDTD->addElement("", $2, *handleQuantifier( (dtd::ElementContent*)($3), $4 ) ); }
 			;
 
 any_or_empty		: EMPTY								{ $$ = new dtd::EmptyContent(); }
@@ -159,10 +159,10 @@ sequence		: OPENPAR list_sequence CLOSEPAR				{ $$ = new dtd::Sequence( *(dtd::S
 
 list_sequence		: item 								{ 
 				  								dtd::Sequence::OrderedContent* itemList = new dtd::Sequence::OrderedContent();
-				  								itemList->push_back( (dtd::QuantifiableContent*) $1 );
+				  								itemList->push_back( (dtd::ElementContent*) $1 );
 												$$ = (void*)itemList;
 			  								}	
-			| list_sequence COMMA item					{ ((dtd::Sequence::OrderedContent*)$1)->push_back( (dtd::QuantifiableContent*) $3 ); $$ = $1; }
+			| list_sequence COMMA item					{ ((dtd::Sequence::OrderedContent*)$1)->push_back( (dtd::ElementContent*) $3 ); $$ = $1; }
 			; 
 
 choice			: OPENPAR list_choice CLOSEPAR					
