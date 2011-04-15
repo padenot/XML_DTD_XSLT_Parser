@@ -1,6 +1,5 @@
 /*************************************************************************
- * TransformerVisitor  -  Visiteur écrivant un noeud et ses descendants
- * sur un flot au format .dot
+ * TransformerVisitor  -  Visiteur 
  * -------------------
  * Début      : mar. 05 avril 2011 14:35:25 CEST
  * Auteur(s)  : H4215
@@ -11,9 +10,21 @@
 #define TransformerVisitor_HH
 
 //--------------------------------------------------- Interfaces utilisées
-#include "InterfaceNodeVisitor.hpp"
 
-namespace xml
+#include <list>
+#include <map>
+#include <string>
+
+//--------------------------------------------------- Includes personnel
+
+#include "InterfaceNodeVisitor.hpp"
+#include <map>
+#include <string>
+
+using namespace xml;
+using namespace std;
+
+namespace xsl
 {
 class TransformerVisitor: public InterfaceNodeVisitor
 {
@@ -23,12 +34,12 @@ public:
 	//------------------------------------------------------------------ Types
 
 	//----------------------------------------------------- Méthodes publiques
-	// type Méthode ( liste de paramètres );
-	// Mode d'emploi :
-	//	«TODO»
-	// Contrat :
-	//	«TODO»
 
+	Node & Transformation(Node & XmlTree, Node & XslTree);
+	// Mode d'emploi :
+	//	TODO
+	// Contrat :
+	//	TODO
 
 	//------------------------------------------------- Surcharge d'opérateurs
 
@@ -49,14 +60,49 @@ public:
 
 
 protected:
+
+	typedef std::map<std::string, const Node*> map;
+	map * templatesMap;
 	
+	void creerMap(const Node& node);
+	void getTemplateName(const MarkupNode& node);
 
 	virtual void visit(const TextNode& node);
 	virtual void visit(const MarkupNode& node);
 	virtual void visit(const CompositeMarkupNode& node);
 
+	CompositeMarkupNode & AnalyserNoeud(Node & noeud);
+	// Mode d'emploi (destructeur) :
+	//	«TODO»
+	// Contrat :
+	//	«TODO»
+
+	void AnalyserTemplate(CompositeMarkupNode & patron, Node & noeud);
+	// Mode d'emploi (destructeur) :
+	//	«TODO»
+	// Contrat :
+	//	«TODO»
+
+	list<Node *> & Recopier(TextNode & noeud);
+	// Mode d'emploi (destructeur) :
+	//	«TODO»
+	// Contrat :
+	//	«TODO»
+
+	list<Node *> & Recopier(CompositeMarkupNode & noeud);
+	// Mode d'emploi (destructeur) :
+	//	«TODO»
+	// Contrat :
+	//	«TODO»
+
+	Node & RechercherTemplate(const Node & noeudXML);
+	// Mode d'emploi (destructeur) :
+	//	 Effectue la recherche du noeud template xsl associ� au noeud pass� en
+	//	 param�tre. Null est retourn� si aucun template n'est trouv�.
+	// Contrat :
+	//
 };
 
-} // namespace xml
+} // namespace xsl
 
 #endif // TransformerVisitor_HH
