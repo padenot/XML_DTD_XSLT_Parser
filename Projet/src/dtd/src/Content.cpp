@@ -37,12 +37,12 @@ namespace dtd
 //-------------------------------------------- Constructeurs - destructeur
 Content::Content()
 {
-	//TODO
+	// Rien à faire.
 }
 
 Content::~Content()
 {
-	//TODO
+	// Rien à faire.
 }
 
 //------------------------------------------------------------------ PRIVE

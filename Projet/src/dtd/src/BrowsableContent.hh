@@ -37,16 +37,8 @@ public:
 
 	//-------------------------------------------- Constructeurs - destructeur
 	BrowsableContent();
-	// Mode d'emploi :
-	//	TODO
-	// Contrat :
-	//	TODO
 
 	virtual ~BrowsableContent();
-	// Mode d'emploi :
-	//	TODO
-	// Contrat :
-	//	TODO
 
 protected:
 	bool _newValidation(xml::CompositeMarkupNode::ChildrenIterator firstToken,
@@ -61,7 +53,7 @@ protected:
 	//	Cette méthode est accessible à d'autres instances via la classe
 	//	_ValidatorAccessor (cf. ci-dessous).
 	// Contrat :
-	//	TODO
+	//	firstToken, lorsqu'il est incrémenté, doit ultimement être égal à endToken.
 
 	virtual bool _startValidation(
 			xml::CompositeMarkupNode::ChildrenIterator firstToken,
@@ -71,7 +63,8 @@ protected:
 	//	Exécute une nouvelle validation, juste après l'initialisation
 	//	du validateur.
 	// Contrat :
-	//	TODO
+	//	"firstToken", lorsqu'il est incrémenté, doit ultimement être égal
+	//	à "endToken".
 
 	virtual bool _continueValidation(
 			xml::CompositeMarkupNode::ChildrenIterator currentToken);
@@ -85,7 +78,7 @@ protected:
 	//	Cette méthode est accessible à d'autres instances via la classe
 	//	_ValidatorAccessor (cf. ci-dessous).
 	// Contrat :
-	//	TODO
+	//	Aucun.
 
 	virtual void _beforeValidation(
 			xml::CompositeMarkupNode::ChildrenIterator firstToken,

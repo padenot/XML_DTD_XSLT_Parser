@@ -97,12 +97,12 @@ OutputDTDVisitor::OutputDTDVisitor(std::ostream & out, char indentChar,
 		unsigned int indentUnit) :
 	_out(out), _indentChar(indentChar), _indentUnit(indentUnit), _indent(0)
 {
-	//TODO
+	// Rien à faire.
 }
 
 OutputDTDVisitor::~OutputDTDVisitor()
 {
-	//TODO
+	// Rien à faire.
 }
 
 //------------------------------------------------------------------ PRIVE

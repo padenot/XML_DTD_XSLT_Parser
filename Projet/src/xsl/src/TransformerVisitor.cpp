@@ -1,19 +1,23 @@
 /*************************************************************************
- * CompositeMarkupNode  -  «Description»
+ * TransformerVisitor
  * -------------------
- * Début      : lun. 04 avril 2011 09:05:13 CEST
+ * Début      : mar. 05 avril 2011 14:37:55 CEST
  * Auteur(s)  : H4215
  *************************************************************************/
 
-//---- Réalisation de la classe <CompositeMarkupNode> (fichier CompositeMarkupNode.cpp) ----
+//---- Réalisation de la classe <TransformerVisitor> (fichier TransformerVisitor.cpp) ----
 
 //---------------------------------------------------------------- INCLUDE
 
 //-------------------------------------------------------- Include système
 using namespace std;
-#include <string>
+#include <iostream>
+#include <iomanip>
 
 //------------------------------------------------------ Include personnel
+#include "TransformerVisitor.hh"
+#include "TextNode.hh"
+#include "MarkupNode.hh"
 #include "CompositeMarkupNode.hh"
 
 namespace xml
@@ -29,52 +33,49 @@ namespace xml
 //-------------------------------------------------------- Fonctions amies
 
 //----------------------------------------------------- Méthodes publiques
-void CompositeMarkupNode::accept(InterfaceNodeVisitor& visitor) const
-{
-	visitor.visit(*this);
-}
 
-CompositeMarkupNode::ChildrenIterator CompositeMarkupNode::begin() const
-{
-	return _children.begin();
-}
-
-CompositeMarkupNode::ChildrenIterator CompositeMarkupNode::end() const
-{
-	return _children.end();
-}
 
 //------------------------------------------------- Surcharge d'opérateurs
 
 
 //-------------------------------------------- Constructeurs - destructeur
-CompositeMarkupNode::CompositeMarkupNode(CompositeMarkupNode ** parent,
-		const std::string & ns, const std::string & name,
-		const Attributes & attributes, CompositeMarkupNode*& proxyToSelf,
-		const Children & children) :
-	MarkupNode(parent, ns, name, attributes), _children(children),
-			_proxyToSelf(proxyToSelf)
+TransformerVisitor::TransformerVisitor()
 {
-	// Affectation du pointeur utilisé comme référence par les enfants
-	_proxyToSelf = this;
-} //----- Fin de CompositeMarkupNode
+	// Rien à faire
+} //----- Fin de OutputVisitor
 
-CompositeMarkupNode::~CompositeMarkupNode()
+
+TransformerVisitor::~TransformerVisitor()
 {
-	for (_Children::const_iterator it = _children.begin(); it
-			!= _children.end(); ++it)
-	{
-		delete *it;
-	}
-
-	// Destruction du pointeur utilisé comme référence par les enfants
-	delete &_proxyToSelf;
-} //----- Fin de ~CompositeMarkupNode
+	// Rien à faire
+} //----- Fin de ~OutputVisitor
 
 
 //------------------------------------------------------------------ PRIVE
 
 //----------------------------------------------------- Méthodes protégées
+
+
+
+void TransformerVisitor::visit(const TextNode& node)
+{
+
+}
+
+void TransformerVisitor::visit(const MarkupNode& node)
+{
+
+}
+
+void TransformerVisitor::visit(const CompositeMarkupNode& node)
+{
+	//node.name();
+	for (CompositeMarkupNode::ChildrenIterator it = node.begin(); it
+			!= node.end(); ++it)
+	{
+		(*it)->accept(*this);
+	}
+}
 
 //------------------------------------------------------- Méthodes privées
 

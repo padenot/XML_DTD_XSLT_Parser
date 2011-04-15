@@ -36,16 +36,8 @@ public:
 
 	//-------------------------------------------- Constructeurs - destructeur
 	Attribute(const std::string & name);
-	// Mode d'emploi :
-	//	TODO
-	// Contrat :
-	//	TODO
 
 	virtual ~Attribute();
-	// Mode d'emploi :
-	//	TODO
-	// Contrat :
-	//	TODO
 
 protected:
 	std::string _name;

@@ -51,10 +51,12 @@ Node & Transformation(Node & XmlTree, Node & XslTree)
 //-------------------------------------------- Constructeurs - destructeur
 XslTransformation::XslTransformation()
 {
+	templatesMap = new map();
 } //----- Fin de XslTransformation
 
 XslTransformation::~XslTransformation()
 {
+	delete templatesMap;
 } //----- Fin de ~XslTransformation
 
 
@@ -85,10 +87,10 @@ void XslTransformation::AnalyserTemplate(CompositeMarkupNode & patron, Node & no
 			!= (patron.end()); it++)
 	{
 		//if(it.isapplytemplate()){
-			it = Recopier(noeud);
+		/*	it = Recopier(noeud);
 			TransformerVisitor trans(CompositeMarkupNode** parent, ....);
 			noeud.accept(trans);
-			Node* = trans.result();
+			Node* = trans.result();*/
 		//} else (if
 	}
 	/*
@@ -106,9 +108,9 @@ void XslTransformation::AnalyserTemplate(CompositeMarkupNode & patron, Node & no
 
 list<Node *> & XslTransformation::Recopier(TextNode & noeud)
 {
-	list<Node *> * node = new list<Node *>();
+	/*list<Node *> * node = new list<Node *>();
 	node->push_back(&noeud);
-	return *node;
+	return *node;*/
 	/*
 	 else
 	 foreach (fils f de x)
@@ -129,5 +131,15 @@ list<Node *> & XslTransformation::Recopier(CompositeMarkupNode & noeud)
 	return *node;
 } //----- Fin de Recopier
 
+Node & XslTransformation::RechercherTemplate(const Node & noeudXML)
+{
+
+}
+
+void creerMap(const Node& noeudXSL )
+{
+	/*std::string key = noeudXSL.;
+	map.*/
+}
 
 } // namespace xsl

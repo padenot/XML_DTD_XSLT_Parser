@@ -30,12 +30,6 @@ public:
 	//------------------------------------------------------------------ Types
 
 	//----------------------------------------------------- Méthodes publiques
-	// type Méthode ( liste de paramètres );
-	// Mode d'emploi :
-	//	«TODO»
-	// Contrat :
-	//	«TODO»
-
 	virtual void accept (InterfaceNodeVisitor& visitor) const;
 	// Mode d'emploi :
 	//	Permet à un visiteur d'inspecter ce noeud sous sa vraie identité

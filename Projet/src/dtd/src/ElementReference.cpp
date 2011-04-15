@@ -59,12 +59,12 @@ std::string ElementReference::name() const
 ElementReference::ElementReference(DTD& dtd, std::string ns, std::string name) :
 	_dtd(dtd), _namespace(ns), _name(name)
 {
-	//TODO
+	// Rien à faire.
 }
 
 ElementReference::~ElementReference()
 {
-	//TODO
+	// Rien à faire.
 }
 
 //------------------------------------------------------------------ PRIVE

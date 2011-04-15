@@ -35,13 +35,13 @@ namespace dtd
 //-------------------------------------------- Constructeurs - destructeur
 ElementContent::ElementContent ( )
 {
-	//TODO
+	// Rien à faire.
 }
 
 
 ElementContent::~ElementContent ( )
 {
-	//TODO
+	// Rien à faire.
 }
 
 

@@ -27,12 +27,6 @@ public:
 	//------------------------------------------------------------------ Types
 
 	//----------------------------------------------------- Méthodes publiques
-	// type Méthode ( liste des paramètres );
-	// Mode d'emploi :
-	//	
-	// Contrat :
-	//	
-
 	virtual void accept(InterfaceDTDVisitor & visitor) const;
 
 	virtual bool matches(xml::Node& node);
@@ -47,15 +41,14 @@ public:
 	//-------------------------------------------- Constructeurs - destructeur
 	ElementReference(DTD& dtd, std::string ns, std::string name);
 	// Mode d'emploi :
-	//	TODO
+	//	Construit une référence vers un élément dans l'espace de nom "ns"
+	//	ayant pour nom "name".
+	//	La dtd permet de retrouver l'élément référencé (pour des ajouts futurs
+	//	dans l'implémentation).
 	// Contrat :
-	//	TODO
+	//	Aucun.
 
 	virtual ~ElementReference();
-	// Mode d'emploi :
-	//	TODO
-	// Contrat :
-	//	TODO
 
 protected:
 	DTD& _dtd;

@@ -130,9 +130,4 @@ Node* normalTree(unsigned int offset, CompositeMarkupNode** rootParent)
 			name(offset + 3), attributes(offset + 2, 1), *parent, children);
 }
 
-Node* complexTree(unsigned int offset, CompositeMarkupNode** rootParent)
-{
-	// TODO
-	return normalTree(offset, rootParent);
-}
 

@@ -28,12 +28,6 @@ public:
 	typedef _Children::const_iterator ChildrenIterator;
 
 	//----------------------------------------------------- Méthodes publiques
-	// type Méthode ( liste de paramètres );
-	// Mode d'emploi :
-	//	«TODO»
-	// Contrat :
-	//	«TODO»
-
 	virtual void accept (InterfaceNodeVisitor& visitor) const;
 	// Mode d'emploi :
 	//	Permet à un visiteur d'inspecter ce noeud sous sa vraie identité
@@ -74,15 +68,26 @@ public:
 			const std::string & name, const Attributes & attributes,
 			CompositeMarkupNode *& proxyToSelf, const Children & children);
 	// Mode d'emploi (constructeur) :
-	//	«TODO»
+	//	Crée un noeud composite.
+	//	Si "parent" est nul, le noeud n'a pas de parent, sinon son parent est
+	//	donné par "**parent".
+	//	L'espace de nom du noeud est donné par "ns", le nom par "name", la
+	//	map des attributs est "attributes" (elle est recopiée).
+	//	"proxyToSelf" est une référence vers le pointeur qui a été passé
+	//	en paramètre aux différents fils du noeud. Il est affecté à l'adresse du
+	//	CompositeMarkupNode nouvellement créé dans le constructeur et détruit
+	//	dans le destructeur.
 	// Contrat :
-	//	«TODO»
+	//	Si "parent" est non nul, "*parent" doit être non nul.
+	//	Tous les élément du conteneur "Children" doivent avoir "parent"
+	//	pour pointeur vers le parent.
 
 	virtual ~CompositeMarkupNode();
 	// Mode d'emploi (destructeur) :
-	//	«TODO»
+	//	Détruit tous les enfants du noeud ainsi que le proxy ("proxyToSelf"
+	//	ci-dessus).
 	// Contrat :
-	//	«TODO»
+	//	Aucun.
 
 protected:
 	_Children _children;

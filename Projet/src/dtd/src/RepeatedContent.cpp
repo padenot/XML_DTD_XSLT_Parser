@@ -42,12 +42,12 @@ void RepeatedContent::accept(InterfaceDTDVisitor & visitor) const
 RepeatedContent::RepeatedContent(QuantifiableContent & content) :
 	QuantifiedContent(content)
 {
-	//TODO
+	// Rien à faire.
 }
 
 RepeatedContent::~RepeatedContent()
 {
-	//TODO
+	// Rien à faire.
 }
 
 //------------------------------------------------------------------ PRIVE

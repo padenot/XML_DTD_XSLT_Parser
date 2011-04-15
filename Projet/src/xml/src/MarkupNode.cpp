@@ -29,12 +29,6 @@ namespace xml
 //-------------------------------------------------------- Fonctions amies
 
 //----------------------------------------------------- Méthodes publiques
-// type MarkupNode::Méthode ( liste de paramètres )
-// Algorithme :
-//	«TODO»
-//{
-//} //----- Fin de Méthode
-
 void MarkupNode::accept (InterfaceNodeVisitor& visitor) const
 {
 	visitor.visit(*this);
@@ -68,14 +62,14 @@ MarkupNode::MarkupNode(CompositeMarkupNode ** parent, const std::string & ns,
 		const std::string & name, const Attributes & attributes) :
 	Node(parent), _namespace(ns), _name(name), _attributes(attributes)
 {
-	// TODO
-} //----- Fin de MarkupNode
+	// Rien à faire.
+}
 
 
 MarkupNode::~MarkupNode()
 {
-	// TODO
-} //----- Fin de ~MarkupNode
+	// Rien à faire.
+}
 
 
 //------------------------------------------------------------------ PRIVE

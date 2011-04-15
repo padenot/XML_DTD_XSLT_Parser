@@ -39,16 +39,8 @@ public:
 
 	//-------------------------------------------- Constructeurs - destructeur
 	AnyContent();
-	// Mode d'emploi :
-	//	TODO
-	// Contrat :
-	//	TODO
 
 	virtual ~AnyContent();
-	// Mode d'emploi :
-	//	TODO
-	// Contrat :
-	//	TODO
 
 protected:
 

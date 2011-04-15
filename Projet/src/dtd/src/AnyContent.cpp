@@ -51,12 +51,12 @@ void AnyContent::accept(InterfaceDTDVisitor & visitor) const
 //-------------------------------------------- Constructeurs - destructeur
 AnyContent::AnyContent()
 {
-	//TODO
+	// Rien à faire
 }
 
 AnyContent::~AnyContent()
 {
-	//TODO
+	// Rien à faire
 }
 
 //------------------------------------------------------------------ PRIVE

@@ -14,6 +14,7 @@
 //--------------------------------------------------- Includes systme
 
 #include <list>
+#include <map>
 
 //--------------------------------------------------- Includes personnel
 
@@ -57,6 +58,8 @@ public:
 	//	Â«TODOÂ»
 
 private:
+	typedef std::map<std::string, Node*> map;
+	map * templatesMap;
 	Node & AnalyserNoeud(Node & noeud);
 	// Mode d'emploi (destructeur) :
 	//	Â«TODOÂ»
@@ -80,6 +83,19 @@ private:
 	//	Â«TODOÂ»
 	// Contrat :
 	//	Â«TODOÂ»
+	
+	Node & RechercherTemplate(const Node & noeudXML);
+	// Mode d'emploi (destructeur) :
+	//	 Effectue la recherche du noeud template xsl associé au noeud passé en
+	//	 paramètre. Null est retourné si aucun template n'est trouvé.
+	// Contrat :
+	//	
+	
+	void creerMap(const Node& noeudXSL );
+	// Mode d'emploi (destructeur) :
+	//	Crée la map
+	// Contrat :
+	//	
 };
 
 } // namespace xsl

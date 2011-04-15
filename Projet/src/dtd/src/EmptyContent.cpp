@@ -51,12 +51,12 @@ void EmptyContent::accept(InterfaceDTDVisitor & visitor) const
 //-------------------------------------------- Constructeurs - destructeur
 EmptyContent::EmptyContent()
 {
-	//TODO
+	// Rien à faire.
 }
 
 EmptyContent::~EmptyContent()
 {
-	//TODO
+	// Rien à faire.
 }
 
 //------------------------------------------------------------------ PRIVE
