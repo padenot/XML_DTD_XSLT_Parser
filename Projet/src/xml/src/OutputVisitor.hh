@@ -33,11 +33,6 @@ public:
 	//------------------------------------------------------------------ Types
 
 	//----------------------------------------------------- Méthodes publiques
-	// type Méthode ( liste de paramètres );
-	// Mode d'emploi :
-	//	«TODO»
-	// Contrat :
-	//	«TODO»
 
 
 	//------------------------------------------------- Surcharge d'opérateurs

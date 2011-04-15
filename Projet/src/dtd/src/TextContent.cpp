@@ -41,12 +41,12 @@ void TextContent::accept(InterfaceDTDVisitor & visitor) const
 //-------------------------------------------- Constructeurs - destructeur
 TextContent::TextContent()
 {
-	//TODO
+	// Rien à faire.
 }
 
 TextContent::~TextContent()
 {
-	//TODO
+	// Rien à faire.
 }
 
 //------------------------------------------------------------------ PRIVE

@@ -10,7 +10,6 @@
 #define MIXEDCONTENT_HH_
 
 //--------------------------------------------------- Interfaces utilisées
-#include <set>
 #include <stack>
 #include "QuantifiableContent.hh"
 #include "Choice.hh"
@@ -41,7 +40,7 @@ public:
 
 	virtual void accept(InterfaceDTDVisitor & visitor) const;
 	const_iterator begin() const;
-		// Mode d'emploi :
+	// Mode d'emploi :
 	//	Renvoie un itérateur vers le premier enfant du contenu.
 	//	La méthode est compatible avec la STL.
 	//	L'itérateur pointe vers un pointeur (l'accès aux méthodes des fils
@@ -49,7 +48,7 @@ public:
 	// Contrat :
 	//	L'itérateur n'est plus valable en cas de modification du contenu, de
 	//	même que les itérateurs obtenus par son intermédiaire.
-	
+
 	const_iterator end() const;
 	// Mode d'emploi :
 	//	Renvoie un itérateur pointant juste après le dernier enfant du contenu.
@@ -75,10 +74,6 @@ public:
 	//	TODO
 
 	virtual ~MixedContent();
-	// Mode d'emploi :
-	//	TODO
-	// Contrat :
-	//	TODO
 
 	//------------------------------------------------------------------ PRIVE
 

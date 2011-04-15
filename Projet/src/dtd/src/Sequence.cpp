@@ -61,7 +61,7 @@ Sequence::const_iterator Sequence::end() const
 Sequence::Sequence(const OrderedContent & embeddedContent) :
 	_embeddedContent(embeddedContent)
 {
-	//TODO
+	// Rien à faire.
 }
 
 Sequence::~Sequence()

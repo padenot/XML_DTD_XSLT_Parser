@@ -67,8 +67,6 @@ void DTD::addElement(const std::string & ns, const std::string & elementName,
 void DTD::addAttributesList(const std::string & ns,
 		const std::string & elementName, const AttributesList& newAttributes)
 {
-	// TODO: essayer de fusionner avec une autre attlist
-	//_attributesLists.push_back(&attlist);
 	_ElementId insertedId(ns, elementName);
 	_AttributesLists::iterator attList = _attributesLists.find(insertedId);
 
@@ -130,7 +128,7 @@ bool DTD::isValid(const xml::Node& root)
 DTD::DTD() :
 	_elements(), _attributesLists()
 {
-	//TODO
+	// Rien à faire.
 }
 
 DTD::~DTD()

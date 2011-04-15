@@ -29,24 +29,22 @@ public:
 	//------------------------------------------------------------------ Types
 
 	//----------------------------------------------------- Méthodes publiques
-	// type Méthode ( liste de paramètres );
-	// Mode d'emploi :
-	//	«TODO»
+	void writeDot(Node * node);
+	// Mode d'emploi (constructeur) :
+	//	TODO
 	// Contrat :
-	//	«TODO»
-
+	//	TODO
 
 	//------------------------------------------------- Surcharge d'opérateurs
 
 
 	//-------------------------------------------- Constructeurs - destructeur
-	DotOutputVisitor(std::ostream & out, std::string filename);
+	DotOutputVisitor(std::ostream & out, std::string graphName);
 	// Mode d'emploi (constructeur) :
-	//	Construit un nouveau visiteur écrivant sur "out".
+	//	Construit un nouveau visiteur écrivant un graphe au format dot sur "out",
+	//	en nommant le graphe "graphName".
 	// Contrat :
 	//	Aucun.
-	
-		void writeDot(Node * node);
 
 	virtual ~DotOutputVisitor();
 	// Mode d'emploi (destructeur) :
@@ -84,7 +82,6 @@ protected:
 	
 	void declareNode(const Node& node, std::string label);
 	void writeId(const Node& node);
-
 
 };
 

@@ -14,6 +14,7 @@ using namespace std;
 
 //------------------------------------------------------ Include personnel
 #include "Node.hh"
+#include "CompositeMarkupNode.hh"
 
 namespace xml
 {
@@ -29,12 +30,13 @@ namespace xml
 
 
 //----------------------------------------------------- Méthodes publiques
-// type Node::Méthode ( liste de paramètres )
-// Algorithme :
-//	«TODO»
-//{
-//} //----- Fin de Méthode
-
+Node* Node::parent() const
+{
+	if (_parent == 0)
+		return 0;
+	else
+		return *_parent;
+}
 
 //------------------------------------------------- Surcharge d'opérateurs
 
@@ -44,14 +46,12 @@ Node::Node(CompositeMarkupNode ** parent) :
 	_parent(parent)
 {
 	// Rien à faire
-} //----- Fin de Node
-
+}
 
 Node::~Node()
 {
 	// Rien à faire
-} //----- Fin de ~Node
-
+}
 
 //------------------------------------------------------------------ PRIVE
 

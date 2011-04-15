@@ -18,9 +18,9 @@ namespace dtd
 {
 
 class Choice: public ElementContent
-{	
+{
 protected:
-	typedef std::set<ElementContent*> _ChoosableSet;	
+	typedef std::set<ElementContent*> _ChoosableSet;
 public:
 	//------------------------------------------------------------- Constantes
 
@@ -38,9 +38,9 @@ public:
 	virtual bool validate(const xml::CompositeMarkupNode & node);
 
 	virtual void accept(InterfaceDTDVisitor & visitor) const;
-	
+
 	const_iterator begin() const;
-		// Mode d'emploi :
+	// Mode d'emploi :
 	//	Renvoie un itérateur vers le premier enfant du contenu.
 	//	La méthode est compatible avec la STL.
 	//	L'itérateur pointe vers un pointeur (l'accès aux méthodes des fils
@@ -48,7 +48,7 @@ public:
 	// Contrat :
 	//	L'itérateur n'est plus valable en cas de modification du contenu, de
 	//	même que les itérateurs obtenus par son intermédiaire.
-	
+
 	const_iterator end() const;
 	// Mode d'emploi :
 	//	Renvoie un itérateur pointant juste après le dernier enfant du contenu.
@@ -65,16 +65,11 @@ public:
 	//-------------------------------------------- Constructeurs - destructeur
 	Choice(const ChoosableSet & elements);
 	// Mode d'emploi :
-	//	TODO
+	//	Construit un choix composé des alternatives présentes dans "elements".
 	// Contrat :
 	//	Aucun des pointeurs fournis ne doit être nul.
-	//	TODO
 
 	virtual ~Choice();
-	// Mode d'emploi :
-	//	TODO
-	// Contrat :
-	//	TODO
 
 protected:
 

@@ -31,16 +31,16 @@ public:
 	//------------------------------------------------------------------ Types
 
 	//----------------------------------------------------- Méthodes publiques
-	// type Méthode ( liste de paramètres );
-	// Mode d'emploi :
-	//	«TODO»
-	// Contrat :
-	//	«TODO»
-
 	virtual void accept (InterfaceNodeVisitor& visitor) const = 0;
 	// Mode d'emploi :
 	//	Permet à un visiteur d'inspecter ce noeud sous sa vraie identité
 	//	(en lui révélant son type réel).
+	// Contrat :
+	//	Aucun.
+
+	Node* parent ( ) const;
+	// Mode d'emploi :
+	//	Renvoie le noeud parent, ou un pointeur nul s'il n'y en a pas.
 	// Contrat :
 	//	Aucun.
 
@@ -58,13 +58,9 @@ public:
 	//	Si le noeud construit représente la racine, "parent" doit être nul.
 	//	Si "parent" est non nul, "*parent" doit être non nul.
 	//	La destruction du pointeur "*parent" (et non de l'objet "**parent") est
-	//		à la charge de l'objet qui sera utlimement référencé par "*parent".
+	//		à la charge de l'objet qui sera ultimement référencé par "*parent".
 
 	virtual ~Node();
-	// Mode d'emploi (destructeur) :
-	//	«TODO»
-	// Contrat :
-	//	«TODO»
 
 protected:
 

@@ -41,11 +41,7 @@ const std::string OutputVisitor::CLOSE_ATTRIBUTE_VALUE_STR = "\"";
 //-------------------------------------------------------- Fonctions amies
 
 //----------------------------------------------------- Méthodes publiques
-// type OutputVisitor::Méthode ( liste de paramètres )
-// Algorithme :
-//	«TODO»
-//{
-//} //----- Fin de Méthode
+
 
 //------------------------------------------------- Surcharge d'opérateurs
 

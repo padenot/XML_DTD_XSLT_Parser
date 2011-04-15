@@ -29,12 +29,6 @@ namespace xml
 //-------------------------------------------------------- Fonctions amies
 
 //----------------------------------------------------- Méthodes publiques
-// type TextNode::Méthode ( liste de paramètres )
-// Algorithme :
-//	«TODO»
-//{
-//} //----- Fin de Méthode
-
 void TextNode::accept(InterfaceNodeVisitor& visitor) const
 {
 	visitor.visit(*this);
@@ -52,13 +46,13 @@ string TextNode::content() const
 TextNode::TextNode(CompositeMarkupNode ** parent, const string & content) :
 	Node(parent), _content(content)
 {
-	//TODO
+	// Rien à faire.
 } //----- Fin de TextNode
 
 
 TextNode::~TextNode()
 {
-	//TODO
+	// Rien à faire.
 } //----- Fin de ~TextNode
 
 

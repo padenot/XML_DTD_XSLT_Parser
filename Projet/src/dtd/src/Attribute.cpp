@@ -40,12 +40,12 @@ string Attribute::name() const
 Attribute::Attribute(const string & name) :
 	_name(name)
 {
-	//TODO
+	// Rien à faire.
 }
 
 Attribute::~Attribute()
 {
-	//TODO
+	// Rien à faire.
 }
 
 //------------------------------------------------------------------ PRIVE

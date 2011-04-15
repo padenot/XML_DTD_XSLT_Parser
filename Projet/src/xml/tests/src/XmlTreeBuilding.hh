@@ -25,7 +25,5 @@ xml::Node* simpleTree(unsigned int offset = 0,
 		xml::CompositeMarkupNode** rootParent = 0);
 xml::Node* normalTree(unsigned int offset = 0,
 		xml::CompositeMarkupNode** rootParent = 0);
-xml::Node* complexTree(unsigned int offset = 0,
-		xml::CompositeMarkupNode** rootParent = 0);
 
 #endif // XMLTREEBUILDING_HH

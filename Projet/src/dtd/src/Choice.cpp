@@ -59,7 +59,7 @@ Choice::const_iterator Choice::end() const
 Choice::Choice(const ChoosableSet & choosable) :
 	_choosable(choosable)
 {
-	//TODO
+	// Rien à faire.
 }
 
 Choice::~Choice()

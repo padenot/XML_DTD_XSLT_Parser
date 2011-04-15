@@ -53,7 +53,7 @@ const QuantifiableContent & QuantifiedContent::content() const
 QuantifiedContent::QuantifiedContent(QuantifiableContent & content) :
 	_content(content)
 {
-	//TODO
+	// Rien à faire.
 }
 
 QuantifiedContent::~QuantifiedContent()

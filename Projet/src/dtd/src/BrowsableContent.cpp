@@ -47,12 +47,12 @@ bool BrowsableContent::validate(const CompositeMarkupNode & node)
 //-------------------------------------------- Constructeurs - destructeur
 BrowsableContent::BrowsableContent()
 {
-	//TODO
+	// Rien à faire.
 }
 
 BrowsableContent::~BrowsableContent()
 {
-	//TODO
+	// Rien à faire.
 }
 
 //------------------------------------------------------------------ PRIVE

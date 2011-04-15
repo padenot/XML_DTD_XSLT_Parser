@@ -36,11 +36,7 @@ const std::string DotOutputVisitor::LINK = " -> ";
 //-------------------------------------------------------- Fonctions amies
 
 //----------------------------------------------------- Méthodes publiques
-// type DotOutputVisitor::Méthode ( liste de paramètres )
-// Algorithme :
-//	«TODO»
-//{
-//} //----- Fin de Méthode
+
 
 //------------------------------------------------- Surcharge d'opérateurs
 
@@ -49,7 +45,6 @@ const std::string DotOutputVisitor::LINK = " -> ";
 DotOutputVisitor::DotOutputVisitor(ostream & out, std::string filename) :
 	_out(out), _document(filename)
 {
-	// Rien à faire
 	textNodesCount = 0;
 	_nodesCounter = 0;
 } //----- Fin de DotOutputVisitor

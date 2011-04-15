@@ -28,7 +28,11 @@ public:
 
 	//------------------------------------------------------------------ Types
 	void accept (InterfaceDTDVisitor & visitor);
-	// TODO commenter
+	// Mode d'emploi :
+	//	Permet à un visiteur d'inspecter ce contenu sous sa vraie identité
+	//	(en lui révélant son type réel).
+	// Contrat :
+	//	Aucun.
 
 	//----------------------------------------------------- Méthodes publiques
 	// type Méthode ( liste des paramètres );
@@ -67,16 +71,8 @@ public:
 
 	//-------------------------------------------- Constructeurs - destructeur
 	DTD();
-	// Mode d'emploi :
-	//	TODO
-	// Contrat :
-	//	TODO
 
 	virtual ~DTD();
-	// Mode d'emploi :
-	//	TODO
-	// Contrat :
-	//	TODO
 
 protected:
 	typedef std::pair<std::string, std::string> _ElementId;

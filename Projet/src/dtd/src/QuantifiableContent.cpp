@@ -33,17 +33,15 @@ namespace dtd
 
 
 //-------------------------------------------- Constructeurs - destructeur
-QuantifiableContent::QuantifiableContent ( )
+QuantifiableContent::QuantifiableContent()
 {
-	//TODO
+	// Rien à faire.
 }
 
-
-QuantifiableContent::~QuantifiableContent ( )
+QuantifiableContent::~QuantifiableContent()
 {
-	//TODO
+	// Rien à faire.
 }
-
 
 //------------------------------------------------------------------ PRIVE
 

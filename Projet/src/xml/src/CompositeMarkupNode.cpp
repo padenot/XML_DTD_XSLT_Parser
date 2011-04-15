@@ -29,12 +29,6 @@ namespace xml
 //-------------------------------------------------------- Fonctions amies
 
 //----------------------------------------------------- Méthodes publiques
-// type CompositeMarkupNode::Méthode ( liste de paramètres )
-// Algorithme :
-//	«TODO»
-//{
-//} //----- Fin de Méthode
-
 void CompositeMarkupNode::accept(InterfaceNodeVisitor& visitor) const
 {
 	visitor.visit(*this);

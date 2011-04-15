@@ -23,11 +23,6 @@ public:
 	//------------------------------------------------------------------ Types
 
 	//----------------------------------------------------- Méthodes publiques
-	// type Méthode ( liste des paramètres );
-	// Mode d'emploi :
-	//	
-	// Contrat :
-	//	
 
 
 	//------------------------------------------------- Surcharge d'opérateurs
@@ -35,16 +30,8 @@ public:
 
 	//-------------------------------------------- Constructeurs - destructeur
 	ElementContent();
-	// Mode d'emploi :
-	//	TODO
-	// Contrat :
-	//	TODO
 
 	virtual ~ElementContent();
-	// Mode d'emploi :
-	//	TODO
-	// Contrat :
-	//	TODO
 
 	//------------------------------------------------------------------ PRIVE
 

@@ -22,12 +22,6 @@ public:
 	//------------------------------------------------------------------ Types
 
 	//----------------------------------------------------- Méthodes publiques
-	// type Méthode ( liste des paramètres );
-	// Mode d'emploi :
-	//	
-	// Contrat :
-	//	
-
 	virtual bool validate(const xml::MarkupNode & node);
 	virtual bool validate(const xml::CompositeMarkupNode & node);
 
@@ -38,16 +32,8 @@ public:
 
 	//-------------------------------------------- Constructeurs - destructeur
 	EmptyContent();
-	// Mode d'emploi :
-	//	TODO
-	// Contrat :
-	//	TODO
 
 	virtual ~EmptyContent();
-	// Mode d'emploi :
-	//	TODO
-	// Contrat :
-	//	TODO
 
 protected:
 

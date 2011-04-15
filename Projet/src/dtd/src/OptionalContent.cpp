@@ -42,12 +42,12 @@ void OptionalContent::accept(InterfaceDTDVisitor & visitor) const
 OptionalContent::OptionalContent(QuantifiableContent & content) :
 	QuantifiedContent(content)
 {
-	//TODO
+	// Rien à faire.
 }
 
 OptionalContent::~OptionalContent()
 {
-	//TODO
+	// Rien à faire.
 }
 
 //------------------------------------------------------------------ PRIVE
