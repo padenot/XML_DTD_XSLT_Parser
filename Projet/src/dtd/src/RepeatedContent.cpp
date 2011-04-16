@@ -59,7 +59,7 @@ bool RepeatedContent::_startValidation(
 		BrowsableContent* nextStep)
 {
 	// Il faut et suffit que le contenu enfant soit validé au moins une fois.
-	return _browseDown(_content, firstToken, endToken, nextStep);
+	return _browseDown(_content, firstToken, endToken, this);
 }
 
 bool RepeatedContent::_continueValidation(

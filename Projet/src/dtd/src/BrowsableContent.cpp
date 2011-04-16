@@ -94,6 +94,7 @@ bool BrowsableContent::_continueValidation(
 {
 	// Par défaut, la méthode doit rester inutilisée (pour des
 	//	contenus n'ayant pas d'enfant par exemple)
+
 	return false;
 }
 
@@ -114,6 +115,11 @@ bool BrowsableContent::_browseUp(BrowsableContent * parentContent,
 {
 	if (parentContent == 0)
 	{
+
+#ifdef DTD_VALIDATION_TRACE
+	cerr << "Stopping validation on: " << typeid(*this).name()
+			<< ", root has been reached." << endl;
+#endif
 		// L'objet n'est pas contenu dans un autre "content".
 		// 	On doit avoir consommé tous les jetons pour qu'ils
 		//	soient déclarés valides.
@@ -121,6 +127,9 @@ bool BrowsableContent::_browseUp(BrowsableContent * parentContent,
 	}
 	else
 	{
+#ifdef DTD_VALIDATION_TRACE
+	cerr << "Continuing validation on: " << typeid(*parentContent).name() << endl;
+#endif
 		// L'objet est pas contenu dans un autre "content".
 		// 	On doit continuer la validation au niveau supérieur.
 		return parentContent->_continueValidation(currentToken);

@@ -1,4 +1,2 @@
-<!ELEMENT nom (#PCDATA)>
-<!ELEMENT prenom (#PCDATA|maxime|salut)>
-<!ELEMENT alut ANY>
-<!ELEMENT salut EMPTY>
+<!ELEMENT root (p)*>
+<!ELEMENT p (#PCDATA)>

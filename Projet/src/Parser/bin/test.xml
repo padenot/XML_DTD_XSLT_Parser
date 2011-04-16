@@ -1,6 +1,6 @@
 <!DOCTYPE rapport SYSTEM "test.dtd">
 <root>
-salut
+	<p>salut</p>
 </root>
 
 

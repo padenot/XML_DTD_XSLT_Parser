@@ -62,14 +62,10 @@ int handleDTD(string filename) {
 	else if(!exportMode) 
 		cout << "Aucune erreur détectée." << endl; 
 
-	delete rootDTD;
-	rootDTD = 0;
-
 	return 0;
 }
 
 dtd::QuantifiableContent* handleQuantifier(dtd::QuantifiableContent* currentContent, int quantifier) {
-//	if(!currentContent) throw new string("AHHHHHH");
 	switch(quantifier) {
 		case (QTF_NONE): return currentContent;
 		case (QTF_PLUS): return new dtd::RepeatedContent(*currentContent);
@@ -103,7 +99,7 @@ int main(int argc, char** argv) {
 
 	if(exportMode) {
 		xml::DotOutputVisitor dvisitor(cout, "xmlTree");
-		dvisitor.writeDot(root);
+//		dvisitor.writeDot(root);
 
 		xml::OutputVisitor visitor(cout, '\t');
 		root->accept(visitor);
@@ -115,10 +111,14 @@ int main(int argc, char** argv) {
 	if (dtdName != 0)
 	{
 		handleDTD(*dtdName);
+		if(rootDTD->isValid(*root)) cout << "Fichier XML valide" << endl;
+		else cout << "Fichier XML invalide" << endl;
 	}
 
 	delete root;
 	root = 0;
+	delete rootDTD;
+	rootDTD = 0;
 
 	return 0;
 }
