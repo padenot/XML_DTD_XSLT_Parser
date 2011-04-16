@@ -6,4 +6,4 @@
 <!ELEMENT chapitre (titre, (p | section)+)>
 <!ELEMENT section (titre, p+)>
 <!ELEMENT p (#PCDATA)>
-<!ELEMENT titre (#PCDATA)>
+<!ELEMENT titre (#PCDATA|p|titre)*>
