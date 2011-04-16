@@ -222,7 +222,7 @@ list<Node*> SimpleBuilder::buildInvalidTrees() const
 
 	// #06 - #20
 	// Try each possibility to have an invalid tree just by omitting
-	//	a node - with markup7
+	//	one or more nodes - with markup7
 	for (char c = 0; c < 0x0F; ++c)
 	{
 		children.clear();
@@ -235,7 +235,7 @@ list<Node*> SimpleBuilder::buildInvalidTrees() const
 
 	// #21 - #35
 	// Try each possibility to have an invalid tree just by omitting
-	//	a node - without markup7
+	//	one or more nodes - without markup7
 	for (char c = 0; c < 0x0F; ++c)
 	{
 		children.clear();
