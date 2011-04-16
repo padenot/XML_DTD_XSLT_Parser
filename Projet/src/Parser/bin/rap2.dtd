@@ -1,3 +1,13 @@
+<!ELEMENT auteur (prenom, nom)>
+<!ELEMENT prenom (#PCDATA)>
+<!ELEMENT chapitre (titre, (p | section)+)>
+<!ELEMENT section (titre, p+)>
+<!ELEMENT nom (#PCDATA)>
+<!ELEMENT p (#PCDATA)>
+<!ELEMENT rapport (titre,auteur+,resume,chapitre+)>
+<!ELEMENT resume (#PCDATA)>
+<!ELEMENT titre (#PCDATA|p|titre)*>
+
 <!ATTLIST chapitre
         titre CDATA #IMPLIED
 >

@@ -4,7 +4,7 @@ XMLSTRUCT=$(XMLSTRUCT_PATH)/bin/libxmlstruct.a
 DTDSTRUCT=$(DTDSTRUCT_PATH)/bin/libdtdstruct.a
 STATICLIBS=$(XMLSTRUCT) $(DTDSTRUCT)
 
-all: parser test
+all: parser
 
 flex: src/dtd.l src/xml.y
 	flex -Pdtd -o src/dtd.yy.c src/dtd.l
@@ -25,10 +25,7 @@ $(DTDSTRUCT):
 
 test: parser 
 	@echo "TESTING Parser..."
-	@cd bin && ./parser 'rap1.xml' &>/dev/null && echo "rap1.xml : OK"
-	@cd bin && ./parser 'rap2.xml' &>/dev/null && echo "rap2.xml : OK"
-	@cd bin && ./parser 'rap3.xml' &>/dev/null && echo "rap3.xml : OK"
-	@cd bin && ./parser 'rap4.xml' &>/dev/null && echo "rap4.xml : OK"
+	@cd tests && ./do_test.sh
 
 clean:
 	rm -rf bin/parser bin/parser.dSYM/
