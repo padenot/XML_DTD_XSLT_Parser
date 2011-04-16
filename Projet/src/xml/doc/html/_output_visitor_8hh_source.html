@@ -1,0 +1,168 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>XMLLib:  Fichier source de src/OutputVisitor.hh</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javaScript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- Généré par Doxygen 1.7.2 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+--></script>
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="namespaces.html"><span>Espaces&#160;de&#160;nommage</span></a></li>
+      <li><a href="annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="files.html"><span>Fichiers</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+    </ul>
+  </div>
+<div class="header">
+  <div class="headertitle">
+<h1>src/OutputVisitor.hh</h1>  </div>
+</div>
+<div class="contents">
+<a href="_output_visitor_8hh.html">Aller à la documentation de ce fichier.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">/*************************************************************************</span>
+<a name="l00002"></a>00002 <span class="comment"> * OutputVisitor  -  Visiteur écrivant un noeud et ses descendants</span>
+<a name="l00003"></a>00003 <span class="comment"> * sur un flot.</span>
+<a name="l00004"></a>00004 <span class="comment"> * -------------------</span>
+<a name="l00005"></a>00005 <span class="comment"> * Début      : mar. 05 avril 2011 14:35:25 CEST</span>
+<a name="l00006"></a>00006 <span class="comment"> * Auteur(s)  : H4215</span>
+<a name="l00007"></a>00007 <span class="comment"> *************************************************************************/</span>
+<a name="l00008"></a>00008 
+<a name="l00009"></a>00009 <span class="comment">//---- Interface de la classe &lt;OutputVisitor&gt; (fichier OutputVisitor.hh) ----</span>
+<a name="l00010"></a>00010 <span class="preprocessor">#ifndef OUTPUTVISITOR_HH</span>
+<a name="l00011"></a>00011 <span class="preprocessor"></span><span class="preprocessor">#define OUTPUTVISITOR_HH</span>
+<a name="l00012"></a>00012 <span class="preprocessor"></span>
+<a name="l00013"></a>00013 <span class="comment">//--------------------------------------------------- Interfaces utilisées</span>
+<a name="l00014"></a>00014 <span class="preprocessor">#include &lt;iosfwd&gt;</span>
+<a name="l00015"></a>00015 <span class="preprocessor">#include &lt;string&gt;</span>
+<a name="l00016"></a>00016 <span class="preprocessor">#include &quot;<a class="code" href="_interface_node_visitor_8hpp.html">InterfaceNodeVisitor.hpp</a>&quot;</span>
+<a name="l00017"></a>00017 
+<a name="l00018"></a>00018 <span class="keyword">namespace </span>xml
+<a name="l00019"></a>00019 {
+<a name="l00020"></a>00020 <span class="keyword">class </span>TextNode;
+<a name="l00021"></a>00021 <span class="keyword">class </span>MarkupNode;
+<a name="l00022"></a>00022 <span class="keyword">class </span>CompositeMarkupNode;
+<a name="l00023"></a>00023 
+<a name="l00024"></a><a class="code" href="classxml_1_1_output_visitor.html">00024</a> <span class="keyword">class </span><a class="code" href="classxml_1_1_output_visitor.html">OutputVisitor</a>: <span class="keyword">public</span> <a class="code" href="classxml_1_1_interface_node_visitor.html">InterfaceNodeVisitor</a>
+<a name="l00025"></a>00025 {
+<a name="l00026"></a>00026 <span class="keyword">protected</span>:
+<a name="l00027"></a><a class="code" href="classxml_1_1_output_visitor.html#ad61c526a1962865b37f22fdf252b63f3">00027</a>         <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">char</span> <a class="code" href="classxml_1_1_output_visitor.html#ad61c526a1962865b37f22fdf252b63f3">DEFAULT_INDENT_CHAR</a> = <span class="charliteral">&#39; &#39;</span>;
+<a name="l00028"></a><a class="code" href="classxml_1_1_output_visitor.html#aa5e9426f0fdf70d3e0922837c8c99f93">00028</a>         <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> <a class="code" href="classxml_1_1_output_visitor.html#aa5e9426f0fdf70d3e0922837c8c99f93">DEFAULT_INDENT_UNIT</a> = 1;
+<a name="l00029"></a>00029 
+<a name="l00030"></a>00030 <span class="keyword">public</span>:
+<a name="l00031"></a>00031         <span class="comment">//------------------------------------------------------------- Constantes</span>
+<a name="l00032"></a>00032 
+<a name="l00033"></a>00033         <span class="comment">//------------------------------------------------------------------ Types</span>
+<a name="l00034"></a>00034 
+<a name="l00035"></a>00035         <span class="comment">//----------------------------------------------------- Méthodes publiques</span>
+<a name="l00036"></a>00036 
+<a name="l00037"></a>00037 
+<a name="l00038"></a>00038         <span class="comment">//------------------------------------------------- Surcharge d&#39;opérateurs</span>
+<a name="l00039"></a>00039 
+<a name="l00040"></a>00040 
+<a name="l00041"></a>00041         <span class="comment">//-------------------------------------------- Constructeurs - destructeur</span>
+<a name="l00042"></a>00042         <a class="code" href="classxml_1_1_output_visitor.html#a09e8e0dd6ac2bbbf39cab4fa79a65a4b">OutputVisitor</a>(std::ostream &amp; out, <span class="keywordtype">char</span> indentChar = <a class="code" href="classxml_1_1_output_visitor.html#ad61c526a1962865b37f22fdf252b63f3">DEFAULT_INDENT_CHAR</a>,
+<a name="l00043"></a>00043                         <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> indentUnit = <a class="code" href="classxml_1_1_output_visitor.html#aa5e9426f0fdf70d3e0922837c8c99f93">DEFAULT_INDENT_UNIT</a>);
+<a name="l00044"></a>00044         <span class="comment">// Mode d&#39;emploi (constructeur) :</span>
+<a name="l00045"></a>00045         <span class="comment">//      Construit un nouveau visiteur écrivant sur &quot;out&quot;.</span>
+<a name="l00046"></a>00046         <span class="comment">// Contrat :</span>
+<a name="l00047"></a>00047         <span class="comment">//      Aucun.</span>
+<a name="l00048"></a>00048 
+<a name="l00049"></a>00049         <span class="keyword">virtual</span> <a class="code" href="classxml_1_1_output_visitor.html#a6143fdb2f73ab2bafa7f2b3e3c32e48a">~OutputVisitor</a>();
+<a name="l00050"></a>00050         <span class="comment">// Mode d&#39;emploi (destructeur) :</span>
+<a name="l00051"></a>00051         <span class="comment">//      Libère les éventuelles ressources allouées par le visiteur.</span>
+<a name="l00052"></a>00052         <span class="comment">// Contrat :</span>
+<a name="l00053"></a>00053         <span class="comment">//      Aucun.</span>
+<a name="l00054"></a>00054 
+<a name="l00055"></a>00055 <span class="keyword">protected</span>:
+<a name="l00056"></a><a class="code" href="classxml_1_1_output_visitor.html#a3a2a1c7860151f173fd28c0077ffd94a">00056</a>         <span class="keyword">static</span> <span class="keyword">const</span> std::string <a class="code" href="classxml_1_1_output_visitor.html#a3a2a1c7860151f173fd28c0077ffd94a">OPEN_MARKUP_STR</a>;
+<a name="l00057"></a><a class="code" href="classxml_1_1_output_visitor.html#a892952bcc6a8b9265c0934cfdc95dd65">00057</a>         <span class="keyword">static</span> <span class="keyword">const</span> std::string <a class="code" href="classxml_1_1_output_visitor.html#a892952bcc6a8b9265c0934cfdc95dd65">NS_SEPARATOR_STR</a>;
+<a name="l00058"></a><a class="code" href="classxml_1_1_output_visitor.html#a67d0548ce8906eb4121d9f33d005c8be">00058</a>         <span class="keyword">static</span> <span class="keyword">const</span> std::string <a class="code" href="classxml_1_1_output_visitor.html#a67d0548ce8906eb4121d9f33d005c8be">INSIDE_MARKUP_SPACE_STR</a>;
+<a name="l00059"></a><a class="code" href="classxml_1_1_output_visitor.html#af06f2eb91d0a40d0d090aeb0bdeb9c9f">00059</a>         <span class="keyword">static</span> <span class="keyword">const</span> std::string <a class="code" href="classxml_1_1_output_visitor.html#af06f2eb91d0a40d0d090aeb0bdeb9c9f">CLOSING_MARKUP_STR</a>;
+<a name="l00060"></a><a class="code" href="classxml_1_1_output_visitor.html#aef349142e7de8a309ee5dd048cc5b51f">00060</a>         <span class="keyword">static</span> <span class="keyword">const</span> std::string <a class="code" href="classxml_1_1_output_visitor.html#aef349142e7de8a309ee5dd048cc5b51f">CLOSE_MARKUP_STR</a>;
+<a name="l00061"></a><a class="code" href="classxml_1_1_output_visitor.html#a7eb4bfa043240d8d87fe47eb733057c4">00061</a>         <span class="keyword">static</span> <span class="keyword">const</span> std::string <a class="code" href="classxml_1_1_output_visitor.html#a7eb4bfa043240d8d87fe47eb733057c4">ASSIGN_ATTRIBUTE_VALUE_STR</a>;
+<a name="l00062"></a><a class="code" href="classxml_1_1_output_visitor.html#a16ae3df2d90ed3e57ea51277de609988">00062</a>         <span class="keyword">static</span> <span class="keyword">const</span> std::string <a class="code" href="classxml_1_1_output_visitor.html#a16ae3df2d90ed3e57ea51277de609988">OPEN_ATTRIBUTE_VALUE_STR</a>;
+<a name="l00063"></a><a class="code" href="classxml_1_1_output_visitor.html#af3b7b1a653908df91dc19195b3bdb29b">00063</a>         <span class="keyword">static</span> <span class="keyword">const</span> std::string <a class="code" href="classxml_1_1_output_visitor.html#af3b7b1a653908df91dc19195b3bdb29b">CLOSE_ATTRIBUTE_VALUE_STR</a>;
+<a name="l00064"></a>00064 
+<a name="l00065"></a><a class="code" href="classxml_1_1_output_visitor.html#ab2e31d8a9675f88d96a89399ea894e83">00065</a>         std::ostream&amp; <a class="code" href="classxml_1_1_output_visitor.html#ab2e31d8a9675f88d96a89399ea894e83">_out</a>;
+<a name="l00066"></a><a class="code" href="classxml_1_1_output_visitor.html#a9b89adad1ba1e3ff2f64ad7cd6545361">00066</a>         <span class="keywordtype">char</span> <a class="code" href="classxml_1_1_output_visitor.html#a9b89adad1ba1e3ff2f64ad7cd6545361">_indentChar</a>;
+<a name="l00067"></a><a class="code" href="classxml_1_1_output_visitor.html#a55060d8246a1365089872aa4a500b03c">00067</a>         <span class="keywordtype">unsigned</span> <a class="code" href="classxml_1_1_output_visitor.html#a55060d8246a1365089872aa4a500b03c">_indentUnit</a>;
+<a name="l00068"></a><a class="code" href="classxml_1_1_output_visitor.html#a7664b7975557ab6db96b744bf43190f4">00068</a>         <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="classxml_1_1_output_visitor.html#a7664b7975557ab6db96b744bf43190f4">_indent</a>;
+<a name="l00069"></a>00069 
+<a name="l00070"></a>00070         <span class="keywordtype">void</span> <a class="code" href="classxml_1_1_output_visitor.html#af369ea5f7984975e7dfdea89ddcae000">doIndent</a>();
+<a name="l00071"></a>00071         <span class="comment">// Mode d&#39;emploi :</span>
+<a name="l00072"></a>00072         <span class="comment">//      Indente la ligne courante en fonction de la valeur actuelle de</span>
+<a name="l00073"></a>00073         <span class="comment">//      &quot;_indent&quot; avec le caractère &quot;_indentChar&quot;.</span>
+<a name="l00074"></a>00074         <span class="comment">// Contrat :</span>
+<a name="l00075"></a>00075         <span class="comment">//      Aucun.</span>
+<a name="l00076"></a>00076 
+<a name="l00077"></a>00077         <span class="keywordtype">void</span> <a class="code" href="classxml_1_1_output_visitor.html#a3c1d2ac6dec2c9f6279a59226646e254">writeAttributes</a>(<span class="keyword">const</span> <a class="code" href="classxml_1_1_markup_node.html">MarkupNode</a>&amp; node);
+<a name="l00078"></a>00078         <span class="comment">// Mode d&#39;emploi :</span>
+<a name="l00079"></a>00079         <span class="comment">//      Écrit les attributs donnés en paramètres sur le flot &quot;_out&quot;</span>
+<a name="l00080"></a>00080         <span class="comment">// Contrat :</span>
+<a name="l00081"></a>00081         <span class="comment">//      Aucun.</span>
+<a name="l00082"></a>00082 
+<a name="l00083"></a>00083         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classxml_1_1_output_visitor.html#a33e53f866b31a155bbf29ffda852aaf7">visit</a>(<span class="keyword">const</span> <a class="code" href="classxml_1_1_text_node.html">TextNode</a>&amp; node);
+<a name="l00084"></a>00084         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classxml_1_1_output_visitor.html#a33e53f866b31a155bbf29ffda852aaf7">visit</a>(<span class="keyword">const</span> <a class="code" href="classxml_1_1_markup_node.html">MarkupNode</a>&amp; node);
+<a name="l00085"></a>00085         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classxml_1_1_output_visitor.html#a33e53f866b31a155bbf29ffda852aaf7">visit</a>(<span class="keyword">const</span> <a class="code" href="classxml_1_1_composite_markup_node.html">CompositeMarkupNode</a>&amp; node);
+<a name="l00086"></a>00086         <span class="comment">// Mode d&#39;emploi :</span>
+<a name="l00087"></a>00087         <span class="comment">//      Écrit le noeud sur le flot &quot;_out&quot;.</span>
+<a name="l00088"></a>00088         <span class="comment">//      La nature des caractères écrits sur le flot dépend du type du noeud.</span>
+<a name="l00089"></a>00089         <span class="comment">//      Les noeuds inclus sont indentés par rapport à leur ancètre.</span>
+<a name="l00090"></a>00090         <span class="comment">// Contrat :</span>
+<a name="l00091"></a>00091         <span class="comment">//      Aucun.</span>
+<a name="l00092"></a>00092 
+<a name="l00093"></a>00093 };
+<a name="l00094"></a>00094 
+<a name="l00095"></a>00095 } <span class="comment">// namespace xml</span>
+<a name="l00096"></a>00096 
+<a name="l00097"></a>00097 <span class="preprocessor">#endif // OUTPUTVISITOR_HH</span>
+</pre></div></div>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Espaces de nommage</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Définition de type</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Amis</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>Généré le Fri Apr 15 2011 16:44:38 pour XMLLib par&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.2 </small></address>
+</body>
+</html>

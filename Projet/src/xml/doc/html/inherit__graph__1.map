@@ -1,0 +1,6 @@
+<map id="G" name="G">
+<area shape="rect" id="node1" href="$classxml_1_1_node.html" title="xml::Node" alt="" coords="5,35,136,74"/>
+<area shape="rect" id="node3" href="$classxml_1_1_markup_node.html" title="xml::MarkupNode" alt="" coords="184,5,392,43"/>
+<area shape="rect" id="node7" href="$classxml_1_1_text_node.html" title="xml::TextNode" alt="" coords="201,66,375,105"/>
+<area shape="rect" id="node5" href="$classxml_1_1_composite_markup_node.html" title="xml::CompositeMarkupNode" alt="" coords="440,5,760,43"/>
+</map>

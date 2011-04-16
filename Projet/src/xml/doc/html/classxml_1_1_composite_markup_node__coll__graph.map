@@ -1,0 +1,4 @@
+<map id="G" name="G">
+<area shape="rect" id="node4" href="$classxml_1_1_node.html" title="{xml::Node\n|# _parent\l|+ accept()\l+ parent()\l+ Node()\l+ ~Node()\l}" alt="" coords="47,329,183,522"/>
+<area shape="rect" id="node2" href="$classxml_1_1_markup_node.html" title="{xml::MarkupNode\n|# _namespace\l# _name\l# _attributes\l|+ accept()\l+ ns()\l+ name()\l+ begin()\l+ end()\l+ MarkupNode()\l+ ~MarkupNode()\l}" alt="" coords="79,574,292,901"/>
+</map>

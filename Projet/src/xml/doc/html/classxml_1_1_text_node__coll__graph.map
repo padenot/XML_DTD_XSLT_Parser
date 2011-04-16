@@ -1,0 +1,5 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$classxml_1_1_node.html" title="{xml::Node\n|# _parent\l|+ accept()\l+ parent()\l+ Node()\l+ ~Node()\l}" alt="" coords="247,6,383,199"/>
+<area shape="rect" id="node6" href="$classxml_1_1_markup_node.html" title="{xml::MarkupNode\n|# _namespace\l# _name\l# _attributes\l|+ accept()\l+ ns()\l+ name()\l+ begin()\l+ end()\l+ MarkupNode()\l+ ~MarkupNode()\l}" alt="" coords="208,251,421,578"/>
+<area shape="rect" id="node4" href="$classxml_1_1_composite_markup_node.html" title="{xml::CompositeMarkupNode\n|# _children\l# _proxyToSelf\l|+ accept()\l+ begin()\l+ end()\l+ CompositeMarkupNode()\l+ ~CompositeMarkupNode()\l}" alt="" coords="260,630,585,877"/>
+</map>

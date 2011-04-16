@@ -1,0 +1,505 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>XMLLib: Référence de la classe xml::OutputVisitor</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javaScript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- Généré par Doxygen 1.7.2 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+--></script>
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="namespaces.html"><span>Espaces&#160;de&#160;nommage</span></a></li>
+      <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
+      <li><a href="files.html"><span>Fichiers</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="tabs2">
+    <ul class="tablist">
+      <li><a href="annotated.html"><span>Liste&#160;des&#160;classes</span></a></li>
+      <li><a href="classes.html"><span>Index&#160;des&#160;classes</span></a></li>
+      <li><a href="hierarchy.html"><span>Hiérarchie&#160;des&#160;classes</span></a></li>
+      <li><a href="functions.html"><span>Membres&#160;de&#160;classe</span></a></li>
+    </ul>
+  </div>
+  <div class="navpath">
+    <ul>
+      <li><a class="el" href="namespacexml.html">xml</a>      </li>
+      <li><a class="el" href="classxml_1_1_output_visitor.html">OutputVisitor</a>      </li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Fonctions membres publiques</a> &#124;
+<a href="#pro-methods">Fonctions membres protégées</a> &#124;
+<a href="#pro-attribs">Attributs protégés</a> &#124;
+<a href="#pro-static-attribs">Attributs protégés statiques</a>  </div>
+  <div class="headertitle">
+<h1>Référence de la classe xml::OutputVisitor</h1>  </div>
+</div>
+<div class="contents">
+<!-- doxytag: class="xml::OutputVisitor" --><!-- doxytag: inherits="xml::InterfaceNodeVisitor" -->
+<p><code>#include &lt;<a class="el" href="_output_visitor_8hh_source.html">OutputVisitor.hh</a>&gt;</code></p>
+<!-- startSectionHeader --><div class="dynheader">
+Graphe d'héritage de xml::OutputVisitor:<!-- endSectionHeader --></div>
+<!-- startSectionSummary --><!-- endSectionSummary --><!-- startSectionContent --><div class="dyncontent">
+<div class="center"><img src="classxml_1_1_output_visitor__inherit__graph.png" border="0" usemap="#xml_1_1_output_visitor_inherit__map" alt="Inheritance graph"/></div>
+<map name="xml_1_1_output_visitor_inherit__map" id="xml_1_1_output_visitor_inherit__map">
+<area shape="rect" id="node2" href="classxml_1_1_interface_node_visitor.html" title="{xml::InterfaceNodeVisitor\n||+ ~InterfaceNodeVisitor()\l# visit()\l# visit()\l# visit()\l}" alt="" coords="45,6,344,199"/></map>
+<center><span class="legend">[<a href="graph_legend.html">légende</a>]</span></center><!-- endSectionContent --></div>
+<!-- startSectionHeader --><div class="dynheader">
+Graphe de collaboration de xml::OutputVisitor:<!-- endSectionHeader --></div>
+<!-- startSectionSummary --><!-- endSectionSummary --><!-- startSectionContent --><div class="dyncontent">
+<div class="center"><img src="classxml_1_1_output_visitor__coll__graph.png" border="0" usemap="#xml_1_1_output_visitor_coll__map" alt="Collaboration graph"/></div>
+<map name="xml_1_1_output_visitor_coll__map" id="xml_1_1_output_visitor_coll__map">
+<area shape="rect" id="node2" href="classxml_1_1_interface_node_visitor.html" title="{xml::InterfaceNodeVisitor\n||+ ~InterfaceNodeVisitor()\l# visit()\l# visit()\l# visit()\l}" alt="" coords="45,6,344,199"/></map>
+<center><span class="legend">[<a href="graph_legend.html">légende</a>]</span></center><!-- endSectionContent --></div>
+
+<p><a href="classxml_1_1_output_visitor-members.html">Liste de tous les membres</a></p>
+<table class="memberdecls">
+<tr><td colspan="2"><h2><a name="pub-methods"></a>
+Fonctions membres publiques</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxml_1_1_output_visitor.html#a09e8e0dd6ac2bbbf39cab4fa79a65a4b">OutputVisitor</a> (std::ostream &amp;out, char indentChar=<a class="el" href="classxml_1_1_output_visitor.html#ad61c526a1962865b37f22fdf252b63f3">DEFAULT_INDENT_CHAR</a>, unsigned int indentUnit=<a class="el" href="classxml_1_1_output_visitor.html#aa5e9426f0fdf70d3e0922837c8c99f93">DEFAULT_INDENT_UNIT</a>)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxml_1_1_output_visitor.html#a6143fdb2f73ab2bafa7f2b3e3c32e48a">~OutputVisitor</a> ()</td></tr>
+<tr><td colspan="2"><h2><a name="pro-methods"></a>
+Fonctions membres protégées</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxml_1_1_output_visitor.html#af369ea5f7984975e7dfdea89ddcae000">doIndent</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxml_1_1_output_visitor.html#a3c1d2ac6dec2c9f6279a59226646e254">writeAttributes</a> (const <a class="el" href="classxml_1_1_markup_node.html">MarkupNode</a> &amp;node)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxml_1_1_output_visitor.html#a33e53f866b31a155bbf29ffda852aaf7">visit</a> (const <a class="el" href="classxml_1_1_text_node.html">TextNode</a> &amp;node)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxml_1_1_output_visitor.html#ac1dae5dbb561c4b7e98a761d5d503e49">visit</a> (const <a class="el" href="classxml_1_1_markup_node.html">MarkupNode</a> &amp;node)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxml_1_1_output_visitor.html#addfc73ae3643a8285b5f892eff1a6066">visit</a> (const <a class="el" href="classxml_1_1_composite_markup_node.html">CompositeMarkupNode</a> &amp;node)</td></tr>
+<tr><td colspan="2"><h2><a name="pro-attribs"></a>
+Attributs protégés</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxml_1_1_output_visitor.html#ab2e31d8a9675f88d96a89399ea894e83">_out</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxml_1_1_output_visitor.html#a9b89adad1ba1e3ff2f64ad7cd6545361">_indentChar</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxml_1_1_output_visitor.html#a55060d8246a1365089872aa4a500b03c">_indentUnit</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxml_1_1_output_visitor.html#a7664b7975557ab6db96b744bf43190f4">_indent</a></td></tr>
+<tr><td colspan="2"><h2><a name="pro-static-attribs"></a>
+Attributs protégés statiques</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static const char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxml_1_1_output_visitor.html#ad61c526a1962865b37f22fdf252b63f3">DEFAULT_INDENT_CHAR</a> = ' '</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static const unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxml_1_1_output_visitor.html#aa5e9426f0fdf70d3e0922837c8c99f93">DEFAULT_INDENT_UNIT</a> = 1</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxml_1_1_output_visitor.html#a3a2a1c7860151f173fd28c0077ffd94a">OPEN_MARKUP_STR</a> = &quot;&lt;&quot;</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxml_1_1_output_visitor.html#a892952bcc6a8b9265c0934cfdc95dd65">NS_SEPARATOR_STR</a> = &quot;:&quot;</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxml_1_1_output_visitor.html#a67d0548ce8906eb4121d9f33d005c8be">INSIDE_MARKUP_SPACE_STR</a> = &quot; &quot;</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxml_1_1_output_visitor.html#af06f2eb91d0a40d0d090aeb0bdeb9c9f">CLOSING_MARKUP_STR</a> = &quot;/&quot;</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxml_1_1_output_visitor.html#aef349142e7de8a309ee5dd048cc5b51f">CLOSE_MARKUP_STR</a> = &quot;&gt;&quot;</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxml_1_1_output_visitor.html#a7eb4bfa043240d8d87fe47eb733057c4">ASSIGN_ATTRIBUTE_VALUE_STR</a> = &quot;=&quot;</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxml_1_1_output_visitor.html#a16ae3df2d90ed3e57ea51277de609988">OPEN_ATTRIBUTE_VALUE_STR</a> = &quot;\&quot;&quot;</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxml_1_1_output_visitor.html#af3b7b1a653908df91dc19195b3bdb29b">CLOSE_ATTRIBUTE_VALUE_STR</a> = &quot;\&quot;&quot;</td></tr>
+</table>
+<hr/><a name="_details"></a><h2>Description détaillée</h2>
+
+<p>Définition à la ligne <a class="el" href="_output_visitor_8hh_source.html#l00024">24</a> du fichier <a class="el" href="_output_visitor_8hh_source.html">OutputVisitor.hh</a>.</p>
+<hr/><h2>Documentation des constructeurs et destructeur</h2>
+<a class="anchor" id="a09e8e0dd6ac2bbbf39cab4fa79a65a4b"></a><!-- doxytag: member="xml::OutputVisitor::OutputVisitor" ref="a09e8e0dd6ac2bbbf39cab4fa79a65a4b" args="(std::ostream &amp;out, char indentChar=DEFAULT_INDENT_CHAR, unsigned int indentUnit=DEFAULT_INDENT_UNIT)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">xml::OutputVisitor::OutputVisitor </td>
+          <td>(</td>
+          <td class="paramtype">std::ostream &amp;&#160;</td>
+          <td class="paramname"> <em>out</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"> <em>indentChar</em> = <code><a class="el" href="classxml_1_1_output_visitor.html#ad61c526a1962865b37f22fdf252b63f3">DEFAULT_INDENT_CHAR</a></code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"> <em>indentUnit</em> = <code><a class="el" href="classxml_1_1_output_visitor.html#aa5e9426f0fdf70d3e0922837c8c99f93">DEFAULT_INDENT_UNIT</a></code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a6143fdb2f73ab2bafa7f2b3e3c32e48a"></a><!-- doxytag: member="xml::OutputVisitor::~OutputVisitor" ref="a6143fdb2f73ab2bafa7f2b3e3c32e48a" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">xml::OutputVisitor::~OutputVisitor </td>
+          <td>(</td>
+          <td class="paramname">&#160;)</td>
+          <td><code> [virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Définition à la ligne <a class="el" href="_output_visitor_8cpp_source.html#l00053">53</a> du fichier <a class="el" href="_output_visitor_8cpp_source.html">OutputVisitor.cpp</a>.</p>
+
+</div>
+</div>
+<hr/><h2>Documentation des fonctions membres</h2>
+<a class="anchor" id="af369ea5f7984975e7dfdea89ddcae000"></a><!-- doxytag: member="xml::OutputVisitor::doIndent" ref="af369ea5f7984975e7dfdea89ddcae000" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void xml::OutputVisitor::doIndent </td>
+          <td>(</td>
+          <td class="paramname">&#160;)</td>
+          <td><code> [protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Définition à la ligne <a class="el" href="_output_visitor_8cpp_source.html#l00063">63</a> du fichier <a class="el" href="_output_visitor_8cpp_source.html">OutputVisitor.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="addfc73ae3643a8285b5f892eff1a6066"></a><!-- doxytag: member="xml::OutputVisitor::visit" ref="addfc73ae3643a8285b5f892eff1a6066" args="(const CompositeMarkupNode &amp;node)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void xml::OutputVisitor::visit </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classxml_1_1_composite_markup_node.html">CompositeMarkupNode</a> &amp;&#160;</td>
+          <td class="paramname"> <em>node</em>&#160;)</td>
+          <td><code> [protected, virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Implémente <a class="el" href="classxml_1_1_interface_node_visitor.html#afd6306ffd03380f21f436234b314c34d">xml::InterfaceNodeVisitor</a>.</p>
+
+<p>Définition à la ligne <a class="el" href="_output_visitor_8cpp_source.html#l00097">97</a> du fichier <a class="el" href="_output_visitor_8cpp_source.html">OutputVisitor.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac1dae5dbb561c4b7e98a761d5d503e49"></a><!-- doxytag: member="xml::OutputVisitor::visit" ref="ac1dae5dbb561c4b7e98a761d5d503e49" args="(const MarkupNode &amp;node)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void xml::OutputVisitor::visit </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classxml_1_1_markup_node.html">MarkupNode</a> &amp;&#160;</td>
+          <td class="paramname"> <em>node</em>&#160;)</td>
+          <td><code> [protected, virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Implémente <a class="el" href="classxml_1_1_interface_node_visitor.html#a53b33aabb8a79d4b1715c7664671d326">xml::InterfaceNodeVisitor</a>.</p>
+
+<p>Définition à la ligne <a class="el" href="_output_visitor_8cpp_source.html#l00089">89</a> du fichier <a class="el" href="_output_visitor_8cpp_source.html">OutputVisitor.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a33e53f866b31a155bbf29ffda852aaf7"></a><!-- doxytag: member="xml::OutputVisitor::visit" ref="a33e53f866b31a155bbf29ffda852aaf7" args="(const TextNode &amp;node)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void xml::OutputVisitor::visit </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classxml_1_1_text_node.html">TextNode</a> &amp;&#160;</td>
+          <td class="paramname"> <em>node</em>&#160;)</td>
+          <td><code> [protected, virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Implémente <a class="el" href="classxml_1_1_interface_node_visitor.html#a22a8a333e5cf2da1f1ac9f8f1f376a89">xml::InterfaceNodeVisitor</a>.</p>
+
+<p>Définition à la ligne <a class="el" href="_output_visitor_8cpp_source.html#l00083">83</a> du fichier <a class="el" href="_output_visitor_8cpp_source.html">OutputVisitor.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a3c1d2ac6dec2c9f6279a59226646e254"></a><!-- doxytag: member="xml::OutputVisitor::writeAttributes" ref="a3c1d2ac6dec2c9f6279a59226646e254" args="(const MarkupNode &amp;node)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void xml::OutputVisitor::writeAttributes </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classxml_1_1_markup_node.html">MarkupNode</a> &amp;&#160;</td>
+          <td class="paramname"> <em>node</em>&#160;)</td>
+          <td><code> [protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Définition à la ligne <a class="el" href="_output_visitor_8cpp_source.html#l00073">73</a> du fichier <a class="el" href="_output_visitor_8cpp_source.html">OutputVisitor.cpp</a>.</p>
+
+</div>
+</div>
+<hr/><h2>Documentation des données membres</h2>
+<a class="anchor" id="a7664b7975557ab6db96b744bf43190f4"></a><!-- doxytag: member="xml::OutputVisitor::_indent" ref="a7664b7975557ab6db96b744bf43190f4" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int <a class="el" href="classxml_1_1_output_visitor.html#a7664b7975557ab6db96b744bf43190f4">xml::OutputVisitor::_indent</a><code> [protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Définition à la ligne <a class="el" href="_output_visitor_8hh_source.html#l00068">68</a> du fichier <a class="el" href="_output_visitor_8hh_source.html">OutputVisitor.hh</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9b89adad1ba1e3ff2f64ad7cd6545361"></a><!-- doxytag: member="xml::OutputVisitor::_indentChar" ref="a9b89adad1ba1e3ff2f64ad7cd6545361" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char <a class="el" href="classxml_1_1_output_visitor.html#a9b89adad1ba1e3ff2f64ad7cd6545361">xml::OutputVisitor::_indentChar</a><code> [protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Définition à la ligne <a class="el" href="_output_visitor_8hh_source.html#l00066">66</a> du fichier <a class="el" href="_output_visitor_8hh_source.html">OutputVisitor.hh</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a55060d8246a1365089872aa4a500b03c"></a><!-- doxytag: member="xml::OutputVisitor::_indentUnit" ref="a55060d8246a1365089872aa4a500b03c" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned <a class="el" href="classxml_1_1_output_visitor.html#a55060d8246a1365089872aa4a500b03c">xml::OutputVisitor::_indentUnit</a><code> [protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Définition à la ligne <a class="el" href="_output_visitor_8hh_source.html#l00067">67</a> du fichier <a class="el" href="_output_visitor_8hh_source.html">OutputVisitor.hh</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab2e31d8a9675f88d96a89399ea894e83"></a><!-- doxytag: member="xml::OutputVisitor::_out" ref="ab2e31d8a9675f88d96a89399ea894e83" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::ostream&amp; <a class="el" href="classxml_1_1_output_visitor.html#ab2e31d8a9675f88d96a89399ea894e83">xml::OutputVisitor::_out</a><code> [protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Définition à la ligne <a class="el" href="_output_visitor_8hh_source.html#l00065">65</a> du fichier <a class="el" href="_output_visitor_8hh_source.html">OutputVisitor.hh</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a7eb4bfa043240d8d87fe47eb733057c4"></a><!-- doxytag: member="xml::OutputVisitor::ASSIGN_ATTRIBUTE_VALUE_STR" ref="a7eb4bfa043240d8d87fe47eb733057c4" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::string <a class="el" href="classxml_1_1_output_visitor.html#a7eb4bfa043240d8d87fe47eb733057c4">xml::OutputVisitor::ASSIGN_ATTRIBUTE_VALUE_STR</a> = &quot;=&quot;<code> [static, protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Définition à la ligne <a class="el" href="_output_visitor_8hh_source.html#l00061">61</a> du fichier <a class="el" href="_output_visitor_8hh_source.html">OutputVisitor.hh</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af3b7b1a653908df91dc19195b3bdb29b"></a><!-- doxytag: member="xml::OutputVisitor::CLOSE_ATTRIBUTE_VALUE_STR" ref="af3b7b1a653908df91dc19195b3bdb29b" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::string <a class="el" href="classxml_1_1_output_visitor.html#af3b7b1a653908df91dc19195b3bdb29b">xml::OutputVisitor::CLOSE_ATTRIBUTE_VALUE_STR</a> = &quot;\&quot;&quot;<code> [static, protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Définition à la ligne <a class="el" href="_output_visitor_8hh_source.html#l00063">63</a> du fichier <a class="el" href="_output_visitor_8hh_source.html">OutputVisitor.hh</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aef349142e7de8a309ee5dd048cc5b51f"></a><!-- doxytag: member="xml::OutputVisitor::CLOSE_MARKUP_STR" ref="aef349142e7de8a309ee5dd048cc5b51f" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::string <a class="el" href="classxml_1_1_output_visitor.html#aef349142e7de8a309ee5dd048cc5b51f">xml::OutputVisitor::CLOSE_MARKUP_STR</a> = &quot;&gt;&quot;<code> [static, protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Définition à la ligne <a class="el" href="_output_visitor_8hh_source.html#l00060">60</a> du fichier <a class="el" href="_output_visitor_8hh_source.html">OutputVisitor.hh</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af06f2eb91d0a40d0d090aeb0bdeb9c9f"></a><!-- doxytag: member="xml::OutputVisitor::CLOSING_MARKUP_STR" ref="af06f2eb91d0a40d0d090aeb0bdeb9c9f" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::string <a class="el" href="classxml_1_1_output_visitor.html#af06f2eb91d0a40d0d090aeb0bdeb9c9f">xml::OutputVisitor::CLOSING_MARKUP_STR</a> = &quot;/&quot;<code> [static, protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Définition à la ligne <a class="el" href="_output_visitor_8hh_source.html#l00059">59</a> du fichier <a class="el" href="_output_visitor_8hh_source.html">OutputVisitor.hh</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad61c526a1962865b37f22fdf252b63f3"></a><!-- doxytag: member="xml::OutputVisitor::DEFAULT_INDENT_CHAR" ref="ad61c526a1962865b37f22fdf252b63f3" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char <a class="el" href="classxml_1_1_output_visitor.html#ad61c526a1962865b37f22fdf252b63f3">xml::OutputVisitor::DEFAULT_INDENT_CHAR</a> = ' '<code> [static, protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Définition à la ligne <a class="el" href="_output_visitor_8hh_source.html#l00027">27</a> du fichier <a class="el" href="_output_visitor_8hh_source.html">OutputVisitor.hh</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa5e9426f0fdf70d3e0922837c8c99f93"></a><!-- doxytag: member="xml::OutputVisitor::DEFAULT_INDENT_UNIT" ref="aa5e9426f0fdf70d3e0922837c8c99f93" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const unsigned char <a class="el" href="classxml_1_1_output_visitor.html#aa5e9426f0fdf70d3e0922837c8c99f93">xml::OutputVisitor::DEFAULT_INDENT_UNIT</a> = 1<code> [static, protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Définition à la ligne <a class="el" href="_output_visitor_8hh_source.html#l00028">28</a> du fichier <a class="el" href="_output_visitor_8hh_source.html">OutputVisitor.hh</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a67d0548ce8906eb4121d9f33d005c8be"></a><!-- doxytag: member="xml::OutputVisitor::INSIDE_MARKUP_SPACE_STR" ref="a67d0548ce8906eb4121d9f33d005c8be" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::string <a class="el" href="classxml_1_1_output_visitor.html#a67d0548ce8906eb4121d9f33d005c8be">xml::OutputVisitor::INSIDE_MARKUP_SPACE_STR</a> = &quot; &quot;<code> [static, protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Définition à la ligne <a class="el" href="_output_visitor_8hh_source.html#l00058">58</a> du fichier <a class="el" href="_output_visitor_8hh_source.html">OutputVisitor.hh</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a892952bcc6a8b9265c0934cfdc95dd65"></a><!-- doxytag: member="xml::OutputVisitor::NS_SEPARATOR_STR" ref="a892952bcc6a8b9265c0934cfdc95dd65" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::string <a class="el" href="classxml_1_1_output_visitor.html#a892952bcc6a8b9265c0934cfdc95dd65">xml::OutputVisitor::NS_SEPARATOR_STR</a> = &quot;:&quot;<code> [static, protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Définition à la ligne <a class="el" href="_output_visitor_8hh_source.html#l00057">57</a> du fichier <a class="el" href="_output_visitor_8hh_source.html">OutputVisitor.hh</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a16ae3df2d90ed3e57ea51277de609988"></a><!-- doxytag: member="xml::OutputVisitor::OPEN_ATTRIBUTE_VALUE_STR" ref="a16ae3df2d90ed3e57ea51277de609988" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::string <a class="el" href="classxml_1_1_output_visitor.html#a16ae3df2d90ed3e57ea51277de609988">xml::OutputVisitor::OPEN_ATTRIBUTE_VALUE_STR</a> = &quot;\&quot;&quot;<code> [static, protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Définition à la ligne <a class="el" href="_output_visitor_8hh_source.html#l00062">62</a> du fichier <a class="el" href="_output_visitor_8hh_source.html">OutputVisitor.hh</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a3a2a1c7860151f173fd28c0077ffd94a"></a><!-- doxytag: member="xml::OutputVisitor::OPEN_MARKUP_STR" ref="a3a2a1c7860151f173fd28c0077ffd94a" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::string <a class="el" href="classxml_1_1_output_visitor.html#a3a2a1c7860151f173fd28c0077ffd94a">xml::OutputVisitor::OPEN_MARKUP_STR</a> = &quot;&lt;&quot;<code> [static, protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Définition à la ligne <a class="el" href="_output_visitor_8hh_source.html#l00056">56</a> du fichier <a class="el" href="_output_visitor_8hh_source.html">OutputVisitor.hh</a>.</p>
+
+</div>
+</div>
+<hr/>La documentation de cette classe a été générée à partir des fichiers suivants :<ul>
+<li>src/<a class="el" href="_output_visitor_8hh_source.html">OutputVisitor.hh</a></li>
+<li>src/<a class="el" href="_output_visitor_8cpp_source.html">OutputVisitor.cpp</a></li>
+</ul>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Espaces de nommage</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Définition de type</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Amis</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>Généré le Fri Apr 15 2011 16:44:38 pour XMLLib par&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.2 </small></address>
+</body>
+</html>
