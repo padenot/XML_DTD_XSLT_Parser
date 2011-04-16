@@ -1,0 +1,9 @@
+$(LEXTARGET): $(LEXSOURCE)
+	@$(LEX) -P$(LEXPREFIX) -o $@ $<
+
+$(YACCTARGET) $(YACCHEADER): $(YACCSOURCE)
+	@$(YACC) -p $(YACCPREFIX) -o $(YACCTARGET) --defines=$(YACCHEADER) $<
+
+clean:
+	rm $(LEXTARGET)
+	rm $(YACCTARGET) $(YACCHEADER)

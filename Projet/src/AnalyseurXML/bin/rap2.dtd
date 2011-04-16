@@ -1,6 +1,0 @@
-<!ATTLIST chapitre
-        titre CDATA #IMPLIED
->
-<!ATTLIST section
-        titre CDATA #IMPLIED
->

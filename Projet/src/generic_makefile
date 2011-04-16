@@ -60,7 +60,8 @@ test: | $(TESTPATH)
 # Binaries dependencies
 ifneq ($(ISLIBRARY),yes)
 $(BIN): $(OBJS) $(STATICLIBS) | $(BINPATH) $(LIBPATH)
-	$(LD) $(LDFLAGS) -o $@ $^
+#	$(LD) $(LDFLAGS) -o $@ $^
+	$(LD) $(LDFLAGS) -o $@ $(OBJS) -Wl,--start-group $(STATICLIBS) -Wl,--end-group
 else
 $(BIN): $(OBJS) $(STATICLIBS) | $(BINPATH)
 	$(LIBLD) $(LIBLDFLAGS) $@ $^
@@ -90,3 +91,4 @@ else
 include $(DEPENDSFILE)
 endif
 
+-include $(EXTRA_INCLUDES)

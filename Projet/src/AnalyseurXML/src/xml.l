@@ -7,18 +7,6 @@
 #include <string.h>
 #include <stdlib.h>
 #include "commun.h"
-
-#include <list>
-#include <map>
-
-#include "Node.hh"
-#include "TextNode.hh"
-#include "MarkupNode.hh"
-#include "CompositeMarkupNode.hh"
-
-using namespace std;
-using namespace xml;
-
 #include "xml.tab.h"
 
 static char* skipSpace(char *s) {
@@ -113,16 +101,17 @@ closespecial "?>"{nl}?
 <INITIAL>"="		{ return EQ;}
 <INITIAL>{close}	{ BEGIN(CONTENT); return CLOSE;}
 <INITIAL>{closespecial}	{ return CLOSESPECIAL;}
-<INITIAL>{name}		{xmllval.s = strdup(xmltext); return NAME;}
-<INITIAL>{nsname}		{xmllval.s = strdup(xmltext); return NSNAME;}
-<INITIAL>{string}	{xmllval.s = strdup(getString(xmltext)); return VALUE;}
+<INITIAL>{name}		{xmllval.s = strdup(yytext); return NAME;}
+<INITIAL>{nsname}		{xmllval.s = strdup(yytext); return NSNAME;}
+<INITIAL>{string}	{xmllval.s = strdup(getString(yytext)); return VALUE;}
 
-{openspecial}{ws}?{name}	{BEGIN(INITIAL); char * tmp = word(xmltext); xmllval.EName = new ElementName("",tmp); free(tmp); return STARTSPECIAL;}
-{open}{ws}?{name}	{BEGIN(INITIAL); char * tmp = word(xmltext); xmllval.EName = new ElementName("",tmp); free(tmp); return START;}
-{open}{ws}?{nsname}	{BEGIN(INITIAL); char *tmp1 = nameSpace(xmltext); char * tmp2 = split_namespace(xmltext); xmllval.EName = new ElementName(tmp1,tmp2); free(tmp1); free(tmp2); return NSSTART;}
+{openspecial}{ws}?{name}	{BEGIN(INITIAL); char * tmp = word(yytext); xmllval.en = new ElementName("",tmp); free(tmp); return STARTSPECIAL;}
+{open}{ws}?{name}	{BEGIN(INITIAL); char * tmp = word(yytext); xmllval.en = new ElementName("",tmp); free(tmp); return START;}
+{open}{ws}?{nsname}	{BEGIN(INITIAL); char *tmp1 = nameSpace(yytext); char * tmp2 = split_namespace(yytext); xmllval.en = new ElementName(tmp1,tmp2); free(tmp1); free(tmp2); return NSSTART;}
 {open}{ws}?"/"		{BEGIN(INITIAL); return END;}
-{comment}		{xmllval.s = strdup(xmltext); return COMMENT;}
+{comment}		{xmllval.s = strdup(yytext); return COMMENT;}
 
-<CONTENT>{ws}?{pcdata}		{xmllval.s = strdup(skipSpace(xmltext)); return DATA;}
+<CONTENT>{ws}?{pcdata}		{xmllval.s = strdup(skipSpace(yytext)); return DATA;}
 
-.			{fprintf(stderr, "!ERROR(%c)\n", *xmltext);}
+.			{fprintf(stderr, "!ERROR(%c)\n", *yytext);}
+
