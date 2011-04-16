@@ -65,9 +65,8 @@ int handleDTD(char* filename) {
 	return 0;
 }
 
-dtd::ElementContent* handleQuantifier(dtd::ElementContent* currentContent, int quantifier) {
-	if(!currentContent) throw new string("AHHHHHH");
-
+dtd::QuantifiableContent* handleQuantifier(dtd::QuantifiableContent* currentContent, int quantifier) {
+//	if(!currentContent) throw new string("AHHHHHH");
 	switch(quantifier) {
 		case (QTF_NONE): return currentContent;
 		case (QTF_PLUS): return new dtd::RepeatedContent(*currentContent);

@@ -34,7 +34,7 @@
 	int dtdwrap(void);
 	int dtdlex(void);
 
-	ElementContent* handleQuantifier(ElementContent*, int);
+	QuantifiableContent* handleQuantifier(QuantifiableContent*, int);
 
 	DTD* rootDTD = new DTD();
 %}
@@ -49,12 +49,14 @@
 
 	Content* t_any_or_empty;		
 
-	MixedContent* t_mixed;
+	QuantifiableContent* t_mixed;
 	MixedContent::ChoosableSet* t_simple_list_choice;
 
 	ElementContent* t_choice_or_sequence;				
 
 	Choice* t_choice;						
+	Choice::ChoosableSet* t_list_choice;
+	Choice::ChoosableSet* t_list_choice_transition;
 
 	Sequence* t_sequence;						
 	Sequence::OrderedContent* t_list_sequence;						
@@ -79,6 +81,8 @@
 %type <t_choice_or_sequence> choice_or_sequence
 
 %type <t_choice> choice
+%type <t_list_choice> list_choice
+%type <t_list_choice_transition> list_choice
 
 %type <t_sequence> sequence 
 %type <t_list_sequence> list_sequence
@@ -106,8 +110,8 @@ any_or_empty		: EMPTY								{ $$ = new EmptyContent(); }
 			| ANY								{ $$ = new AnyContent(); }
 			;
 
-mixed			: OPENPAR PCDATA PIPE simple_list_choice CLOSEPAR quantifier 	{ $$ = new MixedContent( *new TextContent(), *$4 );  }
-			| OPENPAR PCDATA CLOSEPAR quantifier				{ $$ = new MixedContent( *new TextContent(), *new MixedContent::ChoosableSet() );  }
+mixed			: OPENPAR PCDATA PIPE simple_list_choice CLOSEPAR quantifier 	{ $$ = handleQuantifier( new MixedContent( *new TextContent(), *$4 ), $6 );  }
+			| OPENPAR PCDATA CLOSEPAR quantifier				{ $$ = handleQuantifier( new MixedContent( *new TextContent(), *new MixedContent::ChoosableSet() ), $4 );  }
 			;
 
 simple_list_choice	: NAME								{ 
@@ -151,8 +155,8 @@ defaut_declaration 	: DECLARATION
 			| FIXED STRING 
 			;
 
-choice_or_sequence	: choice							
-			| sequence							{ $$ = $1; } 
+choice_or_sequence	: choice							{ $$ = $1; }
+			| sequence							
 			; 
 
 sequence		: OPENPAR list_sequence CLOSEPAR				{ $$ = new dtd::Sequence( *$2 ); }
@@ -166,18 +170,18 @@ list_sequence		: item 								{
 			| list_sequence COMMA item					{ $1->push_back($3) ; $$ = $1; }
 			; 
 
-choice			: OPENPAR list_choice CLOSEPAR					
+choice			: OPENPAR list_choice CLOSEPAR					{ $$ = new Choice($2); }
 			; 
 
 list_choice		: list_choice_transition PIPE item				
 			; 
 
-list_choice_transition	: item
-			| list_choice_transition PIPE item
+list_choice_transition	: list_choice_transition PIPE item
+			| item
 			; 
 
-item 			: NAME quantifier						{ $$ = handleQuantifier( new ElementReference( *rootDTD, "", $1 ), $2 ); }
-			| choice_or_sequence quantifier					{ $$ = handleQuantifier( $1, $2 ); }
+item 			: NAME quantifier						{ /*$$ = handleQuantifier( new ElementReference( *rootDTD, "", $1 ), $2 ); */ }
+			| choice_or_sequence quantifier					{ /*$$ = handleQuantifier( $1, $2 );*/ }
 			; 
 
 quantifier		: AST 								{ $$ = QTF_AST; }
