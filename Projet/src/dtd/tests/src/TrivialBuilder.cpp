@@ -52,14 +52,18 @@ list<Node*> TrivialBuilder::buildValidTrees() const
 	list<Node*> result;
 	MarkupNode::Attributes attributes;
 
+	// #01
 	result.push_back(new MarkupNode(0, ns(0), name(0), attributes));
 
+	// #02
 	attributes[attname(0)] = attval(0);
 	result.push_back(new MarkupNode(0, ns(0), name(0), attributes));
 
+	// #03
 	attributes[attname(1)] = attval(1);
 	result.push_back(new MarkupNode(0, ns(0), name(0), attributes));
 
+	// #04
 	attributes.clear();
 	attributes[attname(1)] = attval(1);
 	result.push_back(new MarkupNode(0, ns(0), name(0), attributes));
@@ -74,20 +78,25 @@ list<Node*> TrivialBuilder::buildInvalidTrees() const
 	CompositeMarkupNode::Children children;
 	CompositeMarkupNode** proxy;
 
+	// #01
 	proxy = new CompositeMarkupNode*;
 	result.push_back(
 			new CompositeMarkupNode(0, ns(0), name(0), attributes, *proxy,
 					children));
 
+	// #02
 	result.push_back(
 			new MarkupNode(0, ns(1), name(0), attributes));
 
+	// #03
 	result.push_back(
 			new MarkupNode(0, ns(0), name(1), attributes));
 
+	// #04
 	result.push_back(
 			new MarkupNode(0, ns(2), name(1), attributes));
 
+	// #05
 	attributes[attname(3)] = attval(3);
 	result.push_back(
 			new MarkupNode(0, ns(0), name(0), attributes));

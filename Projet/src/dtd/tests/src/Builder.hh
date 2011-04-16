@@ -40,6 +40,7 @@ protected:
 	static std::string name(unsigned int offset = 0);
 	static std::string attname(unsigned int offset = 0);
 	static std::string attval(unsigned int offset = 0);
+	static std::string text(unsigned int offset = 0);
 };
 
 #endif // BUILDER_HH_
