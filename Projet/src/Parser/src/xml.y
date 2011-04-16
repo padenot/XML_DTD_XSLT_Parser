@@ -22,7 +22,7 @@
 	int xmllex(void);
 
 	int handleDTD(char*);
-	xml::CompositeMarkupNode* handleElement(xml::CompositeMarkupNode** , string , string , xml::CompositeMarkupNode::Attributes , list<void*>* );
+	xml::MarkupNode* handleElement(xml::CompositeMarkupNode** proxy, string NS, string name, xml::MarkupNode::Attributes attbs, xml::CompositeMarkupNode::Children* children);
 
 	xml::CompositeMarkupNode* root;
 	xml::CompositeMarkupNode** proxyPtr;
@@ -66,7 +66,7 @@ declaration 		: DOCTYPE NAME NAME VALUE CLOSE 			{ handleDTD($4); }
 			;
 
 element			: start attributes empty_or_content			{ 
-				  							$$ = handleElement(proxyPtr, $1->first, $1->second, *((xml::MarkupNode::Attributes*)$2), $3);
+				  							$$ = handleElement(proxyPtr, $1->first, $1->second, *((xml::MarkupNode::Attributes*)$2), (xml::CompositeMarkupNode::Children*)($3));
 											root = (xml::CompositeMarkupNode*)$$;
 			  							}
 			| STARTSPECIAL attributes CLOSESPECIAL

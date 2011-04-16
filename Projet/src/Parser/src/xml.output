@@ -1,65 +1,67 @@
 Terminals which are not used
 
-   CLOSESPECIAL
    ENCODING
-   NSNAME
-   NSSTART
-   STARTSPECIAL
 
 
 Grammar
 
     0 $accept: document $end
 
-    1 document: dtd_declarations element misc_seq_opt
+    1 document: declarations element misc_seq_opt
 
-    2 dtd_declarations: /* empty */
-    3                 | dtd_declaration
+    2 misc_seq_opt: misc_seq_opt misc
+    3             | /* empty */
 
-    4 dtd_declaration: DOCTYPE NAME NAME VALUE CLOSE
+    4 misc: COMMENT
 
-    5 element: empty_elem_tag
-    6        | stag content etag
+    5 declarations: declaration
+    6             | /* empty */
 
-    7 misc_seq_opt: /* empty */
-    8             | misc_seq_opt misc
+    7 declaration: DOCTYPE NAME NAME VALUE CLOSE
 
-    9 misc: COMMENT
+    8 element: start attributes empty_or_content
+    9        | STARTSPECIAL attributes CLOSESPECIAL
 
-   10 empty_elem_tag: START NAME attributes SLASH CLOSE
+   10 attributes: /* empty */
+   11           | attributes NAME EQ VALUE
 
-   11 stag: START NAME attributes END
+   12 start: START
+   13      | NSSTART
 
-   12 etag: END NAME CLOSE
+   14 empty_or_content: SLASH CLOSE
+   15                 | close_content_and_end name_or_nsname_opt CLOSE
 
-   13 attributes: attributes NAME EQ VALUE
-   14           | /* empty */
+   16 name_or_nsname_opt: NAME
+   17                   | NSNAME
+   18                   | /* empty */
 
-   15 content: content DATA
-   16        | content element
-   17        | content misc
-   18        | /* empty */
+   19 close_content_and_end: CLOSE content END
+
+   20 content: content DATA
+   21        | content misc
+   22        | content element
+   23        | /* empty */
 
 
 Terminals, with rules where they appear
 
 $end (0) 0
 error (256)
-EQ (258) 13
-SLASH (259) 10
-CLOSE (260) 4 10 12
-END (261) 11 12
-CLOSESPECIAL (262)
-DOCTYPE (263) 4
+EQ (258) 11
+SLASH (259) 14
+CLOSE (260) 7 14 15 19
+END (261) 19
+CLOSESPECIAL (262) 9
+DOCTYPE (263) 7
 ENCODING (264)
-VALUE (265) 4 13
-DATA (266) 15
-COMMENT (267) 9
-NAME (268) 4 10 11 12 13
-NSNAME (269)
-NSSTART (270)
-START (271) 10 11
-STARTSPECIAL (272)
+VALUE (265) 7 11
+DATA (266) 20
+COMMENT (267) 4
+NAME (268) 7 11 16
+NSNAME (269) 17
+NSSTART (270) 13
+START (271) 12
+STARTSPECIAL (272) 9
 
 
 Nonterminals, with rules where they appear
@@ -68,26 +70,28 @@ $accept (18)
     on left: 0
 document (19)
     on left: 1, on right: 0
-dtd_declarations (20)
-    on left: 2 3, on right: 1
-dtd_declaration (21)
-    on left: 4, on right: 3
-element (22)
-    on left: 5 6, on right: 1 16
-misc_seq_opt (23)
-    on left: 7 8, on right: 1 8
-misc (24)
-    on left: 9, on right: 8 17
-empty_elem_tag (25)
-    on left: 10, on right: 5
-stag (26)
-    on left: 11, on right: 6
-etag (27)
-    on left: 12, on right: 6
-attributes (28)
-    on left: 13 14, on right: 10 11 13
-content (29)
-    on left: 15 16 17 18, on right: 6 15 16 17
+misc_seq_opt (20)
+    on left: 2 3, on right: 1 2
+misc (21)
+    on left: 4, on right: 2 21
+declarations (22)
+    on left: 5 6, on right: 1
+declaration (23)
+    on left: 7, on right: 5
+element (24)
+    on left: 8 9, on right: 1 22
+attributes (25)
+    on left: 10 11, on right: 8 9 11
+start (26)
+    on left: 12 13, on right: 8
+empty_or_content (27)
+    on left: 14 15, on right: 8
+name_or_nsname_opt (28)
+    on left: 16 17 18, on right: 15
+close_content_and_end (29)
+    on left: 19, on right: 15
+content (30)
+    on left: 20 21 22 23, on right: 19 20 21 22
 
 
 state 0
@@ -96,16 +100,16 @@ state 0
 
     DOCTYPE  shift, and go to state 1
 
-    $default  reduce using rule 2 (dtd_declarations)
+    $default  reduce using rule 6 (declarations)
 
-    document          go to state 2
-    dtd_declarations  go to state 3
-    dtd_declaration   go to state 4
+    document      go to state 2
+    declarations  go to state 3
+    declaration   go to state 4
 
 
 state 1
 
-    4 dtd_declaration: DOCTYPE . NAME NAME VALUE CLOSE
+    7 declaration: DOCTYPE . NAME NAME VALUE CLOSE
 
     NAME  shift, and go to state 5
 
@@ -119,27 +123,28 @@ state 2
 
 state 3
 
-    1 document: dtd_declarations . element misc_seq_opt
+    1 document: declarations . element misc_seq_opt
 
-    START  shift, and go to state 7
+    NSSTART       shift, and go to state 7
+    START         shift, and go to state 8
+    STARTSPECIAL  shift, and go to state 9
 
-    element         go to state 8
-    empty_elem_tag  go to state 9
-    stag            go to state 10
+    element  go to state 10
+    start    go to state 11
 
 
 state 4
 
-    3 dtd_declarations: dtd_declaration .
+    5 declarations: declaration .
 
-    $default  reduce using rule 3 (dtd_declarations)
+    $default  reduce using rule 5 (declarations)
 
 
 state 5
 
-    4 dtd_declaration: DOCTYPE NAME . NAME VALUE CLOSE
+    7 declaration: DOCTYPE NAME . NAME VALUE CLOSE
 
-    NAME  shift, and go to state 11
+    NAME  shift, and go to state 12
 
 
 state 6
@@ -151,210 +156,254 @@ state 6
 
 state 7
 
-   10 empty_elem_tag: START . NAME attributes SLASH CLOSE
-   11 stag: START . NAME attributes END
+   13 start: NSSTART .
 
-    NAME  shift, and go to state 12
+    $default  reduce using rule 13 (start)
 
 
 state 8
 
-    1 document: dtd_declarations element . misc_seq_opt
+   12 start: START .
 
-    $default  reduce using rule 7 (misc_seq_opt)
-
-    misc_seq_opt  go to state 13
+    $default  reduce using rule 12 (start)
 
 
 state 9
 
-    5 element: empty_elem_tag .
+    9 element: STARTSPECIAL . attributes CLOSESPECIAL
 
-    $default  reduce using rule 5 (element)
+    $default  reduce using rule 10 (attributes)
+
+    attributes  go to state 13
 
 
 state 10
 
-    6 element: stag . content etag
+    1 document: declarations element . misc_seq_opt
 
-    $default  reduce using rule 18 (content)
+    $default  reduce using rule 3 (misc_seq_opt)
 
-    content  go to state 14
+    misc_seq_opt  go to state 14
 
 
 state 11
 
-    4 dtd_declaration: DOCTYPE NAME NAME . VALUE CLOSE
+    8 element: start . attributes empty_or_content
 
-    VALUE  shift, and go to state 15
+    $default  reduce using rule 10 (attributes)
+
+    attributes  go to state 15
 
 
 state 12
 
-   10 empty_elem_tag: START NAME . attributes SLASH CLOSE
-   11 stag: START NAME . attributes END
+    7 declaration: DOCTYPE NAME NAME . VALUE CLOSE
 
-    $default  reduce using rule 14 (attributes)
-
-    attributes  go to state 16
+    VALUE  shift, and go to state 16
 
 
 state 13
 
-    1 document: dtd_declarations element misc_seq_opt .
-    8 misc_seq_opt: misc_seq_opt . misc
+    9 element: STARTSPECIAL attributes . CLOSESPECIAL
+   11 attributes: attributes . NAME EQ VALUE
 
-    COMMENT  shift, and go to state 17
-
-    $default  reduce using rule 1 (document)
-
-    misc  go to state 18
+    CLOSESPECIAL  shift, and go to state 17
+    NAME          shift, and go to state 18
 
 
 state 14
 
-    6 element: stag content . etag
-   15 content: content . DATA
-   16        | content . element
-   17        | content . misc
+    1 document: declarations element misc_seq_opt .
+    2 misc_seq_opt: misc_seq_opt . misc
 
-    END      shift, and go to state 19
-    DATA     shift, and go to state 20
-    COMMENT  shift, and go to state 17
-    START    shift, and go to state 7
+    COMMENT  shift, and go to state 19
 
-    element         go to state 21
-    misc            go to state 22
-    empty_elem_tag  go to state 9
-    stag            go to state 10
-    etag            go to state 23
+    $default  reduce using rule 1 (document)
+
+    misc  go to state 20
 
 
 state 15
 
-    4 dtd_declaration: DOCTYPE NAME NAME VALUE . CLOSE
+    8 element: start attributes . empty_or_content
+   11 attributes: attributes . NAME EQ VALUE
 
-    CLOSE  shift, and go to state 24
+    SLASH  shift, and go to state 21
+    CLOSE  shift, and go to state 22
+    NAME   shift, and go to state 18
+
+    empty_or_content       go to state 23
+    close_content_and_end  go to state 24
 
 
 state 16
 
-   10 empty_elem_tag: START NAME attributes . SLASH CLOSE
-   11 stag: START NAME attributes . END
-   13 attributes: attributes . NAME EQ VALUE
+    7 declaration: DOCTYPE NAME NAME VALUE . CLOSE
 
-    SLASH  shift, and go to state 25
-    END    shift, and go to state 26
-    NAME   shift, and go to state 27
+    CLOSE  shift, and go to state 25
 
 
 state 17
 
-    9 misc: COMMENT .
+    9 element: STARTSPECIAL attributes CLOSESPECIAL .
 
-    $default  reduce using rule 9 (misc)
+    $default  reduce using rule 9 (element)
 
 
 state 18
 
-    8 misc_seq_opt: misc_seq_opt misc .
+   11 attributes: attributes NAME . EQ VALUE
 
-    $default  reduce using rule 8 (misc_seq_opt)
+    EQ  shift, and go to state 26
 
 
 state 19
 
-   12 etag: END . NAME CLOSE
+    4 misc: COMMENT .
 
-    NAME  shift, and go to state 28
+    $default  reduce using rule 4 (misc)
 
 
 state 20
 
-   15 content: content DATA .
+    2 misc_seq_opt: misc_seq_opt misc .
 
-    $default  reduce using rule 15 (content)
+    $default  reduce using rule 2 (misc_seq_opt)
 
 
 state 21
 
-   16 content: content element .
+   14 empty_or_content: SLASH . CLOSE
 
-    $default  reduce using rule 16 (content)
+    CLOSE  shift, and go to state 27
 
 
 state 22
 
-   17 content: content misc .
+   19 close_content_and_end: CLOSE . content END
 
-    $default  reduce using rule 17 (content)
+    $default  reduce using rule 23 (content)
+
+    content  go to state 28
 
 
 state 23
 
-    6 element: stag content etag .
+    8 element: start attributes empty_or_content .
 
-    $default  reduce using rule 6 (element)
+    $default  reduce using rule 8 (element)
 
 
 state 24
 
-    4 dtd_declaration: DOCTYPE NAME NAME VALUE CLOSE .
+   15 empty_or_content: close_content_and_end . name_or_nsname_opt CLOSE
 
-    $default  reduce using rule 4 (dtd_declaration)
+    NAME    shift, and go to state 29
+    NSNAME  shift, and go to state 30
+
+    $default  reduce using rule 18 (name_or_nsname_opt)
+
+    name_or_nsname_opt  go to state 31
 
 
 state 25
 
-   10 empty_elem_tag: START NAME attributes SLASH . CLOSE
+    7 declaration: DOCTYPE NAME NAME VALUE CLOSE .
 
-    CLOSE  shift, and go to state 29
+    $default  reduce using rule 7 (declaration)
 
 
 state 26
 
-   11 stag: START NAME attributes END .
-
-    $default  reduce using rule 11 (stag)
-
-
-state 27
-
-   13 attributes: attributes NAME . EQ VALUE
-
-    EQ  shift, and go to state 30
-
-
-state 28
-
-   12 etag: END NAME . CLOSE
-
-    CLOSE  shift, and go to state 31
-
-
-state 29
-
-   10 empty_elem_tag: START NAME attributes SLASH CLOSE .
-
-    $default  reduce using rule 10 (empty_elem_tag)
-
-
-state 30
-
-   13 attributes: attributes NAME EQ . VALUE
+   11 attributes: attributes NAME EQ . VALUE
 
     VALUE  shift, and go to state 32
 
 
+state 27
+
+   14 empty_or_content: SLASH CLOSE .
+
+    $default  reduce using rule 14 (empty_or_content)
+
+
+state 28
+
+   19 close_content_and_end: CLOSE content . END
+   20 content: content . DATA
+   21        | content . misc
+   22        | content . element
+
+    END           shift, and go to state 33
+    DATA          shift, and go to state 34
+    COMMENT       shift, and go to state 19
+    NSSTART       shift, and go to state 7
+    START         shift, and go to state 8
+    STARTSPECIAL  shift, and go to state 9
+
+    misc     go to state 35
+    element  go to state 36
+    start    go to state 11
+
+
+state 29
+
+   16 name_or_nsname_opt: NAME .
+
+    $default  reduce using rule 16 (name_or_nsname_opt)
+
+
+state 30
+
+   17 name_or_nsname_opt: NSNAME .
+
+    $default  reduce using rule 17 (name_or_nsname_opt)
+
+
 state 31
 
-   12 etag: END NAME CLOSE .
+   15 empty_or_content: close_content_and_end name_or_nsname_opt . CLOSE
 
-    $default  reduce using rule 12 (etag)
+    CLOSE  shift, and go to state 37
 
 
 state 32
 
-   13 attributes: attributes NAME EQ VALUE .
+   11 attributes: attributes NAME EQ VALUE .
 
-    $default  reduce using rule 13 (attributes)
+    $default  reduce using rule 11 (attributes)
+
+
+state 33
+
+   19 close_content_and_end: CLOSE content END .
+
+    $default  reduce using rule 19 (close_content_and_end)
+
+
+state 34
+
+   20 content: content DATA .
+
+    $default  reduce using rule 20 (content)
+
+
+state 35
+
+   21 content: content misc .
+
+    $default  reduce using rule 21 (content)
+
+
+state 36
+
+   22 content: content element .
+
+    $default  reduce using rule 22 (content)
+
+
+state 37
+
+   15 empty_or_content: close_content_and_end name_or_nsname_opt CLOSE .
+
+    $default  reduce using rule 15 (empty_or_content)

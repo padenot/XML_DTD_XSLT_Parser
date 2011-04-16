@@ -33,7 +33,6 @@ extern dtd::DTD* rootDTD;
 extern FILE * xmlin;
 extern FILE * dtdin;
 
-
 int exportMode;
 
 using namespace std;
@@ -78,14 +77,11 @@ dtd::QuantifiableContent* handleQuantifier(dtd::QuantifiableContent* currentCont
 /**********************************************************************************/
 
 xml::MarkupNode* handleElement(xml::CompositeMarkupNode** proxy, string NS, string name, xml::MarkupNode::Attributes attbs, xml::CompositeMarkupNode::Children* children) {
-	/*
 	xml::CompositeMarkupNode** newProxy 
 		= new xml::CompositeMarkupNode*; *newProxy = 0;
 
-	if(children->empty()) return  new xml::MarkupNode(newProxy, NS, name, attbs, *proxy);
+	if(children->empty()) return  new xml::MarkupNode(newProxy, NS, name, attbs);
 	else return  new xml::CompositeMarkupNode(newProxy, NS, name, attbs, *proxy, *children);
-	*/
-	return NULL;
 }
 /**********************************************************************************/
 
