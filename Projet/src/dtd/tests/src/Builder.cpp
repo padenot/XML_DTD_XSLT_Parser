@@ -77,3 +77,16 @@ string Builder::attval(unsigned int offset)
 			"{background-color:red;display:block;}" };
 	return ATTVAL[offset % ATTVAL_SIZE];
 }
+
+string Builder::text(unsigned int offset)
+{
+	static const size_t TEXT_SIZE = 4;
+	static const string
+			TEXT[TEXT_SIZE] =
+					{
+							"01 Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+							"02 Vivamus dignissim facilisis nisi quis hendrerit.",
+							"03 Donec auctor nisi id justo eleifend et mollis ante cursus.",
+							"04 Vivamus velit ipsum, eleifend eget ornare eget, sagittis nec sem." };
+	return TEXT[offset % TEXT_SIZE];
+}

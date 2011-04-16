@@ -1,0 +1,140 @@
+\hypertarget{classxml_1_1_text_node}{
+\section{Référence de la classe xml::TextNode}
+\label{classxml_1_1_text_node}\index{xml::TextNode@{xml::TextNode}}
+}
+
+
+{\ttfamily \#include $<$TextNode.hh$>$}
+
+
+
+Graphe d'héritage de xml::TextNode:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=214pt]{classxml_1_1_text_node__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Graphe de collaboration de xml::TextNode:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=400pt]{classxml_1_1_text_node__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{classxml_1_1_text_node_ac918f8f74e141690e18cd8e23d174996}{accept} (\hyperlink{classxml_1_1_interface_node_visitor}{InterfaceNodeVisitor} \&visitor) const 
+\item 
+std::string \hyperlink{classxml_1_1_text_node_a25941b48615a65258cc17d85bc0691d1}{content} () const 
+\item 
+\hyperlink{classxml_1_1_text_node_aa792bfa28288ba0b52f38215acb1feb0}{TextNode} (\hyperlink{classxml_1_1_composite_markup_node}{CompositeMarkupNode} $\ast$$\ast$parent, const std::string \&content)
+\item 
+virtual \hyperlink{classxml_1_1_text_node_a631efcd9de6889ba2b8f31e578267d29}{$\sim$TextNode} ()
+\end{DoxyCompactItemize}
+\subsection*{Attributs protégés}
+\begin{DoxyCompactItemize}
+\item 
+std::string \hyperlink{classxml_1_1_text_node_a1c237e716b3f9fd76569d443d838cd25}{\_\-content}
+\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+
+
+Définition à la ligne 25 du fichier TextNode.hh.
+
+
+
+\subsection{Documentation des constructeurs et destructeur}
+\hypertarget{classxml_1_1_text_node_aa792bfa28288ba0b52f38215acb1feb0}{
+\index{xml::TextNode@{xml::TextNode}!TextNode@{TextNode}}
+\index{TextNode@{TextNode}!xml::TextNode@{xml::TextNode}}
+\subsubsection[{TextNode}]{\setlength{\rightskip}{0pt plus 5cm}xml::TextNode::TextNode (
+\begin{DoxyParamCaption}
+\item[{{\bf CompositeMarkupNode} $\ast$$\ast$}]{ parent, }
+\item[{const std::string \&}]{ content}
+\end{DoxyParamCaption}
+)}}
+\label{classxml_1_1_text_node_aa792bfa28288ba0b52f38215acb1feb0}
+\hypertarget{classxml_1_1_text_node_a631efcd9de6889ba2b8f31e578267d29}{
+\index{xml::TextNode@{xml::TextNode}!$\sim$TextNode@{$\sim$TextNode}}
+\index{$\sim$TextNode@{$\sim$TextNode}!xml::TextNode@{xml::TextNode}}
+\subsubsection[{$\sim$TextNode}]{\setlength{\rightskip}{0pt plus 5cm}xml::TextNode::$\sim$TextNode (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classxml_1_1_text_node_a631efcd9de6889ba2b8f31e578267d29}
+
+
+Définition à la ligne 53 du fichier TextNode.cpp.
+
+
+
+\subsection{Documentation des fonctions membres}
+\hypertarget{classxml_1_1_text_node_ac918f8f74e141690e18cd8e23d174996}{
+\index{xml::TextNode@{xml::TextNode}!accept@{accept}}
+\index{accept@{accept}!xml::TextNode@{xml::TextNode}}
+\subsubsection[{accept}]{\setlength{\rightskip}{0pt plus 5cm}void xml::TextNode::accept (
+\begin{DoxyParamCaption}
+\item[{{\bf InterfaceNodeVisitor} \&}]{ visitor}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classxml_1_1_text_node_ac918f8f74e141690e18cd8e23d174996}
+
+
+Implémente \hyperlink{classxml_1_1_node_a332d84602db92c390e57eeec79c4b02d}{xml::Node}.
+
+
+
+Définition à la ligne 32 du fichier TextNode.cpp.
+
+
+
+Voici le graphe d'appel pour cette fonction :
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=400pt]{classxml_1_1_text_node_ac918f8f74e141690e18cd8e23d174996_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classxml_1_1_text_node_a25941b48615a65258cc17d85bc0691d1}{
+\index{xml::TextNode@{xml::TextNode}!content@{content}}
+\index{content@{content}!xml::TextNode@{xml::TextNode}}
+\subsubsection[{content}]{\setlength{\rightskip}{0pt plus 5cm}string xml::TextNode::content (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}
+\label{classxml_1_1_text_node_a25941b48615a65258cc17d85bc0691d1}
+
+
+Définition à la ligne 37 du fichier TextNode.cpp.
+
+
+
+\subsection{Documentation des données membres}
+\hypertarget{classxml_1_1_text_node_a1c237e716b3f9fd76569d443d838cd25}{
+\index{xml::TextNode@{xml::TextNode}!\_\-content@{\_\-content}}
+\index{\_\-content@{\_\-content}!xml::TextNode@{xml::TextNode}}
+\subsubsection[{\_\-content}]{\setlength{\rightskip}{0pt plus 5cm}std::string {\bf xml::TextNode::\_\-content}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{classxml_1_1_text_node_a1c237e716b3f9fd76569d443d838cd25}
+
+
+Définition à la ligne 62 du fichier TextNode.hh.
+
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants :\begin{DoxyCompactItemize}
+\item 
+src/\hyperlink{_text_node_8hh}{TextNode.hh}\item 
+src/\hyperlink{_text_node_8cpp}{TextNode.cpp}\end{DoxyCompactItemize}

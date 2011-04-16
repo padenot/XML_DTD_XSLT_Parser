@@ -77,14 +77,15 @@ dtd::QuantifiableContent* handleQuantifier(dtd::QuantifiableContent* currentCont
 
 /**********************************************************************************/
 
-xml::CompositeMarkupNode* handleElement(xml::CompositeMarkupNode** proxy, string NS, string name, xml::MarkupNode::Attributes attbs, list<void*>* children) {
-	xml::CompositeMarkupNode::Children currentChildren
-		=  *((list<xml::Node*>*)children);
-
+xml::MarkupNode* handleElement(xml::CompositeMarkupNode** proxy, string NS, string name, xml::MarkupNode::Attributes attbs, xml::CompositeMarkupNode::Children* children) {
+	/*
 	xml::CompositeMarkupNode** newProxy 
 		= new xml::CompositeMarkupNode*; *newProxy = 0;
 
-	return  new xml::CompositeMarkupNode(newProxy, NS, name, attbs, *proxy, currentChildren);
+	if(children->empty()) return  new xml::MarkupNode(newProxy, NS, name, attbs, *proxy);
+	else return  new xml::CompositeMarkupNode(newProxy, NS, name, attbs, *proxy, *children);
+	*/
+	return NULL;
 }
 /**********************************************************************************/
 

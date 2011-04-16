@@ -1,0 +1,91 @@
+\documentclass[a4paper]{book}
+\usepackage{makeidx}
+\usepackage{graphicx}
+\usepackage{multicol}
+\usepackage{float}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{ifthen}
+\usepackage[table]{xcolor}
+\usepackage{textcomp}
+\usepackage{alltt}
+\usepackage{ifpdf}
+\ifpdf
+\usepackage[pdftex,
+            pagebackref=true,
+            colorlinks=true,
+            linkcolor=blue,
+            unicode
+           ]{hyperref}
+\else
+\usepackage[ps2pdf,
+            pagebackref=true,
+            colorlinks=true,
+            linkcolor=blue,
+            unicode
+           ]{hyperref}
+\usepackage{pspicture}
+\fi
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+
+\usepackage{mathptmx}
+\usepackage[scaled=.90]{helvet}
+\usepackage{courier}
+\usepackage{doxygen}
+\lstset{language=C++,inputencoding=utf8,basicstyle=\footnotesize,breaklines=true,breakatwhitespace=true,tabsize=8,numbers=left }
+\makeindex
+\setcounter{tocdepth}{3}
+\renewcommand{\footrulewidth}{0.4pt}
+\begin{document}
+\hypersetup{pageanchor=false}
+\begin{titlepage}
+\vspace*{7cm}
+\begin{center}
+{\Large XMLLib \\[1ex]\large 0.1 }\\
+\vspace*{1cm}
+{\large Généré par Doxygen 1.7.2}\\
+\vspace*{0.5cm}
+{\small Fri Apr 15 2011 16:44:38}\\
+\end{center}
+\end{titlepage}
+\clearemptydoublepage
+\pagenumbering{roman}
+\tableofcontents
+\clearemptydoublepage
+\pagenumbering{arabic}
+\hypersetup{pageanchor=true}
+\chapter{Index des espaces de nommage}
+\input{namespaces}
+\chapter{Index des classes}
+\input{hierarchy}
+\chapter{Index des classes}
+\input{annotated}
+\chapter{Index des fichiers}
+\input{files}
+\chapter{Documentation des espaces de nommage}
+\input{namespacexml}
+\chapter{Documentation des classes}
+\input{classxml_1_1_composite_markup_node}
+\input{classxml_1_1_dot_output_visitor}
+\input{classxml_1_1_interface_node_visitor}
+\input{classxml_1_1_markup_node}
+\input{classxml_1_1_node}
+\input{classxml_1_1_output_visitor}
+\input{classxml_1_1_text_node}
+\chapter{Documentation des fichiers}
+\input{_composite_markup_node_8cpp}
+\input{_composite_markup_node_8hh}
+\input{_dot_output_visitor_8cpp}
+\input{_dot_output_visitor_8hh}
+\input{_interface_node_visitor_8hpp}
+\input{_markup_node_8cpp}
+\input{_markup_node_8hh}
+\input{_node_8cpp}
+\input{_node_8hh}
+\input{_output_visitor_8cpp}
+\input{_output_visitor_8hh}
+\input{_text_node_8cpp}
+\input{_text_node_8hh}
+\printindex
+\end{document}

@@ -35,7 +35,7 @@ using namespace dtd;
 
 //------------------------------------------------------------- Constantes
 const string RESULT_OK = ": ok";
-const string RESULT_FAIL = ": FAIL !";
+const string RESULT_FAIL = ": FAILURE !";
 const string MAJOR_SEP =
 		"=================================================================";
 const string MINOR_SEP =
@@ -57,13 +57,13 @@ static bool test(ostream& out, unsigned int testNumber, Builder& builder)
 
 	builder.buildDTD(*dtd);
 
-	dtd->accept(outputDTD);
+	//dtd->accept(outputDTD);
 
 	count = 1;
 	for (list<Node*>::iterator it = validTrees.begin(); it != validTrees.end(); ++it)
 	{
 		//(*it)->accept(outputNode);
-		out << setw(15) << "Valid node #" << setw(3) << count;
+		out << setw(15) << "Valid tree #" << setw(3) << count;
 		if (dtd->isValid(**it))
 		{
 			out << RESULT_OK << endl;
@@ -81,7 +81,7 @@ static bool test(ostream& out, unsigned int testNumber, Builder& builder)
 			!= invalidTrees.end(); ++it)
 	{
 		//(*it)->accept(outputNode);
-		out << setw(15) << "Invalid node #" << setw(3) << count;
+		out << setw(15) << "Invalid tree #" << setw(3) << count;
 		if (dtd->isValid(**it))
 		{
 			out << RESULT_FAIL << endl;
@@ -94,14 +94,14 @@ static bool test(ostream& out, unsigned int testNumber, Builder& builder)
 		++count;
 	}
 
-	out << "TEST #" << setw(3) << testNumber;
+	out << MINOR_SEP << endl << "TEST #" << setw(3) << testNumber;
 	if (failed)
 	{
-		out << ": FAILURE";
+		out << RESULT_FAIL;
 	}
 	else
 	{
-		out << ": ok";
+		out << RESULT_OK;
 	}
 	out << endl;
 

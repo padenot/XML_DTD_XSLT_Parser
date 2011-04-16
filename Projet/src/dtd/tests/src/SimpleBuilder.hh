@@ -33,9 +33,11 @@ public:
 	virtual ~SimpleBuilder();
 
 protected:
-	xml::Node * buildValidTree(
-			xml::CompositeMarkupNode::Children markup1Chosen,
-			xml::CompositeMarkupNode*& markup1Proxy, bool withMarkup7) const;
+	xml::Node * buildTree(xml::CompositeMarkupNode::Children markup1Chosen,
+			xml::CompositeMarkupNode*& markup1Proxy, bool withMarkup7,
+			bool withMarkup1 = true, bool withMarkup4 = true,
+			bool withMarkup2 = true, bool withMarkup3 = true) const;
+	// Default values with no "chosen" will build a valid tree
 
 };
 

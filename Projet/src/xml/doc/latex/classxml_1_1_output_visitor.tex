@@ -1,0 +1,331 @@
+\hypertarget{classxml_1_1_output_visitor}{
+\section{Référence de la classe xml::OutputVisitor}
+\label{classxml_1_1_output_visitor}\index{xml::OutputVisitor@{xml::OutputVisitor}}
+}
+
+
+{\ttfamily \#include $<$OutputVisitor.hh$>$}
+
+
+
+Graphe d'héritage de xml::OutputVisitor:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=600pt]{classxml_1_1_output_visitor__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Graphe de collaboration de xml::OutputVisitor:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=600pt]{classxml_1_1_output_visitor__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classxml_1_1_output_visitor_a09e8e0dd6ac2bbbf39cab4fa79a65a4b}{OutputVisitor} (std::ostream \&out, char indentChar=\hyperlink{classxml_1_1_output_visitor_ad61c526a1962865b37f22fdf252b63f3}{DEFAULT\_\-INDENT\_\-CHAR}, unsigned int indentUnit=\hyperlink{classxml_1_1_output_visitor_aa5e9426f0fdf70d3e0922837c8c99f93}{DEFAULT\_\-INDENT\_\-UNIT})
+\item 
+virtual \hyperlink{classxml_1_1_output_visitor_a6143fdb2f73ab2bafa7f2b3e3c32e48a}{$\sim$OutputVisitor} ()
+\end{DoxyCompactItemize}
+\subsection*{Fonctions membres protégées}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classxml_1_1_output_visitor_af369ea5f7984975e7dfdea89ddcae000}{doIndent} ()
+\item 
+void \hyperlink{classxml_1_1_output_visitor_a3c1d2ac6dec2c9f6279a59226646e254}{writeAttributes} (const \hyperlink{classxml_1_1_markup_node}{MarkupNode} \&node)
+\item 
+virtual void \hyperlink{classxml_1_1_output_visitor_a33e53f866b31a155bbf29ffda852aaf7}{visit} (const \hyperlink{classxml_1_1_text_node}{TextNode} \&node)
+\item 
+virtual void \hyperlink{classxml_1_1_output_visitor_ac1dae5dbb561c4b7e98a761d5d503e49}{visit} (const \hyperlink{classxml_1_1_markup_node}{MarkupNode} \&node)
+\item 
+virtual void \hyperlink{classxml_1_1_output_visitor_addfc73ae3643a8285b5f892eff1a6066}{visit} (const \hyperlink{classxml_1_1_composite_markup_node}{CompositeMarkupNode} \&node)
+\end{DoxyCompactItemize}
+\subsection*{Attributs protégés}
+\begin{DoxyCompactItemize}
+\item 
+std::ostream \& \hyperlink{classxml_1_1_output_visitor_ab2e31d8a9675f88d96a89399ea894e83}{\_\-out}
+\item 
+char \hyperlink{classxml_1_1_output_visitor_a9b89adad1ba1e3ff2f64ad7cd6545361}{\_\-indentChar}
+\item 
+unsigned \hyperlink{classxml_1_1_output_visitor_a55060d8246a1365089872aa4a500b03c}{\_\-indentUnit}
+\item 
+unsigned int \hyperlink{classxml_1_1_output_visitor_a7664b7975557ab6db96b744bf43190f4}{\_\-indent}
+\end{DoxyCompactItemize}
+\subsection*{Attributs protégés statiques}
+\begin{DoxyCompactItemize}
+\item 
+static const char \hyperlink{classxml_1_1_output_visitor_ad61c526a1962865b37f22fdf252b63f3}{DEFAULT\_\-INDENT\_\-CHAR} = ' '
+\item 
+static const unsigned char \hyperlink{classxml_1_1_output_visitor_aa5e9426f0fdf70d3e0922837c8c99f93}{DEFAULT\_\-INDENT\_\-UNIT} = 1
+\item 
+static const std::string \hyperlink{classxml_1_1_output_visitor_a3a2a1c7860151f173fd28c0077ffd94a}{OPEN\_\-MARKUP\_\-STR} = \char`\"{}$<$\char`\"{}
+\item 
+static const std::string \hyperlink{classxml_1_1_output_visitor_a892952bcc6a8b9265c0934cfdc95dd65}{NS\_\-SEPARATOR\_\-STR} = \char`\"{}:\char`\"{}
+\item 
+static const std::string \hyperlink{classxml_1_1_output_visitor_a67d0548ce8906eb4121d9f33d005c8be}{INSIDE\_\-MARKUP\_\-SPACE\_\-STR} = \char`\"{} \char`\"{}
+\item 
+static const std::string \hyperlink{classxml_1_1_output_visitor_af06f2eb91d0a40d0d090aeb0bdeb9c9f}{CLOSING\_\-MARKUP\_\-STR} = \char`\"{}/\char`\"{}
+\item 
+static const std::string \hyperlink{classxml_1_1_output_visitor_aef349142e7de8a309ee5dd048cc5b51f}{CLOSE\_\-MARKUP\_\-STR} = \char`\"{}$>$\char`\"{}
+\item 
+static const std::string \hyperlink{classxml_1_1_output_visitor_a7eb4bfa043240d8d87fe47eb733057c4}{ASSIGN\_\-ATTRIBUTE\_\-VALUE\_\-STR} = \char`\"{}=\char`\"{}
+\item 
+static const std::string \hyperlink{classxml_1_1_output_visitor_a16ae3df2d90ed3e57ea51277de609988}{OPEN\_\-ATTRIBUTE\_\-VALUE\_\-STR} = \char`\"{}$\backslash$\char`\"{}\char`\"{}
+\item 
+static const std::string \hyperlink{classxml_1_1_output_visitor_af3b7b1a653908df91dc19195b3bdb29b}{CLOSE\_\-ATTRIBUTE\_\-VALUE\_\-STR} = \char`\"{}$\backslash$\char`\"{}\char`\"{}
+\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+
+
+Définition à la ligne 24 du fichier OutputVisitor.hh.
+
+
+
+\subsection{Documentation des constructeurs et destructeur}
+\hypertarget{classxml_1_1_output_visitor_a09e8e0dd6ac2bbbf39cab4fa79a65a4b}{
+\index{xml::OutputVisitor@{xml::OutputVisitor}!OutputVisitor@{OutputVisitor}}
+\index{OutputVisitor@{OutputVisitor}!xml::OutputVisitor@{xml::OutputVisitor}}
+\subsubsection[{OutputVisitor}]{\setlength{\rightskip}{0pt plus 5cm}xml::OutputVisitor::OutputVisitor (
+\begin{DoxyParamCaption}
+\item[{std::ostream \&}]{ out, }
+\item[{char}]{ indentChar = {\ttfamily {\bf DEFAULT\_\-INDENT\_\-CHAR}}, }
+\item[{unsigned int}]{ indentUnit = {\ttfamily {\bf DEFAULT\_\-INDENT\_\-UNIT}}}
+\end{DoxyParamCaption}
+)}}
+\label{classxml_1_1_output_visitor_a09e8e0dd6ac2bbbf39cab4fa79a65a4b}
+\hypertarget{classxml_1_1_output_visitor_a6143fdb2f73ab2bafa7f2b3e3c32e48a}{
+\index{xml::OutputVisitor@{xml::OutputVisitor}!$\sim$OutputVisitor@{$\sim$OutputVisitor}}
+\index{$\sim$OutputVisitor@{$\sim$OutputVisitor}!xml::OutputVisitor@{xml::OutputVisitor}}
+\subsubsection[{$\sim$OutputVisitor}]{\setlength{\rightskip}{0pt plus 5cm}xml::OutputVisitor::$\sim$OutputVisitor (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classxml_1_1_output_visitor_a6143fdb2f73ab2bafa7f2b3e3c32e48a}
+
+
+Définition à la ligne 53 du fichier OutputVisitor.cpp.
+
+
+
+\subsection{Documentation des fonctions membres}
+\hypertarget{classxml_1_1_output_visitor_af369ea5f7984975e7dfdea89ddcae000}{
+\index{xml::OutputVisitor@{xml::OutputVisitor}!doIndent@{doIndent}}
+\index{doIndent@{doIndent}!xml::OutputVisitor@{xml::OutputVisitor}}
+\subsubsection[{doIndent}]{\setlength{\rightskip}{0pt plus 5cm}void xml::OutputVisitor::doIndent (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{classxml_1_1_output_visitor_af369ea5f7984975e7dfdea89ddcae000}
+
+
+Définition à la ligne 63 du fichier OutputVisitor.cpp.
+
+\hypertarget{classxml_1_1_output_visitor_addfc73ae3643a8285b5f892eff1a6066}{
+\index{xml::OutputVisitor@{xml::OutputVisitor}!visit@{visit}}
+\index{visit@{visit}!xml::OutputVisitor@{xml::OutputVisitor}}
+\subsubsection[{visit}]{\setlength{\rightskip}{0pt plus 5cm}void xml::OutputVisitor::visit (
+\begin{DoxyParamCaption}
+\item[{const {\bf CompositeMarkupNode} \&}]{ node}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}protected, virtual\mbox{]}}}}
+\label{classxml_1_1_output_visitor_addfc73ae3643a8285b5f892eff1a6066}
+
+
+Implémente \hyperlink{classxml_1_1_interface_node_visitor_afd6306ffd03380f21f436234b314c34d}{xml::InterfaceNodeVisitor}.
+
+
+
+Définition à la ligne 97 du fichier OutputVisitor.cpp.
+
+\hypertarget{classxml_1_1_output_visitor_ac1dae5dbb561c4b7e98a761d5d503e49}{
+\index{xml::OutputVisitor@{xml::OutputVisitor}!visit@{visit}}
+\index{visit@{visit}!xml::OutputVisitor@{xml::OutputVisitor}}
+\subsubsection[{visit}]{\setlength{\rightskip}{0pt plus 5cm}void xml::OutputVisitor::visit (
+\begin{DoxyParamCaption}
+\item[{const {\bf MarkupNode} \&}]{ node}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}protected, virtual\mbox{]}}}}
+\label{classxml_1_1_output_visitor_ac1dae5dbb561c4b7e98a761d5d503e49}
+
+
+Implémente \hyperlink{classxml_1_1_interface_node_visitor_a53b33aabb8a79d4b1715c7664671d326}{xml::InterfaceNodeVisitor}.
+
+
+
+Définition à la ligne 89 du fichier OutputVisitor.cpp.
+
+\hypertarget{classxml_1_1_output_visitor_a33e53f866b31a155bbf29ffda852aaf7}{
+\index{xml::OutputVisitor@{xml::OutputVisitor}!visit@{visit}}
+\index{visit@{visit}!xml::OutputVisitor@{xml::OutputVisitor}}
+\subsubsection[{visit}]{\setlength{\rightskip}{0pt plus 5cm}void xml::OutputVisitor::visit (
+\begin{DoxyParamCaption}
+\item[{const {\bf TextNode} \&}]{ node}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}protected, virtual\mbox{]}}}}
+\label{classxml_1_1_output_visitor_a33e53f866b31a155bbf29ffda852aaf7}
+
+
+Implémente \hyperlink{classxml_1_1_interface_node_visitor_a22a8a333e5cf2da1f1ac9f8f1f376a89}{xml::InterfaceNodeVisitor}.
+
+
+
+Définition à la ligne 83 du fichier OutputVisitor.cpp.
+
+\hypertarget{classxml_1_1_output_visitor_a3c1d2ac6dec2c9f6279a59226646e254}{
+\index{xml::OutputVisitor@{xml::OutputVisitor}!writeAttributes@{writeAttributes}}
+\index{writeAttributes@{writeAttributes}!xml::OutputVisitor@{xml::OutputVisitor}}
+\subsubsection[{writeAttributes}]{\setlength{\rightskip}{0pt plus 5cm}void xml::OutputVisitor::writeAttributes (
+\begin{DoxyParamCaption}
+\item[{const {\bf MarkupNode} \&}]{ node}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{classxml_1_1_output_visitor_a3c1d2ac6dec2c9f6279a59226646e254}
+
+
+Définition à la ligne 73 du fichier OutputVisitor.cpp.
+
+
+
+\subsection{Documentation des données membres}
+\hypertarget{classxml_1_1_output_visitor_a7664b7975557ab6db96b744bf43190f4}{
+\index{xml::OutputVisitor@{xml::OutputVisitor}!\_\-indent@{\_\-indent}}
+\index{\_\-indent@{\_\-indent}!xml::OutputVisitor@{xml::OutputVisitor}}
+\subsubsection[{\_\-indent}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int {\bf xml::OutputVisitor::\_\-indent}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{classxml_1_1_output_visitor_a7664b7975557ab6db96b744bf43190f4}
+
+
+Définition à la ligne 68 du fichier OutputVisitor.hh.
+
+\hypertarget{classxml_1_1_output_visitor_a9b89adad1ba1e3ff2f64ad7cd6545361}{
+\index{xml::OutputVisitor@{xml::OutputVisitor}!\_\-indentChar@{\_\-indentChar}}
+\index{\_\-indentChar@{\_\-indentChar}!xml::OutputVisitor@{xml::OutputVisitor}}
+\subsubsection[{\_\-indentChar}]{\setlength{\rightskip}{0pt plus 5cm}char {\bf xml::OutputVisitor::\_\-indentChar}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{classxml_1_1_output_visitor_a9b89adad1ba1e3ff2f64ad7cd6545361}
+
+
+Définition à la ligne 66 du fichier OutputVisitor.hh.
+
+\hypertarget{classxml_1_1_output_visitor_a55060d8246a1365089872aa4a500b03c}{
+\index{xml::OutputVisitor@{xml::OutputVisitor}!\_\-indentUnit@{\_\-indentUnit}}
+\index{\_\-indentUnit@{\_\-indentUnit}!xml::OutputVisitor@{xml::OutputVisitor}}
+\subsubsection[{\_\-indentUnit}]{\setlength{\rightskip}{0pt plus 5cm}unsigned {\bf xml::OutputVisitor::\_\-indentUnit}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{classxml_1_1_output_visitor_a55060d8246a1365089872aa4a500b03c}
+
+
+Définition à la ligne 67 du fichier OutputVisitor.hh.
+
+\hypertarget{classxml_1_1_output_visitor_ab2e31d8a9675f88d96a89399ea894e83}{
+\index{xml::OutputVisitor@{xml::OutputVisitor}!\_\-out@{\_\-out}}
+\index{\_\-out@{\_\-out}!xml::OutputVisitor@{xml::OutputVisitor}}
+\subsubsection[{\_\-out}]{\setlength{\rightskip}{0pt plus 5cm}std::ostream\& {\bf xml::OutputVisitor::\_\-out}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{classxml_1_1_output_visitor_ab2e31d8a9675f88d96a89399ea894e83}
+
+
+Définition à la ligne 65 du fichier OutputVisitor.hh.
+
+\hypertarget{classxml_1_1_output_visitor_a7eb4bfa043240d8d87fe47eb733057c4}{
+\index{xml::OutputVisitor@{xml::OutputVisitor}!ASSIGN\_\-ATTRIBUTE\_\-VALUE\_\-STR@{ASSIGN\_\-ATTRIBUTE\_\-VALUE\_\-STR}}
+\index{ASSIGN\_\-ATTRIBUTE\_\-VALUE\_\-STR@{ASSIGN\_\-ATTRIBUTE\_\-VALUE\_\-STR}!xml::OutputVisitor@{xml::OutputVisitor}}
+\subsubsection[{ASSIGN\_\-ATTRIBUTE\_\-VALUE\_\-STR}]{\setlength{\rightskip}{0pt plus 5cm}const std::string {\bf xml::OutputVisitor::ASSIGN\_\-ATTRIBUTE\_\-VALUE\_\-STR} = \char`\"{}=\char`\"{}\hspace{0.3cm}{\ttfamily  \mbox{[}static, protected\mbox{]}}}}
+\label{classxml_1_1_output_visitor_a7eb4bfa043240d8d87fe47eb733057c4}
+
+
+Définition à la ligne 61 du fichier OutputVisitor.hh.
+
+\hypertarget{classxml_1_1_output_visitor_af3b7b1a653908df91dc19195b3bdb29b}{
+\index{xml::OutputVisitor@{xml::OutputVisitor}!CLOSE\_\-ATTRIBUTE\_\-VALUE\_\-STR@{CLOSE\_\-ATTRIBUTE\_\-VALUE\_\-STR}}
+\index{CLOSE\_\-ATTRIBUTE\_\-VALUE\_\-STR@{CLOSE\_\-ATTRIBUTE\_\-VALUE\_\-STR}!xml::OutputVisitor@{xml::OutputVisitor}}
+\subsubsection[{CLOSE\_\-ATTRIBUTE\_\-VALUE\_\-STR}]{\setlength{\rightskip}{0pt plus 5cm}const std::string {\bf xml::OutputVisitor::CLOSE\_\-ATTRIBUTE\_\-VALUE\_\-STR} = \char`\"{}$\backslash$\char`\"{}\char`\"{}\hspace{0.3cm}{\ttfamily  \mbox{[}static, protected\mbox{]}}}}
+\label{classxml_1_1_output_visitor_af3b7b1a653908df91dc19195b3bdb29b}
+
+
+Définition à la ligne 63 du fichier OutputVisitor.hh.
+
+\hypertarget{classxml_1_1_output_visitor_aef349142e7de8a309ee5dd048cc5b51f}{
+\index{xml::OutputVisitor@{xml::OutputVisitor}!CLOSE\_\-MARKUP\_\-STR@{CLOSE\_\-MARKUP\_\-STR}}
+\index{CLOSE\_\-MARKUP\_\-STR@{CLOSE\_\-MARKUP\_\-STR}!xml::OutputVisitor@{xml::OutputVisitor}}
+\subsubsection[{CLOSE\_\-MARKUP\_\-STR}]{\setlength{\rightskip}{0pt plus 5cm}const std::string {\bf xml::OutputVisitor::CLOSE\_\-MARKUP\_\-STR} = \char`\"{}$>$\char`\"{}\hspace{0.3cm}{\ttfamily  \mbox{[}static, protected\mbox{]}}}}
+\label{classxml_1_1_output_visitor_aef349142e7de8a309ee5dd048cc5b51f}
+
+
+Définition à la ligne 60 du fichier OutputVisitor.hh.
+
+\hypertarget{classxml_1_1_output_visitor_af06f2eb91d0a40d0d090aeb0bdeb9c9f}{
+\index{xml::OutputVisitor@{xml::OutputVisitor}!CLOSING\_\-MARKUP\_\-STR@{CLOSING\_\-MARKUP\_\-STR}}
+\index{CLOSING\_\-MARKUP\_\-STR@{CLOSING\_\-MARKUP\_\-STR}!xml::OutputVisitor@{xml::OutputVisitor}}
+\subsubsection[{CLOSING\_\-MARKUP\_\-STR}]{\setlength{\rightskip}{0pt plus 5cm}const std::string {\bf xml::OutputVisitor::CLOSING\_\-MARKUP\_\-STR} = \char`\"{}/\char`\"{}\hspace{0.3cm}{\ttfamily  \mbox{[}static, protected\mbox{]}}}}
+\label{classxml_1_1_output_visitor_af06f2eb91d0a40d0d090aeb0bdeb9c9f}
+
+
+Définition à la ligne 59 du fichier OutputVisitor.hh.
+
+\hypertarget{classxml_1_1_output_visitor_ad61c526a1962865b37f22fdf252b63f3}{
+\index{xml::OutputVisitor@{xml::OutputVisitor}!DEFAULT\_\-INDENT\_\-CHAR@{DEFAULT\_\-INDENT\_\-CHAR}}
+\index{DEFAULT\_\-INDENT\_\-CHAR@{DEFAULT\_\-INDENT\_\-CHAR}!xml::OutputVisitor@{xml::OutputVisitor}}
+\subsubsection[{DEFAULT\_\-INDENT\_\-CHAR}]{\setlength{\rightskip}{0pt plus 5cm}const char {\bf xml::OutputVisitor::DEFAULT\_\-INDENT\_\-CHAR} = ' '\hspace{0.3cm}{\ttfamily  \mbox{[}static, protected\mbox{]}}}}
+\label{classxml_1_1_output_visitor_ad61c526a1962865b37f22fdf252b63f3}
+
+
+Définition à la ligne 27 du fichier OutputVisitor.hh.
+
+\hypertarget{classxml_1_1_output_visitor_aa5e9426f0fdf70d3e0922837c8c99f93}{
+\index{xml::OutputVisitor@{xml::OutputVisitor}!DEFAULT\_\-INDENT\_\-UNIT@{DEFAULT\_\-INDENT\_\-UNIT}}
+\index{DEFAULT\_\-INDENT\_\-UNIT@{DEFAULT\_\-INDENT\_\-UNIT}!xml::OutputVisitor@{xml::OutputVisitor}}
+\subsubsection[{DEFAULT\_\-INDENT\_\-UNIT}]{\setlength{\rightskip}{0pt plus 5cm}const unsigned char {\bf xml::OutputVisitor::DEFAULT\_\-INDENT\_\-UNIT} = 1\hspace{0.3cm}{\ttfamily  \mbox{[}static, protected\mbox{]}}}}
+\label{classxml_1_1_output_visitor_aa5e9426f0fdf70d3e0922837c8c99f93}
+
+
+Définition à la ligne 28 du fichier OutputVisitor.hh.
+
+\hypertarget{classxml_1_1_output_visitor_a67d0548ce8906eb4121d9f33d005c8be}{
+\index{xml::OutputVisitor@{xml::OutputVisitor}!INSIDE\_\-MARKUP\_\-SPACE\_\-STR@{INSIDE\_\-MARKUP\_\-SPACE\_\-STR}}
+\index{INSIDE\_\-MARKUP\_\-SPACE\_\-STR@{INSIDE\_\-MARKUP\_\-SPACE\_\-STR}!xml::OutputVisitor@{xml::OutputVisitor}}
+\subsubsection[{INSIDE\_\-MARKUP\_\-SPACE\_\-STR}]{\setlength{\rightskip}{0pt plus 5cm}const std::string {\bf xml::OutputVisitor::INSIDE\_\-MARKUP\_\-SPACE\_\-STR} = \char`\"{} \char`\"{}\hspace{0.3cm}{\ttfamily  \mbox{[}static, protected\mbox{]}}}}
+\label{classxml_1_1_output_visitor_a67d0548ce8906eb4121d9f33d005c8be}
+
+
+Définition à la ligne 58 du fichier OutputVisitor.hh.
+
+\hypertarget{classxml_1_1_output_visitor_a892952bcc6a8b9265c0934cfdc95dd65}{
+\index{xml::OutputVisitor@{xml::OutputVisitor}!NS\_\-SEPARATOR\_\-STR@{NS\_\-SEPARATOR\_\-STR}}
+\index{NS\_\-SEPARATOR\_\-STR@{NS\_\-SEPARATOR\_\-STR}!xml::OutputVisitor@{xml::OutputVisitor}}
+\subsubsection[{NS\_\-SEPARATOR\_\-STR}]{\setlength{\rightskip}{0pt plus 5cm}const std::string {\bf xml::OutputVisitor::NS\_\-SEPARATOR\_\-STR} = \char`\"{}:\char`\"{}\hspace{0.3cm}{\ttfamily  \mbox{[}static, protected\mbox{]}}}}
+\label{classxml_1_1_output_visitor_a892952bcc6a8b9265c0934cfdc95dd65}
+
+
+Définition à la ligne 57 du fichier OutputVisitor.hh.
+
+\hypertarget{classxml_1_1_output_visitor_a16ae3df2d90ed3e57ea51277de609988}{
+\index{xml::OutputVisitor@{xml::OutputVisitor}!OPEN\_\-ATTRIBUTE\_\-VALUE\_\-STR@{OPEN\_\-ATTRIBUTE\_\-VALUE\_\-STR}}
+\index{OPEN\_\-ATTRIBUTE\_\-VALUE\_\-STR@{OPEN\_\-ATTRIBUTE\_\-VALUE\_\-STR}!xml::OutputVisitor@{xml::OutputVisitor}}
+\subsubsection[{OPEN\_\-ATTRIBUTE\_\-VALUE\_\-STR}]{\setlength{\rightskip}{0pt plus 5cm}const std::string {\bf xml::OutputVisitor::OPEN\_\-ATTRIBUTE\_\-VALUE\_\-STR} = \char`\"{}$\backslash$\char`\"{}\char`\"{}\hspace{0.3cm}{\ttfamily  \mbox{[}static, protected\mbox{]}}}}
+\label{classxml_1_1_output_visitor_a16ae3df2d90ed3e57ea51277de609988}
+
+
+Définition à la ligne 62 du fichier OutputVisitor.hh.
+
+\hypertarget{classxml_1_1_output_visitor_a3a2a1c7860151f173fd28c0077ffd94a}{
+\index{xml::OutputVisitor@{xml::OutputVisitor}!OPEN\_\-MARKUP\_\-STR@{OPEN\_\-MARKUP\_\-STR}}
+\index{OPEN\_\-MARKUP\_\-STR@{OPEN\_\-MARKUP\_\-STR}!xml::OutputVisitor@{xml::OutputVisitor}}
+\subsubsection[{OPEN\_\-MARKUP\_\-STR}]{\setlength{\rightskip}{0pt plus 5cm}const std::string {\bf xml::OutputVisitor::OPEN\_\-MARKUP\_\-STR} = \char`\"{}$<$\char`\"{}\hspace{0.3cm}{\ttfamily  \mbox{[}static, protected\mbox{]}}}}
+\label{classxml_1_1_output_visitor_a3a2a1c7860151f173fd28c0077ffd94a}
+
+
+Définition à la ligne 56 du fichier OutputVisitor.hh.
+
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants :\begin{DoxyCompactItemize}
+\item 
+src/\hyperlink{_output_visitor_8hh}{OutputVisitor.hh}\item 
+src/\hyperlink{_output_visitor_8cpp}{OutputVisitor.cpp}\end{DoxyCompactItemize}
