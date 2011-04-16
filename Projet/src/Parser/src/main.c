@@ -61,6 +61,7 @@ int handleDTD(char* filename) {
 	else if(!exportMode) 
 		cout << "Aucune erreur détectée." << endl; 
 
+
 	return 0;
 }
 
@@ -108,7 +109,7 @@ int main(int argc, char** argv) {
 
 	if(exportMode) {
 		xml::DotOutputVisitor dvisitor(cout, "xmlTree");
-		dvisitor.writeDot(root);
+//		dvisitor.writeDot(root);
 
 		xml::OutputVisitor visitor(cout, '\t');
 		root->accept(visitor);
@@ -116,6 +117,9 @@ int main(int argc, char** argv) {
 
 	if (err != 0) cout << err << " erreurs de syntaxe détectées !" << endl; 
 	else if(!exportMode) cout << "Aucune erreur détectée." << endl; 
+
+	if(rootDTD->isValid(*root)) cout << "Fichier XML valide" << endl;
+	else cout << "Fichier XML invalide" << endl;
 
 	return 0;
 }
