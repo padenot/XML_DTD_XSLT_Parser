@@ -105,9 +105,9 @@ closespecial "?>"{nl}?
 <INITIAL>{nsname}		{printf("%s",yytext);xmllval.s = strdup(yytext); return NSNAME;}
 <INITIAL>{string}	{printf("%s",yytext);xmllval.s = strdup(getString(yytext)); return VALUE;}
 
-{openspecial}{ws}?{name}	{printf("%s",yytext);BEGIN(INITIAL); char * tmp = word(yytext); xmllval.EName = new ElementName("",tmp); free(tmp); return STARTSPECIAL;}
-{open}{ws}?{name}	{printf("%s",yytext);BEGIN(INITIAL); char * tmp = word(yytext); xmllval.EName = new ElementName("",tmp); free(tmp); return START;}
-{open}{ws}?{nsname}	{printf("%s",yytext);BEGIN(INITIAL); char *tmp1 = nameSpace(yytext); char * tmp2 = split_namespace(yytext); xmllval.EName = new ElementName(tmp1,tmp2); free(tmp1); free(tmp2); return NSSTART;}
+{openspecial}{ws}?{name}	{printf("%s",yytext);BEGIN(INITIAL); char * tmp = word(yytext); xmllval.en = new ElementName("",tmp); free(tmp); return STARTSPECIAL;}
+{open}{ws}?{name}	{printf("%s",yytext);BEGIN(INITIAL); char * tmp = word(yytext); xmllval.en = new ElementName("",tmp); free(tmp); return START;}
+{open}{ws}?{nsname}	{printf("%s",yytext);BEGIN(INITIAL); char *tmp1 = nameSpace(yytext); char * tmp2 = split_namespace(yytext); xmllval.en = new ElementName(tmp1,tmp2); free(tmp1); free(tmp2); return NSSTART;}
 {open}{ws}?"/"		{printf("%s",yytext);BEGIN(INITIAL); return END;}
 {comment}		{printf("%s",yytext);xmllval.s = strdup(yytext); return COMMENT;}
 

@@ -28,20 +28,20 @@ int xmlparse(void);
 int dtdparse(void);
 
 extern xml::CompositeMarkupNode* root;
+extern std::string* dtdName;
 extern dtd::DTD* rootDTD;
 
 extern FILE * xmlin;
 extern FILE * dtdin;
-
 
 int exportMode;
 
 using namespace std;
 
 /**********************************************************************************/
-int handleDTD(char* filename) {
+int handleDTD(string filename) {
 	int err;
-	FILE* inputFile = (FILE*)fopen(filename, "r");
+	FILE* inputFile = (FILE*)fopen(filename.c_str(), "r");
 	if(!exportMode) cout << "** Parsing de " << filename << "..." << endl;
 	if(inputFile == NULL) {
 		cout << "Fichier inexistant." << endl;
@@ -62,12 +62,14 @@ int handleDTD(char* filename) {
 	else if(!exportMode) 
 		cout << "Aucune erreur détectée." << endl; 
 
+	delete rootDTD;
+	rootDTD = 0;
+
 	return 0;
 }
 
-dtd::ElementContent* handleQuantifier(dtd::ElementContent* currentContent, int quantifier) {
-	if(!currentContent) throw new string("AHHHHHH");
-
+dtd::QuantifiableContent* handleQuantifier(dtd::QuantifiableContent* currentContent, int quantifier) {
+//	if(!currentContent) throw new string("AHHHHHH");
 	switch(quantifier) {
 		case (QTF_NONE): return currentContent;
 		case (QTF_PLUS): return new dtd::RepeatedContent(*currentContent);
@@ -76,18 +78,6 @@ dtd::ElementContent* handleQuantifier(dtd::ElementContent* currentContent, int q
 	}
 }
 
-/**********************************************************************************/
-
-xml::MarkupNode* handleElement(xml::CompositeMarkupNode** proxy, string NS, string name, xml::MarkupNode::Attributes attbs, xml::CompositeMarkupNode::Children* children) {
-	/*
-	xml::CompositeMarkupNode** newProxy 
-		= new xml::CompositeMarkupNode*; *newProxy = 0;
-
-	if(children->empty()) return  new xml::MarkupNode(newProxy, NS, name, attbs, *proxy);
-	else return  new xml::CompositeMarkupNode(newProxy, NS, name, attbs, *proxy, *children);
-	*/
-	return NULL;
-}
 /**********************************************************************************/
 
 int main(int argc, char** argv) {
@@ -121,6 +111,14 @@ int main(int argc, char** argv) {
 
 	if (err != 0) cout << err << " erreurs de syntaxe détectées !" << endl; 
 	else if(!exportMode) cout << "Aucune erreur détectée." << endl; 
+
+	if (dtdName != 0)
+	{
+		handleDTD(*dtdName);
+	}
+
+	delete root;
+	root = 0;
 
 	return 0;
 }

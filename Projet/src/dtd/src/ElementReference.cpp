@@ -11,6 +11,9 @@
 
 //-------------------------------------------------------- Include système
 using namespace std;
+#ifdef DTD_VALIDATION_TRACE
+#include <iostream>
+#endif
 
 //------------------------------------------------------ Include personnel
 #include "ElementReference.hh"
@@ -77,14 +80,24 @@ bool ElementReference::_startValidation(
 {
 	if (firstToken == endToken)
 	{
+#ifdef DTD_VALIDATION_TRACE
+		cerr << "No token available to match (" << _namespace << "," << _name
+		<< ")!" << endl;
+#endif
 		// Il n'y a pas de jeton à consommer :
 		//	le matching avec cet objet est impossible.
 		return false;
 	}
 	else
 	{
+#ifdef DTD_VALIDATION_TRACE
+		cerr << "Trying to match (" << _namespace << "," << _name << ")... ";
+#endif
 		if (matches(**firstToken))
 		{
+#ifdef DTD_VALIDATION_TRACE
+			cerr << "matched." << endl;
+#endif
 			// Le jeton est consommé.
 			++firstToken;
 
@@ -92,6 +105,9 @@ bool ElementReference::_startValidation(
 		}
 		else
 		{
+#ifdef DTD_VALIDATION_TRACE
+			cerr << "didn't match." << endl;
+#endif
 			// Le jeton courant est incorrect.
 			return false;
 		}

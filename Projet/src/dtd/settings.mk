@@ -12,7 +12,10 @@ TESTBINNAME=make run
 
 # Build
 CXX=g++
-CXXFLAGS=-ansi -pedantic -W -Wall -I../xml/src -g
+CXXFLAGS=-ansi -pedantic -W -Wall -I../xml/src
+ifdef DEBUG
+	CXXFLAGS:=$(CXXFLAGS) -DDTD_VALIDATION_TRACE
+endif
 LD=g++
 LDFLAGS=-L$(LIBPATH)
 LIBLD=ar

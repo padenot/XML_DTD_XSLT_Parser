@@ -1,6 +1,6 @@
 \input{../build/shapeperfect/sp}
 \input{../build/shapeperfect/utils}
-%\input{../build/shapeperfect/extra}
+\input{../build/shapeperfect/extra}
 
 \title{Dossier de conception}
 \shorttitle{G \& L : Conception}
@@ -9,16 +9,13 @@
 \begin{document}
 \maketitle
 \tableofcontents
+\listofalgorithms
 
 \newpage
-\section{Structures de données}
-\subsection{Diagrammes de classe XML}
-\subsection{Diagramme de classe DTD}
+\include{xmlstructure}
 
 \newpage
-\section{Algorithme}
-\subsection{Validation}
-\subsection{Transformation}
+\include{dtd}
 
 %\printglossaries
 %\bibliography{references}

@@ -6,57 +6,59 @@
 	#include <unistd.h>
 	#include "commun.h"
 
-	#include <list>
-	#include <map>
-
-	#include "Node.hh"
-	#include "TextNode.hh"
-	#include "MarkupNode.hh"
-	#include "CompositeMarkupNode.hh"
-
-	using namespace std;
-	using namespace xml;
+	#include <stack>
 
 	#include "xml.tab.h"
+
+	using namespace xml;
+	using namespace std;
 
 	void xmlerror(char *msg);
 	int xmlwrap(void);
 	int xmllex(void);
 
 	int handleDTD(char*);
-	//MarkupNode* handleElement(CompositeMarkupNode** , string , string , CompositeMarkupNode::Attributes , CompositeMarkupNode::Children* );
 
-
-	CompositeMarkupNode* root;
-	CompositeMarkupNode** proxyPtr;
+	DtdName* dtdName = 0;
+	MarkupNode* root = 0;
+	static stack<CompositeMarkupNode**> proxy(deque<CompositeMarkupNode**>(1,
+		static_cast<CompositeMarkupNode**>(0)));
 %}
 
 %error-verbose
 %union {
 	char * s;
-	ElementName* EName;
-	xml::Node* element;
+	ElementName* en;
+	DtdName* dn;
+	xml::MarkupNode* element;
 	xml::MarkupNode::Attributes* attributes;
 	xml::CompositeMarkupNode::Children* children;
 }
 
 %token EQ SLASH CLOSE END CLOSESPECIAL DOCTYPE
 %token <s> ENCODING VALUE DATA COMMENT NAME NSNAME
-%token <EName> NSSTART START STARTSPECIAL
+%token <en> NSSTART START STARTSPECIAL
+%type <dn> dtd_declarations dtd_declaration
 %type <element> element empty_element composite_element
 %type <attributes> attributes
 %type <children> content
 %%
-document 	: dtd_declarations element misc_seq_opt
+document	: dtd_declarations element misc_seq_opt
+			{
+				dtdName = $1;
+				root = $2;
+			}
 			;
 
 dtd_declarations	: /*EMPTY*/
+				 		{$$ = 0;}
 					| dtd_declaration
+						{$$ = $1;}
 					;
 
 dtd_declaration	: DOCTYPE NAME NAME VALUE CLOSE
 				{
-					// TODO
+					$$ = new DtdName($4);
 					delete $2;
 					delete $3;
 					delete $4;
@@ -78,7 +80,13 @@ misc 		: COMMENT
 
 empty_element	: START attributes SLASH CLOSE
 				{
-					$$ = new MarkupNode(proxyPtr, $1->first, $1->second, $2);
+					$$ = new MarkupNode(proxy.top(), $1->first, $1->second, *$2);
+					delete $1;
+					delete $2;
+				}
+				| NSSTART attributes SLASH CLOSE
+				{
+					$$ = new MarkupNode(proxy.top(), $1->first, $1->second, *$2);
 					delete $1;
 					delete $2;
 				}
@@ -86,13 +94,27 @@ empty_element	: START attributes SLASH CLOSE
 
 composite_element	: START attributes CLOSE content END NAME CLOSE
 					{
-						$$ = new CompositeMarkupNode(proxyPtr, $1->first, $1->second, $2,
-						$4);
+						CompositeMarkupNode** selfProxy = proxy.top();
+						proxy.pop();
+						CompositeMarkupNode** parentProxy = proxy.top();
+						$$ = new CompositeMarkupNode(parentProxy, $1->first,
+							$1->second, *$2, *selfProxy, *$4);
 						delete $1;
 						delete $2;
 						delete $4;
 					}
-			;
+					| NSSTART attributes CLOSE content END NAME CLOSE
+					{
+						CompositeMarkupNode** selfProxy = proxy.top();
+						proxy.pop();
+						CompositeMarkupNode** parentProxy = proxy.top();
+						$$ = new CompositeMarkupNode(parentProxy, $1->first,
+							$1->second, *$2, *selfProxy, *$4);
+						delete $1;
+						delete $2;
+						delete $4;
+					}
+					;
 
 attributes		: attributes NAME EQ VALUE
 				{
@@ -107,7 +129,7 @@ attributes		: attributes NAME EQ VALUE
 
 content			: content DATA
 				{
-					$1->push_back(new TextNode($2));
+					$1->push_back(new TextNode(proxy.top(), string($2)));
 					$$ = $1;
 					delete $2;
 				}
@@ -116,8 +138,10 @@ content			: content DATA
 				| content misc
 					{$$ = $1}
 				| /* empty */
-					{$$ = new CompositeMarkupNode::Children();}
-			;
+				{
+					proxy.push(new CompositeMarkupNode*);
+					$$ = new CompositeMarkupNode::Children();
+				}
 %%
 int xmlwrap(void) { return 1; }
 void xmlerror(char *msg) { fprintf(stderr, "%s\n", msg); }
