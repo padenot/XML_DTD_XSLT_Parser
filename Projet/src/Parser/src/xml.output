@@ -1,4 +1,4 @@
-Terminals which are not used
+Terminaux inutilisés dans la grammaire
 
    CLOSESPECIAL
    ENCODING
@@ -7,354 +7,334 @@ Terminals which are not used
    STARTSPECIAL
 
 
-Grammar
+Grammaire
 
     0 $accept: document $end
 
     1 document: dtd_declarations element misc_seq_opt
 
-    2 dtd_declarations: /* empty */
+    2 dtd_declarations: /* vide */
     3                 | dtd_declaration
 
     4 dtd_declaration: DOCTYPE NAME NAME VALUE CLOSE
 
-    5 element: empty_elem_tag
-    6        | stag content etag
+    5 element: empty_element
+    6        | composite_element
 
-    7 misc_seq_opt: /* empty */
+    7 misc_seq_opt: /* vide */
     8             | misc_seq_opt misc
 
     9 misc: COMMENT
 
-   10 empty_elem_tag: START NAME attributes SLASH CLOSE
+   10 empty_element: START attributes SLASH CLOSE
 
-   11 stag: START NAME attributes END
+   11 composite_element: START attributes CLOSE content END NAME CLOSE
 
-   12 etag: END NAME CLOSE
+   12 attributes: attributes NAME EQ VALUE
+   13           | /* vide */
 
-   13 attributes: attributes NAME EQ VALUE
-   14           | /* empty */
-
-   15 content: content DATA
-   16        | content element
-   17        | content misc
-   18        | /* empty */
+   14 content: content DATA
+   15        | content element
+   16        | content misc
+   17        | /* vide */
 
 
-Terminals, with rules where they appear
+Terminaux, suivis des règles où ils apparaissent
 
 $end (0) 0
 error (256)
-EQ (258) 13
+EQ (258) 12
 SLASH (259) 10
-CLOSE (260) 4 10 12
-END (261) 11 12
+CLOSE (260) 4 10 11
+END (261) 11
 CLOSESPECIAL (262)
 DOCTYPE (263) 4
 ENCODING (264)
-VALUE (265) 4 13
-DATA (266) 15
+VALUE (265) 4 12
+DATA (266) 14
 COMMENT (267) 9
-NAME (268) 4 10 11 12 13
+NAME (268) 4 11 12
 NSNAME (269)
 NSSTART (270)
 START (271) 10 11
 STARTSPECIAL (272)
 
 
-Nonterminals, with rules where they appear
+Non-terminaux, suivis des règles où ils apparaissent
 
 $accept (18)
-    on left: 0
+    à gauche: 0
 document (19)
-    on left: 1, on right: 0
+    à gauche: 1, à droite: 0
 dtd_declarations (20)
-    on left: 2 3, on right: 1
+    à gauche: 2 3, à droite: 1
 dtd_declaration (21)
-    on left: 4, on right: 3
+    à gauche: 4, à droite: 3
 element (22)
-    on left: 5 6, on right: 1 16
+    à gauche: 5 6, à droite: 1 15
 misc_seq_opt (23)
-    on left: 7 8, on right: 1 8
+    à gauche: 7 8, à droite: 1 8
 misc (24)
-    on left: 9, on right: 8 17
-empty_elem_tag (25)
-    on left: 10, on right: 5
-stag (26)
-    on left: 11, on right: 6
-etag (27)
-    on left: 12, on right: 6
-attributes (28)
-    on left: 13 14, on right: 10 11 13
-content (29)
-    on left: 15 16 17 18, on right: 6 15 16 17
+    à gauche: 9, à droite: 8 16
+empty_element (25)
+    à gauche: 10, à droite: 5
+composite_element (26)
+    à gauche: 11, à droite: 6
+attributes (27)
+    à gauche: 12 13, à droite: 10 11 12
+content (28)
+    à gauche: 14 15 16 17, à droite: 11 14 15 16
 
 
-state 0
+état 0
 
     0 $accept: . document $end
 
-    DOCTYPE  shift, and go to state 1
+    DOCTYPE  décalage et aller à l'état 1
 
-    $default  reduce using rule 2 (dtd_declarations)
+    $défaut  réduction par utilisation de la règle 2 (dtd_declarations)
 
-    document          go to state 2
-    dtd_declarations  go to state 3
-    dtd_declaration   go to state 4
+    document          aller à l'état 2
+    dtd_declarations  aller à l'état 3
+    dtd_declaration   aller à l'état 4
 
 
-state 1
+état 1
 
     4 dtd_declaration: DOCTYPE . NAME NAME VALUE CLOSE
 
-    NAME  shift, and go to state 5
+    NAME  décalage et aller à l'état 5
 
 
-state 2
+état 2
 
     0 $accept: document . $end
 
-    $end  shift, and go to state 6
+    $end  décalage et aller à l'état 6
 
 
-state 3
+état 3
 
     1 document: dtd_declarations . element misc_seq_opt
 
-    START  shift, and go to state 7
+    START  décalage et aller à l'état 7
 
-    element         go to state 8
-    empty_elem_tag  go to state 9
-    stag            go to state 10
+    element            aller à l'état 8
+    empty_element      aller à l'état 9
+    composite_element  aller à l'état 10
 
 
-state 4
+état 4
 
     3 dtd_declarations: dtd_declaration .
 
-    $default  reduce using rule 3 (dtd_declarations)
+    $défaut  réduction par utilisation de la règle 3 (dtd_declarations)
 
 
-state 5
+état 5
 
     4 dtd_declaration: DOCTYPE NAME . NAME VALUE CLOSE
 
-    NAME  shift, and go to state 11
+    NAME  décalage et aller à l'état 11
 
 
-state 6
+état 6
 
     0 $accept: document $end .
 
-    $default  accept
+    $défaut  accepter
 
 
-state 7
+état 7
 
-   10 empty_elem_tag: START . NAME attributes SLASH CLOSE
-   11 stag: START . NAME attributes END
+   10 empty_element: START . attributes SLASH CLOSE
+   11 composite_element: START . attributes CLOSE content END NAME CLOSE
 
-    NAME  shift, and go to state 12
+    $défaut  réduction par utilisation de la règle 13 (attributes)
+
+    attributes  aller à l'état 12
 
 
-state 8
+état 8
 
     1 document: dtd_declarations element . misc_seq_opt
 
-    $default  reduce using rule 7 (misc_seq_opt)
+    $défaut  réduction par utilisation de la règle 7 (misc_seq_opt)
 
-    misc_seq_opt  go to state 13
-
-
-state 9
-
-    5 element: empty_elem_tag .
-
-    $default  reduce using rule 5 (element)
+    misc_seq_opt  aller à l'état 13
 
 
-state 10
+état 9
 
-    6 element: stag . content etag
+    5 element: empty_element .
 
-    $default  reduce using rule 18 (content)
-
-    content  go to state 14
+    $défaut  réduction par utilisation de la règle 5 (element)
 
 
-state 11
+état 10
+
+    6 element: composite_element .
+
+    $défaut  réduction par utilisation de la règle 6 (element)
+
+
+état 11
 
     4 dtd_declaration: DOCTYPE NAME NAME . VALUE CLOSE
 
-    VALUE  shift, and go to state 15
+    VALUE  décalage et aller à l'état 14
 
 
-state 12
+état 12
 
-   10 empty_elem_tag: START NAME . attributes SLASH CLOSE
-   11 stag: START NAME . attributes END
+   10 empty_element: START attributes . SLASH CLOSE
+   11 composite_element: START attributes . CLOSE content END NAME CLOSE
+   12 attributes: attributes . NAME EQ VALUE
 
-    $default  reduce using rule 14 (attributes)
+    SLASH  décalage et aller à l'état 15
+    CLOSE  décalage et aller à l'état 16
+    NAME   décalage et aller à l'état 17
 
-    attributes  go to state 16
 
-
-state 13
+état 13
 
     1 document: dtd_declarations element misc_seq_opt .
     8 misc_seq_opt: misc_seq_opt . misc
 
-    COMMENT  shift, and go to state 17
+    COMMENT  décalage et aller à l'état 18
 
-    $default  reduce using rule 1 (document)
+    $défaut  réduction par utilisation de la règle 1 (document)
 
-    misc  go to state 18
-
-
-state 14
-
-    6 element: stag content . etag
-   15 content: content . DATA
-   16        | content . element
-   17        | content . misc
-
-    END      shift, and go to state 19
-    DATA     shift, and go to state 20
-    COMMENT  shift, and go to state 17
-    START    shift, and go to state 7
-
-    element         go to state 21
-    misc            go to state 22
-    empty_elem_tag  go to state 9
-    stag            go to state 10
-    etag            go to state 23
+    misc  aller à l'état 19
 
 
-state 15
+état 14
 
     4 dtd_declaration: DOCTYPE NAME NAME VALUE . CLOSE
 
-    CLOSE  shift, and go to state 24
+    CLOSE  décalage et aller à l'état 20
 
 
-state 16
+état 15
 
-   10 empty_elem_tag: START NAME attributes . SLASH CLOSE
-   11 stag: START NAME attributes . END
-   13 attributes: attributes . NAME EQ VALUE
+   10 empty_element: START attributes SLASH . CLOSE
 
-    SLASH  shift, and go to state 25
-    END    shift, and go to state 26
-    NAME   shift, and go to state 27
+    CLOSE  décalage et aller à l'état 21
 
 
-state 17
+état 16
+
+   11 composite_element: START attributes CLOSE . content END NAME CLOSE
+
+    $défaut  réduction par utilisation de la règle 17 (content)
+
+    content  aller à l'état 22
+
+
+état 17
+
+   12 attributes: attributes NAME . EQ VALUE
+
+    EQ  décalage et aller à l'état 23
+
+
+état 18
 
     9 misc: COMMENT .
 
-    $default  reduce using rule 9 (misc)
+    $défaut  réduction par utilisation de la règle 9 (misc)
 
 
-state 18
+état 19
 
     8 misc_seq_opt: misc_seq_opt misc .
 
-    $default  reduce using rule 8 (misc_seq_opt)
+    $défaut  réduction par utilisation de la règle 8 (misc_seq_opt)
 
 
-state 19
-
-   12 etag: END . NAME CLOSE
-
-    NAME  shift, and go to state 28
-
-
-state 20
-
-   15 content: content DATA .
-
-    $default  reduce using rule 15 (content)
-
-
-state 21
-
-   16 content: content element .
-
-    $default  reduce using rule 16 (content)
-
-
-state 22
-
-   17 content: content misc .
-
-    $default  reduce using rule 17 (content)
-
-
-state 23
-
-    6 element: stag content etag .
-
-    $default  reduce using rule 6 (element)
-
-
-state 24
+état 20
 
     4 dtd_declaration: DOCTYPE NAME NAME VALUE CLOSE .
 
-    $default  reduce using rule 4 (dtd_declaration)
+    $défaut  réduction par utilisation de la règle 4 (dtd_declaration)
 
 
-state 25
+état 21
 
-   10 empty_elem_tag: START NAME attributes SLASH . CLOSE
+   10 empty_element: START attributes SLASH CLOSE .
 
-    CLOSE  shift, and go to state 29
-
-
-state 26
-
-   11 stag: START NAME attributes END .
-
-    $default  reduce using rule 11 (stag)
+    $défaut  réduction par utilisation de la règle 10 (empty_element)
 
 
-state 27
+état 22
 
-   13 attributes: attributes NAME . EQ VALUE
+   11 composite_element: START attributes CLOSE content . END NAME CLOSE
+   14 content: content . DATA
+   15        | content . element
+   16        | content . misc
 
-    EQ  shift, and go to state 30
+    END      décalage et aller à l'état 24
+    DATA     décalage et aller à l'état 25
+    COMMENT  décalage et aller à l'état 18
+    START    décalage et aller à l'état 7
 
-
-state 28
-
-   12 etag: END NAME . CLOSE
-
-    CLOSE  shift, and go to state 31
-
-
-state 29
-
-   10 empty_elem_tag: START NAME attributes SLASH CLOSE .
-
-    $default  reduce using rule 10 (empty_elem_tag)
+    element            aller à l'état 26
+    misc               aller à l'état 27
+    empty_element      aller à l'état 9
+    composite_element  aller à l'état 10
 
 
-state 30
+état 23
 
-   13 attributes: attributes NAME EQ . VALUE
+   12 attributes: attributes NAME EQ . VALUE
 
-    VALUE  shift, and go to state 32
-
-
-state 31
-
-   12 etag: END NAME CLOSE .
-
-    $default  reduce using rule 12 (etag)
+    VALUE  décalage et aller à l'état 28
 
 
-state 32
+état 24
 
-   13 attributes: attributes NAME EQ VALUE .
+   11 composite_element: START attributes CLOSE content END . NAME CLOSE
 
-    $default  reduce using rule 13 (attributes)
+    NAME  décalage et aller à l'état 29
+
+
+état 25
+
+   14 content: content DATA .
+
+    $défaut  réduction par utilisation de la règle 14 (content)
+
+
+état 26
+
+   15 content: content element .
+
+    $défaut  réduction par utilisation de la règle 15 (content)
+
+
+état 27
+
+   16 content: content misc .
+
+    $défaut  réduction par utilisation de la règle 16 (content)
+
+
+état 28
+
+   12 attributes: attributes NAME EQ VALUE .
+
+    $défaut  réduction par utilisation de la règle 12 (attributes)
+
+
+état 29
+
+   11 composite_element: START attributes CLOSE content END NAME . CLOSE
+
+    CLOSE  décalage et aller à l'état 30
+
+
+état 30
+
+   11 composite_element: START attributes CLOSE content END NAME CLOSE .
+
+    $défaut  réduction par utilisation de la règle 11 (composite_element)
