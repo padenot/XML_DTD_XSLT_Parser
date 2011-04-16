@@ -82,7 +82,7 @@
 
 %type <t_choice> choice
 %type <t_list_choice> list_choice
-%type <t_list_choice_transition> list_choice
+%type <t_list_choice_transition> list_choice_transition
 
 %type <t_sequence> sequence 
 %type <t_list_sequence> list_sequence
@@ -170,18 +170,18 @@ list_sequence		: item 								{
 			| list_sequence COMMA item					{ $1->push_back($3) ; $$ = $1; }
 			; 
 
-choice			: OPENPAR list_choice CLOSEPAR					{ $$ = new Choice($2); }
+choice			: OPENPAR list_choice CLOSEPAR					{ $$ = new Choice( *$2 ); }
 			; 
 
-list_choice		: list_choice_transition PIPE item				
+list_choice		: list_choice_transition PIPE item				{ $1->insert($3); $$ = $1; }
 			; 
 
-list_choice_transition	: list_choice_transition PIPE item
-			| item
+list_choice_transition	: list_choice_transition PIPE item				{ $1->insert($3); $$ = $1; }
+			| item								{ Choice::ChoosableSet* newSet = new Choice::ChoosableSet(); newSet->insert($1); $$ = newSet; }
 			; 
 
-item 			: NAME quantifier						{ /*$$ = handleQuantifier( new ElementReference( *rootDTD, "", $1 ), $2 ); */ }
-			| choice_or_sequence quantifier					{ /*$$ = handleQuantifier( $1, $2 );*/ }
+item 			: choice_or_sequence quantifier					{ $$ = (ElementContent*)handleQuantifier( $1, $2 ); }
+			| NAME quantifier						{ $$ = (ElementContent*)handleQuantifier( new ElementReference( *rootDTD, "", $1 ), $2 ); }
 			; 
 
 quantifier		: AST 								{ $$ = QTF_AST; }

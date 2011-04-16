@@ -1,13 +1,13 @@
 all: analyseXML test
 
 flex: src/xml.l
-	@flex -Pxml -o src/xml.yy.c src/xml.l
+	@flex -Pxml -o src/xml.yy.cpp src/xml.l
 
 bison: src/xml.y
-	@bison -p xml -o src/xml.tab.c --defines=src/xml.tab.h src/xml.y
+	@bison -p xml -o src/xml.tab.cpp --defines=src/xml.tab.h src/xml.y
 
 analyseXML: flex bison 
-	@g++ -Wno-write-strings -g -DYYDEBUG=1 -o bin/analyseXML src/xml.yy.c src/xml.tab.c src/main.c
+	@g++ -Wno-write-strings -g -I../xml/src -DYYDEBUG=1 -o bin/analyseXML src/xml.yy.cpp src/xml.tab.cpp src/main.cpp
 
 test: analyseXML
 	@echo "TESTING AnalyseXML..." 
@@ -21,5 +21,5 @@ clean:
 	@rm -rf bin/analyseXML bin/analyseXML.dSYM/
 	
 mrproper: clean
-	@rm src/xml.tab.c src/xml.tab.h
-	@rm src/xml.yy.c
+	@rm src/xml.tab.cpp src/xml.tab.h
+	@rm src/xml.yy.cpp
