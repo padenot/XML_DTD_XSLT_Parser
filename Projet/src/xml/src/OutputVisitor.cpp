@@ -75,35 +75,42 @@ void OutputVisitor::doIndent()
 	}
 } //----- Fin de doIndent
 
-void OutputVisitor::writeAttributes(const MarkupNode& node)
+void OutputVisitor::writeMarkupOpening(const MarkupNode& node)
 {
+	_out << OPEN_MARKUP_STR;
+	if (!node.ns().empty())
+	{
+		_out << node.ns() << NS_SEPARATOR_STR;
+	}
+	_out << node.name();
+
+	// Attributs
 	for (MarkupNode::AttributesIterator it = node.begin(); it != node.end(); ++it)
 	{
 		_out << INSIDE_MARKUP_SPACE_STR << it->first
 				<< ASSIGN_ATTRIBUTE_VALUE_STR << OPEN_ATTRIBUTE_VALUE_STR
 				<< it->second << CLOSE_ATTRIBUTE_VALUE_STR;
 	}
-} //----- Fin de writeAttributes
+}
 
 void OutputVisitor::visit(const TextNode& node)
 {
-	doIndent();
 	_out << node.content() << endl;
 }
 
 void OutputVisitor::visit(const MarkupNode& node)
 {
 	doIndent();
-	_out << OPEN_MARKUP_STR << node.ns() << NS_SEPARATOR_STR << node.name();
-	writeAttributes(node);
+
+	writeMarkupOpening(node);
 	_out << CLOSING_MARKUP_STR << CLOSE_MARKUP_STR << endl;
 }
 
 void OutputVisitor::visit(const CompositeMarkupNode& node)
 {
 	doIndent();
-	_out << OPEN_MARKUP_STR << node.ns() << NS_SEPARATOR_STR << node.name();
-	writeAttributes(node);
+
+	writeMarkupOpening(node);
 	_out << CLOSE_MARKUP_STR << endl;
 
 	_indent += _indentUnit;
@@ -115,8 +122,12 @@ void OutputVisitor::visit(const CompositeMarkupNode& node)
 	_indent -= _indentUnit;
 
 	doIndent();
-	_out << OPEN_MARKUP_STR << CLOSING_MARKUP_STR << node.ns()
-			<< NS_SEPARATOR_STR << node.name() << CLOSE_MARKUP_STR << endl;
+	_out << OPEN_MARKUP_STR << CLOSING_MARKUP_STR;
+	if (!node.ns().empty())
+	{
+		_out << node.ns() << NS_SEPARATOR_STR;
+	}
+	_out << node.name() << CLOSE_MARKUP_STR << endl;
 }
 
 //------------------------------------------------------- Méthodes privées

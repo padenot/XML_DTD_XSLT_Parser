@@ -74,9 +74,10 @@ protected:
 	// Contrat :
 	//	Aucun.
 
-	void writeAttributes(const MarkupNode& node);
+	void writeMarkupOpening(const MarkupNode& node);
 	// Mode d'emploi :
-	//	Écrit les attributs donnés en paramètres sur le flot "_out"
+	//	Écrit le début de la balise donnée en paramètres
+	//	sur le flot "_out" (càd le namespace, le nom et les attributs).
 	// Contrat :
 	//	Aucun.
 

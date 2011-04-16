@@ -101,7 +101,7 @@ int main(int argc, char** argv) {
 		xml::DotOutputVisitor dvisitor(cout, "xmlTree");
 //		dvisitor.writeDot(root);
 
-		xml::OutputVisitor visitor(cout, '\t');
+		xml::OutputVisitor visitor(cout, ' ');
 		root->accept(visitor);
 	}
 
