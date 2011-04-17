@@ -40,7 +40,7 @@ public:
 
 
 	//-------------------------------------------- Constructeurs - destructeur
-	MapCreator(std::map<std::string, const xml::Node*> * theMap);
+	MapCreator(std::map<std::string, const xml::CompositeMarkupNode*> * theMap);
 	// Mode d'emploi :
 	//	TODO
 	// Contrat :
@@ -56,7 +56,7 @@ protected:
 
 	static const std::string TEMPLATE;
 
-	std::map<std::string, const xml::Node*> * mapTemp;
+	std::map<std::string, const xml::CompositeMarkupNode*> * mapTemp;
 
 	virtual void visit(const xml::TextNode& node);
 	virtual void visit(const xml::MarkupNode& node);

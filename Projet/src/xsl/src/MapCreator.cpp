@@ -41,7 +41,7 @@ void MapCreator::populateMap(const Node& xslTree)
 
 
 //-------------------------------------------- Constructeurs - destructeur
-MapCreator::MapCreator(map<string, const Node *> * theMap) :
+MapCreator::MapCreator(map<string, const CompositeMarkupNode *> * theMap) :
 	mapTemp(theMap)
 {
 }
@@ -55,13 +55,13 @@ MapCreator::~MapCreator()
 
 //----------------------------------------------------- Méthodes protégées
 
-void MapCreator::visit(const TextNode& node)
+void MapCreator::visit(const TextNode&)
 {
 	// Dans le type de fichier xsl que nous gérons il n'est pas nécessaire
 	// de gérer ce type de Noeud
 }
 
-void MapCreator::visit(const MarkupNode& node)
+void MapCreator::visit(const MarkupNode&)
 {
 	// Dans le type de fichier xsl que nous gérons il n'est pas nécessaire
 	// de gérer ce type de Noeud
