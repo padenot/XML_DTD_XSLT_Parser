@@ -70,8 +70,8 @@ void RecursiveTransformerVisitor::visit(const CompositeMarkupNode& node)
 			!= node.end(); ++it)
 	{
 		CompositeMarkupNode::Children * analyzed = _transformer.AnalyzeNode(
-				_proxy, *it);
-		copy(analyzed->begin(), analyzed->end(), back_inserter(_result));
+				_proxy, **it);
+		copy(analyzed->begin(), analyzed->end(), back_inserter(*_result));
 		delete analyzed;
 	}
 }

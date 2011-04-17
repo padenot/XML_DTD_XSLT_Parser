@@ -16,6 +16,7 @@
 
 namespace xsl
 {
+class RecursiveTransformerVisitor;
 
 class XslCopyVisitor: public xml::InterfaceNodeVisitor
 {

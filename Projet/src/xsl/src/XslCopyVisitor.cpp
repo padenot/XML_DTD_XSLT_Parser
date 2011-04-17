@@ -17,6 +17,8 @@ using namespace std;
 
 //------------------------------------------------------ Include personnel
 #include "XslCopyVisitor.hh"
+#include "RecursiveTransformerVisitor.hh"
+#include "SimpleCopyVisitor.hh"
 #include "TextNode.hh"
 #include "MarkupNode.hh"
 #include "CompositeMarkupNode.hh"
@@ -37,6 +39,7 @@ CompositeMarkupNode::Children* XslCopyVisitor::xslCopy(
 {
 	CompositeMarkupNode::Children * result = 0;
 
+	_parentProxy = parentProxy;
 	_referenceNode = &referenceNode;
 	templateNode.accept(*this);
 	result = new CompositeMarkupNode::Children(_result);
@@ -50,7 +53,7 @@ CompositeMarkupNode::Children* XslCopyVisitor::xslCopy(
 
 //-------------------------------------------- Constructeurs - destructeur
 XslCopyVisitor::XslCopyVisitor(RecursiveTransformerVisitor & transformer) :
-		_transformer(transformer)
+	_transformer(transformer)
 {
 	//TODO
 }
@@ -65,7 +68,8 @@ XslCopyVisitor::~XslCopyVisitor()
 //----------------------------------------------------- Méthodes protégées
 void XslCopyVisitor::visit(const TextNode& node)
 {
-
+	SimpleCopyVisitor copier;
+	_result.push_back(copier.copy(_parentProxy, node));
 }
 
 void XslCopyVisitor::visit(const MarkupNode& node)
@@ -73,11 +77,17 @@ void XslCopyVisitor::visit(const MarkupNode& node)
 	if (node.ns() == NAMESPACE_APPLY_TEMPLATES && node.name()
 			== NAME_APPLY_TEMPLATES)
 	{
-
+		CompositeMarkupNode::Children * children = _transformer.transform(
+				_parentProxy, *_referenceNode);
+		if (children != 0)
+		{
+			copy(_result.begin(), _result.end(), back_inserter(*children));
+		}
 	}
 	else
 	{
-		for ()
+		SimpleCopyVisitor copier;
+		_result.push_back(copier.copy(_parentProxy, node));
 	}
 }
 
