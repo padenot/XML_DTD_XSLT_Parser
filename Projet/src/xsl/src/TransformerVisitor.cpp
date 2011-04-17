@@ -38,7 +38,7 @@ namespace xsl
 
 //----------------------------------------------------- Méthodes publiques
 
-Node * TransformerVisitor::Transformation(CompositeMarkupNode & XmlTree)
+Node * TransformerVisitor::Transformation(Node & XmlTree)
 {
 	list<Node *> * listNodeHTML = AnalyzeNode(0, XmlTree);
 
@@ -92,11 +92,11 @@ list<Node *> * TransformerVisitor::AnalyzeNode(
 
 
 //-------------------------------------------- Constructeurs - destructeur
-TransformerVisitor::TransformerVisitor(const xml::CompositeMarkupNode & XslTree)
+TransformerVisitor::TransformerVisitor(const xml::Node & XslTree)
 {
 	templatesMap = new mapXsl();
 	htmlTree = new list<Node *> ();
-	creerMap(XslTree);
+	createMap(XslTree);
 
 } //----- Fin de OutputVisitor
 
@@ -112,7 +112,7 @@ TransformerVisitor::~TransformerVisitor()
 
 //----------------------------------------------------- Méthodes protégées
 
-void TransformerVisitor::creerMap(const CompositeMarkupNode& node)
+void TransformerVisitor::createMap(const Node& node)
 {
 	MapCreator * mapCreator = new MapCreator(templatesMap);
 	node.accept(*mapCreator);
