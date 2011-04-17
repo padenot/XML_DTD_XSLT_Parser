@@ -18,8 +18,6 @@
 //--------------------------------------------------- Includes personnel
 
 #include "InterfaceNodeVisitor.hpp"
-#include <map>
-#include <string>
 
 using namespace xml;
 using namespace std;
@@ -35,7 +33,7 @@ public:
 
 	//----------------------------------------------------- MÃ©thodes publiques
 
-	Node & Transformation(Node & XmlTree, Node & XslTree);
+	Node & Transformation(CompositeMarkupNode & XmlTree, Node & XslTree);
 	// Mode d'emploi :
 	//	TODO
 	// Contrat :
@@ -61,9 +59,11 @@ public:
 
 protected:
 
-	typedef std::map<std::string, const Node*> map;
-	map * templatesMap;
+	typedef map<string, const Node*> mapXsl;
+	mapXsl * templatesMap;
 	
+	list<Node*> * htmlTree;
+
 	void creerMap(const Node& node);
 	void getTemplateName(const MarkupNode& node);
 
@@ -71,13 +71,13 @@ protected:
 	virtual void visit(const MarkupNode& node);
 	virtual void visit(const CompositeMarkupNode& node);
 
-	CompositeMarkupNode & AnalyserNoeud(Node & noeud);
+	CompositeMarkupNode & AnalyserNoeud(CompositeMarkupNode & noeud);
 	// Mode d'emploi (destructeur) :
 	//	Â«TODOÂ»
 	// Contrat :
 	//	Â«TODOÂ»
 
-	void AnalyserTemplate(CompositeMarkupNode & patron, Node & noeud);
+	void AnalyserTemplate(const Node & patron, CompositeMarkupNode & noeud);
 	// Mode d'emploi (destructeur) :
 	//	Â«TODOÂ»
 	// Contrat :
@@ -95,12 +95,15 @@ protected:
 	// Contrat :
 	//	Â«TODOÂ»
 
-	Node & RechercherTemplate(const Node & noeudXML);
+	mapXsl::iterator RechercherTemplate(const CompositeMarkupNode & noeudXML);
 	// Mode d'emploi (destructeur) :
 	//	 Effectue la recherche du noeud template xsl associé au noeud passé en
 	//	 paramètre. Null est retourné si aucun template n'est trouvé.
 	// Contrat :
-	//
+	//	 aucun
+
+	// TODO inclure MapCreator de manire protected afin de limiter la visibilit des autres classes
+	//class MapCreator;
 };
 
 } // namespace xsl
