@@ -55,23 +55,15 @@ SimpleCopyVisitor::~SimpleCopyVisitor()
 //----------------------------------------------------- M�thodes prot�g�es
 void SimpleCopyVisitor::visit(const TextNode& node)
 {
-	CompositeMarkupNode ** tempParent = _parent;
-	_parent = new CompositeMarkupNode*;
-
 	_copiedNode = new TextNode(_parent, node.content());
-	_parent = tempParent;
 }
 
 void SimpleCopyVisitor::visit(const MarkupNode& node)
 {
-	CompositeMarkupNode ** tempParent = _parent;
-	_parent = new CompositeMarkupNode*;
-
 	MarkupNode::Attributes list(node.MarkupNode::begin(),
 			node.MarkupNode::end());
 
-	_copiedNode = new MarkupNode(tempParent, node.ns(), node.name(), list);
-	_parent = tempParent;
+	_copiedNode = new MarkupNode(_parent, node.ns(), node.name(), list);
 }
 
 void SimpleCopyVisitor::visit(const CompositeMarkupNode& node)

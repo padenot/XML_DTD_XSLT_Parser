@@ -54,12 +54,12 @@ RecursiveTransformerVisitor::~RecursiveTransformerVisitor()
 //------------------------------------------------------------------ PRIVE
 
 //----------------------------------------------------- Méthodes protégées
-void RecursiveTransformerVisitor::visit(const TextNode& node)
+void RecursiveTransformerVisitor::visit(const TextNode&)
 {
 	_result = 0;
 }
 
-void RecursiveTransformerVisitor::visit(const MarkupNode& node)
+void RecursiveTransformerVisitor::visit(const MarkupNode&)
 {
 	_result = 0;
 }
