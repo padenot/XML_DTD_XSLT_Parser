@@ -78,7 +78,6 @@ void SimpleCopyVisitor::visit(const MarkupNode& node)
 void SimpleCopyVisitor::visit(const CompositeMarkupNode& node)
 {
 #ifdef XSL_TRANSFORM_TRACE
-	int counter = 0;
 	clog << "SimpleCopy on CompositeMarkupNode" << endl;
 #endif
 	CompositeMarkupNode::Children childrenNodes;
@@ -88,10 +87,6 @@ void SimpleCopyVisitor::visit(const CompositeMarkupNode& node)
 	for (CompositeMarkupNode::ChildrenIterator itNoeud = node.begin(); itNoeud
 			!= node.end(); ++itNoeud)
 	{
-#ifdef XSL_TRANSFORM_TRACE
-		++counter;
-		clog << "	Loop " << counter << endl;
-#endif
 		(*itNoeud)->accept(*this);//stocke dans copiedNode la copie du fils
 		childrenNodes.push_back(_copiedNode);
 	}
