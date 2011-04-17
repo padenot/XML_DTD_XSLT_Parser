@@ -19,12 +19,9 @@
 
 #include "InterfaceNodeVisitor.hpp"
 
-using namespace xml;
-using namespace std;
-
 namespace xsl
 {
-class TransformerVisitor: public InterfaceNodeVisitor
+class TransformerVisitor: public xml::InterfaceNodeVisitor
 {
 public:
 	//------------------------------------------------------------- Constantes
@@ -33,7 +30,7 @@ public:
 
 	//----------------------------------------------------- Méthodes publiques
 
-	Node & Transformation(CompositeMarkupNode & XmlTree, Node & XslTree);
+	xml::Node * Transformation(xml::CompositeMarkupNode & XmlTree, xml::Node & XslTree);
 	// Mode d'emploi :
 	//	TODO
 	// Contrat :
@@ -59,50 +56,25 @@ public:
 
 protected:
 
-	typedef map<string, const Node*> mapXsl;
+	typedef std::map<std::string, const xml::Node*> mapXsl;
 	mapXsl * templatesMap;
 	
-	list<Node*> * htmlTree;
+	std::list<xml::Node*> * htmlTree;
 
-	void creerMap(const Node& node);
-	void getTemplateName(const MarkupNode& node);
+	void creerMap(const xml::Node& node);
+	void getTemplateName(const xml::MarkupNode& node);
 
-	virtual void visit(const TextNode& node);
-	virtual void visit(const MarkupNode& node);
-	virtual void visit(const CompositeMarkupNode& node);
+	virtual void visit(const xml::TextNode& node);
+	virtual void visit(const xml::MarkupNode& node);
+	virtual void visit(const xml::CompositeMarkupNode& node);
 
-	CompositeMarkupNode & AnalyserNoeud(CompositeMarkupNode & noeud);
+	std::list <xml::Node * > * AnalyserNoeud(xml::CompositeMarkupNode & noeud);
 	// Mode d'emploi (destructeur) :
 	//	«TODO»
 	// Contrat :
 	//	«TODO»
 
-	void AnalyserTemplate(const Node & patron, CompositeMarkupNode & noeud);
-	// Mode d'emploi (destructeur) :
-	//	«TODO»
-	// Contrat :
-	//	«TODO»
-
-	list<Node *> & Recopier(TextNode & noeud);
-	// Mode d'emploi (destructeur) :
-	//	«TODO»
-	// Contrat :
-	//	«TODO»
-
-	list<Node *> & Recopier(CompositeMarkupNode & noeud);
-	// Mode d'emploi (destructeur) :
-	//	«TODO»
-	// Contrat :
-	//	«TODO»
-
-	mapXsl::iterator RechercherTemplate(const CompositeMarkupNode & noeudXML);
-	// Mode d'emploi (destructeur) :
-	//	 Effectue la recherche du noeud template xsl associ� au noeud pass� en
-	//	 param�tre. Null est retourn� si aucun template n'est trouv�.
-	// Contrat :
-	//	 aucun
-
-	// TODO inclure MapCreator de mani�re protected afin de limiter la visibilit� des autres classes
+	// TODO inclure MapCreator de manière protected afin de limiter la visibilité des autres classes
 	//class MapCreator;
 };
 

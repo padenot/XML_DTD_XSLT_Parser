@@ -1,15 +1,15 @@
 /*************************************************************************
- * MapCreator  -  «Description»
+ * MapCreator  -  Description
  * -------------------
- * Début      : 15 avr. 2011
+ * D√©but      : 15 avr. 2011
  * Auteur(s)  : H4215
  *************************************************************************/
 
-//---------- Réalisation de la classe <MapCreator> (fichier MapCreator.cpp) -------
+//---------- R√©alisation de la classe <MapCreator> (fichier MapCreator.cpp) -------
 
 //---------------------------------------------------------------- INCLUDE
 
-//-------------------------------------------------------- Include système
+//-------------------------------------------------------- Include syst√®me
 
 
 //------------------------------------------------------ Include personnel
@@ -26,8 +26,8 @@ static const string TEMPLATE = "template";
 
 //----------------------------------------------------------------- PUBLIC
 
-//----------------------------------------------------- Méthodes publiques
-// type MapCreator::Méthode ( liste des paramètres )
+//----------------------------------------------------- M√©thodes publiques
+// type MapCreator::M√©thode ( liste des param√®tres )
 // Algorithme :
 //	
 //{
@@ -37,7 +37,7 @@ void MapCreator::populateMap(const Node& xslTree)
 	xslTree.accept(*this);
 }
 
-//------------------------------------------------- Surcharge d'opérateurs
+//------------------------------------------------- Surcharge d'op√©rateurs
 
 
 //-------------------------------------------- Constructeurs - destructeur
@@ -48,23 +48,23 @@ MapCreator::MapCreator(map<string, const Node *> * theMap) :
 
 MapCreator::~MapCreator()
 {
-	// on ne fait rien car on ne veut pas détruire la map qui est utilisée après.
+	// on ne fait rien car on ne veut pas dÔøΩtruire la map qui est utilisÔøΩe aprÔøΩs.
 }
 
 //------------------------------------------------------------------ PRIVE
 
-//----------------------------------------------------- Méthodes protégées
+//----------------------------------------------------- M√©thodes prot√©g√©es
 
 void MapCreator::visit(const TextNode& node)
 {
-	// Dans le type de fichier xsl que nous gérons il n'est pas nécessaire
-	// de gérer ce type de Noeud
+	// Dans le type de fichier xsl que nous g√©rons il n'est pas n√©cessaire
+	// de g√©rer ce type de Noeud
 }
 
 void MapCreator::visit(const MarkupNode& node)
 {
-	// Dans le type de fichier xsl que nous gérons il n'est pas nécessaire
-	// de gérer ce type de Noeud
+	// Dans le type de fichier xsl que nous g√©rons il n'est pas n√©cessaire
+	// de g√©rer ce type de Noeud
 }
 
 void MapCreator::visit(const CompositeMarkupNode& node)

@@ -20,6 +20,7 @@ using namespace std;
 #include "MarkupNode.hh"
 #include "CompositeMarkupNode.hh"
 #include "MapCreator.hh"
+using namespace xml;
 
 namespace xsl
 {
@@ -35,10 +36,13 @@ namespace xsl
 
 //----------------------------------------------------- Méthodes publiques
 
-Node & TransformerVisitor::Transformation(CompositeMarkupNode & XmlTree, Node & XslTree)
+Node * TransformerVisitor::Transformation(CompositeMarkupNode & XmlTree, Node & XslTree)
 {
 	creerMap(XslTree);
-	return AnalyserNoeud(XmlTree);
+	list< Node * > * listNodeHTML = AnalyserNoeud(XmlTree);
+
+	// TODO Vérification des noeuds que l'on a construit
+	return 0;
 } //----- Fin de Transformation
 
 //------------------------------------------------- Surcharge d'opérateurs
@@ -70,11 +74,6 @@ void TransformerVisitor::creerMap(const Node& node)
 	node.accept(*mapCreator);
 }
 
-void TransformerVisitor::getTemplateName(const MarkupNode& node)
-{
-
-}
-
 void TransformerVisitor::visit(const TextNode& node)
 {
 
@@ -95,9 +94,9 @@ void TransformerVisitor::visit(const CompositeMarkupNode& node)
 	}
 }
 
-CompositeMarkupNode & TransformerVisitor::AnalyserNoeud(CompositeMarkupNode & noeud)
+list <Node * > * TransformerVisitor::AnalyserNoeud(CompositeMarkupNode & noeud)
 {
-	mapXsl::iterator noeudXslTemplate = RechercherTemplate(noeud);
+	/*mapXsl::iterator noeudXslTemplate = RechercherTemplate(noeud);
 
 	if(noeudXslTemplate == templatesMap->end())
 	{
@@ -109,68 +108,10 @@ CompositeMarkupNode & TransformerVisitor::AnalyserNoeud(CompositeMarkupNode & no
 		= (*noeudXslTemplate)
 		.second;
 		/*AnalyserTemplate(noeudTemporaire,
-				noeud);*/
-	}
+				noeud);
+	}*/
 
 } //----- Fin de AnalyserNoeud
-
-
-void TransformerVisitor::AnalyserTemplate(const Node & patron,
-		CompositeMarkupNode & noeud)
-{
-	/*for (CompositeMarkupNode::ChildrenIterator it = (patron.begin()); it
-			!= (patron.end()); it++)
-	{
-		//if(it.isapplytemplate()){
-		/*	it = Recopier(noeud);
-		 TransformerVisitor trans(CompositeMarkupNode** parent, ....);
-		 noeud.accept(trans);
-		 Node* = trans.result();*/
-		//} else (if
-	}
-	/*
-	 foreach (fils **f de t)
-	 if (f.is(apply_template))
-	 **f = recopier(x);
-	 else if (!f.isTexte())
-	 analyse_template(f,x)
-	 else
-	 //do nothing
-	 end_for
-	 end*/
-
-} //----- Fin de AnalyserTemplate
-
-
- /*mapXsl::iterator TransformerVisitor::RechercherTemplate(const CompositeMarkupNode & noeudXML)
-{
-	return templatesMap.find(noeudXML.name());
-}*/ //----- Fin de RechercherTemplate
-
-list<Node *> & TransformerVisitor::Recopier(TextNode & noeud)
-{
-	/*list<Node *> * node = new list<Node *>();
-	 node->push_back(&noeud);
-	 return *node;*/
-	/*
-	 else
-	 foreach (fils f de x)
-	 res.add(analyser_noeud(f))
-	 return res;
-	 end;*/
-} //----- Fin de Recopier
-
-list<Node *> & TransformerVisitor::Recopier(CompositeMarkupNode & noeud)
-{
-	list<Node *> * node = new list<Node *> ();
-	for (CompositeMarkupNode::ChildrenIterator it = (noeud.begin()); it
-			!= (noeud.end()); it++)
-	{
-		//node->push_back(&AnalyserNoeud(**it));
-	}
-
-	return *node;
-} //----- Fin de Recopier
 
 } // namespace xsl
 

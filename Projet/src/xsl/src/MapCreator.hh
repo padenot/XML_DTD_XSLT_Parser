@@ -1,7 +1,7 @@
 /*************************************************************************
- * MapCreator  -  «Description»
+ * MapCreator  -  Description
  * -------------------
- * Début      : 15 avr. 2011
+ * D√©but      : 15 avr. 2011
  * Auteur(s)  : H4215
  *************************************************************************/
 
@@ -9,7 +9,7 @@
 #if ! defined ( MAPCREATOR_HH_ )
 #define MAPCREATOR_HH_
 
-//--------------------------------------------------- Interfaces utilisées
+//--------------------------------------------------- Interfaces utilis√©es
 
 #include "InterfaceNodeVisitor.hpp"
 #include "Node.hh"
@@ -18,32 +18,29 @@
 #include "CompositeMarkupNode.hh"
 #include <map>
 
-using namespace xml;
-using namespace std;
-
 namespace xsl
 {
 
-class MapCreator: public InterfaceNodeVisitor
+class MapCreator: public xml::InterfaceNodeVisitor
 {
 public:
 	//------------------------------------------------------------- Constantes
 
 	//------------------------------------------------------------------ Types
 
-	//----------------------------------------------------- Méthodes publiques
-	// type Méthode ( liste des paramètres );
+	//----------------------------------------------------- M√©thodes publiques
+	// type M√©thode ( liste des param√®tres );
 	// Mode d'emploi :
 	//	
 	// Contrat :
 	//	
-	void populateMap(const Node& xslTree);
+	void populateMap(const xml::Node& xslTree);
 
-	//------------------------------------------------- Surcharge d'opérateurs
+	//------------------------------------------------- Surcharge d'op√©rateurs
 
 
 	//-------------------------------------------- Constructeurs - destructeur
-	MapCreator(map<string, const Node*> * theMap);
+	MapCreator(std::map<std::string, const xml::Node*> * theMap);
 	// Mode d'emploi :
 	//	TODO
 	// Contrat :
@@ -57,15 +54,15 @@ public:
 
 protected:
 
-	static const string TEMPLATE;
+	static const std::string TEMPLATE;
 
-	map<string, const Node*> * mapTemp;
+	std::map<std::string, const xml::Node*> * mapTemp;
 
-	virtual void visit(const TextNode& node);
-	virtual void visit(const MarkupNode& node);
-	virtual void visit(const CompositeMarkupNode& node);
+	virtual void visit(const xml::TextNode& node);
+	virtual void visit(const xml::MarkupNode& node);
+	virtual void visit(const xml::CompositeMarkupNode& node);
 
-	void checkTemplate(const CompositeMarkupNode& node);
+	void checkTemplate(const xml::CompositeMarkupNode& node);
 };
 
 } // namespace xsl
