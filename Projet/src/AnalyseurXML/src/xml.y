@@ -138,6 +138,10 @@ attributes		: attributes NAME EQ VALUE
 					delete $2;
 					delete $4;
 				}
+				| attributes NAME EQ
+				{
+					xmlSyntaxErrorCount += noAttributeValue($2);
+				}
 				| /* EMPTY */
 					{$$ = new MarkupNode::Attributes();}
 				;

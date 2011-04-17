@@ -9,6 +9,8 @@
 #include "commun.h"
 #include "xml.tab.h"
 
+#include "error.hh"
+
 static char* skipSpace(char *s) {
   char *buf;
   int i,lastnonspace;
@@ -113,4 +115,4 @@ closespecial "?>"{nl}?
 
 <CONTENT>{ws}?{pcdata}		{xmllval.s = strdup(skipSpace(yytext)); return DATA;}
 
-.			{fprintf(stderr, "Lex error (%d) : %c is an invalid character\n", *yytext);}
+.			{ LexerAdvice(xmllineno, *xmltext); }
