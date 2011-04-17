@@ -30,7 +30,7 @@ public:
 
 	//----------------------------------------------------- Méthodes publiques
 
-	xml::Node * Transformation(xml::CompositeMarkupNode & XmlTree);
+	xml::Node * Transformation(xml::Node & XmlTree);
 	// Mode d'emploi :
 	//	TODO
 	// Contrat :
@@ -47,7 +47,7 @@ public:
 
 
 	//-------------------------------------------- Constructeurs - destructeur
-	TransformerVisitor(const xml::CompositeMarkupNode & XslTree);
+	TransformerVisitor(const xml::Node & XslTree);
 	// Mode d'emploi (constructeur) :
 	//	Construit un nouveau visiteur.
 	// Contrat :
@@ -70,7 +70,7 @@ protected:
 
 	mapXsl::iterator resultatMap;
 
-	void creerMap(const xml::CompositeMarkupNode& node);
+	void createMap(const xml::Node& node);
 	void getTemplateName(const xml::MarkupNode& node);
 
 	virtual void visit(const xml::TextNode& node);
