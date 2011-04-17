@@ -120,58 +120,69 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 <a name="l00070"></a>00070         <span class="keywordflow">if</span> (_indent &gt; 0)
 <a name="l00071"></a>00071         {
 <a name="l00072"></a>00072                 <span class="keywordtype">char</span> fillChar = _out.fill(_indentChar);
-<a name="l00073"></a><a class="code" href="classxml_1_1_output_visitor.html#a3c1d2ac6dec2c9f6279a59226646e254">00073</a>                 _out &lt;&lt; setw(_indent) &lt;&lt; _indentChar;
+<a name="l00073"></a><a class="code" href="classxml_1_1_output_visitor.html#a4008bcf393c484232ae20cc7dc97c0f0">00073</a>                 _out &lt;&lt; setw(_indent) &lt;&lt; _indentChar;
 <a name="l00074"></a>00074                 _out.fill(fillChar);
 <a name="l00075"></a>00075         }
 <a name="l00076"></a>00076 } <span class="comment">//----- Fin de doIndent</span>
 <a name="l00077"></a>00077 
-<a name="l00078"></a>00078 <span class="keywordtype">void</span> OutputVisitor::writeAttributes(<span class="keyword">const</span> MarkupNode&amp; node)
+<a name="l00078"></a>00078 <span class="keywordtype">void</span> OutputVisitor::writeMarkupOpening(<span class="keyword">const</span> MarkupNode&amp; node)
 <a name="l00079"></a>00079 {
-<a name="l00080"></a>00080         <span class="keywordflow">for</span> (MarkupNode::AttributesIterator it = node.begin(); it != node.end(); ++it)
-<a name="l00081"></a>00081         {
-<a name="l00082"></a>00082                 _out &lt;&lt; INSIDE_MARKUP_SPACE_STR &lt;&lt; it-&gt;first
-<a name="l00083"></a><a class="code" href="classxml_1_1_output_visitor.html#a33e53f866b31a155bbf29ffda852aaf7">00083</a>                                 &lt;&lt; ASSIGN_ATTRIBUTE_VALUE_STR &lt;&lt; OPEN_ATTRIBUTE_VALUE_STR
-<a name="l00084"></a>00084                                 &lt;&lt; it-&gt;second &lt;&lt; CLOSE_ATTRIBUTE_VALUE_STR;
-<a name="l00085"></a>00085         }
-<a name="l00086"></a>00086 } <span class="comment">//----- Fin de writeAttributes</span>
-<a name="l00087"></a>00087 
-<a name="l00088"></a>00088 <span class="keywordtype">void</span> OutputVisitor::visit(<span class="keyword">const</span> TextNode&amp; node)
-<a name="l00089"></a><a class="code" href="classxml_1_1_output_visitor.html#ac1dae5dbb561c4b7e98a761d5d503e49">00089</a> {
-<a name="l00090"></a>00090         doIndent();
-<a name="l00091"></a>00091         _out &lt;&lt; node.content() &lt;&lt; endl;
-<a name="l00092"></a>00092 }
-<a name="l00093"></a>00093 
-<a name="l00094"></a>00094 <span class="keywordtype">void</span> OutputVisitor::visit(<span class="keyword">const</span> <a class="code" href="classxml_1_1_markup_node.html">MarkupNode</a>&amp; node)
-<a name="l00095"></a>00095 {
-<a name="l00096"></a>00096         doIndent();
-<a name="l00097"></a><a class="code" href="classxml_1_1_output_visitor.html#addfc73ae3643a8285b5f892eff1a6066">00097</a>         _out &lt;&lt; OPEN_MARKUP_STR &lt;&lt; node.<a class="code" href="classxml_1_1_markup_node.html#a0b5a2b37912a2957be48bbc629fc3cf9">ns</a>() &lt;&lt; NS_SEPARATOR_STR &lt;&lt; node.<a class="code" href="classxml_1_1_markup_node.html#a26e3ad142b13980f2ad181ca76dfe0a9">name</a>();
-<a name="l00098"></a>00098         writeAttributes(node);
-<a name="l00099"></a>00099         _out &lt;&lt; CLOSING_MARKUP_STR &lt;&lt; CLOSE_MARKUP_STR &lt;&lt; endl;
-<a name="l00100"></a>00100 }
-<a name="l00101"></a>00101 
-<a name="l00102"></a>00102 <span class="keywordtype">void</span> OutputVisitor::visit(<span class="keyword">const</span> <a class="code" href="classxml_1_1_composite_markup_node.html">CompositeMarkupNode</a>&amp; node)
-<a name="l00103"></a>00103 {
-<a name="l00104"></a>00104         doIndent();
-<a name="l00105"></a>00105         _out &lt;&lt; OPEN_MARKUP_STR &lt;&lt; node.<a class="code" href="classxml_1_1_markup_node.html#a0b5a2b37912a2957be48bbc629fc3cf9">ns</a>() &lt;&lt; NS_SEPARATOR_STR &lt;&lt; node.<a class="code" href="classxml_1_1_markup_node.html#a26e3ad142b13980f2ad181ca76dfe0a9">name</a>();
-<a name="l00106"></a>00106         writeAttributes(node);
-<a name="l00107"></a>00107         _out &lt;&lt; CLOSE_MARKUP_STR &lt;&lt; endl;
+<a name="l00080"></a>00080         _out &lt;&lt; OPEN_MARKUP_STR;
+<a name="l00081"></a>00081         <span class="keywordflow">if</span> (!node.ns().empty())
+<a name="l00082"></a>00082         {
+<a name="l00083"></a>00083                 _out &lt;&lt; node.ns() &lt;&lt; NS_SEPARATOR_STR;
+<a name="l00084"></a>00084         }
+<a name="l00085"></a>00085         _out &lt;&lt; node.name();
+<a name="l00086"></a>00086 
+<a name="l00087"></a>00087         <span class="comment">// Attributs</span>
+<a name="l00088"></a>00088         <span class="keywordflow">for</span> (MarkupNode::AttributesIterator it = node.begin(); it != node.end(); ++it)
+<a name="l00089"></a>00089         {
+<a name="l00090"></a>00090                 _out &lt;&lt; INSIDE_MARKUP_SPACE_STR &lt;&lt; it-&gt;first
+<a name="l00091"></a><a class="code" href="classxml_1_1_output_visitor.html#a33e53f866b31a155bbf29ffda852aaf7">00091</a>                                 &lt;&lt; ASSIGN_ATTRIBUTE_VALUE_STR &lt;&lt; OPEN_ATTRIBUTE_VALUE_STR
+<a name="l00092"></a>00092                                 &lt;&lt; it-&gt;second &lt;&lt; CLOSE_ATTRIBUTE_VALUE_STR;
+<a name="l00093"></a>00093         }
+<a name="l00094"></a>00094 }
+<a name="l00095"></a>00095 
+<a name="l00096"></a><a class="code" href="classxml_1_1_output_visitor.html#ac1dae5dbb561c4b7e98a761d5d503e49">00096</a> <span class="keywordtype">void</span> OutputVisitor::visit(<span class="keyword">const</span> <a class="code" href="classxml_1_1_text_node.html">TextNode</a>&amp; node)
+<a name="l00097"></a>00097 {
+<a name="l00098"></a>00098         _out &lt;&lt; node.<a class="code" href="classxml_1_1_text_node.html#a25941b48615a65258cc17d85bc0691d1">content</a>() &lt;&lt; endl;
+<a name="l00099"></a>00099 }
+<a name="l00100"></a>00100 
+<a name="l00101"></a>00101 <span class="keywordtype">void</span> OutputVisitor::visit(<span class="keyword">const</span> <a class="code" href="classxml_1_1_markup_node.html">MarkupNode</a>&amp; node)
+<a name="l00102"></a>00102 {
+<a name="l00103"></a>00103         doIndent();
+<a name="l00104"></a><a class="code" href="classxml_1_1_output_visitor.html#addfc73ae3643a8285b5f892eff1a6066">00104</a> 
+<a name="l00105"></a>00105         writeMarkupOpening(node);
+<a name="l00106"></a>00106         _out &lt;&lt; CLOSING_MARKUP_STR &lt;&lt; CLOSE_MARKUP_STR &lt;&lt; endl;
+<a name="l00107"></a>00107 }
 <a name="l00108"></a>00108 
-<a name="l00109"></a>00109         _indent += _indentUnit;
-<a name="l00110"></a>00110         <span class="keywordflow">for</span> (<a class="code" href="classxml_1_1_composite_markup_node.html#abdd7123eab75fb90a4a95b1976693ed7">CompositeMarkupNode::ChildrenIterator</a> it = node.<a class="code" href="classxml_1_1_composite_markup_node.html#a124753f641dc4612cee80fd289bf68a6">begin</a>(); it
-<a name="l00111"></a>00111                         != node.<a class="code" href="classxml_1_1_composite_markup_node.html#aeebeee1fc877fe102bad454d2ffa5bba">end</a>(); ++it)
-<a name="l00112"></a>00112         {
-<a name="l00113"></a>00113                 (*it)-&gt;accept(*<span class="keyword">this</span>);
-<a name="l00114"></a>00114         }
-<a name="l00115"></a>00115         _indent -= _indentUnit;
-<a name="l00116"></a>00116 
-<a name="l00117"></a>00117         doIndent();
-<a name="l00118"></a>00118         _out &lt;&lt; OPEN_MARKUP_STR &lt;&lt; CLOSING_MARKUP_STR &lt;&lt; node.<a class="code" href="classxml_1_1_markup_node.html#a0b5a2b37912a2957be48bbc629fc3cf9">ns</a>()
-<a name="l00119"></a>00119                         &lt;&lt; NS_SEPARATOR_STR &lt;&lt; node.<a class="code" href="classxml_1_1_markup_node.html#a26e3ad142b13980f2ad181ca76dfe0a9">name</a>() &lt;&lt; CLOSE_MARKUP_STR &lt;&lt; endl;
-<a name="l00120"></a>00120 }
-<a name="l00121"></a>00121 
-<a name="l00122"></a>00122 <span class="comment">//------------------------------------------------------- Méthodes privées</span>
+<a name="l00109"></a>00109 <span class="keywordtype">void</span> OutputVisitor::visit(<span class="keyword">const</span> <a class="code" href="classxml_1_1_composite_markup_node.html">CompositeMarkupNode</a>&amp; node)
+<a name="l00110"></a>00110 {
+<a name="l00111"></a>00111         doIndent();
+<a name="l00112"></a>00112 
+<a name="l00113"></a>00113         writeMarkupOpening(node);
+<a name="l00114"></a>00114         _out &lt;&lt; CLOSE_MARKUP_STR &lt;&lt; endl;
+<a name="l00115"></a>00115 
+<a name="l00116"></a>00116         _indent += _indentUnit;
+<a name="l00117"></a>00117         <span class="keywordflow">for</span> (<a class="code" href="classxml_1_1_composite_markup_node.html#abdd7123eab75fb90a4a95b1976693ed7">CompositeMarkupNode::ChildrenIterator</a> it = node.<a class="code" href="classxml_1_1_composite_markup_node.html#a124753f641dc4612cee80fd289bf68a6">begin</a>(); it
+<a name="l00118"></a>00118                         != node.<a class="code" href="classxml_1_1_composite_markup_node.html#aeebeee1fc877fe102bad454d2ffa5bba">end</a>(); ++it)
+<a name="l00119"></a>00119         {
+<a name="l00120"></a>00120                 (*it)-&gt;accept(*<span class="keyword">this</span>);
+<a name="l00121"></a>00121         }
+<a name="l00122"></a>00122         _indent -= _indentUnit;
 <a name="l00123"></a>00123 
-<a name="l00124"></a>00124 } <span class="comment">// namespace xml</span>
+<a name="l00124"></a>00124         doIndent();
+<a name="l00125"></a>00125         _out &lt;&lt; OPEN_MARKUP_STR &lt;&lt; CLOSING_MARKUP_STR;
+<a name="l00126"></a>00126         <span class="keywordflow">if</span> (!node.<a class="code" href="classxml_1_1_markup_node.html#a0b5a2b37912a2957be48bbc629fc3cf9">ns</a>().empty())
+<a name="l00127"></a>00127         {
+<a name="l00128"></a>00128                 _out &lt;&lt; node.<a class="code" href="classxml_1_1_markup_node.html#a0b5a2b37912a2957be48bbc629fc3cf9">ns</a>() &lt;&lt; NS_SEPARATOR_STR;
+<a name="l00129"></a>00129         }
+<a name="l00130"></a>00130         _out &lt;&lt; node.<a class="code" href="classxml_1_1_markup_node.html#a26e3ad142b13980f2ad181ca76dfe0a9">name</a>() &lt;&lt; CLOSE_MARKUP_STR &lt;&lt; endl;
+<a name="l00131"></a>00131 }
+<a name="l00132"></a>00132 
+<a name="l00133"></a>00133 <span class="comment">//------------------------------------------------------- Méthodes privées</span>
+<a name="l00134"></a>00134 
+<a name="l00135"></a>00135 } <span class="comment">// namespace xml</span>
 </pre></div></div>
 </div>
 <!--- window showing the filter options -->
@@ -188,7 +199,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Généré le Fri Apr 15 2011 16:44:38 pour XMLLib par&#160;
+<hr class="footer"/><address class="footer"><small>Généré le Sun Apr 17 2011 19:09:17 pour XMLLib par&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.2 </small></address>
 </body>

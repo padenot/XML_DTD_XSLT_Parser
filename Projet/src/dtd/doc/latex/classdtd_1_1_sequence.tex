@@ -1,0 +1,329 @@
+\hypertarget{classdtd_1_1_sequence}{
+\section{Référence de la classe dtd::Sequence}
+\label{classdtd_1_1_sequence}\index{dtd::Sequence@{dtd::Sequence}}
+}
+
+
+{\ttfamily \#include $<$Sequence.hh$>$}
+
+
+
+Graphe d'héritage de dtd::Sequence:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=600pt]{classdtd_1_1_sequence__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Graphe de collaboration de dtd::Sequence:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=600pt]{classdtd_1_1_sequence__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structdtd_1_1_sequence_1_1___state}{\_\-State}
+\end{DoxyCompactItemize}
+\subsection*{Types publics}
+\begin{DoxyCompactItemize}
+\item 
+typedef std::list$<$ \hyperlink{classdtd_1_1_element_content}{ElementContent} $\ast$ $>$ \hyperlink{classdtd_1_1_sequence_a0bb035768b3473ac3ba35a2a019ef67a}{OrderedContent}
+\item 
+typedef \_\-OrderedContent::const\_\-iterator \hyperlink{classdtd_1_1_sequence_a497ef84646eebfccfb0b47ca526dd5cd}{const\_\-iterator}
+\end{DoxyCompactItemize}
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+virtual bool \hyperlink{classdtd_1_1_sequence_a585eecddf1104ba42a15944ee4ff4b19}{validate} (const xml::CompositeMarkupNode \&node)
+\item 
+virtual void \hyperlink{classdtd_1_1_sequence_aa7ce2af63b36ed8be694d875488b108a}{accept} (\hyperlink{classdtd_1_1_interface_d_t_d_visitor}{InterfaceDTDVisitor} \&visitor) const 
+\item 
+\hyperlink{classdtd_1_1_sequence_a497ef84646eebfccfb0b47ca526dd5cd}{const\_\-iterator} \hyperlink{classdtd_1_1_sequence_ae8a6613ea98f553fdb265509a83935ed}{begin} () const 
+\item 
+\hyperlink{classdtd_1_1_sequence_a497ef84646eebfccfb0b47ca526dd5cd}{const\_\-iterator} \hyperlink{classdtd_1_1_sequence_a2419c3cfce9678c6f3e9848681d708b2}{end} () const 
+\item 
+\hyperlink{classdtd_1_1_sequence_ad6a2ad60f2706ccbdd1b6d1720a14ad5}{Sequence} (const \hyperlink{classdtd_1_1_sequence_a0bb035768b3473ac3ba35a2a019ef67a}{OrderedContent} \&embeddedContent)
+\item 
+virtual \hyperlink{classdtd_1_1_sequence_a119c90cd0d58c42c58acac2e9fa51c54}{$\sim$Sequence} ()
+\end{DoxyCompactItemize}
+\subsection*{Types protégés}
+\begin{DoxyCompactItemize}
+\item 
+typedef std::list$<$ \hyperlink{classdtd_1_1_element_content}{ElementContent} $\ast$ $>$ \hyperlink{classdtd_1_1_sequence_ae8f07ee87cfe7be8dd9eb5bf01959d66}{\_\-OrderedContent}
+\item 
+typedef std::stack$<$ \hyperlink{structdtd_1_1_quantifiable_content_1_1___state}{\_\-State} $>$ \hyperlink{classdtd_1_1_sequence_a779e1658dfabe1973ec9a2524501bc88}{\_\-StatesStack}
+\end{DoxyCompactItemize}
+\subsection*{Fonctions membres protégées}
+\begin{DoxyCompactItemize}
+\item 
+virtual bool \hyperlink{classdtd_1_1_sequence_a2765bc73d7fa4b92fafd60611e56e0f3}{\_\-startValidation} (xml::CompositeMarkupNode::ChildrenIterator firstToken, xml::CompositeMarkupNode::ChildrenIterator endToken, \hyperlink{classdtd_1_1_browsable_content}{BrowsableContent} $\ast$nextStep)
+\item 
+virtual bool \hyperlink{classdtd_1_1_sequence_a02874d51ebf3777a7fd16ee0e70b523b}{\_\-continueValidation} (xml::CompositeMarkupNode::ChildrenIterator currentToken)
+\item 
+virtual void \hyperlink{classdtd_1_1_sequence_a249219a1b47cc8298277491fe8356434}{\_\-beforeValidation} (xml::CompositeMarkupNode::ChildrenIterator firstToken, xml::CompositeMarkupNode::ChildrenIterator endToken, \hyperlink{classdtd_1_1_browsable_content}{BrowsableContent} $\ast$nextStep)
+\item 
+virtual void \hyperlink{classdtd_1_1_sequence_a9ab781006b7163a87e9b6d7e46314727}{\_\-afterValidation} ()
+\end{DoxyCompactItemize}
+\subsection*{Attributs protégés}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classdtd_1_1_sequence_ae8f07ee87cfe7be8dd9eb5bf01959d66}{\_\-OrderedContent} \hyperlink{classdtd_1_1_sequence_a36b690d5fe1490780c079cb65f9821f6}{\_\-embeddedContent}
+\item 
+\hyperlink{classdtd_1_1_sequence_a779e1658dfabe1973ec9a2524501bc88}{\_\-StatesStack} \hyperlink{classdtd_1_1_sequence_aa0d3d57604b1b62caeb0eb2c7b776169}{\_\-stack}
+\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+
+
+Définition à la ligne 20 du fichier Sequence.hh.
+
+
+
+\subsection{Documentation des définitions de type membres}
+\hypertarget{classdtd_1_1_sequence_ae8f07ee87cfe7be8dd9eb5bf01959d66}{
+\index{dtd::Sequence@{dtd::Sequence}!\_\-OrderedContent@{\_\-OrderedContent}}
+\index{\_\-OrderedContent@{\_\-OrderedContent}!dtd::Sequence@{dtd::Sequence}}
+\subsubsection[{\_\-OrderedContent}]{\setlength{\rightskip}{0pt plus 5cm}typedef std::list$<${\bf ElementContent}$\ast$$>$ {\bf dtd::Sequence::\_\-OrderedContent}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{classdtd_1_1_sequence_ae8f07ee87cfe7be8dd9eb5bf01959d66}
+
+
+Définition à la ligne 23 du fichier Sequence.hh.
+
+\hypertarget{classdtd_1_1_sequence_a779e1658dfabe1973ec9a2524501bc88}{
+\index{dtd::Sequence@{dtd::Sequence}!\_\-StatesStack@{\_\-StatesStack}}
+\index{\_\-StatesStack@{\_\-StatesStack}!dtd::Sequence@{dtd::Sequence}}
+\subsubsection[{\_\-StatesStack}]{\setlength{\rightskip}{0pt plus 5cm}typedef std::stack$<${\bf \_\-State}$>$ {\bf dtd::Sequence::\_\-StatesStack}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{classdtd_1_1_sequence_a779e1658dfabe1973ec9a2524501bc88}
+
+
+Définition à la ligne 97 du fichier Sequence.hh.
+
+\hypertarget{classdtd_1_1_sequence_a497ef84646eebfccfb0b47ca526dd5cd}{
+\index{dtd::Sequence@{dtd::Sequence}!const\_\-iterator@{const\_\-iterator}}
+\index{const\_\-iterator@{const\_\-iterator}!dtd::Sequence@{dtd::Sequence}}
+\subsubsection[{const\_\-iterator}]{\setlength{\rightskip}{0pt plus 5cm}typedef \_\-OrderedContent::const\_\-iterator {\bf dtd::Sequence::const\_\-iterator}}}
+\label{classdtd_1_1_sequence_a497ef84646eebfccfb0b47ca526dd5cd}
+
+
+Définition à la ligne 29 du fichier Sequence.hh.
+
+\hypertarget{classdtd_1_1_sequence_a0bb035768b3473ac3ba35a2a019ef67a}{
+\index{dtd::Sequence@{dtd::Sequence}!OrderedContent@{OrderedContent}}
+\index{OrderedContent@{OrderedContent}!dtd::Sequence@{dtd::Sequence}}
+\subsubsection[{OrderedContent}]{\setlength{\rightskip}{0pt plus 5cm}typedef std::list$<${\bf ElementContent}$\ast$$>$ {\bf dtd::Sequence::OrderedContent}}}
+\label{classdtd_1_1_sequence_a0bb035768b3473ac3ba35a2a019ef67a}
+
+
+Définition à la ligne 28 du fichier Sequence.hh.
+
+
+
+\subsection{Documentation des constructeurs et destructeur}
+\hypertarget{classdtd_1_1_sequence_ad6a2ad60f2706ccbdd1b6d1720a14ad5}{
+\index{dtd::Sequence@{dtd::Sequence}!Sequence@{Sequence}}
+\index{Sequence@{Sequence}!dtd::Sequence@{dtd::Sequence}}
+\subsubsection[{Sequence}]{\setlength{\rightskip}{0pt plus 5cm}dtd::Sequence::Sequence (
+\begin{DoxyParamCaption}
+\item[{const {\bf OrderedContent} \&}]{ embeddedContent}
+\end{DoxyParamCaption}
+)}}
+\label{classdtd_1_1_sequence_ad6a2ad60f2706ccbdd1b6d1720a14ad5}
+
+
+Définition à la ligne 61 du fichier Sequence.cpp.
+
+\hypertarget{classdtd_1_1_sequence_a119c90cd0d58c42c58acac2e9fa51c54}{
+\index{dtd::Sequence@{dtd::Sequence}!$\sim$Sequence@{$\sim$Sequence}}
+\index{$\sim$Sequence@{$\sim$Sequence}!dtd::Sequence@{dtd::Sequence}}
+\subsubsection[{$\sim$Sequence}]{\setlength{\rightskip}{0pt plus 5cm}dtd::Sequence::$\sim$Sequence (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classdtd_1_1_sequence_a119c90cd0d58c42c58acac2e9fa51c54}
+
+
+Définition à la ligne 67 du fichier Sequence.cpp.
+
+
+
+\subsection{Documentation des fonctions membres}
+\hypertarget{classdtd_1_1_sequence_a9ab781006b7163a87e9b6d7e46314727}{
+\index{dtd::Sequence@{dtd::Sequence}!\_\-afterValidation@{\_\-afterValidation}}
+\index{\_\-afterValidation@{\_\-afterValidation}!dtd::Sequence@{dtd::Sequence}}
+\subsubsection[{\_\-afterValidation}]{\setlength{\rightskip}{0pt plus 5cm}void dtd::Sequence::\_\-afterValidation (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}protected, virtual\mbox{]}}}}
+\label{classdtd_1_1_sequence_a9ab781006b7163a87e9b6d7e46314727}
+
+
+Réimplémentée à partir de \hyperlink{classdtd_1_1_browsable_content_a378fc620af75eb9bad9f37c663e3838d}{dtd::BrowsableContent}.
+
+
+
+Définition à la ligne 88 du fichier Sequence.cpp.
+
+\hypertarget{classdtd_1_1_sequence_a249219a1b47cc8298277491fe8356434}{
+\index{dtd::Sequence@{dtd::Sequence}!\_\-beforeValidation@{\_\-beforeValidation}}
+\index{\_\-beforeValidation@{\_\-beforeValidation}!dtd::Sequence@{dtd::Sequence}}
+\subsubsection[{\_\-beforeValidation}]{\setlength{\rightskip}{0pt plus 5cm}void dtd::Sequence::\_\-beforeValidation (
+\begin{DoxyParamCaption}
+\item[{xml::CompositeMarkupNode::ChildrenIterator}]{ firstToken, }
+\item[{xml::CompositeMarkupNode::ChildrenIterator}]{ endToken, }
+\item[{{\bf BrowsableContent} $\ast$}]{ nextStep}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}protected, virtual\mbox{]}}}}
+\label{classdtd_1_1_sequence_a249219a1b47cc8298277491fe8356434}
+
+
+Réimplémentée à partir de \hyperlink{classdtd_1_1_browsable_content_ae9e55da18cc09557fc7896a7ccac2ee1}{dtd::BrowsableContent}.
+
+
+
+Définition à la ligne 79 du fichier Sequence.cpp.
+
+\hypertarget{classdtd_1_1_sequence_a02874d51ebf3777a7fd16ee0e70b523b}{
+\index{dtd::Sequence@{dtd::Sequence}!\_\-continueValidation@{\_\-continueValidation}}
+\index{\_\-continueValidation@{\_\-continueValidation}!dtd::Sequence@{dtd::Sequence}}
+\subsubsection[{\_\-continueValidation}]{\setlength{\rightskip}{0pt plus 5cm}bool dtd::Sequence::\_\-continueValidation (
+\begin{DoxyParamCaption}
+\item[{xml::CompositeMarkupNode::ChildrenIterator}]{ currentToken}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}protected, virtual\mbox{]}}}}
+\label{classdtd_1_1_sequence_a02874d51ebf3777a7fd16ee0e70b523b}
+
+
+Réimplémentée à partir de \hyperlink{classdtd_1_1_browsable_content_a6398e5990648e2af3fd775592b0d62ea}{dtd::BrowsableContent}.
+
+
+
+Définition à la ligne 102 du fichier Sequence.cpp.
+
+
+
+Voici le graphe d'appel pour cette fonction :\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=400pt]{classdtd_1_1_sequence_a02874d51ebf3777a7fd16ee0e70b523b_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classdtd_1_1_sequence_a2765bc73d7fa4b92fafd60611e56e0f3}{
+\index{dtd::Sequence@{dtd::Sequence}!\_\-startValidation@{\_\-startValidation}}
+\index{\_\-startValidation@{\_\-startValidation}!dtd::Sequence@{dtd::Sequence}}
+\subsubsection[{\_\-startValidation}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool dtd::Sequence::\_\-startValidation (
+\begin{DoxyParamCaption}
+\item[{xml::CompositeMarkupNode::ChildrenIterator}]{ firstToken, }
+\item[{xml::CompositeMarkupNode::ChildrenIterator}]{ endToken, }
+\item[{{\bf BrowsableContent} $\ast$}]{ nextStep}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}protected, virtual\mbox{]}}}}
+\label{classdtd_1_1_sequence_a2765bc73d7fa4b92fafd60611e56e0f3}
+
+
+Implémente \hyperlink{classdtd_1_1_browsable_content_a67ab5a7329d94e363796ae2d17617246}{dtd::BrowsableContent}.
+
+\hypertarget{classdtd_1_1_sequence_aa7ce2af63b36ed8be694d875488b108a}{
+\index{dtd::Sequence@{dtd::Sequence}!accept@{accept}}
+\index{accept@{accept}!dtd::Sequence@{dtd::Sequence}}
+\subsubsection[{accept}]{\setlength{\rightskip}{0pt plus 5cm}void dtd::Sequence::accept (
+\begin{DoxyParamCaption}
+\item[{{\bf InterfaceDTDVisitor} \&}]{ visitor}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classdtd_1_1_sequence_aa7ce2af63b36ed8be694d875488b108a}
+
+
+Implémente \hyperlink{classdtd_1_1_content_a403cc15f12eaa187ad493fa600540cd8}{dtd::Content}.
+
+
+
+Définition à la ligne 41 du fichier Sequence.cpp.
+
+
+
+Voici le graphe d'appel pour cette fonction :\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=400pt]{classdtd_1_1_sequence_aa7ce2af63b36ed8be694d875488b108a_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classdtd_1_1_sequence_ae8a6613ea98f553fdb265509a83935ed}{
+\index{dtd::Sequence@{dtd::Sequence}!begin@{begin}}
+\index{begin@{begin}!dtd::Sequence@{dtd::Sequence}}
+\subsubsection[{begin}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Sequence::const\_\-iterator} dtd::Sequence::begin (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}
+\label{classdtd_1_1_sequence_ae8a6613ea98f553fdb265509a83935ed}
+
+
+Définition à la ligne 46 du fichier Sequence.cpp.
+
+\hypertarget{classdtd_1_1_sequence_a2419c3cfce9678c6f3e9848681d708b2}{
+\index{dtd::Sequence@{dtd::Sequence}!end@{end}}
+\index{end@{end}!dtd::Sequence@{dtd::Sequence}}
+\subsubsection[{end}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Sequence::const\_\-iterator} dtd::Sequence::end (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}
+\label{classdtd_1_1_sequence_a2419c3cfce9678c6f3e9848681d708b2}
+
+
+Définition à la ligne 51 du fichier Sequence.cpp.
+
+\hypertarget{classdtd_1_1_sequence_a585eecddf1104ba42a15944ee4ff4b19}{
+\index{dtd::Sequence@{dtd::Sequence}!validate@{validate}}
+\index{validate@{validate}!dtd::Sequence@{dtd::Sequence}}
+\subsubsection[{validate}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool dtd::Sequence::validate (
+\begin{DoxyParamCaption}
+\item[{const xml::CompositeMarkupNode \&}]{ node}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classdtd_1_1_sequence_a585eecddf1104ba42a15944ee4ff4b19}
+
+
+Réimplémentée à partir de \hyperlink{classdtd_1_1_browsable_content_a824a0c41b66aeea689e4283ee453d398}{dtd::BrowsableContent}.
+
+
+
+\subsection{Documentation des données membres}
+\hypertarget{classdtd_1_1_sequence_a36b690d5fe1490780c079cb65f9821f6}{
+\index{dtd::Sequence@{dtd::Sequence}!\_\-embeddedContent@{\_\-embeddedContent}}
+\index{\_\-embeddedContent@{\_\-embeddedContent}!dtd::Sequence@{dtd::Sequence}}
+\subsubsection[{\_\-embeddedContent}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \_\-OrderedContent} {\bf dtd::Sequence::\_\-embeddedContent}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{classdtd_1_1_sequence_a36b690d5fe1490780c079cb65f9821f6}
+
+
+Définition à la ligne 81 du fichier Sequence.hh.
+
+\hypertarget{classdtd_1_1_sequence_aa0d3d57604b1b62caeb0eb2c7b776169}{
+\index{dtd::Sequence@{dtd::Sequence}!\_\-stack@{\_\-stack}}
+\index{\_\-stack@{\_\-stack}!dtd::Sequence@{dtd::Sequence}}
+\subsubsection[{\_\-stack}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \_\-StatesStack} {\bf dtd::Sequence::\_\-stack}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{classdtd_1_1_sequence_aa0d3d57604b1b62caeb0eb2c7b776169}
+
+
+Définition à la ligne 98 du fichier Sequence.hh.
+
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants :\begin{DoxyCompactItemize}
+\item 
+src/\hyperlink{_sequence_8hh}{Sequence.hh}\item 
+src/\hyperlink{_sequence_8cpp}{Sequence.cpp}\end{DoxyCompactItemize}

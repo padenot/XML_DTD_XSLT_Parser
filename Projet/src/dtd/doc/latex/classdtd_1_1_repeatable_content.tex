@@ -1,0 +1,158 @@
+\hypertarget{classdtd_1_1_repeatable_content}{
+\section{Référence de la classe dtd::RepeatableContent}
+\label{classdtd_1_1_repeatable_content}\index{dtd::RepeatableContent@{dtd::RepeatableContent}}
+}
+
+
+{\ttfamily \#include $<$RepeatableContent.hh$>$}
+
+
+
+Graphe d'héritage de dtd::RepeatableContent:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=600pt]{classdtd_1_1_repeatable_content__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Graphe de collaboration de dtd::RepeatableContent:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=600pt]{classdtd_1_1_repeatable_content__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{classdtd_1_1_repeatable_content_a28550745ec781816e4be44165dbb3934}{accept} (\hyperlink{classdtd_1_1_interface_d_t_d_visitor}{InterfaceDTDVisitor} \&visitor) const 
+\item 
+\hyperlink{classdtd_1_1_repeatable_content_a5aa05c57a86876a8f23420ac7df42de6}{RepeatableContent} (\hyperlink{classdtd_1_1_quantifiable_content}{QuantifiableContent} \&content)
+\item 
+virtual \hyperlink{classdtd_1_1_repeatable_content_a2eec6b242d0ef49af02f530405fb3525}{$\sim$RepeatableContent} ()
+\end{DoxyCompactItemize}
+\subsection*{Fonctions membres protégées}
+\begin{DoxyCompactItemize}
+\item 
+virtual bool \hyperlink{classdtd_1_1_repeatable_content_aa71e67d3e836b9ee0edc856c8dbc5f47}{\_\-startValidation} (xml::CompositeMarkupNode::ChildrenIterator firstToken, xml::CompositeMarkupNode::ChildrenIterator endToken, \hyperlink{classdtd_1_1_browsable_content}{BrowsableContent} $\ast$nextStep)
+\item 
+virtual bool \hyperlink{classdtd_1_1_repeatable_content_af7cda09f207d691feec9846d757910c3}{\_\-continueValidation} (xml::CompositeMarkupNode::ChildrenIterator currentToken)
+\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+
+
+Définition à la ligne 18 du fichier RepeatableContent.hh.
+
+
+
+\subsection{Documentation des constructeurs et destructeur}
+\hypertarget{classdtd_1_1_repeatable_content_a5aa05c57a86876a8f23420ac7df42de6}{
+\index{dtd::RepeatableContent@{dtd::RepeatableContent}!RepeatableContent@{RepeatableContent}}
+\index{RepeatableContent@{RepeatableContent}!dtd::RepeatableContent@{dtd::RepeatableContent}}
+\subsubsection[{RepeatableContent}]{\setlength{\rightskip}{0pt plus 5cm}dtd::RepeatableContent::RepeatableContent (
+\begin{DoxyParamCaption}
+\item[{{\bf QuantifiableContent} \&}]{ content}
+\end{DoxyParamCaption}
+)}}
+\label{classdtd_1_1_repeatable_content_a5aa05c57a86876a8f23420ac7df42de6}
+
+
+Définition à la ligne 42 du fichier RepeatableContent.cpp.
+
+\hypertarget{classdtd_1_1_repeatable_content_a2eec6b242d0ef49af02f530405fb3525}{
+\index{dtd::RepeatableContent@{dtd::RepeatableContent}!$\sim$RepeatableContent@{$\sim$RepeatableContent}}
+\index{$\sim$RepeatableContent@{$\sim$RepeatableContent}!dtd::RepeatableContent@{dtd::RepeatableContent}}
+\subsubsection[{$\sim$RepeatableContent}]{\setlength{\rightskip}{0pt plus 5cm}dtd::RepeatableContent::$\sim$RepeatableContent (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classdtd_1_1_repeatable_content_a2eec6b242d0ef49af02f530405fb3525}
+
+
+Définition à la ligne 48 du fichier RepeatableContent.cpp.
+
+
+
+\subsection{Documentation des fonctions membres}
+\hypertarget{classdtd_1_1_repeatable_content_af7cda09f207d691feec9846d757910c3}{
+\index{dtd::RepeatableContent@{dtd::RepeatableContent}!\_\-continueValidation@{\_\-continueValidation}}
+\index{\_\-continueValidation@{\_\-continueValidation}!dtd::RepeatableContent@{dtd::RepeatableContent}}
+\subsubsection[{\_\-continueValidation}]{\setlength{\rightskip}{0pt plus 5cm}bool dtd::RepeatableContent::\_\-continueValidation (
+\begin{DoxyParamCaption}
+\item[{xml::CompositeMarkupNode::ChildrenIterator}]{ currentToken}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}protected, virtual\mbox{]}}}}
+\label{classdtd_1_1_repeatable_content_af7cda09f207d691feec9846d757910c3}
+
+
+Réimplémentée à partir de \hyperlink{classdtd_1_1_browsable_content_a6398e5990648e2af3fd775592b0d62ea}{dtd::BrowsableContent}.
+
+
+
+Définition à la ligne 67 du fichier RepeatableContent.cpp.
+
+
+
+Voici le graphe d'appel pour cette fonction :\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=400pt]{classdtd_1_1_repeatable_content_af7cda09f207d691feec9846d757910c3_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classdtd_1_1_repeatable_content_aa71e67d3e836b9ee0edc856c8dbc5f47}{
+\index{dtd::RepeatableContent@{dtd::RepeatableContent}!\_\-startValidation@{\_\-startValidation}}
+\index{\_\-startValidation@{\_\-startValidation}!dtd::RepeatableContent@{dtd::RepeatableContent}}
+\subsubsection[{\_\-startValidation}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool dtd::RepeatableContent::\_\-startValidation (
+\begin{DoxyParamCaption}
+\item[{xml::CompositeMarkupNode::ChildrenIterator}]{ firstToken, }
+\item[{xml::CompositeMarkupNode::ChildrenIterator}]{ endToken, }
+\item[{{\bf BrowsableContent} $\ast$}]{ nextStep}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}protected, virtual\mbox{]}}}}
+\label{classdtd_1_1_repeatable_content_aa71e67d3e836b9ee0edc856c8dbc5f47}
+
+
+Implémente \hyperlink{classdtd_1_1_browsable_content_a67ab5a7329d94e363796ae2d17617246}{dtd::BrowsableContent}.
+
+\hypertarget{classdtd_1_1_repeatable_content_a28550745ec781816e4be44165dbb3934}{
+\index{dtd::RepeatableContent@{dtd::RepeatableContent}!accept@{accept}}
+\index{accept@{accept}!dtd::RepeatableContent@{dtd::RepeatableContent}}
+\subsubsection[{accept}]{\setlength{\rightskip}{0pt plus 5cm}void dtd::RepeatableContent::accept (
+\begin{DoxyParamCaption}
+\item[{{\bf InterfaceDTDVisitor} \&}]{ visitor}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classdtd_1_1_repeatable_content_a28550745ec781816e4be44165dbb3934}
+
+
+Implémente \hyperlink{classdtd_1_1_content_a403cc15f12eaa187ad493fa600540cd8}{dtd::Content}.
+
+
+
+Définition à la ligne 33 du fichier RepeatableContent.cpp.
+
+
+
+Voici le graphe d'appel pour cette fonction :\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=400pt]{classdtd_1_1_repeatable_content_a28550745ec781816e4be44165dbb3934_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants :\begin{DoxyCompactItemize}
+\item 
+src/\hyperlink{_repeatable_content_8hh}{RepeatableContent.hh}\item 
+src/\hyperlink{_repeatable_content_8cpp}{RepeatableContent.cpp}\end{DoxyCompactItemize}

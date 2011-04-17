@@ -1,0 +1,8 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$classdtd_1_1_sequence.html#a02874d51ebf3777a7fd16ee0e70b523b" title="dtd::Sequence::_continueValidation" alt="" coords="499,5,896,43"/>
+<area shape="rect" id="node5" href="$classdtd_1_1_repeated_content.html#a3c3b6ab6dec9c12044e56198fc492db0" title="dtd::RepeatedContent::_continueValidation" alt="" coords="459,66,936,105"/>
+<area shape="rect" id="node7" href="$classdtd_1_1_repeatable_content.html#af7cda09f207d691feec9846d757910c3" title="dtd::RepeatableContent::_continueValidation" alt="" coords="448,127,947,166"/>
+<area shape="rect" id="node9" href="$classdtd_1_1_optional_content.html#ad299fdc7ddbac3df83c83cc93da8f6fe" title="dtd::OptionalContent::_continueValidation" alt="" coords="463,189,932,227"/>
+<area shape="rect" id="node11" href="$classdtd_1_1_mixed_content.html#a20d254e2b4366855818e1dd033d0736d" title="dtd::MixedContent::_continueValidation" alt="" coords="477,250,917,289"/>
+<area shape="rect" id="node13" href="$classdtd_1_1_choice.html#a633d6ed16e627cfe31f602e7457bae72" title="dtd::Choice::_continueValidation" alt="" coords="515,311,880,350"/>
+</map>

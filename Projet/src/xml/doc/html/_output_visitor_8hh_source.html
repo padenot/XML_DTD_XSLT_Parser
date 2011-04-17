@@ -124,27 +124,28 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 <a name="l00074"></a>00074         <span class="comment">// Contrat :</span>
 <a name="l00075"></a>00075         <span class="comment">//      Aucun.</span>
 <a name="l00076"></a>00076 
-<a name="l00077"></a>00077         <span class="keywordtype">void</span> <a class="code" href="classxml_1_1_output_visitor.html#a3c1d2ac6dec2c9f6279a59226646e254">writeAttributes</a>(<span class="keyword">const</span> <a class="code" href="classxml_1_1_markup_node.html">MarkupNode</a>&amp; node);
+<a name="l00077"></a>00077         <span class="keywordtype">void</span> <a class="code" href="classxml_1_1_output_visitor.html#a4008bcf393c484232ae20cc7dc97c0f0">writeMarkupOpening</a>(<span class="keyword">const</span> <a class="code" href="classxml_1_1_markup_node.html">MarkupNode</a>&amp; node);
 <a name="l00078"></a>00078         <span class="comment">// Mode d&#39;emploi :</span>
-<a name="l00079"></a>00079         <span class="comment">//      Écrit les attributs donnés en paramètres sur le flot &quot;_out&quot;</span>
-<a name="l00080"></a>00080         <span class="comment">// Contrat :</span>
-<a name="l00081"></a>00081         <span class="comment">//      Aucun.</span>
-<a name="l00082"></a>00082 
-<a name="l00083"></a>00083         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classxml_1_1_output_visitor.html#a33e53f866b31a155bbf29ffda852aaf7">visit</a>(<span class="keyword">const</span> <a class="code" href="classxml_1_1_text_node.html">TextNode</a>&amp; node);
-<a name="l00084"></a>00084         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classxml_1_1_output_visitor.html#a33e53f866b31a155bbf29ffda852aaf7">visit</a>(<span class="keyword">const</span> <a class="code" href="classxml_1_1_markup_node.html">MarkupNode</a>&amp; node);
-<a name="l00085"></a>00085         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classxml_1_1_output_visitor.html#a33e53f866b31a155bbf29ffda852aaf7">visit</a>(<span class="keyword">const</span> <a class="code" href="classxml_1_1_composite_markup_node.html">CompositeMarkupNode</a>&amp; node);
-<a name="l00086"></a>00086         <span class="comment">// Mode d&#39;emploi :</span>
-<a name="l00087"></a>00087         <span class="comment">//      Écrit le noeud sur le flot &quot;_out&quot;.</span>
-<a name="l00088"></a>00088         <span class="comment">//      La nature des caractères écrits sur le flot dépend du type du noeud.</span>
-<a name="l00089"></a>00089         <span class="comment">//      Les noeuds inclus sont indentés par rapport à leur ancètre.</span>
-<a name="l00090"></a>00090         <span class="comment">// Contrat :</span>
-<a name="l00091"></a>00091         <span class="comment">//      Aucun.</span>
-<a name="l00092"></a>00092 
-<a name="l00093"></a>00093 };
-<a name="l00094"></a>00094 
-<a name="l00095"></a>00095 } <span class="comment">// namespace xml</span>
-<a name="l00096"></a>00096 
-<a name="l00097"></a>00097 <span class="preprocessor">#endif // OUTPUTVISITOR_HH</span>
+<a name="l00079"></a>00079         <span class="comment">//      Écrit le début de la balise donnée en paramètres</span>
+<a name="l00080"></a>00080         <span class="comment">//      sur le flot &quot;_out&quot; (càd le namespace, le nom et les attributs).</span>
+<a name="l00081"></a>00081         <span class="comment">// Contrat :</span>
+<a name="l00082"></a>00082         <span class="comment">//      Aucun.</span>
+<a name="l00083"></a>00083 
+<a name="l00084"></a>00084         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classxml_1_1_output_visitor.html#a33e53f866b31a155bbf29ffda852aaf7">visit</a>(<span class="keyword">const</span> <a class="code" href="classxml_1_1_text_node.html">TextNode</a>&amp; node);
+<a name="l00085"></a>00085         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classxml_1_1_output_visitor.html#a33e53f866b31a155bbf29ffda852aaf7">visit</a>(<span class="keyword">const</span> <a class="code" href="classxml_1_1_markup_node.html">MarkupNode</a>&amp; node);
+<a name="l00086"></a>00086         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classxml_1_1_output_visitor.html#a33e53f866b31a155bbf29ffda852aaf7">visit</a>(<span class="keyword">const</span> <a class="code" href="classxml_1_1_composite_markup_node.html">CompositeMarkupNode</a>&amp; node);
+<a name="l00087"></a>00087         <span class="comment">// Mode d&#39;emploi :</span>
+<a name="l00088"></a>00088         <span class="comment">//      Écrit le noeud sur le flot &quot;_out&quot;.</span>
+<a name="l00089"></a>00089         <span class="comment">//      La nature des caractères écrits sur le flot dépend du type du noeud.</span>
+<a name="l00090"></a>00090         <span class="comment">//      Les noeuds inclus sont indentés par rapport à leur ancètre.</span>
+<a name="l00091"></a>00091         <span class="comment">// Contrat :</span>
+<a name="l00092"></a>00092         <span class="comment">//      Aucun.</span>
+<a name="l00093"></a>00093 
+<a name="l00094"></a>00094 };
+<a name="l00095"></a>00095 
+<a name="l00096"></a>00096 } <span class="comment">// namespace xml</span>
+<a name="l00097"></a>00097 
+<a name="l00098"></a>00098 <span class="preprocessor">#endif // OUTPUTVISITOR_HH</span>
 </pre></div></div>
 </div>
 <!--- window showing the filter options -->
@@ -161,7 +162,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Généré le Fri Apr 15 2011 16:44:38 pour XMLLib par&#160;
+<hr class="footer"/><address class="footer"><small>Généré le Sun Apr 17 2011 19:09:17 pour XMLLib par&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.2 </small></address>
 </body>

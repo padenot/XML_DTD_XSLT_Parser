@@ -1,0 +1,158 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>DTDLib:  Fichier source de src/InterfaceDTDVisitor.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javaScript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- Généré par Doxygen 1.7.2 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+--></script>
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="namespaces.html"><span>Espaces&#160;de&#160;nommage</span></a></li>
+      <li><a href="annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="files.html"><span>Fichiers</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+    </ul>
+  </div>
+<div class="header">
+  <div class="headertitle">
+<h1>src/InterfaceDTDVisitor.hpp</h1>  </div>
+</div>
+<div class="contents">
+<a href="_interface_d_t_d_visitor_8hpp.html">Aller à la documentation de ce fichier.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">/*************************************************************************</span>
+<a name="l00002"></a>00002 <span class="comment"> * InterfaceDTDVisitor  -  «Description»</span>
+<a name="l00003"></a>00003 <span class="comment"> * -------------------</span>
+<a name="l00004"></a>00004 <span class="comment"> * Début      : 5 avr. 2011</span>
+<a name="l00005"></a>00005 <span class="comment"> * Auteur(s)  : H4215</span>
+<a name="l00006"></a>00006 <span class="comment"> *************************************************************************/</span>
+<a name="l00007"></a>00007 
+<a name="l00008"></a>00008 <span class="comment">//---------- Interface de la classe &lt;InterfaceDTDVisitor&gt; (fichier InterfaceDTDVisitor.hh) ------</span>
+<a name="l00009"></a>00009 <span class="preprocessor">#if ! defined ( INTERFACEDTDVISITOR_HH_ )</span>
+<a name="l00010"></a>00010 <span class="preprocessor"></span><span class="preprocessor">#define INTERFACEDTDVISITOR_HH_</span>
+<a name="l00011"></a>00011 <span class="preprocessor"></span>
+<a name="l00012"></a>00012 <span class="comment">//--------------------------------------------------- Interfaces utilisées</span>
+<a name="l00013"></a>00013 <span class="preprocessor">#include &lt;string&gt;</span>
+<a name="l00014"></a>00014 <span class="preprocessor">#include &quot;<a class="code" href="_attributes_list_8hh.html">AttributesList.hh</a>&quot;</span>
+<a name="l00015"></a>00015 
+<a name="l00016"></a>00016 <span class="keyword">namespace </span>dtd
+<a name="l00017"></a>00017 {
+<a name="l00018"></a>00018 <span class="keyword">class </span>Content;
+<a name="l00019"></a>00019 <span class="keyword">class </span>AnyContent;
+<a name="l00020"></a>00020 <span class="keyword">class </span>EmptyContent;
+<a name="l00021"></a>00021 <span class="keyword">class </span>MixedContent;
+<a name="l00022"></a>00022 <span class="keyword">class </span>TextContent;
+<a name="l00023"></a>00023 <span class="keyword">class </span>ElementReference;
+<a name="l00024"></a>00024 <span class="keyword">class </span>Choice;
+<a name="l00025"></a>00025 <span class="keyword">class </span>Sequence;
+<a name="l00026"></a>00026 <span class="keyword">class </span>OptionalContent;
+<a name="l00027"></a>00027 <span class="keyword">class </span>RepeatableContent;
+<a name="l00028"></a>00028 <span class="keyword">class </span>RepeatedContent;
+<a name="l00029"></a>00029 
+<a name="l00030"></a><a class="code" href="classdtd_1_1_interface_d_t_d_visitor.html">00030</a> <span class="keyword">class </span><a class="code" href="classdtd_1_1_interface_d_t_d_visitor.html">InterfaceDTDVisitor</a>
+<a name="l00031"></a>00031 {
+<a name="l00032"></a>00032 <span class="keyword">public</span>:
+<a name="l00033"></a>00033         <span class="comment">//------------------------------------------------------------- Constantes</span>
+<a name="l00034"></a>00034 
+<a name="l00035"></a>00035         <span class="comment">//------------------------------------------------------------------ Types</span>
+<a name="l00036"></a>00036 
+<a name="l00037"></a>00037         <span class="comment">//----------------------------------------------------- Méthodes publiques</span>
+<a name="l00038"></a>00038         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classdtd_1_1_interface_d_t_d_visitor.html#a46b882a06961ea04fd43b2a9d937118b">visitElement</a>(<span class="keyword">const</span> std::string &amp; ns,
+<a name="l00039"></a>00039                         <span class="keyword">const</span> std::string &amp; elementName, <span class="keyword">const</span> <a class="code" href="classdtd_1_1_content.html">Content</a>&amp; content) = 0;
+<a name="l00040"></a>00040         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classdtd_1_1_interface_d_t_d_visitor.html#a729d9fcb360d9bf45210aac109b388da">visitAttributesList</a>(<span class="keyword">const</span> std::string &amp; ns,
+<a name="l00041"></a>00041                         <span class="keyword">const</span> std::string &amp; elementName, <span class="keyword">const</span> <a class="code" href="namespacedtd.html#a8d5d29abb5de0468925f321597f57f4b">AttributesList</a>&amp; attlist) = 0;
+<a name="l00042"></a>00042 
+<a name="l00043"></a>00043         <span class="comment">//------------------------------------------------- Surcharge d&#39;opérateurs</span>
+<a name="l00044"></a>00044 
+<a name="l00045"></a>00045         <span class="comment">//-------------------------------------------- Constructeurs - destructeur</span>
+<a name="l00046"></a><a class="code" href="classdtd_1_1_interface_d_t_d_visitor.html#aef94cba5e56a7891a24b236176a2075a">00046</a>         <span class="keyword">virtual</span> <a class="code" href="classdtd_1_1_interface_d_t_d_visitor.html#aef94cba5e56a7891a24b236176a2075a">~InterfaceDTDVisitor</a>()
+<a name="l00047"></a>00047         <span class="comment">// Mode d&#39;emploi (destructeur) :</span>
+<a name="l00048"></a>00048         <span class="comment">//      Ne fait rien (interface).</span>
+<a name="l00049"></a>00049         <span class="comment">// Contrat :</span>
+<a name="l00050"></a>00050         <span class="comment">//      Aucun.</span>
+<a name="l00051"></a>00051         {
+<a name="l00052"></a>00052                 <span class="comment">// Vide</span>
+<a name="l00053"></a>00053         }
+<a name="l00054"></a>00054 
+<a name="l00055"></a>00055 <span class="keyword">protected</span>:
+<a name="l00056"></a><a class="code" href="classdtd_1_1_interface_d_t_d_visitor.html#a98eaefc8d4a0da1a8f9c254c62a68759">00056</a>         <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classdtd_1_1_any_content.html">AnyContent</a>;
+<a name="l00057"></a><a class="code" href="classdtd_1_1_interface_d_t_d_visitor.html#a91eaa900fb18be6cd9a7105c964666fb">00057</a>         <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classdtd_1_1_empty_content.html">EmptyContent</a>;
+<a name="l00058"></a><a class="code" href="classdtd_1_1_interface_d_t_d_visitor.html#a94c4de9fad580ef7aa4f384bf0c2b861">00058</a>         <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classdtd_1_1_mixed_content.html">MixedContent</a>;
+<a name="l00059"></a><a class="code" href="classdtd_1_1_interface_d_t_d_visitor.html#aa641efa971cba38c6181cdc71b30df90">00059</a>         <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classdtd_1_1_text_content.html">TextContent</a>;
+<a name="l00060"></a><a class="code" href="classdtd_1_1_interface_d_t_d_visitor.html#a21b7004458ebe5b88f6d6edb6d059a34">00060</a>         <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classdtd_1_1_element_reference.html">ElementReference</a>;
+<a name="l00061"></a><a class="code" href="classdtd_1_1_interface_d_t_d_visitor.html#af8084f88f5641132057732496deab026">00061</a>         <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classdtd_1_1_choice.html">Choice</a>;
+<a name="l00062"></a><a class="code" href="classdtd_1_1_interface_d_t_d_visitor.html#a26271d5afaff6e6d3f00c055c63d0b24">00062</a>         <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classdtd_1_1_sequence.html">Sequence</a>;
+<a name="l00063"></a><a class="code" href="classdtd_1_1_interface_d_t_d_visitor.html#a90839fb65068433fb68ba4e59462f869">00063</a>         <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classdtd_1_1_optional_content.html">OptionalContent</a>;
+<a name="l00064"></a><a class="code" href="classdtd_1_1_interface_d_t_d_visitor.html#ad2e096c883291671a8d20ca270018e05">00064</a>         <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classdtd_1_1_repeatable_content.html">RepeatableContent</a>;
+<a name="l00065"></a><a class="code" href="classdtd_1_1_interface_d_t_d_visitor.html#afaa2f3eab18d4215d1683c4b2f5a6b8e">00065</a>         <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classdtd_1_1_repeated_content.html">RepeatedContent</a>;
+<a name="l00066"></a>00066 
+<a name="l00067"></a>00067         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classdtd_1_1_interface_d_t_d_visitor.html#ac2d1f472564e590bbe66f14ab096167a">visit</a>(<span class="keyword">const</span> <a class="code" href="classdtd_1_1_any_content.html">AnyContent</a> &amp; content) = 0;
+<a name="l00068"></a>00068         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classdtd_1_1_interface_d_t_d_visitor.html#ac2d1f472564e590bbe66f14ab096167a">visit</a>(<span class="keyword">const</span> <a class="code" href="classdtd_1_1_empty_content.html">EmptyContent</a> &amp; content) = 0;
+<a name="l00069"></a>00069         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classdtd_1_1_interface_d_t_d_visitor.html#ac2d1f472564e590bbe66f14ab096167a">visit</a>(<span class="keyword">const</span> <a class="code" href="classdtd_1_1_mixed_content.html">MixedContent</a> &amp; content) = 0;
+<a name="l00070"></a>00070         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classdtd_1_1_interface_d_t_d_visitor.html#ac2d1f472564e590bbe66f14ab096167a">visit</a>(<span class="keyword">const</span> <a class="code" href="classdtd_1_1_text_content.html">TextContent</a> &amp; content) = 0;
+<a name="l00071"></a>00071         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classdtd_1_1_interface_d_t_d_visitor.html#ac2d1f472564e590bbe66f14ab096167a">visit</a>(<span class="keyword">const</span> <a class="code" href="classdtd_1_1_element_reference.html">ElementReference</a> &amp; element) = 0;
+<a name="l00072"></a>00072         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classdtd_1_1_interface_d_t_d_visitor.html#ac2d1f472564e590bbe66f14ab096167a">visit</a>(<span class="keyword">const</span> <a class="code" href="classdtd_1_1_choice.html">Choice</a> &amp; content) = 0;
+<a name="l00073"></a>00073         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classdtd_1_1_interface_d_t_d_visitor.html#ac2d1f472564e590bbe66f14ab096167a">visit</a>(<span class="keyword">const</span> <a class="code" href="classdtd_1_1_sequence.html">Sequence</a> &amp; content) = 0;
+<a name="l00074"></a>00074         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classdtd_1_1_interface_d_t_d_visitor.html#ac2d1f472564e590bbe66f14ab096167a">visit</a>(<span class="keyword">const</span> <a class="code" href="classdtd_1_1_optional_content.html">OptionalContent</a> &amp; content) = 0;
+<a name="l00075"></a>00075         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classdtd_1_1_interface_d_t_d_visitor.html#ac2d1f472564e590bbe66f14ab096167a">visit</a>(<span class="keyword">const</span> <a class="code" href="classdtd_1_1_repeatable_content.html">RepeatableContent</a> &amp; content) = 0;
+<a name="l00076"></a>00076         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classdtd_1_1_interface_d_t_d_visitor.html#ac2d1f472564e590bbe66f14ab096167a">visit</a>(<span class="keyword">const</span> <a class="code" href="classdtd_1_1_repeated_content.html">RepeatedContent</a> &amp; content) = 0;
+<a name="l00077"></a>00077         <span class="comment">// Mode d&#39;emploi :</span>
+<a name="l00078"></a>00078         <span class="comment">//      Visite l&#39;objet donné en paramètre, pour inspection.</span>
+<a name="l00079"></a>00079         <span class="comment">// Contrat :</span>
+<a name="l00080"></a>00080         <span class="comment">//      L&#39;objet visité doit appeler cette méthode avec son type réel</span>
+<a name="l00081"></a>00081         <span class="comment">//      (non hérité) lorsqu&#39;on fait appel à sa méthode accept().</span>
+<a name="l00082"></a>00082 
+<a name="l00083"></a>00083 };
+<a name="l00084"></a>00084 
+<a name="l00085"></a>00085 } <span class="comment">// namespace dtd</span>
+<a name="l00086"></a>00086 
+<a name="l00087"></a>00087 <span class="preprocessor">#endif // INTERFACEDTDVISITOR_HH_</span>
+</pre></div></div>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Espaces de nommage</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Définition de type</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Amis</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>Généré le Sun Apr 17 2011 19:07:13 pour DTDLib par&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.2 </small></address>
+</body>
+</html>

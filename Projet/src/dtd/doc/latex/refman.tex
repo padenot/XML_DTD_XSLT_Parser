@@ -1,0 +1,132 @@
+\documentclass[a4paper]{book}
+\usepackage{makeidx}
+\usepackage{graphicx}
+\usepackage{multicol}
+\usepackage{float}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{ifthen}
+\usepackage[table]{xcolor}
+\usepackage{textcomp}
+\usepackage{alltt}
+\usepackage{ifpdf}
+\ifpdf
+\usepackage[pdftex,
+            pagebackref=true,
+            colorlinks=true,
+            linkcolor=blue,
+            unicode
+           ]{hyperref}
+\else
+\usepackage[ps2pdf,
+            pagebackref=true,
+            colorlinks=true,
+            linkcolor=blue,
+            unicode
+           ]{hyperref}
+\usepackage{pspicture}
+\fi
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+
+\usepackage{mathptmx}
+\usepackage[scaled=.90]{helvet}
+\usepackage{courier}
+\usepackage{doxygen}
+\lstset{language=C++,inputencoding=utf8,basicstyle=\footnotesize,breaklines=true,breakatwhitespace=true,tabsize=8,numbers=left }
+\makeindex
+\setcounter{tocdepth}{3}
+\renewcommand{\footrulewidth}{0.4pt}
+\begin{document}
+\hypersetup{pageanchor=false}
+\begin{titlepage}
+\vspace*{7cm}
+\begin{center}
+{\Large DTDLib \\[1ex]\large 0.1 }\\
+\vspace*{1cm}
+{\large Généré par Doxygen 1.7.2}\\
+\vspace*{0.5cm}
+{\small Sun Apr 17 2011 19:07:13}\\
+\end{center}
+\end{titlepage}
+\clearemptydoublepage
+\pagenumbering{roman}
+\tableofcontents
+\clearemptydoublepage
+\pagenumbering{arabic}
+\hypersetup{pageanchor=true}
+\chapter{Index des espaces de nommage}
+\input{namespaces}
+\chapter{Index des classes}
+\input{hierarchy}
+\chapter{Index des classes}
+\input{annotated}
+\chapter{Index des fichiers}
+\input{files}
+\chapter{Documentation des espaces de nommage}
+\input{namespacedtd}
+\chapter{Documentation des classes}
+\input{structdtd_1_1_choice_1_1___state}
+\input{structdtd_1_1_quantifiable_content_1_1___state}
+\input{structdtd_1_1_sequence_1_1___state}
+\input{classdtd_1_1_any_content}
+\input{classdtd_1_1_attribute}
+\input{structdtd_1_1_attributes_comparator}
+\input{classdtd_1_1_browsable_content}
+\input{classdtd_1_1_choice}
+\input{classdtd_1_1_content}
+\input{classdtd_1_1_d_t_d}
+\input{classdtd_1_1_element_content}
+\input{classdtd_1_1_element_reference}
+\input{classdtd_1_1_empty_content}
+\input{classdtd_1_1_interface_d_t_d_visitor}
+\input{classdtd_1_1_mixed_content}
+\input{classdtd_1_1_optional_content}
+\input{classdtd_1_1_output_d_t_d_visitor}
+\input{classdtd_1_1_quantifiable_content}
+\input{classdtd_1_1_quantified_content}
+\input{classdtd_1_1_repeatable_content}
+\input{classdtd_1_1_repeated_content}
+\input{classdtd_1_1_sequence}
+\input{classdtd_1_1_text_content}
+\chapter{Documentation des fichiers}
+\input{_any_content_8cpp}
+\input{_any_content_8hh}
+\input{_attribute_8cpp}
+\input{_attribute_8hh}
+\input{_attributes_list_8hh}
+\input{_browsable_content_8cpp}
+\input{_browsable_content_8hh}
+\input{_choice_8cpp}
+\input{_choice_8hh}
+\input{_content_8cpp}
+\input{_content_8hh}
+\input{_d_t_d_8cpp}
+\input{_d_t_d_8hh}
+\input{_element_content_8cpp}
+\input{_element_content_8hh}
+\input{_element_reference_8cpp}
+\input{_element_reference_8hh}
+\input{_empty_content_8cpp}
+\input{_empty_content_8hh}
+\input{_interface_d_t_d_visitor_8hpp}
+\input{_mixed_content_8cpp}
+\input{_mixed_content_8hh}
+\input{_optional_content_8cpp}
+\input{_optional_content_8hh}
+\input{_output_d_t_d_visitor_8cpp}
+\input{_output_d_t_d_visitor_8hh}
+\input{_quantifiable_content_8cpp}
+\input{_quantifiable_content_8hh}
+\input{_quantified_content_8cpp}
+\input{_quantified_content_8hh}
+\input{_repeatable_content_8cpp}
+\input{_repeatable_content_8hh}
+\input{_repeated_content_8cpp}
+\input{_repeated_content_8hh}
+\input{_sequence_8cpp}
+\input{_sequence_8hh}
+\input{_text_content_8cpp}
+\input{_text_content_8hh}
+\printindex
+\end{document}

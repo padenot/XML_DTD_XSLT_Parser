@@ -1,0 +1,274 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>DTDLib:  Fichier source de src/OutputDTDVisitor.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javaScript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- Généré par Doxygen 1.7.2 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+--></script>
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="namespaces.html"><span>Espaces&#160;de&#160;nommage</span></a></li>
+      <li><a href="annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="files.html"><span>Fichiers</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+    </ul>
+  </div>
+<div class="header">
+  <div class="headertitle">
+<h1>src/OutputDTDVisitor.cpp</h1>  </div>
+</div>
+<div class="contents">
+<a href="_output_d_t_d_visitor_8cpp.html">Aller à la documentation de ce fichier.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">/*************************************************************************</span>
+<a name="l00002"></a>00002 <span class="comment"> * OutputDTDVisitor  -  «Description»</span>
+<a name="l00003"></a>00003 <span class="comment"> * -------------------</span>
+<a name="l00004"></a>00004 <span class="comment"> * Début      : 5 avr. 2011</span>
+<a name="l00005"></a>00005 <span class="comment"> * Auteur(s)  : H4215</span>
+<a name="l00006"></a>00006 <span class="comment"> *************************************************************************/</span>
+<a name="l00007"></a>00007 
+<a name="l00008"></a>00008 <span class="comment">//---------- Réalisation de la classe &lt;OutputDTDVisitor&gt; (fichier OutputDTDVisitor.cpp) -------</span>
+<a name="l00009"></a>00009 
+<a name="l00010"></a>00010 <span class="comment">//---------------------------------------------------------------- INCLUDE</span>
+<a name="l00011"></a>00011 
+<a name="l00012"></a>00012 <span class="comment">//-------------------------------------------------------- Include système</span>
+<a name="l00013"></a>00013 <span class="keyword">using namespace </span>std;
+<a name="l00014"></a>00014 <span class="preprocessor">#include &lt;iostream&gt;</span>
+<a name="l00015"></a>00015 <span class="preprocessor">#include &lt;iomanip&gt;</span>
+<a name="l00016"></a>00016 
+<a name="l00017"></a>00017 <span class="comment">//------------------------------------------------------ Include personnel</span>
+<a name="l00018"></a>00018 <span class="preprocessor">#include &quot;<a class="code" href="_output_d_t_d_visitor_8hh.html">OutputDTDVisitor.hh</a>&quot;</span>
+<a name="l00019"></a>00019 <span class="preprocessor">#include &quot;<a class="code" href="_attributes_list_8hh.html">AttributesList.hh</a>&quot;</span>
+<a name="l00020"></a>00020 <span class="preprocessor">#include &quot;<a class="code" href="_empty_content_8hh.html">EmptyContent.hh</a>&quot;</span>
+<a name="l00021"></a>00021 <span class="preprocessor">#include &quot;<a class="code" href="_any_content_8hh.html">AnyContent.hh</a>&quot;</span>
+<a name="l00022"></a>00022 <span class="preprocessor">#include &quot;<a class="code" href="_mixed_content_8hh.html">MixedContent.hh</a>&quot;</span>
+<a name="l00023"></a>00023 <span class="preprocessor">#include &quot;<a class="code" href="_element_reference_8hh.html">ElementReference.hh</a>&quot;</span>
+<a name="l00024"></a>00024 <span class="preprocessor">#include &quot;<a class="code" href="_choice_8hh.html">Choice.hh</a>&quot;</span>
+<a name="l00025"></a>00025 <span class="preprocessor">#include &quot;<a class="code" href="_sequence_8hh.html">Sequence.hh</a>&quot;</span>
+<a name="l00026"></a>00026 <span class="preprocessor">#include &quot;<a class="code" href="_optional_content_8hh.html">OptionalContent.hh</a>&quot;</span>
+<a name="l00027"></a>00027 <span class="preprocessor">#include &quot;<a class="code" href="_repeatable_content_8hh.html">RepeatableContent.hh</a>&quot;</span>
+<a name="l00028"></a>00028 <span class="preprocessor">#include &quot;<a class="code" href="_repeated_content_8hh.html">RepeatedContent.hh</a>&quot;</span>
+<a name="l00029"></a>00029 
+<a name="l00030"></a>00030 <span class="keyword">namespace </span>dtd
+<a name="l00031"></a>00031 {
+<a name="l00032"></a>00032 <span class="comment">//------------------------------------------------------------- Constantes</span>
+<a name="l00033"></a>00033 <span class="keyword">const</span> std::string OutputDTDVisitor::OPEN_MARKUP_STR = <span class="stringliteral">&quot;&lt;!&quot;</span>;
+<a name="l00034"></a>00034 <span class="keyword">const</span> std::string OutputDTDVisitor::ELEMENT_MARKUP_NAME_STR = <span class="stringliteral">&quot;ELEMENT&quot;</span>;
+<a name="l00035"></a>00035 <span class="keyword">const</span> std::string OutputDTDVisitor::ATTLIST_MARKUP_NAME_STR = <span class="stringliteral">&quot;ATTLIST&quot;</span>;
+<a name="l00036"></a>00036 <span class="keyword">const</span> std::string OutputDTDVisitor::INSIDE_MARKUP_SPACE_STR = <span class="stringliteral">&quot; &quot;</span>;
+<a name="l00037"></a>00037 <span class="keyword">const</span> std::string OutputDTDVisitor::START_SEQUENCE_STR = <span class="stringliteral">&quot;(&quot;</span>;
+<a name="l00038"></a>00038 <span class="keyword">const</span> std::string OutputDTDVisitor::SEQUENCE_SEPARATOR_STR = <span class="stringliteral">&quot;,&quot;</span>;
+<a name="l00039"></a>00039 <span class="keyword">const</span> std::string OutputDTDVisitor::END_SEQUENCE_STR = <span class="stringliteral">&quot;)&quot;</span>;
+<a name="l00040"></a>00040 <span class="keyword">const</span> std::string OutputDTDVisitor::START_CHOICE_STR = <span class="stringliteral">&quot;(&quot;</span>;
+<a name="l00041"></a>00041 <span class="keyword">const</span> std::string OutputDTDVisitor::CHOICE_SEPARATOR_STR = <span class="stringliteral">&quot;|&quot;</span>;
+<a name="l00042"></a>00042 <span class="keyword">const</span> std::string OutputDTDVisitor::END_CHOICE_STR = <span class="stringliteral">&quot;)&quot;</span>;
+<a name="l00043"></a>00043 <span class="keyword">const</span> std::string OutputDTDVisitor::START_MIXED_STR = <span class="stringliteral">&quot;(&quot;</span>;
+<a name="l00044"></a>00044 <span class="keyword">const</span> std::string OutputDTDVisitor::MIXED_SEPARATOR_STR = <span class="stringliteral">&quot;|&quot;</span>;
+<a name="l00045"></a>00045 <span class="keyword">const</span> std::string OutputDTDVisitor::END_MIXED_STR = <span class="stringliteral">&quot;)&quot;</span>;
+<a name="l00046"></a>00046 <span class="keyword">const</span> std::string OutputDTDVisitor::EMPTY_CONTENT_STR = <span class="stringliteral">&quot;EMPTY&quot;</span>;
+<a name="l00047"></a>00047 <span class="keyword">const</span> std::string OutputDTDVisitor::ANY_CONTENT_STR = <span class="stringliteral">&quot;ANY&quot;</span>;
+<a name="l00048"></a>00048 <span class="keyword">const</span> std::string OutputDTDVisitor::TEXT_CONTENT_STR = <span class="stringliteral">&quot;#PCDATA&quot;</span>;
+<a name="l00049"></a>00049 <span class="keyword">const</span> std::string OutputDTDVisitor::OPTIONAL_QUANTIFIER_STR = <span class="stringliteral">&quot;?&quot;</span>;
+<a name="l00050"></a>00050 <span class="keyword">const</span> std::string OutputDTDVisitor::REPEATABLE_QUANTIFIER_STR = <span class="stringliteral">&quot;*&quot;</span>;
+<a name="l00051"></a>00051 <span class="keyword">const</span> std::string OutputDTDVisitor::REPEATED_QUANTIFIER_STR = <span class="stringliteral">&quot;+&quot;</span>;
+<a name="l00052"></a>00052 <span class="keyword">const</span> std::string OutputDTDVisitor::CLOSE_MARKUP_STR = <span class="stringliteral">&quot;&gt;&quot;</span>;
+<a name="l00053"></a>00053 
+<a name="l00054"></a>00054 <span class="comment">//----------------------------------------------------------------- PUBLIC</span>
+<a name="l00055"></a>00055 
+<a name="l00056"></a>00056 <span class="comment">//----------------------------------------------------- Méthodes publiques</span>
+<a name="l00057"></a>00057 <span class="comment">// type OutputDTDVisitor::Méthode ( liste des paramètres )</span>
+<a name="l00058"></a>00058 <span class="comment">// Algorithme :</span>
+<a name="l00059"></a>00059 <span class="comment">//      </span>
+<a name="l00060"></a><a class="code" href="classdtd_1_1_output_d_t_d_visitor.html#ab95fcc93547eb5e038040f11b0f2b568">00060</a> <span class="comment">//{</span>
+<a name="l00061"></a>00061 <span class="comment">//}</span>
+<a name="l00062"></a>00062 <span class="keywordtype">void</span> OutputDTDVisitor::visitElement(<span class="keyword">const</span> std::string &amp; ns,
+<a name="l00063"></a>00063                 <span class="keyword">const</span> std::string &amp; elementName, <span class="keyword">const</span> <a class="code" href="classdtd_1_1_content.html">Content</a>&amp; content)
+<a name="l00064"></a>00064 {
+<a name="l00065"></a>00065         _out &lt;&lt; OPEN_MARKUP_STR &lt;&lt; ELEMENT_MARKUP_NAME_STR
+<a name="l00066"></a>00066                         &lt;&lt; INSIDE_MARKUP_SPACE_STR &lt;&lt; elementName
+<a name="l00067"></a>00067                         &lt;&lt; INSIDE_MARKUP_SPACE_STR;
+<a name="l00068"></a>00068         content.<a class="code" href="classdtd_1_1_content.html#a403cc15f12eaa187ad493fa600540cd8">accept</a>(*<span class="keyword">this</span>);
+<a name="l00069"></a>00069         _out &lt;&lt; CLOSE_MARKUP_STR &lt;&lt; endl;
+<a name="l00070"></a><a class="code" href="classdtd_1_1_output_d_t_d_visitor.html#aa1b6474bd068eca43a6eb61e90ff7504">00070</a> }
+<a name="l00071"></a>00071 
+<a name="l00072"></a>00072 <span class="keywordtype">void</span> OutputDTDVisitor::visitAttributesList(<span class="keyword">const</span> std::string &amp; ns,
+<a name="l00073"></a>00073                 <span class="keyword">const</span> std::string &amp; elementName, <span class="keyword">const</span> <a class="code" href="namespacedtd.html#a8d5d29abb5de0468925f321597f57f4b">AttributesList</a> &amp; attlist)
+<a name="l00074"></a>00074 {
+<a name="l00075"></a>00075         _out &lt;&lt; OPEN_MARKUP_STR &lt;&lt; ATTLIST_MARKUP_NAME_STR
+<a name="l00076"></a>00076                         &lt;&lt; INSIDE_MARKUP_SPACE_STR &lt;&lt; elementName &lt;&lt; endl;
+<a name="l00077"></a>00077 
+<a name="l00078"></a>00078         _indent += _indentUnit;
+<a name="l00079"></a>00079         AttributesList::const_iterator it = attlist.begin();
+<a name="l00080"></a>00080 
+<a name="l00081"></a>00081         <span class="keywordflow">for</span> (; it != attlist.end(); it++)
+<a name="l00082"></a>00082         {
+<a name="l00083"></a>00083                 doIndent();
+<a name="l00084"></a>00084                 _out &lt;&lt; (*it)-&gt;name() &lt;&lt; <span class="stringliteral">&quot; CDATA #IMPLIED&quot;</span> &lt;&lt; endl;
+<a name="l00085"></a>00085         }
+<a name="l00086"></a>00086         _indent -= _indentUnit;
+<a name="l00087"></a>00087 
+<a name="l00088"></a>00088         doIndent();
+<a name="l00089"></a>00089         _out &lt;&lt; CLOSE_MARKUP_STR &lt;&lt; endl;
+<a name="l00090"></a>00090 }
+<a name="l00091"></a>00091 
+<a name="l00092"></a>00092 <span class="comment">//------------------------------------------------- Surcharge d&#39;opérateurs</span>
+<a name="l00093"></a>00093 
+<a name="l00094"></a><a class="code" href="classdtd_1_1_output_d_t_d_visitor.html#a08955c8d094f68867e38aff3d8dc43c8">00094</a> 
+<a name="l00095"></a>00095 <span class="comment">//-------------------------------------------- Constructeurs - destructeur</span>
+<a name="l00096"></a>00096 OutputDTDVisitor::OutputDTDVisitor(std::ostream &amp; out, <span class="keywordtype">char</span> indentChar,
+<a name="l00097"></a>00097                 <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> indentUnit) :
+<a name="l00098"></a>00098         _out(out), _indentChar(indentChar), _indentUnit(indentUnit), _indent(0)
+<a name="l00099"></a>00099 {
+<a name="l00100"></a>00100         <span class="comment">// Rien à faire.</span>
+<a name="l00101"></a><a class="code" href="classdtd_1_1_output_d_t_d_visitor.html#a718af27bc574809f02592f0816a71e2b">00101</a> }
+<a name="l00102"></a>00102 
+<a name="l00103"></a>00103 <a class="code" href="classdtd_1_1_output_d_t_d_visitor.html#a718af27bc574809f02592f0816a71e2b">OutputDTDVisitor::~OutputDTDVisitor</a>()
+<a name="l00104"></a>00104 {
+<a name="l00105"></a>00105         <span class="comment">// Rien à faire.</span>
+<a name="l00106"></a>00106 }
+<a name="l00107"></a>00107 
+<a name="l00108"></a>00108 <span class="comment">//------------------------------------------------------------------ PRIVE</span>
+<a name="l00109"></a>00109 
+<a name="l00110"></a><a class="code" href="classdtd_1_1_output_d_t_d_visitor.html#a5b8ee3a36a298245971b54b5307dd14f">00110</a> <span class="comment">//----------------------------------------------------- Méthodes protégées</span>
+<a name="l00111"></a>00111 
+<a name="l00112"></a>00112 <span class="keywordtype">void</span> <a class="code" href="classdtd_1_1_output_d_t_d_visitor.html#a5b8ee3a36a298245971b54b5307dd14f">OutputDTDVisitor::doIndent</a>()
+<a name="l00113"></a>00113 {
+<a name="l00114"></a>00114         <span class="keywordflow">if</span> (<a class="code" href="classdtd_1_1_output_d_t_d_visitor.html#a8659c38013b7a5ba99e78c295a224362">_indent</a> &gt; 0)
+<a name="l00115"></a>00115         {
+<a name="l00116"></a>00116                 <span class="keywordtype">char</span> fillChar = <a class="code" href="classdtd_1_1_output_d_t_d_visitor.html#a9a93007f2426887a2da46c30c5f2cc42">_out</a>.fill(<a class="code" href="classdtd_1_1_output_d_t_d_visitor.html#ae58e26bcaaa7c8681209a13934cea5f7">_indentChar</a>);
+<a name="l00117"></a>00117                 <a class="code" href="classdtd_1_1_output_d_t_d_visitor.html#a9a93007f2426887a2da46c30c5f2cc42">_out</a> &lt;&lt; setw(<a class="code" href="classdtd_1_1_output_d_t_d_visitor.html#a8659c38013b7a5ba99e78c295a224362">_indent</a>) &lt;&lt; <a class="code" href="classdtd_1_1_output_d_t_d_visitor.html#ae58e26bcaaa7c8681209a13934cea5f7">_indentChar</a>;
+<a name="l00118"></a>00118                 <a class="code" href="classdtd_1_1_output_d_t_d_visitor.html#a9a93007f2426887a2da46c30c5f2cc42">_out</a>.fill(fillChar);
+<a name="l00119"></a>00119         }
+<a name="l00120"></a><a class="code" href="classdtd_1_1_output_d_t_d_visitor.html#a17406ea51970e67da79947709945c4b1">00120</a> } <span class="comment">//----- Fin de doIndent</span>
+<a name="l00121"></a>00121 
+<a name="l00122"></a>00122 <span class="keywordtype">void</span> <a class="code" href="classdtd_1_1_output_d_t_d_visitor.html#a3eb81ed67c53e9aebb90a4558f13a402">OutputDTDVisitor::visit</a>(<span class="keyword">const</span> <a class="code" href="classdtd_1_1_any_content.html">AnyContent</a> &amp;)
+<a name="l00123"></a>00123 {
+<a name="l00124"></a>00124         <a class="code" href="classdtd_1_1_output_d_t_d_visitor.html#a9a93007f2426887a2da46c30c5f2cc42">_out</a> &lt;&lt; <a class="code" href="classdtd_1_1_output_d_t_d_visitor.html#a4f8609bcd2c8c20d1de80081835c48fc">ANY_CONTENT_STR</a>;
+<a name="l00125"></a><a class="code" href="classdtd_1_1_output_d_t_d_visitor.html#a3eb81ed67c53e9aebb90a4558f13a402">00125</a> }
+<a name="l00126"></a>00126 
+<a name="l00127"></a>00127 <span class="keywordtype">void</span> <a class="code" href="classdtd_1_1_output_d_t_d_visitor.html#a3eb81ed67c53e9aebb90a4558f13a402">OutputDTDVisitor::visit</a>(<span class="keyword">const</span> <a class="code" href="classdtd_1_1_empty_content.html">EmptyContent</a> &amp;)
+<a name="l00128"></a>00128 {
+<a name="l00129"></a>00129         <a class="code" href="classdtd_1_1_output_d_t_d_visitor.html#a9a93007f2426887a2da46c30c5f2cc42">_out</a> &lt;&lt; <a class="code" href="classdtd_1_1_output_d_t_d_visitor.html#af77ea7a3f4f05a3b3fea5a58a7d6de53">EMPTY_CONTENT_STR</a>;
+<a name="l00130"></a><a class="code" href="classdtd_1_1_output_d_t_d_visitor.html#a47692e383524d7804a6f5bf4d3f229b8">00130</a> }
+<a name="l00131"></a>00131 
+<a name="l00132"></a>00132 <span class="keywordtype">void</span> <a class="code" href="classdtd_1_1_output_d_t_d_visitor.html#a3eb81ed67c53e9aebb90a4558f13a402">OutputDTDVisitor::visit</a>(<span class="keyword">const</span> <a class="code" href="classdtd_1_1_mixed_content.html">MixedContent</a> &amp; content)
+<a name="l00133"></a>00133 {
+<a name="l00134"></a>00134         <a class="code" href="classdtd_1_1_output_d_t_d_visitor.html#a9a93007f2426887a2da46c30c5f2cc42">_out</a> &lt;&lt; <a class="code" href="classdtd_1_1_output_d_t_d_visitor.html#a254da51819583f6fd4501521f741042d">START_MIXED_STR</a>;
+<a name="l00135"></a>00135         <a class="code" href="classdtd_1_1_output_d_t_d_visitor.html#a9a93007f2426887a2da46c30c5f2cc42">_out</a> &lt;&lt; <span class="stringliteral">&quot;#PCDATA&quot;</span>;
+<a name="l00136"></a>00136 
+<a name="l00137"></a>00137         <span class="keywordflow">for</span> (<a class="code" href="classdtd_1_1_mixed_content.html#a801684f467b642e9e2de6297585ccf7b">MixedContent::const_iterator</a> it = content.<a class="code" href="classdtd_1_1_mixed_content.html#ae329052b86f20252a7adeab321b35379">begin</a>(); it != content.<a class="code" href="classdtd_1_1_mixed_content.html#a1d33a3179772862e611c962b23b7ff38">end</a>(); ++it)
+<a name="l00138"></a>00138         {
+<a name="l00139"></a>00139                 <a class="code" href="classdtd_1_1_output_d_t_d_visitor.html#a9a93007f2426887a2da46c30c5f2cc42">_out</a> &lt;&lt; <a class="code" href="classdtd_1_1_output_d_t_d_visitor.html#af583c776fabca5615d43da966dca600c">MIXED_SEPARATOR_STR</a>;
+<a name="l00140"></a>00140                 (*it)-&gt;accept(*<span class="keyword">this</span>);
+<a name="l00141"></a>00141         }
+<a name="l00142"></a>00142         <a class="code" href="classdtd_1_1_output_d_t_d_visitor.html#a9a93007f2426887a2da46c30c5f2cc42">_out</a> &lt;&lt; <a class="code" href="classdtd_1_1_output_d_t_d_visitor.html#a217915df1bfe131dae99679461140fcc">END_MIXED_STR</a>;
+<a name="l00143"></a><a class="code" href="classdtd_1_1_output_d_t_d_visitor.html#ad06e4a71ec8f36d91d59eb24ddc51f70">00143</a> }
+<a name="l00144"></a>00144 
+<a name="l00145"></a>00145 <span class="keywordtype">void</span> <a class="code" href="classdtd_1_1_output_d_t_d_visitor.html#a3eb81ed67c53e9aebb90a4558f13a402">OutputDTDVisitor::visit</a>(<span class="keyword">const</span> <a class="code" href="classdtd_1_1_text_content.html">TextContent</a> &amp;)
+<a name="l00146"></a>00146 {
+<a name="l00147"></a>00147         <a class="code" href="classdtd_1_1_output_d_t_d_visitor.html#a9a93007f2426887a2da46c30c5f2cc42">_out</a> &lt;&lt; <a class="code" href="classdtd_1_1_output_d_t_d_visitor.html#a83f802e6ceef88d9496b0aedf4d4541e">TEXT_CONTENT_STR</a>;
+<a name="l00148"></a><a class="code" href="classdtd_1_1_output_d_t_d_visitor.html#a4b286b6b0ca83035e25cef1ba6f10c47">00148</a> }
+<a name="l00149"></a>00149 
+<a name="l00150"></a>00150 <span class="keywordtype">void</span> <a class="code" href="classdtd_1_1_output_d_t_d_visitor.html#a3eb81ed67c53e9aebb90a4558f13a402">OutputDTDVisitor::visit</a>(<span class="keyword">const</span> <a class="code" href="classdtd_1_1_element_reference.html">ElementReference</a> &amp; element)
+<a name="l00151"></a>00151 {
+<a name="l00152"></a>00152         <a class="code" href="classdtd_1_1_output_d_t_d_visitor.html#a9a93007f2426887a2da46c30c5f2cc42">_out</a> &lt;&lt; element.<a class="code" href="classdtd_1_1_element_reference.html#aa478c58671bcfb2708364fb7dea35a29">name</a>();
+<a name="l00153"></a><a class="code" href="classdtd_1_1_output_d_t_d_visitor.html#a666c828c10840930fd420e86030e16f1">00153</a> }
+<a name="l00154"></a>00154 
+<a name="l00155"></a>00155 <span class="keywordtype">void</span> <a class="code" href="classdtd_1_1_output_d_t_d_visitor.html#a3eb81ed67c53e9aebb90a4558f13a402">OutputDTDVisitor::visit</a>(<span class="keyword">const</span> <a class="code" href="classdtd_1_1_choice.html">Choice</a> &amp; content)
+<a name="l00156"></a>00156 {
+<a name="l00157"></a>00157         <a class="code" href="classdtd_1_1_output_d_t_d_visitor.html#a9a93007f2426887a2da46c30c5f2cc42">_out</a> &lt;&lt; <a class="code" href="classdtd_1_1_output_d_t_d_visitor.html#ae66777110076859a443e00a9da55ff1b">START_CHOICE_STR</a>;
+<a name="l00158"></a>00158         <a class="code" href="classdtd_1_1_choice.html#a127d277a680fe88ae37034deeefbfca4">Choice::const_iterator</a> it = content.<a class="code" href="classdtd_1_1_choice.html#afc189b482d6c53c47620ee23403205e0">begin</a>();
+<a name="l00159"></a>00159         (*it)-&gt;accept(*<span class="keyword">this</span>);
+<a name="l00160"></a>00160         ++it;
+<a name="l00161"></a>00161 
+<a name="l00162"></a>00162         <span class="keywordflow">for</span> (; it != content.<a class="code" href="classdtd_1_1_choice.html#a65cea1b2b4c2ebb97650a0cc0153488e">end</a>(); ++it)
+<a name="l00163"></a>00163         {
+<a name="l00164"></a>00164                 <a class="code" href="classdtd_1_1_output_d_t_d_visitor.html#a9a93007f2426887a2da46c30c5f2cc42">_out</a> &lt;&lt; <a class="code" href="classdtd_1_1_output_d_t_d_visitor.html#a686bb62aed37769865a688fe50e55f0a">CHOICE_SEPARATOR_STR</a>;
+<a name="l00165"></a>00165                 (*it)-&gt;accept(*<span class="keyword">this</span>);
+<a name="l00166"></a>00166         }
+<a name="l00167"></a>00167         <a class="code" href="classdtd_1_1_output_d_t_d_visitor.html#a9a93007f2426887a2da46c30c5f2cc42">_out</a> &lt;&lt; <a class="code" href="classdtd_1_1_output_d_t_d_visitor.html#ab0306525af8ca54d3279c02a2d79da46">END_CHOICE_STR</a>;
+<a name="l00168"></a><a class="code" href="classdtd_1_1_output_d_t_d_visitor.html#a5b9434224d99c416da826a88cd11df3f">00168</a> }
+<a name="l00169"></a>00169 
+<a name="l00170"></a>00170 <span class="keywordtype">void</span> <a class="code" href="classdtd_1_1_output_d_t_d_visitor.html#a3eb81ed67c53e9aebb90a4558f13a402">OutputDTDVisitor::visit</a>(<span class="keyword">const</span> <a class="code" href="classdtd_1_1_sequence.html">Sequence</a> &amp; content)
+<a name="l00171"></a>00171 {
+<a name="l00172"></a>00172         <a class="code" href="classdtd_1_1_output_d_t_d_visitor.html#a9a93007f2426887a2da46c30c5f2cc42">_out</a> &lt;&lt; <a class="code" href="classdtd_1_1_output_d_t_d_visitor.html#a1b325fb88f176ce92e566fe4e6423c1c">START_SEQUENCE_STR</a>;
+<a name="l00173"></a>00173         <a class="code" href="classdtd_1_1_sequence.html#a497ef84646eebfccfb0b47ca526dd5cd">Sequence::const_iterator</a> it = content.<a class="code" href="classdtd_1_1_sequence.html#ae8a6613ea98f553fdb265509a83935ed">begin</a>();
+<a name="l00174"></a>00174         (*it)-&gt;accept(*<span class="keyword">this</span>);
+<a name="l00175"></a>00175         ++it;
+<a name="l00176"></a>00176 
+<a name="l00177"></a>00177         <span class="keywordflow">for</span> (; it != content.<a class="code" href="classdtd_1_1_sequence.html#a2419c3cfce9678c6f3e9848681d708b2">end</a>(); ++it)
+<a name="l00178"></a>00178         {
+<a name="l00179"></a>00179                 <a class="code" href="classdtd_1_1_output_d_t_d_visitor.html#a9a93007f2426887a2da46c30c5f2cc42">_out</a> &lt;&lt; <a class="code" href="classdtd_1_1_output_d_t_d_visitor.html#acfffbc0db723271579d1fd87dc699b05">SEQUENCE_SEPARATOR_STR</a>;
+<a name="l00180"></a>00180                 (*it)-&gt;accept(*<span class="keyword">this</span>);
+<a name="l00181"></a>00181         }
+<a name="l00182"></a>00182         <a class="code" href="classdtd_1_1_output_d_t_d_visitor.html#a9a93007f2426887a2da46c30c5f2cc42">_out</a> &lt;&lt; <a class="code" href="classdtd_1_1_output_d_t_d_visitor.html#a17ea023b24838b7b2a96fe56a2c574ea">END_SEQUENCE_STR</a>;
+<a name="l00183"></a><a class="code" href="classdtd_1_1_output_d_t_d_visitor.html#a5ea91964e78eef4fc0786708154204bc">00183</a> }
+<a name="l00184"></a>00184 
+<a name="l00185"></a>00185 <span class="keywordtype">void</span> <a class="code" href="classdtd_1_1_output_d_t_d_visitor.html#a3eb81ed67c53e9aebb90a4558f13a402">OutputDTDVisitor::visit</a>(<span class="keyword">const</span> <a class="code" href="classdtd_1_1_optional_content.html">OptionalContent</a> &amp; content)
+<a name="l00186"></a>00186 {
+<a name="l00187"></a>00187         content.<a class="code" href="classdtd_1_1_quantified_content.html#a5af034175edfa37f250b79b4c3ed3b92">content</a>().<a class="code" href="classdtd_1_1_content.html#a403cc15f12eaa187ad493fa600540cd8">accept</a>(*<span class="keyword">this</span>);
+<a name="l00188"></a>00188         <a class="code" href="classdtd_1_1_output_d_t_d_visitor.html#a9a93007f2426887a2da46c30c5f2cc42">_out</a> &lt;&lt; <a class="code" href="classdtd_1_1_output_d_t_d_visitor.html#a98f9105b5bccb426bc8a6e907a67b17f">OPTIONAL_QUANTIFIER_STR</a>;
+<a name="l00189"></a><a class="code" href="classdtd_1_1_output_d_t_d_visitor.html#a93c6d6c010e58356bf9ba29b56d561df">00189</a> }
+<a name="l00190"></a>00190 
+<a name="l00191"></a>00191 <span class="keywordtype">void</span> <a class="code" href="classdtd_1_1_output_d_t_d_visitor.html#a3eb81ed67c53e9aebb90a4558f13a402">OutputDTDVisitor::visit</a>(<span class="keyword">const</span> <a class="code" href="classdtd_1_1_repeatable_content.html">RepeatableContent</a> &amp; content)
+<a name="l00192"></a>00192 {
+<a name="l00193"></a>00193         content.<a class="code" href="classdtd_1_1_quantified_content.html#a5af034175edfa37f250b79b4c3ed3b92">content</a>().<a class="code" href="classdtd_1_1_content.html#a403cc15f12eaa187ad493fa600540cd8">accept</a>(*<span class="keyword">this</span>);
+<a name="l00194"></a>00194         <a class="code" href="classdtd_1_1_output_d_t_d_visitor.html#a9a93007f2426887a2da46c30c5f2cc42">_out</a> &lt;&lt; <a class="code" href="classdtd_1_1_output_d_t_d_visitor.html#a4041af52751607ff7ae188484d962d95">REPEATABLE_QUANTIFIER_STR</a>;
+<a name="l00195"></a><a class="code" href="classdtd_1_1_output_d_t_d_visitor.html#a01a2c44557480982c2ca5d3769e72c00">00195</a> }
+<a name="l00196"></a>00196 
+<a name="l00197"></a>00197 <span class="keywordtype">void</span> <a class="code" href="classdtd_1_1_output_d_t_d_visitor.html#a3eb81ed67c53e9aebb90a4558f13a402">OutputDTDVisitor::visit</a>(<span class="keyword">const</span> <a class="code" href="classdtd_1_1_repeated_content.html">RepeatedContent</a> &amp; content)
+<a name="l00198"></a>00198 {
+<a name="l00199"></a>00199         content.<a class="code" href="classdtd_1_1_quantified_content.html#a5af034175edfa37f250b79b4c3ed3b92">content</a>().<a class="code" href="classdtd_1_1_content.html#a403cc15f12eaa187ad493fa600540cd8">accept</a>(*<span class="keyword">this</span>);
+<a name="l00200"></a>00200         <a class="code" href="classdtd_1_1_output_d_t_d_visitor.html#a9a93007f2426887a2da46c30c5f2cc42">_out</a> &lt;&lt; <a class="code" href="classdtd_1_1_output_d_t_d_visitor.html#ae8c6ec6c1f6ae17d8705be7267b07a2f">REPEATED_QUANTIFIER_STR</a>;
+<a name="l00201"></a>00201 }
+<a name="l00202"></a>00202 
+<a name="l00203"></a>00203 } <span class="comment">// namespace dtd</span>
+</pre></div></div>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Espaces de nommage</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Définition de type</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Amis</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>Généré le Sun Apr 17 2011 19:07:13 pour DTDLib par&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.2 </small></address>
+</body>
+</html>

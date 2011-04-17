@@ -1,0 +1,126 @@
+\hypertarget{classdtd_1_1_content}{
+\section{Référence de la classe dtd::Content}
+\label{classdtd_1_1_content}\index{dtd::Content@{dtd::Content}}
+}
+
+
+{\ttfamily \#include $<$Content.hh$>$}
+
+
+
+Graphe d'héritage de dtd::Content:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=600pt]{classdtd_1_1_content__inherit__graph}
+\end{center}
+\end{figure}
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+virtual bool \hyperlink{classdtd_1_1_content_a2095fb10a09f6767aaf5e6da4b3018f1}{validate} (const xml::MarkupNode \&node)=0
+\item 
+virtual bool \hyperlink{classdtd_1_1_content_acaa15daa3a3a2cf11632c4c93dc2cf37}{validate} (const xml::CompositeMarkupNode \&node)=0
+\item 
+virtual void \hyperlink{classdtd_1_1_content_a403cc15f12eaa187ad493fa600540cd8}{accept} (\hyperlink{classdtd_1_1_interface_d_t_d_visitor}{InterfaceDTDVisitor} \&visitor) const =0
+\item 
+\hyperlink{classdtd_1_1_content_ada40895a73972471e215054350e8ad2a}{Content} ()
+\item 
+virtual \hyperlink{classdtd_1_1_content_a75648214659cc2adb115cdaafefc0e37}{$\sim$Content} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+
+
+Définition à la ligne 21 du fichier Content.hh.
+
+
+
+\subsection{Documentation des constructeurs et destructeur}
+\hypertarget{classdtd_1_1_content_ada40895a73972471e215054350e8ad2a}{
+\index{dtd::Content@{dtd::Content}!Content@{Content}}
+\index{Content@{Content}!dtd::Content@{dtd::Content}}
+\subsubsection[{Content}]{\setlength{\rightskip}{0pt plus 5cm}dtd::Content::Content (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{classdtd_1_1_content_ada40895a73972471e215054350e8ad2a}
+
+
+Définition à la ligne 38 du fichier Content.cpp.
+
+\hypertarget{classdtd_1_1_content_a75648214659cc2adb115cdaafefc0e37}{
+\index{dtd::Content@{dtd::Content}!$\sim$Content@{$\sim$Content}}
+\index{$\sim$Content@{$\sim$Content}!dtd::Content@{dtd::Content}}
+\subsubsection[{$\sim$Content}]{\setlength{\rightskip}{0pt plus 5cm}dtd::Content::$\sim$Content (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classdtd_1_1_content_a75648214659cc2adb115cdaafefc0e37}
+
+
+Définition à la ligne 43 du fichier Content.cpp.
+
+
+
+\subsection{Documentation des fonctions membres}
+\hypertarget{classdtd_1_1_content_a403cc15f12eaa187ad493fa600540cd8}{
+\index{dtd::Content@{dtd::Content}!accept@{accept}}
+\index{accept@{accept}!dtd::Content@{dtd::Content}}
+\subsubsection[{accept}]{\setlength{\rightskip}{0pt plus 5cm}virtual void dtd::Content::accept (
+\begin{DoxyParamCaption}
+\item[{{\bf InterfaceDTDVisitor} \&}]{ visitor}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}
+\label{classdtd_1_1_content_a403cc15f12eaa187ad493fa600540cd8}
+
+
+Implémenté dans \hyperlink{classdtd_1_1_any_content_ae9e5cecd79f91449de424a24944295cf}{dtd::AnyContent}, \hyperlink{classdtd_1_1_choice_a2eaed96716e6d7583c4b64f514c71b9d}{dtd::Choice}, \hyperlink{classdtd_1_1_element_reference_ade77978609f7a872d73c9507057f12a6}{dtd::ElementReference}, \hyperlink{classdtd_1_1_empty_content_a8440fe4e357b401e8db8d05baf59803e}{dtd::EmptyContent}, \hyperlink{classdtd_1_1_mixed_content_aea7a1312dc631047db037c84899f7a05}{dtd::MixedContent}, \hyperlink{classdtd_1_1_optional_content_a215be42249f1e54da514fdfc386ba21c}{dtd::OptionalContent}, \hyperlink{classdtd_1_1_repeatable_content_a28550745ec781816e4be44165dbb3934}{dtd::RepeatableContent}, \hyperlink{classdtd_1_1_repeated_content_af97dd8df71c00b1ec91d577671c8ed77}{dtd::RepeatedContent}, \hyperlink{classdtd_1_1_sequence_aa7ce2af63b36ed8be694d875488b108a}{dtd::Sequence}, et \hyperlink{classdtd_1_1_text_content_a5193fbafe92665d975b886a6ca18ac4f}{dtd::TextContent}.
+
+
+
+Voici le graphe d'appel pour cette fonction :
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=400pt]{classdtd_1_1_content_a403cc15f12eaa187ad493fa600540cd8_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classdtd_1_1_content_a2095fb10a09f6767aaf5e6da4b3018f1}{
+\index{dtd::Content@{dtd::Content}!validate@{validate}}
+\index{validate@{validate}!dtd::Content@{dtd::Content}}
+\subsubsection[{validate}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool dtd::Content::validate (
+\begin{DoxyParamCaption}
+\item[{const xml::MarkupNode \&}]{ node}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}
+\label{classdtd_1_1_content_a2095fb10a09f6767aaf5e6da4b3018f1}
+
+
+Implémenté dans \hyperlink{classdtd_1_1_any_content_a1c69a5e152cec9428a72b83e1a86da67}{dtd::AnyContent}, \hyperlink{classdtd_1_1_browsable_content_adbd9d013e126d5a1b601c3d781181bd4}{dtd::BrowsableContent}, et \hyperlink{classdtd_1_1_empty_content_a763480d5964b94051f15a7ee5fbb936b}{dtd::EmptyContent}.
+
+\hypertarget{classdtd_1_1_content_acaa15daa3a3a2cf11632c4c93dc2cf37}{
+\index{dtd::Content@{dtd::Content}!validate@{validate}}
+\index{validate@{validate}!dtd::Content@{dtd::Content}}
+\subsubsection[{validate}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool dtd::Content::validate (
+\begin{DoxyParamCaption}
+\item[{const xml::CompositeMarkupNode \&}]{ node}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}
+\label{classdtd_1_1_content_acaa15daa3a3a2cf11632c4c93dc2cf37}
+
+
+Implémenté dans \hyperlink{classdtd_1_1_any_content_a6bd017d55e1c6eb09bdb7944afe57ab2}{dtd::AnyContent}, \hyperlink{classdtd_1_1_browsable_content_a824a0c41b66aeea689e4283ee453d398}{dtd::BrowsableContent}, \hyperlink{classdtd_1_1_choice_ad0302d4e2b758025b430014fe8c20046}{dtd::Choice}, \hyperlink{classdtd_1_1_empty_content_a97da0ccd8f6156b168f13759c920c6cc}{dtd::EmptyContent}, \hyperlink{classdtd_1_1_mixed_content_a675bca1039d5dd8cced7fddb856428fd}{dtd::MixedContent}, \hyperlink{classdtd_1_1_quantified_content_a83733f23442035bdbcd976723ed753a4}{dtd::QuantifiedContent}, et \hyperlink{classdtd_1_1_sequence_a585eecddf1104ba42a15944ee4ff4b19}{dtd::Sequence}.
+
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants :\begin{DoxyCompactItemize}
+\item 
+src/\hyperlink{_content_8hh}{Content.hh}\item 
+src/\hyperlink{_content_8cpp}{Content.cpp}\end{DoxyCompactItemize}

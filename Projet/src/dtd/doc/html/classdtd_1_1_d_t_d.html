@@ -1,0 +1,582 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>DTDLib: Référence de la classe dtd::DTD</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javaScript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- Généré par Doxygen 1.7.2 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+--></script>
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="namespaces.html"><span>Espaces&#160;de&#160;nommage</span></a></li>
+      <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
+      <li><a href="files.html"><span>Fichiers</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="tabs2">
+    <ul class="tablist">
+      <li><a href="annotated.html"><span>Liste&#160;des&#160;classes</span></a></li>
+      <li><a href="classes.html"><span>Index&#160;des&#160;classes</span></a></li>
+      <li><a href="hierarchy.html"><span>Hiérarchie&#160;des&#160;classes</span></a></li>
+      <li><a href="functions.html"><span>Membres&#160;de&#160;classe</span></a></li>
+    </ul>
+  </div>
+  <div class="navpath">
+    <ul>
+      <li><a class="el" href="namespacedtd.html">dtd</a>      </li>
+      <li><a class="el" href="classdtd_1_1_d_t_d.html">DTD</a>      </li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Fonctions membres publiques</a> &#124;
+<a href="#pro-types">Types protégés</a> &#124;
+<a href="#pro-methods">Fonctions membres protégées</a> &#124;
+<a href="#pro-attribs">Attributs protégés</a>  </div>
+  <div class="headertitle">
+<h1>Référence de la classe dtd::DTD</h1>  </div>
+</div>
+<div class="contents">
+<!-- doxytag: class="dtd::DTD" -->
+<p><code>#include &lt;<a class="el" href="_d_t_d_8hh_source.html">DTD.hh</a>&gt;</code></p>
+
+<p><a href="classdtd_1_1_d_t_d-members.html">Liste de tous les membres</a></p>
+<table class="memberdecls">
+<tr><td colspan="2"><h2><a name="pub-methods"></a>
+Fonctions membres publiques</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdtd_1_1_d_t_d.html#acc2b63dcafbab0567708dddadca859d4">accept</a> (<a class="el" href="classdtd_1_1_interface_d_t_d_visitor.html">InterfaceDTDVisitor</a> &amp;visitor)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdtd_1_1_d_t_d.html#a1b0ba56addc8425b8e3c996e1bdb8fc1">addElement</a> (const std::string &amp;ns, const std::string &amp;elementName, <a class="el" href="classdtd_1_1_content.html">Content</a> &amp;content)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdtd_1_1_d_t_d.html#aa36c8c04bbc0e770242e338774583c83">addAttributesList</a> (const std::string &amp;ns, const std::string &amp;elementName, const <a class="el" href="namespacedtd.html#a8d5d29abb5de0468925f321597f57f4b">AttributesList</a> &amp;attribute)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdtd_1_1_d_t_d.html#ae05093e02a85c295d2fe1b04914ca9af">isValid</a> (const xml::Node &amp;root, const std::string &amp;validRootName)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdtd_1_1_d_t_d.html#ab1ba4d2d6d7e9d3521c21c3581f0e090">DTD</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdtd_1_1_d_t_d.html#ad9b422dbdadb18a93d3b0c2c0c5c1399">~DTD</a> ()</td></tr>
+<tr><td colspan="2"><h2><a name="pro-types"></a>
+Types protégés</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef std::pair&lt; std::string, <br class="typebreak"/>
+std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdtd_1_1_d_t_d.html#aebfee050799e642c65f08ff77cadfb4e">_ElementId</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef std::map&lt; <a class="el" href="classdtd_1_1_d_t_d.html#aebfee050799e642c65f08ff77cadfb4e">_ElementId</a>, <br class="typebreak"/>
+<a class="el" href="classdtd_1_1_content.html">Content</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdtd_1_1_d_t_d.html#a3acb9bcea95d9ad98d14b7851b6151c1">_Elements</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef std::map&lt; <a class="el" href="classdtd_1_1_d_t_d.html#aebfee050799e642c65f08ff77cadfb4e">_ElementId</a>, <br class="typebreak"/>
+<a class="el" href="namespacedtd.html#a8d5d29abb5de0468925f321597f57f4b">AttributesList</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdtd_1_1_d_t_d.html#ad0c96201d399a44b597764334d343752">_AttributesLists</a></td></tr>
+<tr><td colspan="2"><h2><a name="pro-methods"></a>
+Fonctions membres protégées</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdtd_1_1_d_t_d.html#afa42d6567898ce96adf1b31b1da235e8">visit</a> (const xml::TextNode &amp;node)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdtd_1_1_d_t_d.html#a7b21ffe9e0af0c815abedde305f0c241">visit</a> (const xml::MarkupNode &amp;node)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdtd_1_1_d_t_d.html#a46680bf029f0728fa10bb0568017f4ce">visit</a> (const xml::CompositeMarkupNode &amp;node)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdtd_1_1_d_t_d.html#a65a0b095665ae232ef40f1b9aad50387">checkAttributes</a> (const xml::MarkupNode &amp;node)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classdtd_1_1_content.html">Content</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdtd_1_1_d_t_d.html#ab1d76ad625a6fd3b64a4306cdc14400c">getElement</a> (std::string ns, std::string name) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="namespacedtd.html#a8d5d29abb5de0468925f321597f57f4b">AttributesList</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdtd_1_1_d_t_d.html#a531a239b85845e41a0422c6a60e59f63">getAttributesList</a> (std::string ns, std::string name) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdtd_1_1_d_t_d.html#a88b9e78103312ed1a7be0f644571606f">_isValid</a> (const xml::Node &amp;node)</td></tr>
+<tr><td colspan="2"><h2><a name="pro-attribs"></a>
+Attributs protégés</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classdtd_1_1_d_t_d.html#a3acb9bcea95d9ad98d14b7851b6151c1">_Elements</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdtd_1_1_d_t_d.html#ab28c987860b12e12e5b9e3c199b4a4fd">_elements</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classdtd_1_1_d_t_d.html#ad0c96201d399a44b597764334d343752">_AttributesLists</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdtd_1_1_d_t_d.html#aec11a99c5e351b44bbdef249500bb1ac">_attributesLists</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdtd_1_1_d_t_d.html#acd1f91b37ce5dd73597f880c08546d40">_validatingRoot</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdtd_1_1_d_t_d.html#ae2c393aa68abc63e9c5afe34770a75f5">_validRootName</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdtd_1_1_d_t_d.html#a1d27a4c5f57f3eac45bba4207fb0fa2e">_lastNodeIsValid</a></td></tr>
+</table>
+<hr/><a name="_details"></a><h2>Description détaillée</h2>
+
+<p>Définition à la ligne <a class="el" href="_d_t_d_8hh_source.html#l00024">24</a> du fichier <a class="el" href="_d_t_d_8hh_source.html">DTD.hh</a>.</p>
+<hr/><h2>Documentation des définitions de type membres</h2>
+<a class="anchor" id="ad0c96201d399a44b597764334d343752"></a><!-- doxytag: member="dtd::DTD::_AttributesLists" ref="ad0c96201d399a44b597764334d343752" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef std::map&lt;<a class="el" href="classdtd_1_1_d_t_d.html#aebfee050799e642c65f08ff77cadfb4e">_ElementId</a>, <a class="el" href="namespacedtd.html#a8d5d29abb5de0468925f321597f57f4b">AttributesList</a>&gt; <a class="el" href="classdtd_1_1_d_t_d.html#ad0c96201d399a44b597764334d343752">dtd::DTD::_AttributesLists</a><code> [protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Définition à la ligne <a class="el" href="_d_t_d_8hh_source.html#l00081">81</a> du fichier <a class="el" href="_d_t_d_8hh_source.html">DTD.hh</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aebfee050799e642c65f08ff77cadfb4e"></a><!-- doxytag: member="dtd::DTD::_ElementId" ref="aebfee050799e642c65f08ff77cadfb4e" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef std::pair&lt;std::string, std::string&gt; <a class="el" href="classdtd_1_1_d_t_d.html#aebfee050799e642c65f08ff77cadfb4e">dtd::DTD::_ElementId</a><code> [protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Définition à la ligne <a class="el" href="_d_t_d_8hh_source.html#l00079">79</a> du fichier <a class="el" href="_d_t_d_8hh_source.html">DTD.hh</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a3acb9bcea95d9ad98d14b7851b6151c1"></a><!-- doxytag: member="dtd::DTD::_Elements" ref="a3acb9bcea95d9ad98d14b7851b6151c1" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef std::map&lt;<a class="el" href="classdtd_1_1_d_t_d.html#aebfee050799e642c65f08ff77cadfb4e">_ElementId</a>, <a class="el" href="classdtd_1_1_content.html">Content</a>*&gt; <a class="el" href="classdtd_1_1_d_t_d.html#a3acb9bcea95d9ad98d14b7851b6151c1">dtd::DTD::_Elements</a><code> [protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Définition à la ligne <a class="el" href="_d_t_d_8hh_source.html#l00080">80</a> du fichier <a class="el" href="_d_t_d_8hh_source.html">DTD.hh</a>.</p>
+
+</div>
+</div>
+<hr/><h2>Documentation des constructeurs et destructeur</h2>
+<a class="anchor" id="ab1ba4d2d6d7e9d3521c21c3581f0e090"></a><!-- doxytag: member="dtd::DTD::DTD" ref="ab1ba4d2d6d7e9d3521c21c3581f0e090" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">dtd::DTD::DTD </td>
+          <td>(</td>
+          <td class="paramname">&#160;)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Définition à la ligne <a class="el" href="_d_t_d_8cpp_source.html#l00134">134</a> du fichier <a class="el" href="_d_t_d_8cpp_source.html">DTD.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad9b422dbdadb18a93d3b0c2c0c5c1399"></a><!-- doxytag: member="dtd::DTD::~DTD" ref="ad9b422dbdadb18a93d3b0c2c0c5c1399" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">dtd::DTD::~DTD </td>
+          <td>(</td>
+          <td class="paramname">&#160;)</td>
+          <td><code> [virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Définition à la ligne <a class="el" href="_d_t_d_8cpp_source.html#l00141">141</a> du fichier <a class="el" href="_d_t_d_8cpp_source.html">DTD.cpp</a>.</p>
+
+</div>
+</div>
+<hr/><h2>Documentation des fonctions membres</h2>
+<a class="anchor" id="a88b9e78103312ed1a7be0f644571606f"></a><!-- doxytag: member="dtd::DTD::_isValid" ref="a88b9e78103312ed1a7be0f644571606f" args="(const xml::Node &amp;node)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool dtd::DTD::_isValid </td>
+          <td>(</td>
+          <td class="paramtype">const xml::Node &amp;&#160;</td>
+          <td class="paramname"> <em>node</em>&#160;)</td>
+          <td><code> [protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Définition à la ligne <a class="el" href="_d_t_d_8cpp_source.html#l00161">161</a> du fichier <a class="el" href="_d_t_d_8cpp_source.html">DTD.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="acc2b63dcafbab0567708dddadca859d4"></a><!-- doxytag: member="dtd::DTD::accept" ref="acc2b63dcafbab0567708dddadca859d4" args="(InterfaceDTDVisitor &amp;visitor)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void dtd::DTD::accept </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classdtd_1_1_interface_d_t_d_visitor.html">InterfaceDTDVisitor</a> &amp;&#160;</td>
+          <td class="paramname"> <em>visitor</em>&#160;)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Définition à la ligne <a class="el" href="_d_t_d_8cpp_source.html#l00041">41</a> du fichier <a class="el" href="_d_t_d_8cpp_source.html">DTD.cpp</a>.</p>
+
+<p><!-- startSectionHeader --><div class="dynheader">
+Voici le graphe d'appel pour cette fonction :<!-- endSectionHeader --></div>
+<!-- startSectionSummary --><!-- endSectionSummary --><!-- startSectionContent --><div class="dyncontent">
+<div class="center"><img src="classdtd_1_1_d_t_d_acc2b63dcafbab0567708dddadca859d4_cgraph.png" border="0" usemap="#classdtd_1_1_d_t_d_acc2b63dcafbab0567708dddadca859d4_cgraph" alt=""/></div>
+<map name="classdtd_1_1_d_t_d_acc2b63dcafbab0567708dddadca859d4_cgraph" id="classdtd_1_1_d_t_d_acc2b63dcafbab0567708dddadca859d4_cgraph">
+<area shape="rect" id="node3" href="classdtd_1_1_interface_d_t_d_visitor.html#a729d9fcb360d9bf45210aac109b388da" title="dtd::InterfaceDTDVisitor::visitAttributesList" alt="" coords="253,5,728,43"/><area shape="rect" id="node5" href="classdtd_1_1_interface_d_t_d_visitor.html#a46b882a06961ea04fd43b2a9d937118b" title="dtd::InterfaceDTDVisitor::visitElement" alt="" coords="281,66,700,105"/></map>
+<!-- endSectionContent --></div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="aa36c8c04bbc0e770242e338774583c83"></a><!-- doxytag: member="dtd::DTD::addAttributesList" ref="aa36c8c04bbc0e770242e338774583c83" args="(const std::string &amp;ns, const std::string &amp;elementName, const AttributesList &amp;attribute)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void dtd::DTD::addAttributesList </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"> <em>ns</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"> <em>elementName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespacedtd.html#a8d5d29abb5de0468925f321597f57f4b">AttributesList</a> &amp;&#160;</td>
+          <td class="paramname"> <em>attribute</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Définition à la ligne <a class="el" href="_d_t_d_8cpp_source.html#l00071">71</a> du fichier <a class="el" href="_d_t_d_8cpp_source.html">DTD.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a1b0ba56addc8425b8e3c996e1bdb8fc1"></a><!-- doxytag: member="dtd::DTD::addElement" ref="a1b0ba56addc8425b8e3c996e1bdb8fc1" args="(const std::string &amp;ns, const std::string &amp;elementName, Content &amp;content)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void dtd::DTD::addElement </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"> <em>ns</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"> <em>elementName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classdtd_1_1_content.html">Content</a> &amp;&#160;</td>
+          <td class="paramname"> <em>content</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Définition à la ligne <a class="el" href="_d_t_d_8cpp_source.html#l00057">57</a> du fichier <a class="el" href="_d_t_d_8cpp_source.html">DTD.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a65a0b095665ae232ef40f1b9aad50387"></a><!-- doxytag: member="dtd::DTD::checkAttributes" ref="a65a0b095665ae232ef40f1b9aad50387" args="(const xml::MarkupNode &amp;node)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool dtd::DTD::checkAttributes </td>
+          <td>(</td>
+          <td class="paramtype">const xml::MarkupNode &amp;&#160;</td>
+          <td class="paramname"> <em>node</em>&#160;)</td>
+          <td><code> [protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Définition à la ligne <a class="el" href="_d_t_d_8cpp_source.html#l00250">250</a> du fichier <a class="el" href="_d_t_d_8cpp_source.html">DTD.cpp</a>.</p>
+
+<p><!-- startSectionHeader --><div class="dynheader">
+Voici le graphe d'appel pour cette fonction :<!-- endSectionHeader --></div>
+<!-- startSectionSummary --><!-- endSectionSummary --><!-- startSectionContent --><div class="dyncontent">
+<div class="center"><img src="classdtd_1_1_d_t_d_a65a0b095665ae232ef40f1b9aad50387_cgraph.png" border="0" usemap="#classdtd_1_1_d_t_d_a65a0b095665ae232ef40f1b9aad50387_cgraph" alt=""/></div>
+<map name="classdtd_1_1_d_t_d_a65a0b095665ae232ef40f1b9aad50387_cgraph" id="classdtd_1_1_d_t_d_a65a0b095665ae232ef40f1b9aad50387_cgraph">
+<area shape="rect" id="node3" href="classdtd_1_1_d_t_d.html#a531a239b85845e41a0422c6a60e59f63" title="dtd::DTD::getAttributesList" alt="" coords="349,5,653,43"/></map>
+<!-- endSectionContent --></div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a531a239b85845e41a0422c6a60e59f63"></a><!-- doxytag: member="dtd::DTD::getAttributesList" ref="a531a239b85845e41a0422c6a60e59f63" args="(std::string ns, std::string name) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="namespacedtd.html#a8d5d29abb5de0468925f321597f57f4b">AttributesList</a> * dtd::DTD::getAttributesList </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"> <em>ns</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"> <em>name</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const<code> [protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Définition à la ligne <a class="el" href="_d_t_d_8cpp_source.html#l00107">107</a> du fichier <a class="el" href="_d_t_d_8cpp_source.html">DTD.cpp</a>.</p>
+
+<p><!-- startSectionHeader --><div class="dynheader">
+Voici le graphe d'appel pour cette fonction :<!-- endSectionHeader --></div>
+<!-- startSectionSummary --><!-- endSectionSummary --><!-- startSectionContent --><div class="dyncontent">
+<div class="center"><img src="classdtd_1_1_d_t_d_a531a239b85845e41a0422c6a60e59f63_icgraph.png" border="0" usemap="#classdtd_1_1_d_t_d_a531a239b85845e41a0422c6a60e59f63_icgraph" alt=""/></div>
+<map name="classdtd_1_1_d_t_d_a531a239b85845e41a0422c6a60e59f63_icgraph" id="classdtd_1_1_d_t_d_a531a239b85845e41a0422c6a60e59f63_icgraph">
+<area shape="rect" id="node3" href="classdtd_1_1_d_t_d.html#a65a0b095665ae232ef40f1b9aad50387" title="dtd::DTD::checkAttributes" alt="" coords="359,5,652,43"/></map>
+<!-- endSectionContent --></div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ab1d76ad625a6fd3b64a4306cdc14400c"></a><!-- doxytag: member="dtd::DTD::getElement" ref="ab1d76ad625a6fd3b64a4306cdc14400c" args="(std::string ns, std::string name) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classdtd_1_1_content.html">Content</a> * dtd::DTD::getElement </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"> <em>ns</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"> <em>name</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const<code> [protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Définition à la ligne <a class="el" href="_d_t_d_8cpp_source.html#l00092">92</a> du fichier <a class="el" href="_d_t_d_8cpp_source.html">DTD.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae05093e02a85c295d2fe1b04914ca9af"></a><!-- doxytag: member="dtd::DTD::isValid" ref="ae05093e02a85c295d2fe1b04914ca9af" args="(const xml::Node &amp;root, const std::string &amp;validRootName)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool dtd::DTD::isValid </td>
+          <td>(</td>
+          <td class="paramtype">const xml::Node &amp;&#160;</td>
+          <td class="paramname"> <em>root</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"> <em>validRootName</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Définition à la ligne <a class="el" href="_d_t_d_8cpp_source.html#l00123">123</a> du fichier <a class="el" href="_d_t_d_8cpp_source.html">DTD.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a46680bf029f0728fa10bb0568017f4ce"></a><!-- doxytag: member="dtd::DTD::visit" ref="a46680bf029f0728fa10bb0568017f4ce" args="(const xml::CompositeMarkupNode &amp;node)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void dtd::DTD::visit </td>
+          <td>(</td>
+          <td class="paramtype">const xml::CompositeMarkupNode &amp;&#160;</td>
+          <td class="paramname"> <em>node</em>&#160;)</td>
+          <td><code> [protected, virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="afa42d6567898ce96adf1b31b1da235e8"></a><!-- doxytag: member="dtd::DTD::visit" ref="afa42d6567898ce96adf1b31b1da235e8" args="(const xml::TextNode &amp;node)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void dtd::DTD::visit </td>
+          <td>(</td>
+          <td class="paramtype">const xml::TextNode &amp;&#160;</td>
+          <td class="paramname"> <em>node</em>&#160;)</td>
+          <td><code> [protected, virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a7b21ffe9e0af0c815abedde305f0c241"></a><!-- doxytag: member="dtd::DTD::visit" ref="a7b21ffe9e0af0c815abedde305f0c241" args="(const xml::MarkupNode &amp;node)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void dtd::DTD::visit </td>
+          <td>(</td>
+          <td class="paramtype">const xml::MarkupNode &amp;&#160;</td>
+          <td class="paramname"> <em>node</em>&#160;)</td>
+          <td><code> [protected, virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<hr/><h2>Documentation des données membres</h2>
+<a class="anchor" id="aec11a99c5e351b44bbdef249500bb1ac"></a><!-- doxytag: member="dtd::DTD::_attributesLists" ref="aec11a99c5e351b44bbdef249500bb1ac" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classdtd_1_1_d_t_d.html#ad0c96201d399a44b597764334d343752">_AttributesLists</a> <a class="el" href="classdtd_1_1_d_t_d.html#aec11a99c5e351b44bbdef249500bb1ac">dtd::DTD::_attributesLists</a><code> [protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Définition à la ligne <a class="el" href="_d_t_d_8hh_source.html#l00084">84</a> du fichier <a class="el" href="_d_t_d_8hh_source.html">DTD.hh</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab28c987860b12e12e5b9e3c199b4a4fd"></a><!-- doxytag: member="dtd::DTD::_elements" ref="ab28c987860b12e12e5b9e3c199b4a4fd" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classdtd_1_1_d_t_d.html#a3acb9bcea95d9ad98d14b7851b6151c1">_Elements</a> <a class="el" href="classdtd_1_1_d_t_d.html#ab28c987860b12e12e5b9e3c199b4a4fd">dtd::DTD::_elements</a><code> [protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Définition à la ligne <a class="el" href="_d_t_d_8hh_source.html#l00083">83</a> du fichier <a class="el" href="_d_t_d_8hh_source.html">DTD.hh</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a1d27a4c5f57f3eac45bba4207fb0fa2e"></a><!-- doxytag: member="dtd::DTD::_lastNodeIsValid" ref="a1d27a4c5f57f3eac45bba4207fb0fa2e" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classdtd_1_1_d_t_d.html#a1d27a4c5f57f3eac45bba4207fb0fa2e">dtd::DTD::_lastNodeIsValid</a><code> [protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Définition à la ligne <a class="el" href="_d_t_d_8hh_source.html#l00088">88</a> du fichier <a class="el" href="_d_t_d_8hh_source.html">DTD.hh</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="acd1f91b37ce5dd73597f880c08546d40"></a><!-- doxytag: member="dtd::DTD::_validatingRoot" ref="acd1f91b37ce5dd73597f880c08546d40" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classdtd_1_1_d_t_d.html#acd1f91b37ce5dd73597f880c08546d40">dtd::DTD::_validatingRoot</a><code> [protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Définition à la ligne <a class="el" href="_d_t_d_8hh_source.html#l00086">86</a> du fichier <a class="el" href="_d_t_d_8hh_source.html">DTD.hh</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae2c393aa68abc63e9c5afe34770a75f5"></a><!-- doxytag: member="dtd::DTD::_validRootName" ref="ae2c393aa68abc63e9c5afe34770a75f5" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string <a class="el" href="classdtd_1_1_d_t_d.html#ae2c393aa68abc63e9c5afe34770a75f5">dtd::DTD::_validRootName</a><code> [protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Définition à la ligne <a class="el" href="_d_t_d_8hh_source.html#l00087">87</a> du fichier <a class="el" href="_d_t_d_8hh_source.html">DTD.hh</a>.</p>
+
+</div>
+</div>
+<hr/>La documentation de cette classe a été générée à partir des fichiers suivants :<ul>
+<li>src/<a class="el" href="_d_t_d_8hh_source.html">DTD.hh</a></li>
+<li>src/<a class="el" href="_d_t_d_8cpp_source.html">DTD.cpp</a></li>
+</ul>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Espaces de nommage</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Définition de type</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Amis</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>Généré le Sun Apr 17 2011 19:07:15 pour DTDLib par&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.2 </small></address>
+</body>
+</html>

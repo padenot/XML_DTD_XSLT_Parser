@@ -1,0 +1,20 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$_choice_8hh.html" title="src/Choice.hh" alt="" coords="404,94,569,133"/>
+<area shape="rect" id="node14" href="$_element_content_8cpp.html" title="src/ElementContent.cpp" alt="" coords="1596,94,1873,133"/>
+<area shape="rect" id="node16" href="$_element_reference_8hh.html" title="src/ElementReference.hh" alt="" coords="472,182,760,221"/>
+<area shape="rect" id="node22" href="$_quantified_content_8hh.html" title="src/QuantifiedContent.hh" alt="" coords="1281,94,1572,133"/>
+<area shape="rect" id="node41" href="$_sequence_8hh.html" title="src/Sequence.hh" alt="" coords="820,94,1017,133"/>
+<area shape="rect" id="node5" href="$_choice_8cpp.html" title="src/Choice.cpp" alt="" coords="269,182,448,221"/>
+<area shape="rect" id="node7" href="$_mixed_content_8hh.html" title="src/MixedContent.hh" alt="" coords="5,182,245,221"/>
+<area shape="rect" id="node11" href="$_output_d_t_d_visitor_8cpp.html" title="src/OutputDTDVisitor.cpp" alt="" coords="747,270,1037,309"/>
+<area shape="rect" id="node9" href="$_mixed_content_8cpp.html" title="src/MixedContent.cpp" alt="" coords="93,270,347,309"/>
+<area shape="rect" id="node18" href="$_element_reference_8cpp.html" title="src/ElementReference.cpp" alt="" coords="421,270,723,309"/>
+<area shape="rect" id="node24" href="$_optional_content_8hh.html" title="src/OptionalContent.hh" alt="" coords="1747,182,2016,221"/>
+<area shape="rect" id="node29" href="$_repeatable_content_8hh.html" title="src/RepeatableContent.hh" alt="" coords="2040,182,2339,221"/>
+<area shape="rect" id="node34" href="$_repeated_content_8hh.html" title="src/RepeatedContent.hh" alt="" coords="1445,182,1723,221"/>
+<area shape="rect" id="node39" href="$_quantified_content_8cpp.html" title="src/QuantifiedContent.cpp" alt="" coords="1120,182,1421,221"/>
+<area shape="rect" id="node26" href="$_optional_content_8cpp.html" title="src/OptionalContent.cpp" alt="" coords="1741,270,2021,309"/>
+<area shape="rect" id="node32" href="$_repeatable_content_8cpp.html" title="src/RepeatableContent.cpp" alt="" coords="2045,270,2355,309"/>
+<area shape="rect" id="node37" href="$_repeated_content_8cpp.html" title="src/RepeatedContent.cpp" alt="" coords="1427,270,1717,309"/>
+<area shape="rect" id="node44" href="$_sequence_8cpp.html" title="src/Sequence.cpp" alt="" coords="885,182,1096,221"/>
+</map>

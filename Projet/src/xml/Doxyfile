@@ -5,7 +5,7 @@
 DOXYFILE_ENCODING      = UTF-8
 PROJECT_NAME           = XMLLib
 PROJECT_NUMBER         = 0.1
-OUTPUT_DIRECTORY       = /Users/maximegaudin/Documents/Professionel/INSA/4IF/TP/Grammaire_et_langage/Projet/src/xml/doc
+OUTPUT_DIRECTORY       = doc 
 CREATE_SUBDIRS         = NO
 OUTPUT_LANGUAGE        = French
 BRIEF_MEMBER_DESC      = YES
@@ -99,7 +99,7 @@ ABBREVIATE_BRIEF       = "The $name class" \
 #---------------------------------------------------------------------------
 # configuration options related to the input files
 #---------------------------------------------------------------------------
-			  INPUT                  = /Users/maximegaudin/Documents/Professionel/INSA/4IF/TP/Grammaire_et_langage/Projet/src/xml/src
+			  INPUT                  = src
 			  INPUT_ENCODING         = UTF-8
 			  FILE_PATTERNS          = *.c \
 						   *.cc \

@@ -1,0 +1,5 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$structdtd_1_1_quantifiable_content_1_1___state.html" title="{dtd::QuantifiableContent::_State\n|+ firstToken\l+ endToken\l+ nextStep\l|+ _State()\l}" alt="" coords="5,734,371,901"/>
+<area shape="rect" id="node4" href="$classdtd_1_1_browsable_content.html" title="{dtd::BrowsableContent\n||+ validate()\l+ validate()\l+ BrowsableContent()\l+ ~BrowsableContent()\l# _newValidation()\l# _startValidation()\l# _continueValidation()\l# _beforeValidation()\l# _afterValidation()\l# _browseDown()\l# _browseUp()\l}" alt="" coords="51,278,325,658"/>
+<area shape="rect" id="node6" href="$classdtd_1_1_content.html" title="{dtd::Content\n||+ validate()\l+ validate()\l+ accept()\l+ Content()\l+ ~Content()\l}" alt="" coords="105,6,271,226"/>
+</map>

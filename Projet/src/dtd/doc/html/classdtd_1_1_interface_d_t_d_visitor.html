@@ -1,0 +1,590 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>DTDLib: Référence de la classe dtd::InterfaceDTDVisitor</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javaScript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- Généré par Doxygen 1.7.2 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+--></script>
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="namespaces.html"><span>Espaces&#160;de&#160;nommage</span></a></li>
+      <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
+      <li><a href="files.html"><span>Fichiers</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="tabs2">
+    <ul class="tablist">
+      <li><a href="annotated.html"><span>Liste&#160;des&#160;classes</span></a></li>
+      <li><a href="classes.html"><span>Index&#160;des&#160;classes</span></a></li>
+      <li><a href="hierarchy.html"><span>Hiérarchie&#160;des&#160;classes</span></a></li>
+      <li><a href="functions.html"><span>Membres&#160;de&#160;classe</span></a></li>
+    </ul>
+  </div>
+  <div class="navpath">
+    <ul>
+      <li><a class="el" href="namespacedtd.html">dtd</a>      </li>
+      <li><a class="el" href="classdtd_1_1_interface_d_t_d_visitor.html">InterfaceDTDVisitor</a>      </li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Fonctions membres publiques</a> &#124;
+<a href="#pro-methods">Fonctions membres protégées</a> &#124;
+<a href="#friends">Amis</a>  </div>
+  <div class="headertitle">
+<h1>Référence de la classe dtd::InterfaceDTDVisitor</h1>  </div>
+</div>
+<div class="contents">
+<!-- doxytag: class="dtd::InterfaceDTDVisitor" -->
+<p><code>#include &lt;<a class="el" href="_interface_d_t_d_visitor_8hpp_source.html">InterfaceDTDVisitor.hpp</a>&gt;</code></p>
+<!-- startSectionHeader --><div class="dynheader">
+Graphe d'héritage de dtd::InterfaceDTDVisitor:<!-- endSectionHeader --></div>
+<!-- startSectionSummary --><!-- endSectionSummary --><!-- startSectionContent --><div class="dyncontent">
+<div class="center"><img src="classdtd_1_1_interface_d_t_d_visitor__inherit__graph.png" border="0" usemap="#dtd_1_1_interface_d_t_d_visitor_inherit__map" alt="Inheritance graph"/></div>
+<map name="dtd_1_1_interface_d_t_d_visitor_inherit__map" id="dtd_1_1_interface_d_t_d_visitor_inherit__map">
+<area shape="rect" id="node3" href="classdtd_1_1_output_d_t_d_visitor.html" title="{dtd::OutputDTDVisitor\n|# _out\l# _indentChar\l# _indentUnit\l# _indent\l# DEFAULT_INDENT_CHAR\l# DEFAULT_INDENT_UNIT\l# OPEN_MARKUP_STR\l# ELEMENT_MARKUP_NAME_STR\l# ATTLIST_MARKUP_NAME_STR\l# INSIDE_MARKUP_SPACE_STR\l# START_SEQUENCE_STR\l# SEQUENCE_SEPARATOR_STR\l# END_SEQUENCE_STR\l# START_CHOICE_STR\l# CHOICE_SEPARATOR_STR\l# END_CHOICE_STR\l# START_MIXED_STR\l# MIXED_SEPARATOR_STR\l# END_MIXED_STR\l# EMPTY_CONTENT_STR\l# ANY_CONTENT_STR\l# TEXT_CONTENT_STR\l# OPTIONAL_QUANTIFIER_STR\l# REPEATABLE_QUANTIFIER_STR\l# REPEATED_QUANTIFIER_STR\l# CLOSE_MARKUP_STR\l|+ visitElement()\l+ visitAttributesList()\l+ OutputDTDVisitor()\l+ ~OutputDTDVisitor()\l# doIndent()\l# visit()\l# visit()\l# visit()\l# visit()\l# visit()\l# visit()\l# visit()\l# visit()\l# visit()\l# visit()\l}" alt="" coords="5,489,373,1642"/></map>
+<center><span class="legend">[<a href="graph_legend.html">légende</a>]</span></center><!-- endSectionContent --></div>
+
+<p><a href="classdtd_1_1_interface_d_t_d_visitor-members.html">Liste de tous les membres</a></p>
+<table class="memberdecls">
+<tr><td colspan="2"><h2><a name="pub-methods"></a>
+Fonctions membres publiques</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdtd_1_1_interface_d_t_d_visitor.html#a46b882a06961ea04fd43b2a9d937118b">visitElement</a> (const std::string &amp;ns, const std::string &amp;elementName, const <a class="el" href="classdtd_1_1_content.html">Content</a> &amp;content)=0</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdtd_1_1_interface_d_t_d_visitor.html#a729d9fcb360d9bf45210aac109b388da">visitAttributesList</a> (const std::string &amp;ns, const std::string &amp;elementName, const <a class="el" href="namespacedtd.html#a8d5d29abb5de0468925f321597f57f4b">AttributesList</a> &amp;attlist)=0</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdtd_1_1_interface_d_t_d_visitor.html#aef94cba5e56a7891a24b236176a2075a">~InterfaceDTDVisitor</a> ()</td></tr>
+<tr><td colspan="2"><h2><a name="pro-methods"></a>
+Fonctions membres protégées</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdtd_1_1_interface_d_t_d_visitor.html#ac2d1f472564e590bbe66f14ab096167a">visit</a> (const <a class="el" href="classdtd_1_1_any_content.html">AnyContent</a> &amp;content)=0</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdtd_1_1_interface_d_t_d_visitor.html#abdf03eb698f07aa0caaa405711fc8aac">visit</a> (const <a class="el" href="classdtd_1_1_empty_content.html">EmptyContent</a> &amp;content)=0</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdtd_1_1_interface_d_t_d_visitor.html#a06be244faf5995ac7ca502b326db10e0">visit</a> (const <a class="el" href="classdtd_1_1_mixed_content.html">MixedContent</a> &amp;content)=0</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdtd_1_1_interface_d_t_d_visitor.html#abd31e761d6d8ab80ac6f3f0a9a20b953">visit</a> (const <a class="el" href="classdtd_1_1_text_content.html">TextContent</a> &amp;content)=0</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdtd_1_1_interface_d_t_d_visitor.html#aaac54822c9519b08305a64aab110716b">visit</a> (const <a class="el" href="classdtd_1_1_element_reference.html">ElementReference</a> &amp;element)=0</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdtd_1_1_interface_d_t_d_visitor.html#a4323aeef86fa385a44fd4572ccc36cd2">visit</a> (const <a class="el" href="classdtd_1_1_choice.html">Choice</a> &amp;content)=0</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdtd_1_1_interface_d_t_d_visitor.html#aa093199d020b5887fbaa8af1573afc51">visit</a> (const <a class="el" href="classdtd_1_1_sequence.html">Sequence</a> &amp;content)=0</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdtd_1_1_interface_d_t_d_visitor.html#a444ada6db2f531579579de7b8fd5fd53">visit</a> (const <a class="el" href="classdtd_1_1_optional_content.html">OptionalContent</a> &amp;content)=0</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdtd_1_1_interface_d_t_d_visitor.html#a76bd6fb0307eea7fc6ef703cf09a07b9">visit</a> (const <a class="el" href="classdtd_1_1_repeatable_content.html">RepeatableContent</a> &amp;content)=0</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdtd_1_1_interface_d_t_d_visitor.html#a8a2ce739049697fcc2a7126adea4536a">visit</a> (const <a class="el" href="classdtd_1_1_repeated_content.html">RepeatedContent</a> &amp;content)=0</td></tr>
+<tr><td colspan="2"><h2><a name="friends"></a>
+Amis</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdtd_1_1_interface_d_t_d_visitor.html#a98eaefc8d4a0da1a8f9c254c62a68759">AnyContent</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdtd_1_1_interface_d_t_d_visitor.html#a91eaa900fb18be6cd9a7105c964666fb">EmptyContent</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdtd_1_1_interface_d_t_d_visitor.html#a94c4de9fad580ef7aa4f384bf0c2b861">MixedContent</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdtd_1_1_interface_d_t_d_visitor.html#aa641efa971cba38c6181cdc71b30df90">TextContent</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdtd_1_1_interface_d_t_d_visitor.html#a21b7004458ebe5b88f6d6edb6d059a34">ElementReference</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdtd_1_1_interface_d_t_d_visitor.html#af8084f88f5641132057732496deab026">Choice</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdtd_1_1_interface_d_t_d_visitor.html#a26271d5afaff6e6d3f00c055c63d0b24">Sequence</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdtd_1_1_interface_d_t_d_visitor.html#a90839fb65068433fb68ba4e59462f869">OptionalContent</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdtd_1_1_interface_d_t_d_visitor.html#ad2e096c883291671a8d20ca270018e05">RepeatableContent</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdtd_1_1_interface_d_t_d_visitor.html#afaa2f3eab18d4215d1683c4b2f5a6b8e">RepeatedContent</a></td></tr>
+</table>
+<hr/><a name="_details"></a><h2>Description détaillée</h2>
+
+<p>Définition à la ligne <a class="el" href="_interface_d_t_d_visitor_8hpp_source.html#l00030">30</a> du fichier <a class="el" href="_interface_d_t_d_visitor_8hpp_source.html">InterfaceDTDVisitor.hpp</a>.</p>
+<hr/><h2>Documentation des constructeurs et destructeur</h2>
+<a class="anchor" id="aef94cba5e56a7891a24b236176a2075a"></a><!-- doxytag: member="dtd::InterfaceDTDVisitor::~InterfaceDTDVisitor" ref="aef94cba5e56a7891a24b236176a2075a" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual dtd::InterfaceDTDVisitor::~InterfaceDTDVisitor </td>
+          <td>(</td>
+          <td class="paramname">&#160;)</td>
+          <td><code> [inline, virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Définition à la ligne <a class="el" href="_interface_d_t_d_visitor_8hpp_source.html#l00046">46</a> du fichier <a class="el" href="_interface_d_t_d_visitor_8hpp_source.html">InterfaceDTDVisitor.hpp</a>.</p>
+
+</div>
+</div>
+<hr/><h2>Documentation des fonctions membres</h2>
+<a class="anchor" id="ac2d1f472564e590bbe66f14ab096167a"></a><!-- doxytag: member="dtd::InterfaceDTDVisitor::visit" ref="ac2d1f472564e590bbe66f14ab096167a" args="(const AnyContent &amp;content)=0" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void dtd::InterfaceDTDVisitor::visit </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classdtd_1_1_any_content.html">AnyContent</a> &amp;&#160;</td>
+          <td class="paramname"> <em>content</em>&#160;)</td>
+          <td><code> [protected, pure virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Implémenté dans <a class="el" href="classdtd_1_1_output_d_t_d_visitor.html#a17406ea51970e67da79947709945c4b1">dtd::OutputDTDVisitor</a>.</p>
+
+<p><!-- startSectionHeader --><div class="dynheader">
+Voici le graphe d'appel pour cette fonction :<!-- endSectionHeader --></div>
+<!-- startSectionSummary --><!-- endSectionSummary --><!-- startSectionContent --><div class="dyncontent">
+<div class="center"><img src="classdtd_1_1_interface_d_t_d_visitor_ac2d1f472564e590bbe66f14ab096167a_icgraph.png" border="0" usemap="#classdtd_1_1_interface_d_t_d_visitor_ac2d1f472564e590bbe66f14ab096167a_icgraph" alt=""/></div>
+<map name="classdtd_1_1_interface_d_t_d_visitor_ac2d1f472564e590bbe66f14ab096167a_icgraph" id="classdtd_1_1_interface_d_t_d_visitor_ac2d1f472564e590bbe66f14ab096167a_icgraph">
+<area shape="rect" id="node3" href="classdtd_1_1_text_content.html#a5193fbafe92665d975b886a6ca18ac4f" title="dtd::TextContent::accept" alt="" coords="425,5,708,43"/><area shape="rect" id="node5" href="classdtd_1_1_sequence.html#aa7ce2af63b36ed8be694d875488b108a" title="dtd::Sequence::accept" alt="" coords="437,66,696,105"/><area shape="rect" id="node7" href="classdtd_1_1_repeated_content.html#af97dd8df71c00b1ec91d577671c8ed77" title="dtd::RepeatedContent::accept" alt="" coords="397,127,736,166"/><area shape="rect" id="node9" href="classdtd_1_1_repeatable_content.html#a28550745ec781816e4be44165dbb3934" title="dtd::RepeatableContent::accept" alt="" coords="388,189,745,227"/><area shape="rect" id="node11" href="classdtd_1_1_optional_content.html#a215be42249f1e54da514fdfc386ba21c" title="dtd::OptionalContent::accept" alt="" coords="401,250,732,289"/><area shape="rect" id="node13" href="classdtd_1_1_mixed_content.html#aea7a1312dc631047db037c84899f7a05" title="dtd::MixedContent::accept" alt="" coords="416,311,717,350"/><area shape="rect" id="node15" href="classdtd_1_1_empty_content.html#a8440fe4e357b401e8db8d05baf59803e" title="dtd::EmptyContent::accept" alt="" coords="413,373,720,411"/><area shape="rect" id="node17" href="classdtd_1_1_element_reference.html#ade77978609f7a872d73c9507057f12a6" title="dtd::ElementReference::accept" alt="" coords="392,434,741,473"/><area shape="rect" id="node19" href="classdtd_1_1_choice.html#a2eaed96716e6d7583c4b64f514c71b9d" title="dtd::Choice::accept" alt="" coords="453,495,680,534"/><area shape="rect" id="node21" href="classdtd_1_1_any_content.html#ae9e5cecd79f91449de424a24944295cf" title="dtd::AnyContent::accept" alt="" coords="427,557,707,595"/></map>
+<!-- endSectionContent --></div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="abdf03eb698f07aa0caaa405711fc8aac"></a><!-- doxytag: member="dtd::InterfaceDTDVisitor::visit" ref="abdf03eb698f07aa0caaa405711fc8aac" args="(const EmptyContent &amp;content)=0" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void dtd::InterfaceDTDVisitor::visit </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classdtd_1_1_empty_content.html">EmptyContent</a> &amp;&#160;</td>
+          <td class="paramname"> <em>content</em>&#160;)</td>
+          <td><code> [protected, pure virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Implémenté dans <a class="el" href="classdtd_1_1_output_d_t_d_visitor.html#a3eb81ed67c53e9aebb90a4558f13a402">dtd::OutputDTDVisitor</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a76bd6fb0307eea7fc6ef703cf09a07b9"></a><!-- doxytag: member="dtd::InterfaceDTDVisitor::visit" ref="a76bd6fb0307eea7fc6ef703cf09a07b9" args="(const RepeatableContent &amp;content)=0" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void dtd::InterfaceDTDVisitor::visit </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classdtd_1_1_repeatable_content.html">RepeatableContent</a> &amp;&#160;</td>
+          <td class="paramname"> <em>content</em>&#160;)</td>
+          <td><code> [protected, pure virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Implémenté dans <a class="el" href="classdtd_1_1_output_d_t_d_visitor.html#a93c6d6c010e58356bf9ba29b56d561df">dtd::OutputDTDVisitor</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a444ada6db2f531579579de7b8fd5fd53"></a><!-- doxytag: member="dtd::InterfaceDTDVisitor::visit" ref="a444ada6db2f531579579de7b8fd5fd53" args="(const OptionalContent &amp;content)=0" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void dtd::InterfaceDTDVisitor::visit </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classdtd_1_1_optional_content.html">OptionalContent</a> &amp;&#160;</td>
+          <td class="paramname"> <em>content</em>&#160;)</td>
+          <td><code> [protected, pure virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Implémenté dans <a class="el" href="classdtd_1_1_output_d_t_d_visitor.html#a5ea91964e78eef4fc0786708154204bc">dtd::OutputDTDVisitor</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a4323aeef86fa385a44fd4572ccc36cd2"></a><!-- doxytag: member="dtd::InterfaceDTDVisitor::visit" ref="a4323aeef86fa385a44fd4572ccc36cd2" args="(const Choice &amp;content)=0" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void dtd::InterfaceDTDVisitor::visit </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classdtd_1_1_choice.html">Choice</a> &amp;&#160;</td>
+          <td class="paramname"> <em>content</em>&#160;)</td>
+          <td><code> [protected, pure virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Implémenté dans <a class="el" href="classdtd_1_1_output_d_t_d_visitor.html#a666c828c10840930fd420e86030e16f1">dtd::OutputDTDVisitor</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa093199d020b5887fbaa8af1573afc51"></a><!-- doxytag: member="dtd::InterfaceDTDVisitor::visit" ref="aa093199d020b5887fbaa8af1573afc51" args="(const Sequence &amp;content)=0" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void dtd::InterfaceDTDVisitor::visit </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classdtd_1_1_sequence.html">Sequence</a> &amp;&#160;</td>
+          <td class="paramname"> <em>content</em>&#160;)</td>
+          <td><code> [protected, pure virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Implémenté dans <a class="el" href="classdtd_1_1_output_d_t_d_visitor.html#a5b9434224d99c416da826a88cd11df3f">dtd::OutputDTDVisitor</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aaac54822c9519b08305a64aab110716b"></a><!-- doxytag: member="dtd::InterfaceDTDVisitor::visit" ref="aaac54822c9519b08305a64aab110716b" args="(const ElementReference &amp;element)=0" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void dtd::InterfaceDTDVisitor::visit </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classdtd_1_1_element_reference.html">ElementReference</a> &amp;&#160;</td>
+          <td class="paramname"> <em>element</em>&#160;)</td>
+          <td><code> [protected, pure virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Implémenté dans <a class="el" href="classdtd_1_1_output_d_t_d_visitor.html#a4b286b6b0ca83035e25cef1ba6f10c47">dtd::OutputDTDVisitor</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a8a2ce739049697fcc2a7126adea4536a"></a><!-- doxytag: member="dtd::InterfaceDTDVisitor::visit" ref="a8a2ce739049697fcc2a7126adea4536a" args="(const RepeatedContent &amp;content)=0" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void dtd::InterfaceDTDVisitor::visit </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classdtd_1_1_repeated_content.html">RepeatedContent</a> &amp;&#160;</td>
+          <td class="paramname"> <em>content</em>&#160;)</td>
+          <td><code> [protected, pure virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Implémenté dans <a class="el" href="classdtd_1_1_output_d_t_d_visitor.html#a01a2c44557480982c2ca5d3769e72c00">dtd::OutputDTDVisitor</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a06be244faf5995ac7ca502b326db10e0"></a><!-- doxytag: member="dtd::InterfaceDTDVisitor::visit" ref="a06be244faf5995ac7ca502b326db10e0" args="(const MixedContent &amp;content)=0" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void dtd::InterfaceDTDVisitor::visit </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classdtd_1_1_mixed_content.html">MixedContent</a> &amp;&#160;</td>
+          <td class="paramname"> <em>content</em>&#160;)</td>
+          <td><code> [protected, pure virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Implémenté dans <a class="el" href="classdtd_1_1_output_d_t_d_visitor.html#a47692e383524d7804a6f5bf4d3f229b8">dtd::OutputDTDVisitor</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="abd31e761d6d8ab80ac6f3f0a9a20b953"></a><!-- doxytag: member="dtd::InterfaceDTDVisitor::visit" ref="abd31e761d6d8ab80ac6f3f0a9a20b953" args="(const TextContent &amp;content)=0" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void dtd::InterfaceDTDVisitor::visit </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classdtd_1_1_text_content.html">TextContent</a> &amp;&#160;</td>
+          <td class="paramname"> <em>content</em>&#160;)</td>
+          <td><code> [protected, pure virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Implémenté dans <a class="el" href="classdtd_1_1_output_d_t_d_visitor.html#ad06e4a71ec8f36d91d59eb24ddc51f70">dtd::OutputDTDVisitor</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a729d9fcb360d9bf45210aac109b388da"></a><!-- doxytag: member="dtd::InterfaceDTDVisitor::visitAttributesList" ref="a729d9fcb360d9bf45210aac109b388da" args="(const std::string &amp;ns, const std::string &amp;elementName, const AttributesList &amp;attlist)=0" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void dtd::InterfaceDTDVisitor::visitAttributesList </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"> <em>ns</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"> <em>elementName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespacedtd.html#a8d5d29abb5de0468925f321597f57f4b">AttributesList</a> &amp;&#160;</td>
+          <td class="paramname"> <em>attlist</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td><code> [pure virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Implémenté dans <a class="el" href="classdtd_1_1_output_d_t_d_visitor.html#aa1b6474bd068eca43a6eb61e90ff7504">dtd::OutputDTDVisitor</a>.</p>
+
+<p><!-- startSectionHeader --><div class="dynheader">
+Voici le graphe d'appel pour cette fonction :<!-- endSectionHeader --></div>
+<!-- startSectionSummary --><!-- endSectionSummary --><!-- startSectionContent --><div class="dyncontent">
+<div class="center"><img src="classdtd_1_1_interface_d_t_d_visitor_a729d9fcb360d9bf45210aac109b388da_icgraph.png" border="0" usemap="#classdtd_1_1_interface_d_t_d_visitor_a729d9fcb360d9bf45210aac109b388da_icgraph" alt=""/></div>
+<map name="classdtd_1_1_interface_d_t_d_visitor_a729d9fcb360d9bf45210aac109b388da_icgraph" id="classdtd_1_1_interface_d_t_d_visitor_a729d9fcb360d9bf45210aac109b388da_icgraph">
+<area shape="rect" id="node3" href="classdtd_1_1_d_t_d.html#acc2b63dcafbab0567708dddadca859d4" title="dtd::DTD::accept" alt="" coords="528,5,728,43"/></map>
+<!-- endSectionContent --></div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a46b882a06961ea04fd43b2a9d937118b"></a><!-- doxytag: member="dtd::InterfaceDTDVisitor::visitElement" ref="a46b882a06961ea04fd43b2a9d937118b" args="(const std::string &amp;ns, const std::string &amp;elementName, const Content &amp;content)=0" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void dtd::InterfaceDTDVisitor::visitElement </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"> <em>ns</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"> <em>elementName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classdtd_1_1_content.html">Content</a> &amp;&#160;</td>
+          <td class="paramname"> <em>content</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td><code> [pure virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Implémenté dans <a class="el" href="classdtd_1_1_output_d_t_d_visitor.html#ab95fcc93547eb5e038040f11b0f2b568">dtd::OutputDTDVisitor</a>.</p>
+
+<p><!-- startSectionHeader --><div class="dynheader">
+Voici le graphe d'appel pour cette fonction :<!-- endSectionHeader --></div>
+<!-- startSectionSummary --><!-- endSectionSummary --><!-- startSectionContent --><div class="dyncontent">
+<div class="center"><img src="classdtd_1_1_interface_d_t_d_visitor_a46b882a06961ea04fd43b2a9d937118b_icgraph.png" border="0" usemap="#classdtd_1_1_interface_d_t_d_visitor_a46b882a06961ea04fd43b2a9d937118b_icgraph" alt=""/></div>
+<map name="classdtd_1_1_interface_d_t_d_visitor_a46b882a06961ea04fd43b2a9d937118b_icgraph" id="classdtd_1_1_interface_d_t_d_visitor_a46b882a06961ea04fd43b2a9d937118b_icgraph">
+<area shape="rect" id="node3" href="classdtd_1_1_d_t_d.html#acc2b63dcafbab0567708dddadca859d4" title="dtd::DTD::accept" alt="" coords="475,5,675,43"/></map>
+<!-- endSectionContent --></div>
+</p>
+
+</div>
+</div>
+<hr/><h2>Documentation des fonctions amies et associées</h2>
+<a class="anchor" id="a98eaefc8d4a0da1a8f9c254c62a68759"></a><!-- doxytag: member="dtd::InterfaceDTDVisitor::AnyContent" ref="a98eaefc8d4a0da1a8f9c254c62a68759" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">friend class <a class="el" href="classdtd_1_1_any_content.html">AnyContent</a><code> [friend]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Définition à la ligne <a class="el" href="_interface_d_t_d_visitor_8hpp_source.html#l00056">56</a> du fichier <a class="el" href="_interface_d_t_d_visitor_8hpp_source.html">InterfaceDTDVisitor.hpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af8084f88f5641132057732496deab026"></a><!-- doxytag: member="dtd::InterfaceDTDVisitor::Choice" ref="af8084f88f5641132057732496deab026" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">friend class <a class="el" href="classdtd_1_1_choice.html">Choice</a><code> [friend]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Définition à la ligne <a class="el" href="_interface_d_t_d_visitor_8hpp_source.html#l00061">61</a> du fichier <a class="el" href="_interface_d_t_d_visitor_8hpp_source.html">InterfaceDTDVisitor.hpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a21b7004458ebe5b88f6d6edb6d059a34"></a><!-- doxytag: member="dtd::InterfaceDTDVisitor::ElementReference" ref="a21b7004458ebe5b88f6d6edb6d059a34" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">friend class <a class="el" href="classdtd_1_1_element_reference.html">ElementReference</a><code> [friend]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Définition à la ligne <a class="el" href="_interface_d_t_d_visitor_8hpp_source.html#l00060">60</a> du fichier <a class="el" href="_interface_d_t_d_visitor_8hpp_source.html">InterfaceDTDVisitor.hpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a91eaa900fb18be6cd9a7105c964666fb"></a><!-- doxytag: member="dtd::InterfaceDTDVisitor::EmptyContent" ref="a91eaa900fb18be6cd9a7105c964666fb" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">friend class <a class="el" href="classdtd_1_1_empty_content.html">EmptyContent</a><code> [friend]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Définition à la ligne <a class="el" href="_interface_d_t_d_visitor_8hpp_source.html#l00057">57</a> du fichier <a class="el" href="_interface_d_t_d_visitor_8hpp_source.html">InterfaceDTDVisitor.hpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a94c4de9fad580ef7aa4f384bf0c2b861"></a><!-- doxytag: member="dtd::InterfaceDTDVisitor::MixedContent" ref="a94c4de9fad580ef7aa4f384bf0c2b861" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">friend class <a class="el" href="classdtd_1_1_mixed_content.html">MixedContent</a><code> [friend]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Définition à la ligne <a class="el" href="_interface_d_t_d_visitor_8hpp_source.html#l00058">58</a> du fichier <a class="el" href="_interface_d_t_d_visitor_8hpp_source.html">InterfaceDTDVisitor.hpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a90839fb65068433fb68ba4e59462f869"></a><!-- doxytag: member="dtd::InterfaceDTDVisitor::OptionalContent" ref="a90839fb65068433fb68ba4e59462f869" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">friend class <a class="el" href="classdtd_1_1_optional_content.html">OptionalContent</a><code> [friend]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Définition à la ligne <a class="el" href="_interface_d_t_d_visitor_8hpp_source.html#l00063">63</a> du fichier <a class="el" href="_interface_d_t_d_visitor_8hpp_source.html">InterfaceDTDVisitor.hpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad2e096c883291671a8d20ca270018e05"></a><!-- doxytag: member="dtd::InterfaceDTDVisitor::RepeatableContent" ref="ad2e096c883291671a8d20ca270018e05" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">friend class <a class="el" href="classdtd_1_1_repeatable_content.html">RepeatableContent</a><code> [friend]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Définition à la ligne <a class="el" href="_interface_d_t_d_visitor_8hpp_source.html#l00064">64</a> du fichier <a class="el" href="_interface_d_t_d_visitor_8hpp_source.html">InterfaceDTDVisitor.hpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="afaa2f3eab18d4215d1683c4b2f5a6b8e"></a><!-- doxytag: member="dtd::InterfaceDTDVisitor::RepeatedContent" ref="afaa2f3eab18d4215d1683c4b2f5a6b8e" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">friend class <a class="el" href="classdtd_1_1_repeated_content.html">RepeatedContent</a><code> [friend]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Définition à la ligne <a class="el" href="_interface_d_t_d_visitor_8hpp_source.html#l00065">65</a> du fichier <a class="el" href="_interface_d_t_d_visitor_8hpp_source.html">InterfaceDTDVisitor.hpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a26271d5afaff6e6d3f00c055c63d0b24"></a><!-- doxytag: member="dtd::InterfaceDTDVisitor::Sequence" ref="a26271d5afaff6e6d3f00c055c63d0b24" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">friend class <a class="el" href="classdtd_1_1_sequence.html">Sequence</a><code> [friend]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Définition à la ligne <a class="el" href="_interface_d_t_d_visitor_8hpp_source.html#l00062">62</a> du fichier <a class="el" href="_interface_d_t_d_visitor_8hpp_source.html">InterfaceDTDVisitor.hpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa641efa971cba38c6181cdc71b30df90"></a><!-- doxytag: member="dtd::InterfaceDTDVisitor::TextContent" ref="aa641efa971cba38c6181cdc71b30df90" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">friend class <a class="el" href="classdtd_1_1_text_content.html">TextContent</a><code> [friend]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Définition à la ligne <a class="el" href="_interface_d_t_d_visitor_8hpp_source.html#l00059">59</a> du fichier <a class="el" href="_interface_d_t_d_visitor_8hpp_source.html">InterfaceDTDVisitor.hpp</a>.</p>
+
+</div>
+</div>
+<hr/>La documentation de cette classe a été générée à partir du fichier suivant :<ul>
+<li>src/<a class="el" href="_interface_d_t_d_visitor_8hpp_source.html">InterfaceDTDVisitor.hpp</a></li>
+</ul>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Espaces de nommage</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Définition de type</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Amis</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>Généré le Sun Apr 17 2011 19:07:15 pour DTDLib par&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.2 </small></address>
+</body>
+</html>

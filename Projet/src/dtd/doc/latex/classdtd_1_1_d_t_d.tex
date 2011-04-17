@@ -1,0 +1,357 @@
+\hypertarget{classdtd_1_1_d_t_d}{
+\section{Référence de la classe dtd::DTD}
+\label{classdtd_1_1_d_t_d}\index{dtd::DTD@{dtd::DTD}}
+}
+
+
+{\ttfamily \#include $<$DTD.hh$>$}
+
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classdtd_1_1_d_t_d_acc2b63dcafbab0567708dddadca859d4}{accept} (\hyperlink{classdtd_1_1_interface_d_t_d_visitor}{InterfaceDTDVisitor} \&visitor)
+\item 
+void \hyperlink{classdtd_1_1_d_t_d_a1b0ba56addc8425b8e3c996e1bdb8fc1}{addElement} (const std::string \&ns, const std::string \&elementName, \hyperlink{classdtd_1_1_content}{Content} \&content)
+\item 
+void \hyperlink{classdtd_1_1_d_t_d_aa36c8c04bbc0e770242e338774583c83}{addAttributesList} (const std::string \&ns, const std::string \&elementName, const \hyperlink{namespacedtd_a8d5d29abb5de0468925f321597f57f4b}{AttributesList} \&attribute)
+\item 
+bool \hyperlink{classdtd_1_1_d_t_d_ae05093e02a85c295d2fe1b04914ca9af}{isValid} (const xml::Node \&root, const std::string \&validRootName)
+\item 
+\hyperlink{classdtd_1_1_d_t_d_ab1ba4d2d6d7e9d3521c21c3581f0e090}{DTD} ()
+\item 
+virtual \hyperlink{classdtd_1_1_d_t_d_ad9b422dbdadb18a93d3b0c2c0c5c1399}{$\sim$DTD} ()
+\end{DoxyCompactItemize}
+\subsection*{Types protégés}
+\begin{DoxyCompactItemize}
+\item 
+typedef std::pair$<$ std::string, std::string $>$ \hyperlink{classdtd_1_1_d_t_d_aebfee050799e642c65f08ff77cadfb4e}{\_\-ElementId}
+\item 
+typedef std::map$<$ \hyperlink{classdtd_1_1_d_t_d_aebfee050799e642c65f08ff77cadfb4e}{\_\-ElementId}, \hyperlink{classdtd_1_1_content}{Content} $\ast$ $>$ \hyperlink{classdtd_1_1_d_t_d_a3acb9bcea95d9ad98d14b7851b6151c1}{\_\-Elements}
+\item 
+typedef std::map$<$ \hyperlink{classdtd_1_1_d_t_d_aebfee050799e642c65f08ff77cadfb4e}{\_\-ElementId}, \hyperlink{namespacedtd_a8d5d29abb5de0468925f321597f57f4b}{AttributesList} $>$ \hyperlink{classdtd_1_1_d_t_d_ad0c96201d399a44b597764334d343752}{\_\-AttributesLists}
+\end{DoxyCompactItemize}
+\subsection*{Fonctions membres protégées}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{classdtd_1_1_d_t_d_afa42d6567898ce96adf1b31b1da235e8}{visit} (const xml::TextNode \&node)
+\item 
+virtual void \hyperlink{classdtd_1_1_d_t_d_a7b21ffe9e0af0c815abedde305f0c241}{visit} (const xml::MarkupNode \&node)
+\item 
+virtual void \hyperlink{classdtd_1_1_d_t_d_a46680bf029f0728fa10bb0568017f4ce}{visit} (const xml::CompositeMarkupNode \&node)
+\item 
+bool \hyperlink{classdtd_1_1_d_t_d_a65a0b095665ae232ef40f1b9aad50387}{checkAttributes} (const xml::MarkupNode \&node)
+\item 
+\hyperlink{classdtd_1_1_content}{Content} $\ast$ \hyperlink{classdtd_1_1_d_t_d_ab1d76ad625a6fd3b64a4306cdc14400c}{getElement} (std::string ns, std::string name) const 
+\item 
+const \hyperlink{namespacedtd_a8d5d29abb5de0468925f321597f57f4b}{AttributesList} $\ast$ \hyperlink{classdtd_1_1_d_t_d_a531a239b85845e41a0422c6a60e59f63}{getAttributesList} (std::string ns, std::string name) const 
+\item 
+bool \hyperlink{classdtd_1_1_d_t_d_a88b9e78103312ed1a7be0f644571606f}{\_\-isValid} (const xml::Node \&node)
+\end{DoxyCompactItemize}
+\subsection*{Attributs protégés}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classdtd_1_1_d_t_d_a3acb9bcea95d9ad98d14b7851b6151c1}{\_\-Elements} \hyperlink{classdtd_1_1_d_t_d_ab28c987860b12e12e5b9e3c199b4a4fd}{\_\-elements}
+\item 
+\hyperlink{classdtd_1_1_d_t_d_ad0c96201d399a44b597764334d343752}{\_\-AttributesLists} \hyperlink{classdtd_1_1_d_t_d_aec11a99c5e351b44bbdef249500bb1ac}{\_\-attributesLists}
+\item 
+bool \hyperlink{classdtd_1_1_d_t_d_acd1f91b37ce5dd73597f880c08546d40}{\_\-validatingRoot}
+\item 
+std::string \hyperlink{classdtd_1_1_d_t_d_ae2c393aa68abc63e9c5afe34770a75f5}{\_\-validRootName}
+\item 
+bool \hyperlink{classdtd_1_1_d_t_d_a1d27a4c5f57f3eac45bba4207fb0fa2e}{\_\-lastNodeIsValid}
+\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+
+
+Définition à la ligne 24 du fichier DTD.hh.
+
+
+
+\subsection{Documentation des définitions de type membres}
+\hypertarget{classdtd_1_1_d_t_d_ad0c96201d399a44b597764334d343752}{
+\index{dtd::DTD@{dtd::DTD}!\_\-AttributesLists@{\_\-AttributesLists}}
+\index{\_\-AttributesLists@{\_\-AttributesLists}!dtd::DTD@{dtd::DTD}}
+\subsubsection[{\_\-AttributesLists}]{\setlength{\rightskip}{0pt plus 5cm}typedef std::map$<${\bf \_\-ElementId}, {\bf AttributesList}$>$ {\bf dtd::DTD::\_\-AttributesLists}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{classdtd_1_1_d_t_d_ad0c96201d399a44b597764334d343752}
+
+
+Définition à la ligne 81 du fichier DTD.hh.
+
+\hypertarget{classdtd_1_1_d_t_d_aebfee050799e642c65f08ff77cadfb4e}{
+\index{dtd::DTD@{dtd::DTD}!\_\-ElementId@{\_\-ElementId}}
+\index{\_\-ElementId@{\_\-ElementId}!dtd::DTD@{dtd::DTD}}
+\subsubsection[{\_\-ElementId}]{\setlength{\rightskip}{0pt plus 5cm}typedef std::pair$<$std::string, std::string$>$ {\bf dtd::DTD::\_\-ElementId}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{classdtd_1_1_d_t_d_aebfee050799e642c65f08ff77cadfb4e}
+
+
+Définition à la ligne 79 du fichier DTD.hh.
+
+\hypertarget{classdtd_1_1_d_t_d_a3acb9bcea95d9ad98d14b7851b6151c1}{
+\index{dtd::DTD@{dtd::DTD}!\_\-Elements@{\_\-Elements}}
+\index{\_\-Elements@{\_\-Elements}!dtd::DTD@{dtd::DTD}}
+\subsubsection[{\_\-Elements}]{\setlength{\rightskip}{0pt plus 5cm}typedef std::map$<${\bf \_\-ElementId}, {\bf Content}$\ast$$>$ {\bf dtd::DTD::\_\-Elements}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{classdtd_1_1_d_t_d_a3acb9bcea95d9ad98d14b7851b6151c1}
+
+
+Définition à la ligne 80 du fichier DTD.hh.
+
+
+
+\subsection{Documentation des constructeurs et destructeur}
+\hypertarget{classdtd_1_1_d_t_d_ab1ba4d2d6d7e9d3521c21c3581f0e090}{
+\index{dtd::DTD@{dtd::DTD}!DTD@{DTD}}
+\index{DTD@{DTD}!dtd::DTD@{dtd::DTD}}
+\subsubsection[{DTD}]{\setlength{\rightskip}{0pt plus 5cm}dtd::DTD::DTD (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{classdtd_1_1_d_t_d_ab1ba4d2d6d7e9d3521c21c3581f0e090}
+
+
+Définition à la ligne 134 du fichier DTD.cpp.
+
+\hypertarget{classdtd_1_1_d_t_d_ad9b422dbdadb18a93d3b0c2c0c5c1399}{
+\index{dtd::DTD@{dtd::DTD}!$\sim$DTD@{$\sim$DTD}}
+\index{$\sim$DTD@{$\sim$DTD}!dtd::DTD@{dtd::DTD}}
+\subsubsection[{$\sim$DTD}]{\setlength{\rightskip}{0pt plus 5cm}dtd::DTD::$\sim$DTD (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classdtd_1_1_d_t_d_ad9b422dbdadb18a93d3b0c2c0c5c1399}
+
+
+Définition à la ligne 141 du fichier DTD.cpp.
+
+
+
+\subsection{Documentation des fonctions membres}
+\hypertarget{classdtd_1_1_d_t_d_a88b9e78103312ed1a7be0f644571606f}{
+\index{dtd::DTD@{dtd::DTD}!\_\-isValid@{\_\-isValid}}
+\index{\_\-isValid@{\_\-isValid}!dtd::DTD@{dtd::DTD}}
+\subsubsection[{\_\-isValid}]{\setlength{\rightskip}{0pt plus 5cm}bool dtd::DTD::\_\-isValid (
+\begin{DoxyParamCaption}
+\item[{const xml::Node \&}]{ node}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{classdtd_1_1_d_t_d_a88b9e78103312ed1a7be0f644571606f}
+
+
+Définition à la ligne 161 du fichier DTD.cpp.
+
+\hypertarget{classdtd_1_1_d_t_d_acc2b63dcafbab0567708dddadca859d4}{
+\index{dtd::DTD@{dtd::DTD}!accept@{accept}}
+\index{accept@{accept}!dtd::DTD@{dtd::DTD}}
+\subsubsection[{accept}]{\setlength{\rightskip}{0pt plus 5cm}void dtd::DTD::accept (
+\begin{DoxyParamCaption}
+\item[{{\bf InterfaceDTDVisitor} \&}]{ visitor}
+\end{DoxyParamCaption}
+)}}
+\label{classdtd_1_1_d_t_d_acc2b63dcafbab0567708dddadca859d4}
+
+
+Définition à la ligne 41 du fichier DTD.cpp.
+
+
+
+Voici le graphe d'appel pour cette fonction :
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=400pt]{classdtd_1_1_d_t_d_acc2b63dcafbab0567708dddadca859d4_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classdtd_1_1_d_t_d_aa36c8c04bbc0e770242e338774583c83}{
+\index{dtd::DTD@{dtd::DTD}!addAttributesList@{addAttributesList}}
+\index{addAttributesList@{addAttributesList}!dtd::DTD@{dtd::DTD}}
+\subsubsection[{addAttributesList}]{\setlength{\rightskip}{0pt plus 5cm}void dtd::DTD::addAttributesList (
+\begin{DoxyParamCaption}
+\item[{const std::string \&}]{ ns, }
+\item[{const std::string \&}]{ elementName, }
+\item[{const {\bf AttributesList} \&}]{ attribute}
+\end{DoxyParamCaption}
+)}}
+\label{classdtd_1_1_d_t_d_aa36c8c04bbc0e770242e338774583c83}
+
+
+Définition à la ligne 71 du fichier DTD.cpp.
+
+\hypertarget{classdtd_1_1_d_t_d_a1b0ba56addc8425b8e3c996e1bdb8fc1}{
+\index{dtd::DTD@{dtd::DTD}!addElement@{addElement}}
+\index{addElement@{addElement}!dtd::DTD@{dtd::DTD}}
+\subsubsection[{addElement}]{\setlength{\rightskip}{0pt plus 5cm}void dtd::DTD::addElement (
+\begin{DoxyParamCaption}
+\item[{const std::string \&}]{ ns, }
+\item[{const std::string \&}]{ elementName, }
+\item[{{\bf Content} \&}]{ content}
+\end{DoxyParamCaption}
+)}}
+\label{classdtd_1_1_d_t_d_a1b0ba56addc8425b8e3c996e1bdb8fc1}
+
+
+Définition à la ligne 57 du fichier DTD.cpp.
+
+\hypertarget{classdtd_1_1_d_t_d_a65a0b095665ae232ef40f1b9aad50387}{
+\index{dtd::DTD@{dtd::DTD}!checkAttributes@{checkAttributes}}
+\index{checkAttributes@{checkAttributes}!dtd::DTD@{dtd::DTD}}
+\subsubsection[{checkAttributes}]{\setlength{\rightskip}{0pt plus 5cm}bool dtd::DTD::checkAttributes (
+\begin{DoxyParamCaption}
+\item[{const xml::MarkupNode \&}]{ node}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{classdtd_1_1_d_t_d_a65a0b095665ae232ef40f1b9aad50387}
+
+
+Définition à la ligne 250 du fichier DTD.cpp.
+
+
+
+Voici le graphe d'appel pour cette fonction :\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=400pt]{classdtd_1_1_d_t_d_a65a0b095665ae232ef40f1b9aad50387_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classdtd_1_1_d_t_d_a531a239b85845e41a0422c6a60e59f63}{
+\index{dtd::DTD@{dtd::DTD}!getAttributesList@{getAttributesList}}
+\index{getAttributesList@{getAttributesList}!dtd::DTD@{dtd::DTD}}
+\subsubsection[{getAttributesList}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf AttributesList} $\ast$ dtd::DTD::getAttributesList (
+\begin{DoxyParamCaption}
+\item[{std::string}]{ ns, }
+\item[{std::string}]{ name}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{classdtd_1_1_d_t_d_a531a239b85845e41a0422c6a60e59f63}
+
+
+Définition à la ligne 107 du fichier DTD.cpp.
+
+
+
+Voici le graphe d'appel pour cette fonction :\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=400pt]{classdtd_1_1_d_t_d_a531a239b85845e41a0422c6a60e59f63_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classdtd_1_1_d_t_d_ab1d76ad625a6fd3b64a4306cdc14400c}{
+\index{dtd::DTD@{dtd::DTD}!getElement@{getElement}}
+\index{getElement@{getElement}!dtd::DTD@{dtd::DTD}}
+\subsubsection[{getElement}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Content} $\ast$ dtd::DTD::getElement (
+\begin{DoxyParamCaption}
+\item[{std::string}]{ ns, }
+\item[{std::string}]{ name}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{classdtd_1_1_d_t_d_ab1d76ad625a6fd3b64a4306cdc14400c}
+
+
+Définition à la ligne 92 du fichier DTD.cpp.
+
+\hypertarget{classdtd_1_1_d_t_d_ae05093e02a85c295d2fe1b04914ca9af}{
+\index{dtd::DTD@{dtd::DTD}!isValid@{isValid}}
+\index{isValid@{isValid}!dtd::DTD@{dtd::DTD}}
+\subsubsection[{isValid}]{\setlength{\rightskip}{0pt plus 5cm}bool dtd::DTD::isValid (
+\begin{DoxyParamCaption}
+\item[{const xml::Node \&}]{ root, }
+\item[{const std::string \&}]{ validRootName}
+\end{DoxyParamCaption}
+)}}
+\label{classdtd_1_1_d_t_d_ae05093e02a85c295d2fe1b04914ca9af}
+
+
+Définition à la ligne 123 du fichier DTD.cpp.
+
+\hypertarget{classdtd_1_1_d_t_d_a46680bf029f0728fa10bb0568017f4ce}{
+\index{dtd::DTD@{dtd::DTD}!visit@{visit}}
+\index{visit@{visit}!dtd::DTD@{dtd::DTD}}
+\subsubsection[{visit}]{\setlength{\rightskip}{0pt plus 5cm}virtual void dtd::DTD::visit (
+\begin{DoxyParamCaption}
+\item[{const xml::CompositeMarkupNode \&}]{ node}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}protected, virtual\mbox{]}}}}
+\label{classdtd_1_1_d_t_d_a46680bf029f0728fa10bb0568017f4ce}
+\hypertarget{classdtd_1_1_d_t_d_afa42d6567898ce96adf1b31b1da235e8}{
+\index{dtd::DTD@{dtd::DTD}!visit@{visit}}
+\index{visit@{visit}!dtd::DTD@{dtd::DTD}}
+\subsubsection[{visit}]{\setlength{\rightskip}{0pt plus 5cm}virtual void dtd::DTD::visit (
+\begin{DoxyParamCaption}
+\item[{const xml::TextNode \&}]{ node}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}protected, virtual\mbox{]}}}}
+\label{classdtd_1_1_d_t_d_afa42d6567898ce96adf1b31b1da235e8}
+\hypertarget{classdtd_1_1_d_t_d_a7b21ffe9e0af0c815abedde305f0c241}{
+\index{dtd::DTD@{dtd::DTD}!visit@{visit}}
+\index{visit@{visit}!dtd::DTD@{dtd::DTD}}
+\subsubsection[{visit}]{\setlength{\rightskip}{0pt plus 5cm}virtual void dtd::DTD::visit (
+\begin{DoxyParamCaption}
+\item[{const xml::MarkupNode \&}]{ node}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}protected, virtual\mbox{]}}}}
+\label{classdtd_1_1_d_t_d_a7b21ffe9e0af0c815abedde305f0c241}
+
+
+\subsection{Documentation des données membres}
+\hypertarget{classdtd_1_1_d_t_d_aec11a99c5e351b44bbdef249500bb1ac}{
+\index{dtd::DTD@{dtd::DTD}!\_\-attributesLists@{\_\-attributesLists}}
+\index{\_\-attributesLists@{\_\-attributesLists}!dtd::DTD@{dtd::DTD}}
+\subsubsection[{\_\-attributesLists}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \_\-AttributesLists} {\bf dtd::DTD::\_\-attributesLists}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{classdtd_1_1_d_t_d_aec11a99c5e351b44bbdef249500bb1ac}
+
+
+Définition à la ligne 84 du fichier DTD.hh.
+
+\hypertarget{classdtd_1_1_d_t_d_ab28c987860b12e12e5b9e3c199b4a4fd}{
+\index{dtd::DTD@{dtd::DTD}!\_\-elements@{\_\-elements}}
+\index{\_\-elements@{\_\-elements}!dtd::DTD@{dtd::DTD}}
+\subsubsection[{\_\-elements}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \_\-Elements} {\bf dtd::DTD::\_\-elements}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{classdtd_1_1_d_t_d_ab28c987860b12e12e5b9e3c199b4a4fd}
+
+
+Définition à la ligne 83 du fichier DTD.hh.
+
+\hypertarget{classdtd_1_1_d_t_d_a1d27a4c5f57f3eac45bba4207fb0fa2e}{
+\index{dtd::DTD@{dtd::DTD}!\_\-lastNodeIsValid@{\_\-lastNodeIsValid}}
+\index{\_\-lastNodeIsValid@{\_\-lastNodeIsValid}!dtd::DTD@{dtd::DTD}}
+\subsubsection[{\_\-lastNodeIsValid}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf dtd::DTD::\_\-lastNodeIsValid}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{classdtd_1_1_d_t_d_a1d27a4c5f57f3eac45bba4207fb0fa2e}
+
+
+Définition à la ligne 88 du fichier DTD.hh.
+
+\hypertarget{classdtd_1_1_d_t_d_acd1f91b37ce5dd73597f880c08546d40}{
+\index{dtd::DTD@{dtd::DTD}!\_\-validatingRoot@{\_\-validatingRoot}}
+\index{\_\-validatingRoot@{\_\-validatingRoot}!dtd::DTD@{dtd::DTD}}
+\subsubsection[{\_\-validatingRoot}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf dtd::DTD::\_\-validatingRoot}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{classdtd_1_1_d_t_d_acd1f91b37ce5dd73597f880c08546d40}
+
+
+Définition à la ligne 86 du fichier DTD.hh.
+
+\hypertarget{classdtd_1_1_d_t_d_ae2c393aa68abc63e9c5afe34770a75f5}{
+\index{dtd::DTD@{dtd::DTD}!\_\-validRootName@{\_\-validRootName}}
+\index{\_\-validRootName@{\_\-validRootName}!dtd::DTD@{dtd::DTD}}
+\subsubsection[{\_\-validRootName}]{\setlength{\rightskip}{0pt plus 5cm}std::string {\bf dtd::DTD::\_\-validRootName}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{classdtd_1_1_d_t_d_ae2c393aa68abc63e9c5afe34770a75f5}
+
+
+Définition à la ligne 87 du fichier DTD.hh.
+
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants :\begin{DoxyCompactItemize}
+\item 
+src/\hyperlink{_d_t_d_8hh}{DTD.hh}\item 
+src/\hyperlink{_d_t_d_8cpp}{DTD.cpp}\end{DoxyCompactItemize}

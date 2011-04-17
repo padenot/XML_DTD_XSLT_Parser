@@ -1,0 +1,4 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$structdtd_1_1_choice_1_1___state.html" title="{dtd::Choice::_State\n|+ nextChoosable\l|+ _State()\l}" alt="" coords="5,222,227,335"/>
+<area shape="rect" id="node5" href="$structdtd_1_1_sequence_1_1___state.html" title="{dtd::Sequence::_State\n|+ nextEmbeddedContent\l|+ _State()\l}" alt="" coords="251,222,541,335"/>
+</map>

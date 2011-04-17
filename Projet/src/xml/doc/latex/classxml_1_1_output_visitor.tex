@@ -38,7 +38,7 @@ virtual \hyperlink{classxml_1_1_output_visitor_a6143fdb2f73ab2bafa7f2b3e3c32e48a
 \item 
 void \hyperlink{classxml_1_1_output_visitor_af369ea5f7984975e7dfdea89ddcae000}{doIndent} ()
 \item 
-void \hyperlink{classxml_1_1_output_visitor_a3c1d2ac6dec2c9f6279a59226646e254}{writeAttributes} (const \hyperlink{classxml_1_1_markup_node}{MarkupNode} \&node)
+void \hyperlink{classxml_1_1_output_visitor_a4008bcf393c484232ae20cc7dc97c0f0}{writeMarkupOpening} (const \hyperlink{classxml_1_1_markup_node}{MarkupNode} \&node)
 \item 
 virtual void \hyperlink{classxml_1_1_output_visitor_a33e53f866b31a155bbf29ffda852aaf7}{visit} (const \hyperlink{classxml_1_1_text_node}{TextNode} \&node)
 \item 
@@ -145,7 +145,7 @@ Implémente \hyperlink{classxml_1_1_interface_node_visitor_afd6306ffd03380f21f43
 
 
 
-Définition à la ligne 97 du fichier OutputVisitor.cpp.
+Définition à la ligne 104 du fichier OutputVisitor.cpp.
 
 \hypertarget{classxml_1_1_output_visitor_ac1dae5dbb561c4b7e98a761d5d503e49}{
 \index{xml::OutputVisitor@{xml::OutputVisitor}!visit@{visit}}
@@ -162,7 +162,19 @@ Implémente \hyperlink{classxml_1_1_interface_node_visitor_a53b33aabb8a79d4b1715
 
 
 
-Définition à la ligne 89 du fichier OutputVisitor.cpp.
+Définition à la ligne 96 du fichier OutputVisitor.cpp.
+
+
+
+Voici le graphe d'appel pour cette fonction :
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=400pt]{classxml_1_1_output_visitor_ac1dae5dbb561c4b7e98a761d5d503e49_cgraph}
+\end{center}
+\end{figure}
+
 
 \hypertarget{classxml_1_1_output_visitor_a33e53f866b31a155bbf29ffda852aaf7}{
 \index{xml::OutputVisitor@{xml::OutputVisitor}!visit@{visit}}
@@ -179,17 +191,17 @@ Implémente \hyperlink{classxml_1_1_interface_node_visitor_a22a8a333e5cf2da1f1ac
 
 
 
-Définition à la ligne 83 du fichier OutputVisitor.cpp.
+Définition à la ligne 91 du fichier OutputVisitor.cpp.
 
-\hypertarget{classxml_1_1_output_visitor_a3c1d2ac6dec2c9f6279a59226646e254}{
-\index{xml::OutputVisitor@{xml::OutputVisitor}!writeAttributes@{writeAttributes}}
-\index{writeAttributes@{writeAttributes}!xml::OutputVisitor@{xml::OutputVisitor}}
-\subsubsection[{writeAttributes}]{\setlength{\rightskip}{0pt plus 5cm}void xml::OutputVisitor::writeAttributes (
+\hypertarget{classxml_1_1_output_visitor_a4008bcf393c484232ae20cc7dc97c0f0}{
+\index{xml::OutputVisitor@{xml::OutputVisitor}!writeMarkupOpening@{writeMarkupOpening}}
+\index{writeMarkupOpening@{writeMarkupOpening}!xml::OutputVisitor@{xml::OutputVisitor}}
+\subsubsection[{writeMarkupOpening}]{\setlength{\rightskip}{0pt plus 5cm}void xml::OutputVisitor::writeMarkupOpening (
 \begin{DoxyParamCaption}
 \item[{const {\bf MarkupNode} \&}]{ node}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
-\label{classxml_1_1_output_visitor_a3c1d2ac6dec2c9f6279a59226646e254}
+\label{classxml_1_1_output_visitor_a4008bcf393c484232ae20cc7dc97c0f0}
 
 
 Définition à la ligne 73 du fichier OutputVisitor.cpp.

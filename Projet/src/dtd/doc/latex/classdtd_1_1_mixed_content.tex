@@ -1,0 +1,325 @@
+\hypertarget{classdtd_1_1_mixed_content}{
+\section{Référence de la classe dtd::MixedContent}
+\label{classdtd_1_1_mixed_content}\index{dtd::MixedContent@{dtd::MixedContent}}
+}
+
+
+{\ttfamily \#include $<$MixedContent.hh$>$}
+
+
+
+Graphe d'héritage de dtd::MixedContent:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=600pt]{classdtd_1_1_mixed_content__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Graphe de collaboration de dtd::MixedContent:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=600pt]{classdtd_1_1_mixed_content__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Types publics}
+\begin{DoxyCompactItemize}
+\item 
+typedef \hyperlink{classdtd_1_1_choice_af9629ca325eb99da3f274b2ad3dc2060}{Choice::ChoosableSet} \hyperlink{classdtd_1_1_mixed_content_ab8f0c26935279ce90ebb5bb22b244088}{ChoosableSet}
+\item 
+typedef ChoosableSet::const\_\-iterator \hyperlink{classdtd_1_1_mixed_content_a801684f467b642e9e2de6297585ccf7b}{const\_\-iterator}
+\end{DoxyCompactItemize}
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+virtual bool \hyperlink{classdtd_1_1_mixed_content_a675bca1039d5dd8cced7fddb856428fd}{validate} (const xml::CompositeMarkupNode \&node)
+\item 
+virtual void \hyperlink{classdtd_1_1_mixed_content_aea7a1312dc631047db037c84899f7a05}{accept} (\hyperlink{classdtd_1_1_interface_d_t_d_visitor}{InterfaceDTDVisitor} \&visitor) const 
+\item 
+\hyperlink{classdtd_1_1_mixed_content_a801684f467b642e9e2de6297585ccf7b}{const\_\-iterator} \hyperlink{classdtd_1_1_mixed_content_ae329052b86f20252a7adeab321b35379}{begin} () const 
+\item 
+\hyperlink{classdtd_1_1_mixed_content_a801684f467b642e9e2de6297585ccf7b}{const\_\-iterator} \hyperlink{classdtd_1_1_mixed_content_a1d33a3179772862e611c962b23b7ff38}{end} () const 
+\item 
+\hyperlink{classdtd_1_1_mixed_content_ab853de43d13c98055cce02fa0175e3b2}{MixedContent} (\hyperlink{classdtd_1_1_text_content}{TextContent} \&textContent, const \hyperlink{classdtd_1_1_mixed_content_ab8f0c26935279ce90ebb5bb22b244088}{ChoosableSet} \&choosable)
+\item 
+virtual \hyperlink{classdtd_1_1_mixed_content_acadef0055c07eeecb917f503d9824df7}{$\sim$MixedContent} ()
+\end{DoxyCompactItemize}
+\subsection*{Types protégés}
+\begin{DoxyCompactItemize}
+\item 
+typedef std::stack$<$ \hyperlink{structdtd_1_1_quantifiable_content_1_1___state}{\_\-State} $>$ \hyperlink{classdtd_1_1_mixed_content_af406cf95bf434a84082758aab801296d}{\_\-StatesStack}
+\end{DoxyCompactItemize}
+\subsection*{Fonctions membres protégées}
+\begin{DoxyCompactItemize}
+\item 
+virtual bool \hyperlink{classdtd_1_1_mixed_content_ae2b12465df5873a58676315a563d1581}{\_\-startValidation} (xml::CompositeMarkupNode::ChildrenIterator firstToken, xml::CompositeMarkupNode::ChildrenIterator endToken, \hyperlink{classdtd_1_1_browsable_content}{BrowsableContent} $\ast$nextStep)
+\item 
+virtual bool \hyperlink{classdtd_1_1_mixed_content_a20d254e2b4366855818e1dd033d0736d}{\_\-continueValidation} (xml::CompositeMarkupNode::ChildrenIterator currentToken)
+\item 
+virtual void \hyperlink{classdtd_1_1_mixed_content_abb31ae73269d3bb10e6f5379332b1459}{\_\-beforeValidation} (xml::CompositeMarkupNode::ChildrenIterator firstToken, xml::CompositeMarkupNode::ChildrenIterator endToken, \hyperlink{classdtd_1_1_browsable_content}{BrowsableContent} $\ast$nextStep)
+\item 
+virtual void \hyperlink{classdtd_1_1_mixed_content_a1ad4f7436239c9cc9bd792b85447ee6b}{\_\-afterValidation} ()
+\end{DoxyCompactItemize}
+\subsection*{Attributs protégés}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classdtd_1_1_choice}{Choice} \hyperlink{classdtd_1_1_mixed_content_a69bcdfa733df68aee3d6d48b8ee9fab1}{\_\-choice}
+\item 
+\hyperlink{classdtd_1_1_text_content}{TextContent} \& \hyperlink{classdtd_1_1_mixed_content_af8e3d219de7501a3cd397e913be22f2f}{\_\-textContent}
+\item 
+\hyperlink{classdtd_1_1_mixed_content_af406cf95bf434a84082758aab801296d}{\_\-StatesStack} \hyperlink{classdtd_1_1_mixed_content_a8da3d196eb875933a34c03190e1b3702}{\_\-stack}
+\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+
+
+Définition à la ligne 21 du fichier MixedContent.hh.
+
+
+
+\subsection{Documentation des définitions de type membres}
+\hypertarget{classdtd_1_1_mixed_content_af406cf95bf434a84082758aab801296d}{
+\index{dtd::MixedContent@{dtd::MixedContent}!\_\-StatesStack@{\_\-StatesStack}}
+\index{\_\-StatesStack@{\_\-StatesStack}!dtd::MixedContent@{dtd::MixedContent}}
+\subsubsection[{\_\-StatesStack}]{\setlength{\rightskip}{0pt plus 5cm}typedef std::stack$<${\bf \_\-State}$>$ {\bf dtd::MixedContent::\_\-StatesStack}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{classdtd_1_1_mixed_content_af406cf95bf434a84082758aab801296d}
+
+
+Définition à la ligne 84 du fichier MixedContent.hh.
+
+\hypertarget{classdtd_1_1_mixed_content_ab8f0c26935279ce90ebb5bb22b244088}{
+\index{dtd::MixedContent@{dtd::MixedContent}!ChoosableSet@{ChoosableSet}}
+\index{ChoosableSet@{ChoosableSet}!dtd::MixedContent@{dtd::MixedContent}}
+\subsubsection[{ChoosableSet}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf Choice::ChoosableSet} {\bf dtd::MixedContent::ChoosableSet}}}
+\label{classdtd_1_1_mixed_content_ab8f0c26935279ce90ebb5bb22b244088}
+
+
+Définition à la ligne 29 du fichier MixedContent.hh.
+
+\hypertarget{classdtd_1_1_mixed_content_a801684f467b642e9e2de6297585ccf7b}{
+\index{dtd::MixedContent@{dtd::MixedContent}!const\_\-iterator@{const\_\-iterator}}
+\index{const\_\-iterator@{const\_\-iterator}!dtd::MixedContent@{dtd::MixedContent}}
+\subsubsection[{const\_\-iterator}]{\setlength{\rightskip}{0pt plus 5cm}typedef ChoosableSet::const\_\-iterator {\bf dtd::MixedContent::const\_\-iterator}}}
+\label{classdtd_1_1_mixed_content_a801684f467b642e9e2de6297585ccf7b}
+
+
+Définition à la ligne 30 du fichier MixedContent.hh.
+
+
+
+\subsection{Documentation des constructeurs et destructeur}
+\hypertarget{classdtd_1_1_mixed_content_ab853de43d13c98055cce02fa0175e3b2}{
+\index{dtd::MixedContent@{dtd::MixedContent}!MixedContent@{MixedContent}}
+\index{MixedContent@{MixedContent}!dtd::MixedContent@{dtd::MixedContent}}
+\subsubsection[{MixedContent}]{\setlength{\rightskip}{0pt plus 5cm}dtd::MixedContent::MixedContent (
+\begin{DoxyParamCaption}
+\item[{{\bf TextContent} \&}]{ textContent, }
+\item[{const {\bf ChoosableSet} \&}]{ choosable}
+\end{DoxyParamCaption}
+)}}
+\label{classdtd_1_1_mixed_content_ab853de43d13c98055cce02fa0175e3b2}
+
+
+Définition à la ligne 61 du fichier MixedContent.cpp.
+
+\hypertarget{classdtd_1_1_mixed_content_acadef0055c07eeecb917f503d9824df7}{
+\index{dtd::MixedContent@{dtd::MixedContent}!$\sim$MixedContent@{$\sim$MixedContent}}
+\index{$\sim$MixedContent@{$\sim$MixedContent}!dtd::MixedContent@{dtd::MixedContent}}
+\subsubsection[{$\sim$MixedContent}]{\setlength{\rightskip}{0pt plus 5cm}dtd::MixedContent::$\sim$MixedContent (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classdtd_1_1_mixed_content_acadef0055c07eeecb917f503d9824df7}
+
+
+Définition à la ligne 68 du fichier MixedContent.cpp.
+
+
+
+\subsection{Documentation des fonctions membres}
+\hypertarget{classdtd_1_1_mixed_content_a1ad4f7436239c9cc9bd792b85447ee6b}{
+\index{dtd::MixedContent@{dtd::MixedContent}!\_\-afterValidation@{\_\-afterValidation}}
+\index{\_\-afterValidation@{\_\-afterValidation}!dtd::MixedContent@{dtd::MixedContent}}
+\subsubsection[{\_\-afterValidation}]{\setlength{\rightskip}{0pt plus 5cm}void dtd::MixedContent::\_\-afterValidation (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}protected, virtual\mbox{]}}}}
+\label{classdtd_1_1_mixed_content_a1ad4f7436239c9cc9bd792b85447ee6b}
+
+
+Réimplémentée à partir de \hyperlink{classdtd_1_1_browsable_content_a378fc620af75eb9bad9f37c663e3838d}{dtd::BrowsableContent}.
+
+
+
+Définition à la ligne 84 du fichier MixedContent.cpp.
+
+\hypertarget{classdtd_1_1_mixed_content_abb31ae73269d3bb10e6f5379332b1459}{
+\index{dtd::MixedContent@{dtd::MixedContent}!\_\-beforeValidation@{\_\-beforeValidation}}
+\index{\_\-beforeValidation@{\_\-beforeValidation}!dtd::MixedContent@{dtd::MixedContent}}
+\subsubsection[{\_\-beforeValidation}]{\setlength{\rightskip}{0pt plus 5cm}void dtd::MixedContent::\_\-beforeValidation (
+\begin{DoxyParamCaption}
+\item[{xml::CompositeMarkupNode::ChildrenIterator}]{ firstToken, }
+\item[{xml::CompositeMarkupNode::ChildrenIterator}]{ endToken, }
+\item[{{\bf BrowsableContent} $\ast$}]{ nextStep}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}protected, virtual\mbox{]}}}}
+\label{classdtd_1_1_mixed_content_abb31ae73269d3bb10e6f5379332b1459}
+
+
+Réimplémentée à partir de \hyperlink{classdtd_1_1_browsable_content_ae9e55da18cc09557fc7896a7ccac2ee1}{dtd::BrowsableContent}.
+
+
+
+Définition à la ligne 76 du fichier MixedContent.cpp.
+
+\hypertarget{classdtd_1_1_mixed_content_a20d254e2b4366855818e1dd033d0736d}{
+\index{dtd::MixedContent@{dtd::MixedContent}!\_\-continueValidation@{\_\-continueValidation}}
+\index{\_\-continueValidation@{\_\-continueValidation}!dtd::MixedContent@{dtd::MixedContent}}
+\subsubsection[{\_\-continueValidation}]{\setlength{\rightskip}{0pt plus 5cm}bool dtd::MixedContent::\_\-continueValidation (
+\begin{DoxyParamCaption}
+\item[{xml::CompositeMarkupNode::ChildrenIterator}]{ currentToken}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}protected, virtual\mbox{]}}}}
+\label{classdtd_1_1_mixed_content_a20d254e2b4366855818e1dd033d0736d}
+
+
+Réimplémentée à partir de \hyperlink{classdtd_1_1_browsable_content_a6398e5990648e2af3fd775592b0d62ea}{dtd::BrowsableContent}.
+
+
+
+Définition à la ligne 97 du fichier MixedContent.cpp.
+
+
+
+Voici le graphe d'appel pour cette fonction :\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=400pt]{classdtd_1_1_mixed_content_a20d254e2b4366855818e1dd033d0736d_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classdtd_1_1_mixed_content_ae2b12465df5873a58676315a563d1581}{
+\index{dtd::MixedContent@{dtd::MixedContent}!\_\-startValidation@{\_\-startValidation}}
+\index{\_\-startValidation@{\_\-startValidation}!dtd::MixedContent@{dtd::MixedContent}}
+\subsubsection[{\_\-startValidation}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool dtd::MixedContent::\_\-startValidation (
+\begin{DoxyParamCaption}
+\item[{xml::CompositeMarkupNode::ChildrenIterator}]{ firstToken, }
+\item[{xml::CompositeMarkupNode::ChildrenIterator}]{ endToken, }
+\item[{{\bf BrowsableContent} $\ast$}]{ nextStep}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}protected, virtual\mbox{]}}}}
+\label{classdtd_1_1_mixed_content_ae2b12465df5873a58676315a563d1581}
+
+
+Implémente \hyperlink{classdtd_1_1_browsable_content_a67ab5a7329d94e363796ae2d17617246}{dtd::BrowsableContent}.
+
+\hypertarget{classdtd_1_1_mixed_content_aea7a1312dc631047db037c84899f7a05}{
+\index{dtd::MixedContent@{dtd::MixedContent}!accept@{accept}}
+\index{accept@{accept}!dtd::MixedContent@{dtd::MixedContent}}
+\subsubsection[{accept}]{\setlength{\rightskip}{0pt plus 5cm}void dtd::MixedContent::accept (
+\begin{DoxyParamCaption}
+\item[{{\bf InterfaceDTDVisitor} \&}]{ visitor}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classdtd_1_1_mixed_content_aea7a1312dc631047db037c84899f7a05}
+
+
+Implémente \hyperlink{classdtd_1_1_content_a403cc15f12eaa187ad493fa600540cd8}{dtd::Content}.
+
+
+
+Définition à la ligne 42 du fichier MixedContent.cpp.
+
+
+
+Voici le graphe d'appel pour cette fonction :\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=400pt]{classdtd_1_1_mixed_content_aea7a1312dc631047db037c84899f7a05_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classdtd_1_1_mixed_content_ae329052b86f20252a7adeab321b35379}{
+\index{dtd::MixedContent@{dtd::MixedContent}!begin@{begin}}
+\index{begin@{begin}!dtd::MixedContent@{dtd::MixedContent}}
+\subsubsection[{begin}]{\setlength{\rightskip}{0pt plus 5cm}{\bf MixedContent::const\_\-iterator} dtd::MixedContent::begin (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}
+\label{classdtd_1_1_mixed_content_ae329052b86f20252a7adeab321b35379}
+
+
+Définition à la ligne 47 du fichier MixedContent.cpp.
+
+\hypertarget{classdtd_1_1_mixed_content_a1d33a3179772862e611c962b23b7ff38}{
+\index{dtd::MixedContent@{dtd::MixedContent}!end@{end}}
+\index{end@{end}!dtd::MixedContent@{dtd::MixedContent}}
+\subsubsection[{end}]{\setlength{\rightskip}{0pt plus 5cm}{\bf MixedContent::const\_\-iterator} dtd::MixedContent::end (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}
+\label{classdtd_1_1_mixed_content_a1d33a3179772862e611c962b23b7ff38}
+
+
+Définition à la ligne 52 du fichier MixedContent.cpp.
+
+\hypertarget{classdtd_1_1_mixed_content_a675bca1039d5dd8cced7fddb856428fd}{
+\index{dtd::MixedContent@{dtd::MixedContent}!validate@{validate}}
+\index{validate@{validate}!dtd::MixedContent@{dtd::MixedContent}}
+\subsubsection[{validate}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool dtd::MixedContent::validate (
+\begin{DoxyParamCaption}
+\item[{const xml::CompositeMarkupNode \&}]{ node}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classdtd_1_1_mixed_content_a675bca1039d5dd8cced7fddb856428fd}
+
+
+Réimplémentée à partir de \hyperlink{classdtd_1_1_browsable_content_a824a0c41b66aeea689e4283ee453d398}{dtd::BrowsableContent}.
+
+
+
+\subsection{Documentation des données membres}
+\hypertarget{classdtd_1_1_mixed_content_a69bcdfa733df68aee3d6d48b8ee9fab1}{
+\index{dtd::MixedContent@{dtd::MixedContent}!\_\-choice@{\_\-choice}}
+\index{\_\-choice@{\_\-choice}!dtd::MixedContent@{dtd::MixedContent}}
+\subsubsection[{\_\-choice}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Choice} {\bf dtd::MixedContent::\_\-choice}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{classdtd_1_1_mixed_content_a69bcdfa733df68aee3d6d48b8ee9fab1}
+
+
+Définition à la ligne 81 du fichier MixedContent.hh.
+
+\hypertarget{classdtd_1_1_mixed_content_a8da3d196eb875933a34c03190e1b3702}{
+\index{dtd::MixedContent@{dtd::MixedContent}!\_\-stack@{\_\-stack}}
+\index{\_\-stack@{\_\-stack}!dtd::MixedContent@{dtd::MixedContent}}
+\subsubsection[{\_\-stack}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \_\-StatesStack} {\bf dtd::MixedContent::\_\-stack}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{classdtd_1_1_mixed_content_a8da3d196eb875933a34c03190e1b3702}
+
+
+Définition à la ligne 85 du fichier MixedContent.hh.
+
+\hypertarget{classdtd_1_1_mixed_content_af8e3d219de7501a3cd397e913be22f2f}{
+\index{dtd::MixedContent@{dtd::MixedContent}!\_\-textContent@{\_\-textContent}}
+\index{\_\-textContent@{\_\-textContent}!dtd::MixedContent@{dtd::MixedContent}}
+\subsubsection[{\_\-textContent}]{\setlength{\rightskip}{0pt plus 5cm}{\bf TextContent}\& {\bf dtd::MixedContent::\_\-textContent}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{classdtd_1_1_mixed_content_af8e3d219de7501a3cd397e913be22f2f}
+
+
+Définition à la ligne 82 du fichier MixedContent.hh.
+
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants :\begin{DoxyCompactItemize}
+\item 
+src/\hyperlink{_mixed_content_8hh}{MixedContent.hh}\item 
+src/\hyperlink{_mixed_content_8cpp}{MixedContent.cpp}\end{DoxyCompactItemize}

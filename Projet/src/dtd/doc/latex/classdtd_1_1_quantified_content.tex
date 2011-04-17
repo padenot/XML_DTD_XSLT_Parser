@@ -1,0 +1,211 @@
+\hypertarget{classdtd_1_1_quantified_content}{
+\section{Référence de la classe dtd::QuantifiedContent}
+\label{classdtd_1_1_quantified_content}\index{dtd::QuantifiedContent@{dtd::QuantifiedContent}}
+}
+
+
+{\ttfamily \#include $<$QuantifiedContent.hh$>$}
+
+
+
+Graphe d'héritage de dtd::QuantifiedContent:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=600pt]{classdtd_1_1_quantified_content__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Graphe de collaboration de dtd::QuantifiedContent:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=600pt]{classdtd_1_1_quantified_content__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+virtual bool \hyperlink{classdtd_1_1_quantified_content_a83733f23442035bdbcd976723ed753a4}{validate} (const xml::CompositeMarkupNode \&node)
+\item 
+\hyperlink{classdtd_1_1_quantifiable_content}{QuantifiableContent} \& \hyperlink{classdtd_1_1_quantified_content_a5af034175edfa37f250b79b4c3ed3b92}{content} ()
+\item 
+const \hyperlink{classdtd_1_1_quantifiable_content}{QuantifiableContent} \& \hyperlink{classdtd_1_1_quantified_content_a29617e5aff808d66520c20626d673cae}{content} () const 
+\item 
+\hyperlink{classdtd_1_1_quantified_content_a687df58cee3795a5e47dfed39e6c6bf8}{QuantifiedContent} (\hyperlink{classdtd_1_1_quantifiable_content}{QuantifiableContent} \&content)
+\item 
+virtual \hyperlink{classdtd_1_1_quantified_content_ae67cf8463f4df5598acb62a0ffc06b39}{$\sim$QuantifiedContent} ()
+\end{DoxyCompactItemize}
+\subsection*{Types protégés}
+\begin{DoxyCompactItemize}
+\item 
+typedef std::stack$<$ \hyperlink{structdtd_1_1_quantifiable_content_1_1___state}{\_\-State} $>$ \hyperlink{classdtd_1_1_quantified_content_af5a78d608bdaba704815995fbbe40f10}{\_\-StatesStack}
+\end{DoxyCompactItemize}
+\subsection*{Fonctions membres protégées}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{classdtd_1_1_quantified_content_a7be3fc2bcf3859567fd276e0d364b42e}{\_\-beforeValidation} (xml::CompositeMarkupNode::ChildrenIterator firstToken, xml::CompositeMarkupNode::ChildrenIterator endToken, \hyperlink{classdtd_1_1_browsable_content}{BrowsableContent} $\ast$nextStep)
+\item 
+virtual void \hyperlink{classdtd_1_1_quantified_content_a0830885ef44406a3ce571d8ad70fc014}{\_\-afterValidation} ()
+\end{DoxyCompactItemize}
+\subsection*{Attributs protégés}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classdtd_1_1_quantifiable_content}{QuantifiableContent} \& \hyperlink{classdtd_1_1_quantified_content_a7372be0a6613cfb0795038937d73d321}{\_\-content}
+\item 
+\hyperlink{classdtd_1_1_quantified_content_af5a78d608bdaba704815995fbbe40f10}{\_\-StatesStack} \hyperlink{classdtd_1_1_quantified_content_acf63f34405d6c2b4016b442057fc0c56}{\_\-stack}
+\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+
+
+Définition à la ligne 19 du fichier QuantifiedContent.hh.
+
+
+
+\subsection{Documentation des définitions de type membres}
+\hypertarget{classdtd_1_1_quantified_content_af5a78d608bdaba704815995fbbe40f10}{
+\index{dtd::QuantifiedContent@{dtd::QuantifiedContent}!\_\-StatesStack@{\_\-StatesStack}}
+\index{\_\-StatesStack@{\_\-StatesStack}!dtd::QuantifiedContent@{dtd::QuantifiedContent}}
+\subsubsection[{\_\-StatesStack}]{\setlength{\rightskip}{0pt plus 5cm}typedef std::stack$<${\bf \_\-State}$>$ {\bf dtd::QuantifiedContent::\_\-StatesStack}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{classdtd_1_1_quantified_content_af5a78d608bdaba704815995fbbe40f10}
+
+
+Définition à la ligne 61 du fichier QuantifiedContent.hh.
+
+
+
+\subsection{Documentation des constructeurs et destructeur}
+\hypertarget{classdtd_1_1_quantified_content_a687df58cee3795a5e47dfed39e6c6bf8}{
+\index{dtd::QuantifiedContent@{dtd::QuantifiedContent}!QuantifiedContent@{QuantifiedContent}}
+\index{QuantifiedContent@{QuantifiedContent}!dtd::QuantifiedContent@{dtd::QuantifiedContent}}
+\subsubsection[{QuantifiedContent}]{\setlength{\rightskip}{0pt plus 5cm}dtd::QuantifiedContent::QuantifiedContent (
+\begin{DoxyParamCaption}
+\item[{{\bf QuantifiableContent} \&}]{ content}
+\end{DoxyParamCaption}
+)}}
+\label{classdtd_1_1_quantified_content_a687df58cee3795a5e47dfed39e6c6bf8}
+
+
+Définition à la ligne 53 du fichier QuantifiedContent.cpp.
+
+\hypertarget{classdtd_1_1_quantified_content_ae67cf8463f4df5598acb62a0ffc06b39}{
+\index{dtd::QuantifiedContent@{dtd::QuantifiedContent}!$\sim$QuantifiedContent@{$\sim$QuantifiedContent}}
+\index{$\sim$QuantifiedContent@{$\sim$QuantifiedContent}!dtd::QuantifiedContent@{dtd::QuantifiedContent}}
+\subsubsection[{$\sim$QuantifiedContent}]{\setlength{\rightskip}{0pt plus 5cm}dtd::QuantifiedContent::$\sim$QuantifiedContent (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classdtd_1_1_quantified_content_ae67cf8463f4df5598acb62a0ffc06b39}
+
+
+Définition à la ligne 59 du fichier QuantifiedContent.cpp.
+
+
+
+\subsection{Documentation des fonctions membres}
+\hypertarget{classdtd_1_1_quantified_content_a0830885ef44406a3ce571d8ad70fc014}{
+\index{dtd::QuantifiedContent@{dtd::QuantifiedContent}!\_\-afterValidation@{\_\-afterValidation}}
+\index{\_\-afterValidation@{\_\-afterValidation}!dtd::QuantifiedContent@{dtd::QuantifiedContent}}
+\subsubsection[{\_\-afterValidation}]{\setlength{\rightskip}{0pt plus 5cm}void dtd::QuantifiedContent::\_\-afterValidation (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}protected, virtual\mbox{]}}}}
+\label{classdtd_1_1_quantified_content_a0830885ef44406a3ce571d8ad70fc014}
+
+
+Réimplémentée à partir de \hyperlink{classdtd_1_1_browsable_content_a378fc620af75eb9bad9f37c663e3838d}{dtd::BrowsableContent}.
+
+
+
+Définition à la ligne 75 du fichier QuantifiedContent.cpp.
+
+\hypertarget{classdtd_1_1_quantified_content_a7be3fc2bcf3859567fd276e0d364b42e}{
+\index{dtd::QuantifiedContent@{dtd::QuantifiedContent}!\_\-beforeValidation@{\_\-beforeValidation}}
+\index{\_\-beforeValidation@{\_\-beforeValidation}!dtd::QuantifiedContent@{dtd::QuantifiedContent}}
+\subsubsection[{\_\-beforeValidation}]{\setlength{\rightskip}{0pt plus 5cm}void dtd::QuantifiedContent::\_\-beforeValidation (
+\begin{DoxyParamCaption}
+\item[{xml::CompositeMarkupNode::ChildrenIterator}]{ firstToken, }
+\item[{xml::CompositeMarkupNode::ChildrenIterator}]{ endToken, }
+\item[{{\bf BrowsableContent} $\ast$}]{ nextStep}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}protected, virtual\mbox{]}}}}
+\label{classdtd_1_1_quantified_content_a7be3fc2bcf3859567fd276e0d364b42e}
+
+
+Réimplémentée à partir de \hyperlink{classdtd_1_1_browsable_content_ae9e55da18cc09557fc7896a7ccac2ee1}{dtd::BrowsableContent}.
+
+
+
+Définition à la ligne 67 du fichier QuantifiedContent.cpp.
+
+\hypertarget{classdtd_1_1_quantified_content_a5af034175edfa37f250b79b4c3ed3b92}{
+\index{dtd::QuantifiedContent@{dtd::QuantifiedContent}!content@{content}}
+\index{content@{content}!dtd::QuantifiedContent@{dtd::QuantifiedContent}}
+\subsubsection[{content}]{\setlength{\rightskip}{0pt plus 5cm}{\bf QuantifiableContent} \& dtd::QuantifiedContent::content (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{classdtd_1_1_quantified_content_a5af034175edfa37f250b79b4c3ed3b92}
+
+
+Définition à la ligne 39 du fichier QuantifiedContent.cpp.
+
+\hypertarget{classdtd_1_1_quantified_content_a29617e5aff808d66520c20626d673cae}{
+\index{dtd::QuantifiedContent@{dtd::QuantifiedContent}!content@{content}}
+\index{content@{content}!dtd::QuantifiedContent@{dtd::QuantifiedContent}}
+\subsubsection[{content}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf QuantifiableContent} \& dtd::QuantifiedContent::content (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}
+\label{classdtd_1_1_quantified_content_a29617e5aff808d66520c20626d673cae}
+
+
+Définition à la ligne 44 du fichier QuantifiedContent.cpp.
+
+\hypertarget{classdtd_1_1_quantified_content_a83733f23442035bdbcd976723ed753a4}{
+\index{dtd::QuantifiedContent@{dtd::QuantifiedContent}!validate@{validate}}
+\index{validate@{validate}!dtd::QuantifiedContent@{dtd::QuantifiedContent}}
+\subsubsection[{validate}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool dtd::QuantifiedContent::validate (
+\begin{DoxyParamCaption}
+\item[{const xml::CompositeMarkupNode \&}]{ node}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classdtd_1_1_quantified_content_a83733f23442035bdbcd976723ed753a4}
+
+
+Réimplémentée à partir de \hyperlink{classdtd_1_1_browsable_content_a824a0c41b66aeea689e4283ee453d398}{dtd::BrowsableContent}.
+
+
+
+\subsection{Documentation des données membres}
+\hypertarget{classdtd_1_1_quantified_content_a7372be0a6613cfb0795038937d73d321}{
+\index{dtd::QuantifiedContent@{dtd::QuantifiedContent}!\_\-content@{\_\-content}}
+\index{\_\-content@{\_\-content}!dtd::QuantifiedContent@{dtd::QuantifiedContent}}
+\subsubsection[{\_\-content}]{\setlength{\rightskip}{0pt plus 5cm}{\bf QuantifiableContent}\& {\bf dtd::QuantifiedContent::\_\-content}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{classdtd_1_1_quantified_content_a7372be0a6613cfb0795038937d73d321}
+
+
+Définition à la ligne 59 du fichier QuantifiedContent.hh.
+
+\hypertarget{classdtd_1_1_quantified_content_acf63f34405d6c2b4016b442057fc0c56}{
+\index{dtd::QuantifiedContent@{dtd::QuantifiedContent}!\_\-stack@{\_\-stack}}
+\index{\_\-stack@{\_\-stack}!dtd::QuantifiedContent@{dtd::QuantifiedContent}}
+\subsubsection[{\_\-stack}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \_\-StatesStack} {\bf dtd::QuantifiedContent::\_\-stack}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{classdtd_1_1_quantified_content_acf63f34405d6c2b4016b442057fc0c56}
+
+
+Définition à la ligne 62 du fichier QuantifiedContent.hh.
+
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants :\begin{DoxyCompactItemize}
+\item 
+src/\hyperlink{_quantified_content_8hh}{QuantifiedContent.hh}\item 
+src/\hyperlink{_quantified_content_8cpp}{QuantifiedContent.cpp}\end{DoxyCompactItemize}

@@ -1,0 +1,390 @@
+\hypertarget{classdtd_1_1_interface_d_t_d_visitor}{
+\section{Référence de la classe dtd::InterfaceDTDVisitor}
+\label{classdtd_1_1_interface_d_t_d_visitor}\index{dtd::InterfaceDTDVisitor@{dtd::InterfaceDTDVisitor}}
+}
+
+
+{\ttfamily \#include $<$InterfaceDTDVisitor.hpp$>$}
+
+
+
+Graphe d'héritage de dtd::InterfaceDTDVisitor:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=600pt]{classdtd_1_1_interface_d_t_d_visitor__inherit__graph}
+\end{center}
+\end{figure}
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{classdtd_1_1_interface_d_t_d_visitor_a46b882a06961ea04fd43b2a9d937118b}{visitElement} (const std::string \&ns, const std::string \&elementName, const \hyperlink{classdtd_1_1_content}{Content} \&content)=0
+\item 
+virtual void \hyperlink{classdtd_1_1_interface_d_t_d_visitor_a729d9fcb360d9bf45210aac109b388da}{visitAttributesList} (const std::string \&ns, const std::string \&elementName, const \hyperlink{namespacedtd_a8d5d29abb5de0468925f321597f57f4b}{AttributesList} \&attlist)=0
+\item 
+virtual \hyperlink{classdtd_1_1_interface_d_t_d_visitor_aef94cba5e56a7891a24b236176a2075a}{$\sim$InterfaceDTDVisitor} ()
+\end{DoxyCompactItemize}
+\subsection*{Fonctions membres protégées}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{classdtd_1_1_interface_d_t_d_visitor_ac2d1f472564e590bbe66f14ab096167a}{visit} (const \hyperlink{classdtd_1_1_any_content}{AnyContent} \&content)=0
+\item 
+virtual void \hyperlink{classdtd_1_1_interface_d_t_d_visitor_abdf03eb698f07aa0caaa405711fc8aac}{visit} (const \hyperlink{classdtd_1_1_empty_content}{EmptyContent} \&content)=0
+\item 
+virtual void \hyperlink{classdtd_1_1_interface_d_t_d_visitor_a06be244faf5995ac7ca502b326db10e0}{visit} (const \hyperlink{classdtd_1_1_mixed_content}{MixedContent} \&content)=0
+\item 
+virtual void \hyperlink{classdtd_1_1_interface_d_t_d_visitor_abd31e761d6d8ab80ac6f3f0a9a20b953}{visit} (const \hyperlink{classdtd_1_1_text_content}{TextContent} \&content)=0
+\item 
+virtual void \hyperlink{classdtd_1_1_interface_d_t_d_visitor_aaac54822c9519b08305a64aab110716b}{visit} (const \hyperlink{classdtd_1_1_element_reference}{ElementReference} \&element)=0
+\item 
+virtual void \hyperlink{classdtd_1_1_interface_d_t_d_visitor_a4323aeef86fa385a44fd4572ccc36cd2}{visit} (const \hyperlink{classdtd_1_1_choice}{Choice} \&content)=0
+\item 
+virtual void \hyperlink{classdtd_1_1_interface_d_t_d_visitor_aa093199d020b5887fbaa8af1573afc51}{visit} (const \hyperlink{classdtd_1_1_sequence}{Sequence} \&content)=0
+\item 
+virtual void \hyperlink{classdtd_1_1_interface_d_t_d_visitor_a444ada6db2f531579579de7b8fd5fd53}{visit} (const \hyperlink{classdtd_1_1_optional_content}{OptionalContent} \&content)=0
+\item 
+virtual void \hyperlink{classdtd_1_1_interface_d_t_d_visitor_a76bd6fb0307eea7fc6ef703cf09a07b9}{visit} (const \hyperlink{classdtd_1_1_repeatable_content}{RepeatableContent} \&content)=0
+\item 
+virtual void \hyperlink{classdtd_1_1_interface_d_t_d_visitor_a8a2ce739049697fcc2a7126adea4536a}{visit} (const \hyperlink{classdtd_1_1_repeated_content}{RepeatedContent} \&content)=0
+\end{DoxyCompactItemize}
+\subsection*{Amis}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classdtd_1_1_interface_d_t_d_visitor_a98eaefc8d4a0da1a8f9c254c62a68759}{AnyContent}
+\item 
+class \hyperlink{classdtd_1_1_interface_d_t_d_visitor_a91eaa900fb18be6cd9a7105c964666fb}{EmptyContent}
+\item 
+class \hyperlink{classdtd_1_1_interface_d_t_d_visitor_a94c4de9fad580ef7aa4f384bf0c2b861}{MixedContent}
+\item 
+class \hyperlink{classdtd_1_1_interface_d_t_d_visitor_aa641efa971cba38c6181cdc71b30df90}{TextContent}
+\item 
+class \hyperlink{classdtd_1_1_interface_d_t_d_visitor_a21b7004458ebe5b88f6d6edb6d059a34}{ElementReference}
+\item 
+class \hyperlink{classdtd_1_1_interface_d_t_d_visitor_af8084f88f5641132057732496deab026}{Choice}
+\item 
+class \hyperlink{classdtd_1_1_interface_d_t_d_visitor_a26271d5afaff6e6d3f00c055c63d0b24}{Sequence}
+\item 
+class \hyperlink{classdtd_1_1_interface_d_t_d_visitor_a90839fb65068433fb68ba4e59462f869}{OptionalContent}
+\item 
+class \hyperlink{classdtd_1_1_interface_d_t_d_visitor_ad2e096c883291671a8d20ca270018e05}{RepeatableContent}
+\item 
+class \hyperlink{classdtd_1_1_interface_d_t_d_visitor_afaa2f3eab18d4215d1683c4b2f5a6b8e}{RepeatedContent}
+\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+
+
+Définition à la ligne 30 du fichier InterfaceDTDVisitor.hpp.
+
+
+
+\subsection{Documentation des constructeurs et destructeur}
+\hypertarget{classdtd_1_1_interface_d_t_d_visitor_aef94cba5e56a7891a24b236176a2075a}{
+\index{dtd::InterfaceDTDVisitor@{dtd::InterfaceDTDVisitor}!$\sim$InterfaceDTDVisitor@{$\sim$InterfaceDTDVisitor}}
+\index{$\sim$InterfaceDTDVisitor@{$\sim$InterfaceDTDVisitor}!dtd::InterfaceDTDVisitor@{dtd::InterfaceDTDVisitor}}
+\subsubsection[{$\sim$InterfaceDTDVisitor}]{\setlength{\rightskip}{0pt plus 5cm}virtual dtd::InterfaceDTDVisitor::$\sim$InterfaceDTDVisitor (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline, virtual\mbox{]}}}}
+\label{classdtd_1_1_interface_d_t_d_visitor_aef94cba5e56a7891a24b236176a2075a}
+
+
+Définition à la ligne 46 du fichier InterfaceDTDVisitor.hpp.
+
+
+
+\subsection{Documentation des fonctions membres}
+\hypertarget{classdtd_1_1_interface_d_t_d_visitor_ac2d1f472564e590bbe66f14ab096167a}{
+\index{dtd::InterfaceDTDVisitor@{dtd::InterfaceDTDVisitor}!visit@{visit}}
+\index{visit@{visit}!dtd::InterfaceDTDVisitor@{dtd::InterfaceDTDVisitor}}
+\subsubsection[{visit}]{\setlength{\rightskip}{0pt plus 5cm}virtual void dtd::InterfaceDTDVisitor::visit (
+\begin{DoxyParamCaption}
+\item[{const {\bf AnyContent} \&}]{ content}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}protected, pure virtual\mbox{]}}}}
+\label{classdtd_1_1_interface_d_t_d_visitor_ac2d1f472564e590bbe66f14ab096167a}
+
+
+Implémenté dans \hyperlink{classdtd_1_1_output_d_t_d_visitor_a17406ea51970e67da79947709945c4b1}{dtd::OutputDTDVisitor}.
+
+
+
+Voici le graphe d'appel pour cette fonction :\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=400pt]{classdtd_1_1_interface_d_t_d_visitor_ac2d1f472564e590bbe66f14ab096167a_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classdtd_1_1_interface_d_t_d_visitor_abdf03eb698f07aa0caaa405711fc8aac}{
+\index{dtd::InterfaceDTDVisitor@{dtd::InterfaceDTDVisitor}!visit@{visit}}
+\index{visit@{visit}!dtd::InterfaceDTDVisitor@{dtd::InterfaceDTDVisitor}}
+\subsubsection[{visit}]{\setlength{\rightskip}{0pt plus 5cm}virtual void dtd::InterfaceDTDVisitor::visit (
+\begin{DoxyParamCaption}
+\item[{const {\bf EmptyContent} \&}]{ content}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}protected, pure virtual\mbox{]}}}}
+\label{classdtd_1_1_interface_d_t_d_visitor_abdf03eb698f07aa0caaa405711fc8aac}
+
+
+Implémenté dans \hyperlink{classdtd_1_1_output_d_t_d_visitor_a3eb81ed67c53e9aebb90a4558f13a402}{dtd::OutputDTDVisitor}.
+
+\hypertarget{classdtd_1_1_interface_d_t_d_visitor_a76bd6fb0307eea7fc6ef703cf09a07b9}{
+\index{dtd::InterfaceDTDVisitor@{dtd::InterfaceDTDVisitor}!visit@{visit}}
+\index{visit@{visit}!dtd::InterfaceDTDVisitor@{dtd::InterfaceDTDVisitor}}
+\subsubsection[{visit}]{\setlength{\rightskip}{0pt plus 5cm}virtual void dtd::InterfaceDTDVisitor::visit (
+\begin{DoxyParamCaption}
+\item[{const {\bf RepeatableContent} \&}]{ content}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}protected, pure virtual\mbox{]}}}}
+\label{classdtd_1_1_interface_d_t_d_visitor_a76bd6fb0307eea7fc6ef703cf09a07b9}
+
+
+Implémenté dans \hyperlink{classdtd_1_1_output_d_t_d_visitor_a93c6d6c010e58356bf9ba29b56d561df}{dtd::OutputDTDVisitor}.
+
+\hypertarget{classdtd_1_1_interface_d_t_d_visitor_a444ada6db2f531579579de7b8fd5fd53}{
+\index{dtd::InterfaceDTDVisitor@{dtd::InterfaceDTDVisitor}!visit@{visit}}
+\index{visit@{visit}!dtd::InterfaceDTDVisitor@{dtd::InterfaceDTDVisitor}}
+\subsubsection[{visit}]{\setlength{\rightskip}{0pt plus 5cm}virtual void dtd::InterfaceDTDVisitor::visit (
+\begin{DoxyParamCaption}
+\item[{const {\bf OptionalContent} \&}]{ content}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}protected, pure virtual\mbox{]}}}}
+\label{classdtd_1_1_interface_d_t_d_visitor_a444ada6db2f531579579de7b8fd5fd53}
+
+
+Implémenté dans \hyperlink{classdtd_1_1_output_d_t_d_visitor_a5ea91964e78eef4fc0786708154204bc}{dtd::OutputDTDVisitor}.
+
+\hypertarget{classdtd_1_1_interface_d_t_d_visitor_a4323aeef86fa385a44fd4572ccc36cd2}{
+\index{dtd::InterfaceDTDVisitor@{dtd::InterfaceDTDVisitor}!visit@{visit}}
+\index{visit@{visit}!dtd::InterfaceDTDVisitor@{dtd::InterfaceDTDVisitor}}
+\subsubsection[{visit}]{\setlength{\rightskip}{0pt plus 5cm}virtual void dtd::InterfaceDTDVisitor::visit (
+\begin{DoxyParamCaption}
+\item[{const {\bf Choice} \&}]{ content}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}protected, pure virtual\mbox{]}}}}
+\label{classdtd_1_1_interface_d_t_d_visitor_a4323aeef86fa385a44fd4572ccc36cd2}
+
+
+Implémenté dans \hyperlink{classdtd_1_1_output_d_t_d_visitor_a666c828c10840930fd420e86030e16f1}{dtd::OutputDTDVisitor}.
+
+\hypertarget{classdtd_1_1_interface_d_t_d_visitor_aa093199d020b5887fbaa8af1573afc51}{
+\index{dtd::InterfaceDTDVisitor@{dtd::InterfaceDTDVisitor}!visit@{visit}}
+\index{visit@{visit}!dtd::InterfaceDTDVisitor@{dtd::InterfaceDTDVisitor}}
+\subsubsection[{visit}]{\setlength{\rightskip}{0pt plus 5cm}virtual void dtd::InterfaceDTDVisitor::visit (
+\begin{DoxyParamCaption}
+\item[{const {\bf Sequence} \&}]{ content}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}protected, pure virtual\mbox{]}}}}
+\label{classdtd_1_1_interface_d_t_d_visitor_aa093199d020b5887fbaa8af1573afc51}
+
+
+Implémenté dans \hyperlink{classdtd_1_1_output_d_t_d_visitor_a5b9434224d99c416da826a88cd11df3f}{dtd::OutputDTDVisitor}.
+
+\hypertarget{classdtd_1_1_interface_d_t_d_visitor_aaac54822c9519b08305a64aab110716b}{
+\index{dtd::InterfaceDTDVisitor@{dtd::InterfaceDTDVisitor}!visit@{visit}}
+\index{visit@{visit}!dtd::InterfaceDTDVisitor@{dtd::InterfaceDTDVisitor}}
+\subsubsection[{visit}]{\setlength{\rightskip}{0pt plus 5cm}virtual void dtd::InterfaceDTDVisitor::visit (
+\begin{DoxyParamCaption}
+\item[{const {\bf ElementReference} \&}]{ element}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}protected, pure virtual\mbox{]}}}}
+\label{classdtd_1_1_interface_d_t_d_visitor_aaac54822c9519b08305a64aab110716b}
+
+
+Implémenté dans \hyperlink{classdtd_1_1_output_d_t_d_visitor_a4b286b6b0ca83035e25cef1ba6f10c47}{dtd::OutputDTDVisitor}.
+
+\hypertarget{classdtd_1_1_interface_d_t_d_visitor_a8a2ce739049697fcc2a7126adea4536a}{
+\index{dtd::InterfaceDTDVisitor@{dtd::InterfaceDTDVisitor}!visit@{visit}}
+\index{visit@{visit}!dtd::InterfaceDTDVisitor@{dtd::InterfaceDTDVisitor}}
+\subsubsection[{visit}]{\setlength{\rightskip}{0pt plus 5cm}virtual void dtd::InterfaceDTDVisitor::visit (
+\begin{DoxyParamCaption}
+\item[{const {\bf RepeatedContent} \&}]{ content}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}protected, pure virtual\mbox{]}}}}
+\label{classdtd_1_1_interface_d_t_d_visitor_a8a2ce739049697fcc2a7126adea4536a}
+
+
+Implémenté dans \hyperlink{classdtd_1_1_output_d_t_d_visitor_a01a2c44557480982c2ca5d3769e72c00}{dtd::OutputDTDVisitor}.
+
+\hypertarget{classdtd_1_1_interface_d_t_d_visitor_a06be244faf5995ac7ca502b326db10e0}{
+\index{dtd::InterfaceDTDVisitor@{dtd::InterfaceDTDVisitor}!visit@{visit}}
+\index{visit@{visit}!dtd::InterfaceDTDVisitor@{dtd::InterfaceDTDVisitor}}
+\subsubsection[{visit}]{\setlength{\rightskip}{0pt plus 5cm}virtual void dtd::InterfaceDTDVisitor::visit (
+\begin{DoxyParamCaption}
+\item[{const {\bf MixedContent} \&}]{ content}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}protected, pure virtual\mbox{]}}}}
+\label{classdtd_1_1_interface_d_t_d_visitor_a06be244faf5995ac7ca502b326db10e0}
+
+
+Implémenté dans \hyperlink{classdtd_1_1_output_d_t_d_visitor_a47692e383524d7804a6f5bf4d3f229b8}{dtd::OutputDTDVisitor}.
+
+\hypertarget{classdtd_1_1_interface_d_t_d_visitor_abd31e761d6d8ab80ac6f3f0a9a20b953}{
+\index{dtd::InterfaceDTDVisitor@{dtd::InterfaceDTDVisitor}!visit@{visit}}
+\index{visit@{visit}!dtd::InterfaceDTDVisitor@{dtd::InterfaceDTDVisitor}}
+\subsubsection[{visit}]{\setlength{\rightskip}{0pt plus 5cm}virtual void dtd::InterfaceDTDVisitor::visit (
+\begin{DoxyParamCaption}
+\item[{const {\bf TextContent} \&}]{ content}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}protected, pure virtual\mbox{]}}}}
+\label{classdtd_1_1_interface_d_t_d_visitor_abd31e761d6d8ab80ac6f3f0a9a20b953}
+
+
+Implémenté dans \hyperlink{classdtd_1_1_output_d_t_d_visitor_ad06e4a71ec8f36d91d59eb24ddc51f70}{dtd::OutputDTDVisitor}.
+
+\hypertarget{classdtd_1_1_interface_d_t_d_visitor_a729d9fcb360d9bf45210aac109b388da}{
+\index{dtd::InterfaceDTDVisitor@{dtd::InterfaceDTDVisitor}!visitAttributesList@{visitAttributesList}}
+\index{visitAttributesList@{visitAttributesList}!dtd::InterfaceDTDVisitor@{dtd::InterfaceDTDVisitor}}
+\subsubsection[{visitAttributesList}]{\setlength{\rightskip}{0pt plus 5cm}virtual void dtd::InterfaceDTDVisitor::visitAttributesList (
+\begin{DoxyParamCaption}
+\item[{const std::string \&}]{ ns, }
+\item[{const std::string \&}]{ elementName, }
+\item[{const {\bf AttributesList} \&}]{ attlist}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}
+\label{classdtd_1_1_interface_d_t_d_visitor_a729d9fcb360d9bf45210aac109b388da}
+
+
+Implémenté dans \hyperlink{classdtd_1_1_output_d_t_d_visitor_aa1b6474bd068eca43a6eb61e90ff7504}{dtd::OutputDTDVisitor}.
+
+
+
+Voici le graphe d'appel pour cette fonction :
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=400pt]{classdtd_1_1_interface_d_t_d_visitor_a729d9fcb360d9bf45210aac109b388da_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classdtd_1_1_interface_d_t_d_visitor_a46b882a06961ea04fd43b2a9d937118b}{
+\index{dtd::InterfaceDTDVisitor@{dtd::InterfaceDTDVisitor}!visitElement@{visitElement}}
+\index{visitElement@{visitElement}!dtd::InterfaceDTDVisitor@{dtd::InterfaceDTDVisitor}}
+\subsubsection[{visitElement}]{\setlength{\rightskip}{0pt plus 5cm}virtual void dtd::InterfaceDTDVisitor::visitElement (
+\begin{DoxyParamCaption}
+\item[{const std::string \&}]{ ns, }
+\item[{const std::string \&}]{ elementName, }
+\item[{const {\bf Content} \&}]{ content}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}
+\label{classdtd_1_1_interface_d_t_d_visitor_a46b882a06961ea04fd43b2a9d937118b}
+
+
+Implémenté dans \hyperlink{classdtd_1_1_output_d_t_d_visitor_ab95fcc93547eb5e038040f11b0f2b568}{dtd::OutputDTDVisitor}.
+
+
+
+Voici le graphe d'appel pour cette fonction :\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=400pt]{classdtd_1_1_interface_d_t_d_visitor_a46b882a06961ea04fd43b2a9d937118b_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Documentation des fonctions amies et associées}
+\hypertarget{classdtd_1_1_interface_d_t_d_visitor_a98eaefc8d4a0da1a8f9c254c62a68759}{
+\index{dtd::InterfaceDTDVisitor@{dtd::InterfaceDTDVisitor}!AnyContent@{AnyContent}}
+\index{AnyContent@{AnyContent}!dtd::InterfaceDTDVisitor@{dtd::InterfaceDTDVisitor}}
+\subsubsection[{AnyContent}]{\setlength{\rightskip}{0pt plus 5cm}friend class {\bf AnyContent}\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}
+\label{classdtd_1_1_interface_d_t_d_visitor_a98eaefc8d4a0da1a8f9c254c62a68759}
+
+
+Définition à la ligne 56 du fichier InterfaceDTDVisitor.hpp.
+
+\hypertarget{classdtd_1_1_interface_d_t_d_visitor_af8084f88f5641132057732496deab026}{
+\index{dtd::InterfaceDTDVisitor@{dtd::InterfaceDTDVisitor}!Choice@{Choice}}
+\index{Choice@{Choice}!dtd::InterfaceDTDVisitor@{dtd::InterfaceDTDVisitor}}
+\subsubsection[{Choice}]{\setlength{\rightskip}{0pt plus 5cm}friend class {\bf Choice}\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}
+\label{classdtd_1_1_interface_d_t_d_visitor_af8084f88f5641132057732496deab026}
+
+
+Définition à la ligne 61 du fichier InterfaceDTDVisitor.hpp.
+
+\hypertarget{classdtd_1_1_interface_d_t_d_visitor_a21b7004458ebe5b88f6d6edb6d059a34}{
+\index{dtd::InterfaceDTDVisitor@{dtd::InterfaceDTDVisitor}!ElementReference@{ElementReference}}
+\index{ElementReference@{ElementReference}!dtd::InterfaceDTDVisitor@{dtd::InterfaceDTDVisitor}}
+\subsubsection[{ElementReference}]{\setlength{\rightskip}{0pt plus 5cm}friend class {\bf ElementReference}\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}
+\label{classdtd_1_1_interface_d_t_d_visitor_a21b7004458ebe5b88f6d6edb6d059a34}
+
+
+Définition à la ligne 60 du fichier InterfaceDTDVisitor.hpp.
+
+\hypertarget{classdtd_1_1_interface_d_t_d_visitor_a91eaa900fb18be6cd9a7105c964666fb}{
+\index{dtd::InterfaceDTDVisitor@{dtd::InterfaceDTDVisitor}!EmptyContent@{EmptyContent}}
+\index{EmptyContent@{EmptyContent}!dtd::InterfaceDTDVisitor@{dtd::InterfaceDTDVisitor}}
+\subsubsection[{EmptyContent}]{\setlength{\rightskip}{0pt plus 5cm}friend class {\bf EmptyContent}\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}
+\label{classdtd_1_1_interface_d_t_d_visitor_a91eaa900fb18be6cd9a7105c964666fb}
+
+
+Définition à la ligne 57 du fichier InterfaceDTDVisitor.hpp.
+
+\hypertarget{classdtd_1_1_interface_d_t_d_visitor_a94c4de9fad580ef7aa4f384bf0c2b861}{
+\index{dtd::InterfaceDTDVisitor@{dtd::InterfaceDTDVisitor}!MixedContent@{MixedContent}}
+\index{MixedContent@{MixedContent}!dtd::InterfaceDTDVisitor@{dtd::InterfaceDTDVisitor}}
+\subsubsection[{MixedContent}]{\setlength{\rightskip}{0pt plus 5cm}friend class {\bf MixedContent}\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}
+\label{classdtd_1_1_interface_d_t_d_visitor_a94c4de9fad580ef7aa4f384bf0c2b861}
+
+
+Définition à la ligne 58 du fichier InterfaceDTDVisitor.hpp.
+
+\hypertarget{classdtd_1_1_interface_d_t_d_visitor_a90839fb65068433fb68ba4e59462f869}{
+\index{dtd::InterfaceDTDVisitor@{dtd::InterfaceDTDVisitor}!OptionalContent@{OptionalContent}}
+\index{OptionalContent@{OptionalContent}!dtd::InterfaceDTDVisitor@{dtd::InterfaceDTDVisitor}}
+\subsubsection[{OptionalContent}]{\setlength{\rightskip}{0pt plus 5cm}friend class {\bf OptionalContent}\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}
+\label{classdtd_1_1_interface_d_t_d_visitor_a90839fb65068433fb68ba4e59462f869}
+
+
+Définition à la ligne 63 du fichier InterfaceDTDVisitor.hpp.
+
+\hypertarget{classdtd_1_1_interface_d_t_d_visitor_ad2e096c883291671a8d20ca270018e05}{
+\index{dtd::InterfaceDTDVisitor@{dtd::InterfaceDTDVisitor}!RepeatableContent@{RepeatableContent}}
+\index{RepeatableContent@{RepeatableContent}!dtd::InterfaceDTDVisitor@{dtd::InterfaceDTDVisitor}}
+\subsubsection[{RepeatableContent}]{\setlength{\rightskip}{0pt plus 5cm}friend class {\bf RepeatableContent}\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}
+\label{classdtd_1_1_interface_d_t_d_visitor_ad2e096c883291671a8d20ca270018e05}
+
+
+Définition à la ligne 64 du fichier InterfaceDTDVisitor.hpp.
+
+\hypertarget{classdtd_1_1_interface_d_t_d_visitor_afaa2f3eab18d4215d1683c4b2f5a6b8e}{
+\index{dtd::InterfaceDTDVisitor@{dtd::InterfaceDTDVisitor}!RepeatedContent@{RepeatedContent}}
+\index{RepeatedContent@{RepeatedContent}!dtd::InterfaceDTDVisitor@{dtd::InterfaceDTDVisitor}}
+\subsubsection[{RepeatedContent}]{\setlength{\rightskip}{0pt plus 5cm}friend class {\bf RepeatedContent}\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}
+\label{classdtd_1_1_interface_d_t_d_visitor_afaa2f3eab18d4215d1683c4b2f5a6b8e}
+
+
+Définition à la ligne 65 du fichier InterfaceDTDVisitor.hpp.
+
+\hypertarget{classdtd_1_1_interface_d_t_d_visitor_a26271d5afaff6e6d3f00c055c63d0b24}{
+\index{dtd::InterfaceDTDVisitor@{dtd::InterfaceDTDVisitor}!Sequence@{Sequence}}
+\index{Sequence@{Sequence}!dtd::InterfaceDTDVisitor@{dtd::InterfaceDTDVisitor}}
+\subsubsection[{Sequence}]{\setlength{\rightskip}{0pt plus 5cm}friend class {\bf Sequence}\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}
+\label{classdtd_1_1_interface_d_t_d_visitor_a26271d5afaff6e6d3f00c055c63d0b24}
+
+
+Définition à la ligne 62 du fichier InterfaceDTDVisitor.hpp.
+
+\hypertarget{classdtd_1_1_interface_d_t_d_visitor_aa641efa971cba38c6181cdc71b30df90}{
+\index{dtd::InterfaceDTDVisitor@{dtd::InterfaceDTDVisitor}!TextContent@{TextContent}}
+\index{TextContent@{TextContent}!dtd::InterfaceDTDVisitor@{dtd::InterfaceDTDVisitor}}
+\subsubsection[{TextContent}]{\setlength{\rightskip}{0pt plus 5cm}friend class {\bf TextContent}\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}
+\label{classdtd_1_1_interface_d_t_d_visitor_aa641efa971cba38c6181cdc71b30df90}
+
+
+Définition à la ligne 59 du fichier InterfaceDTDVisitor.hpp.
+
+
+
+La documentation de cette classe a été générée à partir du fichier suivant :\begin{DoxyCompactItemize}
+\item 
+src/\hyperlink{_interface_d_t_d_visitor_8hpp}{InterfaceDTDVisitor.hpp}\end{DoxyCompactItemize}

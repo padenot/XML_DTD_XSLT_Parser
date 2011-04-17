@@ -1,0 +1,193 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>DTDLib:  Fichier source de src/DTD.hh</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javaScript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- Généré par Doxygen 1.7.2 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+--></script>
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="namespaces.html"><span>Espaces&#160;de&#160;nommage</span></a></li>
+      <li><a href="annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="files.html"><span>Fichiers</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+    </ul>
+  </div>
+<div class="header">
+  <div class="headertitle">
+<h1>src/DTD.hh</h1>  </div>
+</div>
+<div class="contents">
+<a href="_d_t_d_8hh.html">Aller à la documentation de ce fichier.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">/*************************************************************************</span>
+<a name="l00002"></a>00002 <span class="comment"> * DTD  -  «Description»</span>
+<a name="l00003"></a>00003 <span class="comment"> * -------------------</span>
+<a name="l00004"></a>00004 <span class="comment"> * Début      : 5 avr. 2011</span>
+<a name="l00005"></a>00005 <span class="comment"> * Auteur(s)  : H4215</span>
+<a name="l00006"></a>00006 <span class="comment"> *************************************************************************/</span>
+<a name="l00007"></a>00007 
+<a name="l00008"></a>00008 <span class="comment">//---------- Interface de la classe &lt;DTD&gt; (fichier DTD.hh) ------</span>
+<a name="l00009"></a>00009 <span class="preprocessor">#if ! defined ( DTD_HH_ )</span>
+<a name="l00010"></a>00010 <span class="preprocessor"></span><span class="preprocessor">#define DTD_HH_</span>
+<a name="l00011"></a>00011 <span class="preprocessor"></span>
+<a name="l00012"></a>00012 <span class="comment">//--------------------------------------------------- Interfaces utilisées</span>
+<a name="l00013"></a>00013 <span class="preprocessor">#include &lt;string&gt;</span>
+<a name="l00014"></a>00014 <span class="preprocessor">#include &lt;map&gt;</span>
+<a name="l00015"></a>00015 <span class="preprocessor">#include &quot;Node.hh&quot;</span>
+<a name="l00016"></a>00016 <span class="preprocessor">#include &quot;InterfaceNodeVisitor.hpp&quot;</span>
+<a name="l00017"></a>00017 <span class="preprocessor">#include &quot;<a class="code" href="_attributes_list_8hh.html">AttributesList.hh</a>&quot;</span>
+<a name="l00018"></a>00018 
+<a name="l00019"></a>00019 <span class="keyword">namespace </span>dtd
+<a name="l00020"></a>00020 {
+<a name="l00021"></a>00021 <span class="keyword">class </span>InterfaceDTDVisitor;
+<a name="l00022"></a>00022 <span class="keyword">class </span>Content;
+<a name="l00023"></a>00023 
+<a name="l00024"></a><a class="code" href="classdtd_1_1_d_t_d.html">00024</a> <span class="keyword">class </span><a class="code" href="classdtd_1_1_d_t_d.html">DTD</a>: <span class="keyword">public</span> xml::InterfaceNodeVisitor
+<a name="l00025"></a>00025 {
+<a name="l00026"></a>00026 <span class="keyword">public</span>:
+<a name="l00027"></a>00027         <span class="comment">//------------------------------------------------------------- Constantes</span>
+<a name="l00028"></a>00028 
+<a name="l00029"></a>00029         <span class="comment">//------------------------------------------------------------------ Types</span>
+<a name="l00030"></a>00030         <span class="keywordtype">void</span> <a class="code" href="classdtd_1_1_d_t_d.html#acc2b63dcafbab0567708dddadca859d4">accept</a> (<a class="code" href="classdtd_1_1_interface_d_t_d_visitor.html">InterfaceDTDVisitor</a> &amp; visitor);
+<a name="l00031"></a>00031         <span class="comment">// Mode d&#39;emploi :</span>
+<a name="l00032"></a>00032         <span class="comment">//      Permet à un visiteur d&#39;inspecter ce contenu sous sa vraie identité</span>
+<a name="l00033"></a>00033         <span class="comment">//      (en lui révélant son type réel).</span>
+<a name="l00034"></a>00034         <span class="comment">// Contrat :</span>
+<a name="l00035"></a>00035         <span class="comment">//      Aucun.</span>
+<a name="l00036"></a>00036 
+<a name="l00037"></a>00037         <span class="comment">//----------------------------------------------------- Méthodes publiques</span>
+<a name="l00038"></a>00038         <span class="comment">// type Méthode ( liste des paramètres );</span>
+<a name="l00039"></a>00039         <span class="comment">// Mode d&#39;emploi :</span>
+<a name="l00040"></a>00040         <span class="comment">//      </span>
+<a name="l00041"></a>00041         <span class="comment">// Contrat :</span>
+<a name="l00042"></a>00042         <span class="comment">//      </span>
+<a name="l00043"></a>00043 
+<a name="l00044"></a>00044         <span class="keywordtype">void</span> <a class="code" href="classdtd_1_1_d_t_d.html#a1b0ba56addc8425b8e3c996e1bdb8fc1">addElement</a>(<span class="keyword">const</span> std::string &amp; ns, <span class="keyword">const</span> std::string &amp; elementName,
+<a name="l00045"></a>00045                         <a class="code" href="classdtd_1_1_content.html">Content</a>&amp; content);
+<a name="l00046"></a>00046         <span class="comment">// Mode d&#39;emploi :</span>
+<a name="l00047"></a>00047         <span class="comment">//      Ajoute un element à la DTD. Si aucun AttributesList n&#39;existe pour</span>
+<a name="l00048"></a>00048         <span class="comment">//      cet élément, il sera créé (vide).</span>
+<a name="l00049"></a>00049         <span class="comment">//      L&#39;élément sera détruit par la DTD.</span>
+<a name="l00050"></a>00050         <span class="comment">// Contrat :</span>
+<a name="l00051"></a>00051         <span class="comment">//      Aucun.</span>
+<a name="l00052"></a>00052 
+<a name="l00053"></a>00053         <span class="keywordtype">void</span> <a class="code" href="classdtd_1_1_d_t_d.html#aa36c8c04bbc0e770242e338774583c83">addAttributesList</a>(<span class="keyword">const</span> std::string &amp; ns,
+<a name="l00054"></a>00054                         <span class="keyword">const</span> std::string &amp; elementName, <span class="keyword">const</span> <a class="code" href="namespacedtd.html#a8d5d29abb5de0468925f321597f57f4b">AttributesList</a>&amp; attribute);
+<a name="l00055"></a>00055         <span class="comment">// Mode d&#39;emploi :</span>
+<a name="l00056"></a>00056         <span class="comment">//      Ajoute une liste d&#39;attributs à la DTD. Si une liste d&#39;attributs</span>
+<a name="l00057"></a>00057         <span class="comment">//      existe déjà portant sur le même élément, elle seront fusionnées.</span>
+<a name="l00058"></a>00058         <span class="comment">//      La liste et ses éléments seront détruite par la DTD.</span>
+<a name="l00059"></a>00059         <span class="comment">// Contrat :</span>
+<a name="l00060"></a>00060         <span class="comment">//      Aucun.</span>
+<a name="l00061"></a>00061 
+<a name="l00062"></a>00062         <span class="keywordtype">bool</span> <a class="code" href="classdtd_1_1_d_t_d.html#ae05093e02a85c295d2fe1b04914ca9af">isValid</a>(<span class="keyword">const</span> xml::Node&amp; root, <span class="keyword">const</span> std::string &amp; validRootName);
+<a name="l00063"></a>00063         <span class="comment">// Mode d&#39;emploi :</span>
+<a name="l00064"></a>00064         <span class="comment">//      Valide un document XML selon la DTD, en s&#39;assurant que la racine ait</span>
+<a name="l00065"></a>00065         <span class="comment">//      bien le nom imposé.</span>
+<a name="l00066"></a>00066         <span class="comment">// Contrat :</span>
+<a name="l00067"></a>00067         <span class="comment">//      Aucun.</span>
+<a name="l00068"></a>00068 
+<a name="l00069"></a>00069 
+<a name="l00070"></a>00070         <span class="comment">//------------------------------------------------- Surcharge d&#39;opérateurs</span>
+<a name="l00071"></a>00071 
+<a name="l00072"></a>00072 
+<a name="l00073"></a>00073         <span class="comment">//-------------------------------------------- Constructeurs - destructeur</span>
+<a name="l00074"></a>00074         <a class="code" href="classdtd_1_1_d_t_d.html#ab1ba4d2d6d7e9d3521c21c3581f0e090">DTD</a>();
+<a name="l00075"></a>00075 
+<a name="l00076"></a>00076         <span class="keyword">virtual</span> <a class="code" href="classdtd_1_1_d_t_d.html#ad9b422dbdadb18a93d3b0c2c0c5c1399">~DTD</a>();
+<a name="l00077"></a>00077 
+<a name="l00078"></a>00078 <span class="keyword">protected</span>:
+<a name="l00079"></a><a class="code" href="classdtd_1_1_d_t_d.html#aebfee050799e642c65f08ff77cadfb4e">00079</a>         <span class="keyword">typedef</span> std::pair&lt;std::string, std::string&gt; <a class="code" href="classdtd_1_1_d_t_d.html#aebfee050799e642c65f08ff77cadfb4e">_ElementId</a>;
+<a name="l00080"></a><a class="code" href="classdtd_1_1_d_t_d.html#a3acb9bcea95d9ad98d14b7851b6151c1">00080</a>         <span class="keyword">typedef</span> std::map&lt;_ElementId, Content*&gt; <a class="code" href="classdtd_1_1_d_t_d.html#a3acb9bcea95d9ad98d14b7851b6151c1">_Elements</a>;
+<a name="l00081"></a><a class="code" href="classdtd_1_1_d_t_d.html#ad0c96201d399a44b597764334d343752">00081</a>         <span class="keyword">typedef</span> std::map&lt;_ElementId, AttributesList&gt; <a class="code" href="classdtd_1_1_d_t_d.html#ad0c96201d399a44b597764334d343752">_AttributesLists</a>;
+<a name="l00082"></a>00082 
+<a name="l00083"></a><a class="code" href="classdtd_1_1_d_t_d.html#ab28c987860b12e12e5b9e3c199b4a4fd">00083</a>         <a class="code" href="classdtd_1_1_d_t_d.html#a3acb9bcea95d9ad98d14b7851b6151c1">_Elements</a> <a class="code" href="classdtd_1_1_d_t_d.html#ab28c987860b12e12e5b9e3c199b4a4fd">_elements</a>;
+<a name="l00084"></a><a class="code" href="classdtd_1_1_d_t_d.html#aec11a99c5e351b44bbdef249500bb1ac">00084</a>         <a class="code" href="classdtd_1_1_d_t_d.html#ad0c96201d399a44b597764334d343752">_AttributesLists</a> <a class="code" href="classdtd_1_1_d_t_d.html#aec11a99c5e351b44bbdef249500bb1ac">_attributesLists</a>;
+<a name="l00085"></a>00085 
+<a name="l00086"></a><a class="code" href="classdtd_1_1_d_t_d.html#acd1f91b37ce5dd73597f880c08546d40">00086</a>         <span class="keywordtype">bool</span> <a class="code" href="classdtd_1_1_d_t_d.html#acd1f91b37ce5dd73597f880c08546d40">_validatingRoot</a>;
+<a name="l00087"></a><a class="code" href="classdtd_1_1_d_t_d.html#ae2c393aa68abc63e9c5afe34770a75f5">00087</a>         std::string <a class="code" href="classdtd_1_1_d_t_d.html#ae2c393aa68abc63e9c5afe34770a75f5">_validRootName</a>;
+<a name="l00088"></a><a class="code" href="classdtd_1_1_d_t_d.html#a1d27a4c5f57f3eac45bba4207fb0fa2e">00088</a>         <span class="keywordtype">bool</span> <a class="code" href="classdtd_1_1_d_t_d.html#a1d27a4c5f57f3eac45bba4207fb0fa2e">_lastNodeIsValid</a>;
+<a name="l00089"></a>00089 
+<a name="l00090"></a>00090         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classdtd_1_1_d_t_d.html#afa42d6567898ce96adf1b31b1da235e8">visit</a>(<span class="keyword">const</span> xml::TextNode &amp; node);
+<a name="l00091"></a>00091         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classdtd_1_1_d_t_d.html#afa42d6567898ce96adf1b31b1da235e8">visit</a>(<span class="keyword">const</span> xml::MarkupNode &amp; node);
+<a name="l00092"></a>00092         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classdtd_1_1_d_t_d.html#afa42d6567898ce96adf1b31b1da235e8">visit</a>(<span class="keyword">const</span> xml::CompositeMarkupNode &amp; node);
+<a name="l00093"></a>00093 
+<a name="l00094"></a>00094         <span class="keywordtype">bool</span> <a class="code" href="classdtd_1_1_d_t_d.html#a65a0b095665ae232ef40f1b9aad50387">checkAttributes</a>(<span class="keyword">const</span> xml::MarkupNode &amp; node);
+<a name="l00095"></a>00095 
+<a name="l00096"></a>00096         <a class="code" href="classdtd_1_1_content.html">Content</a> * <a class="code" href="classdtd_1_1_d_t_d.html#ab1d76ad625a6fd3b64a4306cdc14400c">getElement</a>(std::string ns, std::string name) <span class="keyword">const</span>;
+<a name="l00097"></a>00097         <span class="comment">// Mode d&#39;emploi :</span>
+<a name="l00098"></a>00098         <span class="comment">//      Récupère l&#39;élement associé à l&#39;espace de nom &quot;ns&quot; et au nom &quot;name&quot;.</span>
+<a name="l00099"></a>00099         <span class="comment">//      S&#39;il n&#39;existe pas, renvoie un pointeur nul.</span>
+<a name="l00100"></a>00100         <span class="comment">// Contrat :</span>
+<a name="l00101"></a>00101         <span class="comment">//      L&#39;élément renvoyé ne doit pas être détruit, et ne doit être modifié</span>
+<a name="l00102"></a>00102         <span class="comment">//      que dans le cadre d&#39;une validation.</span>
+<a name="l00103"></a>00103 
+<a name="l00104"></a>00104         <span class="keyword">const</span> <a class="code" href="namespacedtd.html#a8d5d29abb5de0468925f321597f57f4b">AttributesList</a>
+<a name="l00105"></a>00105                 * <a class="code" href="classdtd_1_1_d_t_d.html#a531a239b85845e41a0422c6a60e59f63">getAttributesList</a>(std::string ns, std::string name) <span class="keyword">const</span>;
+<a name="l00106"></a>00106         <span class="comment">// Mode d&#39;emploi :</span>
+<a name="l00107"></a>00107         <span class="comment">//      Récupère la liste d&#39;attributs associée à l&#39;espace de nom &quot;ns&quot; et au</span>
+<a name="l00108"></a>00108         <span class="comment">//      nom &quot;name&quot;.</span>
+<a name="l00109"></a>00109         <span class="comment">//      Si elle n&#39;existe pas, renvoie un pointeur nul.</span>
+<a name="l00110"></a>00110         <span class="comment">// Contrat :</span>
+<a name="l00111"></a>00111         <span class="comment">//      Aucun.</span>
+<a name="l00112"></a>00112 
+<a name="l00113"></a>00113         <span class="keywordtype">bool</span> <a class="code" href="classdtd_1_1_d_t_d.html#a88b9e78103312ed1a7be0f644571606f">_isValid</a>(<span class="keyword">const</span> xml::Node&amp; node);
+<a name="l00114"></a>00114         <span class="comment">// Mode d&#39;emploi :</span>
+<a name="l00115"></a>00115         <span class="comment">//      Valide un noeud selon la DTD, ainsi que ses enfants récursivement.</span>
+<a name="l00116"></a>00116         <span class="comment">// Contrat :</span>
+<a name="l00117"></a>00117         <span class="comment">//      Aucun.</span>
+<a name="l00118"></a>00118 };
+<a name="l00119"></a>00119 
+<a name="l00120"></a>00120 } <span class="comment">// namespace dtd</span>
+<a name="l00121"></a>00121 
+<a name="l00122"></a>00122 <span class="preprocessor">#endif // DTD_HH_</span>
+</pre></div></div>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Espaces de nommage</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Définition de type</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Amis</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>Généré le Sun Apr 17 2011 19:07:13 pour DTDLib par&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.2 </small></address>
+</body>
+</html>

@@ -1,0 +1,12 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$classdtd_1_1_text_content.html#a5193fbafe92665d975b886a6ca18ac4f" title="dtd::TextContent::accept" alt="" coords="425,5,708,43"/>
+<area shape="rect" id="node5" href="$classdtd_1_1_sequence.html#aa7ce2af63b36ed8be694d875488b108a" title="dtd::Sequence::accept" alt="" coords="437,66,696,105"/>
+<area shape="rect" id="node7" href="$classdtd_1_1_repeated_content.html#af97dd8df71c00b1ec91d577671c8ed77" title="dtd::RepeatedContent::accept" alt="" coords="397,127,736,166"/>
+<area shape="rect" id="node9" href="$classdtd_1_1_repeatable_content.html#a28550745ec781816e4be44165dbb3934" title="dtd::RepeatableContent::accept" alt="" coords="388,189,745,227"/>
+<area shape="rect" id="node11" href="$classdtd_1_1_optional_content.html#a215be42249f1e54da514fdfc386ba21c" title="dtd::OptionalContent::accept" alt="" coords="401,250,732,289"/>
+<area shape="rect" id="node13" href="$classdtd_1_1_mixed_content.html#aea7a1312dc631047db037c84899f7a05" title="dtd::MixedContent::accept" alt="" coords="416,311,717,350"/>
+<area shape="rect" id="node15" href="$classdtd_1_1_empty_content.html#a8440fe4e357b401e8db8d05baf59803e" title="dtd::EmptyContent::accept" alt="" coords="413,373,720,411"/>
+<area shape="rect" id="node17" href="$classdtd_1_1_element_reference.html#ade77978609f7a872d73c9507057f12a6" title="dtd::ElementReference::accept" alt="" coords="392,434,741,473"/>
+<area shape="rect" id="node19" href="$classdtd_1_1_choice.html#a2eaed96716e6d7583c4b64f514c71b9d" title="dtd::Choice::accept" alt="" coords="453,495,680,534"/>
+<area shape="rect" id="node21" href="$classdtd_1_1_any_content.html#ae9e5cecd79f91449de424a24944295cf" title="dtd::AnyContent::accept" alt="" coords="427,557,707,595"/>
+</map>
