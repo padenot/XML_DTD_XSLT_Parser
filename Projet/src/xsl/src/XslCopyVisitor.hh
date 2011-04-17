@@ -13,10 +13,10 @@
 //--------------------------------------------------- Interfaces utilisées
 #include "InterfaceNodeVisitor.hpp"
 #include "CompositeMarkupNode.hh"
+#include "RecursiveTransformerVisitor.hh"
 
 namespace xsl
 {
-class RecursiveTransformerVisitor;
 
 class XslCopyVisitor: public xml::InterfaceNodeVisitor
 {
@@ -34,12 +34,12 @@ public:
 
 
 	//-------------------------------------------- Constructeurs - destructeur
-	XslCopyVisitor(RecursiveTransformerVisitor & transformer);
+	explicit XslCopyVisitor(TransformerVisitor & transformer);
 
 	virtual ~XslCopyVisitor();
 
 protected:
-	RecursiveTransformerVisitor & _transformer;
+	RecursiveTransformerVisitor _transformer;
 	const xml::Node * _referenceNode;
 	xml::CompositeMarkupNode ** _parentProxy;
 	xml::CompositeMarkupNode::Children _result;

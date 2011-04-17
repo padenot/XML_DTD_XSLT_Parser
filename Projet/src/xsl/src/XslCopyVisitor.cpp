@@ -52,7 +52,7 @@ CompositeMarkupNode::Children* XslCopyVisitor::xslCopy(
 
 
 //-------------------------------------------- Constructeurs - destructeur
-XslCopyVisitor::XslCopyVisitor(RecursiveTransformerVisitor & transformer) :
+XslCopyVisitor::XslCopyVisitor(TransformerVisitor & transformer) :
 	_transformer(transformer)
 {
 	//TODO

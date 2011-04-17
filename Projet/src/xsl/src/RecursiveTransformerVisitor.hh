@@ -32,7 +32,7 @@ public:
 
 
 	//-------------------------------------------- Constructeurs - destructeur
-	RecursiveTransformerVisitor(TransformerVisitor& transformer);
+	explicit RecursiveTransformerVisitor(TransformerVisitor& transformer);
 
 	virtual ~RecursiveTransformerVisitor();
 
