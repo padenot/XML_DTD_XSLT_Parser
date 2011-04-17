@@ -28,9 +28,20 @@ extern DTD* rootDTD;
 extern FILE * xmlin;
 extern FILE * dtdin;
 
+extern int xmllineno;
+extern char* xmltext;
+extern int xmlSyntaxErrorCount;
+
+int UnmatchedNames(char*, char*);
+
 bool exportMode;
 bool transformMode;
 
+void xmlerror(char* msg) 
+{
+	cout << "Syntax error (line " << xmllineno << ") : " << xmltext << endl;
+}
+void dtderror(char* msg) { printf("Erreur"); }
 /**********************************************************************************/
 int handleDTD(string filename)
 {
@@ -45,7 +56,7 @@ int handleDTD(string filename)
 	}
 
 	dtdin = inputFile;
-	err = dtdparse();
+	dtdparse();
 	fclose(dtdin);
 
 	if (exportMode)
@@ -54,8 +65,8 @@ int handleDTD(string filename)
 		rootDTD->accept(visitor);
 	}
 
-	if (err != 0)
-		cout << err << " erreurs de syntaxe détectées !" << endl;
+	if (xmlSyntaxErrorCount != 0)
+		cout << xmlSyntaxErrorCount << " erreurs de syntaxe détectées !" << endl;
 	else if (!exportMode)
 		cout << "Aucune erreur détectée." << endl;
 

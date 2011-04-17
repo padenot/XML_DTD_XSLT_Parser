@@ -19,6 +19,10 @@
 
 	int handleDTD(char*);
 
+	extern int xmllineno;
+
+	int xmlSyntaxErrorCount =0;
+
 	string dtdName;
 	string validRootName;
 	MarkupNode* root = 0;
@@ -27,6 +31,7 @@
 %}
 
 %error-verbose
+%locations
 %union {
 	char * s;
 	ElementName* en;
@@ -105,6 +110,9 @@ composite_element	: START attributes CLOSE content END NAME CLOSE
 						CompositeMarkupNode** parentProxy = proxy.top();
 						$$ = new CompositeMarkupNode(parentProxy, $1->first,
 							$1->second, *$2, *selfProxy, *$4);
+						
+						xmlSyntaxErrorCount += UnmatchedNames($1->second.c_str(), $6);
+
 						delete $1;
 						delete $2;
 						delete $4;
@@ -150,4 +158,3 @@ content			: content DATA
 				}
 %%
 int xmlwrap(void) { return 1; }
-void xmlerror(char *msg) { fprintf(stderr, "%s\n", msg); }

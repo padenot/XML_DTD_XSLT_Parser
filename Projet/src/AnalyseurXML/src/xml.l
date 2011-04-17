@@ -1,6 +1,6 @@
 %option 8bit nodefault
 %option noyywrap
-
+%option yylineno
 %{
 #include <stdio.h>
 #include <ctype.h>
@@ -113,5 +113,4 @@ closespecial "?>"{nl}?
 
 <CONTENT>{ws}?{pcdata}		{xmllval.s = strdup(skipSpace(yytext)); return DATA;}
 
-.			{fprintf(stderr, "!ERROR(%c)\n", *yytext);}
-
+.			{fprintf(stderr, "Lex error (%d) : %c is an invalid character\n", *yytext);}

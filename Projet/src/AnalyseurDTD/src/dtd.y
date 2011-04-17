@@ -199,7 +199,6 @@ primary_type		: CDATA
 			;
 %%
 int dtdwrap(void) { return 1; }
-void dtderror(char *msg) { fprintf(stderr, "%s\n", msg); }
 QuantifiableContent* handleQuantifier(QuantifiableContent* currentContent, int quantifier)
 {
 	switch(quantifier)
