@@ -12,6 +12,8 @@
 #include "DTD.hh"
 #include "OutputDTDVisitor.hh"
 
+#include "error.hh"
+
 using namespace std;
 using namespace dtd;
 using namespace xml;
@@ -32,15 +34,10 @@ extern int xmllineno;
 extern char* xmltext;
 extern int xmlSyntaxErrorCount;
 
-int UnmatchedNames(char*, char*);
-
 bool exportMode;
 bool transformMode;
 
-void xmlerror(char* msg) 
-{
-	cout << "Syntax error (line " << xmllineno << ") : " << xmltext << endl;
-}
+void xmlerror(char* msg) { cout << "\tError : Parse aborted." << endl; }
 void dtderror(char* msg) { printf("Erreur"); }
 /**********************************************************************************/
 int handleDTD(string filename)
@@ -56,7 +53,7 @@ int handleDTD(string filename)
 	}
 
 	dtdin = inputFile;
-	dtdparse();
+	err = dtdparse();
 	fclose(dtdin);
 
 	if (exportMode)
@@ -65,10 +62,8 @@ int handleDTD(string filename)
 		rootDTD->accept(visitor);
 	}
 
-	if (xmlSyntaxErrorCount != 0)
-		cout << xmlSyntaxErrorCount << " erreurs de syntaxe détectées !" << endl;
-	else if (!exportMode)
-		cout << "Aucune erreur détectée." << endl;
+	if (err != 0) cout << endl << "Badformed XML : " << xmlSyntaxErrorCount << " syntex errors detected." << endl;
+	else if (!exportMode) cout << endl << "Wellformed XML." << endl;
 
 	return 0;
 }
@@ -102,11 +97,10 @@ int main(int argc, char** argv)
 	}
 
 	xmlin = inputFile;
-	err = xmlparse();
+	xmlparse();
 	fclose(xmlin);
 
-	if (err != 0)
-		cout << err << " erreurs de syntaxe détectées !" << endl;
+	if (xmlSyntaxErrorCount != 0) cout << endl << "Badformed XML : " << xmlSyntaxErrorCount << " syntax errors detected." << endl;
 	else
 	{
 		if (!exportMode)
