@@ -19,7 +19,8 @@
 
 	int handleDTD(char*);
 
-	DtdName* dtdName = 0;
+	string dtdName;
+	string validRootName;
 	MarkupNode* root = 0;
 	static stack<CompositeMarkupNode**> proxy(deque<CompositeMarkupNode**>(1,
 		static_cast<CompositeMarkupNode**>(0)));
@@ -29,7 +30,7 @@
 %union {
 	char * s;
 	ElementName* en;
-	DtdName* dn;
+	DtdSpecs* dtdSpecs;
 	xml::MarkupNode* element;
 	xml::MarkupNode::Attributes* attributes;
 	xml::CompositeMarkupNode::Children* children;
@@ -38,14 +39,19 @@
 %token EQ SLASH CLOSE END CLOSESPECIAL DOCTYPE
 %token <s> ENCODING VALUE DATA COMMENT NAME NSNAME
 %token <en> NSSTART START STARTSPECIAL
-%type <dn> dtd_declarations dtd_declaration
+%type <dtdSpecs> dtd_declarations dtd_declaration
 %type <element> element empty_element composite_element
 %type <attributes> attributes
 %type <children> content
 %%
 document	: dtd_declarations element misc_seq_opt
 			{
-				dtdName = $1;
+				if ($1 != 0)
+				{
+					dtdName = $1->first;
+					validRootName = $1->second;
+					delete $1;
+				}
 				root = $2;
 			}
 			;
@@ -58,7 +64,7 @@ dtd_declarations	: /*EMPTY*/
 
 dtd_declaration	: DOCTYPE NAME NAME VALUE CLOSE
 				{
-					$$ = new DtdName($4);
+					$$ = new DtdSpecs($4,$2);
 					delete $2;
 					delete $3;
 					delete $4;

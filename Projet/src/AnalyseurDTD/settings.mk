@@ -6,7 +6,7 @@ BINPATH=./bin
 LIBPATH=./lib
 OBJPATH=./obj
 SRCPATH=./src
-STATICLIBS=../dtd/bin/libdtdstruct.a
+STATICLIBS=
 TESTPATH=./tests
 TESTBINNAME=make run
 

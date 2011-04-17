@@ -59,9 +59,10 @@ public:
 	// Contrat :
 	//	Aucun.
 
-	bool isValid(const xml::Node& root);
+	bool isValid(const xml::Node& root, const std::string & validRootName);
 	// Mode d'emploi :
-	//	Valide un document XML selon la DTD.
+	//	Valide un document XML selon la DTD, en s'assurant que la racine ait
+	//	bien le nom imposé.
 	// Contrat :
 	//	Aucun.
 
@@ -82,6 +83,8 @@ protected:
 	_Elements _elements;
 	_AttributesLists _attributesLists;
 
+	bool _validatingRoot;
+	std::string _validRootName;
 	bool _lastNodeIsValid;
 
 	virtual void visit(const xml::TextNode & node);
@@ -104,6 +107,12 @@ protected:
 	//	Récupère la liste d'attributs associée à l'espace de nom "ns" et au
 	//	nom "name".
 	//	Si elle n'existe pas, renvoie un pointeur nul.
+	// Contrat :
+	//	Aucun.
+
+	bool _isValid(const xml::Node& node);
+	// Mode d'emploi :
+	//	Valide un noeud selon la DTD, ainsi que ses enfants récursivement.
 	// Contrat :
 	//	Aucun.
 };

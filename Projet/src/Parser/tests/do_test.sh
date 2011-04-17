@@ -14,6 +14,12 @@ function find_xml_files ()
 {
 	find . -maxdepth 1 -name '*.xml' -type f | sort
 }
+function output_redirection ()
+{
+# $1 : file beeing tested
+	echo '1>/dev/null' '2>&1'
+	echo
+}
 
 for bundle in $(find . -maxdepth 1 -name 'bundle*' -type d | sort)
 do
@@ -25,7 +31,7 @@ do
 	cd valid
 	for valid in $(find_xml_files)
 	do
-		../../$PARSER $valid > /dev/null 2>&1
+		eval ../../$PARSER $valid $(output_redirection $PWD/$valid)
 		if (( $? == 0 ))
 		then
 			echo "File $bundle/valid/$valid: ok"
@@ -39,7 +45,7 @@ do
 	cd invalid
 	for invalid in $(find_xml_files)
 	do
-		../../$PARSER $invalid  > /dev/null 2>&1
+		eval ../../$PARSER $invalid $(output_redirection $PWD/$invalid)
 		if (( $? == 0 ))
 		then
 			echo "File $bundle/invalid/$invalid: FAILURE"

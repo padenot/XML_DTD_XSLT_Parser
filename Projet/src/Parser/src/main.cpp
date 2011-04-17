@@ -4,114 +4,126 @@
 #include <string>
 
 #include "Node.hh"
-#include "TextNode.hh"
 #include "MarkupNode.hh"
-#include "CompositeMarkupNode.hh"
 #include "OutputVisitor.hh"
-#include "OutputDTDVisitor.hh"
 #include "DotOutputVisitor.hh"
+
 #include "DTD.hh"
+#include "OutputDTDVisitor.hh"
 
-#include "Content.hh"
-#include "ElementContent.hh"
-#include "QuantifiableContent.hh"
-#include "RepeatedContent.hh"
-#include "RepeatableContent.hh"
-#include "OptionalContent.hh"
-
-#define QTF_AST		1
-#define QTF_PLUS	2
-#define QTF_QMARK	4
-#define QTF_NONE	0
+using namespace std;
+using namespace dtd;
+using namespace xml;
 
 int xmlparse(void);
 int dtdparse(void);
 
-extern xml::CompositeMarkupNode* root;
-extern std::string* dtdName;
-extern dtd::DTD* rootDTD;
+extern MarkupNode* root;
+extern string dtdName;
+extern string validRootName;
+extern DTD* rootDTD;
 
 extern FILE * xmlin;
 extern FILE * dtdin;
 
 int exportMode;
 
-using namespace std;
-
 /**********************************************************************************/
-int handleDTD(string filename) {
+int handleDTD(string filename)
+{
 	int err;
-	FILE* inputFile = (FILE*)fopen(filename.c_str(), "r");
-	if(!exportMode) cout << "** Parsing de " << filename << "..." << endl;
-	if(inputFile == NULL) {
+	FILE* inputFile = (FILE*) fopen(filename.c_str(), "r");
+	if (!exportMode)
+		cout << "** Parsing de " << filename << "..." << endl;
+	if (inputFile == NULL)
+	{
 		cout << "Fichier inexistant." << endl;
 		exit(1);
 	}
 
-	dtdin = inputFile;	
+	dtdin = inputFile;
 	err = dtdparse();
 	fclose(dtdin);
 
-	if(exportMode) {
+	if (exportMode)
+	{
 		dtd::OutputDTDVisitor visitor(cout, '\t');
 		rootDTD->accept(visitor);
 	}
 
-
-	if (err != 0) cout << err << " erreurs de syntaxe détectées !" << endl; 
-	else if(!exportMode) 
-		cout << "Aucune erreur détectée." << endl; 
+	if (err != 0)
+		cout << err << " erreurs de syntaxe détectées !" << endl;
+	else if (!exportMode)
+		cout << "Aucune erreur détectée." << endl;
 
 	return 0;
 }
 
 /**********************************************************************************/
 
-int main(int argc, char** argv) {
+int main(int argc, char** argv)
+{
 	int err;
 	bool validationResult = true;
 
-	if(argc < 2){
+	if (argc < 2)
+	{
 		cout << "Veuillez entrez un nom de fichier." << endl;
 		exit(0);
 	}
 
 	exportMode = (argc == 3);
 
-	FILE* inputFile = (FILE*)fopen(argv[1], "r");
-	if(!exportMode) cout << "** Parsing de " << argv[1] << "..." << endl;
-	if(inputFile == NULL) {
+	FILE* inputFile = (FILE*) fopen(argv[1], "r");
+	if (!exportMode)
+		cout << "** Parsing de " << argv[1] << "..." << endl;
+	if (inputFile == NULL)
+	{
 		cout << "Fichier inexistant." << endl;
 		exit(1);
 	}
 
-	xmlin = inputFile;	
+	xmlin = inputFile;
 	err = xmlparse();
 	fclose(xmlin);
 
-	if(exportMode) {
-		xml::DotOutputVisitor dvisitor(cout, "xmlTree");
-//		dvisitor.writeDot(root);
-
-		xml::OutputVisitor visitor(cout, ' ');
-		root->accept(visitor);
-	}
-
-	if (err != 0) cout << err << " erreurs de syntaxe détectées !" << endl; 
-	else if(!exportMode) cout << "Aucune erreur détectée." << endl; 
-
-	if (dtdName != 0)
+	if (err != 0)
+		cout << err << " erreurs de syntaxe détectées !" << endl;
+	else
 	{
-		handleDTD(*dtdName);
-		validationResult = rootDTD->isValid(*root);
-		if(validationResult) cout << "Fichier XML valide" << endl;
-		else cout << "Fichier XML invalide" << endl;
-	}
+		if (!exportMode)
+		{
+			cout << "Aucune erreur détectée." << endl;
+		}
+		else
+		{
+			DotOutputVisitor dvisitor(cout, "xmlTree");
+			//		dvisitor.writeDot(root);
 
-	delete root;
-	root = 0;
-	delete rootDTD;
-	rootDTD = 0;
+			OutputVisitor visitor(cout, ' ');
+			root->accept(visitor);
+		}
+
+		if (!dtdName.empty())
+		{
+			handleDTD(dtdName);
+
+			if (err == 0 && !exportMode)
+			{
+				validationResult = rootDTD->isValid(*root, validRootName);
+				if (validationResult)
+					cout << "Fichier XML valide" << endl;
+				else
+					cout << "Fichier XML invalide" << endl;
+			}
+
+			//delete rootDTD;
+			//rootDTD = 0;
+		}
+
+		delete root;
+		root = 0;
+	}
 
 	if (validationResult)
 	{

@@ -120,10 +120,11 @@ const AttributesList * DTD::getAttributesList(std::string ns, std::string name) 
 	}
 }
 
-bool DTD::isValid(const xml::Node& root)
+bool DTD::isValid(const xml::Node& root, const std::string & validRootName)
 {
-	root.accept(*this);
-	return _lastNodeIsValid;
+	_validRootName = validRootName;
+	_validatingRoot = true;
+	return _isValid(root);
 }
 
 //------------------------------------------------- Surcharge d'opérateurs
@@ -131,7 +132,8 @@ bool DTD::isValid(const xml::Node& root)
 
 //-------------------------------------------- Constructeurs - destructeur
 DTD::DTD() :
-	_elements(), _attributesLists()
+	_elements(), _attributesLists(), _validatingRoot(true), _validRootName(),
+			_lastNodeIsValid(false)
 {
 	// Rien à faire.
 }
@@ -156,11 +158,17 @@ DTD::~DTD()
 //------------------------------------------------------------------ PRIVE
 
 //----------------------------------------------------- Méthodes protégées
-void DTD::visit(const TextNode&)
-// Un noeud texte est toujours valide.
-// TODO : prendre en compte le cas où l'arbre n'est qu'un textNode
+bool DTD::_isValid(const xml::Node& node)
 {
-	_lastNodeIsValid = true;
+	node.accept(*this);
+
+	return _lastNodeIsValid;
+}
+
+void DTD::visit(const TextNode&)
+// Un noeud texte est toujours valide, sauf à la racine
+{
+	_lastNodeIsValid = !_validatingRoot;
 }
 
 void DTD::visit(const MarkupNode& node)
@@ -182,7 +190,14 @@ void DTD::visit(const MarkupNode& node)
 	}
 	else
 	{
-		_lastNodeIsValid = content->validate(node) && checkAttributes(node);
+		if (_validatingRoot && node.name() != _validRootName)
+		{
+			_lastNodeIsValid = false;
+		}
+		else
+		{
+			_lastNodeIsValid = content->validate(node) && checkAttributes(node);
+		}
 #ifdef DTD_VALIDATION_TRACE
 		cerr << "(" << node.ns() <<"," << node.name() << ") validation result: "
 		<< boolalpha << _lastNodeIsValid << endl;
@@ -210,12 +225,20 @@ void DTD::visit(const CompositeMarkupNode& node)
 	}
 	else
 	{
-		_lastNodeIsValid = content->validate(node) && checkAttributes(node);
-
-		for (CompositeMarkupNode::ChildrenIterator it = node.begin(); _lastNodeIsValid
-				&& it != node.end(); ++it)
+		if (_validatingRoot && node.name() != _validRootName)
 		{
-			_lastNodeIsValid = isValid(**it);
+			_lastNodeIsValid = false;
+		}
+		else
+		{
+			_lastNodeIsValid = content->validate(node) && checkAttributes(node);
+
+			_validatingRoot = false;
+			for (CompositeMarkupNode::ChildrenIterator it = node.begin(); _lastNodeIsValid
+					&& it != node.end(); ++it)
+			{
+				_lastNodeIsValid = _isValid(**it);
+			}
 		}
 #ifdef DTD_VALIDATION_TRACE
 		cerr << "(" << node.ns() <<"," << node.name() << ") validation result: "

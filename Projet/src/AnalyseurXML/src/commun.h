@@ -14,7 +14,8 @@ using namespace std;
 typedef pair<string,string> Attribut;
 typedef list<Attribut> AttList;
 typedef pair<string,string> ElementName;
-typedef string DtdName;
+typedef pair<string,string> DtdSpecs;
+	// First : dtd name, second : valid root name
 
 #ifdef DEBUG
 #define debug(x) (x)
