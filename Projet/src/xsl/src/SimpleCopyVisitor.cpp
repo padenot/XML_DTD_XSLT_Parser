@@ -1,5 +1,5 @@
 /*************************************************************************
- * SimpleCopyVisitor  -  ÇDescriptionÈ
+ * SimpleCopyVisitor  -  Description
  * -------------------
  * DŽbut      : 17 avr. 2011
  * Auteur(s)  : H4215
@@ -14,6 +14,7 @@ using namespace std;
 
 //------------------------------------------------------ Include personnel
 #include "SimpleCopyVisitor.hh"
+using namespace xml;
 
 namespace xsl
 {
@@ -27,6 +28,12 @@ namespace xsl
 //	
 //{
 //}
+Node * SimpleCopyVisitor::copy ( CompositeMarkupNode ** parent, const Node& referenceNode )
+{
+	_parent = parent;
+	referenceNode.accept(*this);
+	return _copiedNode;
+}
 
 
 //------------------------------------------------- Surcharge d'opŽrateurs
@@ -48,5 +55,43 @@ SimpleCopyVisitor::~SimpleCopyVisitor ( )
 //------------------------------------------------------------------ PRIVE
 
 //----------------------------------------------------- MŽthodes protŽgŽes
+void SimpleCopyVisitor::visit(const TextNode& node)
+{
+	CompositeMarkupNode ** tempParent = _parent;
+	_parent = new CompositeMarkupNode*;
+	
+	_copiedNode = new TextNode(_parent, node.content());
+	_parent = tempParent;	
+}
+
+void SimpleCopyVisitor::visit(const MarkupNode& node)
+{
+	CompositeMarkupNode ** tempParent = _parent;
+	_parent = new CompositeMarkupNode*;
+	
+	MarkupNode::Attributes list(node.MarkupNode::begin(), node.MarkupNode::end());
+	
+	_copiedNode = new MarkupNode(tempParent, node.ns(), node.name(), list);
+	_parent = tempParent;	
+}
+
+void SimpleCopyVisitor::visit(const CompositeMarkupNode& node)
+{
+	CompositeMarkupNode::Children childrenNodes;
+	CompositeMarkupNode ** tempParent = _parent;
+	_parent = new CompositeMarkupNode*;
+	
+	for (CompositeMarkupNode::ChildrenIterator itNoeud = node.begin(); itNoeud
+			!= node.end(); ++itNoeud)
+	{
+		(*itNoeud)->accept(*this);//stocke dans copiedNode la copie du fils
+		childrenNodes.push_back(_copiedNode);
+	}
+	MarkupNode::Attributes list(node.MarkupNode::begin(), node.MarkupNode::end());
+	
+	_copiedNode = new CompositeMarkupNode(tempParent, node.ns(),
+					node.name(), list, * _parent, childrenNodes);
+	_parent = tempParent;		
+}
 
 } // namespace xsl

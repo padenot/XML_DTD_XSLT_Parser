@@ -1,5 +1,5 @@
 /*************************************************************************
- * SimpleCopyVisitor  -  «Description»
+ * SimpleCopyVisitor  -  Description
  * -------------------
  * Début      : 17 avr. 2011
  * Auteur(s)  : H4215
@@ -10,11 +10,16 @@
 #define SIMPLECOPYVISITOR_HH_
 
 //--------------------------------------------------- Interfaces utilisées
+#include "InterfaceNodeVisitor.hpp"
+#include "Node.hh"
+#include "TextNode.hh"
+#include "MarkupNode.hh"
+#include "CompositeMarkupNode.hh"
 
 namespace xsl
 {
 
-class SimpleCopyVisitor
+class SimpleCopyVisitor : public xml::InterfaceNodeVisitor
 {
 public:
 //------------------------------------------------------------- Constantes 
@@ -27,7 +32,7 @@ public:
 	//	
 	// Contrat :
 	//	
-
+	xml::Node * copy ( xml::CompositeMarkupNode ** parent, const xml::Node& referenceNode );
 
 //------------------------------------------------- Surcharge d'opérateurs
 
@@ -46,7 +51,12 @@ public:
 	//	TODO
 
 protected:
-
+	xml::Node * _copiedNode;
+	xml::CompositeMarkupNode ** _parent;
+	
+	virtual void visit(const xml::TextNode& node);
+	virtual void visit(const xml::MarkupNode& node);
+	virtual void visit(const xml::CompositeMarkupNode& node);
 };
 
 } // namespace xsl
