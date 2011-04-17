@@ -1,14 +1,13 @@
 /*************************************************************************
- * XslCopyVisitor  -  Visiteur copiant un noeud XML en prennant en compte
- *                     les templates à appliquer.
+ * RecursiveTransformerVisitor  -  «Description»
  * -------------------
  * Début      : 17 avr. 2011
  * Auteur(s)  : H4215
  *************************************************************************/
 
-//---------- Interface de la classe <XslCopyVisitor> (fichier XslCopyVisitor.hh) ------
-#if ! defined ( XSLCOPYVISITOR_HH_ )
-#define XSLCOPYVISITOR_HH_
+//---------- Interface de la classe <RecursiveTransformerVisitor> (fichier RecursiveTransformerVisitor.hh) ------
+#if ! defined ( RECURSIVETRANSFORMERVISITOR_HH_ )
+#define RECURSIVETRANSFORMERVISITOR_HH_
 
 //--------------------------------------------------- Interfaces utilisées
 #include "InterfaceNodeVisitor.hpp"
@@ -16,8 +15,9 @@
 
 namespace xsl
 {
+class TransformerVisitor;
 
-class XslCopyVisitor: public xml::InterfaceNodeVisitor
+class RecursiveTransformerVisitor: public xml::InterfaceNodeVisitor
 {
 public:
 	//------------------------------------------------------------- Constantes
@@ -25,32 +25,27 @@ public:
 	//------------------------------------------------------------------ Types
 
 	//----------------------------------------------------- Méthodes publiques
-	xml::CompositeMarkupNode::Children * xslCopy(
-			xml::CompositeMarkupNode ** parentProxy,
-			const xml::Node& templateNode, const xml::Node& referenceNode);
+	xml::CompositeMarkupNode::Children * transform(
+			xml::CompositeMarkupNode ** proxy, const xml::Node & reference);
 
 	//------------------------------------------------- Surcharge d'opérateurs
 
 
 	//-------------------------------------------- Constructeurs - destructeur
-	XslCopyVisitor(RecursiveTransformerVisitor & transformer);
+	RecursiveTransformerVisitor(TransformerVisitor& transformer);
 
-	virtual ~XslCopyVisitor();
+	virtual ~RecursiveTransformerVisitor();
 
 protected:
-	RecursiveTransformerVisitor & _transformer;
-	const xml::Node * _referenceNode;
-	xml::CompositeMarkupNode ** _parentProxy;
-	xml::CompositeMarkupNode::Children _result;
+	TransformerVisitor & _transformer;
+	xml::CompositeMarkupNode ** _proxy;
+	xml::CompositeMarkupNode::Children * _result;
 
 	virtual void visit(const xml::TextNode& node);
 	virtual void visit(const xml::MarkupNode& node);
 	virtual void visit(const xml::CompositeMarkupNode& node);
-
-	static const std::string NAMESPACE_APPLY_TEMPLATES;
-	static const std::string NAME_APPLY_TEMPLATES;
 };
 
 } // namespace xsl
 
-#endif // XSLCOPYVISITOR_HH_
+#endif // RECURSIVETRANSFORMERVISITOR_HH_

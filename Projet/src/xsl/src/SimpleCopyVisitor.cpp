@@ -1,15 +1,15 @@
 /*************************************************************************
- * SimpleCopyVisitor  -  «Description»
+ * SimpleCopyVisitor  -  ÔøΩDescriptionÔøΩ
  * -------------------
- * Début      : 17 avr. 2011
+ * DÔøΩbut      : 17 avr. 2011
  * Auteur(s)  : H4215
  *************************************************************************/
 
-//---------- Réalisation de la classe <SimpleCopyVisitor> (fichier SimpleCopyVisitor.cpp) -------
+//---------- RÔøΩalisation de la classe <SimpleCopyVisitor> (fichier SimpleCopyVisitor.cpp) -------
 
 //---------------------------------------------------------------- INCLUDE
 
-//-------------------------------------------------------- Include système
+//-------------------------------------------------------- Include systÔøΩme
 using namespace std;
 
 //------------------------------------------------------ Include personnel
@@ -21,15 +21,15 @@ namespace xsl
 
 //----------------------------------------------------------------- PUBLIC
 
-//----------------------------------------------------- Méthodes publiques
-// type SimpleCopyVisitor::Méthode ( liste des paramètres )
+//----------------------------------------------------- MÔøΩthodes publiques
+// type SimpleCopyVisitor::MÔøΩthode ( liste des paramÔøΩtres )
 // Algorithme :
-//	
+//
 //{
 //}
 
 
-//------------------------------------------------- Surcharge d'opérateurs
+//------------------------------------------------- Surcharge d'opÔøΩrateurs
 
 
 //-------------------------------------------- Constructeurs - destructeur
@@ -47,6 +47,6 @@ SimpleCopyVisitor::~SimpleCopyVisitor ( )
 
 //------------------------------------------------------------------ PRIVE
 
-//----------------------------------------------------- Méthodes protégées
+//----------------------------------------------------- MÔøΩthodes protÔøΩgÔøΩes
 
 } // namespace xsl
