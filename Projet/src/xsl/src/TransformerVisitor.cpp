@@ -20,6 +20,8 @@ using namespace std;
 #include "MarkupNode.hh"
 #include "CompositeMarkupNode.hh"
 #include "MapCreator.hh"
+#include "SimpleCopyVisitor.hh"
+#include "XslCopyVisitor.hh"
 using namespace xml;
 
 namespace xsl
@@ -40,31 +42,50 @@ Node * TransformerVisitor::Transformation(CompositeMarkupNode & XmlTree)
 {
 	list<Node *> * listNodeHTML = AnalyzeNode(0, XmlTree);
 
-	// TODO Vérification des noeuds que l'on a construit
-	return 0;
+	if (listNodeHTML->size() > 1)
+	{
+		for (list<Node *>::iterator itList = listNodeHTML->begin(); itList
+				!= listNodeHTML->end(); ++itList)
+		{
+			delete *itList;
+		}
+		delete listNodeHTML;
+		return 0;
+	}
+	else
+	{
+		Node * result = listNodeHTML->front();
+		delete listNodeHTML;
+		return result;
+	}
 } //----- Fin de Transformation
 
 list<Node *> * TransformerVisitor::AnalyzeNode(
 		CompositeMarkupNode ** noeudParent, Node & noeud)
 {
+	list<Node *> * remplacants = new list<Node *> ();
 	noeud.accept(*this);
 	if (resultatMap == templatesMap->end()) //si ce template n’existe pas
 
 	{
-		//return copie_simple(parent,x);
+		SimpleCopyVisitor simpleCopier;
+		remplacants->push_back(simpleCopier.copy(noeudParent, noeud));
 	}
 	else
 	{
-		list<Node *> * remplacants = new list<Node *> ();
-
-		for (CompositeMarkupNode::ChildrenIterator itNoeud =
-				(*resultatMap).second->begin(); itNoeud != (*resultatMap).second->end(); ++itNoeud)
+		const CompositeMarkupNode& templte = *resultatMap->second;
+		XslCopyVisitor xslCopier(*this);
+		for (CompositeMarkupNode::ChildrenIterator itNoeud = templte.begin(); itNoeud
+				!= templte.end(); ++itNoeud)
 		{
-			// remplaçants.concat(copie_xsl(Ft,x))
-		}
 
-		return remplacants;
+			list<Node *> * tempList = xslCopier.xslCopy(noeudParent, **itNoeud,
+					noeud);
+			copy(tempList->begin(), tempList->end(),
+					back_inserter(*remplacants));
+		}
 	}
+	return remplacants;
 } //----- Fin de AnalyserNoeud
 
 //------------------------------------------------- Surcharge d'opérateurs
@@ -111,17 +132,6 @@ void TransformerVisitor::visit(const CompositeMarkupNode& node)
 {
 	// On récupère l'index du noeud dans la template map
 	resultatMap = templatesMap->find(node.name());
-
-	// Si jamais le noeud courant ne correspond pas on recherche en profondeur
-	// TODO vérifier si on a besoin de rechercher en profondeur
-	/*if (resultatMap == templatesMap->end())
-	 {
-	 for (CompositeMarkupNode::ChildrenIterator it = node.begin(); it
-	 != node.end(); ++it)
-	 {
-	 (*it)->accept(*this);
-	 }
-	 }*/
 }
 
 } // namespace xsl
