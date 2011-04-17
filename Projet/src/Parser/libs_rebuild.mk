@@ -3,7 +3,10 @@
 
 ../dtd/bin/libdtdstruct.a: $(shell find ../dtd/src -type f)
 	cd ../dtd && make
-
+	
+../xsl/bin/libxslstruct.a: $(shell find ../xsl/src -type f)
+	cd ../xsl && make
+	
 ../AnalyseurXML/bin/libxmlparser.a: $(shell find ../AnalyseurXML/src -type f)
 	cd ../AnalyseurXML && make
 

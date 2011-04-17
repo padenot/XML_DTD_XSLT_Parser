@@ -71,32 +71,32 @@ XslCopyVisitor::~XslCopyVisitor()
 //------------------------------------------------------------------ PRIVE
 
 //----------------------------------------------------- Méthodes protégées
-void XslCopyVisitor::visit(const TextNode& node)
+void XslCopyVisitor::visit(const TextNode& templte)
 {
 #ifdef XSL_TRANSFORM_TRACE
 	clog << "XslCopy on TextNode" << endl;
 #endif
 	SimpleCopyVisitor copier;
-	_result.push_back(copier.copy(_parentProxy, node));
+	_result.push_back(copier.copy(_parentProxy, templte));
 }
 
-void XslCopyVisitor::visit(const MarkupNode& node)
+void XslCopyVisitor::visit(const MarkupNode& templte)
 {
 #ifdef XSL_TRANSFORM_TRACE
 	clog << "XslCopy on MarkupNode" << endl;
 #endif
-	if (node.ns() == NAMESPACE_APPLY_TEMPLATES && node.name()
+	if (templte.ns() == NAMESPACE_APPLY_TEMPLATES && templte.name()
 			== NAME_APPLY_TEMPLATES)
 	{
 #ifdef XSL_TRANSFORM_TRACE
 		clog << "XslCopy - applying templates" << endl;
 #endif
-		CompositeMarkupNode::Children * children = _transformer.transform(
+		CompositeMarkupNode::Children * newChildren = _transformer.transform(
 				_parentProxy, *_referenceNode);
-		if (children != 0)
+		if (newChildren != 0)
 		{
-			copy(children->begin(), children->end(), back_inserter(_result));
-			delete children;
+			copy(newChildren->begin(), newChildren->end(), back_inserter(_result));
+			delete newChildren;
 		}
 #ifdef XSL_TRANSFORM_TRACE
 		else
@@ -108,31 +108,33 @@ void XslCopyVisitor::visit(const MarkupNode& node)
 	else
 	{
 		SimpleCopyVisitor copier;
-		_result.push_back(copier.copy(_parentProxy, node));
+		_result.push_back(copier.copy(_parentProxy, templte));
 	}
 }
 
-void XslCopyVisitor::visit(const CompositeMarkupNode& node)
+void XslCopyVisitor::visit(const CompositeMarkupNode& templte)
 {
 #ifdef XSL_TRANSFORM_TRACE
 	clog << "XslCopy on CompositeMarkupNode" << endl;
 #endif
-	MarkupNode::Attributes copiedAttributes(node.MarkupNode::begin(),
-			node.MarkupNode::end());
+	MarkupNode::Attributes copiedAttributes(templte.MarkupNode::begin(),
+			templte.MarkupNode::end());
 	CompositeMarkupNode::Children children;
 	CompositeMarkupNode ** myParent = _parentProxy;
 
 	_parentProxy = new CompositeMarkupNode*;
 
-	for (CompositeMarkupNode::ChildrenIterator it = node.begin(); it
-			!= node.end(); ++it)
+	for (CompositeMarkupNode::ChildrenIterator it = templte.begin(); it
+			!= templte.end(); ++it)
 	{
 		(*it)->accept(*this);
 		copy(_result.begin(), _result.end(), back_inserter(children));
 	}
 
-	_result.assign(1, new CompositeMarkupNode(myParent, node.ns(), node.name(),
-			copiedAttributes, *_parentProxy, children));
+	_result.assign(
+			1,
+			new CompositeMarkupNode(myParent, templte.ns(), templte.name(),
+					copiedAttributes, *_parentProxy, children));
 
 	_parentProxy = myParent;
 }

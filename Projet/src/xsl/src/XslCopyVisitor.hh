@@ -44,9 +44,9 @@ protected:
 	xml::CompositeMarkupNode ** _parentProxy;
 	xml::CompositeMarkupNode::Children _result;
 
-	virtual void visit(const xml::TextNode& node);
-	virtual void visit(const xml::MarkupNode& node);
-	virtual void visit(const xml::CompositeMarkupNode& node);
+	virtual void visit(const xml::TextNode& templte);
+	virtual void visit(const xml::MarkupNode& templte);
+	virtual void visit(const xml::CompositeMarkupNode& templte);
 
 	static const std::string NAMESPACE_APPLY_TEMPLATES;
 	static const std::string NAME_APPLY_TEMPLATES;

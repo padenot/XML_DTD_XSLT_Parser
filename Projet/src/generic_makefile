@@ -60,8 +60,13 @@ test: all | $(TESTPATH)
 # Binaries dependencies
 ifneq ($(ISLIBRARY),yes)
 $(BIN): $(OBJS) $(STATICLIBS) | $(BINPATH) $(LIBPATH)
+ifeq ($(shell uname),Linux)
+# When using g++ on Linux, we have to use the --start-group and
+# --end-group options to handle dependencies within libraries
+	$(LD) $(LDFLAGS) -o $@ $(OBJS) -Wl,--start-group $(STATICLIBS) -Wl,--end-group
+else
 	$(LD) $(LDFLAGS) -o $@ $^
-#	$(LD) $(LDFLAGS) -o $@ $(OBJS) -Wl,--start-group $(STATICLIBS) -Wl,--end-group
+endif
 else
 $(BIN): $(OBJS) $(STATICLIBS) | $(BINPATH)
 	$(LIBLD) $(LIBLDFLAGS) $@ $^
