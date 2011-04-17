@@ -66,8 +66,6 @@ protected:
 	typedef std::map<std::string, const xml::CompositeMarkupNode*> mapXsl;
 	mapXsl * templatesMap;
 
-	std::list<xml::Node*> * htmlTree;
-
 	mapXsl::iterator resultatMap;
 
 	void createMap(const xml::Node& node);

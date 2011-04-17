@@ -11,6 +11,9 @@
 
 //-------------------------------------------------------- Include système
 using namespace std;
+#ifdef XSL_TRANSFORM_TRACE
+#include <iostream>
+#endif
 
 //------------------------------------------------------ Include personnel
 #include "RecursiveTransformerVisitor.hh"
@@ -41,7 +44,7 @@ CompositeMarkupNode::Children* RecursiveTransformerVisitor::transform(
 //-------------------------------------------- Constructeurs - destructeur
 RecursiveTransformerVisitor::RecursiveTransformerVisitor(
 		TransformerVisitor& transformer) :
-	_transformer(transformer)
+	_transformer(transformer), _proxy(0), _result(0)
 {
 	// Rien à faire.
 }
@@ -66,14 +69,26 @@ void RecursiveTransformerVisitor::visit(const MarkupNode&)
 
 void RecursiveTransformerVisitor::visit(const CompositeMarkupNode& node)
 {
+#ifdef XSL_TRANSFORM_TRACE
+	clog << "RecursiveTransformerVisitor on CompositeMarkupNode" << endl;
+#endif
+	_result = new CompositeMarkupNode::Children();
+
 	for (CompositeMarkupNode::ChildrenIterator it = node.begin(); it
 			!= node.end(); ++it)
 	{
+#ifdef XSL_TRANSFORM_TRACE
+		clog << "Loop in RecursiveTransformerVisitor on CompositeMarkupNode" << endl;
+#endif
 		CompositeMarkupNode::Children * analyzed = _transformer.AnalyzeNode(
 				_proxy, **it);
 		copy(analyzed->begin(), analyzed->end(), back_inserter(*_result));
 		delete analyzed;
 	}
+
+#ifdef XSL_TRANSFORM_TRACE
+	clog << "End of RecursiveTransformerVisitor on CompositeMarkupNode" << endl;
+#endif
 }
 
 } // namespace xsl

@@ -14,6 +14,9 @@
 using namespace std;
 #include <iterator>
 #include <algorithm>
+#ifdef XSL_TRANSFORM_TRACE
+#include <iostream>
+#endif
 
 //------------------------------------------------------ Include personnel
 #include "XslCopyVisitor.hh"
@@ -27,7 +30,9 @@ using namespace xml;
 namespace xsl
 {
 //------------------------------------------------------------- Constantes
-const std::string XslCopyVisitor::NAMESPACE_APPLY_TEMPLATES("xsl");
+// TODO : remettre la bonne valeur
+//const std::string XslCopyVisitor::NAMESPACE_APPLY_TEMPLATES("xsl");
+const std::string XslCopyVisitor::NAMESPACE_APPLY_TEMPLATES;
 const std::string XslCopyVisitor::NAME_APPLY_TEMPLATES("apply-templates");
 
 //----------------------------------------------------------------- PUBLIC
@@ -68,21 +73,37 @@ XslCopyVisitor::~XslCopyVisitor()
 //----------------------------------------------------- Méthodes protégées
 void XslCopyVisitor::visit(const TextNode& node)
 {
+#ifdef XSL_TRANSFORM_TRACE
+	clog << "XslCopy on TextNode" << endl;
+#endif
 	SimpleCopyVisitor copier;
 	_result.push_back(copier.copy(_parentProxy, node));
 }
 
 void XslCopyVisitor::visit(const MarkupNode& node)
 {
+#ifdef XSL_TRANSFORM_TRACE
+	clog << "XslCopy on MarkupNode" << endl;
+#endif
 	if (node.ns() == NAMESPACE_APPLY_TEMPLATES && node.name()
 			== NAME_APPLY_TEMPLATES)
 	{
+#ifdef XSL_TRANSFORM_TRACE
+		clog << "XslCopy - applying templates" << endl;
+#endif
 		CompositeMarkupNode::Children * children = _transformer.transform(
 				_parentProxy, *_referenceNode);
 		if (children != 0)
 		{
-			copy(_result.begin(), _result.end(), back_inserter(*children));
+			copy(children->begin(), children->end(), back_inserter(_result));
+			delete children;
 		}
+#ifdef XSL_TRANSFORM_TRACE
+		else
+		{
+			clog << "XslCopy - no result ?????" << endl;
+		}
+#endif
 	}
 	else
 	{
@@ -93,6 +114,9 @@ void XslCopyVisitor::visit(const MarkupNode& node)
 
 void XslCopyVisitor::visit(const CompositeMarkupNode& node)
 {
+#ifdef XSL_TRANSFORM_TRACE
+	clog << "XslCopy on CompositeMarkupNode" << endl;
+#endif
 	MarkupNode::Attributes copiedAttributes(node.MarkupNode::begin(),
 			node.MarkupNode::end());
 	CompositeMarkupNode::Children children;

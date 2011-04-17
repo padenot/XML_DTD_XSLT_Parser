@@ -11,6 +11,9 @@
 
 //-------------------------------------------------------- Include syst�me
 using namespace std;
+#ifdef XSL_TRANSFORM_TRACE
+#include <iostream>
+#endif
 
 //------------------------------------------------------ Include personnel
 #include "SimpleCopyVisitor.hh"
@@ -55,11 +58,17 @@ SimpleCopyVisitor::~SimpleCopyVisitor()
 //----------------------------------------------------- M�thodes prot�g�es
 void SimpleCopyVisitor::visit(const TextNode& node)
 {
+#ifdef XSL_TRANSFORM_TRACE
+	clog << "SimpleCopy on TextNode" << endl;
+#endif
 	_copiedNode = new TextNode(_parent, node.content());
 }
 
 void SimpleCopyVisitor::visit(const MarkupNode& node)
 {
+#ifdef XSL_TRANSFORM_TRACE
+	clog << "SimpleCopy on MarkupNode" << endl;
+#endif
 	MarkupNode::Attributes list(node.MarkupNode::begin(),
 			node.MarkupNode::end());
 
@@ -68,6 +77,10 @@ void SimpleCopyVisitor::visit(const MarkupNode& node)
 
 void SimpleCopyVisitor::visit(const CompositeMarkupNode& node)
 {
+#ifdef XSL_TRANSFORM_TRACE
+	int counter = 0;
+	clog << "SimpleCopy on CompositeMarkupNode" << endl;
+#endif
 	CompositeMarkupNode::Children childrenNodes;
 	CompositeMarkupNode ** tempParent = _parent;
 	_parent = new CompositeMarkupNode*;
@@ -75,12 +88,19 @@ void SimpleCopyVisitor::visit(const CompositeMarkupNode& node)
 	for (CompositeMarkupNode::ChildrenIterator itNoeud = node.begin(); itNoeud
 			!= node.end(); ++itNoeud)
 	{
+#ifdef XSL_TRANSFORM_TRACE
+		++counter;
+		clog << "	Loop " << counter << endl;
+#endif
 		(*itNoeud)->accept(*this);//stocke dans copiedNode la copie du fils
 		childrenNodes.push_back(_copiedNode);
 	}
 	MarkupNode::Attributes list(node.MarkupNode::begin(),
 			node.MarkupNode::end());
 
+#ifdef XSL_TRANSFORM_TRACE
+	clog << "End of SimpleCopy on CompositeMarkupNode" << endl;
+#endif
 	_copiedNode = new CompositeMarkupNode(tempParent, node.ns(), node.name(),
 			list, *_parent, childrenNodes);
 	_parent = tempParent;

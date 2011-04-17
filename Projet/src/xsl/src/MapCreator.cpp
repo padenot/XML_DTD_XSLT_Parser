@@ -10,19 +10,22 @@
 //---------------------------------------------------------------- INCLUDE
 
 //-------------------------------------------------------- Include système
+using namespace std;
+#ifdef XSL_TRANSFORM_TRACE
+#include <iostream>
+#endif
 
 
 //------------------------------------------------------ Include personnel
 #include "MapCreator.hh"
 
 using namespace xml;
-using namespace std;
 
 namespace xsl
 {
 //------------------------------------------------------------- Constantes
 
-static const string TEMPLATE = "template";
+const string MapCreator::TEMPLATE = "template";
 
 //----------------------------------------------------------------- PUBLIC
 
@@ -69,7 +72,9 @@ void MapCreator::visit(const MarkupNode&)
 
 void MapCreator::visit(const CompositeMarkupNode& node)
 {
-
+#ifdef XSL_TRANSFORM_TRACE
+	clog << "MapCreator on CompositeMarkupNode" << endl;
+#endif
 	if (node.name() == TEMPLATE)
 	{
 		checkTemplate(node);

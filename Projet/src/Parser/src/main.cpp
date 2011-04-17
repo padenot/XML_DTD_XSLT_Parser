@@ -7,6 +7,7 @@
 #include "MarkupNode.hh"
 #include "OutputVisitor.hh"
 #include "DotOutputVisitor.hh"
+#include "TransformerVisitor.hh"
 
 #include "DTD.hh"
 #include "OutputDTDVisitor.hh"
@@ -14,6 +15,7 @@
 using namespace std;
 using namespace dtd;
 using namespace xml;
+using namespace xsl;
 
 int xmlparse(void);
 int dtdparse(void);
@@ -26,7 +28,8 @@ extern DTD* rootDTD;
 extern FILE * xmlin;
 extern FILE * dtdin;
 
-int exportMode;
+bool exportMode;
+bool transformMode;
 
 /**********************************************************************************/
 int handleDTD(string filename)
@@ -72,7 +75,11 @@ int main(int argc, char** argv)
 		exit(0);
 	}
 
-	exportMode = (argc == 3);
+	if (argc >= 3)
+	{
+		exportMode = (string(argv[2]) == "--export");
+		transformMode = (argc >= 4 && string(argv[2]) == "--xsl");
+	}
 
 	FILE* inputFile = (FILE*) fopen(argv[1], "r");
 	if (!exportMode)
@@ -121,9 +128,30 @@ int main(int argc, char** argv)
 			//rootDTD = 0;
 		}
 
-		delete root;
-		root = 0;
 	}
+
+	if (transformMode)
+	{
+		Node* xmlRoot = root;
+		FILE* inputFile = (FILE*) fopen(argv[3], "r");
+
+		xmlin = inputFile;
+		err = xmlparse();
+		fclose(xmlin);
+
+		if (!err && root != 0)
+		{
+			Node * xslRoot = root;
+			Node* transformed = 0;
+			TransformerVisitor transformer(*xslRoot);
+			OutputVisitor visitor(cout,' ');
+			transformed = transformer.Transformation(*xmlRoot);
+			transformed->accept(visitor);
+		}
+	}
+
+	delete root;
+	root = 0;
 
 	if (validationResult)
 	{

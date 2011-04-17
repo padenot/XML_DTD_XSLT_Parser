@@ -11,8 +11,9 @@
 
 //-------------------------------------------------------- Include système
 using namespace std;
+#ifdef XSL_TRANSFORM_TRACE
 #include <iostream>
-#include <iomanip>
+#endif
 
 //------------------------------------------------------ Include personnel
 #include "TransformerVisitor.hh"
@@ -40,7 +41,15 @@ namespace xsl
 
 Node * TransformerVisitor::Transformation(Node & XmlTree)
 {
+#ifdef XSL_TRANSFORM_TRACE
+	clog << "Starting main analyze" << endl;
+#endif
+
 	list<Node *> * listNodeHTML = AnalyzeNode(0, XmlTree);
+
+#ifdef XSL_TRANSFORM_TRACE
+	clog << "End of main analyze" << endl;
+#endif
 
 	if (listNodeHTML->size() > 1)
 	{
@@ -63,6 +72,9 @@ Node * TransformerVisitor::Transformation(Node & XmlTree)
 list<Node *> * TransformerVisitor::AnalyzeNode(
 		CompositeMarkupNode ** noeudParent, Node & noeud)
 {
+#ifdef XSL_TRANSFORM_TRACE
+	clog << "AnalyzeNode" << endl;
+#endif
 	list<Node *> * remplacants = new list<Node *> ();
 	noeud.accept(*this);
 	if (resultatMap == templatesMap->end()) //si ce template n’existe pas
@@ -78,13 +90,16 @@ list<Node *> * TransformerVisitor::AnalyzeNode(
 		for (CompositeMarkupNode::ChildrenIterator itNoeud = templte.begin(); itNoeud
 				!= templte.end(); ++itNoeud)
 		{
-
 			list<Node *> * tempList = xslCopier.xslCopy(noeudParent, **itNoeud,
 					noeud);
 			copy(tempList->begin(), tempList->end(),
 					back_inserter(*remplacants));
 		}
 	}
+
+#ifdef XSL_TRANSFORM_TRACE
+	clog << "End of AnalyzeNode" << endl;
+#endif
 	return remplacants;
 } //----- Fin de AnalyserNoeud
 
@@ -95,7 +110,6 @@ list<Node *> * TransformerVisitor::AnalyzeNode(
 TransformerVisitor::TransformerVisitor(const xml::Node & XslTree)
 {
 	templatesMap = new mapXsl();
-	htmlTree = new list<Node *> ();
 	createMap(XslTree);
 
 } //----- Fin de OutputVisitor
@@ -103,7 +117,6 @@ TransformerVisitor::TransformerVisitor(const xml::Node & XslTree)
 
 TransformerVisitor::~TransformerVisitor()
 {
-	delete htmlTree;
 	delete templatesMap;
 } //----- Fin de ~OutputVisitor
 
@@ -120,7 +133,7 @@ void TransformerVisitor::createMap(const Node& node)
 
 void TransformerVisitor::visit(const TextNode &)
 {
-
+	resultatMap = templatesMap->end();
 }
 
 void TransformerVisitor::visit(const MarkupNode & node)
