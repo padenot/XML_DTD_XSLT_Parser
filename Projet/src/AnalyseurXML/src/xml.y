@@ -20,8 +20,8 @@
 	int handleDTD(char*);
 
 	extern int xmllineno;
-	extern int UnmatchedNames(const char*, const char*);
-
+	
+	#include "error.hh"
 	int xmlSyntaxErrorCount =0;
 
 	string dtdName;
