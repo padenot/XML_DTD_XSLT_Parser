@@ -30,17 +30,24 @@ public:
 
 	//----------------------------------------------------- Méthodes publiques
 
-	xml::Node * Transformation(xml::CompositeMarkupNode & XmlTree, xml::Node & XslTree);
+	xml::Node * Transformation(xml::CompositeMarkupNode & XmlTree);
 	// Mode d'emploi :
 	//	TODO
 	// Contrat :
 	//	TODO
 
+	std::list<xml::Node *> * AnalyzeNode(
+			xml::CompositeMarkupNode ** noeudParent, xml::Node & noeud);
+	// Mode d'emploi (destructeur) :
+	//	«TODO»
+	// Contrat :
+	//	«TODO»
+
 	//------------------------------------------------- Surcharge d'opérateurs
 
 
 	//-------------------------------------------- Constructeurs - destructeur
-	TransformerVisitor();
+	TransformerVisitor(const xml::CompositeMarkupNode & XslTree);
 	// Mode d'emploi (constructeur) :
 	//	Construit un nouveau visiteur.
 	// Contrat :
@@ -56,23 +63,19 @@ public:
 
 protected:
 
-	typedef std::map<std::string, const xml::Node*> mapXsl;
+	typedef std::map<std::string, const xml::CompositeMarkupNode*> mapXsl;
 	mapXsl * templatesMap;
-	
+
 	std::list<xml::Node*> * htmlTree;
 
-	void creerMap(const xml::Node& node);
+	mapXsl::iterator resultatMap;
+
+	void creerMap(const xml::CompositeMarkupNode& node);
 	void getTemplateName(const xml::MarkupNode& node);
 
 	virtual void visit(const xml::TextNode& node);
 	virtual void visit(const xml::MarkupNode& node);
 	virtual void visit(const xml::CompositeMarkupNode& node);
-
-	std::list <xml::Node * > * AnalyserNoeud(xml::CompositeMarkupNode & noeud);
-	// Mode d'emploi (destructeur) :
-	//	«TODO»
-	// Contrat :
-	//	«TODO»
 
 	// TODO inclure MapCreator de manière protected afin de limiter la visibilité des autres classes
 	//class MapCreator;
