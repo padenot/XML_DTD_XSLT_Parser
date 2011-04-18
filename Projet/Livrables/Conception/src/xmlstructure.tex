@@ -2,8 +2,11 @@
 La structure d'un document \xml est modélisée de manière relativement classique. On notera l'utilisation d'un \emph{design pattern} \og composite \fg.
 Seule la classe \kw{Node} est abstraite.
 \begin{figure}[H]
-\caption{\TODO{Diagramme}}
+\includegraphics{xml_complet_resume.pdf}
+\caption{Diagramme de classes compact du parser XML}
 \end{figure}
+
+\includegraphics{Xml_node_hierarchie.pdf}
 \classDef{Node}
 Classe racine abstraite. \\
 Elle définit une méthode pour accéder au noeud parent et une méthode abstraite permettant d'accepter un visiteur.
@@ -17,3 +20,4 @@ Elle permet de parcourir ses noeuds fils en lecture seule, ainsi que toutes les 
 Classe instanciable représentant un texte inclus dans une balise (de type \kw{PCDATA}) dans l'arbre \xml. \\
 Elle permet d'accéder à son contenu texte en lecture seule.
 \TODO{Visitor}
+\includegraphics{Xml_visitor.pdf}
