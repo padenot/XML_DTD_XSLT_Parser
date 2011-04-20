@@ -340,9 +340,6 @@ int main(int argc, char** argv)
 	// pas d'argument
 	if (argc == 1)
 	{
-		cerr
-				<< "<you>\n\t<are>\n\t\t<stupide?>true</stupide?>\n\t</are>\n</you>"
-				<< endl << endl;
 		print_help(cerr);
 		return 1;
 	}
@@ -382,7 +379,7 @@ int main(int argc, char** argv)
 		}
 	}
 
-	if (strcmp(argv[optind], "") != 0)
+	if (optind < argc && strcmp(argv[optind], "") != 0)
 	{
 		xmlPath.assign(argv[optind]);
 
