@@ -157,7 +157,7 @@ int main(int argc, char** argv)
 	delete root;
 	root = 0;
 
-	if (validationResult)
+	if (validationResult && xmlSyntaxErrorCount == 0)
 	{
 		return 0;
 	}
