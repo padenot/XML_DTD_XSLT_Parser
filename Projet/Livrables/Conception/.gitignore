@@ -5,4 +5,12 @@ H4215_Dossier_Conception.pdf
 src/*aux
 src/*loa
 src/*pdf
-src/*aux
+src/*glo
+src/*ist
+src/*toc
+src/*mtc0
+src/*mtc
+src/*maf
+src/*acn
+src/*fdb_latexmk
+src/*log
