@@ -275,7 +275,6 @@ static int transform(string xmlPath, string xsltPath)
 	}
 	else
 	{
-
 		if (loadXML(xmlPath, xmlRoot, xmlDtdName, validXmlRootName) != 0)
 		{
 			result = -1;
@@ -302,7 +301,7 @@ static int transform(string xmlPath, string xsltPath)
 
 int main(int argc, char** argv)
 {
-	int result;
+	int result = -1;
 	string dtdPath;
 	/* TODO : enlever */
 	string xmlPath;
