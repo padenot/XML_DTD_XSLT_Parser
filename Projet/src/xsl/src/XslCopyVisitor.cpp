@@ -60,12 +60,12 @@ CompositeMarkupNode::Children* XslCopyVisitor::xslCopy(
 XslCopyVisitor::XslCopyVisitor(TransformerVisitor & transformer) :
 	_transformer(transformer)
 {
-	//TODO
+	// Rien à faire
 }
 
 XslCopyVisitor::~XslCopyVisitor()
 {
-	//TODO
+	// Rien à faire
 }
 
 //------------------------------------------------------------------ PRIVE
@@ -76,7 +76,7 @@ void XslCopyVisitor::visit(const TextNode& templte)
 #ifdef XSL_TRANSFORM_TRACE
 	clog << "XslCopy on TextNode" << endl;
 #endif
-	SimpleCopyVisitor copier;
+	SimpleCopyVisitor copier(_transformer);
 	_result.push_back(copier.copy(_parentProxy, templte));
 }
 
@@ -95,19 +95,14 @@ void XslCopyVisitor::visit(const MarkupNode& templte)
 				_parentProxy, *_referenceNode);
 		if (newChildren != 0)
 		{
-			copy(newChildren->begin(), newChildren->end(), back_inserter(_result));
+			copy(newChildren->begin(), newChildren->end(), back_inserter(
+					_result));
 			delete newChildren;
 		}
-#ifdef XSL_TRANSFORM_TRACE
-		else
-		{
-			clog << "XslCopy - no result ?????" << endl;
-		}
-#endif
 	}
 	else
 	{
-		SimpleCopyVisitor copier;
+		SimpleCopyVisitor copier(_transformer);
 		_result.push_back(copier.copy(_parentProxy, templte));
 	}
 }
@@ -131,10 +126,8 @@ void XslCopyVisitor::visit(const CompositeMarkupNode& templte)
 		copy(_result.begin(), _result.end(), back_inserter(children));
 	}
 
-	_result.assign(
-			1,
-			new CompositeMarkupNode(myParent, templte.ns(), templte.name(),
-					copiedAttributes, *_parentProxy, children));
+	_result.assign(1, new CompositeMarkupNode(myParent, templte.ns(),
+			templte.name(), copiedAttributes, *_parentProxy, children));
 
 	_parentProxy = myParent;
 }

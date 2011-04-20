@@ -35,6 +35,7 @@ public:
 
 	//-------------------------------------------- Constructeurs - destructeur
 	explicit XslCopyVisitor(TransformerVisitor & transformer);
+	explicit XslCopyVisitor(RecursiveTransformerVisitor & transformer);
 
 	virtual ~XslCopyVisitor();
 

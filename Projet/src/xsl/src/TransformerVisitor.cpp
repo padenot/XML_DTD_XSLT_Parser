@@ -80,7 +80,7 @@ list<Node *> * TransformerVisitor::AnalyzeNode(
 	if (resultatMap == templatesMap->end()) //si ce template n’existe pas
 
 	{
-		SimpleCopyVisitor simpleCopier;
+		SimpleCopyVisitor simpleCopier(*this);
 		remplacants->push_back(simpleCopier.copy(noeudParent, noeud));
 	}
 	else

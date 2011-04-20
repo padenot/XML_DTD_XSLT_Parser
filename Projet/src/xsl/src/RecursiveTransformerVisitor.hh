@@ -27,6 +27,14 @@ public:
 	//----------------------------------------------------- Méthodes publiques
 	xml::CompositeMarkupNode::Children * transform(
 			xml::CompositeMarkupNode ** proxy, const xml::Node & reference);
+	// Mode d'emploi :
+	//	Applique les templates du TransformerVisitor passé au constructeur
+	//	à tous les fils du noeud passé en paramètre et renvoie une liste
+	//	de ces copies, dans l'ordre original.
+	//	Les noeuds créés auront pour "proxy vers le parent" le paramètre "proxy".
+	//	Si le noeud n'est pas un CompositeMarkupNode, renvoie 0.
+	// Contrat :
+	//	Si "proxy" est non nul, "*proxy" doit être non nul.
 
 	//------------------------------------------------- Surcharge d'opérateurs
 
