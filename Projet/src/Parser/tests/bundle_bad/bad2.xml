@@ -1,0 +1,9 @@
+<!DOCTYPE rapport SYSTEM "bad1.dtd">
+<test>
+	<type>Syntax</type>
+	<problem>Mauvais nom de balise de fermeture</problem>
+	<code>
+		<p>Je suis un paragraphe</pl>
+	</code>
+
+</test>

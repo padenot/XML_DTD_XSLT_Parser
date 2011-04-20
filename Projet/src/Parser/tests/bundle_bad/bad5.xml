@@ -1,0 +1,9 @@
+<!DOCTYPE rapport SYSTEM "bad1.dtd">
+<test>
+	<type>Syntax</type>
+	<problem>Pas de valeur d'attribut</problem>
+	<code>
+		<p type=>Je suis un paragraphe</p>
+	</code>
+
+</test>

@@ -1,4 +1,6 @@
-<? test att="oubo" ?>
+<!DOCTYPE rapport SYSTEM "test.dtd">
 <root>
-sofio
+	<p>salut</p>
 </root>
+
+

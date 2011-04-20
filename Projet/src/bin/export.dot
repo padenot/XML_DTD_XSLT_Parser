@@ -1,0 +1,51 @@
+digraph xmlTree {
+id_0x100301a80[label="rapport"]
+id_0x100300750[label="titre"]
+id_0x100300700[label="TextNode"]
+id_0x100300750 -> id_0x100300700
+id_0x100301a80 -> id_0x100300750
+id_0x100300ab0[label="auteur"]
+id_0x1003008e0[label="prenom"]
+id_0x1003008a0[label="TextNode"]
+id_0x1003008e0 -> id_0x1003008a0
+id_0x100300ab0 -> id_0x1003008e0
+id_0x100300a20[label="nom"]
+id_0x1003009e0[label="TextNode"]
+id_0x100300a20 -> id_0x1003009e0
+id_0x100300ab0 -> id_0x100300a20
+id_0x100301a80 -> id_0x100300ab0
+id_0x100300b40[label="resume"]
+id_0x100300c30[label="TextNode"]
+id_0x100300b40 -> id_0x100300c30
+id_0x100301a80 -> id_0x100300b40
+id_0x100301a10[label="chapitre"]
+id_0x100300e00[label="titre"]
+id_0x100300db0[label="TextNode"]
+id_0x100300e00 -> id_0x100300db0
+id_0x100301a10 -> id_0x100300e00
+id_0x100301400[label="section"]
+id_0x100300fe0[label="titre"]
+id_0x100300f90[label="TextNode"]
+id_0x100300fe0 -> id_0x100300f90
+id_0x100301400 -> id_0x100300fe0
+id_0x100301080[label="p"]
+id_0x100301350[label="TextNode"]
+id_0x100301080 -> id_0x100301350
+id_0x100301400 -> id_0x100301080
+id_0x100301390[label="p"]
+id_0x100301140[label="TextNode"]
+id_0x100301390 -> id_0x100301140
+id_0x100301400 -> id_0x100301390
+id_0x100301a10 -> id_0x100301400
+id_0x100301780[label="section"]
+id_0x100301710[label="titre"]
+id_0x1003016d0[label="TextNode"]
+id_0x100301710 -> id_0x1003016d0
+id_0x100301780 -> id_0x100301710
+id_0x100301980[label="p"]
+id_0x100301930[label="TextNode"]
+id_0x100301980 -> id_0x100301930
+id_0x100301780 -> id_0x100301980
+id_0x100301a10 -> id_0x100301780
+id_0x100301a80 -> id_0x100301a10
+}

@@ -1,0 +1,8 @@
+<!DOCTYPE rapport SYSTEM "bad1.dtd">
+<test>
+	<type>Syntaxe</type>
+	<problem>Balise non fermée</problem>
+	<code>
+		<t>
+	</code>
+</test>
