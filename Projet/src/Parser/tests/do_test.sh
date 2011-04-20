@@ -18,6 +18,7 @@ function output_redirection ()
 {
 # $1 : file beeing tested
 	echo '1>/dev/null' '2>&1'
+	#echo '1>/dev/null'
 	#echo
 }
 
