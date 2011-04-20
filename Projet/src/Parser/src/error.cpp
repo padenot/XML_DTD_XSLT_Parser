@@ -9,9 +9,9 @@ int LexerAdvice(int line, char c)
 	printf("\tLex error (line %d) : ", line);
 
 	if (c == '"' || c == '\'')
-		fprintf(stderr, "\tUnclosed attribut string value, %c expected.\n", c);
+		fprintf(stderr, "\tUnclosed attribute string value, %c expected.\n", c);
 	else
-		printf("\n");
+		fprintf(stderr, "\n");
 
 	return 0;
 }
@@ -19,7 +19,7 @@ int LexerAdvice(int line, char c)
 int noAttributeValue(const char* attributName)
 {
 	fprintf(stderr,
-			"\tSyntax error ( line %d ) : No value for attribut \'%s\'\n",
+			"\tSyntax error ( line %d ) : No value for attribute \'%s\'\n",
 			xmllineno, attributName);
 	return 1;
 }

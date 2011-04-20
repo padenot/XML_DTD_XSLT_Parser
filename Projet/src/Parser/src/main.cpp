@@ -43,12 +43,12 @@ static bool doTrace = true;
 
 void xmlerror(char* msg)
 {
-	//cerr << "Erreur: " << msg;
+	cerr << "Erreur: " << msg << endl;
 }
 
 void dtderror(char* msg)
 {
-	//cerr << "Erreur: " << msg;
+	cerr << "Erreur: " << msg << endl;
 }
 /**********************************************************************************/
 static int loadXML(string filename)
@@ -102,7 +102,8 @@ static int loadDTD(string filename)
 		cout << "Chargement de " << filename << "..." << endl;
 	if (inputFile == NULL)
 	{
-		cout << "Fichier DTD inaccessible." << endl;
+		if (doTrace)
+			cout << "Fichier DTD inaccessible." << endl;
 		err = 1;
 	}
 	else
@@ -282,6 +283,7 @@ static int transform(string xmlPath, string xsltPath)
 		Node* xslRoot = root;
 		root = 0;
 		dtdName.clear();
+		validRootName.clear();
 
 		if (loadXML(xmlPath) != 0)
 		{
@@ -313,10 +315,19 @@ int main(int argc, char** argv)
 	int result;
 	string dtdPath;
 	/* TODO : enlever */
-	doCheckXML = false;
-	doTransform = true;
-	string xmlPath(argv[1]);
-	string xsltPath(argv[2]);
+	string xmlPath;
+	string xsltPath;
+
+	if (argc > 1)
+	{
+		xmlPath.assign(argv[1]);
+		if (argc > 2)
+		{
+			doCheckXML = false;
+			doTransform = true;
+			xsltPath.assign(argv[2]);
+		}
+	}
 
 	if (doCheckXML)
 	{

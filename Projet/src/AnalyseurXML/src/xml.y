@@ -128,7 +128,7 @@ composite_element	: START attributes CLOSE content END NAME CLOSE
 						delete $1;
 						delete $2;
 						delete $4;
-						delete $6;
+						//delete $6;
 					}
 					| NSSTART attributes CLOSE content END NSNAME CLOSE
 					{
@@ -138,13 +138,13 @@ composite_element	: START attributes CLOSE content END NAME CLOSE
 						$$ = new CompositeMarkupNode(parentProxy, $1->first,
 							$1->second, *$2, *selfProxy, *$4);
 							
-						xmlSyntaxErrorCount += UnmatchedNames($1->second.c_str(),
-							$6->second.c_str());
+						/*xmlSyntaxErrorCount += UnmatchedNames($1->second.c_str(),
+							$6->second.c_str());*/
 							
 						delete $1;
 						delete $2;
 						delete $4;
-						delete $6;
+						//delete $6;
 					}
 					;
 
