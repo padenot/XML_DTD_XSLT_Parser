@@ -43,8 +43,8 @@
 }
 
 %token EQ SLASH CLOSE END CLOSESPECIAL DOCTYPE
-%token <s> ENCODING VALUE DATA COMMENT NAME NSNAME
-%token <en> NSSTART START STARTSPECIAL
+%token <s> ENCODING VALUE DATA COMMENT NAME
+%token <en> NSSTART START STARTSPECIAL NSNAME
 %type <dtdSpecs> dtd_declarations dtd_declaration
 %type <element> element empty_element composite_element
 %type <attributes> attributes
@@ -67,6 +67,10 @@ special_markup_list	: special_markup_list special_markup
 			;
 
 special_markup		: STARTSPECIAL attributes CLOSESPECIAL
+					{
+						delete $1;
+						delete $2;
+					}
 			;
 
 dtd_declarations	: /*EMPTY*/
@@ -124,17 +128,23 @@ composite_element	: START attributes CLOSE content END NAME CLOSE
 						delete $1;
 						delete $2;
 						delete $4;
+						delete $6;
 					}
-					| NSSTART attributes CLOSE content END NAME CLOSE
+					| NSSTART attributes CLOSE content END NSNAME CLOSE
 					{
 						CompositeMarkupNode** selfProxy = proxy.top();
 						proxy.pop();
 						CompositeMarkupNode** parentProxy = proxy.top();
 						$$ = new CompositeMarkupNode(parentProxy, $1->first,
 							$1->second, *$2, *selfProxy, *$4);
+							
+						xmlSyntaxErrorCount += UnmatchedNames($1->second.c_str(),
+							$6->second.c_str());
+							
 						delete $1;
 						delete $2;
 						delete $4;
+						delete $6;
 					}
 					;
 
@@ -163,7 +173,7 @@ content			: content DATA
 					{$1->push_back($2); $$ = $1;}
 				| content misc
 					{$$ = $1}
-				| /* empty */
+				| /* EMPTY */
 				{
 					proxy.push(new CompositeMarkupNode*);
 					$$ = new CompositeMarkupNode::Children();
