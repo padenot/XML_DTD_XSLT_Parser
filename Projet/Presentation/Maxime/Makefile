@@ -13,6 +13,11 @@ xslt2html: src/$(XML_FILE) src/$(XSL_FILE)
 	@echo "Compilation de $(XML_FILE) par $(XSL_FILE)..."
 	@cd src/ && ./parser $(XML_FILE) --xsl $(XSL_FILE) > ../export/$(XML_FILE).html
 
+error:
+	-@cd src/ ; cat bad3.xml ; read ; ./parser bad3.xml ; read
+	-@cd src/ ; cat bad4.xml ; read ; ./parser bad4.xml ; read
+	-@cd src/ ; cat bad5.xml ; read ; ./parser bad5.xml ; read
+
 .PHONY: clean visual
 
 visual: src/$(XML_FILE)
