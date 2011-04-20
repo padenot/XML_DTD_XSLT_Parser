@@ -135,7 +135,7 @@ void print_help(ostream & out = cout)
 			<< endl << endl;
 
 	out
-			<< "  -x				affiche à la ligne de commande le fichier XML parser" << endl;
+			<< "  -x				affiche à la ligne de commande le fichier XML parser"
 			<< endl;
 	out
 			<< "  -e				print in the line command the XML fil as it has been parsed but in dot format"
@@ -290,7 +290,7 @@ static int exportDTD(string dtdPath)
 
 static int transform(string xmlPath, string xsltPath)
 {
-	MarkupNode * xmlRoot, *xsltRoot;
+	MarkupNode * xmlRoot = 0, *xsltRoot = 0;
 	string xmlDtdName, xsltDtdName;
 	string validXmlRootName, validXsltRootName;
 	int result = -1;
@@ -304,7 +304,6 @@ static int transform(string xmlPath, string xsltPath)
 	}
 	else
 	{
-
 		if (loadXML(xmlPath, xmlRoot, xmlDtdName, validXmlRootName) != 0)
 		{
 			result = -1;
@@ -331,7 +330,7 @@ static int transform(string xmlPath, string xsltPath)
 
 int main(int argc, char** argv)
 {
-	int result;
+	int result = -1;
 	string xmlPath;
 	string dtdPath;
 	string xsltPath;

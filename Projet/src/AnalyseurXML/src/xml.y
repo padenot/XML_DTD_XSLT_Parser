@@ -175,4 +175,3 @@ content			: content DATA
 					$$ = new CompositeMarkupNode::Children();
 				}
 %%
-int xmlwrap(void) { return 1; }
