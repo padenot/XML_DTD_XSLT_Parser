@@ -189,7 +189,7 @@ static bool checkXML_impl(Node & root, const string & dtdName,
 
 static int checkXML(string xmlPath)
 {
-	MarkupNode * root;
+	MarkupNode * root = 0;
 	string dtdName;
 	string validRootName;
 
@@ -224,7 +224,7 @@ static int checkXML(string xmlPath)
 
 static int exportXML(string xmlPath)
 {
-	MarkupNode * root;
+	MarkupNode * root = 0;
 	string dtdName;
 	string validRootName;
 	int result = -1;
@@ -247,7 +247,7 @@ static int exportXML(string xmlPath)
 
 static int exportXMLDot(string xmlPath)
 {
-	MarkupNode * root;
+	MarkupNode * root = 0;
 	string dtdName;
 	string validRootName;
 
