@@ -63,13 +63,21 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 <div class="contents">
 <!-- doxytag: class="xsl::SimpleCopyVisitor" -->
 <p><code>#include &lt;<a class="el" href="_simple_copy_visitor_8hh_source.html">SimpleCopyVisitor.hh</a>&gt;</code></p>
+<!-- startSectionHeader --><div class="dynheader">
+Graphe de collaboration de xsl::SimpleCopyVisitor:<!-- endSectionHeader --></div>
+<!-- startSectionSummary --><!-- endSectionSummary --><!-- startSectionContent --><div class="dyncontent">
+<div class="center"><img src="classxsl_1_1_simple_copy_visitor__coll__graph.png" border="0" usemap="#xsl_1_1_simple_copy_visitor_coll__map" alt="Collaboration graph"/></div>
+<map name="xsl_1_1_simple_copy_visitor_coll__map" id="xsl_1_1_simple_copy_visitor_coll__map">
+<area shape="rect" id="node2" href="classxsl_1_1_recursive_transformer_visitor.html" title="{xsl::RecursiveTransformerVisitor\n|# _transformer\l# _proxy\l# _result\l|+ transform()\l+ RecursiveTransformerVisitor()\l+ ~RecursiveTransformerVisitor()\l# visit()\l# visit()\l# visit()\l}" alt="" coords="5,435,384,735"/><area shape="rect" id="node4" href="classxsl_1_1_transformer_visitor.html" title="{xsl::TransformerVisitor\n|# templatesMap\l# resultatMap\l|+ Transformation()\l+ AnalyzeNode()\l+ TransformerVisitor()\l+ ~TransformerVisitor()\l# createMap()\l# getTemplateName()\l# visit()\l# visit()\l# visit()\l}" alt="" coords="57,6,332,359"/></map>
+<center><span class="legend">[<a href="graph_legend.html">légende</a>]</span></center><!-- endSectionContent --></div>
 
 <p><a href="classxsl_1_1_simple_copy_visitor-members.html">Liste de tous les membres</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Fonctions membres publiques</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">xml::Node *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxsl_1_1_simple_copy_visitor.html#a635dd86100529983335aa35283450227">copy</a> (xml::CompositeMarkupNode **parent, const xml::Node &amp;referenceNode)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxsl_1_1_simple_copy_visitor.html#a48310fd852d3993749d46ff2c17ff001">SimpleCopyVisitor</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxsl_1_1_simple_copy_visitor.html#a81aa92c2b248851fe1fa626dc2bfaef0">SimpleCopyVisitor</a> (<a class="el" href="classxsl_1_1_transformer_visitor.html">TransformerVisitor</a> &amp;transformer)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxsl_1_1_simple_copy_visitor.html#a532b61a79726327c4653de11e5592e08">SimpleCopyVisitor</a> (<a class="el" href="classxsl_1_1_recursive_transformer_visitor.html">RecursiveTransformerVisitor</a> &amp;transformer)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxsl_1_1_simple_copy_visitor.html#a35dd73ab468988333fad21aba4502eff">~SimpleCopyVisitor</a> ()</td></tr>
 <tr><td colspan="2"><h2><a name="pro-methods"></a>
 Fonctions membres protégées</h2></td></tr>
@@ -78,28 +86,49 @@ Fonctions membres protégées</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxsl_1_1_simple_copy_visitor.html#a7afb4e9198dae8246736bed6f15a4b88">visit</a> (const xml::CompositeMarkupNode &amp;node)</td></tr>
 <tr><td colspan="2"><h2><a name="pro-attribs"></a>
 Attributs protégés</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classxsl_1_1_recursive_transformer_visitor.html">RecursiveTransformerVisitor</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxsl_1_1_simple_copy_visitor.html#a43aa3841e33993efd71980af58a09eb8">_transformer</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">xml::Node *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxsl_1_1_simple_copy_visitor.html#a181cd3a2e2aed778efe9fbc8f5fe0bf8">_copiedNode</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">xml::CompositeMarkupNode **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxsl_1_1_simple_copy_visitor.html#ae812212f02cec65de88cc9dafb7a3cd3">_parent</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">xml::CompositeMarkupNode **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxsl_1_1_simple_copy_visitor.html#a7193e6b1b0a45af85b5346240559670a">_parentProxy</a></td></tr>
 </table>
 <hr/><a name="_details"></a><h2>Description détaillée</h2>
 
-<p>Définition à la ligne <a class="el" href="_simple_copy_visitor_8hh_source.html#l00022">22</a> du fichier <a class="el" href="_simple_copy_visitor_8hh_source.html">SimpleCopyVisitor.hh</a>.</p>
+<p>Définition à la ligne <a class="el" href="_simple_copy_visitor_8hh_source.html#l00023">23</a> du fichier <a class="el" href="_simple_copy_visitor_8hh_source.html">SimpleCopyVisitor.hh</a>.</p>
 <hr/><h2>Documentation des constructeurs et destructeur</h2>
-<a class="anchor" id="a48310fd852d3993749d46ff2c17ff001"></a><!-- doxytag: member="xsl::SimpleCopyVisitor::SimpleCopyVisitor" ref="a48310fd852d3993749d46ff2c17ff001" args="()" -->
+<a class="anchor" id="a81aa92c2b248851fe1fa626dc2bfaef0"></a><!-- doxytag: member="xsl::SimpleCopyVisitor::SimpleCopyVisitor" ref="a81aa92c2b248851fe1fa626dc2bfaef0" args="(TransformerVisitor &amp;transformer)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">xsl::SimpleCopyVisitor::SimpleCopyVisitor </td>
           <td>(</td>
-          <td class="paramname">&#160;)</td>
-          <td></td>
+          <td class="paramtype"><a class="el" href="classxsl_1_1_transformer_visitor.html">TransformerVisitor</a> &amp;&#160;</td>
+          <td class="paramname"> <em>transformer</em>&#160;)</td>
+          <td><code> [explicit]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Définition à la ligne <a class="el" href="_simple_copy_visitor_8cpp_source.html#l00046">46</a> du fichier <a class="el" href="_simple_copy_visitor_8cpp_source.html">SimpleCopyVisitor.cpp</a>.</p>
+<p>Définition à la ligne <a class="el" href="_simple_copy_visitor_8cpp_source.html#l00047">47</a> du fichier <a class="el" href="_simple_copy_visitor_8cpp_source.html">SimpleCopyVisitor.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a532b61a79726327c4653de11e5592e08"></a><!-- doxytag: member="xsl::SimpleCopyVisitor::SimpleCopyVisitor" ref="a532b61a79726327c4653de11e5592e08" args="(RecursiveTransformerVisitor &amp;transformer)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">xsl::SimpleCopyVisitor::SimpleCopyVisitor </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classxsl_1_1_recursive_transformer_visitor.html">RecursiveTransformerVisitor</a> &amp;&#160;</td>
+          <td class="paramname"> <em>transformer</em>&#160;)</td>
+          <td><code> [explicit]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Définition à la ligne <a class="el" href="_simple_copy_visitor_8cpp_source.html#l00053">53</a> du fichier <a class="el" href="_simple_copy_visitor_8cpp_source.html">SimpleCopyVisitor.cpp</a>.</p>
 
 </div>
 </div>
@@ -117,7 +146,7 @@ Attributs protégés</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Définition à la ligne <a class="el" href="_simple_copy_visitor_8cpp_source.html#l00051">51</a> du fichier <a class="el" href="_simple_copy_visitor_8cpp_source.html">SimpleCopyVisitor.cpp</a>.</p>
+<p>Définition à la ligne <a class="el" href="_simple_copy_visitor_8cpp_source.html#l00059">59</a> du fichier <a class="el" href="_simple_copy_visitor_8cpp_source.html">SimpleCopyVisitor.cpp</a>.</p>
 
 </div>
 </div>
@@ -212,22 +241,37 @@ Attributs protégés</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Définition à la ligne <a class="el" href="_simple_copy_visitor_8hh_source.html#l00054">54</a> du fichier <a class="el" href="_simple_copy_visitor_8hh_source.html">SimpleCopyVisitor.hh</a>.</p>
+<p>Définition à la ligne <a class="el" href="_simple_copy_visitor_8hh_source.html#l00050">50</a> du fichier <a class="el" href="_simple_copy_visitor_8hh_source.html">SimpleCopyVisitor.hh</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="ae812212f02cec65de88cc9dafb7a3cd3"></a><!-- doxytag: member="xsl::SimpleCopyVisitor::_parent" ref="ae812212f02cec65de88cc9dafb7a3cd3" args="" -->
+<a class="anchor" id="a7193e6b1b0a45af85b5346240559670a"></a><!-- doxytag: member="xsl::SimpleCopyVisitor::_parentProxy" ref="a7193e6b1b0a45af85b5346240559670a" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">xml::CompositeMarkupNode** <a class="el" href="classxsl_1_1_simple_copy_visitor.html#ae812212f02cec65de88cc9dafb7a3cd3">xsl::SimpleCopyVisitor::_parent</a><code> [protected]</code></td>
+          <td class="memname">xml::CompositeMarkupNode** <a class="el" href="classxsl_1_1_simple_copy_visitor.html#a7193e6b1b0a45af85b5346240559670a">xsl::SimpleCopyVisitor::_parentProxy</a><code> [protected]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Définition à la ligne <a class="el" href="_simple_copy_visitor_8hh_source.html#l00055">55</a> du fichier <a class="el" href="_simple_copy_visitor_8hh_source.html">SimpleCopyVisitor.hh</a>.</p>
+<p>Définition à la ligne <a class="el" href="_simple_copy_visitor_8hh_source.html#l00051">51</a> du fichier <a class="el" href="_simple_copy_visitor_8hh_source.html">SimpleCopyVisitor.hh</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a43aa3841e33993efd71980af58a09eb8"></a><!-- doxytag: member="xsl::SimpleCopyVisitor::_transformer" ref="a43aa3841e33993efd71980af58a09eb8" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classxsl_1_1_recursive_transformer_visitor.html">RecursiveTransformerVisitor</a> <a class="el" href="classxsl_1_1_simple_copy_visitor.html#a43aa3841e33993efd71980af58a09eb8">xsl::SimpleCopyVisitor::_transformer</a><code> [protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Définition à la ligne <a class="el" href="_simple_copy_visitor_8hh_source.html#l00049">49</a> du fichier <a class="el" href="_simple_copy_visitor_8hh_source.html">SimpleCopyVisitor.hh</a>.</p>
 
 </div>
 </div>
@@ -250,7 +294,7 @@ Attributs protégés</h2></td></tr>
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Généré le Wed Apr 20 2011 16:22:25 pour XMLLib par&#160;
+<hr class="footer"/><address class="footer"><small>Généré le Wed Apr 20 2011 21:32:20 pour XMLLib par&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.2 </small></address>
 </body>

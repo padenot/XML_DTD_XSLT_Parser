@@ -1,0 +1,100 @@
+\select@language {french}
+\contentsline {chapter}{\numberline {1}Index des espaces de nommage}{1}{chapter.1}
+\contentsline {section}{\numberline {1.1}Liste des espaces de nommage}{1}{section.1.1}
+\contentsline {chapter}{\numberline {2}Index des classes}{3}{chapter.2}
+\contentsline {section}{\numberline {2.1}Liste des classes}{3}{section.2.1}
+\contentsline {chapter}{\numberline {3}Index des fichiers}{5}{chapter.3}
+\contentsline {section}{\numberline {3.1}Liste des fichiers}{5}{section.3.1}
+\contentsline {chapter}{\numberline {4}Documentation des espaces de nommage}{7}{chapter.4}
+\contentsline {section}{\numberline {4.1}R\IeC {\'e}f\IeC {\'e}rence de l'espace de nommage xsl}{7}{section.4.1}
+\contentsline {chapter}{\numberline {5}Documentation des classes}{9}{chapter.5}
+\contentsline {section}{\numberline {5.1}R\IeC {\'e}f\IeC {\'e}rence de la classe xsl::MapCreator}{9}{section.5.1}
+\contentsline {subsection}{\numberline {5.1.1}Description d\IeC {\'e}taill\IeC {\'e}e}{9}{subsection.5.1.1}
+\contentsline {subsection}{\numberline {5.1.2}Documentation des constructeurs et destructeur}{10}{subsection.5.1.2}
+\contentsline {subsubsection}{\numberline {5.1.2.1}MapCreator}{10}{subsubsection.5.1.2.1}
+\contentsline {subsubsection}{\numberline {5.1.2.2}$\sim $MapCreator}{10}{subsubsection.5.1.2.2}
+\contentsline {subsection}{\numberline {5.1.3}Documentation des fonctions membres}{10}{subsection.5.1.3}
+\contentsline {subsubsection}{\numberline {5.1.3.1}checkTemplate}{10}{subsubsection.5.1.3.1}
+\contentsline {subsubsection}{\numberline {5.1.3.2}populateMap}{10}{subsubsection.5.1.3.2}
+\contentsline {subsubsection}{\numberline {5.1.3.3}visit}{10}{subsubsection.5.1.3.3}
+\contentsline {subsubsection}{\numberline {5.1.3.4}visit}{10}{subsubsection.5.1.3.4}
+\contentsline {subsubsection}{\numberline {5.1.3.5}visit}{10}{subsubsection.5.1.3.5}
+\contentsline {subsection}{\numberline {5.1.4}Documentation des donn\IeC {\'e}es membres}{10}{subsection.5.1.4}
+\contentsline {subsubsection}{\numberline {5.1.4.1}mapTemp}{10}{subsubsection.5.1.4.1}
+\contentsline {subsubsection}{\numberline {5.1.4.2}TEMPLATE}{10}{subsubsection.5.1.4.2}
+\contentsline {section}{\numberline {5.2}R\IeC {\'e}f\IeC {\'e}rence de la classe xsl::RecursiveTransformerVisitor}{10}{section.5.2}
+\contentsline {subsection}{\numberline {5.2.1}Description d\IeC {\'e}taill\IeC {\'e}e}{12}{subsection.5.2.1}
+\contentsline {subsection}{\numberline {5.2.2}Documentation des constructeurs et destructeur}{12}{subsection.5.2.2}
+\contentsline {subsubsection}{\numberline {5.2.2.1}RecursiveTransformerVisitor}{12}{subsubsection.5.2.2.1}
+\contentsline {subsubsection}{\numberline {5.2.2.2}$\sim $RecursiveTransformerVisitor}{12}{subsubsection.5.2.2.2}
+\contentsline {subsection}{\numberline {5.2.3}Documentation des fonctions membres}{13}{subsection.5.2.3}
+\contentsline {subsubsection}{\numberline {5.2.3.1}transform}{13}{subsubsection.5.2.3.1}
+\contentsline {subsubsection}{\numberline {5.2.3.2}visit}{13}{subsubsection.5.2.3.2}
+\contentsline {subsubsection}{\numberline {5.2.3.3}visit}{13}{subsubsection.5.2.3.3}
+\contentsline {subsubsection}{\numberline {5.2.3.4}visit}{13}{subsubsection.5.2.3.4}
+\contentsline {subsection}{\numberline {5.2.4}Documentation des donn\IeC {\'e}es membres}{13}{subsection.5.2.4}
+\contentsline {subsubsection}{\numberline {5.2.4.1}\_\discretionary {-}{}{}proxy}{13}{subsubsection.5.2.4.1}
+\contentsline {subsubsection}{\numberline {5.2.4.2}\_\discretionary {-}{}{}result}{13}{subsubsection.5.2.4.2}
+\contentsline {subsubsection}{\numberline {5.2.4.3}\_\discretionary {-}{}{}transformer}{13}{subsubsection.5.2.4.3}
+\contentsline {section}{\numberline {5.3}R\IeC {\'e}f\IeC {\'e}rence de la classe xsl::SimpleCopyVisitor}{13}{section.5.3}
+\contentsline {subsection}{\numberline {5.3.1}Description d\IeC {\'e}taill\IeC {\'e}e}{15}{subsection.5.3.1}
+\contentsline {subsection}{\numberline {5.3.2}Documentation des constructeurs et destructeur}{15}{subsection.5.3.2}
+\contentsline {subsubsection}{\numberline {5.3.2.1}SimpleCopyVisitor}{15}{subsubsection.5.3.2.1}
+\contentsline {subsubsection}{\numberline {5.3.2.2}SimpleCopyVisitor}{15}{subsubsection.5.3.2.2}
+\contentsline {subsubsection}{\numberline {5.3.2.3}$\sim $SimpleCopyVisitor}{15}{subsubsection.5.3.2.3}
+\contentsline {subsection}{\numberline {5.3.3}Documentation des fonctions membres}{16}{subsection.5.3.3}
+\contentsline {subsubsection}{\numberline {5.3.3.1}copy}{16}{subsubsection.5.3.3.1}
+\contentsline {subsubsection}{\numberline {5.3.3.2}visit}{16}{subsubsection.5.3.3.2}
+\contentsline {subsubsection}{\numberline {5.3.3.3}visit}{16}{subsubsection.5.3.3.3}
+\contentsline {subsubsection}{\numberline {5.3.3.4}visit}{16}{subsubsection.5.3.3.4}
+\contentsline {subsection}{\numberline {5.3.4}Documentation des donn\IeC {\'e}es membres}{16}{subsection.5.3.4}
+\contentsline {subsubsection}{\numberline {5.3.4.1}\_\discretionary {-}{}{}copiedNode}{16}{subsubsection.5.3.4.1}
+\contentsline {subsubsection}{\numberline {5.3.4.2}\_\discretionary {-}{}{}parentProxy}{16}{subsubsection.5.3.4.2}
+\contentsline {subsubsection}{\numberline {5.3.4.3}\_\discretionary {-}{}{}transformer}{16}{subsubsection.5.3.4.3}
+\contentsline {section}{\numberline {5.4}R\IeC {\'e}f\IeC {\'e}rence de la classe xsl::TransformerVisitor}{16}{section.5.4}
+\contentsline {subsection}{\numberline {5.4.1}Description d\IeC {\'e}taill\IeC {\'e}e}{17}{subsection.5.4.1}
+\contentsline {subsection}{\numberline {5.4.2}Documentation des d\IeC {\'e}finitions de type membres}{17}{subsection.5.4.2}
+\contentsline {subsubsection}{\numberline {5.4.2.1}mapXsl}{17}{subsubsection.5.4.2.1}
+\contentsline {subsection}{\numberline {5.4.3}Documentation des constructeurs et destructeur}{17}{subsection.5.4.3}
+\contentsline {subsubsection}{\numberline {5.4.3.1}TransformerVisitor}{17}{subsubsection.5.4.3.1}
+\contentsline {subsubsection}{\numberline {5.4.3.2}$\sim $TransformerVisitor}{17}{subsubsection.5.4.3.2}
+\contentsline {subsection}{\numberline {5.4.4}Documentation des fonctions membres}{18}{subsection.5.4.4}
+\contentsline {subsubsection}{\numberline {5.4.4.1}AnalyzeNode}{18}{subsubsection.5.4.4.1}
+\contentsline {subsubsection}{\numberline {5.4.4.2}createMap}{18}{subsubsection.5.4.4.2}
+\contentsline {subsubsection}{\numberline {5.4.4.3}getTemplateName}{18}{subsubsection.5.4.4.3}
+\contentsline {subsubsection}{\numberline {5.4.4.4}Transformation}{18}{subsubsection.5.4.4.4}
+\contentsline {subsubsection}{\numberline {5.4.4.5}visit}{18}{subsubsection.5.4.4.5}
+\contentsline {subsubsection}{\numberline {5.4.4.6}visit}{18}{subsubsection.5.4.4.6}
+\contentsline {subsubsection}{\numberline {5.4.4.7}visit}{18}{subsubsection.5.4.4.7}
+\contentsline {subsection}{\numberline {5.4.5}Documentation des donn\IeC {\'e}es membres}{18}{subsection.5.4.5}
+\contentsline {subsubsection}{\numberline {5.4.5.1}resultatMap}{18}{subsubsection.5.4.5.1}
+\contentsline {subsubsection}{\numberline {5.4.5.2}templatesMap}{18}{subsubsection.5.4.5.2}
+\contentsline {section}{\numberline {5.5}R\IeC {\'e}f\IeC {\'e}rence de la classe xsl::XslCopyVisitor}{18}{section.5.5}
+\contentsline {subsection}{\numberline {5.5.1}Description d\IeC {\'e}taill\IeC {\'e}e}{20}{subsection.5.5.1}
+\contentsline {subsection}{\numberline {5.5.2}Documentation des constructeurs et destructeur}{20}{subsection.5.5.2}
+\contentsline {subsubsection}{\numberline {5.5.2.1}XslCopyVisitor}{20}{subsubsection.5.5.2.1}
+\contentsline {subsubsection}{\numberline {5.5.2.2}XslCopyVisitor}{20}{subsubsection.5.5.2.2}
+\contentsline {subsubsection}{\numberline {5.5.2.3}$\sim $XslCopyVisitor}{20}{subsubsection.5.5.2.3}
+\contentsline {subsection}{\numberline {5.5.3}Documentation des fonctions membres}{21}{subsection.5.5.3}
+\contentsline {subsubsection}{\numberline {5.5.3.1}visit}{21}{subsubsection.5.5.3.1}
+\contentsline {subsubsection}{\numberline {5.5.3.2}visit}{21}{subsubsection.5.5.3.2}
+\contentsline {subsubsection}{\numberline {5.5.3.3}visit}{21}{subsubsection.5.5.3.3}
+\contentsline {subsubsection}{\numberline {5.5.3.4}xslCopy}{21}{subsubsection.5.5.3.4}
+\contentsline {subsection}{\numberline {5.5.4}Documentation des donn\IeC {\'e}es membres}{21}{subsection.5.5.4}
+\contentsline {subsubsection}{\numberline {5.5.4.1}\_\discretionary {-}{}{}parentProxy}{21}{subsubsection.5.5.4.1}
+\contentsline {subsubsection}{\numberline {5.5.4.2}\_\discretionary {-}{}{}referenceNode}{21}{subsubsection.5.5.4.2}
+\contentsline {subsubsection}{\numberline {5.5.4.3}\_\discretionary {-}{}{}result}{21}{subsubsection.5.5.4.3}
+\contentsline {subsubsection}{\numberline {5.5.4.4}\_\discretionary {-}{}{}transformer}{21}{subsubsection.5.5.4.4}
+\contentsline {subsubsection}{\numberline {5.5.4.5}NAME\_\discretionary {-}{}{}APPLY\_\discretionary {-}{}{}TEMPLATES}{21}{subsubsection.5.5.4.5}
+\contentsline {subsubsection}{\numberline {5.5.4.6}NAMESPACE\_\discretionary {-}{}{}APPLY\_\discretionary {-}{}{}TEMPLATES}{21}{subsubsection.5.5.4.6}
+\contentsline {chapter}{\numberline {6}Documentation des fichiers}{23}{chapter.6}
+\contentsline {section}{\numberline {6.1}R\IeC {\'e}f\IeC {\'e}rence du fichier src/MapCreator.cpp}{23}{section.6.1}
+\contentsline {section}{\numberline {6.2}R\IeC {\'e}f\IeC {\'e}rence du fichier src/MapCreator.hh}{23}{section.6.2}
+\contentsline {section}{\numberline {6.3}R\IeC {\'e}f\IeC {\'e}rence du fichier src/RecursiveTransformerVisitor.cpp}{24}{section.6.3}
+\contentsline {section}{\numberline {6.4}R\IeC {\'e}f\IeC {\'e}rence du fichier src/RecursiveTransformerVisitor.hh}{25}{section.6.4}
+\contentsline {section}{\numberline {6.5}R\IeC {\'e}f\IeC {\'e}rence du fichier src/SimpleCopyVisitor.cpp}{26}{section.6.5}
+\contentsline {section}{\numberline {6.6}R\IeC {\'e}f\IeC {\'e}rence du fichier src/SimpleCopyVisitor.hh}{27}{section.6.6}
+\contentsline {section}{\numberline {6.7}R\IeC {\'e}f\IeC {\'e}rence du fichier src/TransformerVisitor.cpp}{28}{section.6.7}
+\contentsline {section}{\numberline {6.8}R\IeC {\'e}f\IeC {\'e}rence du fichier src/TransformerVisitor.hh}{28}{section.6.8}
+\contentsline {section}{\numberline {6.9}R\IeC {\'e}f\IeC {\'e}rence du fichier src/XslCopyVisitor.cpp}{29}{section.6.9}
+\contentsline {section}{\numberline {6.10}R\IeC {\'e}f\IeC {\'e}rence du fichier src/XslCopyVisitor.hh}{30}{section.6.10}
