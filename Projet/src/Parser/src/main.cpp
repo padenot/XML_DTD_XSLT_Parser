@@ -37,7 +37,7 @@ extern int xmlSyntaxErrorCount;
 bool exportMode;
 bool transformMode;
 
-void xmlerror(char* msg) { cout << "\tError : Parse aborted." << endl; }
+void xmlerror(char* msg) {  }
 void dtderror(char* msg) { printf("Erreur"); }
 /**********************************************************************************/
 int handleDTD(string filename)
@@ -103,11 +103,7 @@ int main(int argc, char** argv)
 	if (xmlSyntaxErrorCount != 0) cout << endl << "Badformed XML : " << xmlSyntaxErrorCount << " syntax errors detected." << endl;
 	else
 	{
-		if (!exportMode)
-		{
-			cout << "Aucune erreur détectée." << endl;
-		}
-		else
+		if (exportMode)
 		{
 			DotOutputVisitor dvisitor(cout, "xmlTree");
 			//		dvisitor.writeDot(root);
@@ -124,9 +120,9 @@ int main(int argc, char** argv)
 			{
 				validationResult = rootDTD->isValid(*root, validRootName);
 				if (validationResult)
-					cout << "Fichier XML valide" << endl;
+					cout << "DTD Validation : OK." << endl;
 				else
-					cout << "Fichier XML invalide" << endl;
+					cout << "DTD Validation : FAIL." << endl;
 			}
 
 			//delete rootDTD;
