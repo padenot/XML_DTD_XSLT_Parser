@@ -36,49 +36,110 @@ extern int xmllineno;
 extern char* xmltext;
 extern int xmlSyntaxErrorCount;
 
-bool exportMode;
-bool transformMode;
+static bool doCheckXML = false;
+static bool doExportXML = false;
+static bool doExportXMLDot = false;
+static bool doExportDTD = false;
+static bool doTransform = false;
+static bool doTrace = false;
+static bool doCheckDTD = false;
 
 void xmlerror(char* msg)
 {
+	cerr << "Erreur : " << msg << endl;
 }
+
 void dtderror(char* msg)
 {
-	printf("Erreur");
+	cerr << "Erreur: " << msg << endl;
 }
 /**********************************************************************************/
-int handleDTD(string filename)
+static int loadXML(string filename)
 {
 	int err;
 	FILE* inputFile = (FILE*) fopen(filename.c_str(), "r");
-	if (!exportMode)
-		cout << "** Parsing de " << filename << "..." << endl;
+	if (doTrace)
+		cout << "Chargement de " << filename << "..." << endl;
 	if (inputFile == NULL)
 	{
-		cout << "Fichier inexistant." << endl;
-		exit(1);
+		if (doTrace)
+			cerr << "Fichier XML inaccessible." << endl;
+		err = 1;
 	}
-
-	dtdin = inputFile;
-	err = dtdparse();
-	fclose(dtdin);
-
-	if (!exportMode)
+	else
 	{
-		dtd::OutputDTDVisitor visitor(cout, '\t');
-		rootDTD->accept(visitor);
+		xmlin = inputFile;
+		err = xmlparse();
+		fclose(xmlin);
+
+		if (xmlSyntaxErrorCount != 0)
+		{
+			if (doTrace)
+			{
+				cerr << "XML mal formé : " << xmlSyntaxErrorCount
+						<< " erreurs de syntaxe détectées." << endl;
+			}
+			err = 1;
+		}
+		else if (doTrace)
+		{
+			if (err != 0)
+			{
+				cerr << "Erreur lors de l'analyse du XML." << endl;
+			}
+			else
+			{
+				cerr << "Analyse du XML OK." << endl;
+			}
+		}
 	}
 
-	if (err != 0)
-		cout << endl << "Badformed XML : " << xmlSyntaxErrorCount
-				<< " syntex errors detected." << endl;
-	else if (!exportMode)
-		cout << endl << "Wellformed XML." << endl;
+	return err;
+}
+
+static int loadDTD(string filename)
+{
+	int err;
+	FILE* inputFile = (FILE*) fopen(filename.c_str(), "r");
+	if (doTrace)
+		cout << "Chargement de " << filename << "..." << endl;
+	if (inputFile == NULL)
+	{
+		if (doTrace)
+			cout << "Fichier DTD inaccessible." << endl;
+		err = 1;
+	}
+	else
+	{
+		dtdin = inputFile;
+		err = dtdparse();
+		fclose(dtdin);
+
+		if (doTrace)
+		{
+			if (err != 0)
+			{
+				cerr << "Erreur lors de l'analyse de la DTD." << endl;
+			}
+			else
+			{
+				cerr << "Analyse de la DTD OK." << endl;
+			}
+		}
+	}
 
 	return err;
 }
 
 /**********************************************************************************/
+static void cleanXML()
+{
+	dtdName.clear();
+	validRootName.clear();
+	xmlSyntaxErrorCount = 0;
+	delete root;
+	root = 0;
+}
 
 void print_help(ostream & out = cout)
 {
@@ -106,162 +167,273 @@ void print_help(ostream & out = cout)
 	out << "  -h				display this help..." << endl;
 }
 
+static void cleanDTD()
+{
+	delete rootDTD;
+	rootDTD = 0;
+}
+
+static bool checkXML_impl()
+{
+	bool result = false;
+
+	if (dtdName.empty())
+	{
+		result = false;
+	}
+	else
+	{
+		if (loadDTD(dtdName) != 0)
+		{
+			result = false;
+		}
+		else
+		{
+			if (rootDTD->isValid(*root, validRootName))
+			{
+				result = true;
+			}
+			else
+			{
+				result = false;
+			}
+		}
+	}
+
+	cleanDTD();
+	return result;
+}
+
+static int checkXML(string xmlPath)
+{
+	int result = -1;
+
+	if (loadXML(xmlPath) != 0)
+	{
+		result = -1;
+	}
+	else
+	{
+		if (doTrace)
+			cerr << "Validation DTD..." << endl;
+		if (checkXML_impl())
+		{
+			if (doTrace)
+				cerr << "Validation DTD : OK." << endl;
+			result = 0;
+		}
+		else
+		{
+			if (doTrace)
+				cerr << "Validation DTD : FAIL." << endl;
+			result = -1;
+		}
+	}
+
+	cleanXML();
+	cleanDTD();
+
+	return result;
+}
+
+static int exportXML(string xmlPath)
+{
+	int result = -1;
+
+	if (loadXML(xmlPath) != 0)
+	{
+		result = -1;
+	}
+	else
+	{
+		OutputVisitor visitor(cout, ' ');
+		root->accept(visitor);
+		result = 0;
+	}
+
+	cleanXML();
+
+	return result;
+}
+
+static int exportXMLDot(string xmlPath)
+{
+	int result = -1;
+
+	if (loadXML(xmlPath) != 0)
+	{
+		result = -1;
+	}
+	else
+	{
+		DotOutputVisitor visitor(cout, "xmlTree");
+		visitor.writeDot(root);
+		result = 0;
+	}
+
+	cleanXML();
+
+	return result;
+}
+
+static int exportDTD(string dtdPath)
+{
+	int result = -1;
+
+	if (loadDTD(dtdPath) != 0)
+	{
+		result = -1;
+	}
+	else
+	{
+		OutputDTDVisitor visitor(cout);
+		rootDTD->accept(visitor);
+		result = 0;
+	}
+	cleanDTD();
+
+	return result;
+}
+
+static int transform(string xmlPath, string xsltPath)
+{
+	int result = -1;
+
+	if (loadXML(xsltPath) != 0/* TODO || !checkXML_impl(dtdName) */)
+	{
+		if (doTrace)
+			cerr << "Erreur : XSLT non utilisable." << endl;
+		result = -1;
+	}
+	else
+	{
+		Node* xslRoot = root;
+		root = 0;
+		dtdName.clear();
+		validRootName.clear();
+
+		if (loadXML(xmlPath) != 0)
+		{
+			delete xslRoot;
+			result = -1;
+		}
+		else
+		{
+			Node* transformed = 0;
+			TransformerVisitor transformer(*xslRoot);
+			OutputVisitor visitor(cout, ' ');
+			transformed = transformer.Transformation(*root);
+			transformed->accept(visitor);
+			delete xslRoot;
+			delete transformed;
+			result = 0;
+		}
+	}
+
+	cleanXML();
+
+	return result;
+}
+
+/**********************************************************************************/
+
 int main(int argc, char** argv)
 {
-	/* Début truc de ouf */
+	int result;
+	string xmlPath;
+	string dtdPath;
+	string xsltPath;
 
 	int opt;
 
-	/*
-	 // no arguments given
-	 */
+	// pas d'argument
 	if (argc == 1)
 	{
-		cerr << "<you>\n\t<are>\n\t\t<stupide?>true</stupide?>\n\t</are>\n</you>" << endl << endl;
+		cerr
+				<< "<you>\n\t<are>\n\t\t<stupide?>true</stupide?>\n\t</are>\n</you>"
+				<< endl << endl;
 		print_help(cerr);
 		return 1;
 	}
 
-	while ((opt = getopt(argc, argv, "hxedtckv:")) != -1)
+	while ((opt = getopt(argc, argv, "hxedt:ck:v:")) != -1)
 	{
 		switch (opt)
 		{
 		case 'h':
+			cout << "-t" << endl;
 			print_help(cout);
 			return 0;
 		case 'x':
-			exportMode = true;
+			cout << "-x" << endl;
+			doExportXML = true;
 			break;
 		case 'e':
-			cout << "" << endl;
+			cout << "-e" << endl;
+			doExportXMLDot = true;
 			break;
 		case 'd':
-			cout << "" << endl;
+			cout << "-d" << endl;
+			doExportDTD = true;
 			break;
 		case 't':
-			cout << "" << endl;
+			cout << "-t" << endl;
+			doTransform = true;
+			xsltPath.assign(optarg);
 			break;
 		case 'c':
-			cout << "" << endl;
+			cout << "-c" << endl;
+			doCheckXML = true;
 			break;
 		case 'k':
-			cout << "" << endl;
-			break;
+			cout << "-k" << endl;
+			doCheckDTD = true;
+			dtdPath.assign(optarg);
 		case 'v':
-			cout << "" << endl;
+			cout << "-v" << endl;
+			doTrace = true;
 			break;
-		case ':':
-			cerr << "Invalid option" << endl;
-			print_help(cerr);
-			return 0;
 		case '?':
 			cerr << "Invalid option" << endl;
 			print_help(cerr);
 		}
 	}
 
-	/*
-	 // print all remaining options
-	 */
-	for (; optind < argc; optind++)
-		printf("argument: %s\n", argv[optind]);
-	/* Fin truc de ouf*/
-
-	if (argc < 2)
+	if (strcmp(argv[optind], "") != 0)
 	{
-		cout << "Veuillez entrez un nom de fichier." << endl;
-		exit(0);
-	}
+		xmlPath.assign(argv[optind]);
 
-	if (argc >= 3)
-	{
-		exportMode = (string(argv[2]) == "--export");
-		transformMode = (argc >= 4 && string(argv[2]) == "--xsl");
-		if (transformMode)
-			exportMode = true;
-	}
-
-	FILE* inputFile = (FILE*) fopen(argv[1], "r");
-	if (!exportMode)
-		cout << "** Parsing de " << argv[1] << "..." << endl;
-	if (inputFile == NULL)
-	{
-		cout << "Fichier inexistant." << endl;
-		exit(1);
-	}
-
-	xmlin = inputFile;
-	xmlparse();
-	fclose(xmlin);
-
-	if (xmlSyntaxErrorCount != 0)
-		cout << endl << "Badformed XML : " << xmlSyntaxErrorCount
-				<< " syntax errors detected." << endl;
-	else
-	{
-		if (exportMode && !transformMode)
+		if (doCheckXML)
 		{
-			DotOutputVisitor dvisitor(cout, "xmlTree");
-			dvisitor.writeDot(root);
-
+			cout << "doCheck" << endl;
+			result = checkXML(xmlPath);
 		}
-		else if(!exportMode && !transformMode) {
-			OutputVisitor visitor(cout, ' ');
-			root->accept(visitor);
-		}
-
-		if (!dtdName.empty())
+		if (doExportXML)
 		{
-			err = handleDTD(dtdName);
-
-			if (err == 0 && !exportMode)
-			{
-				validationResult = rootDTD->isValid(*root, validRootName);
-				if (validationResult)
-					cout << "DTD Validation : OK." << endl;
-				else
-					cout << "DTD Validation : FAIL." << endl;
-			}
-
-			delete rootDTD;
-			rootDTD = 0;
+			cout << "doExportXML" << endl;
+			result = exportXML(xmlPath);
 		}
-
-	}
-
-	if (validationResult && transformMode)
-	{
-		Node* xmlRoot = root;
-		FILE* inputFile = (FILE*) fopen(argv[3], "r");
-
-		xmlin = inputFile;
-		err = xmlparse();
-		fclose(xmlin);
-		if (xmlSyntaxErrorCount != 0)
+		if (doExportXMLDot)
 		{
-			cout << endl << "Badformed XSLT : " << xmlSyntaxErrorCount
-					<< " syntax errors detected." << endl;
+			cout << "doExportXMLDot" << endl;
+			result = exportXMLDot(xmlPath);
 		}
-		else if (!err && root != 0)
+		if (doExportDTD)
 		{
-			Node * xslRoot = root;
-			Node* transformed = 0;
-			TransformerVisitor transformer(*xslRoot);
-			OutputVisitor visitor(cout, ' ');
-			transformed = transformer.Transformation(*xmlRoot);
-			transformed->accept(visitor);
+			cout << "doExportDTD" << endl;
+			result = exportDTD(dtdPath);
 		}
-	}
-
-	delete root;
-	root = 0;
-
-	if (validationResult && xmlSyntaxErrorCount == 0)
-	{
-		return 0;
+		if (doTransform)
+		{
+			cout << "doTransform" << endl;
+			result = transform(xmlPath, xsltPath);
+		}
+		cout << "Fin if" << endl;
 	}
 	else
 	{
-		return -1;
+		print_help(cerr);
 	}
+
+	return result;
 }

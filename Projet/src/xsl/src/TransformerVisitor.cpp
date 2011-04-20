@@ -127,8 +127,8 @@ TransformerVisitor::~TransformerVisitor()
 
 void TransformerVisitor::createMap(const Node& node)
 {
-	MapCreator * mapCreator = new MapCreator(templatesMap);
-	node.accept(*mapCreator);
+	MapCreator mapCreator(templatesMap);
+	node.accept(mapCreator);
 }
 
 void TransformerVisitor::visit(const TextNode &)
