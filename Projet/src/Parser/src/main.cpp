@@ -65,7 +65,7 @@ int handleDTD(string filename)
 	if (err != 0) cout << endl << "Badformed XML : " << xmlSyntaxErrorCount << " syntex errors detected." << endl;
 	else if (!exportMode) cout << endl << "Wellformed XML." << endl;
 
-	return 0;
+	return err;
 }
 
 /**********************************************************************************/
@@ -117,7 +117,7 @@ int main(int argc, char** argv)
 
 		if (!dtdName.empty())
 		{
-			handleDTD(dtdName);
+			err = handleDTD(dtdName);
 
 			if (err == 0 && !exportMode)
 			{
@@ -128,8 +128,8 @@ int main(int argc, char** argv)
 					cout << "DTD Validation : FAIL." << endl;
 			}
 
-			//delete rootDTD;
-			//rootDTD = 0;
+			delete rootDTD;
+			rootDTD = 0;
 		}
 
 	}
