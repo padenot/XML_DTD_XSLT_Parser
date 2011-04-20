@@ -4,29 +4,21 @@
 	#include <cstdio>
 	#include <cstdlib>
 	#include <unistd.h>
-	#include "commun.h"
-
 	#include <stack>
-
+	
+	#include "commun.h"
 	#include "xml.tab.h"
+	#include "error.hh"
+	int xmlSyntaxErrorCount =0;
 
 	using namespace xml;
 	using namespace std;
 
-	void xmlerror(char *msg);
+	void xmlerror(MarkupNode *& root, string & dtdName,
+		string & validRootName, char *msg);
 	int xmlwrap(void);
 	int xmllex(void);
 
-	int handleDTD(char*);
-
-	extern int xmllineno;
-	
-	#include "error.hh"
-	int xmlSyntaxErrorCount =0;
-
-	string dtdName;
-	string validRootName;
-	MarkupNode* root = 0;
 	static stack<CompositeMarkupNode**> proxy(deque<CompositeMarkupNode**>(1,
 		static_cast<CompositeMarkupNode**>(0)));
 %}
@@ -41,6 +33,10 @@
 	xml::MarkupNode::Attributes* attributes;
 	xml::CompositeMarkupNode::Children* children;
 }
+
+%parse-param {xml::MarkupNode*& root}
+%parse-param {std::string & dtdName}
+%parse-param {std::string & validRootName}
 
 %token EQ SLASH CLOSE END CLOSESPECIAL DOCTYPE
 %token <s> ENCODING VALUE DATA COMMENT NAME
@@ -128,7 +124,7 @@ composite_element	: START attributes CLOSE content END NAME CLOSE
 						delete $1;
 						delete $2;
 						delete $4;
-						//delete $6;
+						delete $6;
 					}
 					| NSSTART attributes CLOSE content END NSNAME CLOSE
 					{

@@ -33,13 +33,11 @@
 	using namespace std;
 	using namespace dtd;
 
-	void dtderror(char *msg);
+	void dtderror(DTD & rootDTD, char *msg);
 	int dtdwrap(void);
 	int dtdlex(void);
 
 	QuantifiableContent* handleQuantifier(QuantifiableContent*, int);
-
-	DTD* rootDTD = new DTD();
 %}
 
 %union { 
@@ -67,6 +65,7 @@
 	ElementContent* t_item;					
 }
 
+%parse-param {dtd::DTD & rootDTD}
 %token ELEMENT ATTLIST CLOSE OPENPAR CLOSEPAR COMMA PIPE FIXED EMPTY ANY PCDATA AST QMARK PLUS CDATA NAME TOKENTYPE DECLARATION STRING
 
 %type <s> NAME TOKENTYPE DECLARATION STRING
@@ -101,12 +100,12 @@ dtd			: dtd attlist CLOSE
    			| /* empty */
    			;
 
-attlist			: ATTLIST NAME att_definition					{ rootDTD->addAttributesList(string(""), string($2), *$3 ); }  
+attlist			: ATTLIST NAME att_definition					{ rootDTD.addAttributesList(string(""), string($2), *$3 ); }  
 			;
 
-element 		: ELEMENT NAME mixed 						{ rootDTD->addElement("", $2, *$3 ); }
-			| ELEMENT NAME any_or_empty 					{ rootDTD->addElement("", $2, *$3 ); }
-			| ELEMENT NAME choice_or_sequence quantifier			{ rootDTD->addElement("", $2, *handleQuantifier( $3, $4 ) ); }
+element 		: ELEMENT NAME mixed 						{ rootDTD.addElement("", $2, *$3 ); }
+			| ELEMENT NAME any_or_empty 					{ rootDTD.addElement("", $2, *$3 ); }
+			| ELEMENT NAME choice_or_sequence quantifier			{ rootDTD.addElement("", $2, *handleQuantifier( $3, $4 ) ); }
 			;
 
 any_or_empty		: EMPTY								{ $$ = new EmptyContent(); }
@@ -119,11 +118,11 @@ mixed			: OPENPAR PCDATA PIPE simple_list_choice CLOSEPAR quantifier 	{ $$ = han
 
 simple_list_choice	: NAME								{ 
 				  								MixedContent::ChoosableSet* newSet = new MixedContent::ChoosableSet(); 
-												newSet->insert( new dtd::ElementReference(*rootDTD, "", $1) ); 
+												newSet->insert( new dtd::ElementReference(rootDTD, "", $1) ); 
 												$$ = newSet;
 			  								}
 			| simple_list_choice PIPE NAME					{ 
-												$1->insert( new ElementReference(*rootDTD, "", $3 ) ); 
+												$1->insert( new ElementReference(rootDTD, "", $3 ) ); 
 												$$ = $1; 
 											}
 			;
@@ -184,7 +183,7 @@ list_choice_transition	: list_choice_transition PIPE item				{ $1->insert($3); $
 			; 
 
 item 			: choice_or_sequence quantifier					{ $$ = (ElementContent*)handleQuantifier( $1, $2 ); }
-			| NAME quantifier						{ $$ = (ElementContent*)handleQuantifier( new ElementReference( *rootDTD, "", $1 ), $2 ); }
+			| NAME quantifier						{ $$ = (ElementContent*)handleQuantifier( new ElementReference( rootDTD, "", $1 ), $2 ); }
 			; 
 
 quantifier		: AST 								{ $$ = QTF_AST; }
@@ -207,5 +206,6 @@ QuantifiableContent* handleQuantifier(QuantifiableContent* currentContent, int q
 		case (QTF_PLUS): return new RepeatedContent(*currentContent);
 		case (QTF_AST): return new RepeatableContent(*currentContent);
 		case (QTF_QMARK): return new OptionalContent(*currentContent);
+		default : return currentContent;
 	}
 }
