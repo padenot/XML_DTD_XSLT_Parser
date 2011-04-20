@@ -1,6 +1,7 @@
 Makefile
 build/Makefile.conf
-H4215_Dossier_Conception.pdf
+
+*.pdf
 
 src/*aux
 src/*loa
