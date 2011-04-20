@@ -7,7 +7,6 @@
 \fancyhead[L]
 {
 	\ifthenelse{\isodd{\thepage}}{}{%
-		\vspace*{100mm}
 		\rotatebox{-90}{%
 			\hbox to 0pt{%
 				\Huge\fontfamily{ugq}\selectfont\rotatebox{180}{\fboxsep=10pt\colorbox{gray}{\color{white}\thepage}}\hbox to 0.3cm{}%
@@ -20,10 +19,14 @@
 \fancyhead[R]
 {
 	\ifthenelse{\isodd{\thepage}}{%
-		\rotatebox{+90}{%
-			\hbox to 0pt{%
-				\Huge\fontfamily{ugq}\selectfont\rotatebox{180}{\fboxsep=10pt\colorbox{gray}{\color{white}\thepage}}\hbox to 0.3cm{}%
+		\raisebox{0pt}[0pt][0pt]{
+		\raisebox{-16.6cm}{%
+			\rotatebox{90}{%
+				\hbox to 0pt{%
+					\Huge\fontfamily{ugq}\selectfont\rotatebox{180}{\fboxsep=10pt\colorbox{gray}{\color{white}\thepage}}\hbox to 0.3cm{}%
+				}%
 			}%
+		}%
 		}%
 	}{}%
 }

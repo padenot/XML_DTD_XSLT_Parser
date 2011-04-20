@@ -8,22 +8,13 @@
  
   <xsl:template match="/rapport">
     <html>
-      <!--<head> <title><xsl:apply-templates select="titre"/></title> </head>-->
       <body>
-	<!--
-        <h1><xsl:apply-templates select="titre"/></h1>
-        <center>
-			<br/> Auteur : <i><xsl:apply-templates select="auteur"/></i>
-			<br/> Résumé : <i><xsl:apply-templates select="resume"/></i>
-        </center>
-        <xsl:apply-templates select="chapitre"/>--> <xsl:apply-templates />
+        <xsl:apply-templates />
       </body>
     </html>
   </xsl:template>
  
-   <xsl:template match="chapitre"><!--
-	<h2><xsl:apply-templates select="titre"/></h2>
-    <xsl:apply-templates select="section"/>-->
+   <xsl:template match="chapitre">
 	<xsl:apply-templates />
     <br/><br/>
    </xsl:template>

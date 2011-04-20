@@ -1,0 +1,17 @@
+Makefile
+build/Makefile.conf
+
+*.pdf
+
+src/*aux
+src/*loa
+src/*pdf
+src/*glo
+src/*ist
+src/*toc
+src/*mtc0
+src/*mtc
+src/*maf
+src/*acn
+src/*fdb_latexmk
+src/*log

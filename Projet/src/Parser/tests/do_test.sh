@@ -4,11 +4,11 @@
 PARSER=../bin/parser
 function major_sep ()
 {
-	echo "=================================================="
+	echo "================================================================================="
 }
 function minor_sep ()
 {
-	echo "--------------------------------------------------"
+	echo "---------------------------------------------------------------------------------"
 }
 function find_xml_files ()
 {
@@ -17,8 +17,8 @@ function find_xml_files ()
 function output_redirection ()
 {
 # $1 : file beeing tested
-#	echo '1>/dev/null' '2>&1'
-echo
+	echo '1>/dev/null' '2>&1'
+	#echo
 }
 
 for bundle in $(find . -maxdepth 1 -name 'bundle*' -type d | sort)
@@ -28,7 +28,7 @@ do
 	cd $bundle
 
 	minor_sep
-	if cd valid
+	if cd valid 1>/dev/null 2>&1
 	then
 		for valid in $(find_xml_files)
 		do
@@ -46,7 +46,7 @@ do
 	fi
 
 	minor_sep
-	if cd invalid
+	if cd invalid 1>/dev/null 2>&1
 	then
 		for invalid in $(find_xml_files)
 		do

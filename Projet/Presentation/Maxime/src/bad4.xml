@@ -1,0 +1,9 @@
+<!DOCTYPE rapport SYSTEM "bad1.dtd">
+<test>
+	<type>Syntax</type>
+	<problem>Mauvaise fermeture de valeur d'attribut</problem>
+	<code>
+		<p type='Important>Je suis un paragraphe</p>
+	</code>
+
+</test>

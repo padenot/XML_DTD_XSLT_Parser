@@ -1,0 +1,4 @@
+cd xml && make mrproper && make DEBUG=yes && cd ../
+cd xsl && make mrproper && make DEBUG=yes && cd ../
+cd dtd && make mrproper && make DEBUG=yes && cd ../
+make

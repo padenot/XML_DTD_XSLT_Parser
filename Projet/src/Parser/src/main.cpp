@@ -63,10 +63,10 @@ int handleDTD(string filename)
 	err = dtdparse();
 	fclose(dtdin);
 
-	if (exportMode)
+	if (!exportMode)
 	{
-		//dtd::OutputDTDVisitor visitor(cout, '\t');
-		//rootDTD->accept(visitor);
+		dtd::OutputDTDVisitor visitor(cout, '\t');
+		rootDTD->accept(visitor);
 	}
 
 	if (err != 0)
@@ -75,7 +75,7 @@ int handleDTD(string filename)
 	else if (!exportMode)
 		cout << endl << "Wellformed XML." << endl;
 
-	return 0;
+	return err;
 }
 
 /**********************************************************************************/
@@ -204,13 +204,15 @@ int main(int argc, char** argv)
 			DotOutputVisitor dvisitor(cout, "xmlTree");
 			dvisitor.writeDot(root);
 
-			//OutputVisitor visitor(cout, ' ');
-			//root->accept(visitor);
+		}
+		else if(!exportMode && !transformMode) {
+			OutputVisitor visitor(cout, ' ');
+			root->accept(visitor);
 		}
 
 		if (!dtdName.empty())
 		{
-			handleDTD(dtdName);
+			err = handleDTD(dtdName);
 
 			if (err == 0 && !exportMode)
 			{
@@ -221,13 +223,13 @@ int main(int argc, char** argv)
 					cout << "DTD Validation : FAIL." << endl;
 			}
 
-			//delete rootDTD;
-			//rootDTD = 0;
+			delete rootDTD;
+			rootDTD = 0;
 		}
 
 	}
 
-	if (transformMode)
+	if (validationResult && transformMode)
 	{
 		Node* xmlRoot = root;
 		FILE* inputFile = (FILE*) fopen(argv[3], "r");
@@ -254,7 +256,7 @@ int main(int argc, char** argv)
 	delete root;
 	root = 0;
 
-	if (validationResult)
+	if (validationResult && xmlSyntaxErrorCount == 0)
 	{
 		return 0;
 	}
