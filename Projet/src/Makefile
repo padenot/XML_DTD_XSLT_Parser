@@ -11,7 +11,7 @@ test:
 	#@cd AnalyseurXML/ && make test
 	#@cd AnalyseurDTD/ && make test
 	@cd Parser/ && make test
-#	@cd xsl/ && make test
+	@cd xsl/ && make test
 	
 $(BINPATH) :
 	mkdir $@

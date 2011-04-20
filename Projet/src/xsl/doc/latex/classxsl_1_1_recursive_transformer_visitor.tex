@@ -1,0 +1,157 @@
+\hypertarget{classxsl_1_1_recursive_transformer_visitor}{
+\section{Référence de la classe xsl::RecursiveTransformerVisitor}
+\label{classxsl_1_1_recursive_transformer_visitor}\index{xsl::RecursiveTransformerVisitor@{xsl::RecursiveTransformerVisitor}}
+}
+
+
+{\ttfamily \#include $<$RecursiveTransformerVisitor.hh$>$}
+
+
+
+Graphe de collaboration de xsl::RecursiveTransformerVisitor:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=600pt]{classxsl_1_1_recursive_transformer_visitor__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+xml::CompositeMarkupNode::Children $\ast$ \hyperlink{classxsl_1_1_recursive_transformer_visitor_ae22a3d073ffbc33532078dda218fbdb2}{transform} (xml::CompositeMarkupNode $\ast$$\ast$proxy, const xml::Node \&reference)
+\item 
+\hyperlink{classxsl_1_1_recursive_transformer_visitor_abcee48fdf4bf5d7d6bd7a5ab920f1132}{RecursiveTransformerVisitor} (\hyperlink{classxsl_1_1_transformer_visitor}{TransformerVisitor} \&transformer)
+\item 
+virtual \hyperlink{classxsl_1_1_recursive_transformer_visitor_aa66f42d68aeb112c2c03e756b1483474}{$\sim$RecursiveTransformerVisitor} ()
+\end{DoxyCompactItemize}
+\subsection*{Fonctions membres protégées}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{classxsl_1_1_recursive_transformer_visitor_a8b615dab8e58a7c7fedc369d1f89b334}{visit} (const xml::TextNode \&node)
+\item 
+virtual void \hyperlink{classxsl_1_1_recursive_transformer_visitor_aeba419bbc257271cb6738b07d6f2412c}{visit} (const xml::MarkupNode \&node)
+\item 
+virtual void \hyperlink{classxsl_1_1_recursive_transformer_visitor_a614cb6109ca9662729e24fb41246d146}{visit} (const xml::CompositeMarkupNode \&node)
+\end{DoxyCompactItemize}
+\subsection*{Attributs protégés}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classxsl_1_1_transformer_visitor}{TransformerVisitor} \& \hyperlink{classxsl_1_1_recursive_transformer_visitor_a745c0d86fe855949ec55b4c872b02753}{\_\-transformer}
+\item 
+xml::CompositeMarkupNode $\ast$$\ast$ \hyperlink{classxsl_1_1_recursive_transformer_visitor_a2b1fad9f3e8d30781615c0bd63184495}{\_\-proxy}
+\item 
+xml::CompositeMarkupNode::Children $\ast$ \hyperlink{classxsl_1_1_recursive_transformer_visitor_a9ee4cc34eabc9cfbd87578942547d35f}{\_\-result}
+\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+
+
+Définition à la ligne 20 du fichier RecursiveTransformerVisitor.hh.
+
+
+
+\subsection{Documentation des constructeurs et destructeur}
+\hypertarget{classxsl_1_1_recursive_transformer_visitor_abcee48fdf4bf5d7d6bd7a5ab920f1132}{
+\index{xsl::RecursiveTransformerVisitor@{xsl::RecursiveTransformerVisitor}!RecursiveTransformerVisitor@{RecursiveTransformerVisitor}}
+\index{RecursiveTransformerVisitor@{RecursiveTransformerVisitor}!xsl::RecursiveTransformerVisitor@{xsl::RecursiveTransformerVisitor}}
+\subsubsection[{RecursiveTransformerVisitor}]{\setlength{\rightskip}{0pt plus 5cm}xsl::RecursiveTransformerVisitor::RecursiveTransformerVisitor (
+\begin{DoxyParamCaption}
+\item[{{\bf TransformerVisitor} \&}]{ transformer}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}explicit\mbox{]}}}}
+\label{classxsl_1_1_recursive_transformer_visitor_abcee48fdf4bf5d7d6bd7a5ab920f1132}
+
+
+Définition à la ligne 45 du fichier RecursiveTransformerVisitor.cpp.
+
+\hypertarget{classxsl_1_1_recursive_transformer_visitor_aa66f42d68aeb112c2c03e756b1483474}{
+\index{xsl::RecursiveTransformerVisitor@{xsl::RecursiveTransformerVisitor}!$\sim$RecursiveTransformerVisitor@{$\sim$RecursiveTransformerVisitor}}
+\index{$\sim$RecursiveTransformerVisitor@{$\sim$RecursiveTransformerVisitor}!xsl::RecursiveTransformerVisitor@{xsl::RecursiveTransformerVisitor}}
+\subsubsection[{$\sim$RecursiveTransformerVisitor}]{\setlength{\rightskip}{0pt plus 5cm}xsl::RecursiveTransformerVisitor::$\sim$RecursiveTransformerVisitor (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classxsl_1_1_recursive_transformer_visitor_aa66f42d68aeb112c2c03e756b1483474}
+
+
+Définition à la ligne 52 du fichier RecursiveTransformerVisitor.cpp.
+
+
+
+\subsection{Documentation des fonctions membres}
+\hypertarget{classxsl_1_1_recursive_transformer_visitor_ae22a3d073ffbc33532078dda218fbdb2}{
+\index{xsl::RecursiveTransformerVisitor@{xsl::RecursiveTransformerVisitor}!transform@{transform}}
+\index{transform@{transform}!xsl::RecursiveTransformerVisitor@{xsl::RecursiveTransformerVisitor}}
+\subsubsection[{transform}]{\setlength{\rightskip}{0pt plus 5cm}xml::CompositeMarkupNode::Children$\ast$ xsl::RecursiveTransformerVisitor::transform (
+\begin{DoxyParamCaption}
+\item[{xml::CompositeMarkupNode $\ast$$\ast$}]{ proxy, }
+\item[{const xml::Node \&}]{ reference}
+\end{DoxyParamCaption}
+)}}
+\label{classxsl_1_1_recursive_transformer_visitor_ae22a3d073ffbc33532078dda218fbdb2}
+\hypertarget{classxsl_1_1_recursive_transformer_visitor_a614cb6109ca9662729e24fb41246d146}{
+\index{xsl::RecursiveTransformerVisitor@{xsl::RecursiveTransformerVisitor}!visit@{visit}}
+\index{visit@{visit}!xsl::RecursiveTransformerVisitor@{xsl::RecursiveTransformerVisitor}}
+\subsubsection[{visit}]{\setlength{\rightskip}{0pt plus 5cm}virtual void xsl::RecursiveTransformerVisitor::visit (
+\begin{DoxyParamCaption}
+\item[{const xml::CompositeMarkupNode \&}]{ node}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}protected, virtual\mbox{]}}}}
+\label{classxsl_1_1_recursive_transformer_visitor_a614cb6109ca9662729e24fb41246d146}
+\hypertarget{classxsl_1_1_recursive_transformer_visitor_aeba419bbc257271cb6738b07d6f2412c}{
+\index{xsl::RecursiveTransformerVisitor@{xsl::RecursiveTransformerVisitor}!visit@{visit}}
+\index{visit@{visit}!xsl::RecursiveTransformerVisitor@{xsl::RecursiveTransformerVisitor}}
+\subsubsection[{visit}]{\setlength{\rightskip}{0pt plus 5cm}virtual void xsl::RecursiveTransformerVisitor::visit (
+\begin{DoxyParamCaption}
+\item[{const xml::MarkupNode \&}]{ node}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}protected, virtual\mbox{]}}}}
+\label{classxsl_1_1_recursive_transformer_visitor_aeba419bbc257271cb6738b07d6f2412c}
+\hypertarget{classxsl_1_1_recursive_transformer_visitor_a8b615dab8e58a7c7fedc369d1f89b334}{
+\index{xsl::RecursiveTransformerVisitor@{xsl::RecursiveTransformerVisitor}!visit@{visit}}
+\index{visit@{visit}!xsl::RecursiveTransformerVisitor@{xsl::RecursiveTransformerVisitor}}
+\subsubsection[{visit}]{\setlength{\rightskip}{0pt plus 5cm}virtual void xsl::RecursiveTransformerVisitor::visit (
+\begin{DoxyParamCaption}
+\item[{const xml::TextNode \&}]{ node}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}protected, virtual\mbox{]}}}}
+\label{classxsl_1_1_recursive_transformer_visitor_a8b615dab8e58a7c7fedc369d1f89b334}
+
+
+\subsection{Documentation des données membres}
+\hypertarget{classxsl_1_1_recursive_transformer_visitor_a2b1fad9f3e8d30781615c0bd63184495}{
+\index{xsl::RecursiveTransformerVisitor@{xsl::RecursiveTransformerVisitor}!\_\-proxy@{\_\-proxy}}
+\index{\_\-proxy@{\_\-proxy}!xsl::RecursiveTransformerVisitor@{xsl::RecursiveTransformerVisitor}}
+\subsubsection[{\_\-proxy}]{\setlength{\rightskip}{0pt plus 5cm}xml::CompositeMarkupNode$\ast$$\ast$ {\bf xsl::RecursiveTransformerVisitor::\_\-proxy}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{classxsl_1_1_recursive_transformer_visitor_a2b1fad9f3e8d30781615c0bd63184495}
+
+
+Définition à la ligne 41 du fichier RecursiveTransformerVisitor.hh.
+
+\hypertarget{classxsl_1_1_recursive_transformer_visitor_a9ee4cc34eabc9cfbd87578942547d35f}{
+\index{xsl::RecursiveTransformerVisitor@{xsl::RecursiveTransformerVisitor}!\_\-result@{\_\-result}}
+\index{\_\-result@{\_\-result}!xsl::RecursiveTransformerVisitor@{xsl::RecursiveTransformerVisitor}}
+\subsubsection[{\_\-result}]{\setlength{\rightskip}{0pt plus 5cm}xml::CompositeMarkupNode::Children$\ast$ {\bf xsl::RecursiveTransformerVisitor::\_\-result}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{classxsl_1_1_recursive_transformer_visitor_a9ee4cc34eabc9cfbd87578942547d35f}
+
+
+Définition à la ligne 42 du fichier RecursiveTransformerVisitor.hh.
+
+\hypertarget{classxsl_1_1_recursive_transformer_visitor_a745c0d86fe855949ec55b4c872b02753}{
+\index{xsl::RecursiveTransformerVisitor@{xsl::RecursiveTransformerVisitor}!\_\-transformer@{\_\-transformer}}
+\index{\_\-transformer@{\_\-transformer}!xsl::RecursiveTransformerVisitor@{xsl::RecursiveTransformerVisitor}}
+\subsubsection[{\_\-transformer}]{\setlength{\rightskip}{0pt plus 5cm}{\bf TransformerVisitor}\& {\bf xsl::RecursiveTransformerVisitor::\_\-transformer}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{classxsl_1_1_recursive_transformer_visitor_a745c0d86fe855949ec55b4c872b02753}
+
+
+Définition à la ligne 40 du fichier RecursiveTransformerVisitor.hh.
+
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants :\begin{DoxyCompactItemize}
+\item 
+src/\hyperlink{_recursive_transformer_visitor_8hh}{RecursiveTransformerVisitor.hh}\item 
+src/\hyperlink{_recursive_transformer_visitor_8cpp}{RecursiveTransformerVisitor.cpp}\end{DoxyCompactItemize}

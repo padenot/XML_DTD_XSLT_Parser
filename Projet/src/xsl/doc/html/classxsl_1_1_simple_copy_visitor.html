@@ -1,0 +1,257 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>XMLLib: Référence de la classe xsl::SimpleCopyVisitor</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javaScript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- Généré par Doxygen 1.7.2 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+--></script>
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="namespaces.html"><span>Espaces&#160;de&#160;nommage</span></a></li>
+      <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
+      <li><a href="files.html"><span>Fichiers</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="tabs2">
+    <ul class="tablist">
+      <li><a href="annotated.html"><span>Liste&#160;des&#160;classes</span></a></li>
+      <li><a href="classes.html"><span>Index&#160;des&#160;classes</span></a></li>
+      <li><a href="functions.html"><span>Membres&#160;de&#160;classe</span></a></li>
+    </ul>
+  </div>
+  <div class="navpath">
+    <ul>
+      <li><a class="el" href="namespacexsl.html">xsl</a>      </li>
+      <li><a class="el" href="classxsl_1_1_simple_copy_visitor.html">SimpleCopyVisitor</a>      </li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Fonctions membres publiques</a> &#124;
+<a href="#pro-methods">Fonctions membres protégées</a> &#124;
+<a href="#pro-attribs">Attributs protégés</a>  </div>
+  <div class="headertitle">
+<h1>Référence de la classe xsl::SimpleCopyVisitor</h1>  </div>
+</div>
+<div class="contents">
+<!-- doxytag: class="xsl::SimpleCopyVisitor" -->
+<p><code>#include &lt;<a class="el" href="_simple_copy_visitor_8hh_source.html">SimpleCopyVisitor.hh</a>&gt;</code></p>
+
+<p><a href="classxsl_1_1_simple_copy_visitor-members.html">Liste de tous les membres</a></p>
+<table class="memberdecls">
+<tr><td colspan="2"><h2><a name="pub-methods"></a>
+Fonctions membres publiques</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">xml::Node *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxsl_1_1_simple_copy_visitor.html#a635dd86100529983335aa35283450227">copy</a> (xml::CompositeMarkupNode **parent, const xml::Node &amp;referenceNode)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxsl_1_1_simple_copy_visitor.html#a48310fd852d3993749d46ff2c17ff001">SimpleCopyVisitor</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxsl_1_1_simple_copy_visitor.html#a35dd73ab468988333fad21aba4502eff">~SimpleCopyVisitor</a> ()</td></tr>
+<tr><td colspan="2"><h2><a name="pro-methods"></a>
+Fonctions membres protégées</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxsl_1_1_simple_copy_visitor.html#a2af765f5955c795d73c5aa6edbe1ae93">visit</a> (const xml::TextNode &amp;node)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxsl_1_1_simple_copy_visitor.html#a67f58002edb998f71775c790084ac388">visit</a> (const xml::MarkupNode &amp;node)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxsl_1_1_simple_copy_visitor.html#a7afb4e9198dae8246736bed6f15a4b88">visit</a> (const xml::CompositeMarkupNode &amp;node)</td></tr>
+<tr><td colspan="2"><h2><a name="pro-attribs"></a>
+Attributs protégés</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">xml::Node *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxsl_1_1_simple_copy_visitor.html#a181cd3a2e2aed778efe9fbc8f5fe0bf8">_copiedNode</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">xml::CompositeMarkupNode **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxsl_1_1_simple_copy_visitor.html#ae812212f02cec65de88cc9dafb7a3cd3">_parent</a></td></tr>
+</table>
+<hr/><a name="_details"></a><h2>Description détaillée</h2>
+
+<p>Définition à la ligne <a class="el" href="_simple_copy_visitor_8hh_source.html#l00022">22</a> du fichier <a class="el" href="_simple_copy_visitor_8hh_source.html">SimpleCopyVisitor.hh</a>.</p>
+<hr/><h2>Documentation des constructeurs et destructeur</h2>
+<a class="anchor" id="a48310fd852d3993749d46ff2c17ff001"></a><!-- doxytag: member="xsl::SimpleCopyVisitor::SimpleCopyVisitor" ref="a48310fd852d3993749d46ff2c17ff001" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">xsl::SimpleCopyVisitor::SimpleCopyVisitor </td>
+          <td>(</td>
+          <td class="paramname">&#160;)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Définition à la ligne <a class="el" href="_simple_copy_visitor_8cpp_source.html#l00046">46</a> du fichier <a class="el" href="_simple_copy_visitor_8cpp_source.html">SimpleCopyVisitor.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a35dd73ab468988333fad21aba4502eff"></a><!-- doxytag: member="xsl::SimpleCopyVisitor::~SimpleCopyVisitor" ref="a35dd73ab468988333fad21aba4502eff" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">xsl::SimpleCopyVisitor::~SimpleCopyVisitor </td>
+          <td>(</td>
+          <td class="paramname">&#160;)</td>
+          <td><code> [virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Définition à la ligne <a class="el" href="_simple_copy_visitor_8cpp_source.html#l00051">51</a> du fichier <a class="el" href="_simple_copy_visitor_8cpp_source.html">SimpleCopyVisitor.cpp</a>.</p>
+
+</div>
+</div>
+<hr/><h2>Documentation des fonctions membres</h2>
+<a class="anchor" id="a635dd86100529983335aa35283450227"></a><!-- doxytag: member="xsl::SimpleCopyVisitor::copy" ref="a635dd86100529983335aa35283450227" args="(xml::CompositeMarkupNode **parent, const xml::Node &amp;referenceNode)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">xml::Node* xsl::SimpleCopyVisitor::copy </td>
+          <td>(</td>
+          <td class="paramtype">xml::CompositeMarkupNode **&#160;</td>
+          <td class="paramname"> <em>parent</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const xml::Node &amp;&#160;</td>
+          <td class="paramname"> <em>referenceNode</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a7afb4e9198dae8246736bed6f15a4b88"></a><!-- doxytag: member="xsl::SimpleCopyVisitor::visit" ref="a7afb4e9198dae8246736bed6f15a4b88" args="(const xml::CompositeMarkupNode &amp;node)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void xsl::SimpleCopyVisitor::visit </td>
+          <td>(</td>
+          <td class="paramtype">const xml::CompositeMarkupNode &amp;&#160;</td>
+          <td class="paramname"> <em>node</em>&#160;)</td>
+          <td><code> [protected, virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a67f58002edb998f71775c790084ac388"></a><!-- doxytag: member="xsl::SimpleCopyVisitor::visit" ref="a67f58002edb998f71775c790084ac388" args="(const xml::MarkupNode &amp;node)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void xsl::SimpleCopyVisitor::visit </td>
+          <td>(</td>
+          <td class="paramtype">const xml::MarkupNode &amp;&#160;</td>
+          <td class="paramname"> <em>node</em>&#160;)</td>
+          <td><code> [protected, virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a2af765f5955c795d73c5aa6edbe1ae93"></a><!-- doxytag: member="xsl::SimpleCopyVisitor::visit" ref="a2af765f5955c795d73c5aa6edbe1ae93" args="(const xml::TextNode &amp;node)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void xsl::SimpleCopyVisitor::visit </td>
+          <td>(</td>
+          <td class="paramtype">const xml::TextNode &amp;&#160;</td>
+          <td class="paramname"> <em>node</em>&#160;)</td>
+          <td><code> [protected, virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<hr/><h2>Documentation des données membres</h2>
+<a class="anchor" id="a181cd3a2e2aed778efe9fbc8f5fe0bf8"></a><!-- doxytag: member="xsl::SimpleCopyVisitor::_copiedNode" ref="a181cd3a2e2aed778efe9fbc8f5fe0bf8" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">xml::Node* <a class="el" href="classxsl_1_1_simple_copy_visitor.html#a181cd3a2e2aed778efe9fbc8f5fe0bf8">xsl::SimpleCopyVisitor::_copiedNode</a><code> [protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Définition à la ligne <a class="el" href="_simple_copy_visitor_8hh_source.html#l00054">54</a> du fichier <a class="el" href="_simple_copy_visitor_8hh_source.html">SimpleCopyVisitor.hh</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae812212f02cec65de88cc9dafb7a3cd3"></a><!-- doxytag: member="xsl::SimpleCopyVisitor::_parent" ref="ae812212f02cec65de88cc9dafb7a3cd3" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">xml::CompositeMarkupNode** <a class="el" href="classxsl_1_1_simple_copy_visitor.html#ae812212f02cec65de88cc9dafb7a3cd3">xsl::SimpleCopyVisitor::_parent</a><code> [protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Définition à la ligne <a class="el" href="_simple_copy_visitor_8hh_source.html#l00055">55</a> du fichier <a class="el" href="_simple_copy_visitor_8hh_source.html">SimpleCopyVisitor.hh</a>.</p>
+
+</div>
+</div>
+<hr/>La documentation de cette classe a été générée à partir des fichiers suivants :<ul>
+<li>src/<a class="el" href="_simple_copy_visitor_8hh_source.html">SimpleCopyVisitor.hh</a></li>
+<li>src/<a class="el" href="_simple_copy_visitor_8cpp_source.html">SimpleCopyVisitor.cpp</a></li>
+</ul>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Espaces de nommage</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Définition de type</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>Généré le Wed Apr 20 2011 16:22:25 pour XMLLib par&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.2 </small></address>
+</body>
+</html>

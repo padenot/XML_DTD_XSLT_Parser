@@ -1,0 +1,186 @@
+\hypertarget{classxsl_1_1_transformer_visitor}{
+\section{Référence de la classe xsl::TransformerVisitor}
+\label{classxsl_1_1_transformer_visitor}\index{xsl::TransformerVisitor@{xsl::TransformerVisitor}}
+}
+
+
+{\ttfamily \#include $<$TransformerVisitor.hh$>$}
+
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+xml::Node $\ast$ \hyperlink{classxsl_1_1_transformer_visitor_ac8897c59997d0a3ab6ec45de1d8f03a1}{Transformation} (xml::Node \&XmlTree)
+\item 
+std::list$<$ xml::Node $\ast$ $>$ $\ast$ \hyperlink{classxsl_1_1_transformer_visitor_adcf65ab85e23c937fa2f4b2d6b111374}{AnalyzeNode} (xml::CompositeMarkupNode $\ast$$\ast$noeudParent, xml::Node \&noeud)
+\item 
+\hyperlink{classxsl_1_1_transformer_visitor_aad86d7bfb8a6277ae3f2330feaaaaa8f}{TransformerVisitor} (const xml::Node \&XslTree)
+\item 
+virtual \hyperlink{classxsl_1_1_transformer_visitor_a431ff5d04fe3918d03e452c7b3d7507c}{$\sim$TransformerVisitor} ()
+\end{DoxyCompactItemize}
+\subsection*{Types protégés}
+\begin{DoxyCompactItemize}
+\item 
+typedef std::map$<$ std::string, const xml::CompositeMarkupNode $\ast$ $>$ \hyperlink{classxsl_1_1_transformer_visitor_a16924042d3f952765b81dfe634bc2f57}{mapXsl}
+\end{DoxyCompactItemize}
+\subsection*{Fonctions membres protégées}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classxsl_1_1_transformer_visitor_aa49e3444c929904e0993b93d4582a192}{createMap} (const xml::Node \&node)
+\item 
+void \hyperlink{classxsl_1_1_transformer_visitor_afc01d96bf11c3af4bb1e5a4ce461ecb3}{getTemplateName} (const xml::MarkupNode \&node)
+\item 
+virtual void \hyperlink{classxsl_1_1_transformer_visitor_ac1ac13a7465ee0f1cc65560e00d07c94}{visit} (const xml::TextNode \&node)
+\item 
+virtual void \hyperlink{classxsl_1_1_transformer_visitor_a396147e30b3678d4020188e2e3ab37af}{visit} (const xml::MarkupNode \&node)
+\item 
+virtual void \hyperlink{classxsl_1_1_transformer_visitor_addeb8ac079ad785d7b8d89fb45528742}{visit} (const xml::CompositeMarkupNode \&node)
+\end{DoxyCompactItemize}
+\subsection*{Attributs protégés}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classxsl_1_1_transformer_visitor_a16924042d3f952765b81dfe634bc2f57}{mapXsl} $\ast$ \hyperlink{classxsl_1_1_transformer_visitor_a2b1256d8a383701b900eed6be00aeee9}{templatesMap}
+\item 
+mapXsl::iterator \hyperlink{classxsl_1_1_transformer_visitor_a9f8b7939327595683fa85c272cb060c7}{resultatMap}
+\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+
+
+Définition à la ligne 24 du fichier TransformerVisitor.hh.
+
+
+
+\subsection{Documentation des définitions de type membres}
+\hypertarget{classxsl_1_1_transformer_visitor_a16924042d3f952765b81dfe634bc2f57}{
+\index{xsl::TransformerVisitor@{xsl::TransformerVisitor}!mapXsl@{mapXsl}}
+\index{mapXsl@{mapXsl}!xsl::TransformerVisitor@{xsl::TransformerVisitor}}
+\subsubsection[{mapXsl}]{\setlength{\rightskip}{0pt plus 5cm}typedef std::map$<$std::string, const xml::CompositeMarkupNode$\ast$$>$ {\bf xsl::TransformerVisitor::mapXsl}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{classxsl_1_1_transformer_visitor_a16924042d3f952765b81dfe634bc2f57}
+
+
+Définition à la ligne 66 du fichier TransformerVisitor.hh.
+
+
+
+\subsection{Documentation des constructeurs et destructeur}
+\hypertarget{classxsl_1_1_transformer_visitor_aad86d7bfb8a6277ae3f2330feaaaaa8f}{
+\index{xsl::TransformerVisitor@{xsl::TransformerVisitor}!TransformerVisitor@{TransformerVisitor}}
+\index{TransformerVisitor@{TransformerVisitor}!xsl::TransformerVisitor@{xsl::TransformerVisitor}}
+\subsubsection[{TransformerVisitor}]{\setlength{\rightskip}{0pt plus 5cm}xsl::TransformerVisitor::TransformerVisitor (
+\begin{DoxyParamCaption}
+\item[{const xml::Node \&}]{ XslTree}
+\end{DoxyParamCaption}
+)}}
+\label{classxsl_1_1_transformer_visitor_aad86d7bfb8a6277ae3f2330feaaaaa8f}
+
+
+Définition à la ligne 110 du fichier TransformerVisitor.cpp.
+
+\hypertarget{classxsl_1_1_transformer_visitor_a431ff5d04fe3918d03e452c7b3d7507c}{
+\index{xsl::TransformerVisitor@{xsl::TransformerVisitor}!$\sim$TransformerVisitor@{$\sim$TransformerVisitor}}
+\index{$\sim$TransformerVisitor@{$\sim$TransformerVisitor}!xsl::TransformerVisitor@{xsl::TransformerVisitor}}
+\subsubsection[{$\sim$TransformerVisitor}]{\setlength{\rightskip}{0pt plus 5cm}xsl::TransformerVisitor::$\sim$TransformerVisitor (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classxsl_1_1_transformer_visitor_a431ff5d04fe3918d03e452c7b3d7507c}
+
+
+Définition à la ligne 118 du fichier TransformerVisitor.cpp.
+
+
+
+\subsection{Documentation des fonctions membres}
+\hypertarget{classxsl_1_1_transformer_visitor_adcf65ab85e23c937fa2f4b2d6b111374}{
+\index{xsl::TransformerVisitor@{xsl::TransformerVisitor}!AnalyzeNode@{AnalyzeNode}}
+\index{AnalyzeNode@{AnalyzeNode}!xsl::TransformerVisitor@{xsl::TransformerVisitor}}
+\subsubsection[{AnalyzeNode}]{\setlength{\rightskip}{0pt plus 5cm}std::list$<$xml::Node $\ast$$>$$\ast$ xsl::TransformerVisitor::AnalyzeNode (
+\begin{DoxyParamCaption}
+\item[{xml::CompositeMarkupNode $\ast$$\ast$}]{ noeudParent, }
+\item[{xml::Node \&}]{ noeud}
+\end{DoxyParamCaption}
+)}}
+\label{classxsl_1_1_transformer_visitor_adcf65ab85e23c937fa2f4b2d6b111374}
+\hypertarget{classxsl_1_1_transformer_visitor_aa49e3444c929904e0993b93d4582a192}{
+\index{xsl::TransformerVisitor@{xsl::TransformerVisitor}!createMap@{createMap}}
+\index{createMap@{createMap}!xsl::TransformerVisitor@{xsl::TransformerVisitor}}
+\subsubsection[{createMap}]{\setlength{\rightskip}{0pt plus 5cm}void xsl::TransformerVisitor::createMap (
+\begin{DoxyParamCaption}
+\item[{const xml::Node \&}]{ node}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{classxsl_1_1_transformer_visitor_aa49e3444c929904e0993b93d4582a192}
+\hypertarget{classxsl_1_1_transformer_visitor_afc01d96bf11c3af4bb1e5a4ce461ecb3}{
+\index{xsl::TransformerVisitor@{xsl::TransformerVisitor}!getTemplateName@{getTemplateName}}
+\index{getTemplateName@{getTemplateName}!xsl::TransformerVisitor@{xsl::TransformerVisitor}}
+\subsubsection[{getTemplateName}]{\setlength{\rightskip}{0pt plus 5cm}void xsl::TransformerVisitor::getTemplateName (
+\begin{DoxyParamCaption}
+\item[{const xml::MarkupNode \&}]{ node}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{classxsl_1_1_transformer_visitor_afc01d96bf11c3af4bb1e5a4ce461ecb3}
+\hypertarget{classxsl_1_1_transformer_visitor_ac8897c59997d0a3ab6ec45de1d8f03a1}{
+\index{xsl::TransformerVisitor@{xsl::TransformerVisitor}!Transformation@{Transformation}}
+\index{Transformation@{Transformation}!xsl::TransformerVisitor@{xsl::TransformerVisitor}}
+\subsubsection[{Transformation}]{\setlength{\rightskip}{0pt plus 5cm}xml::Node$\ast$ xsl::TransformerVisitor::Transformation (
+\begin{DoxyParamCaption}
+\item[{xml::Node \&}]{ XmlTree}
+\end{DoxyParamCaption}
+)}}
+\label{classxsl_1_1_transformer_visitor_ac8897c59997d0a3ab6ec45de1d8f03a1}
+\hypertarget{classxsl_1_1_transformer_visitor_a396147e30b3678d4020188e2e3ab37af}{
+\index{xsl::TransformerVisitor@{xsl::TransformerVisitor}!visit@{visit}}
+\index{visit@{visit}!xsl::TransformerVisitor@{xsl::TransformerVisitor}}
+\subsubsection[{visit}]{\setlength{\rightskip}{0pt plus 5cm}virtual void xsl::TransformerVisitor::visit (
+\begin{DoxyParamCaption}
+\item[{const xml::MarkupNode \&}]{ node}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}protected, virtual\mbox{]}}}}
+\label{classxsl_1_1_transformer_visitor_a396147e30b3678d4020188e2e3ab37af}
+\hypertarget{classxsl_1_1_transformer_visitor_addeb8ac079ad785d7b8d89fb45528742}{
+\index{xsl::TransformerVisitor@{xsl::TransformerVisitor}!visit@{visit}}
+\index{visit@{visit}!xsl::TransformerVisitor@{xsl::TransformerVisitor}}
+\subsubsection[{visit}]{\setlength{\rightskip}{0pt plus 5cm}virtual void xsl::TransformerVisitor::visit (
+\begin{DoxyParamCaption}
+\item[{const xml::CompositeMarkupNode \&}]{ node}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}protected, virtual\mbox{]}}}}
+\label{classxsl_1_1_transformer_visitor_addeb8ac079ad785d7b8d89fb45528742}
+\hypertarget{classxsl_1_1_transformer_visitor_ac1ac13a7465ee0f1cc65560e00d07c94}{
+\index{xsl::TransformerVisitor@{xsl::TransformerVisitor}!visit@{visit}}
+\index{visit@{visit}!xsl::TransformerVisitor@{xsl::TransformerVisitor}}
+\subsubsection[{visit}]{\setlength{\rightskip}{0pt plus 5cm}virtual void xsl::TransformerVisitor::visit (
+\begin{DoxyParamCaption}
+\item[{const xml::TextNode \&}]{ node}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}protected, virtual\mbox{]}}}}
+\label{classxsl_1_1_transformer_visitor_ac1ac13a7465ee0f1cc65560e00d07c94}
+
+
+\subsection{Documentation des données membres}
+\hypertarget{classxsl_1_1_transformer_visitor_a9f8b7939327595683fa85c272cb060c7}{
+\index{xsl::TransformerVisitor@{xsl::TransformerVisitor}!resultatMap@{resultatMap}}
+\index{resultatMap@{resultatMap}!xsl::TransformerVisitor@{xsl::TransformerVisitor}}
+\subsubsection[{resultatMap}]{\setlength{\rightskip}{0pt plus 5cm}mapXsl::iterator {\bf xsl::TransformerVisitor::resultatMap}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{classxsl_1_1_transformer_visitor_a9f8b7939327595683fa85c272cb060c7}
+
+
+Définition à la ligne 69 du fichier TransformerVisitor.hh.
+
+\hypertarget{classxsl_1_1_transformer_visitor_a2b1256d8a383701b900eed6be00aeee9}{
+\index{xsl::TransformerVisitor@{xsl::TransformerVisitor}!templatesMap@{templatesMap}}
+\index{templatesMap@{templatesMap}!xsl::TransformerVisitor@{xsl::TransformerVisitor}}
+\subsubsection[{templatesMap}]{\setlength{\rightskip}{0pt plus 5cm}{\bf mapXsl}$\ast$ {\bf xsl::TransformerVisitor::templatesMap}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{classxsl_1_1_transformer_visitor_a2b1256d8a383701b900eed6be00aeee9}
+
+
+Définition à la ligne 67 du fichier TransformerVisitor.hh.
+
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants :\begin{DoxyCompactItemize}
+\item 
+src/\hyperlink{_transformer_visitor_8hh}{TransformerVisitor.hh}\item 
+src/\hyperlink{_transformer_visitor_8cpp}{TransformerVisitor.cpp}\end{DoxyCompactItemize}

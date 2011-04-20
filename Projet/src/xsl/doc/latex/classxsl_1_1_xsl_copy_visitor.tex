@@ -1,0 +1,194 @@
+\hypertarget{classxsl_1_1_xsl_copy_visitor}{
+\section{Référence de la classe xsl::XslCopyVisitor}
+\label{classxsl_1_1_xsl_copy_visitor}\index{xsl::XslCopyVisitor@{xsl::XslCopyVisitor}}
+}
+
+
+{\ttfamily \#include $<$XslCopyVisitor.hh$>$}
+
+
+
+Graphe de collaboration de xsl::XslCopyVisitor:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=600pt]{classxsl_1_1_xsl_copy_visitor__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+xml::CompositeMarkupNode::Children $\ast$ \hyperlink{classxsl_1_1_xsl_copy_visitor_aa23e5adea50aa3eb5bcb5fa67d32f114}{xslCopy} (xml::CompositeMarkupNode $\ast$$\ast$parentProxy, const xml::Node \&templateNode, const xml::Node \&referenceNode)
+\item 
+\hyperlink{classxsl_1_1_xsl_copy_visitor_ad46a85993842fdee770e1c54077d29c5}{XslCopyVisitor} (\hyperlink{classxsl_1_1_transformer_visitor}{TransformerVisitor} \&transformer)
+\item 
+virtual \hyperlink{classxsl_1_1_xsl_copy_visitor_a5ca526697de61e8e0204b23c16efb192}{$\sim$XslCopyVisitor} ()
+\end{DoxyCompactItemize}
+\subsection*{Fonctions membres protégées}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{classxsl_1_1_xsl_copy_visitor_a25513d10730dfb9d01ca59a354a16e51}{visit} (const xml::TextNode \&templte)
+\item 
+virtual void \hyperlink{classxsl_1_1_xsl_copy_visitor_a4fe7aa1d1e20b8681509c6e5f3fc36d8}{visit} (const xml::MarkupNode \&templte)
+\item 
+virtual void \hyperlink{classxsl_1_1_xsl_copy_visitor_aa96cb91d98688a47b027b60a4a2ccc74}{visit} (const xml::CompositeMarkupNode \&templte)
+\end{DoxyCompactItemize}
+\subsection*{Attributs protégés}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classxsl_1_1_recursive_transformer_visitor}{RecursiveTransformerVisitor} \hyperlink{classxsl_1_1_xsl_copy_visitor_a62a8afbd16b10ef1c0bdf07e7aabf62e}{\_\-transformer}
+\item 
+const xml::Node $\ast$ \hyperlink{classxsl_1_1_xsl_copy_visitor_afed61bf57de8d216137457a5ac51daad}{\_\-referenceNode}
+\item 
+xml::CompositeMarkupNode $\ast$$\ast$ \hyperlink{classxsl_1_1_xsl_copy_visitor_aac6b2215ca37aabc57a0693517583583}{\_\-parentProxy}
+\item 
+xml::CompositeMarkupNode::Children \hyperlink{classxsl_1_1_xsl_copy_visitor_af0d37e73a689f6e2fe7bc081ba0ac25f}{\_\-result}
+\end{DoxyCompactItemize}
+\subsection*{Attributs protégés statiques}
+\begin{DoxyCompactItemize}
+\item 
+static const std::string \hyperlink{classxsl_1_1_xsl_copy_visitor_a9b0a28eb3efa498aeb497f258ddc6de4}{NAMESPACE\_\-APPLY\_\-TEMPLATES}
+\item 
+static const std::string \hyperlink{classxsl_1_1_xsl_copy_visitor_aafb7cd7f2bd7d9253d016804c8f2eeb6}{NAME\_\-APPLY\_\-TEMPLATES}
+\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+
+
+Définition à la ligne 21 du fichier XslCopyVisitor.hh.
+
+
+
+\subsection{Documentation des constructeurs et destructeur}
+\hypertarget{classxsl_1_1_xsl_copy_visitor_ad46a85993842fdee770e1c54077d29c5}{
+\index{xsl::XslCopyVisitor@{xsl::XslCopyVisitor}!XslCopyVisitor@{XslCopyVisitor}}
+\index{XslCopyVisitor@{XslCopyVisitor}!xsl::XslCopyVisitor@{xsl::XslCopyVisitor}}
+\subsubsection[{XslCopyVisitor}]{\setlength{\rightskip}{0pt plus 5cm}xsl::XslCopyVisitor::XslCopyVisitor (
+\begin{DoxyParamCaption}
+\item[{{\bf TransformerVisitor} \&}]{ transformer}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}explicit\mbox{]}}}}
+\label{classxsl_1_1_xsl_copy_visitor_ad46a85993842fdee770e1c54077d29c5}
+
+
+Définition à la ligne 60 du fichier XslCopyVisitor.cpp.
+
+\hypertarget{classxsl_1_1_xsl_copy_visitor_a5ca526697de61e8e0204b23c16efb192}{
+\index{xsl::XslCopyVisitor@{xsl::XslCopyVisitor}!$\sim$XslCopyVisitor@{$\sim$XslCopyVisitor}}
+\index{$\sim$XslCopyVisitor@{$\sim$XslCopyVisitor}!xsl::XslCopyVisitor@{xsl::XslCopyVisitor}}
+\subsubsection[{$\sim$XslCopyVisitor}]{\setlength{\rightskip}{0pt plus 5cm}xsl::XslCopyVisitor::$\sim$XslCopyVisitor (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classxsl_1_1_xsl_copy_visitor_a5ca526697de61e8e0204b23c16efb192}
+
+
+Définition à la ligne 66 du fichier XslCopyVisitor.cpp.
+
+
+
+\subsection{Documentation des fonctions membres}
+\hypertarget{classxsl_1_1_xsl_copy_visitor_a25513d10730dfb9d01ca59a354a16e51}{
+\index{xsl::XslCopyVisitor@{xsl::XslCopyVisitor}!visit@{visit}}
+\index{visit@{visit}!xsl::XslCopyVisitor@{xsl::XslCopyVisitor}}
+\subsubsection[{visit}]{\setlength{\rightskip}{0pt plus 5cm}virtual void xsl::XslCopyVisitor::visit (
+\begin{DoxyParamCaption}
+\item[{const xml::TextNode \&}]{ templte}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}protected, virtual\mbox{]}}}}
+\label{classxsl_1_1_xsl_copy_visitor_a25513d10730dfb9d01ca59a354a16e51}
+\hypertarget{classxsl_1_1_xsl_copy_visitor_aa96cb91d98688a47b027b60a4a2ccc74}{
+\index{xsl::XslCopyVisitor@{xsl::XslCopyVisitor}!visit@{visit}}
+\index{visit@{visit}!xsl::XslCopyVisitor@{xsl::XslCopyVisitor}}
+\subsubsection[{visit}]{\setlength{\rightskip}{0pt plus 5cm}virtual void xsl::XslCopyVisitor::visit (
+\begin{DoxyParamCaption}
+\item[{const xml::CompositeMarkupNode \&}]{ templte}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}protected, virtual\mbox{]}}}}
+\label{classxsl_1_1_xsl_copy_visitor_aa96cb91d98688a47b027b60a4a2ccc74}
+\hypertarget{classxsl_1_1_xsl_copy_visitor_a4fe7aa1d1e20b8681509c6e5f3fc36d8}{
+\index{xsl::XslCopyVisitor@{xsl::XslCopyVisitor}!visit@{visit}}
+\index{visit@{visit}!xsl::XslCopyVisitor@{xsl::XslCopyVisitor}}
+\subsubsection[{visit}]{\setlength{\rightskip}{0pt plus 5cm}virtual void xsl::XslCopyVisitor::visit (
+\begin{DoxyParamCaption}
+\item[{const xml::MarkupNode \&}]{ templte}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}protected, virtual\mbox{]}}}}
+\label{classxsl_1_1_xsl_copy_visitor_a4fe7aa1d1e20b8681509c6e5f3fc36d8}
+\hypertarget{classxsl_1_1_xsl_copy_visitor_aa23e5adea50aa3eb5bcb5fa67d32f114}{
+\index{xsl::XslCopyVisitor@{xsl::XslCopyVisitor}!xslCopy@{xslCopy}}
+\index{xslCopy@{xslCopy}!xsl::XslCopyVisitor@{xsl::XslCopyVisitor}}
+\subsubsection[{xslCopy}]{\setlength{\rightskip}{0pt plus 5cm}xml::CompositeMarkupNode::Children$\ast$ xsl::XslCopyVisitor::xslCopy (
+\begin{DoxyParamCaption}
+\item[{xml::CompositeMarkupNode $\ast$$\ast$}]{ parentProxy, }
+\item[{const xml::Node \&}]{ templateNode, }
+\item[{const xml::Node \&}]{ referenceNode}
+\end{DoxyParamCaption}
+)}}
+\label{classxsl_1_1_xsl_copy_visitor_aa23e5adea50aa3eb5bcb5fa67d32f114}
+
+
+\subsection{Documentation des données membres}
+\hypertarget{classxsl_1_1_xsl_copy_visitor_aac6b2215ca37aabc57a0693517583583}{
+\index{xsl::XslCopyVisitor@{xsl::XslCopyVisitor}!\_\-parentProxy@{\_\-parentProxy}}
+\index{\_\-parentProxy@{\_\-parentProxy}!xsl::XslCopyVisitor@{xsl::XslCopyVisitor}}
+\subsubsection[{\_\-parentProxy}]{\setlength{\rightskip}{0pt plus 5cm}xml::CompositeMarkupNode$\ast$$\ast$ {\bf xsl::XslCopyVisitor::\_\-parentProxy}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{classxsl_1_1_xsl_copy_visitor_aac6b2215ca37aabc57a0693517583583}
+
+
+Définition à la ligne 44 du fichier XslCopyVisitor.hh.
+
+\hypertarget{classxsl_1_1_xsl_copy_visitor_afed61bf57de8d216137457a5ac51daad}{
+\index{xsl::XslCopyVisitor@{xsl::XslCopyVisitor}!\_\-referenceNode@{\_\-referenceNode}}
+\index{\_\-referenceNode@{\_\-referenceNode}!xsl::XslCopyVisitor@{xsl::XslCopyVisitor}}
+\subsubsection[{\_\-referenceNode}]{\setlength{\rightskip}{0pt plus 5cm}const xml::Node$\ast$ {\bf xsl::XslCopyVisitor::\_\-referenceNode}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{classxsl_1_1_xsl_copy_visitor_afed61bf57de8d216137457a5ac51daad}
+
+
+Définition à la ligne 43 du fichier XslCopyVisitor.hh.
+
+\hypertarget{classxsl_1_1_xsl_copy_visitor_af0d37e73a689f6e2fe7bc081ba0ac25f}{
+\index{xsl::XslCopyVisitor@{xsl::XslCopyVisitor}!\_\-result@{\_\-result}}
+\index{\_\-result@{\_\-result}!xsl::XslCopyVisitor@{xsl::XslCopyVisitor}}
+\subsubsection[{\_\-result}]{\setlength{\rightskip}{0pt plus 5cm}xml::CompositeMarkupNode::Children {\bf xsl::XslCopyVisitor::\_\-result}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{classxsl_1_1_xsl_copy_visitor_af0d37e73a689f6e2fe7bc081ba0ac25f}
+
+
+Définition à la ligne 45 du fichier XslCopyVisitor.hh.
+
+\hypertarget{classxsl_1_1_xsl_copy_visitor_a62a8afbd16b10ef1c0bdf07e7aabf62e}{
+\index{xsl::XslCopyVisitor@{xsl::XslCopyVisitor}!\_\-transformer@{\_\-transformer}}
+\index{\_\-transformer@{\_\-transformer}!xsl::XslCopyVisitor@{xsl::XslCopyVisitor}}
+\subsubsection[{\_\-transformer}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RecursiveTransformerVisitor} {\bf xsl::XslCopyVisitor::\_\-transformer}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{classxsl_1_1_xsl_copy_visitor_a62a8afbd16b10ef1c0bdf07e7aabf62e}
+
+
+Définition à la ligne 42 du fichier XslCopyVisitor.hh.
+
+\hypertarget{classxsl_1_1_xsl_copy_visitor_aafb7cd7f2bd7d9253d016804c8f2eeb6}{
+\index{xsl::XslCopyVisitor@{xsl::XslCopyVisitor}!NAME\_\-APPLY\_\-TEMPLATES@{NAME\_\-APPLY\_\-TEMPLATES}}
+\index{NAME\_\-APPLY\_\-TEMPLATES@{NAME\_\-APPLY\_\-TEMPLATES}!xsl::XslCopyVisitor@{xsl::XslCopyVisitor}}
+\subsubsection[{NAME\_\-APPLY\_\-TEMPLATES}]{\setlength{\rightskip}{0pt plus 5cm}const std::string {\bf xsl::XslCopyVisitor::NAME\_\-APPLY\_\-TEMPLATES}\hspace{0.3cm}{\ttfamily  \mbox{[}static, protected\mbox{]}}}}
+\label{classxsl_1_1_xsl_copy_visitor_aafb7cd7f2bd7d9253d016804c8f2eeb6}
+
+
+Définition à la ligne 52 du fichier XslCopyVisitor.hh.
+
+\hypertarget{classxsl_1_1_xsl_copy_visitor_a9b0a28eb3efa498aeb497f258ddc6de4}{
+\index{xsl::XslCopyVisitor@{xsl::XslCopyVisitor}!NAMESPACE\_\-APPLY\_\-TEMPLATES@{NAMESPACE\_\-APPLY\_\-TEMPLATES}}
+\index{NAMESPACE\_\-APPLY\_\-TEMPLATES@{NAMESPACE\_\-APPLY\_\-TEMPLATES}!xsl::XslCopyVisitor@{xsl::XslCopyVisitor}}
+\subsubsection[{NAMESPACE\_\-APPLY\_\-TEMPLATES}]{\setlength{\rightskip}{0pt plus 5cm}const std::string {\bf xsl::XslCopyVisitor::NAMESPACE\_\-APPLY\_\-TEMPLATES}\hspace{0.3cm}{\ttfamily  \mbox{[}static, protected\mbox{]}}}}
+\label{classxsl_1_1_xsl_copy_visitor_a9b0a28eb3efa498aeb497f258ddc6de4}
+
+
+Définition à la ligne 51 du fichier XslCopyVisitor.hh.
+
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants :\begin{DoxyCompactItemize}
+\item 
+src/\hyperlink{_xsl_copy_visitor_8hh}{XslCopyVisitor.hh}\item 
+src/\hyperlink{_xsl_copy_visitor_8cpp}{XslCopyVisitor.cpp}\end{DoxyCompactItemize}

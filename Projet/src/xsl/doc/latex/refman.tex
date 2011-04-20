@@ -1,0 +1,84 @@
+\documentclass[a4paper]{book}
+\usepackage{makeidx}
+\usepackage{graphicx}
+\usepackage{multicol}
+\usepackage{float}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{ifthen}
+\usepackage[table]{xcolor}
+\usepackage{textcomp}
+\usepackage{alltt}
+\usepackage{ifpdf}
+\ifpdf
+\usepackage[pdftex,
+            pagebackref=true,
+            colorlinks=true,
+            linkcolor=blue,
+            unicode
+           ]{hyperref}
+\else
+\usepackage[ps2pdf,
+            pagebackref=true,
+            colorlinks=true,
+            linkcolor=blue,
+            unicode
+           ]{hyperref}
+\usepackage{pspicture}
+\fi
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+
+\usepackage{mathptmx}
+\usepackage[scaled=.90]{helvet}
+\usepackage{courier}
+\usepackage{doxygen}
+\lstset{language=C++,inputencoding=utf8,basicstyle=\footnotesize,breaklines=true,breakatwhitespace=true,tabsize=8,numbers=left }
+\makeindex
+\setcounter{tocdepth}{3}
+\renewcommand{\footrulewidth}{0.4pt}
+\begin{document}
+\hypersetup{pageanchor=false}
+\begin{titlepage}
+\vspace*{7cm}
+\begin{center}
+{\Large XMLLib \\[1ex]\large 0.1 }\\
+\vspace*{1cm}
+{\large Généré par Doxygen 1.7.2}\\
+\vspace*{0.5cm}
+{\small Wed Apr 20 2011 16:22:25}\\
+\end{center}
+\end{titlepage}
+\clearemptydoublepage
+\pagenumbering{roman}
+\tableofcontents
+\clearemptydoublepage
+\pagenumbering{arabic}
+\hypersetup{pageanchor=true}
+\chapter{Index des espaces de nommage}
+\input{namespaces}
+\chapter{Index des classes}
+\input{annotated}
+\chapter{Index des fichiers}
+\input{files}
+\chapter{Documentation des espaces de nommage}
+\input{namespacexsl}
+\chapter{Documentation des classes}
+\input{classxsl_1_1_map_creator}
+\input{classxsl_1_1_recursive_transformer_visitor}
+\input{classxsl_1_1_simple_copy_visitor}
+\input{classxsl_1_1_transformer_visitor}
+\input{classxsl_1_1_xsl_copy_visitor}
+\chapter{Documentation des fichiers}
+\input{_map_creator_8cpp}
+\input{_map_creator_8hh}
+\input{_recursive_transformer_visitor_8cpp}
+\input{_recursive_transformer_visitor_8hh}
+\input{_simple_copy_visitor_8cpp}
+\input{_simple_copy_visitor_8hh}
+\input{_transformer_visitor_8cpp}
+\input{_transformer_visitor_8hh}
+\input{_xsl_copy_visitor_8cpp}
+\input{_xsl_copy_visitor_8hh}
+\printindex
+\end{document}
