@@ -1,0 +1,14 @@
+\ifxetex
+	\usepackage{xunicode}
+	\usepackage{xltxtra}
+	\usepackage{fontspec}
+	
+	\defaultfontfeatures{Mapping=tex-text}
+	
+	\newcommand{\tmpfont}[3][null]
+	{%
+		\ifthenelse{\equal{null}{#1}}%
+		{{\fontspec{#2}#3}}%
+		{{\fontspec[#1]{#2}#3}}%
+	}%
+\fi

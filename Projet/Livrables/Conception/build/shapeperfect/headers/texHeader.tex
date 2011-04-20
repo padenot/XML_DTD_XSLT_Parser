@@ -1,9 +1,15 @@
 \documentclass[oneside, a4paper,11pt]{article}
 
-\usepackage[english, french]{babel}
-\usepackage[utf8]{inputenc}
+\usepackage{ifxetex}
 
-%\usepackage{lastpage}
+\ifxetex
+	\usepackage{polyglossia}
+	\setmainlanguage{french}
+	\setotherlanguage{latin}
+\else
+	\usepackage[english, french]{babel}
+	\usepackage[utf8]{inputenc}
+\fi
 
 \usepackage{float}
 \usepackage{array}
@@ -14,7 +20,6 @@
 \usepackage{amsmath}
 
 \bibliographystyle{alpha}
-
 
 \usepackage{lipsum}
 
@@ -31,4 +36,3 @@
 %\input{nation/headers/minitocHeader}
 %\input{nation/headers/glossariesHeader}
 %
-

@@ -1,0 +1,4 @@
+<!ELEMENT test (type, problem, code) >
+<!ELEMENT type (#PCDATA) >
+<!ELEMENT problem(#PCDATA) >
+<!ELEMENT code (#PCDATA) >

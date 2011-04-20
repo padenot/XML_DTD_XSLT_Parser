@@ -4,14 +4,14 @@ sub makeglo2gls {
 }
 
 
-add_cus_dep('svg', 'pdf', 1, 'svg2pdf');
+add_cus_dep('svg', 'pdf', 0, 'svg2pdf');
 sub svg2pdf { system("convert '$_[0]'.svg '$_[0]'.pdf"); }
 
 add_cus_dep('dot', 'pdf', 0, 'dot2pdf');
 sub dot2pdf { system("dot -Tpdf -o '$_[0]'.pdf '$_[0]'.dot"); }
 
-add_cus_dep('tiff', 'pdf', 1, 'tiff2pdf');
+add_cus_dep('tiff', 'pdf', 0, 'tiff2pdf');
 sub svg2pdf { system("convert '$_[0]'.tiff '$_[0]'.pdf"); }
 
-add_cus_dep('gif', 'pdf', 1, 'gif2pdf');
+add_cus_dep('gif', 'pdf', 0, 'gif2pdf');
 sub svg2pdf { system("convert '$_[0]'.gif '$_[0]'.pdf"); }
