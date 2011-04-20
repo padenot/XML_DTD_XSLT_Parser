@@ -130,7 +130,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 <a name="l00080"></a>00080         <span class="keywordflow">if</span> (resultatMap == templatesMap-&gt;end()) <span class="comment">//si ce template n’existe pas</span>
 <a name="l00081"></a>00081 
 <a name="l00082"></a>00082         {
-<a name="l00083"></a>00083                 SimpleCopyVisitor simpleCopier;
+<a name="l00083"></a>00083                 SimpleCopyVisitor simpleCopier(*<span class="keyword">this</span>);
 <a name="l00084"></a>00084                 remplacants-&gt;push_back(simpleCopier.copy(noeudParent, noeud));
 <a name="l00085"></a>00085         }
 <a name="l00086"></a>00086         <span class="keywordflow">else</span>
@@ -216,7 +216,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Généré le Wed Apr 20 2011 16:22:25 pour XMLLib par&#160;
+<hr class="footer"/><address class="footer"><small>Généré le Wed Apr 20 2011 21:32:19 pour XMLLib par&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.2 </small></address>
 </body>

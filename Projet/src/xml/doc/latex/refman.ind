@@ -1,0 +1,285 @@
+\begin{theindex}
+
+  \item {$\sim $CompositeMarkupNode}
+    \subitem {xml::CompositeMarkupNode}, \hyperpage{15}
+  \item {$\sim $DotOutputVisitor}
+    \subitem {xml::DotOutputVisitor}, \hyperpage{19}
+  \item {$\sim $InterfaceNodeVisitor}
+    \subitem {xml::InterfaceNodeVisitor}, \hyperpage{23}
+  \item {$\sim $MarkupNode}
+    \subitem {xml::MarkupNode}, \hyperpage{28}
+  \item {$\sim $Node}
+    \subitem {xml::Node}, \hyperpage{32}
+  \item {$\sim $OutputVisitor}
+    \subitem {xml::OutputVisitor}, \hyperpage{36}
+  \item {$\sim $TextNode}
+    \subitem {xml::TextNode}, \hyperpage{42}
+  \item {\_\discretionary {-}{}{}Attributes}
+    \subitem {xml::MarkupNode}, \hyperpage{27}
+  \item {\_\discretionary {-}{}{}Children}
+    \subitem {xml::CompositeMarkupNode}, \hyperpage{14}
+  \item {\_\discretionary {-}{}{}attributes}
+    \subitem {xml::MarkupNode}, \hyperpage{29}
+  \item {\_\discretionary {-}{}{}children}
+    \subitem {xml::CompositeMarkupNode}, \hyperpage{16}
+  \item {\_\discretionary {-}{}{}content}
+    \subitem {xml::TextNode}, \hyperpage{43}
+  \item {\_\discretionary {-}{}{}document}
+    \subitem {xml::DotOutputVisitor}, \hyperpage{20}
+  \item {\_\discretionary {-}{}{}indent}
+    \subitem {xml::OutputVisitor}, \hyperpage{38}
+  \item {\_\discretionary {-}{}{}indentChar}
+    \subitem {xml::OutputVisitor}, \hyperpage{38}
+  \item {\_\discretionary {-}{}{}indentUnit}
+    \subitem {xml::OutputVisitor}, \hyperpage{38}
+  \item {\_\discretionary {-}{}{}name}
+    \subitem {xml::MarkupNode}, \hyperpage{29}
+  \item {\_\discretionary {-}{}{}namespace}
+    \subitem {xml::MarkupNode}, \hyperpage{29}
+  \item {\_\discretionary {-}{}{}nodesCounter}
+    \subitem {xml::DotOutputVisitor}, \hyperpage{20}
+  \item {\_\discretionary {-}{}{}out}
+    \subitem {xml::DotOutputVisitor}, \hyperpage{21}
+    \subitem {xml::OutputVisitor}, \hyperpage{38}
+  \item {\_\discretionary {-}{}{}parent}
+    \subitem {xml::Node}, \hyperpage{32}
+  \item {\_\discretionary {-}{}{}proxyToSelf}
+    \subitem {xml::CompositeMarkupNode}, \hyperpage{16}
+
+  \indexspace
+
+  \item {accept}
+    \subitem {xml::CompositeMarkupNode}, \hyperpage{15}
+    \subitem {xml::MarkupNode}, \hyperpage{28}
+    \subitem {xml::Node}, \hyperpage{32}
+    \subitem {xml::TextNode}, \hyperpage{42}
+  \item {ASSIGN\_\discretionary {-}{}{}ATTRIBUTE\_\discretionary {-}{}{}VALUE\_\discretionary {-}{}{}STR}
+    \subitem {xml::OutputVisitor}, \hyperpage{38}
+  \item {Attributes}
+    \subitem {xml::MarkupNode}, \hyperpage{27}
+  \item {AttributesIterator}
+    \subitem {xml::MarkupNode}, \hyperpage{27}
+
+  \indexspace
+
+  \item {begin}
+    \subitem {xml::CompositeMarkupNode}, \hyperpage{15}
+    \subitem {xml::MarkupNode}, \hyperpage{28}
+
+  \indexspace
+
+  \item {Children}
+    \subitem {xml::CompositeMarkupNode}, \hyperpage{14}
+  \item {ChildrenIterator}
+    \subitem {xml::CompositeMarkupNode}, \hyperpage{14}
+  \item {CLOSE\_\discretionary {-}{}{}ATTRIBUTE\_\discretionary {-}{}{}VALUE\_\discretionary {-}{}{}STR}
+    \subitem {xml::OutputVisitor}, \hyperpage{38}
+  \item {CLOSE\_\discretionary {-}{}{}MARKUP\_\discretionary {-}{}{}STR}
+    \subitem {xml::OutputVisitor}, \hyperpage{38}
+  \item {CLOSING\_\discretionary {-}{}{}MARKUP\_\discretionary {-}{}{}STR}
+    \subitem {xml::OutputVisitor}, \hyperpage{38}
+  \item {CompositeMarkupNode}
+    \subitem {xml::CompositeMarkupNode}, \hyperpage{15}
+    \subitem {xml::InterfaceNodeVisitor}, \hyperpage{24}
+  \item {content}
+    \subitem {xml::TextNode}, \hyperpage{42}
+
+  \indexspace
+
+  \item {declareNode}
+    \subitem {xml::DotOutputVisitor}, \hyperpage{20}
+  \item {DEFAULT\_\discretionary {-}{}{}INDENT\_\discretionary {-}{}{}CHAR}
+    \subitem {xml::OutputVisitor}, \hyperpage{38}
+  \item {DEFAULT\_\discretionary {-}{}{}INDENT\_\discretionary {-}{}{}UNIT}
+    \subitem {xml::OutputVisitor}, \hyperpage{38}
+  \item {doIndent}
+    \subitem {xml::OutputVisitor}, \hyperpage{37}
+  \item {DotOutputVisitor}
+    \subitem {xml::DotOutputVisitor}, \hyperpage{19}
+
+  \indexspace
+
+  \item {end}
+    \subitem {xml::CompositeMarkupNode}, \hyperpage{15}
+    \subitem {xml::MarkupNode}, \hyperpage{28}
+
+  \indexspace
+
+  \item {GRAPH\_\discretionary {-}{}{}TYPE}
+    \subitem {xml::DotOutputVisitor}, \hyperpage{21}
+
+  \indexspace
+
+  \item {INSIDE\_\discretionary {-}{}{}MARKUP\_\discretionary {-}{}{}SPACE\_\discretionary {-}{}{}STR}
+    \subitem {xml::OutputVisitor}, \hyperpage{39}
+
+  \indexspace
+
+  \item {LINK}
+    \subitem {xml::DotOutputVisitor}, \hyperpage{21}
+
+  \indexspace
+
+  \item {MarkupNode}
+    \subitem {xml::InterfaceNodeVisitor}, \hyperpage{24}
+    \subitem {xml::MarkupNode}, \hyperpage{28}
+
+  \indexspace
+
+  \item {name}
+    \subitem {xml::MarkupNode}, \hyperpage{28}
+  \item {Node}
+    \subitem {xml::Node}, \hyperpage{32}
+  \item {ns}
+    \subitem {xml::MarkupNode}, \hyperpage{28}
+  \item {NS\_\discretionary {-}{}{}SEPARATOR\_\discretionary {-}{}{}STR}
+    \subitem {xml::OutputVisitor}, \hyperpage{39}
+
+  \indexspace
+
+  \item {OPEN\_\discretionary {-}{}{}ATTRIBUTE\_\discretionary {-}{}{}VALUE\_\discretionary {-}{}{}STR}
+    \subitem {xml::OutputVisitor}, \hyperpage{39}
+  \item {OPEN\_\discretionary {-}{}{}MARKUP\_\discretionary {-}{}{}STR}
+    \subitem {xml::OutputVisitor}, \hyperpage{39}
+  \item {OutputVisitor}
+    \subitem {xml::OutputVisitor}, \hyperpage{36}
+
+  \indexspace
+
+  \item {parent}
+    \subitem {xml::Node}, \hyperpage{32}
+
+  \indexspace
+
+  \item {src/CompositeMarkupNode.cpp}, \hyperpage{45}
+  \item {src/CompositeMarkupNode.hh}, \hyperpage{46}
+  \item {src/DotOutputVisitor.cpp}, \hyperpage{48}
+  \item {src/DotOutputVisitor.hh}, \hyperpage{48}
+  \item {src/InterfaceNodeVisitor.hpp}, \hyperpage{50}
+  \item {src/MarkupNode.cpp}, \hyperpage{50}
+  \item {src/MarkupNode.hh}, \hyperpage{51}
+  \item {src/Node.cpp}, \hyperpage{53}
+  \item {src/Node.hh}, \hyperpage{53}
+  \item {src/OutputVisitor.cpp}, \hyperpage{54}
+  \item {src/OutputVisitor.hh}, \hyperpage{55}
+  \item {src/TextNode.cpp}, \hyperpage{56}
+  \item {src/TextNode.hh}, \hyperpage{57}
+
+  \indexspace
+
+  \item {TextNode}
+    \subitem {xml::InterfaceNodeVisitor}, \hyperpage{24}
+    \subitem {xml::TextNode}, \hyperpage{42}
+  \item {textNodesCount}
+    \subitem {xml::DotOutputVisitor}, \hyperpage{21}
+
+  \indexspace
+
+  \item {visit}
+    \subitem {xml::DotOutputVisitor}, \hyperpage{20}
+    \subitem {xml::InterfaceNodeVisitor}, \hyperpage{23, 24}
+    \subitem {xml::OutputVisitor}, \hyperpage{37}
+
+  \indexspace
+
+  \item {writeAttributes}
+    \subitem {xml::DotOutputVisitor}, \hyperpage{20}
+  \item {writeDot}
+    \subitem {xml::DotOutputVisitor}, \hyperpage{20}
+  \item {writeId}
+    \subitem {xml::DotOutputVisitor}, \hyperpage{20}
+  \item {writeMarkupOpening}
+    \subitem {xml::OutputVisitor}, \hyperpage{37}
+
+  \indexspace
+
+  \item {xml}, \hyperpage{9}
+  \item {xml::CompositeMarkupNode}, \hyperpage{11}
+    \subitem {$\sim $CompositeMarkupNode}, \hyperpage{15}
+    \subitem {\_\discretionary {-}{}{}Children}, \hyperpage{14}
+    \subitem {\_\discretionary {-}{}{}children}, \hyperpage{16}
+    \subitem {\_\discretionary {-}{}{}proxyToSelf}, \hyperpage{16}
+    \subitem {accept}, \hyperpage{15}
+    \subitem {begin}, \hyperpage{15}
+    \subitem {Children}, \hyperpage{14}
+    \subitem {ChildrenIterator}, \hyperpage{14}
+    \subitem {CompositeMarkupNode}, \hyperpage{15}
+    \subitem {end}, \hyperpage{15}
+  \item {xml::DotOutputVisitor}, \hyperpage{16}
+    \subitem {$\sim $DotOutputVisitor}, \hyperpage{19}
+    \subitem {\_\discretionary {-}{}{}document}, \hyperpage{20}
+    \subitem {\_\discretionary {-}{}{}nodesCounter}, \hyperpage{20}
+    \subitem {\_\discretionary {-}{}{}out}, \hyperpage{21}
+    \subitem {declareNode}, \hyperpage{20}
+    \subitem {DotOutputVisitor}, \hyperpage{19}
+    \subitem {GRAPH\_\discretionary {-}{}{}TYPE}, \hyperpage{21}
+    \subitem {LINK}, \hyperpage{21}
+    \subitem {textNodesCount}, \hyperpage{21}
+    \subitem {visit}, \hyperpage{20}
+    \subitem {writeAttributes}, \hyperpage{20}
+    \subitem {writeDot}, \hyperpage{20}
+    \subitem {writeId}, \hyperpage{20}
+  \item {xml::InterfaceNodeVisitor}, \hyperpage{21}
+    \subitem {$\sim $InterfaceNodeVisitor}, \hyperpage{23}
+    \subitem {CompositeMarkupNode}, \hyperpage{24}
+    \subitem {MarkupNode}, \hyperpage{24}
+    \subitem {TextNode}, \hyperpage{24}
+    \subitem {visit}, \hyperpage{23, 24}
+  \item {xml::MarkupNode}, \hyperpage{24}
+    \subitem {$\sim $MarkupNode}, \hyperpage{28}
+    \subitem {\_\discretionary {-}{}{}Attributes}, \hyperpage{27}
+    \subitem {\_\discretionary {-}{}{}attributes}, \hyperpage{29}
+    \subitem {\_\discretionary {-}{}{}name}, \hyperpage{29}
+    \subitem {\_\discretionary {-}{}{}namespace}, \hyperpage{29}
+    \subitem {accept}, \hyperpage{28}
+    \subitem {Attributes}, \hyperpage{27}
+    \subitem {AttributesIterator}, \hyperpage{27}
+    \subitem {begin}, \hyperpage{28}
+    \subitem {end}, \hyperpage{28}
+    \subitem {MarkupNode}, \hyperpage{28}
+    \subitem {name}, \hyperpage{28}
+    \subitem {ns}, \hyperpage{28}
+  \item {xml::Node}, \hyperpage{29}
+    \subitem {$\sim $Node}, \hyperpage{32}
+    \subitem {\_\discretionary {-}{}{}parent}, \hyperpage{32}
+    \subitem {accept}, \hyperpage{32}
+    \subitem {Node}, \hyperpage{32}
+    \subitem {parent}, \hyperpage{32}
+  \item {xml::OutputVisitor}, \hyperpage{33}
+    \subitem {$\sim $OutputVisitor}, \hyperpage{36}
+    \subitem {\_\discretionary {-}{}{}indent}, \hyperpage{38}
+    \subitem {\_\discretionary {-}{}{}indentChar}, \hyperpage{38}
+    \subitem {\_\discretionary {-}{}{}indentUnit}, \hyperpage{38}
+    \subitem {\_\discretionary {-}{}{}out}, \hyperpage{38}
+    \subitem {ASSIGN\_\discretionary {-}{}{}ATTRIBUTE\_\discretionary {-}{}{}VALUE\_\discretionary {-}{}{}STR}, 
+		\hyperpage{38}
+    \subitem {CLOSE\_\discretionary {-}{}{}ATTRIBUTE\_\discretionary {-}{}{}VALUE\_\discretionary {-}{}{}STR}, 
+		\hyperpage{38}
+    \subitem {CLOSE\_\discretionary {-}{}{}MARKUP\_\discretionary {-}{}{}STR}, 
+		\hyperpage{38}
+    \subitem {CLOSING\_\discretionary {-}{}{}MARKUP\_\discretionary {-}{}{}STR}, 
+		\hyperpage{38}
+    \subitem {DEFAULT\_\discretionary {-}{}{}INDENT\_\discretionary {-}{}{}CHAR}, 
+		\hyperpage{38}
+    \subitem {DEFAULT\_\discretionary {-}{}{}INDENT\_\discretionary {-}{}{}UNIT}, 
+		\hyperpage{38}
+    \subitem {doIndent}, \hyperpage{37}
+    \subitem {INSIDE\_\discretionary {-}{}{}MARKUP\_\discretionary {-}{}{}SPACE\_\discretionary {-}{}{}STR}, 
+		\hyperpage{39}
+    \subitem {NS\_\discretionary {-}{}{}SEPARATOR\_\discretionary {-}{}{}STR}, 
+		\hyperpage{39}
+    \subitem {OPEN\_\discretionary {-}{}{}ATTRIBUTE\_\discretionary {-}{}{}VALUE\_\discretionary {-}{}{}STR}, 
+		\hyperpage{39}
+    \subitem {OPEN\_\discretionary {-}{}{}MARKUP\_\discretionary {-}{}{}STR}, 
+		\hyperpage{39}
+    \subitem {OutputVisitor}, \hyperpage{36}
+    \subitem {visit}, \hyperpage{37}
+    \subitem {writeMarkupOpening}, \hyperpage{37}
+  \item {xml::TextNode}, \hyperpage{39}
+    \subitem {$\sim $TextNode}, \hyperpage{42}
+    \subitem {\_\discretionary {-}{}{}content}, \hyperpage{43}
+    \subitem {accept}, \hyperpage{42}
+    \subitem {content}, \hyperpage{42}
+    \subitem {TextNode}, \hyperpage{42}
+
+\end{theindex}

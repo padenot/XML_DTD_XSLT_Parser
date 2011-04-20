@@ -1,0 +1,380 @@
+\select@language {french}
+\contentsline {chapter}{\numberline {1}Index des espaces de nommage}{1}{chapter.1}
+\contentsline {section}{\numberline {1.1}Liste des espaces de nommage}{1}{section.1.1}
+\contentsline {chapter}{\numberline {2}Index des classes}{3}{chapter.2}
+\contentsline {section}{\numberline {2.1}Hi\IeC {\'e}rarchie des classes}{3}{section.2.1}
+\contentsline {chapter}{\numberline {3}Index des classes}{5}{chapter.3}
+\contentsline {section}{\numberline {3.1}Liste des classes}{5}{section.3.1}
+\contentsline {chapter}{\numberline {4}Index des fichiers}{7}{chapter.4}
+\contentsline {section}{\numberline {4.1}Liste des fichiers}{7}{section.4.1}
+\contentsline {chapter}{\numberline {5}Documentation des espaces de nommage}{9}{chapter.5}
+\contentsline {section}{\numberline {5.1}R\IeC {\'e}f\IeC {\'e}rence de l'espace de nommage dtd}{9}{section.5.1}
+\contentsline {subsection}{\numberline {5.1.1}Documentation des d\IeC {\'e}finitions de type}{9}{subsection.5.1.1}
+\contentsline {subsubsection}{\numberline {5.1.1.1}AttributesList}{9}{subsubsection.5.1.1.1}
+\contentsline {chapter}{\numberline {6}Documentation des classes}{11}{chapter.6}
+\contentsline {section}{\numberline {6.1}R\IeC {\'e}f\IeC {\'e}rence de la structure dtd::Choice::\_\discretionary {-}{}{}State}{11}{section.6.1}
+\contentsline {subsection}{\numberline {6.1.1}Description d\IeC {\'e}taill\IeC {\'e}e}{14}{subsection.6.1.1}
+\contentsline {subsection}{\numberline {6.1.2}Documentation des constructeurs et destructeur}{14}{subsection.6.1.2}
+\contentsline {subsubsection}{\numberline {6.1.2.1}\_\discretionary {-}{}{}State}{14}{subsubsection.6.1.2.1}
+\contentsline {subsection}{\numberline {6.1.3}Documentation des donn\IeC {\'e}es membres}{14}{subsection.6.1.3}
+\contentsline {subsubsection}{\numberline {6.1.3.1}nextChoosable}{14}{subsubsection.6.1.3.1}
+\contentsline {section}{\numberline {6.2}R\IeC {\'e}f\IeC {\'e}rence de la structure dtd::QuantifiableContent::\_\discretionary {-}{}{}State}{14}{section.6.2}
+\contentsline {subsection}{\numberline {6.2.1}Description d\IeC {\'e}taill\IeC {\'e}e}{17}{subsection.6.2.1}
+\contentsline {subsection}{\numberline {6.2.2}Documentation des constructeurs et destructeur}{17}{subsection.6.2.2}
+\contentsline {subsubsection}{\numberline {6.2.2.1}\_\discretionary {-}{}{}State}{17}{subsubsection.6.2.2.1}
+\contentsline {subsection}{\numberline {6.2.3}Documentation des donn\IeC {\'e}es membres}{17}{subsection.6.2.3}
+\contentsline {subsubsection}{\numberline {6.2.3.1}endToken}{17}{subsubsection.6.2.3.1}
+\contentsline {subsubsection}{\numberline {6.2.3.2}firstToken}{17}{subsubsection.6.2.3.2}
+\contentsline {subsubsection}{\numberline {6.2.3.3}nextStep}{17}{subsubsection.6.2.3.3}
+\contentsline {section}{\numberline {6.3}R\IeC {\'e}f\IeC {\'e}rence de la structure dtd::Sequence::\_\discretionary {-}{}{}State}{17}{section.6.3}
+\contentsline {subsection}{\numberline {6.3.1}Description d\IeC {\'e}taill\IeC {\'e}e}{20}{subsection.6.3.1}
+\contentsline {subsection}{\numberline {6.3.2}Documentation des constructeurs et destructeur}{20}{subsection.6.3.2}
+\contentsline {subsubsection}{\numberline {6.3.2.1}\_\discretionary {-}{}{}State}{20}{subsubsection.6.3.2.1}
+\contentsline {subsection}{\numberline {6.3.3}Documentation des donn\IeC {\'e}es membres}{20}{subsection.6.3.3}
+\contentsline {subsubsection}{\numberline {6.3.3.1}nextEmbeddedContent}{20}{subsubsection.6.3.3.1}
+\contentsline {section}{\numberline {6.4}R\IeC {\'e}f\IeC {\'e}rence de la classe dtd::AnyContent}{20}{section.6.4}
+\contentsline {subsection}{\numberline {6.4.1}Description d\IeC {\'e}taill\IeC {\'e}e}{23}{subsection.6.4.1}
+\contentsline {subsection}{\numberline {6.4.2}Documentation des constructeurs et destructeur}{23}{subsection.6.4.2}
+\contentsline {subsubsection}{\numberline {6.4.2.1}AnyContent}{23}{subsubsection.6.4.2.1}
+\contentsline {subsubsection}{\numberline {6.4.2.2}$\sim $AnyContent}{23}{subsubsection.6.4.2.2}
+\contentsline {subsection}{\numberline {6.4.3}Documentation des fonctions membres}{23}{subsection.6.4.3}
+\contentsline {subsubsection}{\numberline {6.4.3.1}accept}{23}{subsubsection.6.4.3.1}
+\contentsline {subsubsection}{\numberline {6.4.3.2}validate}{23}{subsubsection.6.4.3.2}
+\contentsline {subsubsection}{\numberline {6.4.3.3}validate}{23}{subsubsection.6.4.3.3}
+\contentsline {section}{\numberline {6.5}R\IeC {\'e}f\IeC {\'e}rence de la classe dtd::Attribute}{24}{section.6.5}
+\contentsline {subsection}{\numberline {6.5.1}Description d\IeC {\'e}taill\IeC {\'e}e}{24}{subsection.6.5.1}
+\contentsline {subsection}{\numberline {6.5.2}Documentation des constructeurs et destructeur}{24}{subsection.6.5.2}
+\contentsline {subsubsection}{\numberline {6.5.2.1}Attribute}{24}{subsubsection.6.5.2.1}
+\contentsline {subsubsection}{\numberline {6.5.2.2}$\sim $Attribute}{24}{subsubsection.6.5.2.2}
+\contentsline {subsection}{\numberline {6.5.3}Documentation des fonctions membres}{24}{subsection.6.5.3}
+\contentsline {subsubsection}{\numberline {6.5.3.1}name}{24}{subsubsection.6.5.3.1}
+\contentsline {subsection}{\numberline {6.5.4}Documentation des donn\IeC {\'e}es membres}{25}{subsection.6.5.4}
+\contentsline {subsubsection}{\numberline {6.5.4.1}\_\discretionary {-}{}{}name}{25}{subsubsection.6.5.4.1}
+\contentsline {section}{\numberline {6.6}R\IeC {\'e}f\IeC {\'e}rence de la structure dtd::AttributesComparator}{25}{section.6.6}
+\contentsline {subsection}{\numberline {6.6.1}Description d\IeC {\'e}taill\IeC {\'e}e}{25}{subsection.6.6.1}
+\contentsline {subsection}{\numberline {6.6.2}Documentation des fonctions membres}{25}{subsection.6.6.2}
+\contentsline {subsubsection}{\numberline {6.6.2.1}operator()}{25}{subsubsection.6.6.2.1}
+\contentsline {section}{\numberline {6.7}R\IeC {\'e}f\IeC {\'e}rence de la classe dtd::BrowsableContent}{25}{section.6.7}
+\contentsline {subsection}{\numberline {6.7.1}Description d\IeC {\'e}taill\IeC {\'e}e}{28}{subsection.6.7.1}
+\contentsline {subsection}{\numberline {6.7.2}Documentation des constructeurs et destructeur}{28}{subsection.6.7.2}
+\contentsline {subsubsection}{\numberline {6.7.2.1}BrowsableContent}{28}{subsubsection.6.7.2.1}
+\contentsline {subsubsection}{\numberline {6.7.2.2}$\sim $BrowsableContent}{28}{subsubsection.6.7.2.2}
+\contentsline {subsection}{\numberline {6.7.3}Documentation des fonctions membres}{28}{subsection.6.7.3}
+\contentsline {subsubsection}{\numberline {6.7.3.1}\_\discretionary {-}{}{}afterValidation}{28}{subsubsection.6.7.3.1}
+\contentsline {subsubsection}{\numberline {6.7.3.2}\_\discretionary {-}{}{}beforeValidation}{29}{subsubsection.6.7.3.2}
+\contentsline {subsubsection}{\numberline {6.7.3.3}\_\discretionary {-}{}{}browseDown}{29}{subsubsection.6.7.3.3}
+\contentsline {subsubsection}{\numberline {6.7.3.4}\_\discretionary {-}{}{}browseUp}{29}{subsubsection.6.7.3.4}
+\contentsline {subsubsection}{\numberline {6.7.3.5}\_\discretionary {-}{}{}continueValidation}{30}{subsubsection.6.7.3.5}
+\contentsline {subsubsection}{\numberline {6.7.3.6}\_\discretionary {-}{}{}newValidation}{30}{subsubsection.6.7.3.6}
+\contentsline {subsubsection}{\numberline {6.7.3.7}\_\discretionary {-}{}{}startValidation}{30}{subsubsection.6.7.3.7}
+\contentsline {subsubsection}{\numberline {6.7.3.8}validate}{30}{subsubsection.6.7.3.8}
+\contentsline {subsubsection}{\numberline {6.7.3.9}validate}{30}{subsubsection.6.7.3.9}
+\contentsline {section}{\numberline {6.8}R\IeC {\'e}f\IeC {\'e}rence de la classe dtd::Choice}{30}{section.6.8}
+\contentsline {subsection}{\numberline {6.8.1}Description d\IeC {\'e}taill\IeC {\'e}e}{33}{subsection.6.8.1}
+\contentsline {subsection}{\numberline {6.8.2}Documentation des d\IeC {\'e}finitions de type membres}{34}{subsection.6.8.2}
+\contentsline {subsubsection}{\numberline {6.8.2.1}\_\discretionary {-}{}{}ChoosableSet}{34}{subsubsection.6.8.2.1}
+\contentsline {subsubsection}{\numberline {6.8.2.2}\_\discretionary {-}{}{}StatesStack}{34}{subsubsection.6.8.2.2}
+\contentsline {subsubsection}{\numberline {6.8.2.3}ChoosableSet}{34}{subsubsection.6.8.2.3}
+\contentsline {subsubsection}{\numberline {6.8.2.4}const\_\discretionary {-}{}{}iterator}{34}{subsubsection.6.8.2.4}
+\contentsline {subsection}{\numberline {6.8.3}Documentation des constructeurs et destructeur}{34}{subsection.6.8.3}
+\contentsline {subsubsection}{\numberline {6.8.3.1}Choice}{34}{subsubsection.6.8.3.1}
+\contentsline {subsubsection}{\numberline {6.8.3.2}$\sim $Choice}{34}{subsubsection.6.8.3.2}
+\contentsline {subsection}{\numberline {6.8.4}Documentation des fonctions membres}{34}{subsection.6.8.4}
+\contentsline {subsubsection}{\numberline {6.8.4.1}\_\discretionary {-}{}{}afterValidation}{34}{subsubsection.6.8.4.1}
+\contentsline {subsubsection}{\numberline {6.8.4.2}\_\discretionary {-}{}{}beforeValidation}{34}{subsubsection.6.8.4.2}
+\contentsline {subsubsection}{\numberline {6.8.4.3}\_\discretionary {-}{}{}continueValidation}{35}{subsubsection.6.8.4.3}
+\contentsline {subsubsection}{\numberline {6.8.4.4}\_\discretionary {-}{}{}startValidation}{35}{subsubsection.6.8.4.4}
+\contentsline {subsubsection}{\numberline {6.8.4.5}accept}{35}{subsubsection.6.8.4.5}
+\contentsline {subsubsection}{\numberline {6.8.4.6}begin}{35}{subsubsection.6.8.4.6}
+\contentsline {subsubsection}{\numberline {6.8.4.7}end}{35}{subsubsection.6.8.4.7}
+\contentsline {subsubsection}{\numberline {6.8.4.8}validate}{36}{subsubsection.6.8.4.8}
+\contentsline {subsection}{\numberline {6.8.5}Documentation des donn\IeC {\'e}es membres}{36}{subsection.6.8.5}
+\contentsline {subsubsection}{\numberline {6.8.5.1}\_\discretionary {-}{}{}choosable}{36}{subsubsection.6.8.5.1}
+\contentsline {subsubsection}{\numberline {6.8.5.2}\_\discretionary {-}{}{}stack}{36}{subsubsection.6.8.5.2}
+\contentsline {section}{\numberline {6.9}R\IeC {\'e}f\IeC {\'e}rence de la classe dtd::Content}{36}{section.6.9}
+\contentsline {subsection}{\numberline {6.9.1}Description d\IeC {\'e}taill\IeC {\'e}e}{38}{subsection.6.9.1}
+\contentsline {subsection}{\numberline {6.9.2}Documentation des constructeurs et destructeur}{38}{subsection.6.9.2}
+\contentsline {subsubsection}{\numberline {6.9.2.1}Content}{38}{subsubsection.6.9.2.1}
+\contentsline {subsubsection}{\numberline {6.9.2.2}$\sim $Content}{38}{subsubsection.6.9.2.2}
+\contentsline {subsection}{\numberline {6.9.3}Documentation des fonctions membres}{38}{subsection.6.9.3}
+\contentsline {subsubsection}{\numberline {6.9.3.1}accept}{38}{subsubsection.6.9.3.1}
+\contentsline {subsubsection}{\numberline {6.9.3.2}validate}{38}{subsubsection.6.9.3.2}
+\contentsline {subsubsection}{\numberline {6.9.3.3}validate}{39}{subsubsection.6.9.3.3}
+\contentsline {section}{\numberline {6.10}R\IeC {\'e}f\IeC {\'e}rence de la classe dtd::DTD}{39}{section.6.10}
+\contentsline {subsection}{\numberline {6.10.1}Description d\IeC {\'e}taill\IeC {\'e}e}{40}{subsection.6.10.1}
+\contentsline {subsection}{\numberline {6.10.2}Documentation des d\IeC {\'e}finitions de type membres}{40}{subsection.6.10.2}
+\contentsline {subsubsection}{\numberline {6.10.2.1}\_\discretionary {-}{}{}AttributesLists}{40}{subsubsection.6.10.2.1}
+\contentsline {subsubsection}{\numberline {6.10.2.2}\_\discretionary {-}{}{}ElementId}{40}{subsubsection.6.10.2.2}
+\contentsline {subsubsection}{\numberline {6.10.2.3}\_\discretionary {-}{}{}Elements}{40}{subsubsection.6.10.2.3}
+\contentsline {subsection}{\numberline {6.10.3}Documentation des constructeurs et destructeur}{40}{subsection.6.10.3}
+\contentsline {subsubsection}{\numberline {6.10.3.1}DTD}{40}{subsubsection.6.10.3.1}
+\contentsline {subsubsection}{\numberline {6.10.3.2}$\sim $DTD}{40}{subsubsection.6.10.3.2}
+\contentsline {subsection}{\numberline {6.10.4}Documentation des fonctions membres}{40}{subsection.6.10.4}
+\contentsline {subsubsection}{\numberline {6.10.4.1}\_\discretionary {-}{}{}isValid}{40}{subsubsection.6.10.4.1}
+\contentsline {subsubsection}{\numberline {6.10.4.2}accept}{40}{subsubsection.6.10.4.2}
+\contentsline {subsubsection}{\numberline {6.10.4.3}addAttributesList}{41}{subsubsection.6.10.4.3}
+\contentsline {subsubsection}{\numberline {6.10.4.4}addElement}{41}{subsubsection.6.10.4.4}
+\contentsline {subsubsection}{\numberline {6.10.4.5}checkAttributes}{41}{subsubsection.6.10.4.5}
+\contentsline {subsubsection}{\numberline {6.10.4.6}getAttributesList}{41}{subsubsection.6.10.4.6}
+\contentsline {subsubsection}{\numberline {6.10.4.7}getElement}{42}{subsubsection.6.10.4.7}
+\contentsline {subsubsection}{\numberline {6.10.4.8}isValid}{42}{subsubsection.6.10.4.8}
+\contentsline {subsubsection}{\numberline {6.10.4.9}visit}{42}{subsubsection.6.10.4.9}
+\contentsline {subsubsection}{\numberline {6.10.4.10}visit}{42}{subsubsection.6.10.4.10}
+\contentsline {subsubsection}{\numberline {6.10.4.11}visit}{42}{subsubsection.6.10.4.11}
+\contentsline {subsection}{\numberline {6.10.5}Documentation des donn\IeC {\'e}es membres}{42}{subsection.6.10.5}
+\contentsline {subsubsection}{\numberline {6.10.5.1}\_\discretionary {-}{}{}attributesLists}{42}{subsubsection.6.10.5.1}
+\contentsline {subsubsection}{\numberline {6.10.5.2}\_\discretionary {-}{}{}elements}{42}{subsubsection.6.10.5.2}
+\contentsline {subsubsection}{\numberline {6.10.5.3}\_\discretionary {-}{}{}lastNodeIsValid}{42}{subsubsection.6.10.5.3}
+\contentsline {subsubsection}{\numberline {6.10.5.4}\_\discretionary {-}{}{}validatingRoot}{43}{subsubsection.6.10.5.4}
+\contentsline {subsubsection}{\numberline {6.10.5.5}\_\discretionary {-}{}{}validRootName}{43}{subsubsection.6.10.5.5}
+\contentsline {section}{\numberline {6.11}R\IeC {\'e}f\IeC {\'e}rence de la classe dtd::ElementContent}{43}{section.6.11}
+\contentsline {subsection}{\numberline {6.11.1}Description d\IeC {\'e}taill\IeC {\'e}e}{46}{subsection.6.11.1}
+\contentsline {subsection}{\numberline {6.11.2}Documentation des constructeurs et destructeur}{46}{subsection.6.11.2}
+\contentsline {subsubsection}{\numberline {6.11.2.1}ElementContent}{46}{subsubsection.6.11.2.1}
+\contentsline {subsubsection}{\numberline {6.11.2.2}$\sim $ElementContent}{46}{subsubsection.6.11.2.2}
+\contentsline {section}{\numberline {6.12}R\IeC {\'e}f\IeC {\'e}rence de la classe dtd::ElementReference}{46}{section.6.12}
+\contentsline {subsection}{\numberline {6.12.1}Description d\IeC {\'e}taill\IeC {\'e}e}{49}{subsection.6.12.1}
+\contentsline {subsection}{\numberline {6.12.2}Documentation des constructeurs et destructeur}{49}{subsection.6.12.2}
+\contentsline {subsubsection}{\numberline {6.12.2.1}ElementReference}{49}{subsubsection.6.12.2.1}
+\contentsline {subsubsection}{\numberline {6.12.2.2}$\sim $ElementReference}{49}{subsubsection.6.12.2.2}
+\contentsline {subsection}{\numberline {6.12.3}Documentation des fonctions membres}{49}{subsection.6.12.3}
+\contentsline {subsubsection}{\numberline {6.12.3.1}\_\discretionary {-}{}{}startValidation}{49}{subsubsection.6.12.3.1}
+\contentsline {subsubsection}{\numberline {6.12.3.2}accept}{50}{subsubsection.6.12.3.2}
+\contentsline {subsubsection}{\numberline {6.12.3.3}matches}{50}{subsubsection.6.12.3.3}
+\contentsline {subsubsection}{\numberline {6.12.3.4}name}{50}{subsubsection.6.12.3.4}
+\contentsline {subsubsection}{\numberline {6.12.3.5}ns}{50}{subsubsection.6.12.3.5}
+\contentsline {subsubsection}{\numberline {6.12.3.6}visit}{50}{subsubsection.6.12.3.6}
+\contentsline {subsubsection}{\numberline {6.12.3.7}visit}{50}{subsubsection.6.12.3.7}
+\contentsline {subsubsection}{\numberline {6.12.3.8}visit}{50}{subsubsection.6.12.3.8}
+\contentsline {subsection}{\numberline {6.12.4}Documentation des donn\IeC {\'e}es membres}{50}{subsection.6.12.4}
+\contentsline {subsubsection}{\numberline {6.12.4.1}\_\discretionary {-}{}{}dtd}{50}{subsubsection.6.12.4.1}
+\contentsline {subsubsection}{\numberline {6.12.4.2}\_\discretionary {-}{}{}matchResult}{51}{subsubsection.6.12.4.2}
+\contentsline {subsubsection}{\numberline {6.12.4.3}\_\discretionary {-}{}{}name}{51}{subsubsection.6.12.4.3}
+\contentsline {subsubsection}{\numberline {6.12.4.4}\_\discretionary {-}{}{}namespace}{51}{subsubsection.6.12.4.4}
+\contentsline {section}{\numberline {6.13}R\IeC {\'e}f\IeC {\'e}rence de la classe dtd::EmptyContent}{51}{section.6.13}
+\contentsline {subsection}{\numberline {6.13.1}Description d\IeC {\'e}taill\IeC {\'e}e}{54}{subsection.6.13.1}
+\contentsline {subsection}{\numberline {6.13.2}Documentation des constructeurs et destructeur}{54}{subsection.6.13.2}
+\contentsline {subsubsection}{\numberline {6.13.2.1}EmptyContent}{54}{subsubsection.6.13.2.1}
+\contentsline {subsubsection}{\numberline {6.13.2.2}$\sim $EmptyContent}{54}{subsubsection.6.13.2.2}
+\contentsline {subsection}{\numberline {6.13.3}Documentation des fonctions membres}{54}{subsection.6.13.3}
+\contentsline {subsubsection}{\numberline {6.13.3.1}accept}{54}{subsubsection.6.13.3.1}
+\contentsline {subsubsection}{\numberline {6.13.3.2}validate}{54}{subsubsection.6.13.3.2}
+\contentsline {subsubsection}{\numberline {6.13.3.3}validate}{54}{subsubsection.6.13.3.3}
+\contentsline {section}{\numberline {6.14}R\IeC {\'e}f\IeC {\'e}rence de la classe dtd::InterfaceDTDVisitor}{55}{section.6.14}
+\contentsline {subsection}{\numberline {6.14.1}Description d\IeC {\'e}taill\IeC {\'e}e}{57}{subsection.6.14.1}
+\contentsline {subsection}{\numberline {6.14.2}Documentation des constructeurs et destructeur}{57}{subsection.6.14.2}
+\contentsline {subsubsection}{\numberline {6.14.2.1}$\sim $InterfaceDTDVisitor}{57}{subsubsection.6.14.2.1}
+\contentsline {subsection}{\numberline {6.14.3}Documentation des fonctions membres}{57}{subsection.6.14.3}
+\contentsline {subsubsection}{\numberline {6.14.3.1}visit}{57}{subsubsection.6.14.3.1}
+\contentsline {subsubsection}{\numberline {6.14.3.2}visit}{58}{subsubsection.6.14.3.2}
+\contentsline {subsubsection}{\numberline {6.14.3.3}visit}{58}{subsubsection.6.14.3.3}
+\contentsline {subsubsection}{\numberline {6.14.3.4}visit}{58}{subsubsection.6.14.3.4}
+\contentsline {subsubsection}{\numberline {6.14.3.5}visit}{59}{subsubsection.6.14.3.5}
+\contentsline {subsubsection}{\numberline {6.14.3.6}visit}{59}{subsubsection.6.14.3.6}
+\contentsline {subsubsection}{\numberline {6.14.3.7}visit}{59}{subsubsection.6.14.3.7}
+\contentsline {subsubsection}{\numberline {6.14.3.8}visit}{59}{subsubsection.6.14.3.8}
+\contentsline {subsubsection}{\numberline {6.14.3.9}visit}{59}{subsubsection.6.14.3.9}
+\contentsline {subsubsection}{\numberline {6.14.3.10}visit}{59}{subsubsection.6.14.3.10}
+\contentsline {subsubsection}{\numberline {6.14.3.11}visitAttributesList}{59}{subsubsection.6.14.3.11}
+\contentsline {subsubsection}{\numberline {6.14.3.12}visitElement}{60}{subsubsection.6.14.3.12}
+\contentsline {subsection}{\numberline {6.14.4}Documentation des fonctions amies et associ\IeC {\'e}es}{60}{subsection.6.14.4}
+\contentsline {subsubsection}{\numberline {6.14.4.1}AnyContent}{60}{subsubsection.6.14.4.1}
+\contentsline {subsubsection}{\numberline {6.14.4.2}Choice}{60}{subsubsection.6.14.4.2}
+\contentsline {subsubsection}{\numberline {6.14.4.3}ElementReference}{60}{subsubsection.6.14.4.3}
+\contentsline {subsubsection}{\numberline {6.14.4.4}EmptyContent}{60}{subsubsection.6.14.4.4}
+\contentsline {subsubsection}{\numberline {6.14.4.5}MixedContent}{60}{subsubsection.6.14.4.5}
+\contentsline {subsubsection}{\numberline {6.14.4.6}OptionalContent}{60}{subsubsection.6.14.4.6}
+\contentsline {subsubsection}{\numberline {6.14.4.7}RepeatableContent}{60}{subsubsection.6.14.4.7}
+\contentsline {subsubsection}{\numberline {6.14.4.8}RepeatedContent}{61}{subsubsection.6.14.4.8}
+\contentsline {subsubsection}{\numberline {6.14.4.9}Sequence}{61}{subsubsection.6.14.4.9}
+\contentsline {subsubsection}{\numberline {6.14.4.10}TextContent}{61}{subsubsection.6.14.4.10}
+\contentsline {section}{\numberline {6.15}R\IeC {\'e}f\IeC {\'e}rence de la classe dtd::MixedContent}{61}{section.6.15}
+\contentsline {subsection}{\numberline {6.15.1}Description d\IeC {\'e}taill\IeC {\'e}e}{64}{subsection.6.15.1}
+\contentsline {subsection}{\numberline {6.15.2}Documentation des d\IeC {\'e}finitions de type membres}{64}{subsection.6.15.2}
+\contentsline {subsubsection}{\numberline {6.15.2.1}\_\discretionary {-}{}{}StatesStack}{64}{subsubsection.6.15.2.1}
+\contentsline {subsubsection}{\numberline {6.15.2.2}ChoosableSet}{65}{subsubsection.6.15.2.2}
+\contentsline {subsubsection}{\numberline {6.15.2.3}const\_\discretionary {-}{}{}iterator}{65}{subsubsection.6.15.2.3}
+\contentsline {subsection}{\numberline {6.15.3}Documentation des constructeurs et destructeur}{65}{subsection.6.15.3}
+\contentsline {subsubsection}{\numberline {6.15.3.1}MixedContent}{65}{subsubsection.6.15.3.1}
+\contentsline {subsubsection}{\numberline {6.15.3.2}$\sim $MixedContent}{65}{subsubsection.6.15.3.2}
+\contentsline {subsection}{\numberline {6.15.4}Documentation des fonctions membres}{65}{subsection.6.15.4}
+\contentsline {subsubsection}{\numberline {6.15.4.1}\_\discretionary {-}{}{}afterValidation}{65}{subsubsection.6.15.4.1}
+\contentsline {subsubsection}{\numberline {6.15.4.2}\_\discretionary {-}{}{}beforeValidation}{65}{subsubsection.6.15.4.2}
+\contentsline {subsubsection}{\numberline {6.15.4.3}\_\discretionary {-}{}{}continueValidation}{65}{subsubsection.6.15.4.3}
+\contentsline {subsubsection}{\numberline {6.15.4.4}\_\discretionary {-}{}{}startValidation}{66}{subsubsection.6.15.4.4}
+\contentsline {subsubsection}{\numberline {6.15.4.5}accept}{66}{subsubsection.6.15.4.5}
+\contentsline {subsubsection}{\numberline {6.15.4.6}begin}{66}{subsubsection.6.15.4.6}
+\contentsline {subsubsection}{\numberline {6.15.4.7}end}{66}{subsubsection.6.15.4.7}
+\contentsline {subsubsection}{\numberline {6.15.4.8}validate}{66}{subsubsection.6.15.4.8}
+\contentsline {subsection}{\numberline {6.15.5}Documentation des donn\IeC {\'e}es membres}{67}{subsection.6.15.5}
+\contentsline {subsubsection}{\numberline {6.15.5.1}\_\discretionary {-}{}{}choice}{67}{subsubsection.6.15.5.1}
+\contentsline {subsubsection}{\numberline {6.15.5.2}\_\discretionary {-}{}{}stack}{67}{subsubsection.6.15.5.2}
+\contentsline {subsubsection}{\numberline {6.15.5.3}\_\discretionary {-}{}{}textContent}{67}{subsubsection.6.15.5.3}
+\contentsline {section}{\numberline {6.16}R\IeC {\'e}f\IeC {\'e}rence de la classe dtd::OptionalContent}{67}{section.6.16}
+\contentsline {subsection}{\numberline {6.16.1}Description d\IeC {\'e}taill\IeC {\'e}e}{70}{subsection.6.16.1}
+\contentsline {subsection}{\numberline {6.16.2}Documentation des constructeurs et destructeur}{70}{subsection.6.16.2}
+\contentsline {subsubsection}{\numberline {6.16.2.1}OptionalContent}{70}{subsubsection.6.16.2.1}
+\contentsline {subsubsection}{\numberline {6.16.2.2}$\sim $OptionalContent}{70}{subsubsection.6.16.2.2}
+\contentsline {subsection}{\numberline {6.16.3}Documentation des fonctions membres}{70}{subsection.6.16.3}
+\contentsline {subsubsection}{\numberline {6.16.3.1}\_\discretionary {-}{}{}continueValidation}{70}{subsubsection.6.16.3.1}
+\contentsline {subsubsection}{\numberline {6.16.3.2}\_\discretionary {-}{}{}startValidation}{71}{subsubsection.6.16.3.2}
+\contentsline {subsubsection}{\numberline {6.16.3.3}accept}{71}{subsubsection.6.16.3.3}
+\contentsline {section}{\numberline {6.17}R\IeC {\'e}f\IeC {\'e}rence de la classe dtd::OutputDTDVisitor}{71}{section.6.17}
+\contentsline {subsection}{\numberline {6.17.1}Description d\IeC {\'e}taill\IeC {\'e}e}{75}{subsection.6.17.1}
+\contentsline {subsection}{\numberline {6.17.2}Documentation des constructeurs et destructeur}{75}{subsection.6.17.2}
+\contentsline {subsubsection}{\numberline {6.17.2.1}OutputDTDVisitor}{75}{subsubsection.6.17.2.1}
+\contentsline {subsubsection}{\numberline {6.17.2.2}$\sim $OutputDTDVisitor}{75}{subsubsection.6.17.2.2}
+\contentsline {subsection}{\numberline {6.17.3}Documentation des fonctions membres}{75}{subsection.6.17.3}
+\contentsline {subsubsection}{\numberline {6.17.3.1}doIndent}{75}{subsubsection.6.17.3.1}
+\contentsline {subsubsection}{\numberline {6.17.3.2}visit}{75}{subsubsection.6.17.3.2}
+\contentsline {subsubsection}{\numberline {6.17.3.3}visit}{75}{subsubsection.6.17.3.3}
+\contentsline {subsubsection}{\numberline {6.17.3.4}visit}{75}{subsubsection.6.17.3.4}
+\contentsline {subsubsection}{\numberline {6.17.3.5}visit}{76}{subsubsection.6.17.3.5}
+\contentsline {subsubsection}{\numberline {6.17.3.6}visit}{76}{subsubsection.6.17.3.6}
+\contentsline {subsubsection}{\numberline {6.17.3.7}visit}{76}{subsubsection.6.17.3.7}
+\contentsline {subsubsection}{\numberline {6.17.3.8}visit}{76}{subsubsection.6.17.3.8}
+\contentsline {subsubsection}{\numberline {6.17.3.9}visit}{76}{subsubsection.6.17.3.9}
+\contentsline {subsubsection}{\numberline {6.17.3.10}visit}{76}{subsubsection.6.17.3.10}
+\contentsline {subsubsection}{\numberline {6.17.3.11}visit}{76}{subsubsection.6.17.3.11}
+\contentsline {subsubsection}{\numberline {6.17.3.12}visitAttributesList}{77}{subsubsection.6.17.3.12}
+\contentsline {subsubsection}{\numberline {6.17.3.13}visitElement}{77}{subsubsection.6.17.3.13}
+\contentsline {subsection}{\numberline {6.17.4}Documentation des donn\IeC {\'e}es membres}{77}{subsection.6.17.4}
+\contentsline {subsubsection}{\numberline {6.17.4.1}\_\discretionary {-}{}{}indent}{77}{subsubsection.6.17.4.1}
+\contentsline {subsubsection}{\numberline {6.17.4.2}\_\discretionary {-}{}{}indentChar}{77}{subsubsection.6.17.4.2}
+\contentsline {subsubsection}{\numberline {6.17.4.3}\_\discretionary {-}{}{}indentUnit}{77}{subsubsection.6.17.4.3}
+\contentsline {subsubsection}{\numberline {6.17.4.4}\_\discretionary {-}{}{}out}{77}{subsubsection.6.17.4.4}
+\contentsline {subsubsection}{\numberline {6.17.4.5}ANY\_\discretionary {-}{}{}CONTENT\_\discretionary {-}{}{}STR}{77}{subsubsection.6.17.4.5}
+\contentsline {subsubsection}{\numberline {6.17.4.6}ATTLIST\_\discretionary {-}{}{}MARKUP\_\discretionary {-}{}{}NAME\_\discretionary {-}{}{}STR}{78}{subsubsection.6.17.4.6}
+\contentsline {subsubsection}{\numberline {6.17.4.7}CHOICE\_\discretionary {-}{}{}SEPARATOR\_\discretionary {-}{}{}STR}{78}{subsubsection.6.17.4.7}
+\contentsline {subsubsection}{\numberline {6.17.4.8}CLOSE\_\discretionary {-}{}{}MARKUP\_\discretionary {-}{}{}STR}{78}{subsubsection.6.17.4.8}
+\contentsline {subsubsection}{\numberline {6.17.4.9}DEFAULT\_\discretionary {-}{}{}INDENT\_\discretionary {-}{}{}CHAR}{78}{subsubsection.6.17.4.9}
+\contentsline {subsubsection}{\numberline {6.17.4.10}DEFAULT\_\discretionary {-}{}{}INDENT\_\discretionary {-}{}{}UNIT}{78}{subsubsection.6.17.4.10}
+\contentsline {subsubsection}{\numberline {6.17.4.11}ELEMENT\_\discretionary {-}{}{}MARKUP\_\discretionary {-}{}{}NAME\_\discretionary {-}{}{}STR}{78}{subsubsection.6.17.4.11}
+\contentsline {subsubsection}{\numberline {6.17.4.12}EMPTY\_\discretionary {-}{}{}CONTENT\_\discretionary {-}{}{}STR}{78}{subsubsection.6.17.4.12}
+\contentsline {subsubsection}{\numberline {6.17.4.13}END\_\discretionary {-}{}{}CHOICE\_\discretionary {-}{}{}STR}{78}{subsubsection.6.17.4.13}
+\contentsline {subsubsection}{\numberline {6.17.4.14}END\_\discretionary {-}{}{}MIXED\_\discretionary {-}{}{}STR}{78}{subsubsection.6.17.4.14}
+\contentsline {subsubsection}{\numberline {6.17.4.15}END\_\discretionary {-}{}{}SEQUENCE\_\discretionary {-}{}{}STR}{79}{subsubsection.6.17.4.15}
+\contentsline {subsubsection}{\numberline {6.17.4.16}INSIDE\_\discretionary {-}{}{}MARKUP\_\discretionary {-}{}{}SPACE\_\discretionary {-}{}{}STR}{79}{subsubsection.6.17.4.16}
+\contentsline {subsubsection}{\numberline {6.17.4.17}MIXED\_\discretionary {-}{}{}SEPARATOR\_\discretionary {-}{}{}STR}{79}{subsubsection.6.17.4.17}
+\contentsline {subsubsection}{\numberline {6.17.4.18}OPEN\_\discretionary {-}{}{}MARKUP\_\discretionary {-}{}{}STR}{79}{subsubsection.6.17.4.18}
+\contentsline {subsubsection}{\numberline {6.17.4.19}OPTIONAL\_\discretionary {-}{}{}QUANTIFIER\_\discretionary {-}{}{}STR}{79}{subsubsection.6.17.4.19}
+\contentsline {subsubsection}{\numberline {6.17.4.20}REPEATABLE\_\discretionary {-}{}{}QUANTIFIER\_\discretionary {-}{}{}STR}{79}{subsubsection.6.17.4.20}
+\contentsline {subsubsection}{\numberline {6.17.4.21}REPEATED\_\discretionary {-}{}{}QUANTIFIER\_\discretionary {-}{}{}STR}{79}{subsubsection.6.17.4.21}
+\contentsline {subsubsection}{\numberline {6.17.4.22}SEQUENCE\_\discretionary {-}{}{}SEPARATOR\_\discretionary {-}{}{}STR}{79}{subsubsection.6.17.4.22}
+\contentsline {subsubsection}{\numberline {6.17.4.23}START\_\discretionary {-}{}{}CHOICE\_\discretionary {-}{}{}STR}{79}{subsubsection.6.17.4.23}
+\contentsline {subsubsection}{\numberline {6.17.4.24}START\_\discretionary {-}{}{}MIXED\_\discretionary {-}{}{}STR}{80}{subsubsection.6.17.4.24}
+\contentsline {subsubsection}{\numberline {6.17.4.25}START\_\discretionary {-}{}{}SEQUENCE\_\discretionary {-}{}{}STR}{80}{subsubsection.6.17.4.25}
+\contentsline {subsubsection}{\numberline {6.17.4.26}TEXT\_\discretionary {-}{}{}CONTENT\_\discretionary {-}{}{}STR}{80}{subsubsection.6.17.4.26}
+\contentsline {section}{\numberline {6.18}R\IeC {\'e}f\IeC {\'e}rence de la classe dtd::QuantifiableContent}{80}{section.6.18}
+\contentsline {subsection}{\numberline {6.18.1}Description d\IeC {\'e}taill\IeC {\'e}e}{83}{subsection.6.18.1}
+\contentsline {subsection}{\numberline {6.18.2}Documentation des constructeurs et destructeur}{83}{subsection.6.18.2}
+\contentsline {subsubsection}{\numberline {6.18.2.1}QuantifiableContent}{83}{subsubsection.6.18.2.1}
+\contentsline {subsubsection}{\numberline {6.18.2.2}$\sim $QuantifiableContent}{83}{subsubsection.6.18.2.2}
+\contentsline {section}{\numberline {6.19}R\IeC {\'e}f\IeC {\'e}rence de la classe dtd::QuantifiedContent}{83}{section.6.19}
+\contentsline {subsection}{\numberline {6.19.1}Description d\IeC {\'e}taill\IeC {\'e}e}{86}{subsection.6.19.1}
+\contentsline {subsection}{\numberline {6.19.2}Documentation des d\IeC {\'e}finitions de type membres}{86}{subsection.6.19.2}
+\contentsline {subsubsection}{\numberline {6.19.2.1}\_\discretionary {-}{}{}StatesStack}{86}{subsubsection.6.19.2.1}
+\contentsline {subsection}{\numberline {6.19.3}Documentation des constructeurs et destructeur}{86}{subsection.6.19.3}
+\contentsline {subsubsection}{\numberline {6.19.3.1}QuantifiedContent}{86}{subsubsection.6.19.3.1}
+\contentsline {subsubsection}{\numberline {6.19.3.2}$\sim $QuantifiedContent}{86}{subsubsection.6.19.3.2}
+\contentsline {subsection}{\numberline {6.19.4}Documentation des fonctions membres}{87}{subsection.6.19.4}
+\contentsline {subsubsection}{\numberline {6.19.4.1}\_\discretionary {-}{}{}afterValidation}{87}{subsubsection.6.19.4.1}
+\contentsline {subsubsection}{\numberline {6.19.4.2}\_\discretionary {-}{}{}beforeValidation}{87}{subsubsection.6.19.4.2}
+\contentsline {subsubsection}{\numberline {6.19.4.3}content}{87}{subsubsection.6.19.4.3}
+\contentsline {subsubsection}{\numberline {6.19.4.4}content}{87}{subsubsection.6.19.4.4}
+\contentsline {subsubsection}{\numberline {6.19.4.5}validate}{87}{subsubsection.6.19.4.5}
+\contentsline {subsection}{\numberline {6.19.5}Documentation des donn\IeC {\'e}es membres}{87}{subsection.6.19.5}
+\contentsline {subsubsection}{\numberline {6.19.5.1}\_\discretionary {-}{}{}content}{87}{subsubsection.6.19.5.1}
+\contentsline {subsubsection}{\numberline {6.19.5.2}\_\discretionary {-}{}{}stack}{87}{subsubsection.6.19.5.2}
+\contentsline {section}{\numberline {6.20}R\IeC {\'e}f\IeC {\'e}rence de la classe dtd::RepeatableContent}{88}{section.6.20}
+\contentsline {subsection}{\numberline {6.20.1}Description d\IeC {\'e}taill\IeC {\'e}e}{91}{subsection.6.20.1}
+\contentsline {subsection}{\numberline {6.20.2}Documentation des constructeurs et destructeur}{91}{subsection.6.20.2}
+\contentsline {subsubsection}{\numberline {6.20.2.1}RepeatableContent}{91}{subsubsection.6.20.2.1}
+\contentsline {subsubsection}{\numberline {6.20.2.2}$\sim $RepeatableContent}{91}{subsubsection.6.20.2.2}
+\contentsline {subsection}{\numberline {6.20.3}Documentation des fonctions membres}{91}{subsection.6.20.3}
+\contentsline {subsubsection}{\numberline {6.20.3.1}\_\discretionary {-}{}{}continueValidation}{91}{subsubsection.6.20.3.1}
+\contentsline {subsubsection}{\numberline {6.20.3.2}\_\discretionary {-}{}{}startValidation}{92}{subsubsection.6.20.3.2}
+\contentsline {subsubsection}{\numberline {6.20.3.3}accept}{92}{subsubsection.6.20.3.3}
+\contentsline {section}{\numberline {6.21}R\IeC {\'e}f\IeC {\'e}rence de la classe dtd::RepeatedContent}{92}{section.6.21}
+\contentsline {subsection}{\numberline {6.21.1}Description d\IeC {\'e}taill\IeC {\'e}e}{95}{subsection.6.21.1}
+\contentsline {subsection}{\numberline {6.21.2}Documentation des constructeurs et destructeur}{95}{subsection.6.21.2}
+\contentsline {subsubsection}{\numberline {6.21.2.1}RepeatedContent}{95}{subsubsection.6.21.2.1}
+\contentsline {subsubsection}{\numberline {6.21.2.2}$\sim $RepeatedContent}{95}{subsubsection.6.21.2.2}
+\contentsline {subsection}{\numberline {6.21.3}Documentation des fonctions membres}{95}{subsection.6.21.3}
+\contentsline {subsubsection}{\numberline {6.21.3.1}\_\discretionary {-}{}{}continueValidation}{95}{subsubsection.6.21.3.1}
+\contentsline {subsubsection}{\numberline {6.21.3.2}\_\discretionary {-}{}{}startValidation}{96}{subsubsection.6.21.3.2}
+\contentsline {subsubsection}{\numberline {6.21.3.3}accept}{96}{subsubsection.6.21.3.3}
+\contentsline {section}{\numberline {6.22}R\IeC {\'e}f\IeC {\'e}rence de la classe dtd::Sequence}{96}{section.6.22}
+\contentsline {subsection}{\numberline {6.22.1}Description d\IeC {\'e}taill\IeC {\'e}e}{99}{subsection.6.22.1}
+\contentsline {subsection}{\numberline {6.22.2}Documentation des d\IeC {\'e}finitions de type membres}{100}{subsection.6.22.2}
+\contentsline {subsubsection}{\numberline {6.22.2.1}\_\discretionary {-}{}{}OrderedContent}{100}{subsubsection.6.22.2.1}
+\contentsline {subsubsection}{\numberline {6.22.2.2}\_\discretionary {-}{}{}StatesStack}{100}{subsubsection.6.22.2.2}
+\contentsline {subsubsection}{\numberline {6.22.2.3}const\_\discretionary {-}{}{}iterator}{100}{subsubsection.6.22.2.3}
+\contentsline {subsubsection}{\numberline {6.22.2.4}OrderedContent}{100}{subsubsection.6.22.2.4}
+\contentsline {subsection}{\numberline {6.22.3}Documentation des constructeurs et destructeur}{100}{subsection.6.22.3}
+\contentsline {subsubsection}{\numberline {6.22.3.1}Sequence}{100}{subsubsection.6.22.3.1}
+\contentsline {subsubsection}{\numberline {6.22.3.2}$\sim $Sequence}{100}{subsubsection.6.22.3.2}
+\contentsline {subsection}{\numberline {6.22.4}Documentation des fonctions membres}{100}{subsection.6.22.4}
+\contentsline {subsubsection}{\numberline {6.22.4.1}\_\discretionary {-}{}{}afterValidation}{100}{subsubsection.6.22.4.1}
+\contentsline {subsubsection}{\numberline {6.22.4.2}\_\discretionary {-}{}{}beforeValidation}{100}{subsubsection.6.22.4.2}
+\contentsline {subsubsection}{\numberline {6.22.4.3}\_\discretionary {-}{}{}continueValidation}{101}{subsubsection.6.22.4.3}
+\contentsline {subsubsection}{\numberline {6.22.4.4}\_\discretionary {-}{}{}startValidation}{101}{subsubsection.6.22.4.4}
+\contentsline {subsubsection}{\numberline {6.22.4.5}accept}{101}{subsubsection.6.22.4.5}
+\contentsline {subsubsection}{\numberline {6.22.4.6}begin}{101}{subsubsection.6.22.4.6}
+\contentsline {subsubsection}{\numberline {6.22.4.7}end}{102}{subsubsection.6.22.4.7}
+\contentsline {subsubsection}{\numberline {6.22.4.8}validate}{102}{subsubsection.6.22.4.8}
+\contentsline {subsection}{\numberline {6.22.5}Documentation des donn\IeC {\'e}es membres}{102}{subsection.6.22.5}
+\contentsline {subsubsection}{\numberline {6.22.5.1}\_\discretionary {-}{}{}embeddedContent}{102}{subsubsection.6.22.5.1}
+\contentsline {subsubsection}{\numberline {6.22.5.2}\_\discretionary {-}{}{}stack}{102}{subsubsection.6.22.5.2}
+\contentsline {section}{\numberline {6.23}R\IeC {\'e}f\IeC {\'e}rence de la classe dtd::TextContent}{102}{section.6.23}
+\contentsline {subsection}{\numberline {6.23.1}Description d\IeC {\'e}taill\IeC {\'e}e}{105}{subsection.6.23.1}
+\contentsline {subsection}{\numberline {6.23.2}Documentation des constructeurs et destructeur}{105}{subsection.6.23.2}
+\contentsline {subsubsection}{\numberline {6.23.2.1}TextContent}{105}{subsubsection.6.23.2.1}
+\contentsline {subsubsection}{\numberline {6.23.2.2}$\sim $TextContent}{105}{subsubsection.6.23.2.2}
+\contentsline {subsection}{\numberline {6.23.3}Documentation des fonctions membres}{105}{subsection.6.23.3}
+\contentsline {subsubsection}{\numberline {6.23.3.1}\_\discretionary {-}{}{}startValidation}{105}{subsubsection.6.23.3.1}
+\contentsline {subsubsection}{\numberline {6.23.3.2}accept}{105}{subsubsection.6.23.3.2}
+\contentsline {subsubsection}{\numberline {6.23.3.3}visit}{106}{subsubsection.6.23.3.3}
+\contentsline {subsubsection}{\numberline {6.23.3.4}visit}{106}{subsubsection.6.23.3.4}
+\contentsline {subsubsection}{\numberline {6.23.3.5}visit}{106}{subsubsection.6.23.3.5}
+\contentsline {subsection}{\numberline {6.23.4}Documentation des donn\IeC {\'e}es membres}{106}{subsection.6.23.4}
+\contentsline {subsubsection}{\numberline {6.23.4.1}\_\discretionary {-}{}{}validationResult}{106}{subsubsection.6.23.4.1}
+\contentsline {chapter}{\numberline {7}Documentation des fichiers}{107}{chapter.7}
+\contentsline {section}{\numberline {7.1}R\IeC {\'e}f\IeC {\'e}rence du fichier src/AnyContent.cpp}{107}{section.7.1}
+\contentsline {section}{\numberline {7.2}R\IeC {\'e}f\IeC {\'e}rence du fichier src/AnyContent.hh}{107}{section.7.2}
+\contentsline {section}{\numberline {7.3}R\IeC {\'e}f\IeC {\'e}rence du fichier src/Attribute.cpp}{108}{section.7.3}
+\contentsline {section}{\numberline {7.4}R\IeC {\'e}f\IeC {\'e}rence du fichier src/Attribute.hh}{109}{section.7.4}
+\contentsline {section}{\numberline {7.5}R\IeC {\'e}f\IeC {\'e}rence du fichier src/AttributesList.hh}{110}{section.7.5}
+\contentsline {section}{\numberline {7.6}R\IeC {\'e}f\IeC {\'e}rence du fichier src/BrowsableContent.cpp}{112}{section.7.6}
+\contentsline {section}{\numberline {7.7}R\IeC {\'e}f\IeC {\'e}rence du fichier src/BrowsableContent.hh}{112}{section.7.7}
+\contentsline {section}{\numberline {7.8}R\IeC {\'e}f\IeC {\'e}rence du fichier src/Choice.cpp}{113}{section.7.8}
+\contentsline {section}{\numberline {7.9}R\IeC {\'e}f\IeC {\'e}rence du fichier src/Choice.hh}{114}{section.7.9}
+\contentsline {section}{\numberline {7.10}R\IeC {\'e}f\IeC {\'e}rence du fichier src/Content.cpp}{116}{section.7.10}
+\contentsline {section}{\numberline {7.11}R\IeC {\'e}f\IeC {\'e}rence du fichier src/Content.hh}{116}{section.7.11}
+\contentsline {section}{\numberline {7.12}R\IeC {\'e}f\IeC {\'e}rence du fichier src/DTD.cpp}{117}{section.7.12}
+\contentsline {section}{\numberline {7.13}R\IeC {\'e}f\IeC {\'e}rence du fichier src/DTD.hh}{118}{section.7.13}
+\contentsline {section}{\numberline {7.14}R\IeC {\'e}f\IeC {\'e}rence du fichier src/ElementContent.cpp}{119}{section.7.14}
+\contentsline {section}{\numberline {7.15}R\IeC {\'e}f\IeC {\'e}rence du fichier src/ElementContent.hh}{120}{section.7.15}
+\contentsline {section}{\numberline {7.16}R\IeC {\'e}f\IeC {\'e}rence du fichier src/ElementReference.cpp}{122}{section.7.16}
+\contentsline {section}{\numberline {7.17}R\IeC {\'e}f\IeC {\'e}rence du fichier src/ElementReference.hh}{122}{section.7.17}
+\contentsline {section}{\numberline {7.18}R\IeC {\'e}f\IeC {\'e}rence du fichier src/EmptyContent.cpp}{124}{section.7.18}
+\contentsline {section}{\numberline {7.19}R\IeC {\'e}f\IeC {\'e}rence du fichier src/EmptyContent.hh}{124}{section.7.19}
+\contentsline {section}{\numberline {7.20}R\IeC {\'e}f\IeC {\'e}rence du fichier src/InterfaceDTDVisitor.hpp}{125}{section.7.20}
+\contentsline {section}{\numberline {7.21}R\IeC {\'e}f\IeC {\'e}rence du fichier src/MixedContent.cpp}{126}{section.7.21}
+\contentsline {section}{\numberline {7.22}R\IeC {\'e}f\IeC {\'e}rence du fichier src/MixedContent.hh}{127}{section.7.22}
+\contentsline {section}{\numberline {7.23}R\IeC {\'e}f\IeC {\'e}rence du fichier src/OptionalContent.cpp}{129}{section.7.23}
+\contentsline {section}{\numberline {7.24}R\IeC {\'e}f\IeC {\'e}rence du fichier src/OptionalContent.hh}{130}{section.7.24}
+\contentsline {section}{\numberline {7.25}R\IeC {\'e}f\IeC {\'e}rence du fichier src/OutputDTDVisitor.cpp}{131}{section.7.25}
+\contentsline {section}{\numberline {7.26}R\IeC {\'e}f\IeC {\'e}rence du fichier src/OutputDTDVisitor.hh}{132}{section.7.26}
+\contentsline {section}{\numberline {7.27}R\IeC {\'e}f\IeC {\'e}rence du fichier src/QuantifiableContent.cpp}{134}{section.7.27}
+\contentsline {section}{\numberline {7.28}R\IeC {\'e}f\IeC {\'e}rence du fichier src/QuantifiableContent.hh}{134}{section.7.28}
+\contentsline {section}{\numberline {7.29}R\IeC {\'e}f\IeC {\'e}rence du fichier src/QuantifiedContent.cpp}{135}{section.7.29}
+\contentsline {section}{\numberline {7.30}R\IeC {\'e}f\IeC {\'e}rence du fichier src/QuantifiedContent.hh}{136}{section.7.30}
+\contentsline {section}{\numberline {7.31}R\IeC {\'e}f\IeC {\'e}rence du fichier src/RepeatableContent.cpp}{138}{section.7.31}
+\contentsline {section}{\numberline {7.32}R\IeC {\'e}f\IeC {\'e}rence du fichier src/RepeatableContent.hh}{138}{section.7.32}
+\contentsline {section}{\numberline {7.33}R\IeC {\'e}f\IeC {\'e}rence du fichier src/RepeatedContent.cpp}{140}{section.7.33}
+\contentsline {section}{\numberline {7.34}R\IeC {\'e}f\IeC {\'e}rence du fichier src/RepeatedContent.hh}{141}{section.7.34}
+\contentsline {section}{\numberline {7.35}R\IeC {\'e}f\IeC {\'e}rence du fichier src/Sequence.cpp}{142}{section.7.35}
+\contentsline {section}{\numberline {7.36}R\IeC {\'e}f\IeC {\'e}rence du fichier src/Sequence.hh}{143}{section.7.36}
+\contentsline {section}{\numberline {7.37}R\IeC {\'e}f\IeC {\'e}rence du fichier src/TextContent.cpp}{145}{section.7.37}
+\contentsline {section}{\numberline {7.38}R\IeC {\'e}f\IeC {\'e}rence du fichier src/TextContent.hh}{145}{section.7.38}

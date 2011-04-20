@@ -1,0 +1,4 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$classxsl_1_1_recursive_transformer_visitor.html" title="{xsl::RecursiveTransformerVisitor\n|# _transformer\l# _proxy\l# _result\l|+ transform()\l+ RecursiveTransformerVisitor()\l+ ~RecursiveTransformerVisitor()\l# visit()\l# visit()\l# visit()\l}" alt="" coords="5,435,384,735"/>
+<area shape="rect" id="node4" href="$classxsl_1_1_transformer_visitor.html" title="{xsl::TransformerVisitor\n|# templatesMap\l# resultatMap\l|+ Transformation()\l+ AnalyzeNode()\l+ TransformerVisitor()\l+ ~TransformerVisitor()\l# createMap()\l# getTemplateName()\l# visit()\l# visit()\l# visit()\l}" alt="" coords="57,6,332,359"/>
+</map>

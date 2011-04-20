@@ -1,0 +1,666 @@
+\begin{theindex}
+
+  \item {$\sim $AnyContent}
+    \subitem {dtd::AnyContent}, \hyperpage{23}
+  \item {$\sim $Attribute}
+    \subitem {dtd::Attribute}, \hyperpage{24}
+  \item {$\sim $BrowsableContent}
+    \subitem {dtd::BrowsableContent}, \hyperpage{28}
+  \item {$\sim $Choice}
+    \subitem {dtd::Choice}, \hyperpage{34}
+  \item {$\sim $Content}
+    \subitem {dtd::Content}, \hyperpage{38}
+  \item {$\sim $DTD}
+    \subitem {dtd::DTD}, \hyperpage{40}
+  \item {$\sim $ElementContent}
+    \subitem {dtd::ElementContent}, \hyperpage{46}
+  \item {$\sim $ElementReference}
+    \subitem {dtd::ElementReference}, \hyperpage{49}
+  \item {$\sim $EmptyContent}
+    \subitem {dtd::EmptyContent}, \hyperpage{54}
+  \item {$\sim $InterfaceDTDVisitor}
+    \subitem {dtd::InterfaceDTDVisitor}, \hyperpage{57}
+  \item {$\sim $MixedContent}
+    \subitem {dtd::MixedContent}, \hyperpage{65}
+  \item {$\sim $OptionalContent}
+    \subitem {dtd::OptionalContent}, \hyperpage{70}
+  \item {$\sim $OutputDTDVisitor}
+    \subitem {dtd::OutputDTDVisitor}, \hyperpage{75}
+  \item {$\sim $QuantifiableContent}
+    \subitem {dtd::QuantifiableContent}, \hyperpage{83}
+  \item {$\sim $QuantifiedContent}
+    \subitem {dtd::QuantifiedContent}, \hyperpage{86}
+  \item {$\sim $RepeatableContent}
+    \subitem {dtd::RepeatableContent}, \hyperpage{91}
+  \item {$\sim $RepeatedContent}
+    \subitem {dtd::RepeatedContent}, \hyperpage{95}
+  \item {$\sim $Sequence}
+    \subitem {dtd::Sequence}, \hyperpage{100}
+  \item {$\sim $TextContent}
+    \subitem {dtd::TextContent}, \hyperpage{105}
+  \item {\_\discretionary {-}{}{}AttributesLists}
+    \subitem {dtd::DTD}, \hyperpage{40}
+  \item {\_\discretionary {-}{}{}ChoosableSet}
+    \subitem {dtd::Choice}, \hyperpage{34}
+  \item {\_\discretionary {-}{}{}ElementId}
+    \subitem {dtd::DTD}, \hyperpage{40}
+  \item {\_\discretionary {-}{}{}Elements}
+    \subitem {dtd::DTD}, \hyperpage{40}
+  \item {\_\discretionary {-}{}{}OrderedContent}
+    \subitem {dtd::Sequence}, \hyperpage{100}
+  \item {\_\discretionary {-}{}{}State}
+    \subitem {dtd::Choice::\_\discretionary {-}{}{}State}, 
+		\hyperpage{14}
+    \subitem {dtd::QuantifiableContent::\_\discretionary {-}{}{}State}, 
+		\hyperpage{17}
+    \subitem {dtd::Sequence::\_\discretionary {-}{}{}State}, 
+		\hyperpage{20}
+  \item {\_\discretionary {-}{}{}StatesStack}
+    \subitem {dtd::Choice}, \hyperpage{34}
+    \subitem {dtd::MixedContent}, \hyperpage{64}
+    \subitem {dtd::QuantifiedContent}, \hyperpage{86}
+    \subitem {dtd::Sequence}, \hyperpage{100}
+  \item {\_\discretionary {-}{}{}afterValidation}
+    \subitem {dtd::BrowsableContent}, \hyperpage{28}
+    \subitem {dtd::Choice}, \hyperpage{34}
+    \subitem {dtd::MixedContent}, \hyperpage{65}
+    \subitem {dtd::QuantifiedContent}, \hyperpage{87}
+    \subitem {dtd::Sequence}, \hyperpage{100}
+  \item {\_\discretionary {-}{}{}attributesLists}
+    \subitem {dtd::DTD}, \hyperpage{42}
+  \item {\_\discretionary {-}{}{}beforeValidation}
+    \subitem {dtd::BrowsableContent}, \hyperpage{28}
+    \subitem {dtd::Choice}, \hyperpage{34}
+    \subitem {dtd::MixedContent}, \hyperpage{65}
+    \subitem {dtd::QuantifiedContent}, \hyperpage{87}
+    \subitem {dtd::Sequence}, \hyperpage{100}
+  \item {\_\discretionary {-}{}{}browseDown}
+    \subitem {dtd::BrowsableContent}, \hyperpage{29}
+  \item {\_\discretionary {-}{}{}browseUp}
+    \subitem {dtd::BrowsableContent}, \hyperpage{29}
+  \item {\_\discretionary {-}{}{}choice}
+    \subitem {dtd::MixedContent}, \hyperpage{67}
+  \item {\_\discretionary {-}{}{}choosable}
+    \subitem {dtd::Choice}, \hyperpage{36}
+  \item {\_\discretionary {-}{}{}content}
+    \subitem {dtd::QuantifiedContent}, \hyperpage{87}
+  \item {\_\discretionary {-}{}{}continueValidation}
+    \subitem {dtd::BrowsableContent}, \hyperpage{29}
+    \subitem {dtd::Choice}, \hyperpage{34}
+    \subitem {dtd::MixedContent}, \hyperpage{65}
+    \subitem {dtd::OptionalContent}, \hyperpage{70}
+    \subitem {dtd::RepeatableContent}, \hyperpage{91}
+    \subitem {dtd::RepeatedContent}, \hyperpage{95}
+    \subitem {dtd::Sequence}, \hyperpage{100}
+  \item {\_\discretionary {-}{}{}dtd}
+    \subitem {dtd::ElementReference}, \hyperpage{50}
+  \item {\_\discretionary {-}{}{}elements}
+    \subitem {dtd::DTD}, \hyperpage{42}
+  \item {\_\discretionary {-}{}{}embeddedContent}
+    \subitem {dtd::Sequence}, \hyperpage{102}
+  \item {\_\discretionary {-}{}{}indent}
+    \subitem {dtd::OutputDTDVisitor}, \hyperpage{77}
+  \item {\_\discretionary {-}{}{}indentChar}
+    \subitem {dtd::OutputDTDVisitor}, \hyperpage{77}
+  \item {\_\discretionary {-}{}{}indentUnit}
+    \subitem {dtd::OutputDTDVisitor}, \hyperpage{77}
+  \item {\_\discretionary {-}{}{}isValid}
+    \subitem {dtd::DTD}, \hyperpage{40}
+  \item {\_\discretionary {-}{}{}lastNodeIsValid}
+    \subitem {dtd::DTD}, \hyperpage{42}
+  \item {\_\discretionary {-}{}{}matchResult}
+    \subitem {dtd::ElementReference}, \hyperpage{50}
+  \item {\_\discretionary {-}{}{}name}
+    \subitem {dtd::Attribute}, \hyperpage{25}
+    \subitem {dtd::ElementReference}, \hyperpage{51}
+  \item {\_\discretionary {-}{}{}namespace}
+    \subitem {dtd::ElementReference}, \hyperpage{51}
+  \item {\_\discretionary {-}{}{}newValidation}
+    \subitem {dtd::BrowsableContent}, \hyperpage{30}
+  \item {\_\discretionary {-}{}{}out}
+    \subitem {dtd::OutputDTDVisitor}, \hyperpage{77}
+  \item {\_\discretionary {-}{}{}stack}
+    \subitem {dtd::Choice}, \hyperpage{36}
+    \subitem {dtd::MixedContent}, \hyperpage{67}
+    \subitem {dtd::QuantifiedContent}, \hyperpage{87}
+    \subitem {dtd::Sequence}, \hyperpage{102}
+  \item {\_\discretionary {-}{}{}startValidation}
+    \subitem {dtd::BrowsableContent}, \hyperpage{30}
+    \subitem {dtd::Choice}, \hyperpage{35}
+    \subitem {dtd::ElementReference}, \hyperpage{49}
+    \subitem {dtd::MixedContent}, \hyperpage{66}
+    \subitem {dtd::OptionalContent}, \hyperpage{70}
+    \subitem {dtd::RepeatableContent}, \hyperpage{91}
+    \subitem {dtd::RepeatedContent}, \hyperpage{96}
+    \subitem {dtd::Sequence}, \hyperpage{101}
+    \subitem {dtd::TextContent}, \hyperpage{105}
+  \item {\_\discretionary {-}{}{}textContent}
+    \subitem {dtd::MixedContent}, \hyperpage{67}
+  \item {\_\discretionary {-}{}{}validRootName}
+    \subitem {dtd::DTD}, \hyperpage{43}
+  \item {\_\discretionary {-}{}{}validatingRoot}
+    \subitem {dtd::DTD}, \hyperpage{42}
+  \item {\_\discretionary {-}{}{}validationResult}
+    \subitem {dtd::TextContent}, \hyperpage{106}
+
+  \indexspace
+
+  \item {accept}
+    \subitem {dtd::AnyContent}, \hyperpage{23}
+    \subitem {dtd::Choice}, \hyperpage{35}
+    \subitem {dtd::Content}, \hyperpage{38}
+    \subitem {dtd::DTD}, \hyperpage{40}
+    \subitem {dtd::ElementReference}, \hyperpage{49}
+    \subitem {dtd::EmptyContent}, \hyperpage{54}
+    \subitem {dtd::MixedContent}, \hyperpage{66}
+    \subitem {dtd::OptionalContent}, \hyperpage{71}
+    \subitem {dtd::RepeatableContent}, \hyperpage{92}
+    \subitem {dtd::RepeatedContent}, \hyperpage{96}
+    \subitem {dtd::Sequence}, \hyperpage{101}
+    \subitem {dtd::TextContent}, \hyperpage{105}
+  \item {addAttributesList}
+    \subitem {dtd::DTD}, \hyperpage{41}
+  \item {addElement}
+    \subitem {dtd::DTD}, \hyperpage{41}
+  \item {ANY\_\discretionary {-}{}{}CONTENT\_\discretionary {-}{}{}STR}
+    \subitem {dtd::OutputDTDVisitor}, \hyperpage{77}
+  \item {AnyContent}
+    \subitem {dtd::AnyContent}, \hyperpage{23}
+    \subitem {dtd::InterfaceDTDVisitor}, \hyperpage{60}
+  \item {ATTLIST\_\discretionary {-}{}{}MARKUP\_\discretionary {-}{}{}NAME\_\discretionary {-}{}{}STR}
+    \subitem {dtd::OutputDTDVisitor}, \hyperpage{77}
+  \item {Attribute}
+    \subitem {dtd::Attribute}, \hyperpage{24}
+  \item {AttributesList}
+    \subitem {dtd}, \hyperpage{9}
+
+  \indexspace
+
+  \item {begin}
+    \subitem {dtd::Choice}, \hyperpage{35}
+    \subitem {dtd::MixedContent}, \hyperpage{66}
+    \subitem {dtd::Sequence}, \hyperpage{101}
+  \item {BrowsableContent}
+    \subitem {dtd::BrowsableContent}, \hyperpage{28}
+
+  \indexspace
+
+  \item {checkAttributes}
+    \subitem {dtd::DTD}, \hyperpage{41}
+  \item {Choice}
+    \subitem {dtd::Choice}, \hyperpage{34}
+    \subitem {dtd::InterfaceDTDVisitor}, \hyperpage{60}
+  \item {CHOICE\_\discretionary {-}{}{}SEPARATOR\_\discretionary {-}{}{}STR}
+    \subitem {dtd::OutputDTDVisitor}, \hyperpage{78}
+  \item {ChoosableSet}
+    \subitem {dtd::Choice}, \hyperpage{34}
+    \subitem {dtd::MixedContent}, \hyperpage{64}
+  \item {CLOSE\_\discretionary {-}{}{}MARKUP\_\discretionary {-}{}{}STR}
+    \subitem {dtd::OutputDTDVisitor}, \hyperpage{78}
+  \item {const\_\discretionary {-}{}{}iterator}
+    \subitem {dtd::Choice}, \hyperpage{34}
+    \subitem {dtd::MixedContent}, \hyperpage{65}
+    \subitem {dtd::Sequence}, \hyperpage{100}
+  \item {Content}
+    \subitem {dtd::Content}, \hyperpage{38}
+  \item {content}
+    \subitem {dtd::QuantifiedContent}, \hyperpage{87}
+
+  \indexspace
+
+  \item {DEFAULT\_\discretionary {-}{}{}INDENT\_\discretionary {-}{}{}CHAR}
+    \subitem {dtd::OutputDTDVisitor}, \hyperpage{78}
+  \item {DEFAULT\_\discretionary {-}{}{}INDENT\_\discretionary {-}{}{}UNIT}
+    \subitem {dtd::OutputDTDVisitor}, \hyperpage{78}
+  \item {doIndent}
+    \subitem {dtd::OutputDTDVisitor}, \hyperpage{75}
+  \item {DTD}
+    \subitem {dtd::DTD}, \hyperpage{40}
+  \item {dtd}, \hyperpage{9}
+    \subitem {AttributesList}, \hyperpage{9}
+  \item {dtd::AnyContent}, \hyperpage{20}
+    \subitem {$\sim $AnyContent}, \hyperpage{23}
+    \subitem {accept}, \hyperpage{23}
+    \subitem {AnyContent}, \hyperpage{23}
+    \subitem {validate}, \hyperpage{23}
+  \item {dtd::Attribute}, \hyperpage{24}
+    \subitem {$\sim $Attribute}, \hyperpage{24}
+    \subitem {\_\discretionary {-}{}{}name}, \hyperpage{25}
+    \subitem {Attribute}, \hyperpage{24}
+    \subitem {name}, \hyperpage{24}
+  \item {dtd::AttributesComparator}, \hyperpage{25}
+    \subitem {operator()}, \hyperpage{25}
+  \item {dtd::BrowsableContent}, \hyperpage{25}
+    \subitem {$\sim $BrowsableContent}, \hyperpage{28}
+    \subitem {\_\discretionary {-}{}{}afterValidation}, \hyperpage{28}
+    \subitem {\_\discretionary {-}{}{}beforeValidation}, \hyperpage{28}
+    \subitem {\_\discretionary {-}{}{}browseDown}, \hyperpage{29}
+    \subitem {\_\discretionary {-}{}{}browseUp}, \hyperpage{29}
+    \subitem {\_\discretionary {-}{}{}continueValidation}, 
+		\hyperpage{29}
+    \subitem {\_\discretionary {-}{}{}newValidation}, \hyperpage{30}
+    \subitem {\_\discretionary {-}{}{}startValidation}, \hyperpage{30}
+    \subitem {BrowsableContent}, \hyperpage{28}
+    \subitem {validate}, \hyperpage{30}
+  \item {dtd::Choice}, \hyperpage{30}
+    \subitem {$\sim $Choice}, \hyperpage{34}
+    \subitem {\_\discretionary {-}{}{}ChoosableSet}, \hyperpage{34}
+    \subitem {\_\discretionary {-}{}{}StatesStack}, \hyperpage{34}
+    \subitem {\_\discretionary {-}{}{}afterValidation}, \hyperpage{34}
+    \subitem {\_\discretionary {-}{}{}beforeValidation}, \hyperpage{34}
+    \subitem {\_\discretionary {-}{}{}choosable}, \hyperpage{36}
+    \subitem {\_\discretionary {-}{}{}continueValidation}, 
+		\hyperpage{34}
+    \subitem {\_\discretionary {-}{}{}stack}, \hyperpage{36}
+    \subitem {\_\discretionary {-}{}{}startValidation}, \hyperpage{35}
+    \subitem {accept}, \hyperpage{35}
+    \subitem {begin}, \hyperpage{35}
+    \subitem {Choice}, \hyperpage{34}
+    \subitem {ChoosableSet}, \hyperpage{34}
+    \subitem {const\_\discretionary {-}{}{}iterator}, \hyperpage{34}
+    \subitem {end}, \hyperpage{35}
+    \subitem {validate}, \hyperpage{35}
+  \item {dtd::Choice::\_\discretionary {-}{}{}State}, \hyperpage{11}
+    \subitem {\_\discretionary {-}{}{}State}, \hyperpage{14}
+    \subitem {nextChoosable}, \hyperpage{14}
+  \item {dtd::Content}, \hyperpage{36}
+    \subitem {$\sim $Content}, \hyperpage{38}
+    \subitem {accept}, \hyperpage{38}
+    \subitem {Content}, \hyperpage{38}
+    \subitem {validate}, \hyperpage{38}
+  \item {dtd::DTD}, \hyperpage{39}
+    \subitem {$\sim $DTD}, \hyperpage{40}
+    \subitem {\_\discretionary {-}{}{}AttributesLists}, \hyperpage{40}
+    \subitem {\_\discretionary {-}{}{}ElementId}, \hyperpage{40}
+    \subitem {\_\discretionary {-}{}{}Elements}, \hyperpage{40}
+    \subitem {\_\discretionary {-}{}{}attributesLists}, \hyperpage{42}
+    \subitem {\_\discretionary {-}{}{}elements}, \hyperpage{42}
+    \subitem {\_\discretionary {-}{}{}isValid}, \hyperpage{40}
+    \subitem {\_\discretionary {-}{}{}lastNodeIsValid}, \hyperpage{42}
+    \subitem {\_\discretionary {-}{}{}validRootName}, \hyperpage{43}
+    \subitem {\_\discretionary {-}{}{}validatingRoot}, \hyperpage{42}
+    \subitem {accept}, \hyperpage{40}
+    \subitem {addAttributesList}, \hyperpage{41}
+    \subitem {addElement}, \hyperpage{41}
+    \subitem {checkAttributes}, \hyperpage{41}
+    \subitem {DTD}, \hyperpage{40}
+    \subitem {getAttributesList}, \hyperpage{41}
+    \subitem {getElement}, \hyperpage{42}
+    \subitem {isValid}, \hyperpage{42}
+    \subitem {visit}, \hyperpage{42}
+  \item {dtd::ElementContent}, \hyperpage{43}
+    \subitem {$\sim $ElementContent}, \hyperpage{46}
+    \subitem {ElementContent}, \hyperpage{46}
+  \item {dtd::ElementReference}, \hyperpage{46}
+    \subitem {$\sim $ElementReference}, \hyperpage{49}
+    \subitem {\_\discretionary {-}{}{}dtd}, \hyperpage{50}
+    \subitem {\_\discretionary {-}{}{}matchResult}, \hyperpage{50}
+    \subitem {\_\discretionary {-}{}{}name}, \hyperpage{51}
+    \subitem {\_\discretionary {-}{}{}namespace}, \hyperpage{51}
+    \subitem {\_\discretionary {-}{}{}startValidation}, \hyperpage{49}
+    \subitem {accept}, \hyperpage{49}
+    \subitem {ElementReference}, \hyperpage{49}
+    \subitem {matches}, \hyperpage{50}
+    \subitem {name}, \hyperpage{50}
+    \subitem {ns}, \hyperpage{50}
+    \subitem {visit}, \hyperpage{50}
+  \item {dtd::EmptyContent}, \hyperpage{51}
+    \subitem {$\sim $EmptyContent}, \hyperpage{54}
+    \subitem {accept}, \hyperpage{54}
+    \subitem {EmptyContent}, \hyperpage{54}
+    \subitem {validate}, \hyperpage{54}
+  \item {dtd::InterfaceDTDVisitor}, \hyperpage{55}
+    \subitem {$\sim $InterfaceDTDVisitor}, \hyperpage{57}
+    \subitem {AnyContent}, \hyperpage{60}
+    \subitem {Choice}, \hyperpage{60}
+    \subitem {ElementReference}, \hyperpage{60}
+    \subitem {EmptyContent}, \hyperpage{60}
+    \subitem {MixedContent}, \hyperpage{60}
+    \subitem {OptionalContent}, \hyperpage{60}
+    \subitem {RepeatableContent}, \hyperpage{60}
+    \subitem {RepeatedContent}, \hyperpage{60}
+    \subitem {Sequence}, \hyperpage{61}
+    \subitem {TextContent}, \hyperpage{61}
+    \subitem {visit}, \hyperpage{57--59}
+    \subitem {visitAttributesList}, \hyperpage{59}
+    \subitem {visitElement}, \hyperpage{59}
+  \item {dtd::MixedContent}, \hyperpage{61}
+    \subitem {$\sim $MixedContent}, \hyperpage{65}
+    \subitem {\_\discretionary {-}{}{}StatesStack}, \hyperpage{64}
+    \subitem {\_\discretionary {-}{}{}afterValidation}, \hyperpage{65}
+    \subitem {\_\discretionary {-}{}{}beforeValidation}, \hyperpage{65}
+    \subitem {\_\discretionary {-}{}{}choice}, \hyperpage{67}
+    \subitem {\_\discretionary {-}{}{}continueValidation}, 
+		\hyperpage{65}
+    \subitem {\_\discretionary {-}{}{}stack}, \hyperpage{67}
+    \subitem {\_\discretionary {-}{}{}startValidation}, \hyperpage{66}
+    \subitem {\_\discretionary {-}{}{}textContent}, \hyperpage{67}
+    \subitem {accept}, \hyperpage{66}
+    \subitem {begin}, \hyperpage{66}
+    \subitem {ChoosableSet}, \hyperpage{64}
+    \subitem {const\_\discretionary {-}{}{}iterator}, \hyperpage{65}
+    \subitem {end}, \hyperpage{66}
+    \subitem {MixedContent}, \hyperpage{65}
+    \subitem {validate}, \hyperpage{66}
+  \item {dtd::OptionalContent}, \hyperpage{67}
+    \subitem {$\sim $OptionalContent}, \hyperpage{70}
+    \subitem {\_\discretionary {-}{}{}continueValidation}, 
+		\hyperpage{70}
+    \subitem {\_\discretionary {-}{}{}startValidation}, \hyperpage{70}
+    \subitem {accept}, \hyperpage{71}
+    \subitem {OptionalContent}, \hyperpage{70}
+  \item {dtd::OutputDTDVisitor}, \hyperpage{71}
+    \subitem {$\sim $OutputDTDVisitor}, \hyperpage{75}
+    \subitem {\_\discretionary {-}{}{}indent}, \hyperpage{77}
+    \subitem {\_\discretionary {-}{}{}indentChar}, \hyperpage{77}
+    \subitem {\_\discretionary {-}{}{}indentUnit}, \hyperpage{77}
+    \subitem {\_\discretionary {-}{}{}out}, \hyperpage{77}
+    \subitem {ANY\_\discretionary {-}{}{}CONTENT\_\discretionary {-}{}{}STR}, 
+		\hyperpage{77}
+    \subitem {ATTLIST\_\discretionary {-}{}{}MARKUP\_\discretionary {-}{}{}NAME\_\discretionary {-}{}{}STR}, 
+		\hyperpage{77}
+    \subitem {CHOICE\_\discretionary {-}{}{}SEPARATOR\_\discretionary {-}{}{}STR}, 
+		\hyperpage{78}
+    \subitem {CLOSE\_\discretionary {-}{}{}MARKUP\_\discretionary {-}{}{}STR}, 
+		\hyperpage{78}
+    \subitem {DEFAULT\_\discretionary {-}{}{}INDENT\_\discretionary {-}{}{}CHAR}, 
+		\hyperpage{78}
+    \subitem {DEFAULT\_\discretionary {-}{}{}INDENT\_\discretionary {-}{}{}UNIT}, 
+		\hyperpage{78}
+    \subitem {doIndent}, \hyperpage{75}
+    \subitem {ELEMENT\_\discretionary {-}{}{}MARKUP\_\discretionary {-}{}{}NAME\_\discretionary {-}{}{}STR}, 
+		\hyperpage{78}
+    \subitem {EMPTY\_\discretionary {-}{}{}CONTENT\_\discretionary {-}{}{}STR}, 
+		\hyperpage{78}
+    \subitem {END\_\discretionary {-}{}{}CHOICE\_\discretionary {-}{}{}STR}, 
+		\hyperpage{78}
+    \subitem {END\_\discretionary {-}{}{}MIXED\_\discretionary {-}{}{}STR}, 
+		\hyperpage{78}
+    \subitem {END\_\discretionary {-}{}{}SEQUENCE\_\discretionary {-}{}{}STR}, 
+		\hyperpage{78}
+    \subitem {INSIDE\_\discretionary {-}{}{}MARKUP\_\discretionary {-}{}{}SPACE\_\discretionary {-}{}{}STR}, 
+		\hyperpage{79}
+    \subitem {MIXED\_\discretionary {-}{}{}SEPARATOR\_\discretionary {-}{}{}STR}, 
+		\hyperpage{79}
+    \subitem {OPEN\_\discretionary {-}{}{}MARKUP\_\discretionary {-}{}{}STR}, 
+		\hyperpage{79}
+    \subitem {OPTIONAL\_\discretionary {-}{}{}QUANTIFIER\_\discretionary {-}{}{}STR}, 
+		\hyperpage{79}
+    \subitem {OutputDTDVisitor}, \hyperpage{75}
+    \subitem {REPEATABLE\_\discretionary {-}{}{}QUANTIFIER\_\discretionary {-}{}{}STR}, 
+		\hyperpage{79}
+    \subitem {REPEATED\_\discretionary {-}{}{}QUANTIFIER\_\discretionary {-}{}{}STR}, 
+		\hyperpage{79}
+    \subitem {SEQUENCE\_\discretionary {-}{}{}SEPARATOR\_\discretionary {-}{}{}STR}, 
+		\hyperpage{79}
+    \subitem {START\_\discretionary {-}{}{}CHOICE\_\discretionary {-}{}{}STR}, 
+		\hyperpage{79}
+    \subitem {START\_\discretionary {-}{}{}MIXED\_\discretionary {-}{}{}STR}, 
+		\hyperpage{79}
+    \subitem {START\_\discretionary {-}{}{}SEQUENCE\_\discretionary {-}{}{}STR}, 
+		\hyperpage{80}
+    \subitem {TEXT\_\discretionary {-}{}{}CONTENT\_\discretionary {-}{}{}STR}, 
+		\hyperpage{80}
+    \subitem {visit}, \hyperpage{75, 76}
+    \subitem {visitAttributesList}, \hyperpage{76}
+    \subitem {visitElement}, \hyperpage{77}
+  \item {dtd::QuantifiableContent}, \hyperpage{80}
+    \subitem {$\sim $QuantifiableContent}, \hyperpage{83}
+    \subitem {QuantifiableContent}, \hyperpage{83}
+  \item {dtd::QuantifiableContent::\_\discretionary {-}{}{}State}, 
+		\hyperpage{14}
+    \subitem {\_\discretionary {-}{}{}State}, \hyperpage{17}
+    \subitem {endToken}, \hyperpage{17}
+    \subitem {firstToken}, \hyperpage{17}
+    \subitem {nextStep}, \hyperpage{17}
+  \item {dtd::QuantifiedContent}, \hyperpage{83}
+    \subitem {$\sim $QuantifiedContent}, \hyperpage{86}
+    \subitem {\_\discretionary {-}{}{}StatesStack}, \hyperpage{86}
+    \subitem {\_\discretionary {-}{}{}afterValidation}, \hyperpage{87}
+    \subitem {\_\discretionary {-}{}{}beforeValidation}, \hyperpage{87}
+    \subitem {\_\discretionary {-}{}{}content}, \hyperpage{87}
+    \subitem {\_\discretionary {-}{}{}stack}, \hyperpage{87}
+    \subitem {content}, \hyperpage{87}
+    \subitem {QuantifiedContent}, \hyperpage{86}
+    \subitem {validate}, \hyperpage{87}
+  \item {dtd::RepeatableContent}, \hyperpage{88}
+    \subitem {$\sim $RepeatableContent}, \hyperpage{91}
+    \subitem {\_\discretionary {-}{}{}continueValidation}, 
+		\hyperpage{91}
+    \subitem {\_\discretionary {-}{}{}startValidation}, \hyperpage{91}
+    \subitem {accept}, \hyperpage{92}
+    \subitem {RepeatableContent}, \hyperpage{91}
+  \item {dtd::RepeatedContent}, \hyperpage{92}
+    \subitem {$\sim $RepeatedContent}, \hyperpage{95}
+    \subitem {\_\discretionary {-}{}{}continueValidation}, 
+		\hyperpage{95}
+    \subitem {\_\discretionary {-}{}{}startValidation}, \hyperpage{96}
+    \subitem {accept}, \hyperpage{96}
+    \subitem {RepeatedContent}, \hyperpage{95}
+  \item {dtd::Sequence}, \hyperpage{96}
+    \subitem {$\sim $Sequence}, \hyperpage{100}
+    \subitem {\_\discretionary {-}{}{}OrderedContent}, \hyperpage{100}
+    \subitem {\_\discretionary {-}{}{}StatesStack}, \hyperpage{100}
+    \subitem {\_\discretionary {-}{}{}afterValidation}, \hyperpage{100}
+    \subitem {\_\discretionary {-}{}{}beforeValidation}, 
+		\hyperpage{100}
+    \subitem {\_\discretionary {-}{}{}continueValidation}, 
+		\hyperpage{100}
+    \subitem {\_\discretionary {-}{}{}embeddedContent}, \hyperpage{102}
+    \subitem {\_\discretionary {-}{}{}stack}, \hyperpage{102}
+    \subitem {\_\discretionary {-}{}{}startValidation}, \hyperpage{101}
+    \subitem {accept}, \hyperpage{101}
+    \subitem {begin}, \hyperpage{101}
+    \subitem {const\_\discretionary {-}{}{}iterator}, \hyperpage{100}
+    \subitem {end}, \hyperpage{101}
+    \subitem {OrderedContent}, \hyperpage{100}
+    \subitem {Sequence}, \hyperpage{100}
+    \subitem {validate}, \hyperpage{102}
+  \item {dtd::Sequence::\_\discretionary {-}{}{}State}, \hyperpage{17}
+    \subitem {\_\discretionary {-}{}{}State}, \hyperpage{20}
+    \subitem {nextEmbeddedContent}, \hyperpage{20}
+  \item {dtd::TextContent}, \hyperpage{102}
+    \subitem {$\sim $TextContent}, \hyperpage{105}
+    \subitem {\_\discretionary {-}{}{}startValidation}, \hyperpage{105}
+    \subitem {\_\discretionary {-}{}{}validationResult}, 
+		\hyperpage{106}
+    \subitem {accept}, \hyperpage{105}
+    \subitem {TextContent}, \hyperpage{105}
+    \subitem {visit}, \hyperpage{106}
+
+  \indexspace
+
+  \item {ELEMENT\_\discretionary {-}{}{}MARKUP\_\discretionary {-}{}{}NAME\_\discretionary {-}{}{}STR}
+    \subitem {dtd::OutputDTDVisitor}, \hyperpage{78}
+  \item {ElementContent}
+    \subitem {dtd::ElementContent}, \hyperpage{46}
+  \item {ElementReference}
+    \subitem {dtd::ElementReference}, \hyperpage{49}
+    \subitem {dtd::InterfaceDTDVisitor}, \hyperpage{60}
+  \item {EMPTY\_\discretionary {-}{}{}CONTENT\_\discretionary {-}{}{}STR}
+    \subitem {dtd::OutputDTDVisitor}, \hyperpage{78}
+  \item {EmptyContent}
+    \subitem {dtd::EmptyContent}, \hyperpage{54}
+    \subitem {dtd::InterfaceDTDVisitor}, \hyperpage{60}
+  \item {end}
+    \subitem {dtd::Choice}, \hyperpage{35}
+    \subitem {dtd::MixedContent}, \hyperpage{66}
+    \subitem {dtd::Sequence}, \hyperpage{101}
+  \item {END\_\discretionary {-}{}{}CHOICE\_\discretionary {-}{}{}STR}
+    \subitem {dtd::OutputDTDVisitor}, \hyperpage{78}
+  \item {END\_\discretionary {-}{}{}MIXED\_\discretionary {-}{}{}STR}
+    \subitem {dtd::OutputDTDVisitor}, \hyperpage{78}
+  \item {END\_\discretionary {-}{}{}SEQUENCE\_\discretionary {-}{}{}STR}
+    \subitem {dtd::OutputDTDVisitor}, \hyperpage{78}
+  \item {endToken}
+    \subitem {dtd::QuantifiableContent::\_\discretionary {-}{}{}State}, 
+		\hyperpage{17}
+
+  \indexspace
+
+  \item {firstToken}
+    \subitem {dtd::QuantifiableContent::\_\discretionary {-}{}{}State}, 
+		\hyperpage{17}
+
+  \indexspace
+
+  \item {getAttributesList}
+    \subitem {dtd::DTD}, \hyperpage{41}
+  \item {getElement}
+    \subitem {dtd::DTD}, \hyperpage{42}
+
+  \indexspace
+
+  \item {INSIDE\_\discretionary {-}{}{}MARKUP\_\discretionary {-}{}{}SPACE\_\discretionary {-}{}{}STR}
+    \subitem {dtd::OutputDTDVisitor}, \hyperpage{79}
+  \item {isValid}
+    \subitem {dtd::DTD}, \hyperpage{42}
+
+  \indexspace
+
+  \item {matches}
+    \subitem {dtd::ElementReference}, \hyperpage{50}
+  \item {MIXED\_\discretionary {-}{}{}SEPARATOR\_\discretionary {-}{}{}STR}
+    \subitem {dtd::OutputDTDVisitor}, \hyperpage{79}
+  \item {MixedContent}
+    \subitem {dtd::InterfaceDTDVisitor}, \hyperpage{60}
+    \subitem {dtd::MixedContent}, \hyperpage{65}
+
+  \indexspace
+
+  \item {name}
+    \subitem {dtd::Attribute}, \hyperpage{24}
+    \subitem {dtd::ElementReference}, \hyperpage{50}
+  \item {nextChoosable}
+    \subitem {dtd::Choice::\_\discretionary {-}{}{}State}, 
+		\hyperpage{14}
+  \item {nextEmbeddedContent}
+    \subitem {dtd::Sequence::\_\discretionary {-}{}{}State}, 
+		\hyperpage{20}
+  \item {nextStep}
+    \subitem {dtd::QuantifiableContent::\_\discretionary {-}{}{}State}, 
+		\hyperpage{17}
+  \item {ns}
+    \subitem {dtd::ElementReference}, \hyperpage{50}
+
+  \indexspace
+
+  \item {OPEN\_\discretionary {-}{}{}MARKUP\_\discretionary {-}{}{}STR}
+    \subitem {dtd::OutputDTDVisitor}, \hyperpage{79}
+  \item {operator()}
+    \subitem {dtd::AttributesComparator}, \hyperpage{25}
+  \item {OPTIONAL\_\discretionary {-}{}{}QUANTIFIER\_\discretionary {-}{}{}STR}
+    \subitem {dtd::OutputDTDVisitor}, \hyperpage{79}
+  \item {OptionalContent}
+    \subitem {dtd::InterfaceDTDVisitor}, \hyperpage{60}
+    \subitem {dtd::OptionalContent}, \hyperpage{70}
+  \item {OrderedContent}
+    \subitem {dtd::Sequence}, \hyperpage{100}
+  \item {OutputDTDVisitor}
+    \subitem {dtd::OutputDTDVisitor}, \hyperpage{75}
+
+  \indexspace
+
+  \item {QuantifiableContent}
+    \subitem {dtd::QuantifiableContent}, \hyperpage{83}
+  \item {QuantifiedContent}
+    \subitem {dtd::QuantifiedContent}, \hyperpage{86}
+
+  \indexspace
+
+  \item {REPEATABLE\_\discretionary {-}{}{}QUANTIFIER\_\discretionary {-}{}{}STR}
+    \subitem {dtd::OutputDTDVisitor}, \hyperpage{79}
+  \item {RepeatableContent}
+    \subitem {dtd::InterfaceDTDVisitor}, \hyperpage{60}
+    \subitem {dtd::RepeatableContent}, \hyperpage{91}
+  \item {REPEATED\_\discretionary {-}{}{}QUANTIFIER\_\discretionary {-}{}{}STR}
+    \subitem {dtd::OutputDTDVisitor}, \hyperpage{79}
+  \item {RepeatedContent}
+    \subitem {dtd::InterfaceDTDVisitor}, \hyperpage{60}
+    \subitem {dtd::RepeatedContent}, \hyperpage{95}
+
+  \indexspace
+
+  \item {Sequence}
+    \subitem {dtd::InterfaceDTDVisitor}, \hyperpage{61}
+    \subitem {dtd::Sequence}, \hyperpage{100}
+  \item {SEQUENCE\_\discretionary {-}{}{}SEPARATOR\_\discretionary {-}{}{}STR}
+    \subitem {dtd::OutputDTDVisitor}, \hyperpage{79}
+  \item {src/AnyContent.cpp}, \hyperpage{107}
+  \item {src/AnyContent.hh}, \hyperpage{107}
+  \item {src/Attribute.cpp}, \hyperpage{108}
+  \item {src/Attribute.hh}, \hyperpage{109}
+  \item {src/AttributesList.hh}, \hyperpage{110}
+  \item {src/BrowsableContent.cpp}, \hyperpage{112}
+  \item {src/BrowsableContent.hh}, \hyperpage{112}
+  \item {src/Choice.cpp}, \hyperpage{113}
+  \item {src/Choice.hh}, \hyperpage{114}
+  \item {src/Content.cpp}, \hyperpage{116}
+  \item {src/Content.hh}, \hyperpage{116}
+  \item {src/DTD.cpp}, \hyperpage{117}
+  \item {src/DTD.hh}, \hyperpage{118}
+  \item {src/ElementContent.cpp}, \hyperpage{119}
+  \item {src/ElementContent.hh}, \hyperpage{120}
+  \item {src/ElementReference.cpp}, \hyperpage{122}
+  \item {src/ElementReference.hh}, \hyperpage{122}
+  \item {src/EmptyContent.cpp}, \hyperpage{124}
+  \item {src/EmptyContent.hh}, \hyperpage{124}
+  \item {src/InterfaceDTDVisitor.hpp}, \hyperpage{125}
+  \item {src/MixedContent.cpp}, \hyperpage{126}
+  \item {src/MixedContent.hh}, \hyperpage{127}
+  \item {src/OptionalContent.cpp}, \hyperpage{129}
+  \item {src/OptionalContent.hh}, \hyperpage{130}
+  \item {src/OutputDTDVisitor.cpp}, \hyperpage{131}
+  \item {src/OutputDTDVisitor.hh}, \hyperpage{132}
+  \item {src/QuantifiableContent.cpp}, \hyperpage{134}
+  \item {src/QuantifiableContent.hh}, \hyperpage{134}
+  \item {src/QuantifiedContent.cpp}, \hyperpage{135}
+  \item {src/QuantifiedContent.hh}, \hyperpage{136}
+  \item {src/RepeatableContent.cpp}, \hyperpage{138}
+  \item {src/RepeatableContent.hh}, \hyperpage{138}
+  \item {src/RepeatedContent.cpp}, \hyperpage{140}
+  \item {src/RepeatedContent.hh}, \hyperpage{141}
+  \item {src/Sequence.cpp}, \hyperpage{142}
+  \item {src/Sequence.hh}, \hyperpage{143}
+  \item {src/TextContent.cpp}, \hyperpage{145}
+  \item {src/TextContent.hh}, \hyperpage{145}
+  \item {START\_\discretionary {-}{}{}CHOICE\_\discretionary {-}{}{}STR}
+    \subitem {dtd::OutputDTDVisitor}, \hyperpage{79}
+  \item {START\_\discretionary {-}{}{}MIXED\_\discretionary {-}{}{}STR}
+    \subitem {dtd::OutputDTDVisitor}, \hyperpage{79}
+  \item {START\_\discretionary {-}{}{}SEQUENCE\_\discretionary {-}{}{}STR}
+    \subitem {dtd::OutputDTDVisitor}, \hyperpage{80}
+
+  \indexspace
+
+  \item {TEXT\_\discretionary {-}{}{}CONTENT\_\discretionary {-}{}{}STR}
+    \subitem {dtd::OutputDTDVisitor}, \hyperpage{80}
+  \item {TextContent}
+    \subitem {dtd::InterfaceDTDVisitor}, \hyperpage{61}
+    \subitem {dtd::TextContent}, \hyperpage{105}
+
+  \indexspace
+
+  \item {validate}
+    \subitem {dtd::AnyContent}, \hyperpage{23}
+    \subitem {dtd::BrowsableContent}, \hyperpage{30}
+    \subitem {dtd::Choice}, \hyperpage{35}
+    \subitem {dtd::Content}, \hyperpage{38}
+    \subitem {dtd::EmptyContent}, \hyperpage{54}
+    \subitem {dtd::MixedContent}, \hyperpage{66}
+    \subitem {dtd::QuantifiedContent}, \hyperpage{87}
+    \subitem {dtd::Sequence}, \hyperpage{102}
+  \item {visit}
+    \subitem {dtd::DTD}, \hyperpage{42}
+    \subitem {dtd::ElementReference}, \hyperpage{50}
+    \subitem {dtd::InterfaceDTDVisitor}, \hyperpage{57--59}
+    \subitem {dtd::OutputDTDVisitor}, \hyperpage{75, 76}
+    \subitem {dtd::TextContent}, \hyperpage{106}
+  \item {visitAttributesList}
+    \subitem {dtd::InterfaceDTDVisitor}, \hyperpage{59}
+    \subitem {dtd::OutputDTDVisitor}, \hyperpage{76}
+  \item {visitElement}
+    \subitem {dtd::InterfaceDTDVisitor}, \hyperpage{59}
+    \subitem {dtd::OutputDTDVisitor}, \hyperpage{77}
+
+\end{theindex}

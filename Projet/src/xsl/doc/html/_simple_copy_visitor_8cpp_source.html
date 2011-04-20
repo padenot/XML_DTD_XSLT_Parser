@@ -64,94 +64,97 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 <a name="l00014"></a>00014 <span class="preprocessor">#ifdef XSL_TRANSFORM_TRACE</span>
 <a name="l00015"></a>00015 <span class="preprocessor"></span><span class="preprocessor">#include &lt;iostream&gt;</span>
 <a name="l00016"></a>00016 <span class="preprocessor">#endif</span>
-<a name="l00017"></a>00017 <span class="preprocessor"></span>
-<a name="l00018"></a>00018 <span class="comment">//------------------------------------------------------ Include personnel</span>
-<a name="l00019"></a>00019 <span class="preprocessor">#include &quot;<a class="code" href="_simple_copy_visitor_8hh.html">SimpleCopyVisitor.hh</a>&quot;</span>
-<a name="l00020"></a>00020 <span class="keyword">using namespace </span>xml;
-<a name="l00021"></a>00021 
-<a name="l00022"></a>00022 <span class="keyword">namespace </span>xsl
-<a name="l00023"></a>00023 {
-<a name="l00024"></a>00024 <span class="comment">//------------------------------------------------------------- Constantes</span>
-<a name="l00025"></a>00025 
-<a name="l00026"></a>00026 <span class="comment">//----------------------------------------------------------------- PUBLIC</span>
-<a name="l00027"></a>00027 
-<a name="l00028"></a>00028 <span class="comment">//----------------------------------------------------- M�thodes publiques</span>
-<a name="l00029"></a>00029 <span class="comment">// type SimpleCopyVisitor::M�thode ( liste des param�tres )</span>
-<a name="l00030"></a>00030 <span class="comment">// Algorithme :</span>
-<a name="l00031"></a>00031 <span class="comment">//</span>
-<a name="l00032"></a>00032 <span class="comment">//{</span>
-<a name="l00033"></a>00033 <span class="comment">//}</span>
-<a name="l00034"></a>00034 Node * SimpleCopyVisitor::copy(CompositeMarkupNode ** parent,
-<a name="l00035"></a>00035                 <span class="keyword">const</span> Node&amp; referenceNode)
-<a name="l00036"></a>00036 {
-<a name="l00037"></a>00037         _parent = parent;
-<a name="l00038"></a>00038         referenceNode.accept(*<span class="keyword">this</span>);
-<a name="l00039"></a>00039         <span class="keywordflow">return</span> _copiedNode;
-<a name="l00040"></a>00040 }
-<a name="l00041"></a>00041 
-<a name="l00042"></a>00042 <span class="comment">//------------------------------------------------- Surcharge d&#39;op�rateurs</span>
-<a name="l00043"></a>00043 
+<a name="l00017"></a>00017 <span class="preprocessor"></span><span class="preprocessor">#include &lt;cassert&gt;</span>
+<a name="l00018"></a>00018 
+<a name="l00019"></a>00019 <span class="comment">//------------------------------------------------------ Include personnel</span>
+<a name="l00020"></a>00020 <span class="preprocessor">#include &quot;<a class="code" href="_simple_copy_visitor_8hh.html">SimpleCopyVisitor.hh</a>&quot;</span>
+<a name="l00021"></a>00021 <span class="keyword">using namespace </span>xml;
+<a name="l00022"></a>00022 
+<a name="l00023"></a>00023 <span class="keyword">namespace </span>xsl
+<a name="l00024"></a>00024 {
+<a name="l00025"></a>00025 <span class="comment">//------------------------------------------------------------- Constantes</span>
+<a name="l00026"></a>00026 
+<a name="l00027"></a>00027 <span class="comment">//----------------------------------------------------------------- PUBLIC</span>
+<a name="l00028"></a>00028 
+<a name="l00029"></a>00029 <span class="comment">//----------------------------------------------------- M�thodes publiques</span>
+<a name="l00030"></a>00030 <span class="comment">// type SimpleCopyVisitor::M�thode ( liste des param�tres )</span>
+<a name="l00031"></a>00031 <span class="comment">// Algorithme :</span>
+<a name="l00032"></a>00032 <span class="comment">//</span>
+<a name="l00033"></a>00033 <span class="comment">//{</span>
+<a name="l00034"></a>00034 <span class="comment">//}</span>
+<a name="l00035"></a>00035 Node * SimpleCopyVisitor::copy(CompositeMarkupNode ** parent,
+<a name="l00036"></a>00036                 <span class="keyword">const</span> Node&amp; referenceNode)
+<a name="l00037"></a>00037 {
+<a name="l00038"></a>00038         _parentProxy = parent;
+<a name="l00039"></a>00039         referenceNode.accept(*<span class="keyword">this</span>);
+<a name="l00040"></a>00040         <span class="keywordflow">return</span> _copiedNode;
+<a name="l00041"></a>00041 }
+<a name="l00042"></a>00042 
+<a name="l00043"></a>00043 <span class="comment">//------------------------------------------------- Surcharge d&#39;op�rateurs</span>
 <a name="l00044"></a>00044 
-<a name="l00045"></a>00045 <span class="comment">//-------------------------------------------- Constructeurs - destructeur</span>
-<a name="l00046"></a><a class="code" href="classxsl_1_1_simple_copy_visitor.html#a48310fd852d3993749d46ff2c17ff001">00046</a> SimpleCopyVisitor::SimpleCopyVisitor()
-<a name="l00047"></a>00047 {
-<a name="l00048"></a>00048         <span class="comment">//TODO</span>
-<a name="l00049"></a>00049 }
-<a name="l00050"></a>00050 
-<a name="l00051"></a><a class="code" href="classxsl_1_1_simple_copy_visitor.html#a35dd73ab468988333fad21aba4502eff">00051</a> SimpleCopyVisitor::~SimpleCopyVisitor()
-<a name="l00052"></a>00052 {
-<a name="l00053"></a>00053         <span class="comment">//TODO</span>
-<a name="l00054"></a>00054 }
-<a name="l00055"></a>00055 
-<a name="l00056"></a>00056 <span class="comment">//------------------------------------------------------------------ PRIVE</span>
-<a name="l00057"></a>00057 
-<a name="l00058"></a>00058 <span class="comment">//----------------------------------------------------- M�thodes prot�g�es</span>
-<a name="l00059"></a>00059 <span class="keywordtype">void</span> SimpleCopyVisitor::visit(<span class="keyword">const</span> TextNode&amp; node)
+<a name="l00045"></a>00045 
+<a name="l00046"></a>00046 <span class="comment">//-------------------------------------------- Constructeurs - destructeur</span>
+<a name="l00047"></a><a class="code" href="classxsl_1_1_simple_copy_visitor.html#a81aa92c2b248851fe1fa626dc2bfaef0">00047</a> SimpleCopyVisitor::SimpleCopyVisitor(<a class="code" href="classxsl_1_1_transformer_visitor.html">TransformerVisitor</a> &amp; transformer) :
+<a name="l00048"></a>00048         _transformer(transformer), _copiedNode(0), _parentProxy(0)
+<a name="l00049"></a>00049 {
+<a name="l00050"></a>00050         <span class="comment">// Rien à faire</span>
+<a name="l00051"></a>00051 }
+<a name="l00052"></a>00052 
+<a name="l00053"></a><a class="code" href="classxsl_1_1_simple_copy_visitor.html#a532b61a79726327c4653de11e5592e08">00053</a> <a class="code" href="classxsl_1_1_simple_copy_visitor.html#a81aa92c2b248851fe1fa626dc2bfaef0">SimpleCopyVisitor::SimpleCopyVisitor</a>(<a class="code" href="classxsl_1_1_recursive_transformer_visitor.html">RecursiveTransformerVisitor</a> &amp; transformer) :
+<a name="l00054"></a>00054         _transformer(transformer), _copiedNode(0), _parentProxy(0)
+<a name="l00055"></a>00055 {
+<a name="l00056"></a>00056         <span class="comment">// Rien à faire</span>
+<a name="l00057"></a>00057 }
+<a name="l00058"></a>00058 
+<a name="l00059"></a><a class="code" href="classxsl_1_1_simple_copy_visitor.html#a35dd73ab468988333fad21aba4502eff">00059</a> <a class="code" href="classxsl_1_1_simple_copy_visitor.html#a35dd73ab468988333fad21aba4502eff">SimpleCopyVisitor::~SimpleCopyVisitor</a>()
 <a name="l00060"></a>00060 {
-<a name="l00061"></a>00061 <span class="preprocessor">#ifdef XSL_TRANSFORM_TRACE</span>
-<a name="l00062"></a>00062 <span class="preprocessor"></span>        clog &lt;&lt; <span class="stringliteral">&quot;SimpleCopy on TextNode&quot;</span> &lt;&lt; endl;
-<a name="l00063"></a>00063 <span class="preprocessor">#endif</span>
-<a name="l00064"></a>00064 <span class="preprocessor"></span>        _copiedNode = <span class="keyword">new</span> TextNode(_parent, node.content());
-<a name="l00065"></a>00065 }
-<a name="l00066"></a>00066 
-<a name="l00067"></a>00067 <span class="keywordtype">void</span> SimpleCopyVisitor::visit(<span class="keyword">const</span> MarkupNode&amp; node)
+<a name="l00061"></a>00061         <span class="comment">// Rien à faire</span>
+<a name="l00062"></a>00062 }
+<a name="l00063"></a>00063 
+<a name="l00064"></a>00064 <span class="comment">//------------------------------------------------------------------ PRIVE</span>
+<a name="l00065"></a>00065 
+<a name="l00066"></a>00066 <span class="comment">//----------------------------------------------------- M�thodes prot�g�es</span>
+<a name="l00067"></a>00067 <span class="keywordtype">void</span> <a class="code" href="classxsl_1_1_simple_copy_visitor.html#a2af765f5955c795d73c5aa6edbe1ae93">SimpleCopyVisitor::visit</a>(<span class="keyword">const</span> TextNode&amp; node)
 <a name="l00068"></a>00068 {
 <a name="l00069"></a>00069 <span class="preprocessor">#ifdef XSL_TRANSFORM_TRACE</span>
-<a name="l00070"></a>00070 <span class="preprocessor"></span>        clog &lt;&lt; <span class="stringliteral">&quot;SimpleCopy on MarkupNode&quot;</span> &lt;&lt; endl;
+<a name="l00070"></a>00070 <span class="preprocessor"></span>        clog &lt;&lt; <span class="stringliteral">&quot;SimpleCopy on TextNode&quot;</span> &lt;&lt; endl;
 <a name="l00071"></a>00071 <span class="preprocessor">#endif</span>
-<a name="l00072"></a>00072 <span class="preprocessor"></span>        MarkupNode::Attributes list(node.MarkupNode::begin(),
-<a name="l00073"></a>00073                         node.MarkupNode::end());
+<a name="l00072"></a>00072 <span class="preprocessor"></span>        <a class="code" href="classxsl_1_1_simple_copy_visitor.html#a181cd3a2e2aed778efe9fbc8f5fe0bf8">_copiedNode</a> = <span class="keyword">new</span> TextNode(<a class="code" href="classxsl_1_1_simple_copy_visitor.html#a7193e6b1b0a45af85b5346240559670a">_parentProxy</a>, node.content());
+<a name="l00073"></a>00073 }
 <a name="l00074"></a>00074 
-<a name="l00075"></a>00075         _copiedNode = <span class="keyword">new</span> MarkupNode(_parent, node.ns(), node.name(), list);
-<a name="l00076"></a>00076 }
-<a name="l00077"></a>00077 
-<a name="l00078"></a>00078 <span class="keywordtype">void</span> SimpleCopyVisitor::visit(<span class="keyword">const</span> CompositeMarkupNode&amp; node)
-<a name="l00079"></a>00079 {
-<a name="l00080"></a>00080 <span class="preprocessor">#ifdef XSL_TRANSFORM_TRACE</span>
-<a name="l00081"></a>00081 <span class="preprocessor"></span>        clog &lt;&lt; <span class="stringliteral">&quot;SimpleCopy on CompositeMarkupNode&quot;</span> &lt;&lt; endl;
-<a name="l00082"></a>00082 <span class="preprocessor">#endif</span>
-<a name="l00083"></a>00083 <span class="preprocessor"></span>        CompositeMarkupNode::Children childrenNodes;
-<a name="l00084"></a>00084         CompositeMarkupNode ** tempParent = _parent;
-<a name="l00085"></a>00085         _parent = <span class="keyword">new</span> CompositeMarkupNode*;
-<a name="l00086"></a>00086 
-<a name="l00087"></a>00087         <span class="keywordflow">for</span> (CompositeMarkupNode::ChildrenIterator itNoeud = node.begin(); itNoeud
-<a name="l00088"></a>00088                         != node.end(); ++itNoeud)
-<a name="l00089"></a>00089         {
-<a name="l00090"></a>00090                 (*itNoeud)-&gt;accept(*<span class="keyword">this</span>);<span class="comment">//stocke dans copiedNode la copie du fils</span>
-<a name="l00091"></a>00091                 childrenNodes.push_back(_copiedNode);
-<a name="l00092"></a>00092         }
-<a name="l00093"></a>00093         MarkupNode::Attributes list(node.MarkupNode::begin(),
-<a name="l00094"></a>00094                         node.MarkupNode::end());
-<a name="l00095"></a>00095 
-<a name="l00096"></a>00096 <span class="preprocessor">#ifdef XSL_TRANSFORM_TRACE</span>
-<a name="l00097"></a>00097 <span class="preprocessor"></span>        clog &lt;&lt; <span class="stringliteral">&quot;End of SimpleCopy on CompositeMarkupNode&quot;</span> &lt;&lt; endl;
-<a name="l00098"></a>00098 <span class="preprocessor">#endif</span>
-<a name="l00099"></a>00099 <span class="preprocessor"></span>        _copiedNode = <span class="keyword">new</span> CompositeMarkupNode(tempParent, node.ns(), node.name(),
-<a name="l00100"></a>00100                         list, *_parent, childrenNodes);
-<a name="l00101"></a>00101         _parent = tempParent;
-<a name="l00102"></a>00102 }
-<a name="l00103"></a>00103 
-<a name="l00104"></a>00104 } <span class="comment">// namespace xsl</span>
+<a name="l00075"></a>00075 <span class="keywordtype">void</span> <a class="code" href="classxsl_1_1_simple_copy_visitor.html#a2af765f5955c795d73c5aa6edbe1ae93">SimpleCopyVisitor::visit</a>(<span class="keyword">const</span> MarkupNode&amp; node)
+<a name="l00076"></a>00076 {
+<a name="l00077"></a>00077 <span class="preprocessor">#ifdef XSL_TRANSFORM_TRACE</span>
+<a name="l00078"></a>00078 <span class="preprocessor"></span>        clog &lt;&lt; <span class="stringliteral">&quot;SimpleCopy on MarkupNode&quot;</span> &lt;&lt; endl;
+<a name="l00079"></a>00079 <span class="preprocessor">#endif</span>
+<a name="l00080"></a>00080 <span class="preprocessor"></span>        MarkupNode::Attributes list(node.MarkupNode::begin(),
+<a name="l00081"></a>00081                         node.MarkupNode::end());
+<a name="l00082"></a>00082 
+<a name="l00083"></a>00083         <a class="code" href="classxsl_1_1_simple_copy_visitor.html#a181cd3a2e2aed778efe9fbc8f5fe0bf8">_copiedNode</a> = <span class="keyword">new</span> MarkupNode(<a class="code" href="classxsl_1_1_simple_copy_visitor.html#a7193e6b1b0a45af85b5346240559670a">_parentProxy</a>, node.ns(), node.name(), list);
+<a name="l00084"></a>00084 }
+<a name="l00085"></a>00085 
+<a name="l00086"></a>00086 <span class="keywordtype">void</span> <a class="code" href="classxsl_1_1_simple_copy_visitor.html#a2af765f5955c795d73c5aa6edbe1ae93">SimpleCopyVisitor::visit</a>(<span class="keyword">const</span> CompositeMarkupNode&amp; node)
+<a name="l00087"></a>00087 {
+<a name="l00088"></a>00088 <span class="preprocessor">#ifdef XSL_TRANSFORM_TRACE</span>
+<a name="l00089"></a>00089 <span class="preprocessor"></span>        clog &lt;&lt; <span class="stringliteral">&quot;SimpleCopy on CompositeMarkupNode&quot;</span> &lt;&lt; endl;
+<a name="l00090"></a>00090 <span class="preprocessor">#endif</span>
+<a name="l00091"></a>00091 <span class="preprocessor"></span>        MarkupNode::Attributes list(node.MarkupNode::begin(),
+<a name="l00092"></a>00092                         node.MarkupNode::end());
+<a name="l00093"></a>00093         CompositeMarkupNode::Children * newChildren = 0;
+<a name="l00094"></a>00094         CompositeMarkupNode ** myParent = <a class="code" href="classxsl_1_1_simple_copy_visitor.html#a7193e6b1b0a45af85b5346240559670a">_parentProxy</a>;
+<a name="l00095"></a>00095         <a class="code" href="classxsl_1_1_simple_copy_visitor.html#a7193e6b1b0a45af85b5346240559670a">_parentProxy</a> = <span class="keyword">new</span> CompositeMarkupNode*;
+<a name="l00096"></a>00096 
+<a name="l00097"></a>00097         <span class="comment">// Applique les templates sur les noeuds fils</span>
+<a name="l00098"></a>00098         newChildren = <a class="code" href="classxsl_1_1_simple_copy_visitor.html#a43aa3841e33993efd71980af58a09eb8">_transformer</a>.transform(<a class="code" href="classxsl_1_1_simple_copy_visitor.html#a7193e6b1b0a45af85b5346240559670a">_parentProxy</a>, node);
+<a name="l00099"></a>00099         assert(newChildren != 0); <span class="comment">// Ne devrait jamais arriver puisque &quot;node&quot; est composite</span>
+<a name="l00100"></a>00100 
+<a name="l00101"></a>00101         _copiedNode = <span class="keyword">new</span> CompositeMarkupNode(myParent, node.ns(), node.name(),
+<a name="l00102"></a>00102                         list, *<a class="code" href="classxsl_1_1_simple_copy_visitor.html#a7193e6b1b0a45af85b5346240559670a">_parentProxy</a>, *newChildren);
+<a name="l00103"></a>00103         <span class="keyword">delete</span> newChildren;
+<a name="l00104"></a>00104         _parentProxy = myParent;
+<a name="l00105"></a>00105 }
+<a name="l00106"></a>00106 
+<a name="l00107"></a>00107 } <span class="comment">// namespace xsl</span>
 </pre></div></div>
 </div>
 <!--- window showing the filter options -->
@@ -168,7 +171,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Généré le Wed Apr 20 2011 16:22:25 pour XMLLib par&#160;
+<hr class="footer"/><address class="footer"><small>Généré le Wed Apr 20 2011 21:32:19 pour XMLLib par&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.2 </small></address>
 </body>
