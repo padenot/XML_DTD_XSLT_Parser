@@ -344,7 +344,7 @@ int main(int argc, char** argv)
 		return 1;
 	}
 
-	while ((opt = getopt(argc, argv, "hxedt:ck:v:")) != -1)
+	while ((opt = getopt(argc, argv, "hxedt:ck:v")) != -1)
 	{
 		switch (opt)
 		{
