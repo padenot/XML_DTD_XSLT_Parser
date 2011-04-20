@@ -31,8 +31,8 @@ namespace xsl
 {
 //------------------------------------------------------------- Constantes
 // TODO : remettre la bonne valeur
-//const std::string XslCopyVisitor::NAMESPACE_APPLY_TEMPLATES("xsl");
-const std::string XslCopyVisitor::NAMESPACE_APPLY_TEMPLATES;
+const std::string XslCopyVisitor::NAMESPACE_APPLY_TEMPLATES("xsl");
+//const std::string XslCopyVisitor::NAMESPACE_APPLY_TEMPLATES;
 const std::string XslCopyVisitor::NAME_APPLY_TEMPLATES("apply-templates");
 
 //----------------------------------------------------------------- PUBLIC

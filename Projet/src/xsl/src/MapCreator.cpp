@@ -25,6 +25,7 @@ namespace xsl
 {
 //------------------------------------------------------------- Constantes
 
+const string MapCreator::NAMESPACE = "xsl";
 const string MapCreator::TEMPLATE = "template";
 
 //----------------------------------------------------------------- PUBLIC
@@ -44,7 +45,7 @@ void MapCreator::populateMap(const Node& xslTree)
 
 
 //-------------------------------------------- Constructeurs - destructeur
-MapCreator::MapCreator(map<string, const CompositeMarkupNode *> * theMap) :
+MapCreator::MapCreator(map< string, const CompositeMarkupNode *> * theMap) :
 	mapTemp(theMap)
 {
 }
@@ -75,7 +76,7 @@ void MapCreator::visit(const CompositeMarkupNode& node)
 #ifdef XSL_TRANSFORM_TRACE
 	clog << "MapCreator on CompositeMarkupNode" << endl;
 #endif
-	if (node.name() == TEMPLATE)
+	if (node.name() == TEMPLATE && node.ns() == NAMESPACE )
 	{
 		checkTemplate(node);
 	}

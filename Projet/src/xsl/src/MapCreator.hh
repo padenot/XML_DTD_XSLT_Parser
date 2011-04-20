@@ -54,6 +54,7 @@ public:
 
 protected:
 
+	static const std::string NAMESPACE;
 	static const std::string TEMPLATE;
 
 	std::map<std::string, const xml::CompositeMarkupNode*> * mapTemp;
