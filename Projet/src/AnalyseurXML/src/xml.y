@@ -50,7 +50,7 @@
 %type <attributes> attributes
 %type <children> content
 %%
-document	: dtd_declarations element misc_seq_opt
+document	: dtd_declarations special_markup_list element misc_seq_opt
 			{
 				if ($1 != 0)
 				{
@@ -58,8 +58,15 @@ document	: dtd_declarations element misc_seq_opt
 					validRootName = $1->second;
 					delete $1;
 				}
-				root = $2;
+				root = $3;
 			}
+			;
+
+special_markup_list	: special_markup_list special_markup
+			| /* EMPTY */
+			;
+
+special_markup		: STARTSPECIAL attributes CLOSESPECIAL
 			;
 
 dtd_declarations	: /*EMPTY*/
