@@ -1,5 +1,5 @@
 #include <unistd.h>
-
+#include <cstring>
 #include <cstdlib>
 #include <cstdio>
 #include <iostream>
