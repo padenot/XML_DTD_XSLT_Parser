@@ -1,0 +1,8 @@
+Makefile
+build/Makefile.conf
+H4215_Dossier_Conception.pdf
+
+src/*aux
+src/*loa
+src/*pdf
+src/*aux
