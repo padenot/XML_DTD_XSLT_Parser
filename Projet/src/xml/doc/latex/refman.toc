@@ -1,0 +1,139 @@
+\select@language {french}
+\contentsline {chapter}{\numberline {1}Index des espaces de nommage}{1}{chapter.1}
+\contentsline {section}{\numberline {1.1}Liste des espaces de nommage}{1}{section.1.1}
+\contentsline {chapter}{\numberline {2}Index des classes}{3}{chapter.2}
+\contentsline {section}{\numberline {2.1}Hi\IeC {\'e}rarchie des classes}{3}{section.2.1}
+\contentsline {chapter}{\numberline {3}Index des classes}{5}{chapter.3}
+\contentsline {section}{\numberline {3.1}Liste des classes}{5}{section.3.1}
+\contentsline {chapter}{\numberline {4}Index des fichiers}{7}{chapter.4}
+\contentsline {section}{\numberline {4.1}Liste des fichiers}{7}{section.4.1}
+\contentsline {chapter}{\numberline {5}Documentation des espaces de nommage}{9}{chapter.5}
+\contentsline {section}{\numberline {5.1}R\IeC {\'e}f\IeC {\'e}rence de l'espace de nommage xml}{9}{section.5.1}
+\contentsline {chapter}{\numberline {6}Documentation des classes}{11}{chapter.6}
+\contentsline {section}{\numberline {6.1}R\IeC {\'e}f\IeC {\'e}rence de la classe xml::CompositeMarkupNode}{11}{section.6.1}
+\contentsline {subsection}{\numberline {6.1.1}Description d\IeC {\'e}taill\IeC {\'e}e}{14}{subsection.6.1.1}
+\contentsline {subsection}{\numberline {6.1.2}Documentation des d\IeC {\'e}finitions de type membres}{14}{subsection.6.1.2}
+\contentsline {subsubsection}{\numberline {6.1.2.1}\_\discretionary {-}{}{}Children}{14}{subsubsection.6.1.2.1}
+\contentsline {subsubsection}{\numberline {6.1.2.2}Children}{14}{subsubsection.6.1.2.2}
+\contentsline {subsubsection}{\numberline {6.1.2.3}ChildrenIterator}{14}{subsubsection.6.1.2.3}
+\contentsline {subsection}{\numberline {6.1.3}Documentation des constructeurs et destructeur}{15}{subsection.6.1.3}
+\contentsline {subsubsection}{\numberline {6.1.3.1}CompositeMarkupNode}{15}{subsubsection.6.1.3.1}
+\contentsline {subsubsection}{\numberline {6.1.3.2}$\sim $CompositeMarkupNode}{15}{subsubsection.6.1.3.2}
+\contentsline {subsection}{\numberline {6.1.4}Documentation des fonctions membres}{15}{subsection.6.1.4}
+\contentsline {subsubsection}{\numberline {6.1.4.1}accept}{15}{subsubsection.6.1.4.1}
+\contentsline {subsubsection}{\numberline {6.1.4.2}begin}{15}{subsubsection.6.1.4.2}
+\contentsline {subsubsection}{\numberline {6.1.4.3}end}{15}{subsubsection.6.1.4.3}
+\contentsline {subsection}{\numberline {6.1.5}Documentation des donn\IeC {\'e}es membres}{16}{subsection.6.1.5}
+\contentsline {subsubsection}{\numberline {6.1.5.1}\_\discretionary {-}{}{}children}{16}{subsubsection.6.1.5.1}
+\contentsline {subsubsection}{\numberline {6.1.5.2}\_\discretionary {-}{}{}proxyToSelf}{16}{subsubsection.6.1.5.2}
+\contentsline {section}{\numberline {6.2}R\IeC {\'e}f\IeC {\'e}rence de la classe xml::DotOutputVisitor}{16}{section.6.2}
+\contentsline {subsection}{\numberline {6.2.1}Description d\IeC {\'e}taill\IeC {\'e}e}{19}{subsection.6.2.1}
+\contentsline {subsection}{\numberline {6.2.2}Documentation des constructeurs et destructeur}{19}{subsection.6.2.2}
+\contentsline {subsubsection}{\numberline {6.2.2.1}DotOutputVisitor}{19}{subsubsection.6.2.2.1}
+\contentsline {subsubsection}{\numberline {6.2.2.2}$\sim $DotOutputVisitor}{19}{subsubsection.6.2.2.2}
+\contentsline {subsection}{\numberline {6.2.3}Documentation des fonctions membres}{20}{subsection.6.2.3}
+\contentsline {subsubsection}{\numberline {6.2.3.1}declareNode}{20}{subsubsection.6.2.3.1}
+\contentsline {subsubsection}{\numberline {6.2.3.2}visit}{20}{subsubsection.6.2.3.2}
+\contentsline {subsubsection}{\numberline {6.2.3.3}visit}{20}{subsubsection.6.2.3.3}
+\contentsline {subsubsection}{\numberline {6.2.3.4}visit}{20}{subsubsection.6.2.3.4}
+\contentsline {subsubsection}{\numberline {6.2.3.5}writeAttributes}{20}{subsubsection.6.2.3.5}
+\contentsline {subsubsection}{\numberline {6.2.3.6}writeDot}{20}{subsubsection.6.2.3.6}
+\contentsline {subsubsection}{\numberline {6.2.3.7}writeId}{20}{subsubsection.6.2.3.7}
+\contentsline {subsection}{\numberline {6.2.4}Documentation des donn\IeC {\'e}es membres}{20}{subsection.6.2.4}
+\contentsline {subsubsection}{\numberline {6.2.4.1}\_\discretionary {-}{}{}document}{20}{subsubsection.6.2.4.1}
+\contentsline {subsubsection}{\numberline {6.2.4.2}\_\discretionary {-}{}{}nodesCounter}{21}{subsubsection.6.2.4.2}
+\contentsline {subsubsection}{\numberline {6.2.4.3}\_\discretionary {-}{}{}out}{21}{subsubsection.6.2.4.3}
+\contentsline {subsubsection}{\numberline {6.2.4.4}GRAPH\_\discretionary {-}{}{}TYPE}{21}{subsubsection.6.2.4.4}
+\contentsline {subsubsection}{\numberline {6.2.4.5}LINK}{21}{subsubsection.6.2.4.5}
+\contentsline {subsubsection}{\numberline {6.2.4.6}textNodesCount}{21}{subsubsection.6.2.4.6}
+\contentsline {section}{\numberline {6.3}R\IeC {\'e}f\IeC {\'e}rence de la classe xml::InterfaceNodeVisitor}{21}{section.6.3}
+\contentsline {subsection}{\numberline {6.3.1}Description d\IeC {\'e}taill\IeC {\'e}e}{23}{subsection.6.3.1}
+\contentsline {subsection}{\numberline {6.3.2}Documentation des constructeurs et destructeur}{23}{subsection.6.3.2}
+\contentsline {subsubsection}{\numberline {6.3.2.1}$\sim $InterfaceNodeVisitor}{23}{subsubsection.6.3.2.1}
+\contentsline {subsection}{\numberline {6.3.3}Documentation des fonctions membres}{23}{subsection.6.3.3}
+\contentsline {subsubsection}{\numberline {6.3.3.1}visit}{23}{subsubsection.6.3.3.1}
+\contentsline {subsubsection}{\numberline {6.3.3.2}visit}{24}{subsubsection.6.3.3.2}
+\contentsline {subsubsection}{\numberline {6.3.3.3}visit}{24}{subsubsection.6.3.3.3}
+\contentsline {subsection}{\numberline {6.3.4}Documentation des fonctions amies et associ\IeC {\'e}es}{24}{subsection.6.3.4}
+\contentsline {subsubsection}{\numberline {6.3.4.1}CompositeMarkupNode}{24}{subsubsection.6.3.4.1}
+\contentsline {subsubsection}{\numberline {6.3.4.2}MarkupNode}{24}{subsubsection.6.3.4.2}
+\contentsline {subsubsection}{\numberline {6.3.4.3}TextNode}{24}{subsubsection.6.3.4.3}
+\contentsline {section}{\numberline {6.4}R\IeC {\'e}f\IeC {\'e}rence de la classe xml::MarkupNode}{24}{section.6.4}
+\contentsline {subsection}{\numberline {6.4.1}Description d\IeC {\'e}taill\IeC {\'e}e}{27}{subsection.6.4.1}
+\contentsline {subsection}{\numberline {6.4.2}Documentation des d\IeC {\'e}finitions de type membres}{27}{subsection.6.4.2}
+\contentsline {subsubsection}{\numberline {6.4.2.1}\_\discretionary {-}{}{}Attributes}{27}{subsubsection.6.4.2.1}
+\contentsline {subsubsection}{\numberline {6.4.2.2}Attributes}{27}{subsubsection.6.4.2.2}
+\contentsline {subsubsection}{\numberline {6.4.2.3}AttributesIterator}{27}{subsubsection.6.4.2.3}
+\contentsline {subsection}{\numberline {6.4.3}Documentation des constructeurs et destructeur}{28}{subsection.6.4.3}
+\contentsline {subsubsection}{\numberline {6.4.3.1}MarkupNode}{28}{subsubsection.6.4.3.1}
+\contentsline {subsubsection}{\numberline {6.4.3.2}$\sim $MarkupNode}{28}{subsubsection.6.4.3.2}
+\contentsline {subsection}{\numberline {6.4.4}Documentation des fonctions membres}{28}{subsection.6.4.4}
+\contentsline {subsubsection}{\numberline {6.4.4.1}accept}{28}{subsubsection.6.4.4.1}
+\contentsline {subsubsection}{\numberline {6.4.4.2}begin}{28}{subsubsection.6.4.4.2}
+\contentsline {subsubsection}{\numberline {6.4.4.3}end}{28}{subsubsection.6.4.4.3}
+\contentsline {subsubsection}{\numberline {6.4.4.4}name}{28}{subsubsection.6.4.4.4}
+\contentsline {subsubsection}{\numberline {6.4.4.5}ns}{29}{subsubsection.6.4.4.5}
+\contentsline {subsection}{\numberline {6.4.5}Documentation des donn\IeC {\'e}es membres}{29}{subsection.6.4.5}
+\contentsline {subsubsection}{\numberline {6.4.5.1}\_\discretionary {-}{}{}attributes}{29}{subsubsection.6.4.5.1}
+\contentsline {subsubsection}{\numberline {6.4.5.2}\_\discretionary {-}{}{}name}{29}{subsubsection.6.4.5.2}
+\contentsline {subsubsection}{\numberline {6.4.5.3}\_\discretionary {-}{}{}namespace}{29}{subsubsection.6.4.5.3}
+\contentsline {section}{\numberline {6.5}R\IeC {\'e}f\IeC {\'e}rence de la classe xml::Node}{29}{section.6.5}
+\contentsline {subsection}{\numberline {6.5.1}Description d\IeC {\'e}taill\IeC {\'e}e}{32}{subsection.6.5.1}
+\contentsline {subsection}{\numberline {6.5.2}Documentation des constructeurs et destructeur}{32}{subsection.6.5.2}
+\contentsline {subsubsection}{\numberline {6.5.2.1}Node}{32}{subsubsection.6.5.2.1}
+\contentsline {subsubsection}{\numberline {6.5.2.2}$\sim $Node}{32}{subsubsection.6.5.2.2}
+\contentsline {subsection}{\numberline {6.5.3}Documentation des fonctions membres}{32}{subsection.6.5.3}
+\contentsline {subsubsection}{\numberline {6.5.3.1}accept}{32}{subsubsection.6.5.3.1}
+\contentsline {subsubsection}{\numberline {6.5.3.2}parent}{32}{subsubsection.6.5.3.2}
+\contentsline {subsection}{\numberline {6.5.4}Documentation des donn\IeC {\'e}es membres}{32}{subsection.6.5.4}
+\contentsline {subsubsection}{\numberline {6.5.4.1}\_\discretionary {-}{}{}parent}{32}{subsubsection.6.5.4.1}
+\contentsline {section}{\numberline {6.6}R\IeC {\'e}f\IeC {\'e}rence de la classe xml::OutputVisitor}{33}{section.6.6}
+\contentsline {subsection}{\numberline {6.6.1}Description d\IeC {\'e}taill\IeC {\'e}e}{36}{subsection.6.6.1}
+\contentsline {subsection}{\numberline {6.6.2}Documentation des constructeurs et destructeur}{36}{subsection.6.6.2}
+\contentsline {subsubsection}{\numberline {6.6.2.1}OutputVisitor}{36}{subsubsection.6.6.2.1}
+\contentsline {subsubsection}{\numberline {6.6.2.2}$\sim $OutputVisitor}{36}{subsubsection.6.6.2.2}
+\contentsline {subsection}{\numberline {6.6.3}Documentation des fonctions membres}{37}{subsection.6.6.3}
+\contentsline {subsubsection}{\numberline {6.6.3.1}doIndent}{37}{subsubsection.6.6.3.1}
+\contentsline {subsubsection}{\numberline {6.6.3.2}visit}{37}{subsubsection.6.6.3.2}
+\contentsline {subsubsection}{\numberline {6.6.3.3}visit}{37}{subsubsection.6.6.3.3}
+\contentsline {subsubsection}{\numberline {6.6.3.4}visit}{37}{subsubsection.6.6.3.4}
+\contentsline {subsubsection}{\numberline {6.6.3.5}writeMarkupOpening}{37}{subsubsection.6.6.3.5}
+\contentsline {subsection}{\numberline {6.6.4}Documentation des donn\IeC {\'e}es membres}{38}{subsection.6.6.4}
+\contentsline {subsubsection}{\numberline {6.6.4.1}\_\discretionary {-}{}{}indent}{38}{subsubsection.6.6.4.1}
+\contentsline {subsubsection}{\numberline {6.6.4.2}\_\discretionary {-}{}{}indentChar}{38}{subsubsection.6.6.4.2}
+\contentsline {subsubsection}{\numberline {6.6.4.3}\_\discretionary {-}{}{}indentUnit}{38}{subsubsection.6.6.4.3}
+\contentsline {subsubsection}{\numberline {6.6.4.4}\_\discretionary {-}{}{}out}{38}{subsubsection.6.6.4.4}
+\contentsline {subsubsection}{\numberline {6.6.4.5}ASSIGN\_\discretionary {-}{}{}ATTRIBUTE\_\discretionary {-}{}{}VALUE\_\discretionary {-}{}{}STR}{38}{subsubsection.6.6.4.5}
+\contentsline {subsubsection}{\numberline {6.6.4.6}CLOSE\_\discretionary {-}{}{}ATTRIBUTE\_\discretionary {-}{}{}VALUE\_\discretionary {-}{}{}STR}{38}{subsubsection.6.6.4.6}
+\contentsline {subsubsection}{\numberline {6.6.4.7}CLOSE\_\discretionary {-}{}{}MARKUP\_\discretionary {-}{}{}STR}{38}{subsubsection.6.6.4.7}
+\contentsline {subsubsection}{\numberline {6.6.4.8}CLOSING\_\discretionary {-}{}{}MARKUP\_\discretionary {-}{}{}STR}{38}{subsubsection.6.6.4.8}
+\contentsline {subsubsection}{\numberline {6.6.4.9}DEFAULT\_\discretionary {-}{}{}INDENT\_\discretionary {-}{}{}CHAR}{38}{subsubsection.6.6.4.9}
+\contentsline {subsubsection}{\numberline {6.6.4.10}DEFAULT\_\discretionary {-}{}{}INDENT\_\discretionary {-}{}{}UNIT}{39}{subsubsection.6.6.4.10}
+\contentsline {subsubsection}{\numberline {6.6.4.11}INSIDE\_\discretionary {-}{}{}MARKUP\_\discretionary {-}{}{}SPACE\_\discretionary {-}{}{}STR}{39}{subsubsection.6.6.4.11}
+\contentsline {subsubsection}{\numberline {6.6.4.12}NS\_\discretionary {-}{}{}SEPARATOR\_\discretionary {-}{}{}STR}{39}{subsubsection.6.6.4.12}
+\contentsline {subsubsection}{\numberline {6.6.4.13}OPEN\_\discretionary {-}{}{}ATTRIBUTE\_\discretionary {-}{}{}VALUE\_\discretionary {-}{}{}STR}{39}{subsubsection.6.6.4.13}
+\contentsline {subsubsection}{\numberline {6.6.4.14}OPEN\_\discretionary {-}{}{}MARKUP\_\discretionary {-}{}{}STR}{39}{subsubsection.6.6.4.14}
+\contentsline {section}{\numberline {6.7}R\IeC {\'e}f\IeC {\'e}rence de la classe xml::TextNode}{39}{section.6.7}
+\contentsline {subsection}{\numberline {6.7.1}Description d\IeC {\'e}taill\IeC {\'e}e}{42}{subsection.6.7.1}
+\contentsline {subsection}{\numberline {6.7.2}Documentation des constructeurs et destructeur}{42}{subsection.6.7.2}
+\contentsline {subsubsection}{\numberline {6.7.2.1}TextNode}{42}{subsubsection.6.7.2.1}
+\contentsline {subsubsection}{\numberline {6.7.2.2}$\sim $TextNode}{42}{subsubsection.6.7.2.2}
+\contentsline {subsection}{\numberline {6.7.3}Documentation des fonctions membres}{42}{subsection.6.7.3}
+\contentsline {subsubsection}{\numberline {6.7.3.1}accept}{42}{subsubsection.6.7.3.1}
+\contentsline {subsubsection}{\numberline {6.7.3.2}content}{42}{subsubsection.6.7.3.2}
+\contentsline {subsection}{\numberline {6.7.4}Documentation des donn\IeC {\'e}es membres}{43}{subsection.6.7.4}
+\contentsline {subsubsection}{\numberline {6.7.4.1}\_\discretionary {-}{}{}content}{43}{subsubsection.6.7.4.1}
+\contentsline {chapter}{\numberline {7}Documentation des fichiers}{45}{chapter.7}
+\contentsline {section}{\numberline {7.1}R\IeC {\'e}f\IeC {\'e}rence du fichier src/CompositeMarkupNode.cpp}{45}{section.7.1}
+\contentsline {section}{\numberline {7.2}R\IeC {\'e}f\IeC {\'e}rence du fichier src/CompositeMarkupNode.hh}{46}{section.7.2}
+\contentsline {section}{\numberline {7.3}R\IeC {\'e}f\IeC {\'e}rence du fichier src/DotOutputVisitor.cpp}{48}{section.7.3}
+\contentsline {section}{\numberline {7.4}R\IeC {\'e}f\IeC {\'e}rence du fichier src/DotOutputVisitor.hh}{48}{section.7.4}
+\contentsline {section}{\numberline {7.5}R\IeC {\'e}f\IeC {\'e}rence du fichier src/InterfaceNodeVisitor.hpp}{50}{section.7.5}
+\contentsline {section}{\numberline {7.6}R\IeC {\'e}f\IeC {\'e}rence du fichier src/MarkupNode.cpp}{50}{section.7.6}
+\contentsline {section}{\numberline {7.7}R\IeC {\'e}f\IeC {\'e}rence du fichier src/MarkupNode.hh}{51}{section.7.7}
+\contentsline {section}{\numberline {7.8}R\IeC {\'e}f\IeC {\'e}rence du fichier src/Node.cpp}{53}{section.7.8}
+\contentsline {section}{\numberline {7.9}R\IeC {\'e}f\IeC {\'e}rence du fichier src/Node.hh}{53}{section.7.9}
+\contentsline {section}{\numberline {7.10}R\IeC {\'e}f\IeC {\'e}rence du fichier src/OutputVisitor.cpp}{54}{section.7.10}
+\contentsline {section}{\numberline {7.11}R\IeC {\'e}f\IeC {\'e}rence du fichier src/OutputVisitor.hh}{55}{section.7.11}
+\contentsline {section}{\numberline {7.12}R\IeC {\'e}f\IeC {\'e}rence du fichier src/TextNode.cpp}{56}{section.7.12}
+\contentsline {section}{\numberline {7.13}R\IeC {\'e}f\IeC {\'e}rence du fichier src/TextNode.hh}{57}{section.7.13}

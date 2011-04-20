@@ -1,7 +1,7 @@
 <map id="G" name="G">
-<area shape="rect" id="node3" href="$_transformer_visitor_8hh.html" title="TransformerVisitor.hh" alt="" coords="51,94,299,133"/>
-<area shape="rect" id="node19" href="$_map_creator_8hh.html" title="MapCreator.hh" alt="" coords="844,94,1020,133"/>
-<area shape="rect" id="node28" href="$_simple_copy_visitor_8hh.html" title="SimpleCopyVisitor.hh" alt="" coords="1095,94,1340,133"/>
-<area shape="rect" id="node35" href="$_xsl_copy_visitor_8hh.html" title="XslCopyVisitor.hh" alt="" coords="535,94,740,133"/>
-<area shape="rect" id="node39" href="$_recursive_transformer_visitor_8hh.html" title="RecursiveTransformerVisitor.hh" alt="" coords="381,182,731,221"/>
+<area shape="rect" id="node3" href="$_transformer_visitor_8hh.html" title="TransformerVisitor.hh" alt="" coords="79,94,327,133"/>
+<area shape="rect" id="node19" href="$_map_creator_8hh.html" title="MapCreator.hh" alt="" coords="485,94,661,133"/>
+<area shape="rect" id="node28" href="$_simple_copy_visitor_8hh.html" title="SimpleCopyVisitor.hh" alt="" coords="753,94,999,133"/>
+<area shape="rect" id="node39" href="$_xsl_copy_visitor_8hh.html" title="XslCopyVisitor.hh" alt="" coords="1215,94,1420,133"/>
+<area shape="rect" id="node35" href="$_recursive_transformer_visitor_8hh.html" title="RecursiveTransformerVisitor.hh" alt="" coords="1056,182,1405,221"/>
 </map>

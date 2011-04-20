@@ -6,12 +6,24 @@
 
 {\ttfamily \#include $<$SimpleCopyVisitor.hh$>$}
 
+
+
+Graphe de collaboration de xsl::SimpleCopyVisitor:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=600pt]{classxsl_1_1_simple_copy_visitor__coll__graph}
+\end{center}
+\end{figure}
 \subsection*{Fonctions membres publiques}
 \begin{DoxyCompactItemize}
 \item 
 xml::Node $\ast$ \hyperlink{classxsl_1_1_simple_copy_visitor_a635dd86100529983335aa35283450227}{copy} (xml::CompositeMarkupNode $\ast$$\ast$parent, const xml::Node \&referenceNode)
 \item 
-\hyperlink{classxsl_1_1_simple_copy_visitor_a48310fd852d3993749d46ff2c17ff001}{SimpleCopyVisitor} ()
+\hyperlink{classxsl_1_1_simple_copy_visitor_a81aa92c2b248851fe1fa626dc2bfaef0}{SimpleCopyVisitor} (\hyperlink{classxsl_1_1_transformer_visitor}{TransformerVisitor} \&transformer)
+\item 
+\hyperlink{classxsl_1_1_simple_copy_visitor_a532b61a79726327c4653de11e5592e08}{SimpleCopyVisitor} (\hyperlink{classxsl_1_1_recursive_transformer_visitor}{RecursiveTransformerVisitor} \&transformer)
 \item 
 virtual \hyperlink{classxsl_1_1_simple_copy_visitor_a35dd73ab468988333fad21aba4502eff}{$\sim$SimpleCopyVisitor} ()
 \end{DoxyCompactItemize}
@@ -27,32 +39,47 @@ virtual void \hyperlink{classxsl_1_1_simple_copy_visitor_a7afb4e9198dae8246736be
 \subsection*{Attributs protégés}
 \begin{DoxyCompactItemize}
 \item 
+\hyperlink{classxsl_1_1_recursive_transformer_visitor}{RecursiveTransformerVisitor} \hyperlink{classxsl_1_1_simple_copy_visitor_a43aa3841e33993efd71980af58a09eb8}{\_\-transformer}
+\item 
 xml::Node $\ast$ \hyperlink{classxsl_1_1_simple_copy_visitor_a181cd3a2e2aed778efe9fbc8f5fe0bf8}{\_\-copiedNode}
 \item 
-xml::CompositeMarkupNode $\ast$$\ast$ \hyperlink{classxsl_1_1_simple_copy_visitor_ae812212f02cec65de88cc9dafb7a3cd3}{\_\-parent}
+xml::CompositeMarkupNode $\ast$$\ast$ \hyperlink{classxsl_1_1_simple_copy_visitor_a7193e6b1b0a45af85b5346240559670a}{\_\-parentProxy}
 \end{DoxyCompactItemize}
 
 
 \subsection{Description détaillée}
 
 
-Définition à la ligne 22 du fichier SimpleCopyVisitor.hh.
+Définition à la ligne 23 du fichier SimpleCopyVisitor.hh.
 
 
 
 \subsection{Documentation des constructeurs et destructeur}
-\hypertarget{classxsl_1_1_simple_copy_visitor_a48310fd852d3993749d46ff2c17ff001}{
+\hypertarget{classxsl_1_1_simple_copy_visitor_a81aa92c2b248851fe1fa626dc2bfaef0}{
 \index{xsl::SimpleCopyVisitor@{xsl::SimpleCopyVisitor}!SimpleCopyVisitor@{SimpleCopyVisitor}}
 \index{SimpleCopyVisitor@{SimpleCopyVisitor}!xsl::SimpleCopyVisitor@{xsl::SimpleCopyVisitor}}
 \subsubsection[{SimpleCopyVisitor}]{\setlength{\rightskip}{0pt plus 5cm}xsl::SimpleCopyVisitor::SimpleCopyVisitor (
 \begin{DoxyParamCaption}
-{}
+\item[{{\bf TransformerVisitor} \&}]{ transformer}
 \end{DoxyParamCaption}
-)}}
-\label{classxsl_1_1_simple_copy_visitor_a48310fd852d3993749d46ff2c17ff001}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}explicit\mbox{]}}}}
+\label{classxsl_1_1_simple_copy_visitor_a81aa92c2b248851fe1fa626dc2bfaef0}
 
 
-Définition à la ligne 46 du fichier SimpleCopyVisitor.cpp.
+Définition à la ligne 47 du fichier SimpleCopyVisitor.cpp.
+
+\hypertarget{classxsl_1_1_simple_copy_visitor_a532b61a79726327c4653de11e5592e08}{
+\index{xsl::SimpleCopyVisitor@{xsl::SimpleCopyVisitor}!SimpleCopyVisitor@{SimpleCopyVisitor}}
+\index{SimpleCopyVisitor@{SimpleCopyVisitor}!xsl::SimpleCopyVisitor@{xsl::SimpleCopyVisitor}}
+\subsubsection[{SimpleCopyVisitor}]{\setlength{\rightskip}{0pt plus 5cm}xsl::SimpleCopyVisitor::SimpleCopyVisitor (
+\begin{DoxyParamCaption}
+\item[{{\bf RecursiveTransformerVisitor} \&}]{ transformer}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}explicit\mbox{]}}}}
+\label{classxsl_1_1_simple_copy_visitor_a532b61a79726327c4653de11e5592e08}
+
+
+Définition à la ligne 53 du fichier SimpleCopyVisitor.cpp.
 
 \hypertarget{classxsl_1_1_simple_copy_visitor_a35dd73ab468988333fad21aba4502eff}{
 \index{xsl::SimpleCopyVisitor@{xsl::SimpleCopyVisitor}!$\sim$SimpleCopyVisitor@{$\sim$SimpleCopyVisitor}}
@@ -65,7 +92,7 @@ Définition à la ligne 46 du fichier SimpleCopyVisitor.cpp.
 \label{classxsl_1_1_simple_copy_visitor_a35dd73ab468988333fad21aba4502eff}
 
 
-Définition à la ligne 51 du fichier SimpleCopyVisitor.cpp.
+Définition à la ligne 59 du fichier SimpleCopyVisitor.cpp.
 
 
 
@@ -117,16 +144,25 @@ Définition à la ligne 51 du fichier SimpleCopyVisitor.cpp.
 \label{classxsl_1_1_simple_copy_visitor_a181cd3a2e2aed778efe9fbc8f5fe0bf8}
 
 
-Définition à la ligne 54 du fichier SimpleCopyVisitor.hh.
+Définition à la ligne 50 du fichier SimpleCopyVisitor.hh.
 
-\hypertarget{classxsl_1_1_simple_copy_visitor_ae812212f02cec65de88cc9dafb7a3cd3}{
-\index{xsl::SimpleCopyVisitor@{xsl::SimpleCopyVisitor}!\_\-parent@{\_\-parent}}
-\index{\_\-parent@{\_\-parent}!xsl::SimpleCopyVisitor@{xsl::SimpleCopyVisitor}}
-\subsubsection[{\_\-parent}]{\setlength{\rightskip}{0pt plus 5cm}xml::CompositeMarkupNode$\ast$$\ast$ {\bf xsl::SimpleCopyVisitor::\_\-parent}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
-\label{classxsl_1_1_simple_copy_visitor_ae812212f02cec65de88cc9dafb7a3cd3}
+\hypertarget{classxsl_1_1_simple_copy_visitor_a7193e6b1b0a45af85b5346240559670a}{
+\index{xsl::SimpleCopyVisitor@{xsl::SimpleCopyVisitor}!\_\-parentProxy@{\_\-parentProxy}}
+\index{\_\-parentProxy@{\_\-parentProxy}!xsl::SimpleCopyVisitor@{xsl::SimpleCopyVisitor}}
+\subsubsection[{\_\-parentProxy}]{\setlength{\rightskip}{0pt plus 5cm}xml::CompositeMarkupNode$\ast$$\ast$ {\bf xsl::SimpleCopyVisitor::\_\-parentProxy}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{classxsl_1_1_simple_copy_visitor_a7193e6b1b0a45af85b5346240559670a}
 
 
-Définition à la ligne 55 du fichier SimpleCopyVisitor.hh.
+Définition à la ligne 51 du fichier SimpleCopyVisitor.hh.
+
+\hypertarget{classxsl_1_1_simple_copy_visitor_a43aa3841e33993efd71980af58a09eb8}{
+\index{xsl::SimpleCopyVisitor@{xsl::SimpleCopyVisitor}!\_\-transformer@{\_\-transformer}}
+\index{\_\-transformer@{\_\-transformer}!xsl::SimpleCopyVisitor@{xsl::SimpleCopyVisitor}}
+\subsubsection[{\_\-transformer}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RecursiveTransformerVisitor} {\bf xsl::SimpleCopyVisitor::\_\-transformer}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{classxsl_1_1_simple_copy_visitor_a43aa3841e33993efd71980af58a09eb8}
+
+
+Définition à la ligne 49 du fichier SimpleCopyVisitor.hh.
 
 
 

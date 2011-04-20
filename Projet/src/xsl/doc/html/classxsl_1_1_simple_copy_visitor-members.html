@@ -53,9 +53,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 <div class="contents">
 Liste complète des membres de <a class="el" href="classxsl_1_1_simple_copy_visitor.html">xsl::SimpleCopyVisitor</a>, y compris les membres hérités :<table>
   <tr class="memlist"><td><a class="el" href="classxsl_1_1_simple_copy_visitor.html#a181cd3a2e2aed778efe9fbc8f5fe0bf8">_copiedNode</a></td><td><a class="el" href="classxsl_1_1_simple_copy_visitor.html">xsl::SimpleCopyVisitor</a></td><td><code> [protected]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="classxsl_1_1_simple_copy_visitor.html#ae812212f02cec65de88cc9dafb7a3cd3">_parent</a></td><td><a class="el" href="classxsl_1_1_simple_copy_visitor.html">xsl::SimpleCopyVisitor</a></td><td><code> [protected]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="classxsl_1_1_simple_copy_visitor.html#a7193e6b1b0a45af85b5346240559670a">_parentProxy</a></td><td><a class="el" href="classxsl_1_1_simple_copy_visitor.html">xsl::SimpleCopyVisitor</a></td><td><code> [protected]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="classxsl_1_1_simple_copy_visitor.html#a43aa3841e33993efd71980af58a09eb8">_transformer</a></td><td><a class="el" href="classxsl_1_1_simple_copy_visitor.html">xsl::SimpleCopyVisitor</a></td><td><code> [protected]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="classxsl_1_1_simple_copy_visitor.html#a635dd86100529983335aa35283450227">copy</a>(xml::CompositeMarkupNode **parent, const xml::Node &amp;referenceNode)</td><td><a class="el" href="classxsl_1_1_simple_copy_visitor.html">xsl::SimpleCopyVisitor</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="classxsl_1_1_simple_copy_visitor.html#a48310fd852d3993749d46ff2c17ff001">SimpleCopyVisitor</a>()</td><td><a class="el" href="classxsl_1_1_simple_copy_visitor.html">xsl::SimpleCopyVisitor</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="classxsl_1_1_simple_copy_visitor.html#a81aa92c2b248851fe1fa626dc2bfaef0">SimpleCopyVisitor</a>(TransformerVisitor &amp;transformer)</td><td><a class="el" href="classxsl_1_1_simple_copy_visitor.html">xsl::SimpleCopyVisitor</a></td><td><code> [explicit]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="classxsl_1_1_simple_copy_visitor.html#a532b61a79726327c4653de11e5592e08">SimpleCopyVisitor</a>(RecursiveTransformerVisitor &amp;transformer)</td><td><a class="el" href="classxsl_1_1_simple_copy_visitor.html">xsl::SimpleCopyVisitor</a></td><td><code> [explicit]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="classxsl_1_1_simple_copy_visitor.html#a2af765f5955c795d73c5aa6edbe1ae93">visit</a>(const xml::TextNode &amp;node)</td><td><a class="el" href="classxsl_1_1_simple_copy_visitor.html">xsl::SimpleCopyVisitor</a></td><td><code> [protected, virtual]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="classxsl_1_1_simple_copy_visitor.html#a67f58002edb998f71775c790084ac388">visit</a>(const xml::MarkupNode &amp;node)</td><td><a class="el" href="classxsl_1_1_simple_copy_visitor.html">xsl::SimpleCopyVisitor</a></td><td><code> [protected, virtual]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="classxsl_1_1_simple_copy_visitor.html#a7afb4e9198dae8246736bed6f15a4b88">visit</a>(const xml::CompositeMarkupNode &amp;node)</td><td><a class="el" href="classxsl_1_1_simple_copy_visitor.html">xsl::SimpleCopyVisitor</a></td><td><code> [protected, virtual]</code></td></tr>
@@ -75,7 +77,7 @@ Liste complète des membres de <a class="el" href="classxsl_1_1_simple_copy_visi
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Généré le Wed Apr 20 2011 16:22:25 pour XMLLib par&#160;
+<hr class="footer"/><address class="footer"><small>Généré le Wed Apr 20 2011 21:32:20 pour XMLLib par&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.2 </small></address>
 </body>

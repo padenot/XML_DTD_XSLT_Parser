@@ -21,13 +21,8 @@ using namespace dtd;
 using namespace xml;
 using namespace xsl;
 
-int xmlparse(void);
-int dtdparse(void);
-
-extern MarkupNode* root;
-extern string dtdName;
-extern string validRootName;
-extern DTD* rootDTD;
+int xmlparse(MarkupNode *& root, string & dtdName, string & validRootName);
+int dtdparse(DTD & rootDTD);
 
 extern FILE * xmlin;
 extern FILE * dtdin;
@@ -44,17 +39,18 @@ static bool doTransform = false;
 static bool doTrace = false;
 static bool doCheckDTD = false;
 
-void xmlerror(char* msg)
+void xmlerror(MarkupNode *&, string &, string &, char *msg)
 {
 	cerr << "Erreur : " << msg << endl;
 }
 
-void dtderror(char* msg)
+void dtderror(DTD & rootDTD, char* msg)
 {
-	cerr << "Erreur: " << msg << endl;
+	cerr << "Erreur : " << msg << endl;
 }
 /**********************************************************************************/
-static int loadXML(string filename)
+static int loadXML(string filename, MarkupNode *& root, string & dtdName,
+		string & validRootName)
 {
 	int err;
 	FILE* inputFile = (FILE*) fopen(filename.c_str(), "r");
@@ -69,7 +65,7 @@ static int loadXML(string filename)
 	else
 	{
 		xmlin = inputFile;
-		err = xmlparse();
+		err = xmlparse(root, dtdName, validRootName);
 		fclose(xmlin);
 
 		if (xmlSyntaxErrorCount != 0)
@@ -97,7 +93,7 @@ static int loadXML(string filename)
 	return err;
 }
 
-static int loadDTD(string filename)
+static int loadDTD(string filename, DTD & rootDTD)
 {
 	int err;
 	FILE* inputFile = (FILE*) fopen(filename.c_str(), "r");
@@ -112,7 +108,7 @@ static int loadDTD(string filename)
 	else
 	{
 		dtdin = inputFile;
-		err = dtdparse();
+		err = dtdparse(rootDTD);
 		fclose(dtdin);
 
 		if (doTrace)
@@ -132,22 +128,14 @@ static int loadDTD(string filename)
 }
 
 /**********************************************************************************/
-static void cleanXML()
-{
-	dtdName.clear();
-	validRootName.clear();
-	xmlSyntaxErrorCount = 0;
-	delete root;
-	root = 0;
-}
 
 void print_help(ostream & out = cout)
 {
-	out << "Usage : <xml_file> [-xedcv] [-k <dtd_file>] [-t <xslt_file>]"
+	out << "Usage : [-xedcv] [-k <dtd_file>] [-t <xslt_file>] <xml_file>"
 			<< endl << endl;
 
 	out
-			<< "  -x				print in the line command the XML file as it has been parsed"
+			<< "  -x				affiche à la ligne de commande le fichier XML parser" << endl;
 			<< endl;
 	out
 			<< "  -e				print in the line command the XML fil as it has been parsed but in dot format"
@@ -167,13 +155,8 @@ void print_help(ostream & out = cout)
 	out << "  -h				display this help..." << endl;
 }
 
-static void cleanDTD()
-{
-	delete rootDTD;
-	rootDTD = 0;
-}
-
-static bool checkXML_impl()
+static bool checkXML_impl(Node & root, const string & dtdName,
+		const string & validRootName)
 {
 	bool result = false;
 
@@ -183,13 +166,14 @@ static bool checkXML_impl()
 	}
 	else
 	{
-		if (loadDTD(dtdName) != 0)
+		DTD rootDTD;
+		if (loadDTD(dtdName, rootDTD) != 0)
 		{
 			result = false;
 		}
 		else
 		{
-			if (rootDTD->isValid(*root, validRootName))
+			if (rootDTD.isValid(root, validRootName))
 			{
 				result = true;
 			}
@@ -200,15 +184,18 @@ static bool checkXML_impl()
 		}
 	}
 
-	cleanDTD();
 	return result;
 }
 
 static int checkXML(string xmlPath)
 {
+	MarkupNode * root;
+	string dtdName;
+	string validRootName;
+
 	int result = -1;
 
-	if (loadXML(xmlPath) != 0)
+	if (loadXML(xmlPath, root, dtdName, validRootName) != 0)
 	{
 		result = -1;
 	}
@@ -216,7 +203,7 @@ static int checkXML(string xmlPath)
 	{
 		if (doTrace)
 			cerr << "Validation DTD..." << endl;
-		if (checkXML_impl())
+		if (checkXML_impl(*root, dtdName, validRootName))
 		{
 			if (doTrace)
 				cerr << "Validation DTD : OK." << endl;
@@ -230,17 +217,19 @@ static int checkXML(string xmlPath)
 		}
 	}
 
-	cleanXML();
-	cleanDTD();
+	delete root;
 
 	return result;
 }
 
 static int exportXML(string xmlPath)
 {
+	MarkupNode * root;
+	string dtdName;
+	string validRootName;
 	int result = -1;
 
-	if (loadXML(xmlPath) != 0)
+	if (loadXML(xmlPath, root, dtdName, validRootName) != 0)
 	{
 		result = -1;
 	}
@@ -251,16 +240,20 @@ static int exportXML(string xmlPath)
 		result = 0;
 	}
 
-	cleanXML();
+	delete root;
 
 	return result;
 }
 
 static int exportXMLDot(string xmlPath)
 {
+	MarkupNode * root;
+	string dtdName;
+	string validRootName;
+
 	int result = -1;
 
-	if (loadXML(xmlPath) != 0)
+	if (loadXML(xmlPath, root, dtdName, validRootName) != 0)
 	{
 		result = -1;
 	}
@@ -271,35 +264,39 @@ static int exportXMLDot(string xmlPath)
 		result = 0;
 	}
 
-	cleanXML();
+	delete root;
 
 	return result;
 }
 
 static int exportDTD(string dtdPath)
 {
+	DTD rootDTD;
 	int result = -1;
 
-	if (loadDTD(dtdPath) != 0)
+	if (loadDTD(dtdPath, rootDTD) != 0)
 	{
 		result = -1;
 	}
 	else
 	{
 		OutputDTDVisitor visitor(cout);
-		rootDTD->accept(visitor);
+		rootDTD.accept(visitor);
 		result = 0;
 	}
-	cleanDTD();
 
 	return result;
 }
 
 static int transform(string xmlPath, string xsltPath)
 {
+	MarkupNode * xmlRoot, *xsltRoot;
+	string xmlDtdName, xsltDtdName;
+	string validXmlRootName, validXsltRootName;
 	int result = -1;
 
-	if (loadXML(xsltPath) != 0/* TODO || !checkXML_impl(dtdName) */)
+	if (loadXML(xsltPath, xsltRoot, xsltDtdName, validXsltRootName) != 0
+	/* TODO || !checkXML_impl(dtdName) */)
 	{
 		if (doTrace)
 			cerr << "Erreur : XSLT non utilisable." << endl;
@@ -307,30 +304,25 @@ static int transform(string xmlPath, string xsltPath)
 	}
 	else
 	{
-		Node* xslRoot = root;
-		root = 0;
-		dtdName.clear();
-		validRootName.clear();
 
-		if (loadXML(xmlPath) != 0)
+		if (loadXML(xmlPath, xmlRoot, xmlDtdName, validXmlRootName) != 0)
 		{
-			delete xslRoot;
 			result = -1;
 		}
 		else
 		{
 			Node* transformed = 0;
-			TransformerVisitor transformer(*xslRoot);
+			TransformerVisitor transformer(*xsltRoot);
 			OutputVisitor visitor(cout, ' ');
-			transformed = transformer.Transformation(*root);
+			transformed = transformer.Transformation(*xmlRoot);
 			transformed->accept(visitor);
-			delete xslRoot;
 			delete transformed;
 			result = 0;
 		}
 	}
 
-	cleanXML();
+	delete xsltRoot;
+	delete xmlRoot;
 
 	return result;
 }
@@ -361,36 +353,28 @@ int main(int argc, char** argv)
 		switch (opt)
 		{
 		case 'h':
-			cout << "-t" << endl;
 			print_help(cout);
 			return 0;
 		case 'x':
-			cout << "-x" << endl;
 			doExportXML = true;
 			break;
 		case 'e':
-			cout << "-e" << endl;
 			doExportXMLDot = true;
 			break;
 		case 'd':
-			cout << "-d" << endl;
 			doExportDTD = true;
 			break;
 		case 't':
-			cout << "-t" << endl;
 			doTransform = true;
 			xsltPath.assign(optarg);
 			break;
 		case 'c':
-			cout << "-c" << endl;
 			doCheckXML = true;
 			break;
 		case 'k':
-			cout << "-k" << endl;
 			doCheckDTD = true;
 			dtdPath.assign(optarg);
 		case 'v':
-			cout << "-v" << endl;
 			doTrace = true;
 			break;
 		case '?':
@@ -405,30 +389,24 @@ int main(int argc, char** argv)
 
 		if (doCheckXML)
 		{
-			cout << "doCheck" << endl;
 			result = checkXML(xmlPath);
 		}
 		if (doExportXML)
 		{
-			cout << "doExportXML" << endl;
 			result = exportXML(xmlPath);
 		}
 		if (doExportXMLDot)
 		{
-			cout << "doExportXMLDot" << endl;
 			result = exportXMLDot(xmlPath);
 		}
 		if (doExportDTD)
 		{
-			cout << "doExportDTD" << endl;
 			result = exportDTD(dtdPath);
 		}
 		if (doTransform)
 		{
-			cout << "doTransform" << endl;
 			result = transform(xmlPath, xsltPath);
 		}
-		cout << "Fin if" << endl;
 	}
 	else
 	{

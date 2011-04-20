@@ -1,0 +1,170 @@
+\begin{theindex}
+
+  \item {$\sim $MapCreator}
+    \subitem {xsl::MapCreator}, \hyperpage{10}
+  \item {$\sim $RecursiveTransformerVisitor}
+    \subitem {xsl::RecursiveTransformerVisitor}, \hyperpage{12}
+  \item {$\sim $SimpleCopyVisitor}
+    \subitem {xsl::SimpleCopyVisitor}, \hyperpage{15}
+  \item {$\sim $TransformerVisitor}
+    \subitem {xsl::TransformerVisitor}, \hyperpage{17}
+  \item {$\sim $XslCopyVisitor}
+    \subitem {xsl::XslCopyVisitor}, \hyperpage{20}
+  \item {\_\discretionary {-}{}{}copiedNode}
+    \subitem {xsl::SimpleCopyVisitor}, \hyperpage{16}
+  \item {\_\discretionary {-}{}{}parentProxy}
+    \subitem {xsl::SimpleCopyVisitor}, \hyperpage{16}
+    \subitem {xsl::XslCopyVisitor}, \hyperpage{21}
+  \item {\_\discretionary {-}{}{}proxy}
+    \subitem {xsl::RecursiveTransformerVisitor}, \hyperpage{13}
+  \item {\_\discretionary {-}{}{}referenceNode}
+    \subitem {xsl::XslCopyVisitor}, \hyperpage{21}
+  \item {\_\discretionary {-}{}{}result}
+    \subitem {xsl::RecursiveTransformerVisitor}, \hyperpage{13}
+    \subitem {xsl::XslCopyVisitor}, \hyperpage{21}
+  \item {\_\discretionary {-}{}{}transformer}
+    \subitem {xsl::RecursiveTransformerVisitor}, \hyperpage{13}
+    \subitem {xsl::SimpleCopyVisitor}, \hyperpage{16}
+    \subitem {xsl::XslCopyVisitor}, \hyperpage{21}
+
+  \indexspace
+
+  \item {AnalyzeNode}
+    \subitem {xsl::TransformerVisitor}, \hyperpage{18}
+
+  \indexspace
+
+  \item {checkTemplate}
+    \subitem {xsl::MapCreator}, \hyperpage{10}
+  \item {copy}
+    \subitem {xsl::SimpleCopyVisitor}, \hyperpage{16}
+  \item {createMap}
+    \subitem {xsl::TransformerVisitor}, \hyperpage{18}
+
+  \indexspace
+
+  \item {getTemplateName}
+    \subitem {xsl::TransformerVisitor}, \hyperpage{18}
+
+  \indexspace
+
+  \item {MapCreator}
+    \subitem {xsl::MapCreator}, \hyperpage{10}
+  \item {mapTemp}
+    \subitem {xsl::MapCreator}, \hyperpage{10}
+  \item {mapXsl}
+    \subitem {xsl::TransformerVisitor}, \hyperpage{17}
+
+  \indexspace
+
+  \item {NAME\_\discretionary {-}{}{}APPLY\_\discretionary {-}{}{}TEMPLATES}
+    \subitem {xsl::XslCopyVisitor}, \hyperpage{21}
+  \item {NAMESPACE\_\discretionary {-}{}{}APPLY\_\discretionary {-}{}{}TEMPLATES}
+    \subitem {xsl::XslCopyVisitor}, \hyperpage{21}
+
+  \indexspace
+
+  \item {populateMap}
+    \subitem {xsl::MapCreator}, \hyperpage{10}
+
+  \indexspace
+
+  \item {RecursiveTransformerVisitor}
+    \subitem {xsl::RecursiveTransformerVisitor}, \hyperpage{12}
+  \item {resultatMap}
+    \subitem {xsl::TransformerVisitor}, \hyperpage{18}
+
+  \indexspace
+
+  \item {SimpleCopyVisitor}
+    \subitem {xsl::SimpleCopyVisitor}, \hyperpage{15}
+  \item {src/MapCreator.cpp}, \hyperpage{23}
+  \item {src/MapCreator.hh}, \hyperpage{23}
+  \item {src/RecursiveTransformerVisitor.cpp}, \hyperpage{24}
+  \item {src/RecursiveTransformerVisitor.hh}, \hyperpage{25}
+  \item {src/SimpleCopyVisitor.cpp}, \hyperpage{26}
+  \item {src/SimpleCopyVisitor.hh}, \hyperpage{27}
+  \item {src/TransformerVisitor.cpp}, \hyperpage{28}
+  \item {src/TransformerVisitor.hh}, \hyperpage{28}
+  \item {src/XslCopyVisitor.cpp}, \hyperpage{29}
+  \item {src/XslCopyVisitor.hh}, \hyperpage{30}
+
+  \indexspace
+
+  \item {TEMPLATE}
+    \subitem {xsl::MapCreator}, \hyperpage{10}
+  \item {templatesMap}
+    \subitem {xsl::TransformerVisitor}, \hyperpage{18}
+  \item {transform}
+    \subitem {xsl::RecursiveTransformerVisitor}, \hyperpage{13}
+  \item {Transformation}
+    \subitem {xsl::TransformerVisitor}, \hyperpage{18}
+  \item {TransformerVisitor}
+    \subitem {xsl::TransformerVisitor}, \hyperpage{17}
+
+  \indexspace
+
+  \item {visit}
+    \subitem {xsl::MapCreator}, \hyperpage{10}
+    \subitem {xsl::RecursiveTransformerVisitor}, \hyperpage{13}
+    \subitem {xsl::SimpleCopyVisitor}, \hyperpage{16}
+    \subitem {xsl::TransformerVisitor}, \hyperpage{18}
+    \subitem {xsl::XslCopyVisitor}, \hyperpage{21}
+
+  \indexspace
+
+  \item {xsl}, \hyperpage{7}
+  \item {xsl::MapCreator}, \hyperpage{9}
+    \subitem {$\sim $MapCreator}, \hyperpage{10}
+    \subitem {checkTemplate}, \hyperpage{10}
+    \subitem {MapCreator}, \hyperpage{10}
+    \subitem {mapTemp}, \hyperpage{10}
+    \subitem {populateMap}, \hyperpage{10}
+    \subitem {TEMPLATE}, \hyperpage{10}
+    \subitem {visit}, \hyperpage{10}
+  \item {xsl::RecursiveTransformerVisitor}, \hyperpage{10}
+    \subitem {$\sim $RecursiveTransformerVisitor}, \hyperpage{12}
+    \subitem {\_\discretionary {-}{}{}proxy}, \hyperpage{13}
+    \subitem {\_\discretionary {-}{}{}result}, \hyperpage{13}
+    \subitem {\_\discretionary {-}{}{}transformer}, \hyperpage{13}
+    \subitem {RecursiveTransformerVisitor}, \hyperpage{12}
+    \subitem {transform}, \hyperpage{13}
+    \subitem {visit}, \hyperpage{13}
+  \item {xsl::SimpleCopyVisitor}, \hyperpage{13}
+    \subitem {$\sim $SimpleCopyVisitor}, \hyperpage{15}
+    \subitem {\_\discretionary {-}{}{}copiedNode}, \hyperpage{16}
+    \subitem {\_\discretionary {-}{}{}parentProxy}, \hyperpage{16}
+    \subitem {\_\discretionary {-}{}{}transformer}, \hyperpage{16}
+    \subitem {copy}, \hyperpage{16}
+    \subitem {SimpleCopyVisitor}, \hyperpage{15}
+    \subitem {visit}, \hyperpage{16}
+  \item {xsl::TransformerVisitor}, \hyperpage{16}
+    \subitem {$\sim $TransformerVisitor}, \hyperpage{17}
+    \subitem {AnalyzeNode}, \hyperpage{18}
+    \subitem {createMap}, \hyperpage{18}
+    \subitem {getTemplateName}, \hyperpage{18}
+    \subitem {mapXsl}, \hyperpage{17}
+    \subitem {resultatMap}, \hyperpage{18}
+    \subitem {templatesMap}, \hyperpage{18}
+    \subitem {Transformation}, \hyperpage{18}
+    \subitem {TransformerVisitor}, \hyperpage{17}
+    \subitem {visit}, \hyperpage{18}
+  \item {xsl::XslCopyVisitor}, \hyperpage{18}
+    \subitem {$\sim $XslCopyVisitor}, \hyperpage{20}
+    \subitem {\_\discretionary {-}{}{}parentProxy}, \hyperpage{21}
+    \subitem {\_\discretionary {-}{}{}referenceNode}, \hyperpage{21}
+    \subitem {\_\discretionary {-}{}{}result}, \hyperpage{21}
+    \subitem {\_\discretionary {-}{}{}transformer}, \hyperpage{21}
+    \subitem {NAME\_\discretionary {-}{}{}APPLY\_\discretionary {-}{}{}TEMPLATES}, 
+		\hyperpage{21}
+    \subitem {NAMESPACE\_\discretionary {-}{}{}APPLY\_\discretionary {-}{}{}TEMPLATES}, 
+		\hyperpage{21}
+    \subitem {visit}, \hyperpage{21}
+    \subitem {xslCopy}, \hyperpage{21}
+    \subitem {XslCopyVisitor}, \hyperpage{20}
+  \item {xslCopy}
+    \subitem {xsl::XslCopyVisitor}, \hyperpage{21}
+  \item {XslCopyVisitor}
+    \subitem {xsl::XslCopyVisitor}, \hyperpage{20}
+
+\end{theindex}

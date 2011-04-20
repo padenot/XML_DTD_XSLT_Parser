@@ -110,12 +110,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 <a name="l00060"></a><a class="code" href="classxsl_1_1_xsl_copy_visitor.html#ad46a85993842fdee770e1c54077d29c5">00060</a> XslCopyVisitor::XslCopyVisitor(<a class="code" href="classxsl_1_1_transformer_visitor.html">TransformerVisitor</a> &amp; transformer) :
 <a name="l00061"></a>00061         _transformer(transformer)
 <a name="l00062"></a>00062 {
-<a name="l00063"></a>00063         <span class="comment">//TODO</span>
+<a name="l00063"></a>00063         <span class="comment">// Rien à faire</span>
 <a name="l00064"></a>00064 }
 <a name="l00065"></a>00065 
 <a name="l00066"></a><a class="code" href="classxsl_1_1_xsl_copy_visitor.html#a5ca526697de61e8e0204b23c16efb192">00066</a> <a class="code" href="classxsl_1_1_xsl_copy_visitor.html#a5ca526697de61e8e0204b23c16efb192">XslCopyVisitor::~XslCopyVisitor</a>()
 <a name="l00067"></a>00067 {
-<a name="l00068"></a>00068         <span class="comment">//TODO</span>
+<a name="l00068"></a>00068         <span class="comment">// Rien à faire</span>
 <a name="l00069"></a>00069 }
 <a name="l00070"></a>00070 
 <a name="l00071"></a>00071 <span class="comment">//------------------------------------------------------------------ PRIVE</span>
@@ -126,8 +126,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 <a name="l00076"></a>00076 <span class="preprocessor">#ifdef XSL_TRANSFORM_TRACE</span>
 <a name="l00077"></a>00077 <span class="preprocessor"></span>        clog &lt;&lt; <span class="stringliteral">&quot;XslCopy on TextNode&quot;</span> &lt;&lt; endl;
 <a name="l00078"></a>00078 <span class="preprocessor">#endif</span>
-<a name="l00079"></a>00079 <span class="preprocessor"></span>        <a class="code" href="classxsl_1_1_simple_copy_visitor.html">SimpleCopyVisitor</a> copier;
-<a name="l00080"></a>00080         <a class="code" href="classxsl_1_1_xsl_copy_visitor.html#af0d37e73a689f6e2fe7bc081ba0ac25f">_result</a>.push_back(copier.<a class="code" href="classxsl_1_1_simple_copy_visitor.html#a635dd86100529983335aa35283450227">copy</a>(<a class="code" href="classxsl_1_1_xsl_copy_visitor.html#aac6b2215ca37aabc57a0693517583583">_parentProxy</a>, templte));
+<a name="l00079"></a>00079 <span class="preprocessor"></span>        <a class="code" href="classxsl_1_1_simple_copy_visitor.html">SimpleCopyVisitor</a> copier(<a class="code" href="classxsl_1_1_xsl_copy_visitor.html#a62a8afbd16b10ef1c0bdf07e7aabf62e">_transformer</a>);
+<a name="l00080"></a>00080         <a class="code" href="classxsl_1_1_xsl_copy_visitor.html#af0d37e73a689f6e2fe7bc081ba0ac25f">_result</a>.push_back(copier.copy(<a class="code" href="classxsl_1_1_xsl_copy_visitor.html#aac6b2215ca37aabc57a0693517583583">_parentProxy</a>, templte));
 <a name="l00081"></a>00081 }
 <a name="l00082"></a>00082 
 <a name="l00083"></a>00083 <span class="keywordtype">void</span> <a class="code" href="classxsl_1_1_xsl_copy_visitor.html#a25513d10730dfb9d01ca59a354a16e51">XslCopyVisitor::visit</a>(<span class="keyword">const</span> MarkupNode&amp; templte)
@@ -145,51 +145,44 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 <a name="l00095"></a>00095                                 <a class="code" href="classxsl_1_1_xsl_copy_visitor.html#aac6b2215ca37aabc57a0693517583583">_parentProxy</a>, *<a class="code" href="classxsl_1_1_xsl_copy_visitor.html#afed61bf57de8d216137457a5ac51daad">_referenceNode</a>);
 <a name="l00096"></a>00096                 <span class="keywordflow">if</span> (newChildren != 0)
 <a name="l00097"></a>00097                 {
-<a name="l00098"></a>00098                         copy(newChildren-&gt;begin(), newChildren-&gt;end(), back_inserter(<a class="code" href="classxsl_1_1_xsl_copy_visitor.html#af0d37e73a689f6e2fe7bc081ba0ac25f">_result</a>));
-<a name="l00099"></a>00099                         <span class="keyword">delete</span> newChildren;
-<a name="l00100"></a>00100                 }
-<a name="l00101"></a>00101 <span class="preprocessor">#ifdef XSL_TRANSFORM_TRACE</span>
-<a name="l00102"></a>00102 <span class="preprocessor"></span>                <span class="keywordflow">else</span>
-<a name="l00103"></a>00103                 {
-<a name="l00104"></a>00104                         clog &lt;&lt; <span class="stringliteral">&quot;XslCopy - no result ?????&quot;</span> &lt;&lt; endl;
-<a name="l00105"></a>00105                 }
-<a name="l00106"></a>00106 <span class="preprocessor">#endif</span>
-<a name="l00107"></a>00107 <span class="preprocessor"></span>        }
-<a name="l00108"></a>00108         <span class="keywordflow">else</span>
-<a name="l00109"></a>00109         {
-<a name="l00110"></a>00110                 SimpleCopyVisitor copier;
-<a name="l00111"></a>00111                 <a class="code" href="classxsl_1_1_xsl_copy_visitor.html#af0d37e73a689f6e2fe7bc081ba0ac25f">_result</a>.push_back(copier.copy(<a class="code" href="classxsl_1_1_xsl_copy_visitor.html#aac6b2215ca37aabc57a0693517583583">_parentProxy</a>, templte));
-<a name="l00112"></a>00112         }
-<a name="l00113"></a>00113 }
-<a name="l00114"></a>00114 
-<a name="l00115"></a>00115 <span class="keywordtype">void</span> <a class="code" href="classxsl_1_1_xsl_copy_visitor.html#a25513d10730dfb9d01ca59a354a16e51">XslCopyVisitor::visit</a>(<span class="keyword">const</span> CompositeMarkupNode&amp; templte)
-<a name="l00116"></a>00116 {
-<a name="l00117"></a>00117 <span class="preprocessor">#ifdef XSL_TRANSFORM_TRACE</span>
-<a name="l00118"></a>00118 <span class="preprocessor"></span>        clog &lt;&lt; <span class="stringliteral">&quot;XslCopy on CompositeMarkupNode&quot;</span> &lt;&lt; endl;
-<a name="l00119"></a>00119 <span class="preprocessor">#endif</span>
-<a name="l00120"></a>00120 <span class="preprocessor"></span>        MarkupNode::Attributes copiedAttributes(templte.MarkupNode::begin(),
-<a name="l00121"></a>00121                         templte.MarkupNode::end());
-<a name="l00122"></a>00122         CompositeMarkupNode::Children children;
-<a name="l00123"></a>00123         CompositeMarkupNode ** myParent = <a class="code" href="classxsl_1_1_xsl_copy_visitor.html#aac6b2215ca37aabc57a0693517583583">_parentProxy</a>;
-<a name="l00124"></a>00124 
-<a name="l00125"></a>00125         <a class="code" href="classxsl_1_1_xsl_copy_visitor.html#aac6b2215ca37aabc57a0693517583583">_parentProxy</a> = <span class="keyword">new</span> CompositeMarkupNode*;
-<a name="l00126"></a>00126 
-<a name="l00127"></a>00127         <span class="keywordflow">for</span> (CompositeMarkupNode::ChildrenIterator it = templte.begin(); it
-<a name="l00128"></a>00128                         != templte.end(); ++it)
-<a name="l00129"></a>00129         {
-<a name="l00130"></a>00130                 (*it)-&gt;accept(*<span class="keyword">this</span>);
-<a name="l00131"></a>00131                 copy(<a class="code" href="classxsl_1_1_xsl_copy_visitor.html#af0d37e73a689f6e2fe7bc081ba0ac25f">_result</a>.begin(), <a class="code" href="classxsl_1_1_xsl_copy_visitor.html#af0d37e73a689f6e2fe7bc081ba0ac25f">_result</a>.end(), back_inserter(children));
-<a name="l00132"></a>00132         }
-<a name="l00133"></a>00133 
-<a name="l00134"></a>00134         <a class="code" href="classxsl_1_1_xsl_copy_visitor.html#af0d37e73a689f6e2fe7bc081ba0ac25f">_result</a>.assign(
-<a name="l00135"></a>00135                         1,
-<a name="l00136"></a>00136                         <span class="keyword">new</span> CompositeMarkupNode(myParent, templte.ns(), templte.name(),
-<a name="l00137"></a>00137                                         copiedAttributes, *<a class="code" href="classxsl_1_1_xsl_copy_visitor.html#aac6b2215ca37aabc57a0693517583583">_parentProxy</a>, children));
-<a name="l00138"></a>00138 
-<a name="l00139"></a>00139         _parentProxy = myParent;
-<a name="l00140"></a>00140 }
-<a name="l00141"></a>00141 
-<a name="l00142"></a>00142 } <span class="comment">// namespace xsl</span>
+<a name="l00098"></a>00098                         copy(newChildren-&gt;begin(), newChildren-&gt;end(), back_inserter(
+<a name="l00099"></a>00099                                         <a class="code" href="classxsl_1_1_xsl_copy_visitor.html#af0d37e73a689f6e2fe7bc081ba0ac25f">_result</a>));
+<a name="l00100"></a>00100                         <span class="keyword">delete</span> newChildren;
+<a name="l00101"></a>00101                 }
+<a name="l00102"></a>00102         }
+<a name="l00103"></a>00103         <span class="keywordflow">else</span>
+<a name="l00104"></a>00104         {
+<a name="l00105"></a>00105                 SimpleCopyVisitor copier(<a class="code" href="classxsl_1_1_xsl_copy_visitor.html#a62a8afbd16b10ef1c0bdf07e7aabf62e">_transformer</a>);
+<a name="l00106"></a>00106                 <a class="code" href="classxsl_1_1_xsl_copy_visitor.html#af0d37e73a689f6e2fe7bc081ba0ac25f">_result</a>.push_back(copier.copy(<a class="code" href="classxsl_1_1_xsl_copy_visitor.html#aac6b2215ca37aabc57a0693517583583">_parentProxy</a>, templte));
+<a name="l00107"></a>00107         }
+<a name="l00108"></a>00108 }
+<a name="l00109"></a>00109 
+<a name="l00110"></a>00110 <span class="keywordtype">void</span> <a class="code" href="classxsl_1_1_xsl_copy_visitor.html#a25513d10730dfb9d01ca59a354a16e51">XslCopyVisitor::visit</a>(<span class="keyword">const</span> CompositeMarkupNode&amp; templte)
+<a name="l00111"></a>00111 {
+<a name="l00112"></a>00112 <span class="preprocessor">#ifdef XSL_TRANSFORM_TRACE</span>
+<a name="l00113"></a>00113 <span class="preprocessor"></span>        clog &lt;&lt; <span class="stringliteral">&quot;XslCopy on CompositeMarkupNode&quot;</span> &lt;&lt; endl;
+<a name="l00114"></a>00114 <span class="preprocessor">#endif</span>
+<a name="l00115"></a>00115 <span class="preprocessor"></span>        MarkupNode::Attributes copiedAttributes(templte.MarkupNode::begin(),
+<a name="l00116"></a>00116                         templte.MarkupNode::end());
+<a name="l00117"></a>00117         CompositeMarkupNode::Children children;
+<a name="l00118"></a>00118         CompositeMarkupNode ** myParent = <a class="code" href="classxsl_1_1_xsl_copy_visitor.html#aac6b2215ca37aabc57a0693517583583">_parentProxy</a>;
+<a name="l00119"></a>00119 
+<a name="l00120"></a>00120         <a class="code" href="classxsl_1_1_xsl_copy_visitor.html#aac6b2215ca37aabc57a0693517583583">_parentProxy</a> = <span class="keyword">new</span> CompositeMarkupNode*;
+<a name="l00121"></a>00121 
+<a name="l00122"></a>00122         <span class="keywordflow">for</span> (CompositeMarkupNode::ChildrenIterator it = templte.begin(); it
+<a name="l00123"></a>00123                         != templte.end(); ++it)
+<a name="l00124"></a>00124         {
+<a name="l00125"></a>00125                 (*it)-&gt;accept(*<span class="keyword">this</span>);
+<a name="l00126"></a>00126                 copy(<a class="code" href="classxsl_1_1_xsl_copy_visitor.html#af0d37e73a689f6e2fe7bc081ba0ac25f">_result</a>.begin(), <a class="code" href="classxsl_1_1_xsl_copy_visitor.html#af0d37e73a689f6e2fe7bc081ba0ac25f">_result</a>.end(), back_inserter(children));
+<a name="l00127"></a>00127         }
+<a name="l00128"></a>00128 
+<a name="l00129"></a>00129         <a class="code" href="classxsl_1_1_xsl_copy_visitor.html#af0d37e73a689f6e2fe7bc081ba0ac25f">_result</a>.assign(1, <span class="keyword">new</span> CompositeMarkupNode(myParent, templte.ns(),
+<a name="l00130"></a>00130                         templte.name(), copiedAttributes, *<a class="code" href="classxsl_1_1_xsl_copy_visitor.html#aac6b2215ca37aabc57a0693517583583">_parentProxy</a>, children));
+<a name="l00131"></a>00131 
+<a name="l00132"></a>00132         _parentProxy = myParent;
+<a name="l00133"></a>00133 }
+<a name="l00134"></a>00134 
+<a name="l00135"></a>00135 } <span class="comment">// namespace xsl</span>
 </pre></div></div>
 </div>
 <!--- window showing the filter options -->
@@ -206,7 +199,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Généré le Wed Apr 20 2011 16:22:25 pour XMLLib par&#160;
+<hr class="footer"/><address class="footer"><small>Généré le Wed Apr 20 2011 21:32:19 pour XMLLib par&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.2 </small></address>
 </body>
