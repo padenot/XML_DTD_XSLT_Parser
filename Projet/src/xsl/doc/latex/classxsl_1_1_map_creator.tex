@@ -1,0 +1,145 @@
+\hypertarget{classxsl_1_1_map_creator}{
+\section{Référence de la classe xsl::MapCreator}
+\label{classxsl_1_1_map_creator}\index{xsl::MapCreator@{xsl::MapCreator}}
+}
+
+
+{\ttfamily \#include $<$MapCreator.hh$>$}
+
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classxsl_1_1_map_creator_a7d1dc69b257068a8639e8a82c74604b3}{populateMap} (const xml::Node \&xslTree)
+\item 
+\hyperlink{classxsl_1_1_map_creator_abd86501d907bfe07a344255f25ec7fe6}{MapCreator} (std::map$<$ std::string, const xml::CompositeMarkupNode $\ast$ $>$ $\ast$theMap)
+\item 
+virtual \hyperlink{classxsl_1_1_map_creator_ad413a484a4ee90955737f0cb1dc9ea82}{$\sim$MapCreator} ()
+\end{DoxyCompactItemize}
+\subsection*{Fonctions membres protégées}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{classxsl_1_1_map_creator_ac8ece27a7b77a5a310cc93dd8609ec74}{visit} (const xml::TextNode \&node)
+\item 
+virtual void \hyperlink{classxsl_1_1_map_creator_a9a8dc1f0b7539acc4a822d7037fed92d}{visit} (const xml::MarkupNode \&node)
+\item 
+virtual void \hyperlink{classxsl_1_1_map_creator_a67f3cb5e1262c3581e7f4af00e7196b9}{visit} (const xml::CompositeMarkupNode \&node)
+\item 
+void \hyperlink{classxsl_1_1_map_creator_a8e19c0d797a7ae051221b7db8d48a8ef}{checkTemplate} (const xml::CompositeMarkupNode \&node)
+\end{DoxyCompactItemize}
+\subsection*{Attributs protégés}
+\begin{DoxyCompactItemize}
+\item 
+std::map$<$ std::string, const xml::CompositeMarkupNode $\ast$ $>$ $\ast$ \hyperlink{classxsl_1_1_map_creator_a8fd8c94f96ac5970b71b33f53daf282a}{mapTemp}
+\end{DoxyCompactItemize}
+\subsection*{Attributs protégés statiques}
+\begin{DoxyCompactItemize}
+\item 
+static const std::string \hyperlink{classxsl_1_1_map_creator_aa30355e649cecf057740506f71d49bcd}{TEMPLATE} = \char`\"{}template\char`\"{}
+\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+
+
+Définition à la ligne 24 du fichier MapCreator.hh.
+
+
+
+\subsection{Documentation des constructeurs et destructeur}
+\hypertarget{classxsl_1_1_map_creator_abd86501d907bfe07a344255f25ec7fe6}{
+\index{xsl::MapCreator@{xsl::MapCreator}!MapCreator@{MapCreator}}
+\index{MapCreator@{MapCreator}!xsl::MapCreator@{xsl::MapCreator}}
+\subsubsection[{MapCreator}]{\setlength{\rightskip}{0pt plus 5cm}xsl::MapCreator::MapCreator (
+\begin{DoxyParamCaption}
+\item[{std::map$<$ std::string, const xml::CompositeMarkupNode $\ast$ $>$ $\ast$}]{ theMap}
+\end{DoxyParamCaption}
+)}}
+\label{classxsl_1_1_map_creator_abd86501d907bfe07a344255f25ec7fe6}
+\hypertarget{classxsl_1_1_map_creator_ad413a484a4ee90955737f0cb1dc9ea82}{
+\index{xsl::MapCreator@{xsl::MapCreator}!$\sim$MapCreator@{$\sim$MapCreator}}
+\index{$\sim$MapCreator@{$\sim$MapCreator}!xsl::MapCreator@{xsl::MapCreator}}
+\subsubsection[{$\sim$MapCreator}]{\setlength{\rightskip}{0pt plus 5cm}xsl::MapCreator::$\sim$MapCreator (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classxsl_1_1_map_creator_ad413a484a4ee90955737f0cb1dc9ea82}
+
+
+Définition à la ligne 52 du fichier MapCreator.cpp.
+
+
+
+\subsection{Documentation des fonctions membres}
+\hypertarget{classxsl_1_1_map_creator_a8e19c0d797a7ae051221b7db8d48a8ef}{
+\index{xsl::MapCreator@{xsl::MapCreator}!checkTemplate@{checkTemplate}}
+\index{checkTemplate@{checkTemplate}!xsl::MapCreator@{xsl::MapCreator}}
+\subsubsection[{checkTemplate}]{\setlength{\rightskip}{0pt plus 5cm}void xsl::MapCreator::checkTemplate (
+\begin{DoxyParamCaption}
+\item[{const xml::CompositeMarkupNode \&}]{ node}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{classxsl_1_1_map_creator_a8e19c0d797a7ae051221b7db8d48a8ef}
+\hypertarget{classxsl_1_1_map_creator_a7d1dc69b257068a8639e8a82c74604b3}{
+\index{xsl::MapCreator@{xsl::MapCreator}!populateMap@{populateMap}}
+\index{populateMap@{populateMap}!xsl::MapCreator@{xsl::MapCreator}}
+\subsubsection[{populateMap}]{\setlength{\rightskip}{0pt plus 5cm}void xsl::MapCreator::populateMap (
+\begin{DoxyParamCaption}
+\item[{const xml::Node \&}]{ xslTree}
+\end{DoxyParamCaption}
+)}}
+\label{classxsl_1_1_map_creator_a7d1dc69b257068a8639e8a82c74604b3}
+\hypertarget{classxsl_1_1_map_creator_a67f3cb5e1262c3581e7f4af00e7196b9}{
+\index{xsl::MapCreator@{xsl::MapCreator}!visit@{visit}}
+\index{visit@{visit}!xsl::MapCreator@{xsl::MapCreator}}
+\subsubsection[{visit}]{\setlength{\rightskip}{0pt plus 5cm}virtual void xsl::MapCreator::visit (
+\begin{DoxyParamCaption}
+\item[{const xml::CompositeMarkupNode \&}]{ node}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}protected, virtual\mbox{]}}}}
+\label{classxsl_1_1_map_creator_a67f3cb5e1262c3581e7f4af00e7196b9}
+\hypertarget{classxsl_1_1_map_creator_a9a8dc1f0b7539acc4a822d7037fed92d}{
+\index{xsl::MapCreator@{xsl::MapCreator}!visit@{visit}}
+\index{visit@{visit}!xsl::MapCreator@{xsl::MapCreator}}
+\subsubsection[{visit}]{\setlength{\rightskip}{0pt plus 5cm}virtual void xsl::MapCreator::visit (
+\begin{DoxyParamCaption}
+\item[{const xml::MarkupNode \&}]{ node}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}protected, virtual\mbox{]}}}}
+\label{classxsl_1_1_map_creator_a9a8dc1f0b7539acc4a822d7037fed92d}
+\hypertarget{classxsl_1_1_map_creator_ac8ece27a7b77a5a310cc93dd8609ec74}{
+\index{xsl::MapCreator@{xsl::MapCreator}!visit@{visit}}
+\index{visit@{visit}!xsl::MapCreator@{xsl::MapCreator}}
+\subsubsection[{visit}]{\setlength{\rightskip}{0pt plus 5cm}virtual void xsl::MapCreator::visit (
+\begin{DoxyParamCaption}
+\item[{const xml::TextNode \&}]{ node}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}protected, virtual\mbox{]}}}}
+\label{classxsl_1_1_map_creator_ac8ece27a7b77a5a310cc93dd8609ec74}
+
+
+\subsection{Documentation des données membres}
+\hypertarget{classxsl_1_1_map_creator_a8fd8c94f96ac5970b71b33f53daf282a}{
+\index{xsl::MapCreator@{xsl::MapCreator}!mapTemp@{mapTemp}}
+\index{mapTemp@{mapTemp}!xsl::MapCreator@{xsl::MapCreator}}
+\subsubsection[{mapTemp}]{\setlength{\rightskip}{0pt plus 5cm}std::map$<$std::string, const xml::CompositeMarkupNode$\ast$$>$$\ast$ {\bf xsl::MapCreator::mapTemp}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{classxsl_1_1_map_creator_a8fd8c94f96ac5970b71b33f53daf282a}
+
+
+Définition à la ligne 59 du fichier MapCreator.hh.
+
+\hypertarget{classxsl_1_1_map_creator_aa30355e649cecf057740506f71d49bcd}{
+\index{xsl::MapCreator@{xsl::MapCreator}!TEMPLATE@{TEMPLATE}}
+\index{TEMPLATE@{TEMPLATE}!xsl::MapCreator@{xsl::MapCreator}}
+\subsubsection[{TEMPLATE}]{\setlength{\rightskip}{0pt plus 5cm}const string {\bf xsl::MapCreator::TEMPLATE} = \char`\"{}template\char`\"{}\hspace{0.3cm}{\ttfamily  \mbox{[}static, protected\mbox{]}}}}
+\label{classxsl_1_1_map_creator_aa30355e649cecf057740506f71d49bcd}
+
+
+Définition à la ligne 57 du fichier MapCreator.hh.
+
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants :\begin{DoxyCompactItemize}
+\item 
+src/\hyperlink{_map_creator_8hh}{MapCreator.hh}\item 
+src/\hyperlink{_map_creator_8cpp}{MapCreator.cpp}\end{DoxyCompactItemize}
