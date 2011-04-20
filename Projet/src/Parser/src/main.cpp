@@ -56,10 +56,10 @@ int handleDTD(string filename)
 	err = dtdparse();
 	fclose(dtdin);
 
-	if (exportMode)
+	if (!exportMode)
 	{
-		//dtd::OutputDTDVisitor visitor(cout, '\t');
-		//rootDTD->accept(visitor);
+		dtd::OutputDTDVisitor visitor(cout, '\t');
+		rootDTD->accept(visitor);
 	}
 
 	if (err != 0) cout << endl << "Badformed XML : " << xmlSyntaxErrorCount << " syntex errors detected." << endl;
@@ -109,8 +109,10 @@ int main(int argc, char** argv)
 			DotOutputVisitor dvisitor(cout, "xmlTree");
 			dvisitor.writeDot(root);
 
-			//OutputVisitor visitor(cout, ' ');
-			//root->accept(visitor);
+		}
+		else if(!exportMode && !transformMode) {
+			OutputVisitor visitor(cout, ' ');
+			root->accept(visitor);
 		}
 
 		if (!dtdName.empty())
@@ -132,7 +134,7 @@ int main(int argc, char** argv)
 
 	}
 
-	if (transformMode)
+	if (validationResult && transformMode)
 	{
 		Node* xmlRoot = root;
 		FILE* inputFile = (FILE*) fopen(argv[3], "r");
