@@ -15,6 +15,9 @@ EXTRA_INCLUDES=../generic_lex_yacc_makefile
 # Build
 CXX=g++
 CXXFLAGS=-ansi -pedantic -W -Wall -I../xml/src
+ifdef DEBUG
+	CXXFLAGS:=$(CXXFLAGS) -DYYDEBUG
+endif
 LD=g++
 LDFLAGS=-L$(LIBPATH)
 LIBLD=ar

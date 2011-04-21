@@ -67,7 +67,7 @@ SimpleCopyVisitor::~SimpleCopyVisitor()
 void SimpleCopyVisitor::visit(const TextNode& node)
 {
 #ifdef XSL_TRANSFORM_TRACE
-	clog << "SimpleCopy on TextNode" << endl;
+	clog << "SimpleCopy on TextNode:" << node.content() << endl;
 #endif
 	_copiedNode = new TextNode(_parentProxy, node.content());
 }

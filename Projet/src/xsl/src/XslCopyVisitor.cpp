@@ -122,6 +122,7 @@ void XslCopyVisitor::visit(const CompositeMarkupNode& templte)
 	for (CompositeMarkupNode::ChildrenIterator it = templte.begin(); it
 			!= templte.end(); ++it)
 	{
+		_result.clear();
 		(*it)->accept(*this);
 		copy(_result.begin(), _result.end(), back_inserter(children));
 	}

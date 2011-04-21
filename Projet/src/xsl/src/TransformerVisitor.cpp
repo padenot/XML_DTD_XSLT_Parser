@@ -77,7 +77,7 @@ list<Node *> * TransformerVisitor::AnalyzeNode(
 #endif
 	list<Node *> * remplacants = new list<Node *> ();
 	noeud.accept(*this);
-	if (resultatMap == templatesMap->end()) //si ce template n’existe pas
+	if (resultatMap == templatesMap.end()) //si ce template n’existe pas
 
 	{
 		SimpleCopyVisitor simpleCopier(*this);
@@ -107,9 +107,9 @@ list<Node *> * TransformerVisitor::AnalyzeNode(
 
 
 //-------------------------------------------- Constructeurs - destructeur
-TransformerVisitor::TransformerVisitor(const xml::Node & XslTree)
+TransformerVisitor::TransformerVisitor(const xml::Node & XslTree) :
+	templatesMap()
 {
-	templatesMap = new mapXsl();
 	createMap(XslTree);
 
 } //----- Fin de OutputVisitor
@@ -117,7 +117,6 @@ TransformerVisitor::TransformerVisitor(const xml::Node & XslTree)
 
 TransformerVisitor::~TransformerVisitor()
 {
-	delete templatesMap;
 } //----- Fin de ~OutputVisitor
 
 
@@ -133,18 +132,18 @@ void TransformerVisitor::createMap(const Node& node)
 
 void TransformerVisitor::visit(const TextNode &)
 {
-	resultatMap = templatesMap->end();
+	resultatMap = templatesMap.end();
 }
 
 void TransformerVisitor::visit(const MarkupNode & node)
 {
-	resultatMap = templatesMap->find(node.name());
+	resultatMap = templatesMap.find(make_pair(node.ns(), node.name()));
 }
 
 void TransformerVisitor::visit(const CompositeMarkupNode& node)
 {
 	// On récupère l'index du noeud dans la template map
-	resultatMap = templatesMap->find(node.name());
+	resultatMap = templatesMap.find(make_pair(node.ns(),node.name()));
 }
 
 } // namespace xsl

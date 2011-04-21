@@ -15,7 +15,6 @@ using namespace std;
 #include <iostream>
 #endif
 
-
 //------------------------------------------------------ Include personnel
 #include "MapCreator.hh"
 
@@ -25,8 +24,8 @@ namespace xsl
 {
 //------------------------------------------------------------- Constantes
 
-const string MapCreator::NAMESPACE = "xsl";
-const string MapCreator::TEMPLATE = "template";
+const string MapCreator::XSL_NAMESPACE = "xsl";
+const string MapCreator::XSL_TEMPLATE_NAME = "template";
 
 //----------------------------------------------------------------- PUBLIC
 
@@ -45,7 +44,8 @@ void MapCreator::populateMap(const Node& xslTree)
 
 
 //-------------------------------------------- Constructeurs - destructeur
-MapCreator::MapCreator(map< string, const CompositeMarkupNode *> * theMap) :
+MapCreator::MapCreator(
+		map<pair<string, string> , const CompositeMarkupNode *> & theMap) :
 	mapTemp(theMap)
 {
 }
@@ -76,7 +76,7 @@ void MapCreator::visit(const CompositeMarkupNode& node)
 #ifdef XSL_TRANSFORM_TRACE
 	clog << "MapCreator on CompositeMarkupNode" << endl;
 #endif
-	if (node.name() == TEMPLATE && node.ns() == NAMESPACE )
+	if (node.name() == XSL_TEMPLATE_NAME && node.ns() == XSL_NAMESPACE)
 	{
 		checkTemplate(node);
 	}
@@ -96,7 +96,20 @@ void MapCreator::checkTemplate(const CompositeMarkupNode& node)
 	{
 		if (itAttribut->first == "match")
 		{
-			(*mapTemp)[itAttribut->second] = &node;
+#ifdef XSL_TRANSFORM_TRACE
+			clog << "MapCreator: found a template (" << node.ns() << ":" << node.name()
+			<< " matching " << itAttribut->second << ")" << endl;
+#endif
+			size_t nsSepPos = itAttribut->second.find(":");
+			if (nsSepPos < string::npos)
+			{
+				mapTemp[make_pair(itAttribut->second.substr(0, nsSepPos),
+						itAttribut->second.substr(nsSepPos + 1))] = &node;
+			}
+			else
+			{
+				mapTemp[make_pair("", itAttribut->second)] = &node;
+			}
 		}
 	}
 }

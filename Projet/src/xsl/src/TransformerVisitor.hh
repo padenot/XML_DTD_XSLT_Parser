@@ -10,7 +10,7 @@
 #define TransformerVisitor_HH
 
 //--------------------------------------------------- Interfaces utilisées
-
+#include <utility>
 #include <list>
 #include <map>
 #include <string>
@@ -63,8 +63,8 @@ public:
 
 protected:
 
-	typedef std::map<std::string, const xml::CompositeMarkupNode*> mapXsl;
-	mapXsl * templatesMap;
+	typedef std::map<std::pair<std::string,std::string>, const xml::CompositeMarkupNode*> mapXsl;
+	mapXsl templatesMap;
 
 	mapXsl::iterator resultatMap;
 
