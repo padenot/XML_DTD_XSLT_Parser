@@ -86,9 +86,9 @@ do
 		eval ../$PARSER -t $xslt $reference 2>&1 | diff - $output  
 		if (( $? == 0 ))
 		then
-			echo "File $bundle/$template: ok"
+			echo "File $bundle/$xslt: ok"
 		else
-			echo "File $bundle/$template: FAILURE"
+			echo "File $bundle/$xslt: FAILURE"
 		fi
 	done
 
