@@ -4,5 +4,6 @@
 <!ELEMENT section (titre, p+)>
 <!ELEMENT nom (#PCDATA)>
 <!ELEMENT p (#PCDATA)>
-<!ELEMENT rapport (titre,auteur+,chapitre+)>
+<!ELEMENT rapport (titre,auteur+,resume,chapitre+)>
+<!ELEMENT resume (#PCDATA)>
 <!ELEMENT titre (#PCDATA|p|titre)*>
