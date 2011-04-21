@@ -82,7 +82,7 @@ do
 	for xslt in $(find_xslt_files)
 	do
 		reference=$(basename $xslt .xslt).xml
-		output=$(basename $xslt .xslt).output
+		output=$(basename $xslt .xslt).out
 		eval ../$PARSER -t $xslt $reference 2>&1 | diff - $output  
 		if (( $? == 0 ))
 		then
