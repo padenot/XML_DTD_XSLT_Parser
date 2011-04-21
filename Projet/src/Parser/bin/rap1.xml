@@ -1,26 +1,26 @@
 <!DOCTYPE rapport SYSTEM "../rap1.dtd">
 <rapport>
-  <titre>Réaliser un compilateur</titre>
+  <titre>Rï¿½aliser un compilateur</titre>
   <auteur>
     <prenom> Nino </prenom>
     <nom> Silverio </nom>
   </auteur>
-  <resume> Ceci est extrait du livre "Réaliser un compilateur : 
+  <resume> Ceci est extrait du livre "Rï¿½aliser un compilateur : 
 	les outils Lex et Yacc" de Nino Silverio. </resume>
   <chapitre>
     <titre> Introduction : concepts de base </titre>
     <section>
       <titre>Fonctions et structure d'un compilateur</titre>
-      <p>Tout programme rédigé dans un langage de programmation de haut niveau 
-	tel que Pascal ou C ne peut être exécuté par un ordinateur que s'il 
-	est traduit en instructions exécutables par l'ordinateur, généralement 
-	des instruction en langage machine. L'ordinateur qui doit exécuter 
-	le programme ainsi traduit est appelé machine cible.</p>
+      <p>Tout programme rï¿½digï¿½ dans un langage de programmation de haut niveau 
+	tel que Pascal ou C ne peut ï¿½tre exï¿½cutï¿½ par un ordinateur que s'il 
+	est traduit en instructions exï¿½cutables par l'ordinateur, gï¿½nï¿½ralement 
+	des instruction en langage machine. L'ordinateur qui doit exï¿½cuter 
+	le programme ainsi traduit est appelï¿½ machine cible.</p>
     </section>
     <section>
-      <titre>Réalisation d'un compilateur</titre>
-      <p>Comme l'écriture d'un compilateur est une tâche fort complexe, 
-	le programmateur a tout intérêt à travailler en utilisant un langage 
+      <titre>Rï¿½alisation d'un compilateur</titre>
+      <p>Comme l'ï¿½criture d'un compilateur est une tï¿½che fort complexe, 
+	le programmateur a tout intï¿½rï¿½t ï¿½ travailler en utilisant un langage 
 	de programmation de haut niveau.</p>
     </section>
   </chapitre>

@@ -44,7 +44,7 @@ void xmlerror(MarkupNode *&, string &, string &, char *msg)
 	cerr << "Erreur : " << msg << endl;
 }
 
-void dtderror(DTD & rootDTD, char* msg)
+void dtderror(DTD & , char* msg)
 {
 	cerr << "Erreur : " << msg << endl;
 }
@@ -129,7 +129,7 @@ static int loadDTD(string filename, DTD & rootDTD)
 
 /**********************************************************************************/
 
-void print_help(ostream & out = cout)
+void printHelp(ostream & out = cout)
 {
 	out << "Usage : [-xedcv] [-k <dtd_file>] [-t <xslt_file>] <xml_file>"
 			<< endl << endl;
@@ -340,7 +340,7 @@ int main(int argc, char** argv)
 	// pas d'argument
 	if (argc == 1)
 	{
-		print_help(cerr);
+		printHelp(cerr);
 		return 1;
 	}
 
@@ -349,7 +349,7 @@ int main(int argc, char** argv)
 		switch (opt)
 		{
 		case 'h':
-			print_help(cout);
+			printHelp(cout);
 			return 0;
 		case 'x':
 			doExportXML = true;
@@ -375,7 +375,7 @@ int main(int argc, char** argv)
 			break;
 		case '?':
 			cerr << "Invalid option" << endl;
-			print_help(cerr);
+			printHelp(cerr);
 		}
 	}
 
@@ -406,7 +406,7 @@ int main(int argc, char** argv)
 	}
 	else
 	{
-		print_help(cerr);
+		printHelp(cerr);
 	}
 
 	return result;
