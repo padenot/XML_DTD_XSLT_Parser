@@ -6,28 +6,17 @@
  
   <xsl:output method="xml" indent="yes" encoding="UTF-8"/>
  
-  <xsl:template match="rapport">
-    <html>
-      <body>
-		  zzzzzz
-        <xsl:apply-templates />
-      </body>
-    </html>
-  </xsl:template>
- 
-   <xsl:template match="chapitre"><!--
+   <xsl:template match="chapitre">
+	<YOUHOUDEBUT/>
+	<!--
 	<h2><xsl:apply-templates select="titre"/></h2>
     <xsl:apply-templates select="section"/>-->
 	<xsl:apply-templates />
-    <br/><br/>
+    <YOUHOUFIN/>
    </xsl:template>
    
    <xsl:template match="section">
-	<p><xsl:apply-templates/></p>
-   </xsl:template>
-
-   <xsl:template match="titre">
-	<h2><xsl:apply-templates /></h2>
+	<SECTION><xsl:apply-templates/></SECTION>
    </xsl:template>
 
 </xsl:stylesheet>
