@@ -14,15 +14,20 @@ function find_xml_files ()
 {
 	find . -maxdepth 1 -name '*.xml' -type f | sort
 }
+
+function find_xslt_files ()
+{
+	find . -maxdepth 1 -name '*.xslt' -type f | sort
+}
+
 function output_redirection ()
 {
-# $1 : file beeing tested
 	echo '1>/dev/null' '2>&1'
 	#echo '1>/dev/null'
 	#echo
 }
 
-for bundle in $(find . -maxdepth 1 -name 'bundle*' -type d | sort)
+for bundle in $(find . -maxdepth 1 -name 'validation*' -type d | sort)
 do
 	major_sep
 	echo "Testing $bundle"
@@ -33,7 +38,7 @@ do
 	then
 		for valid in $(find_xml_files)
 		do
-			eval ../../$PARSER $valid $(output_redirection $PWD/$valid)
+			eval ../../$PARSER -c $valid $(output_redirection)
 			if (( $? == 0 ))
 			then
 				echo "File $bundle/valid/$valid: ok"
@@ -51,7 +56,7 @@ do
 	then
 		for invalid in $(find_xml_files)
 		do
-			eval ../../$PARSER $invalid $(output_redirection $PWD/$invalid)
+			eval ../../$PARSER -c $invalid $(output_redirection)
 			if (( $? == 0 ))
 			then
 				echo "File $bundle/invalid/$invalid: FAILURE"
@@ -63,6 +68,29 @@ do
 	else
 		echo "No 'invalid' directory."
 	fi
+
+	cd ..
+done
+
+for bundle in $(find . -maxdepth 1 -name 'xslt*' -type d | sort)
+do
+	major_sep
+	echo "Testing $bundle"
+	cd $bundle
+
+	minor_sep
+	for xslt in $(find_xslt_files)
+	do
+		reference=$(basename $xslt .xslt).xml
+		output=$(basename $xslt .xslt).output
+		eval ../$PARSER -t $xslt $reference 2>&1 | diff - $output  
+		if (( $? == 0 ))
+		then
+			echo "File $bundle/$template: ok"
+		else
+			echo "File $bundle/$template: FAILURE"
+		fi
+	done
 
 	cd ..
 done

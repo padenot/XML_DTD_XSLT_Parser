@@ -21,6 +21,7 @@ using namespace dtd;
 using namespace xml;
 using namespace xsl;
 
+void xmlrestart(FILE *input_file);
 int xmlparse(MarkupNode *& root, string & dtdName, string & validRootName);
 int dtdparse(DTD & rootDTD);
 
@@ -134,8 +135,7 @@ void print_help(ostream & out = cout)
 	out << "Usage : [-xedcv] [-k <dtd_file>] [-t <xslt_file>] <xml_file>"
 			<< endl << endl;
 
-	out
-			<< "  -x				affiche à la ligne de commande le fichier XML parser"
+	out << "  -x				affiche à la ligne de commande le fichier XML parser"
 			<< endl;
 	out
 			<< "  -e				print in the line command the XML fil as it has been parsed but in dot format"
@@ -295,8 +295,8 @@ static int transform(string xmlPath, string xsltPath)
 	string validXmlRootName, validXsltRootName;
 	int result = -1;
 
-	if (loadXML(xsltPath, xsltRoot, xsltDtdName, validXsltRootName) != 0
-	/* TODO || !checkXML_impl(dtdName) */)
+	if (loadXML(xmlPath, xmlRoot, xmlDtdName, validXmlRootName) != 0
+			&& checkXML_impl(*xmlRoot, xmlDtdName, validXmlRootName))
 	{
 		if (doTrace)
 			cerr << "Erreur : XSLT non utilisable." << endl;
@@ -304,7 +304,8 @@ static int transform(string xmlPath, string xsltPath)
 	}
 	else
 	{
-		if (loadXML(xmlPath, xmlRoot, xmlDtdName, validXmlRootName) != 0)
+		if (loadXML(xsltPath, xsltRoot, xsltDtdName, validXsltRootName) != 0
+		/* TODO || !checkXML_impl(dtdName) */)
 		{
 			result = -1;
 		}
@@ -312,9 +313,9 @@ static int transform(string xmlPath, string xsltPath)
 		{
 			Node* transformed = 0;
 			TransformerVisitor transformer(*xsltRoot);
-			OutputVisitor visitor(cout, ' ');
+			OutputVisitor output(cout, ' ');
 			transformed = transformer.Transformation(*xmlRoot);
-			transformed->accept(visitor);
+			transformed->accept(output);
 			delete transformed;
 			result = 0;
 		}
@@ -330,6 +331,10 @@ static int transform(string xmlPath, string xsltPath)
 
 int main(int argc, char** argv)
 {
+/*#ifndef NDEBUG
+	extern int xmldebug;
+	xmldebug = 1;
+#endif*/
 	int result = -1;
 	string xmlPath;
 	string dtdPath;
@@ -340,7 +345,7 @@ int main(int argc, char** argv)
 	// pas d'argument
 	if (argc == 1)
 	{
-		print_help(cerr);
+		print_help( cerr);
 		return 1;
 	}
 
@@ -349,7 +354,7 @@ int main(int argc, char** argv)
 		switch (opt)
 		{
 		case 'h':
-			print_help(cout);
+			print_help( cout);
 			return 0;
 		case 'x':
 			doExportXML = true;
@@ -375,7 +380,7 @@ int main(int argc, char** argv)
 			break;
 		case '?':
 			cerr << "Invalid option" << endl;
-			print_help(cerr);
+			print_help( cerr);
 		}
 	}
 
@@ -406,7 +411,7 @@ int main(int argc, char** argv)
 	}
 	else
 	{
-		print_help(cerr);
+		print_help( cerr);
 	}
 
 	return result;

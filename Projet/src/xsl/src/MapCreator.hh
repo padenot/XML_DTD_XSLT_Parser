@@ -10,13 +10,14 @@
 #define MAPCREATOR_HH_
 
 //--------------------------------------------------- Interfaces utilisées
+#include <map>
+#include <utility>
 
 #include "InterfaceNodeVisitor.hpp"
 #include "Node.hh"
 #include "TextNode.hh"
 #include "MarkupNode.hh"
 #include "CompositeMarkupNode.hh"
-#include <map>
 
 namespace xsl
 {
@@ -40,7 +41,8 @@ public:
 
 
 	//-------------------------------------------- Constructeurs - destructeur
-	MapCreator(std::map<std::string, const xml::CompositeMarkupNode*> * theMap);
+	MapCreator(std::map<std::pair<std::string, std::string>,
+			const xml::CompositeMarkupNode*> & theMap);
 	// Mode d'emploi :
 	//	TODO
 	// Contrat :
@@ -54,10 +56,11 @@ public:
 
 protected:
 
-	static const std::string NAMESPACE;
-	static const std::string TEMPLATE;
+	static const std::string XSL_NAMESPACE;
+	static const std::string XSL_TEMPLATE_NAME;
 
-	std::map<std::string, const xml::CompositeMarkupNode*> * mapTemp;
+	std::map<std::pair<std::string, std::string>,
+			const xml::CompositeMarkupNode*> & mapTemp;
 
 	virtual void visit(const xml::TextNode& node);
 	virtual void visit(const xml::MarkupNode& node);

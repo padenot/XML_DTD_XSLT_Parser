@@ -114,6 +114,7 @@ void OutputVisitor::visit(const CompositeMarkupNode& node)
 	_out << CLOSE_MARKUP_STR << endl;
 
 	_indent += _indentUnit;
+	int count = 0;
 	for (CompositeMarkupNode::ChildrenIterator it = node.begin(); it
 			!= node.end(); ++it)
 	{
